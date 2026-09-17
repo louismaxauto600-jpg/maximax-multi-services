@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Travel & DMV Services | Maximax Multi Services</title>
+
+<meta name="description" content="Maximax Multi Services Travel & DMV Center — travel document support, DMV information, vehicle document organization and administrative assistance.">
+
+<meta name="theme-color" content="#000000">
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+.service-page{
+  min-height:calc(100vh - 84px);
+  padding:70px 0 90px;
+}
+
+.service-hero{
+  padding:45px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:28px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.20),transparent 45%),
+    linear-gradient(145deg,#000,#120600,#000);
+  box-shadow:var(--glow);
+}
+
+.service-big-icon{
+  font-size:4rem;
+}
+
+.service-hero h1{
+  margin-top:18px;
+  color:var(--orange);
+  font-size:clamp(2.5rem,8vw,5.5rem);
+  line-height:.9;
+  text-transform:uppercase;
+}
+
+.service-hero p{
+  max-width:900px;
+  margin:20px auto 0;
+  line-height:1.75;
+}
+
+.page-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:35px;
+}
+
+.page-card{
+  min-height:235px;
+  display:flex;
+  flex-direction:column;
+  padding:24px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:
+    radial-gradient(circle at top right,rgba(255,121,0,.12),transparent 40%),
+    #050200;
+  transition:.25s;
+}
+
+.page-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--orange);
+  box-shadow:var(--glow);
+}
+
+.page-icon{
+  font-size:2.3rem;
+}
+
+.page-card h2{
+  margin-top:15px;
+  color:var(--orange);
+  font-size:1rem;
+  text-transform:uppercase;
+}
+
+.page-card p{
+  margin-top:11px;
+  font-size:.80rem;
+  line-height:1.65;
+}
+
+.travel-dmv-center{
+  margin-top:40px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.center-panel{
+  padding:32px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:24px;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.14),transparent 45%),
+    #050200;
+}
+
+.center-panel .panel-icon{
+  font-size:2.8rem;
+}
+
+.center-panel h2{
+  margin-top:12px;
+  color:var(--orange);
+  text-transform:uppercase;
+}
+
+.center-panel p{
+  margin-top:12px;
+  line-height:1.7;
+  font-size:.82rem;
+}
+
+.center-panel ul{
+  margin:20px 0 0 20px;
+  line-height:1.9;
+  font-size:.76rem;
+}
+
+.center-panel li::marker{
+  color:var(--orange);
+}
+
+.process-center{
+  margin-top:35px;
+  padding:38px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.process-center h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.process-center > p{
+  max-width:830px;
+  margin:14px auto 28px;
+  text-align:center;
+  line-height:1.7;
+}
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.step{
+  padding:22px 15px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:#000;
+  text-align:center;
+}
+
+.step-number{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  margin:0 auto 12px;
+  border-radius:50%;
+  color:#000;
+  background:var(--orange);
+  font-weight:1000;
+}
+
+.step strong{
+  display:block;
+  color:var(--orange);
+  font-size:.76rem;
+}
+
+.step p{
+  margin-top:8px;
+  font-size:.70rem;
+  line-height:1.55;
+}
+
+.checklist{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.checklist h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.checklist > p{
+  max-width:800px;
+  margin:12px auto 0;
+  text-align:center;
+  line-height:1.7;
+}
+
+.checklist-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:25px;
+}
+
+.check-item{
+  padding:17px 12px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:#000;
+  text-align:center;
+  font-size:.70rem;
+  font-weight:900;
+}
+
+.check-item span{
+  display:block;
+  margin-bottom:7px;
+  font-size:1.5rem;
+}
+
+.action-box{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  text-align:center;
+  background:#050200;
+}
+
+.action-box h2{
+  margin-top:10px;
+  color:var(--orange);
+  text-transform:uppercase;
+}
+
+.action-box p{
+  max-width:780px;
+  margin:14px auto 0;
+  line-height:1.7;
+}
+
+.notice{
+  margin-top:30px;
+  padding:18px;
+  border-left:4px solid var(--orange);
+  border-radius:10px;
+  background:#0b0400;
+  font-size:.75rem;
+  line-height:1.65;
+}
+
+.back-home{
+  margin-top:30px;
+  text-align:center;
+}
+
+@media(max-width:950px){
+  .page-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .steps,
+  .checklist-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:700px){
+  .page-grid,
+  .travel-dmv-center,
+  .steps,
+  .checklist-grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+MAXIMAX MULTI SERVICES • TRAVEL + DMV CENTER
+</div>
+
+<header>
+
+<div class="container header-inner">
+
+<a href="../index.html" class="brand">
+
+<div class="brand-mark">M</div>
+
+<div class="brand-text">
+<strong>MAXIMAX</strong>
+<span>MULTI SERVICES</span>
+</div>
+
+</a>
+
+<nav id="mainNav">
+
+<a href="../index.html">HOME</a>
+
+<a href="../index.html#services">SERVICES</a>
+
+<a href="#travel-dmv-services">TRAVEL + DMV</a>
+
+<a href="./form-helper.html">FORM CENTER</a>
+
+<a href="../index.html#contact">CONTACT</a>
+
+</nav>
+
+<div class="header-actions">
+
+<div class="language-switch">
+
+<button class="lang-btn active" data-lang="en">
+ENG
+</button>
+
+<button class="lang-btn" data-lang="fr">
+FRA
+</button>
+
+<button class="lang-btn" data-lang="ht">
+KRE
+</button>
+
+</div>
+
+<button id="menuToggle" class="menu-toggle">
+☰
+</button>
+
+</div>
+
+</div>
+
+</header>
+
+
+<main class="service-page">
+
+<div class="container">
+
+
+<section class="service-hero">
+
+<div class="service-big-icon">
+✈️ 🚗
+</div>
+
+<div class="eyebrow">
+MAXIMAX MULTI SERVICES
+</div>
+
+<h1
+data-en="TRAVEL + DMV CENTER"
+data-fr="CENTRE VOYAGE + DMV"
+data-ht="SANT VWAYAJ + DMV">
+TRAVEL + DMV CENTER
+</h1>
+
+<p
+data-en="Administrative assistance for travel-related documents, DMV information, vehicle documents and common transportation service needs."
+data-fr="Assistance administrative pour les documents de voyage, les informations DMV, les documents de véhicule et les besoins courants liés au transport."
+data-ht="Asistans administratif pou dokiman vwayaj, enfòmasyon DMV, dokiman machin ak bezwen sèvis transpò ki pi komen yo.">
+Administrative assistance for travel-related documents, DMV information, vehicle documents and common transportation service needs.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#travel-dmv-services" class="btn primary"
+data-en="EXPLORE SERVICES"
+data-fr="VOIR LES SERVICES"
+data-ht="GADE SÈVIS YO">
+EXPLORE SERVICES
+</a>
+
+<a href="#travel-dmv-contact" class="btn outline"
+data-en
