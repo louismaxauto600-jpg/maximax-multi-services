@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Notary Services | Maximax Multi Services</title>
+
+<meta name="description" content="Maximax Multi Services Notary Center — professional document and notarial service information.">
+<meta name="theme-color" content="#000000">
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+.service-page{
+  min-height:calc(100vh - 84px);
+  padding:70px 0 90px;
+}
+
+.service-hero{
+  padding:45px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:28px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.20),transparent 45%),
+    linear-gradient(145deg,#000,#120600,#000);
+  box-shadow:var(--glow);
+}
+
+.service-big-icon{
+  font-size:4rem;
+}
+
+.service-hero h1{
+  margin-top:18px;
+  color:var(--orange);
+  font-size:clamp(2.5rem,8vw,5.5rem);
+  line-height:.9;
+  text-transform:uppercase;
+}
+
+.service-hero p{
+  max-width:800px;
+  margin:20px auto 0;
+  line-height:1.75;
+}
+
+.page-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:35px;
+}
+
+.page-card{
+  min-height:210px;
+  padding:24px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:
+    radial-gradient(circle at top right,rgba(255,121,0,.12),transparent 40%),
+    #050200;
+}
+
+.page-card div{
+  font-size:2rem;
+}
+
+.page-card h2{
+  margin-top:15px;
+  color:var(--orange);
+  font-size:1rem;
+  text-transform:uppercase;
+}
+
+.page-card p{
+  margin-top:11px;
+  font-size:.80rem;
+  line-height:1.65;
+}
+
+.action-box{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  text-align:center;
+  background:#050200;
+}
+
+.action-box h2{
+  color:var(--orange);
+  text-transform:uppercase;
+}
+
+.action-box p{
+  max-width:750px;
+  margin:14px auto 0;
+  line-height:1.7;
+}
+
+.notice{
+  margin-top:30px;
+  padding:18px;
+  border-left:4px solid var(--orange);
+  border-radius:10px;
+  background:#0b0400;
+  font-size:.75rem;
+  line-height:1.65;
+}
+
+.back-home{
+  margin-top:30px;
+  text-align:center;
+}
+
+@media(max-width:850px){
+  .page-grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+MAXIMAX MULTI SERVICES • NOTARY CENTER
+</div>
+
+<header>
+<div class="container header-inner">
+
+<a href="../index.html" class="brand">
+
+<div class="brand-mark">M</div>
+
+<div class="brand-text">
+<strong>MAXIMAX</strong>
+<span>MULTI SERVICES</span>
+</div>
+
+</a>
+
+<nav id="mainNav">
+<a href="../index.html">HOME</a>
+<a href="../index.html#services">SERVICES</a>
+<a href="./form-helper.html">FORM CENTER</a>
+<a href="../index.html#contact">CONTACT</a>
+</nav>
+
+<div class="header-actions">
+
+<div class="language-switch">
+<button class="lang-btn active" data-lang="en">ENG</button>
+<button class="lang-btn" data-lang="fr">FRA</button>
+<button class="lang-btn" data-lang="ht">KRE</button>
+</div>
+
+<button id="menuToggle" class="menu-toggle">☰</button>
+
+</div>
+</div>
+</header>
+
+
+<main class="service-page">
+
+<div class="container">
+
+<section class="service-hero">
+
+<div class="service-big-icon">
+✍🏽
+</div>
+
+<div class="eyebrow">
+MAXIMAX MULTI SERVICES
+</div>
+
+<h1
+data-en="NOTARY SERVICES"
+data-fr="SERVICES NOTARIAUX"
+data-ht="SÈVIS NOTÈ">
+NOTARY SERVICES
+</h1>
+
+<p
+data-en="Professional assistance for documents requiring notarization, acknowledgments, sworn statements and other common notarial services."
+data-fr="Assistance professionnelle pour les documents nécessitant une notarisation, les reconnaissances, les déclarations sous serment et d'autres services notariaux courants."
+data-ht="Asistans pwofesyonèl pou dokiman ki bezwen notarye, rekonesans siyati, deklarasyon sou sèman ak lòt sèvis notè komen.">
+Professional assistance for documents requiring notarization, acknowledgments, sworn statements and other common notarial services.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#services" class="btn primary">
+VIEW SERVICES
+</a>
+
+<a href="../index.html#contact" class="btn outline">
+CONTACT MAXIMAX
+</a>
+
+</div>
+
+</section>
+
+
+<section id="services" class="page-grid">
+
+<div class="page-card">
+
+<div>✍🏽</div>
+
+<h2
+data-en="ACKNOWLEDGMENTS"
+data-fr="RECONNAISSANCES"
+data-ht="REKONESANS">
+ACKNOWLEDGMENTS
+</h2>
+
+<p
+data-en="Notarial acknowledgment services for eligible documents and signatures."
+data-fr="Services de reconnaissance notariale pour les documents et signatures admissibles."
+data-ht="Sèvis rekonesans notaryal pou dokiman ak siyati ki kalifye.">
+Notarial acknowledgment services for eligible documents and signatures.
+</p>
+
+</div>
+
+
+<div class="page-card">
+
+<div>📄</div>
+
+<h2
+data-en="AFFIDAVITS"
+data-fr="AFFIDAVITS"
+data-ht="DEKLARASYON SOU SÈMAN">
+AFFIDAVITS
+</h2>
+
+<p
+data-en="Assistance with documents involving sworn or affirmed statements when appropriate."
+data-fr="Assistance pour les documents comportant des déclarations sous serment ou affirmées lorsque cela est approprié."
+data-ht="Asistans pou dokiman ki gen deklarasyon sou sèman oswa afimasyon lè sa aplikab.">
+Assistance with documents involving sworn or affirmed statements when appropriate.
+</p>
+
+</div>
+
+
+<div class="page-card">
+
+<div>🖊️</div>
+
+<h2
+data-en="SIGNATURE SERVICES"
+data-fr="SERVICES DE SIGNATURE"
+data-ht="SÈVIS SIYATI">
+SIGNATURE SERVICES
+</h2>
+
+<p
+data-en="Identity and signature procedures for documents requiring an eligible notarial act."
+data-fr="Procédures d'identité et de signature pour les documents nécessitant un acte notarial admissible."
+data-ht="Pwosedi idantite ak siyati pou dokiman ki mande yon aksyon notaryal ki aplikab.">
+Identity and signature procedures for documents requiring an eligible notarial act.
+</p>
+
+</div>
+
+
+<div class="page-card">
+
+<div>🏠</div>
+
+<h2
+data-en="REAL ESTATE DOCUMENTS"
+data-fr="DOCUMENTS IMMOBILIERS"
+data-ht="DOKIMAN IMOBILYE">
+REAL ESTATE DOCUMENTS
+</h2>
+
+<p
+data-en="Notarial services for eligible real estate and property-related documents."
+data-fr="Services notariaux pour les documents immobiliers admissibles."
+data-ht="Sèvis notè pou dokiman imobilye ki kalifye.">
+Notarial services for eligible real estate and property-related documents.
+</p>
+
+</div>
+
+
+<div class="page-card">
+
+<div>💼</div>
+
+<h2
+data-en="BUSINESS DOCUMENTS"
+data-fr="DOCUMENTS D'ENTREPRISE"
+data-ht="DOKIMAN BIZNIS">
+BUSINESS DOCUMENTS
+</h2>
+
+<p
+data-en="Notarial assistance for eligible business documents, authorizations and signatures."
+data-fr="Assistance notariale pour les documents commerciaux, autorisations et signatures admissibles."
+data-ht="Asistans notè pou dokiman biznis, otorizasyon ak siyati ki kalifye.">
+Notarial assistance for eligible business documents, authorizations and signatures.
+</p>
+
+</div>
+
+
+<div class="page-card">
+
+<div>🌎</div>
+
+<h2
+data-en="DOCUMENT SUPPORT"
+data-fr="ASSISTANCE DOCUMENTAIRE"
+data-ht="ASISTANS DOKIMAN">
+DOCUMENT SUPPORT
+</h2>
+
+<p
+data-en="Document organization and service navigation in English, French and Haitian Creole."
+data-fr="Organisation de documents et orientation des services en anglais, français et créole haïtien."
+data-ht="Òganizasyon dokiman ak asistans sèvis an Anglè, Fransè ak Kreyòl Ayisyen.">
+Document organization and service navigation in English, French and Haitian Creole.
+</p>
+
+</div>
+
+</section>
+
+
+<section class="action-box">
+
+<div class="eyebrow">
+PROFESSIONAL SERVICE
+</div>
+
+<h2
+data-en="NEED NOTARY ASSISTANCE?"
+data-fr="BESOIN D'ASSISTANCE NOTARIALE ?"
+data-ht="OU BEZWEN SÈVIS NOTÈ?">
+NEED NOTARY ASSISTANCE?
+</h2>
+
+<p
+data-en="Contact Maximax Multi Services to discuss the document and determine what service may be appropriate."
+data-fr="Contactez Maximax Multi Services pour discuter du document et déterminer quel service peut être approprié."
+data-ht="Kontakte Maximax Multi Services pou pale sou dokiman an epi detèmine ki sèvis ki ka aplikab.">
+Contact Maximax Multi Services to discuss the document and determine what service may be appropriate.
+</p>
+
+<div class="hero-buttons">
+
+<a href="tel:+14076405166" class="btn primary">
+📞 (407) 640-5166
+</a>
+
+<a href="../index.html#contact" class="btn outline">
+CONTACT CENTER
+</a>
+
+</div>
+
+</section>
+
+
+<div class="notice">
+
+<strong>IMPORTANT:</strong>
+Maximax Multi Services provides notarial and document-related services within the scope permitted by applicable law. Notary services are not a substitute for legal advice from a licensed attorney.
+
+</div>
+
+
+<div class="back-home">
+
+<a href="../index.html#services" class="btn outline">
+← BACK TO ALL SERVICES
+</a>
+
+</div>
+
+</div>
+</main>
+
+
+<footer>
+
+<div class="container">
+
+<div class="footer-logo">M</div>
+
+<h3>MAXIMAX MULTI SERVICES</h3>
+
+<p>
+PROFESSIONAL SERVICES • DIGITAL SOLUTIONS • AI ASSISTANCE
+</p>
+
+<p class="hub-link">
+Part of BSS1815 PRO-MAX DMP
+</p>
+
+<p>
+© <span id="currentYear"></span>
+Maximax Multi Services
+</p>
+
+</div>
+
+</footer>
+
+<script src="../javascript.js"></script>
+
+</body>
+</html>
