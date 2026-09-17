@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Document Checklist Center | Maximax Multi Services</title>
+
+<meta name="description" content="Maximax Multi Services Document Checklist Center — organize documents for immigration, government forms, taxes, business, travel, DMV, apostille, real estate and other services.">
+
+<meta name="theme-color" content="#000000">
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+.checklist-page{
+  min-height:calc(100vh - 84px);
+  padding:70px 0 90px;
+}
+
+.checklist-hero{
+  padding:52px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:30px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.25),transparent 45%),
+    linear-gradient(145deg,#000,#120600,#000);
+  box-shadow:var(--glow);
+}
+
+.checklist-icon{
+  font-size:4.5rem;
+}
+
+.checklist-hero h1{
+  margin-top:18px;
+  color:var(--orange);
+  font-size:clamp(2.6rem,8vw,5.6rem);
+  line-height:.92;
+  text-transform:uppercase;
+}
+
+.checklist-hero p{
+  max-width:900px;
+  margin:20px auto 0;
+  line-height:1.75;
+}
+
+.service-selector{
+  margin-top:40px;
+  padding:35px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:28px;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.15),transparent 45%),
+    #050200;
+  box-shadow:var(--glow);
+}
+
+.selector-header{
+  text-align:center;
+}
+
+.selector-header h2{
+  color:var(--orange);
+  font-size:clamp(2rem,6vw,4rem);
+  text-transform:uppercase;
+}
+
+.selector-header p{
+  max-width:820px;
+  margin:14px auto 0;
+  line-height:1.7;
+}
+
+.selector-box{
+  max-width:850px;
+  margin:28px auto 0;
+}
+
+.selector-box label{
+  display:block;
+  margin-bottom:9px;
+  color:var(--orange);
+  font-size:.70rem;
+  font-weight:1000;
+}
+
+.selector-box select{
+  width:100%;
+  padding:15px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  outline:none;
+  color:var(--text);
+  background:#000;
+}
+
+.selector-box select:focus{
+  border-color:var(--orange);
+}
+
+.selector-box option{
+  color:var(--text);
+  background:#000;
+}
+
+.checklist-panel{
+  max-width:1000px;
+  margin:30px auto 0;
+  padding:25px;
+  border:1px solid var(--border);
+  border-radius:22px;
+  background:#000;
+}
+
+.checklist-panel h3{
+  color:var(--orange);
+  text-align:center;
+  font-size:1.3rem;
+  text-transform:uppercase;
+}
+
+.checklist-panel > p{
+  margin:10px auto 20px;
+  text-align:center;
+  line-height:1.6;
+  font-size:.75rem;
+}
+
+.dynamic-list{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:11px;
+}
+
+.dynamic-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-height:58px;
+  padding:13px 15px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:#050200;
+}
+
+.dynamic-item input{
+  width:19px;
+  height:19px;
+  accent-color:var(--orange);
+  flex-shrink:0;
+}
+
+.dynamic-item label{
+  cursor:pointer;
+  font-size:.72rem;
+  line-height:1.45;
+}
+
+.dynamic-item.done{
+  border-color:var(--orange);
+  background:#100600;
+}
+
+.dynamic-item.done label{
+  text-decoration:line-through;
+  opacity:.7;
+}
+
+.progress-area{
+  margin-top:24px;
+}
+
+.progress-top{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:9px;
+  color:var(--orange);
+  font-size:.69rem;
+  font-weight:1000;
+}
+
+.progress-track{
+  height:12px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:#050200;
+}
+
+.progress-fill{
+  width:0%;
+  height:100%;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--orange-dark),var(--orange),var(--apricot));
+  transition:width .3s ease;
+}
+
+.checklist-actions{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  margin-top:22px;
+}
+
+.small-action{
+  padding:12px 17px;
+  border:1px solid var(--border);
+  border-radius:13px;
+  color:var(--orange);
+  background:#050200;
+  cursor:pointer;
+  font-weight:900;
+}
+
+.small-action:hover{
+  border-color:var(--orange);
+}
+
+.category-section{
+  margin-top:38px;
+}
+
+.category-section h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.category-section > p{
+  max-width:850px;
+  margin:13px auto 0;
+  text-align:center;
+  line-height:1.7;
+}
+
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-top:25px;
+}
+
+.category-card{
+  min-height:190px;
+  display:flex;
+  flex-direction:column;
+  padding:21px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:
+    radial-gradient(circle at top right,rgba(255,121,0,.11),transparent 42%),
+    #050200;
+  transition:.25s;
+}
+
+.category-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--orange);
+}
+
+.category-card span{
+  font-size:2.2rem;
+}
+
+.category-card strong{
+  display:block;
+  margin-top:12px;
+  color:var(--orange);
+  font-size:.75rem;
+  text-transform:uppercase;
+}
+
+.category-card p{
+  margin-top:8px;
+  font-size:.69rem;
+  line-height:1.55;
+}
+
+.category-card button{
+  margin-top:auto;
+}
+
+.document-organizer{
+  margin-top:38px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.document-organizer h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.organizer-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:25px;
+}
+
+.organizer-item{
+  padding:18px 14px;
+  border:1px solid var(--border);
+  border-radius:15px;
+  background:#000;
+  text-align:center;
+  font-size:.69rem;
+  font-weight:900;
+}
+
+.organizer-item span{
+  display:block;
+  margin-bottom:8px;
+  color:var(--orange);
+  font-size:1.5rem;
+}
+
+.resource-center{
+  margin-top:38px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.resource-center h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.resource-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:25px;
+}
+
+.resource-box{
+  min-height:165px;
+  display:flex;
+  flex-direction:column;
+  padding:22px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:#000;
+}
+
+.resource-box strong{
+  color:var(--orange);
+}
+
+.resource-box p{
+  margin-top:8px;
+  font-size:.72rem;
+  line-height:1.6;
+}
+
+.resource-box .card-link{
+  margin-top:auto;
+}
+
+.notice{
+  margin-top:30px;
+  padding:20px;
+  border-left:4px solid var(--orange);
+  border-radius:10px;
+  background:#0b0400;
+  font-size:.75rem;
+  line-height:1.7;
+}
+
+.back-home{
+  margin-top:30px;
+  text-align:center;
+}
+
+@media(max-width:1000px){
+  .category-grid,
+  .organizer-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .resource-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:700px){
+  .category-grid,
+  .organizer-grid,
+  .resource-grid,
+  .dynamic-list{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+MAXIMAX MULTI SERVICES • DOCUMENT CHECKLIST CENTER
+</div>
+
+<header>
+
+<div class="container header-inner">
+
+<a href="../index.html" class="brand">
+
+<div class="brand-mark">M</div>
+
+<div class="brand-text">
+<strong>MAXIMAX</strong>
+<span>MULTI SERVICES</span>
+</div>
+
+</a>
+
+<nav id="mainNav">
+<a href="../index.html">HOME</a>
+<a href="../index.html#services">SERVICES</a>
+<a href="#checklist-center">CHECKLIST</a>
+<a href="./form-helper.html">FORM CENTER</a>
+<a href="../index.html#contact">CONTACT</a>
+</nav>
+
+<div class="header-actions">
+
+<div class="language-switch">
+<button class="lang-btn active" data-lang="en">ENG</button>
+<button class="lang-btn" data-lang="fr">FRA</button>
+<button class="lang-btn" data-lang="ht">KRE</button>
+</div>
+
+<button id="menuToggle" class="menu-toggle">☰</button>
+
+</div>
+
+</div>
+
+</header>
+
+
+<main class="checklist-page">
+
+<div class="container">
+
+
+<section class="checklist-hero">
+
+<div class="checklist-icon">📋</div>
+
+<div class="eyebrow">
+MAXIMAX DIGITAL DOCUMENT CENTER
+</div>
+
+<h1
+data-en="DOCUMENT CHECKLIST"
+data-fr="LISTE DES DOCUMENTS"
+data-ht="LIS DOKIMAN">
+DOCUMENT CHECKLIST
+</h1>
+
+<p
+data-en="Choose a Maximax service and create an organized working checklist for the documents and information you may need."
+data-fr="Choisissez un service Maximax et créez une liste organisée des documents et informations dont vous pourriez avoir besoin."
+data-ht="Chwazi yon sèvis Maximax epi kreye yon lis òganize pou dokiman ak enfòmasyon ou ka bezwen.">
+Choose a Maximax service and create an organized working checklist for the documents and information you may need.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#checklist-center" class="btn primary"
+data-en="BUILD CHECKLIST"
+data-fr="CRÉER LA LISTE"
+data-ht="KREYE LIS LA">
+BUILD CHECKLIST
+</a>
+
+<a href="./form-helper.html" class="btn outline">
+📝 FORM CENTER
+</a>
+
+</div>
+
+</section>
+
+
+<section class="service-selector" id="checklist-center">
+
+<div class="selector-header">
+
+<h2
+data-en="BUILD YOUR CHECKLIST"
+data-fr="CRÉEZ VOTRE LISTE"
+data-ht="KREYE LIS OU">
+BUILD YOUR CHECKLIST
+</h2>
+
+<p
+data-en="Select a service below. The checklist will update automatically."
+data-fr="Sélectionnez un service ci-dessous. La liste sera mise à jour automatiquement."
+data-ht="Chwazi yon sèvis anba a. Lis la ap chanje otomatikman.">
+Select a service below. The checklist will update automatically.
+</p>
+
+</div>
+
+
+<div class="selector-box">
+
+<label for="serviceSelect">
+SELECT SERVICE
+</label>
+
+<select id="serviceSelect">
+
+<option value="general">General Documents</option>
+<option value="immigration">Immigration</option>
+<option value="eoir">EOIR + BIA</option>
+<option value="tax">Taxes</option>
+<option value="business">Business</option>
+<option value="apostille">Apostille</option>
+<option value="travel">Travel + DMV</option>
+<option value="realestate">Real Estate</option>
+<option value="insurance">Insurance</option>
+<option value="credit">Credit Review</option>
+<option value="divorce">Non-Contested Divorce</option>
+
+</select>
+
+</div>
+
+
+<div class="checklist-panel">
+
+<h3 id="checklistTitle">
+GENERAL DOCUMENT CHECKLIST
+</h3>
+
+<p id="checklistDescription">
+Use this general checklist to organize common identification, application and supporting documents.
+</p>
+
+<div class="dynamic-list" id="dynamicChecklist"></div>
+
+
+<div class="progress-area">
+
+<div class="progress-top">
+
+<span>
+CHECKLIST PROGRESS
+</span>
+
+<span id="progressText">
+0 / 0
+</span>
+
+</div>
+
+<div class="progress-track">
+
+<div class="progress-fill" id="progressFill"></div>
+
+</div>
+
+</div>
+
+
+<div class="checklist-actions">
+
+<button
+type="button"
+class="small-action"
+id="checkAll">
+✓ CHECK ALL
+</button>
+
+<button
+type="button"
+class="small-action"
+id="clearChecks">
+↺ RESET
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="category-section">
+
+<h2
+data-en="SERVICE CHECKLISTS"
+data-fr="LISTES PAR SERVICE"
+data-ht="LIS PA SÈVIS">
+SERVICE CHECKLISTS
+</h2>
+
+<p
+data-en="Open any category to load its working document checklist."
+data-fr="Ouvrez une catégorie pour charger sa liste de documents."
+data-ht="Louvri nenpòt kategori pou chaje lis dokiman sèvis sa a.">
+Open any category to load its working document checklist.
+</p>
+
+
+<div class="category-grid">
+
+<div class="category-card">
+
+<span>🗽</span>
+
+<strong>IMMIGRATION</strong>
+
+<p>
+General immigration-document organization.
+</p>
+
+<button type="button" class="btn outline load-category" data-category="immigration">
+LOAD
+</button>
+
+</div>
+
+
+<div class="category-card">
+
+<span>⚖️</span>
+
+<strong>EOIR + BIA</strong>
+
+<p>
+Court and administrative case-document organization.
+</p>
+
+<button type="button" class="btn outline load-category" data-category="eoir">
+LOAD
+</button>
+
+</div>
+
+
+<div class="category-card">
+
+<span>💰</span>
+
+<strong>TAXES</strong>
+
+<p>
+Organize common tax records and supporting documents.
+</p>
+
+<button type="button" class="btn outline load-category" data-category="tax">
+LOAD
+</button>
+
+</div>
+
+
+<div class="category-card">
+
+<span>💼</span>
+
+<strong>BUSINESS</strong>
+
+<p>
+Business formation and administrative-document checklist.
+</p>
+
+<button type="button" class="btn outline load-category" data-category="business">
+LOAD
+</button>
+
+</div>
+
+
+<div class="category-card">
+
+<span>🌎</span>
+
+<strong>APOSTILLE</strong>
+
+<p>
+Prepare general documents for apostille review.
+</p>
+
+<button type="button" class="btn outline load-category" data-category="apostille">
+LOAD
+</button>
+
+</div>
+
+
+<div class="category-card">
+
+<span>🚗</span>
+
+<strong>TRAVEL + DMV</strong>
+
+<p>
+Travel, vehicle and DMV document organization.
+</p>
+
+<button type="button" class="btn outline load-category" data-category="travel">
+LOAD
+</button>
+
+</div>
+
+
+<div class="category-card">
+
+<span>🏠</span>
+
+<strong>REAL ESTATE</strong>
+
+<p>
+Property and real-estate document organization.
+</p>
+
+<button type="button" class="btn outline load-category" data-category="realestate">
+LOAD
+</button>
+
+</div>
+
+
+<div class="category-card">
+
+<span>📈</span>
+
+<strong>CREDIT REVIEW</strong>
+
+<p>
+Credit-report and supporting-document organization.
+</p>
+
+<button type="button" class="btn outline load-category" data-category="credit">
+LOAD
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="document-organizer">
+
+<h2
+data-en="GENERAL DOCUMENT ORGANIZER"
+data-fr="ORGANISATEUR DE DOCUMENTS"
+data-ht="ÒGANIZATÈ DOKIMAN">
+GENERAL DOCUMENT ORGANIZER
+</h2>
+
+
+<div class="organizer-grid">
+
+<div class="organizer-item">
+<span>🪪</span>
+IDENTIFICATION
+</div>
+
+<div class="organizer-item">
+<span>📄</span>
+APPLICATIONS
+</div>
+
+<div class="organizer-item">
+<span>📬</span>
+OFFICIAL NOTICES
+</div>
+
+<div class="organizer-item">
+<span>📂</span>
+PRIOR FILINGS
+</div>
+
+<div class="organizer-item">
+<span>🏠</span>
+ADDRESS RECORDS
+</div>
+
+<div class="organizer-item">
+<span>💰</span>
+FINANCIAL RECORDS
+</div>
+
+<div class="organizer-item">
+<span>📋</span>
+SUPPORTING EVIDENCE
+</div>
+
+<div class="organizer-item">
+<span>📞</span>
+CONTACT INFORMATION
+</div>
+
+</div>
+
+</section>
+
+
+<section class="resource-center">
+
+<h2
+data-en="DOCUMENT RESOURCES"
+data-fr="RESSOURCES DOCUMENTAIRES"
+data-ht="RESOUS DOKIMAN">
+DOCUMENT RESOURCES
+</h2>
+
+
+<div class="resource-grid">
+
+<div class="resource-box">
+
+<strong>📝 FORM HELP CENTER</strong>
+
+<p>
+Organize supported administrative form requests.
+</p>
+
+<a href="./form-helper.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="resource-box">
+
+<strong>🏛️ GOVERNMENT FORMS</strong>
+
+<p>
+Navigate supported government-form categories.
+</p>
+
+<a href="./government-forms.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="resource-box">
+
+<strong>🤖 AI CENTER</strong>
+
+<p>
+General document writing and organization tools.
+</p>
+
+<a href="./ai-center.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="resource-box">
+
+<strong>🌎 TRANSLATION</strong>
+
+<p>
+General English, French and Haitian Creole translation workspace.
+</p>
+
+<a href="./translation-ai.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="resource-box">
+
+<strong>💬 CHAT 24/7</strong>
+
+<p>
+Digital Maximax service navigation.
+</p>
+
+<a href="./chat.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="resource-box">
+
+<strong>🌐 ALL SERVICES</strong>
+
+<p>
+Return to the complete Maximax service directory.
+</p>
+
+<a href="../index.html#services" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<div class="notice">
+
+<strong>IMPORTANT:</strong>
+These checklists are organizational tools only. Exact documents and requirements depend on the service, government agency, jurisdiction and individual circumstances. Always verify current official requirements before filing, submitting or relying on a checklist. Maximax Multi Services is not a government agency and does not provide legal advice or legal representation.
+
+</div>
+
+
+<div class="back-home">
+
+<a href="../index.html#services" class="btn outline"
+data-en="← BACK TO ALL SERVICES"
+data-fr="← RETOUR AUX SERVICES"
+data-ht="← RETOUNEN NAN TOUT SÈVIS YO">
+← BACK TO ALL SERVICES
+</a>
+
+</div>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<div class="container">
+
+<div class="footer-logo">M</div>
+
+<h3>
+MAXIMAX MULTI SERVICES
+</h3>
+
+<p>
+PROFESSIONAL SERVICES • DIGITAL SOLUTIONS • AI ASSISTANCE
+</p>
+
+<p class="hub-link">
+Part of BSS1815 PRO-MAX DMP
+</p>
+
+<p>
+© <span id="currentYear"></span> Maximax Multi Services
+</p>
+
+</div>
+
+</footer>
+
+
+<script src="../javascript.js"></script>
+
+<script>
+(() => {
+"use strict";
+
+const serviceSelect =
+  document.getElementById("serviceSelect");
+
+const checklistTitle =
+  document.getElementById("checklistTitle");
+
+const checklistDescription =
+  document.getElementById("checklistDescription");
+
+const checklistContainer =
+  document.getElementById("dynamicChecklist");
+
+const progressText =
+  document.getElementById("progressText");
+
+const progressFill =
+  document.getElementById("progressFill");
+
+const checkAllButton =
+  document.getElementById("checkAll");
+
+const clearButton =
+  document.getElementById("clearChecks");
+
+const categoryButtons =
+  document.querySelectorAll(".load-category");
+
+const STORAGE_KEY =
+  "maximaxDocumentChecklist";
+
+
+const checklistData = {
+
+general:{
+  title:"GENERAL DOCUMENT CHECKLIST",
+  description:"Use this general checklist to organize common identification, application and supporting documents.",
+  items:[
+    "Government-Issued Identification",
+    "Current Contact Information",
+    "Current Address Information",
+    "Application or Form",
+    "Official Notices",
+    "Supporting Documents",
+    "Prior Filings or Applications",
+    "Appointment Information",
+    "Relevant Receipts",
+    "Copies of Submitted Documents"
+  ]
+},
+
+immigration:{
+  title:"IMMIGRATION DOCUMENT CHECKLIST",
+  description:"General organization checklist for supported immigration-document services.",
+  items:[
+    "Government-Issued Identification",
+    "Passport, if applicable",
+    "Immigration Documents",
+    "USCIS Notices",
+    "Prior Applications or Petitions",
+    "Employment Authorization Documents, if applicable",
+    "Entry / Travel Records, if applicable",
+    "Family Relationship Documents, if applicable",
+    "Supporting Evidence",
+    "Current Contact Information"
+  ]
+},
+
+eoir:{
+  title:"EOIR + BIA DOCUMENT CHECKLIST",
+  description:"General organization checklist for immigration-court and BIA-related records.",
+  items:[
+    "Court Notices",
+    "Hearing Information",
+    "Identification",
+    "Immigration Documents",
+    "USCIS Documents",
+    "Prior Court Filings",
+    "BIA Correspondence, if applicable",
+    "Supporting Records",
+    "Current Address Information",
+    "Current Contact Information"
+  ]
+},
+
+tax:{
+  title:"TAX DOCUMENT CHECKLIST",
+  description:"General organization checklist for common tax-document preparation.",
+  items:[
+    "Government-Issued Identification",
+    "Social Security or Tax ID Information",
+    "W-2 Forms",
+    "1099 Forms",
+    "Business Income Records, if applicable",
+    "Expense Records, if applicable",
+    "Prior Tax Return",
+    "Bank Information, when needed",
+    "Dependent Information, if applicable",
+    "Other Supporting Tax Documents"
+  ]
+},
+
+business:{
+  title:"BUSINESS DOCUMENT CHECKLIST",
+  description:"General organization checklist for business administrative services.",
+  items:[
+    "Owner Identification",
+    "Business Name",
+    "Business Address",
+    "Owner Contact Information",
+    "Business Structure Information",
+    "Formation Documents, if already created",
+    "EIN Information, if available",
+    "Business Licenses, if applicable",
+    "Business Records",
+    "Tax Information, if applicable"
+  ]
+},
+
+apostille:{
+  title:"APOSTILLE DOCUMENT CHECKLIST",
+  description:"General document-organization checklist before verifying apostille requirements.",
+  items:[
+    "Original Document",
+    "Government-Issued Identification",
+    "Destination Country",
+    "Issuing Authority",
+    "Notarization, if required",
+    "Certified Copy, if required",
+    "Supporting Records",
+    "Contact Information",
+    "Intended International Use",
+    "Current Official Requirement Verification"
+  ]
+},
+
+travel:{
+  title:"TRAVEL + DMV DOCUMENT CHECKLIST",
+  description:"General organization checklist for supported travel and DMV administrative services.",
+  items:[
+    "Government-Issued Identification",
+    "Proof of Address, if required",
+    "Application Documents",
+    "Passport or Travel Documents, if applicable",
+    "Vehicle Information, if applicable",
+    "Title, if applicable",
+    "Registration, if applicable",
+    "Insurance Information, if applicable",
+    "Appointment Information",
+    "Supporting Records"
+  ]
+},
+
+realestate:{
+  title:"REAL ESTATE DOCUMENT CHECKLIST",
+  description:"General organization checklist for supported real-estate administrative services.",
+  items:[
+    "Government-Issued Identification",
+    "Property Address",
+    "Property Documents",
+    "Purchase or Rental Information",
+    "Income Information, if applicable",
+    "Financing Documents, if applicable",
+    "Insurance Information, if applicable",
+    "Contact Information",
+    "Relevant Agreements",
+    "Supporting Records"
+  ]
+},
+
+insurance:{
+  title:"INSURANCE DOCUMENT CHECKLIST",
+  description:"General organization checklist for supported insurance-service navigation.",
+  items:[
+    "Government-Issued Identification",
+    "Current Contact Information",
+    "Current Address",
+    "Existing Policy Information, if applicable",
+    "Vehicle Information, if applicable",
+    "Property Information, if applicable",
+    "Household Information, if applicable",
+    "Requested Coverage Information",
+    "Supporting Records",
+    "Questions for Licensed Insurance Professional"
+  ]
+},
+
+credit:{
+  title:"CREDIT REVIEW CHECKLIST",
+  description:"General organization checklist for reviewing credit-report information.",
+  items:[
+    "Government-Issued Identification",
+    "Credit Reports",
+    "Account List",
+    "Payment Records",
+    "Creditor Correspondence",
+    "Collection Notices, if applicable",
+    "Supporting Documents",
+    "Items Believed Inaccurate or Incomplete",
+    "Dispute Correspondence, if applicable",
+    "Follow-Up Records"
+  ]
+},
+
+divorce:{
+  title:"NON-CONTESTED DIVORCE DOCUMENT CHECKLIST",
+  description:"General administrative organization checklist. Exact requirements vary by jurisdiction and circumstances.",
+  items:[
+    "Government-Issued Identification",
+    "Marriage Information",
+    "Current Contact Information",
+    "Current Address Information",
+    "Court Documents, if any",
+    "Property Information, if applicable",
+    "Debt Information, if applicable",
+    "Financial Records, if applicable",
+    "Supporting Documents",
+    "Current Filing Requirement Verification"
+  ]
+}
+
+};
+
+
+function getSavedData(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(STORAGE_KEY)
+    ) || {};
+
+  }catch(error){
+
+    return {};
+
+  }
+
+}
+
+
+function saveCurrentState(){
+
+  const selected =
+    serviceSelect.value;
+
+  const checked = [];
+
+  checklistContainer
+    .querySelectorAll("input[type='checkbox']")
+    .forEach((box,index) => {
+
+      if(box.checked){
+        checked.push(index);
+      }
+
+    });
+
+
+  const saved =
+    getSavedData();
+
+  saved[selected] = checked;
+
+  try{
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify(saved)
+    );
+
+  }catch(error){
+
+    console.warn(
+      "Checklist could not be saved.",
+      error
+    );
+
+  }
+
+}
+
+
+function updateProgress(){
+
+  const boxes =
+    [...checklistContainer.querySelectorAll(
+      "input[type='checkbox']"
+    )];
+
+  const completed =
+    boxes.filter(box => box.checked).length;
+
+  const total =
+    boxes.length;
+
+  progressText.textContent =
+    completed + " / " + total;
+
+  const percentage =
+    total
+      ? (completed / total) * 100
+      : 0;
+
+  progressFill.style.width =
+    percentage + "%";
+
+
+  boxes.forEach(box => {
+
+    const parent =
+      box.closest(".dynamic-item");
+
+    if(parent){
+
+      parent.classList.toggle(
+        "done",
+        box.checked
+      );
+
+    }
+
+  });
+
+}
+
+
+function renderChecklist(category){
+
+  const data =
+    checklistData[category] ||
+    checklistData.general;
+
+  checklistTitle.textContent =
+    data.title;
+
+  checklistDescription.textContent =
+    data.description;
+
+  checklistContainer.innerHTML = "";
+
+
+  const saved =
+    getSavedData();
+
+  const savedChecks =
+    saved[category] || [];
+
+
+  data.items.forEach((item,index) => {
+
+    const wrapper =
+      document.createElement("div");
+
+    wrapper.className =
+      "dynamic-item";
+
+
+    const checkbox =
+      document.createElement("input");
+
+    checkbox.type =
+      "checkbox";
+
+    checkbox.id =
+      "check-" + category + "-" + index;
+
+    checkbox.checked =
+      savedChecks.includes(index);
+
+
+    const label =
+      document.createElement("label");
+
+    label.htmlFor =
+      checkbox.id;
+
+    label.textContent =
+      item;
+
+
+    checkbox.addEventListener(
+      "change",
+      () => {
+
+        updateProgress();
+        saveCurrentState();
+
+      }
+    );
+
+
+    wrapper.appendChild(checkbox);
+    wrapper.appendChild(label);
+
+    checklistContainer.appendChild(wrapper);
+
+  });
+
+
+  updateProgress();
+
+}
+
+
+serviceSelect.addEventListener(
+  "change",
+  () => {
+
+    renderChecklist(
+      serviceSelect.value
+    );
+
+  }
+);
+
+
+categoryButtons.forEach(button => {
+
+  button.addEventListener(
+    "click",
+    () => {
+
+      const category =
+        button.dataset.category;
+
+      serviceSelect.value =
+        category;
+
+      renderChecklist(category);
+
+      document
+        .getElementById("checklist-center")
+        .scrollIntoView({
+          behavior:"smooth",
+          block:"start"
+        });
+
+    }
+  );
+
+});
+
+
+checkAllButton.addEventListener(
+  "click",
+  () => {
+
+    checklistContainer
+      .querySelectorAll("input[type='checkbox']")
+      .forEach(box => {
+        box.checked = true;
+      });
+
+    updateProgress();
+    saveCurrentState();
+
+  }
+);
+
+
+clearButton.addEventListener(
+  "click",
+  () => {
+
+    checklistContainer
+      .querySelectorAll("input[type='checkbox']")
+      .forEach(box => {
+        box.checked = false;
+      });
+
+    updateProgress();
+    saveCurrentState();
+
+  }
+);
+
+
+renderChecklist(
+  serviceSelect.value
+);
+
+})();
+</script>
+
+</body>
+</html>
