@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Immigration Services | Maximax Multi Services</title>
+
+<meta name="description" content="Maximax Multi Services Immigration Center — immigration forms, document preparation, case organization, resources and multilingual assistance.">
+<meta name="theme-color" content="#000000">
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+.service-page{
+  min-height:calc(100vh - 84px);
+  padding:70px 0 90px;
+}
+
+.service-hero{
+  padding:45px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:28px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.20),transparent 45%),
+    linear-gradient(145deg,#000,#120600,#000);
+  box-shadow:var(--glow);
+}
+
+.service-big-icon{
+  font-size:4rem;
+}
+
+.service-hero h1{
+  margin-top:18px;
+  color:var(--orange);
+  font-size:clamp(2.5rem,8vw,5.5rem);
+  line-height:.9;
+  text-transform:uppercase;
+}
+
+.service-hero p{
+  max-width:880px;
+  margin:20px auto 0;
+  line-height:1.75;
+}
+
+.page-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:35px;
+}
+
+.page-card{
+  min-height:230px;
+  display:flex;
+  flex-direction:column;
+  padding:24px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:
+    radial-gradient(circle at top right,rgba(255,121,0,.12),transparent 40%),
+    #050200;
+  transition:.25s;
+}
+
+.page-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--orange);
+  box-shadow:var(--glow);
+}
+
+.page-card div{
+  font-size:2rem;
+}
+
+.page-card h2{
+  margin-top:15px;
+  color:var(--orange);
+  font-size:1rem;
+  text-transform:uppercase;
+}
+
+.page-card p{
+  margin-top:11px;
+  font-size:.80rem;
+  line-height:1.65;
+}
+
+.page-card a{
+  margin-top:auto;
+  padding-top:18px;
+  color:var(--orange);
+  font-size:.68rem;
+  font-weight:1000;
+}
+
+.immigration-tools{
+  margin-top:40px;
+  padding:35px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:24px;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.12),transparent 50%),
+    #050200;
+}
+
+.immigration-tools h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.immigration-tools > p{
+  max-width:850px;
+  margin:14px auto 30px;
+  text-align:center;
+  line-height:1.7;
+}
+
+.tool-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.tool-box{
+  padding:20px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:#000;
+}
+
+.tool-box strong{
+  display:block;
+  color:var(--orange);
+  margin-bottom:7px;
+}
+
+.tool-box p{
+  font-size:.78rem;
+  line-height:1.6;
+}
+
+.action-box{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  text-align:center;
+  background:#050200;
+}
+
+.action-box h2{
+  margin-top:10px;
+  color:var(--orange);
+  text-transform:uppercase;
+}
+
+.action-box p{
+  max-width:780px;
+  margin:14px auto 0;
+  line-height:1.7;
+}
+
+.notice{
+  margin-top:30px;
+  padding:18px;
+  border-left:4px solid var(--orange);
+  border-radius:10px;
+  background:#0b0400;
+  font-size:.75rem;
+  line-height:1.65;
+}
+
+.back-home{
+  margin-top:30px;
+  text-align:center;
+}
+
+@media(max-width:850px){
+  .page-grid,
+  .tool-grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+MAXIMAX MULTI SERVICES • IMMIGRATION CENTER
+</div>
+
+<header>
+<div class="container header-inner">
+
+<a href="../index.html" class="brand">
+
+<div class="brand-mark">M</div>
+
+<div class="brand-text">
+<strong>MAXIMAX</strong>
+<span>MULTI SERVICES</span>
+</div>
+
+</a>
+
+<nav id="mainNav">
+<a href="../index.html">HOME</a>
+<a href="../index.html#services">SERVICES</a>
+<a href="./eoir-bia.html">EOIR + BIA</a>
+<a href="./form-helper.html">FORM CENTER</a>
+<a href="../index.html#contact">CONTACT</a>
+</nav>
+
+<div class="header-actions">
+
+<div class="language-switch">
+<button class="lang-btn active" data-lang="en">ENG</button>
+<button class="lang-btn" data-lang="fr">FRA</button>
+<button class="lang-btn" data-lang="ht">KRE</button>
+</div>
+
+<button id="menuToggle" class="menu-toggle">☰</button>
+
+</div>
+</div>
+</header>
+
+
+<main class="service-page">
+
+<div class="container">
+
+<section class="service-hero">
+
+<div class="service-big-icon">
+🗽
+</div>
+
+<div class="eyebrow">
+MAXIMAX MULTI SERVICES
+</div>
+
+<h1
+data-en="IMMIGRATION SERVICES"
+data-fr="SERVICES D'IMMIGRATION"
+data-ht="SÈVIS IMIGRASYON">
+IMMIGRATION SERVICES
+</h1>
+
+<p
+data-en="Immigration document preparation, form assistance, case organization and multilingual service navigation for individuals and families."
+data-fr="Préparation de documents d'immigration, assistance aux formulaires, organisation des dossiers et orientation multilingue pour les particuliers et les familles."
+data-ht="Preparasyon dokiman imigrasyon, asistans ak fòm, òganizasyon dosye ak sèvis nan plizyè lang pou moun ak fanmi.">
+Immigration document preparation, form assistance, case organization and multilingual service navigation for individuals and families.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#immigration-services" class="btn primary"
+data-en="VIEW IMMIGRATION SERVICES"
+data-fr="VOIR LES SERVICES"
+data-ht="GADE SÈVIS IMIGRASYON">
+VIEW IMMIGRATION SERVICES
+</a>
+
+<a href="./form-helper.html" class="btn outline"
+data-en="OPEN FORM CENTER"
+data-fr="OUVRIR LE CENTRE DE FORMULAIRES"
+data-ht="LOUVRI FORM CENTER">
