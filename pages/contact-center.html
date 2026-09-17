@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact Center | Maximax Multi Services</title>
+
+<meta name="description" content="Maximax Multi Services Contact Center — contact, service request, appointment, document and digital support center.">
+
+<meta name="theme-color" content="#000000">
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+.contact-page{
+  min-height:calc(100vh - 84px);
+  padding:70px 0 90px;
+}
+
+.contact-hero{
+  padding:55px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:30px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.25),transparent 45%),
+    linear-gradient(145deg,#000,#120600,#000);
+  box-shadow:var(--glow);
+}
+
+.contact-icon{
+  font-size:4.6rem;
+}
+
+.contact-hero h1{
+  margin-top:18px;
+  color:var(--orange);
+  font-size:clamp(2.8rem,8vw,5.8rem);
+  line-height:.92;
+  text-transform:uppercase;
+}
+
+.contact-hero p{
+  max-width:900px;
+  margin:20px auto 0;
+  line-height:1.75;
+}
+
+.status-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:20px;
+  padding:10px 16px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  color:var(--orange);
+  background:#050200;
+  font-size:.69rem;
+  font-weight:1000;
+}
+
+.status-dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--orange);
+  box-shadow:0 0 12px var(--orange);
+}
+
+.contact-methods{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:38px;
+}
+
+.contact-method{
+  min-height:215px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:24px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.11),transparent 45%),
+    #050200;
+  transition:.25s;
+}
+
+.contact-method:hover{
+  transform:translateY(-5px);
+  border-color:var(--orange);
+  box-shadow:var(--glow);
+}
+
+.contact-method span{
+  font-size:2.5rem;
+}
+
+.contact-method h2{
+  margin-top:13px;
+  color:var(--orange);
+  font-size:.85rem;
+  text-transform:uppercase;
+}
+
+.contact-method p{
+  margin-top:8px;
+  font-size:.72rem;
+  line-height:1.55;
+}
+
+.contact-method .btn{
+  margin-top:auto;
+}
+
+.request-section{
+  margin-top:40px;
+  padding:38px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:28px;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.16),transparent 45%),
+    #050200;
+  box-shadow:var(--glow);
+}
+
+.section-header{
+  text-align:center;
+}
+
+.section-header h2{
+  color:var(--orange);
+  font-size:clamp(2rem,6vw,4rem);
+  text-transform:uppercase;
+}
+
+.section-header p{
+  max-width:850px;
+  margin:14px auto 0;
+  line-height:1.7;
+}
+
+.contact-form{
+  max-width:1000px;
+  margin:30px auto 0;
+  padding:22px;
+  border:1px solid var(--border);
+  border-radius:22px;
+  background:#000;
+}
+
+.contact-form label{
+  display:block;
+  margin-bottom:8px;
+  color:var(--orange);
+  font-size:.69rem;
+  font-weight:1000;
+  text-transform:uppercase;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+  width:100%;
+  margin-bottom:15px;
+  padding:14px 15px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  outline:none;
+  color:var(--text);
+  background:#050200;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus{
+  border-color:var(--orange);
+  box-shadow:0 0 15px rgba(255,121,0,.12);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+  color:var(--text-soft);
+}
+
+.contact-form option{
+  color:var(--text);
+  background:#000;
+}
+
+.contact-form textarea{
+  min-height:130px;
+  resize:vertical;
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.contact-result{
+  display:none;
+  margin-top:20px;
+  padding:20px;
+  border:1px solid var(--border-strong);
+  border-radius:17px;
+  background:#0b0400;
+}
+
+.contact-result.show{
+  display:block;
+}
+
+.contact-result h3{
+  color:var(--orange);
+  text-transform:uppercase;
+}
+
+.contact-result p{
+  margin-top:10px;
+  font-size:.75rem;
+  line-height:1.7;
+}
+
+.saved-section{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.saved-section h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.saved-section > p{
+  max-width:850px;
+  margin:13px auto 0;
+  text-align:center;
+  line-height:1.7;
+}
+
+.saved-list{
+  max-width:1000px;
+  display:grid;
+  gap:12px;
+  margin:25px auto 0;
+}
+
+.saved-message{
+  padding:18px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:#000;
+}
+
+.saved-message-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:15px;
+}
+
+.saved-message h3{
+  color:var(--orange);
+  font-size:.82rem;
+  text-transform:uppercase;
+}
+
+.saved-message p{
+  margin-top:7px;
+  font-size:.69rem;
+  line-height:1.55;
+}
+
+.saved-meta{
+  margin-top:10px;
+  color:var(--text-soft);
+  font-size:.62rem;
+}
+
+.delete-message{
+  padding:8px 11px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  color:var(--orange);
+  background:#050200;
+  cursor:pointer;
+  font-weight:900;
+}
+
+.empty-message{
+  padding:22px;
+  border:1px dashed var(--border);
+  border-radius:15px;
+  text-align:center;
+  color:var(--text-soft);
+  background:#000;
+}
+
+.service-section{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.service-section h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:13px;
+  margin-top:25px;
+}
+
+.service-link{
+  min-height:135px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  text-align:center;
+  color:var(--text);
+  text-decoration:none;
+  background:#000;
+  transition:.25s;
+}
+
+.service-link:hover{
+  transform:translateY(-4px);
+  border-color:var(--orange);
+}
+
+.service-link span{
+  font-size:2rem;
+}
+
+.service-link strong{
+  margin-top:9px;
+  color:var(--orange);
+  font-size:.68rem;
+}
+
+.digital-section{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.digital-section h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.digital-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:25px;
+}
+
+.digital-box{
+  min-height:165px;
+  display:flex;
+  flex-direction:column;
+  padding:22px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:#000;
+}
+
+.digital-box strong{
+  color:var(--orange);
+}
+
+.digital-box p{
+  margin-top:8px;
+  font-size:.72rem;
+  line-height:1.6;
+}
+
+.digital-box .card-link{
+  margin-top:auto;
+}
+
+.notice{
+  margin-top:30px;
+  padding:20px;
+  border-left:4px solid var(--orange);
+  border-radius:10px;
+  background:#0b0400;
+  font-size:.75rem;
+  line-height:1.7;
+}
+
+.back-home{
+  margin-top:30px;
+  text-align:center;
+}
+
+@media(max-width:1000px){
+  .contact-methods,
+  .digital-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .service-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:700px){
+  .contact-methods,
+  .digital-grid,
+  .service-grid,
+  .form-row{
+    grid-template-columns:1fr;
+  }
+
+  .saved-message-top{
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+MAXIMAX MULTI SERVICES • CONTACT CENTER
+</div>
+
+<header>
+
+<div class="container header-inner">
+
+<a href="../index.html" class="brand">
+
+<div class="brand-mark">M</div>
+
+<div class="brand-text">
+<strong>MAXIMAX</strong>
+<span>MULTI SERVICES</span>
+</div>
+
+</a>
+
+<nav id="mainNav">
+
+<a href="../index.html">HOME</a>
+<a href="../index.html#services">SERVICES</a>
+<a href="#contact-request">CONTACT</a>
+<a href="./appointment-center.html">APPOINTMENT</a>
+<a href="./client-portal.html">CLIENT PORTAL</a>
+
+</nav>
+
+<div class="header-actions">
+
+<div class="language-switch">
+
+<button class="lang-btn active" data-lang="en">ENG</button>
+<button class="lang-btn" data-lang="fr">FRA</button>
+<button class="lang-btn" data-lang="ht">KRE</button>
+
+</div>
+
+<button id="menuToggle" class="menu-toggle">☰</button>
+
+</div>
+
+</div>
+
+</header>
+
+
+<main class="contact-page">
+
+<div class="container">
+
+
+<section class="contact-hero">
+
+<div class="contact-icon">☎️</div>
+
+<div class="eyebrow">
+MAXIMAX CUSTOMER SERVICE
+</div>
+
+<h1
+data-en="CONTACT CENTER"
+data-fr="CENTRE DE CONTACT"
+data-ht="SANT KONTAK">
+CONTACT CENTER
+</h1>
+
+<p
+data-en="Contact Maximax Multi Services, organize a service request, prepare an appointment or connect directly to one of our digital service centers."
+data-fr="Contactez Maximax Multi Services, organisez une demande de service, préparez un rendez-vous ou accédez à l'un de nos centres numériques."
+data-ht="Kontakte Maximax Multi Services, òganize yon demann sèvis, prepare yon randevou oswa konekte dirèkteman ak youn nan sant dijital nou yo.">
+Contact Maximax Multi Services, organize a service request, prepare an appointment or connect directly to one of our digital service centers.
+</p>
+
+<div class="status-pill">
+
+<span class="status-dot"></span>
+
+<span
+data-en="DIGITAL SERVICE CENTER READY"
+data-fr="CENTRE NUMÉRIQUE PRÊT"
+data-ht="SANT SÈVIS DIJITAL PARE">
+DIGITAL SERVICE CENTER READY
+</span>
+
+</div>
+
+</section>
+
+
+<section class="contact-methods">
+
+
+<div class="contact-method">
+
+<span>📞</span>
+
+<h2
+data-en="CALL MAXIMAX"
+data-fr="APPELER MAXIMAX"
+data-ht="RELE MAXIMAX">
+CALL MAXIMAX
+</h2>
+
+<p>
+Speak directly with Maximax Multi Services.
+</p>
+
+<a href="tel:+14076405166" class="btn primary">
+(407) 640-5166
+</a>
+
+</div>
+
+
+<div class="contact-method">
+
+<span>📅</span>
+
+<h2
+data-en="APPOINTMENT CENTER"
+data-fr="CENTRE DE RENDEZ-VOUS"
+data-ht="SANT RANDEVOU">
+APPOINTMENT CENTER
+</h2>
+
+<p>
+Prepare a service appointment request.
+</p>
+
+<a href="./appointment-center.html" class="btn outline">
+OPEN CENTER
+</a>
+
+</div>
+
+
+<div class="contact-method">
+
+<span>💬</span>
+
+<h2>CHAT 24/7</h2>
+
+<p>
+Use the Maximax digital service-navigation chat.
+</p>
+
+<a href="./chat.html" class="btn outline">
+OPEN CHAT
+</a>
+
+</div>
+
+</section>
+
+
+<section class="request-section" id="contact-request">
+
+<div class="section-header">
+
+<h2
+data-en="SERVICE REQUEST"
+data-fr="DEMANDE DE SERVICE"
+data-ht="DEMANN SÈVIS">
+SERVICE REQUEST
+</h2>
+
+<p
+data-en="Organize your request below. This version stores the request locally on this device until a secure live backend is connected."
+data-fr="Organisez votre demande ci-dessous. Cette version l'enregistre localement sur cet appareil jusqu'à la connexion d'un système sécurisé."
+data-ht="Òganize demann ou anba a. Vèsyon sa a sove demann nan lokalman sou aparèy sa a jiskaske yon backend sekirize konekte.">
+Organize your request below. This version stores the request locally on this device until a secure live backend is connected.
+</p>
+
+</div>
+
+
+<div class="contact-form">
+
+<div class="form-row">
+
+<div>
+
+<label for="contactName">
+FULL NAME
+</label>
+
+<input
+type="text"
+id="contactName"
+autocomplete="name"
+placeholder="Your name">
+
+</div>
+
+
+<div>
+
+<label for="contactPhone">
+PHONE
+</label>
+
+<input
+type="tel"
+id="contactPhone"
+autocomplete="tel"
+placeholder="Phone number">
+
+</div>
+
+</div>
+
+
+<div class="form-row">
+
+<div>
+
+<label for="contactEmail">
+EMAIL
+</label>
+
+<input
+type="email"
+id="contactEmail"
+autocomplete="email"
+placeholder="Email address">
+
+</div>
+
+
+<div>
+
+<label for="contactLanguage">
+PREFERRED LANGUAGE
+</label>
+
+<select id="contactLanguage">
+
+<option value="English">English</option>
+<option value="French">Français</option>
+<option value="Haitian Creole">Kreyòl Ayisyen</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<div class="form-row">
+
+<div>
+
+<label for="contactService">
+SERVICE
+</label>
+
+<select id="contactService">
+
+<option value="">Select Service</option>
+<option value="Notary">Notary</option>
+<option value="Taxes">Taxes</option>
+<option value="Immigration">Immigration</option>
+<option value="EOIR + BIA">EOIR + BIA</option>
+<option value="Insurance">Insurance</option>
+<option value="Real Estate">Real Estate</option>
+<option value="Business">Business</option>
+<option value="Apostille">Apostille</option>
+<option value="Travel + DMV">Travel + DMV</option>
+<option value="Form Help">Form Help</option>
+<option value="Government Forms">Government Forms</option>
+<option value="Credit Review">Credit Review</option>
+<option value="Non-Contested Divorce Documents">Non-Contested Divorce Documents</option>
+<option value="Career Services">Career Services</option>
+<option value="Translation">Translation</option>
+<option value="AI Assistance">AI Assistance</option>
+<option value="Other">Other</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label for="contactMethod">
+PREFERRED CONTACT METHOD
+</label>
+
+<select id="contactMethod">
+
+<option value="Phone">Phone</option>
+<option value="Email">Email</option>
+<option value="Appointment">Appointment</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<label for="contactMessage">
+HOW CAN MAXIMAX HELP?
+</label>
+
+<textarea
+id="contactMessage"
+placeholder="Describe the service assistance you need. Do not enter Social Security numbers, passwords, complete bank-account numbers or other highly sensitive information."></textarea>
+
+
+<button
+type="button"
+class="btn primary"
+id="saveContactRequest">
+SAVE SERVICE REQUEST
+</button>
+
+
+<div class="contact-result" id="contactResult">
+
+<h3>
+SERVICE REQUEST SAVED
+</h3>
+
+<p id="contactResultText"></p>
+
+<div class="hero-buttons">
+
+<a href="tel:+14076405166" class="btn primary">
+📞 CALL MAXIMAX
+</a>
+
+<a href="./appointment-center.html" class="btn outline">
+📅 APPOINTMENT
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="saved-section">
+
+<h2
+data-en="SAVED SERVICE REQUESTS"
+data-fr="DEMANDES ENREGISTRÉES"
+data-ht="DEMANN SÈVIS SOVE">
+SAVED SERVICE REQUESTS
+</h2>
+
+<p
+data-en="Requests stored locally on this browser will appear below."
+data-fr="Les demandes enregistrées localement dans ce navigateur apparaîtront ci-dessous."
+data-ht="Demann ki sove lokalman nan navigatè sa a ap parèt anba a.">
+Requests stored locally on this browser will appear below.
+</p>
+
+<div class="saved-list" id="savedRequests"></div>
+
+</section>
+
+
+<section class="service-section">
+
+<h2
+data-en="SERVICE DIRECTORY"
+data-fr="RÉPERTOIRE DES SERVICES"
+data-ht="LIS SÈVIS">
+SERVICE DIRECTORY
+</h2>
+
+
+<div class="service-grid">
+
+<a href="./notary.html" class="service-link">
+<span>✍️</span>
+<strong>NOTARY</strong>
+</a>
+
+<a href="./taxes.html" class="service-link">
+<span>💰</span>
+<strong>TAXES</strong>
+</a>
+
+<a href="./immigration.html" class="service-link">
+<span>🗽</span>
+<strong>IMMIGRATION</strong>
+</a>
+
+<a href="./eoir-bia.html" class="service-link">
+<span>⚖️</span>
+<strong>EOIR + BIA</strong>
+</a>
+
+<a href="./insurance.html" class="service-link">
+<span>🛡️</span>
+<strong>INSURANCE</strong>
+</a>
+
+<a href="./real-estate.html" class="service-link">
+<span>🏠</span>
+<strong>REAL ESTATE</strong>
+</a>
+
+<a href="./business.html" class="service-link">
+<span>💼</span>
+<strong>BUSINESS</strong>
+</a>
+
+<a href="./apostille.html" class="service-link">
+<span>🌎</span>
+<strong>APOSTILLE</strong>
+</a>
+
+<a href="./travel-dmv.html" class="service-link">
+<span>✈️</span>
+<strong>TRAVEL + DMV</strong>
+</a>
+
+<a href="./credit-repair.html" class="service-link">
+<span>📈</span>
+<strong>CREDIT CENTER</strong>
+</a>
+
+<a href="./non-contested-divorce.html" class="service-link">
+<span>📑</span>
+<strong>DIVORCE DOCUMENTS</strong>
+</a>
+
+<a href="./career-tracker.html" class="service-link">
+<span>🎯</span>
+<strong>CAREER TRACKER</strong>
+</a>
+
+<a href="./form-helper.html" class="service-link">
+<span>📝</span>
+<strong>FORM HELP</strong>
+</a>
+
+<a href="./translation-ai.html" class="service-link">
+<span>🌐</span>
+<strong>TRANSLATION</strong>
+</a>
+
+<a href="./ai-center.html" class="service-link">
+<span>🤖</span>
+<strong>AI CENTER</strong>
+</a>
+
+<a href="../index.html#services" class="service-link">
+<span>➕</span>
+<strong>ALL SERVICES</strong>
+</a>
+
+</div>
+
+</section>
+
+
+<section class="digital-section">
+
+<h2
+data-en="DIGITAL SUPPORT CENTER"
+data-fr="CENTRE DE SUPPORT NUMÉRIQUE"
+data-ht="SANT SIPÒ DIJITAL">
+DIGITAL SUPPORT CENTER
+</h2>
+
+
+<div class="digital-grid">
+
+<div class="digital-box">
+
+<strong>👤 CLIENT PORTAL</strong>
+
+<p>
+Access your local Maximax digital workspace.
+</p>
+
+<a href="./client-portal.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="digital-box">
+
+<strong>📅 APPOINTMENT CENTER</strong>
+
+<p>
+Create and organize appointment requests.
+</p>
+
+<a href="./appointment-center.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="digital-box">
+
+<strong>🗂️ DOCUMENT CENTER</strong>
+
+<p>
+Create and organize working document files.
+</p>
+
+<a href="./document-center.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="digital-box">
+
+<strong>📋 DOCUMENT CHECKLIST</strong>
+
+<p>
+Build service-specific preparation checklists.
+</p>
+
+<a href="./document-checklist.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="digital-box">
+
+<strong>🏛️ GOVERNMENT FORMS</strong>
+
+<p>
+Navigate supported government-document categories.
+</p>
+
+<a href="./government-forms.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="digital-box">
+
+<strong>💬 CHAT 24/7</strong>
+
+<p>
+Use Maximax digital service navigation.
+</p>
+
+<a href="./chat.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<div class="notice">
+
+<strong>IMPORTANT:</strong>
+The service-request form on this page currently stores information locally in this browser. Saving a request does not automatically send it to Maximax Multi Services. For immediate contact, call (407) 640-5166. Do not enter passwords, Social Security numbers, complete financial-account numbers, immigration identification numbers or other highly sensitive information in the message field.
+
+</div>
+
+
+<div class="back-home">
+
+<a href="../index.html" class="btn outline"
+data-en="← BACK TO MAXIMAX HOME"
+data-fr="← RETOUR À L'ACCUEIL"
+data-ht="← RETOUNEN NAN AKÈY MAXIMAX">
+← BACK TO MAXIMAX HOME
+</a>
+
+</div>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<div class="container">
+
+<div class="footer-logo">M</div>
+
+<h3>
+MAXIMAX MULTI SERVICES
+</h3>
+
+<p>
+PROFESSIONAL SERVICES • DIGITAL SOLUTIONS • AI ASSISTANCE
+</p>
+
+<p class="hub-link">
+Part of BSS1815 PRO-MAX DMP
+</p>
+
+<p>
+© <span id="currentYear"></span> Maximax Multi Services
+</p>
+
+</div>
+
+</footer>
+
+
+<script src="../javascript.js"></script>
+
+<script>
+(() => {
+"use strict";
+
+const nameInput =
+  document.getElementById("contactName");
+
+const phoneInput =
+  document.getElementById("contactPhone");
+
+const emailInput =
+  document.getElementById("contactEmail");
+
+const languageInput =
+  document.getElementById("contactLanguage");
+
+const serviceInput =
+  document.getElementById("contactService");
+
+const methodInput =
+  document.getElementById("contactMethod");
+
+const messageInput =
+  document.getElementById("contactMessage");
+
+const saveButton =
+  document.getElementById("saveContactRequest");
+
+const result =
+  document.getElementById("contactResult");
+
+const resultText =
+  document.getElementById("contactResultText");
+
+const savedRequests =
+  document.getElementById("savedRequests");
+
+const STORAGE_KEY =
+  "maximaxContactRequests";
+
+
+function getRequests(){
+
+  try{
+
+    const data =
+      JSON.parse(
+        localStorage.getItem(STORAGE_KEY)
+      );
+
+    return Array.isArray(data)
+      ? data
+      : [];
+
+  }catch(error){
+
+    return [];
+
+  }
+
+}
+
+
+function storeRequests(requests){
+
+  try{
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify(requests)
+    );
+
+  }catch(error){
+
+    console.warn(
+      "Contact requests could not be saved.",
+      error
+    );
+
+  }
+
+}
+
+
+function makeElement(tag,text,className){
+
+  const element =
+    document.createElement(tag);
+
+  if(text !== undefined){
+    element.textContent = text;
+  }
+
+  if(className){
+    element.className = className;
+  }
+
+  return element;
+
+}
+
+
+function renderRequests(){
+
+  const requests =
+    getRequests();
+
+  savedRequests.innerHTML = "";
+
+
+  if(!requests.length){
+
+    savedRequests.appendChild(
+      makeElement(
+        "div",
+        "No service requests saved yet.",
+        "empty-message"
+      )
+    );
+
+    return;
+
+  }
+
+
+  requests.forEach(
+    (request,index) => {
+
+      const card =
+        makeElement(
+          "div",
+          "",
+          "saved-message"
+        );
+
+
+      const top =
+        makeElement(
+          "div",
+          "",
+          "saved-message-top"
+        );
+
+
+      const content =
+        document.createElement("div");
+
+
+      content.appendChild(
+        makeElement(
+          "h3",
+          request.service ||
+          "Maximax Service Request"
+        )
+      );
+
+
+      content.appendChild(
+        makeElement(
+          "p",
+          "Name: " +
+          (
+            request.name ||
+            "Not specified"
+          )
+        )
+      );
+
+
+      if(request.phone){
+
+        content.appendChild(
+          makeElement(
+            "p",
+            "Phone: " +
+            request.phone
+          )
+        );
+
+      }
+
+
+      if(request.email){
+
+        content.appendChild(
+          makeElement(
+            "p",
+            "Email: " +
+            request.email
+          )
+        );
+
+      }
+
+
+      content.appendChild(
+        makeElement(
+          "p",
+          "Preferred Contact: " +
+          request.method
+        )
+      );
+
+
+      content.appendChild(
+        makeElement(
+          "p",
+          "Language: " +
+          request.language
+        )
+      );
+
+
+      if(request.message){
+
+        content.appendChild(
+          makeElement(
+            "p",
+            "Request: " +
+            request.message
+          )
+        );
+
+      }
+
+
+      if(request.savedAt){
+
+        content.appendChild(
+          makeElement(
+            "div",
+            "Saved: " +
+            new Date(
+              request.savedAt
+            ).toLocaleString(),
+            "saved-meta"
+          )
+        );
+
+      }
+
+
+      const deleteButton =
+        makeElement(
+          "button",
+          "DELETE",
+          "delete-message"
+        );
+
+      deleteButton.type =
+        "button";
+
+
+      deleteButton.addEventListener(
+        "click",
+        () => {
+
+          const current =
+            getRequests();
+
+          current.splice(
+            index,
+            1
+          );
+
+          storeRequests(
+            current
+          );
+
+          renderRequests();
+
+        }
+      );
+
+
+      top.appendChild(content);
+      top.appendChild(deleteButton);
+
+      card.appendChild(top);
+
+      savedRequests.appendChild(card);
+
+    }
+  );
+
+}
+
+
+function saveRequest(){
+
+  const name =
+    nameInput.value.trim();
+
+  const phone =
+    phoneInput.value.trim();
+
+  const email =
+    emailInput.value.trim();
+
+  const language =
+    languageInput.value;
+
+  const service =
+    serviceInput.value;
+
+  const method =
+    methodInput.value;
+
+  const message =
+    messageInput.value.trim();
+
+
+  if(
+    !name ||
+    !service ||
+    (!phone && !email)
+  ){
+
+    result.classList.add("show");
+
+    resultText.textContent =
+      "Please enter your name, select a service, and provide at least a phone number or email address.";
+
+    return;
+
+  }
+
+
+  const request = {
+
+    id:
+      Date.now(),
+
+    name,
+    phone,
+    email,
+    language,
+    service,
+    method,
+    message,
+
+    savedAt:
+      new Date().toISOString()
+
+  };
+
+
+  const requests =
+    getRequests();
+
+  requests.unshift(
+    request
+  );
+
+  storeRequests(
+    requests
+  );
+
+
+  result.classList.add("show");
+
+  resultText.textContent =
+    "Your service request has been saved on this device. It has not been transmitted automatically. Call Maximax at (407) 640-5166 if you need to submit the request immediately.";
+
+
+  nameInput.value = "";
+  phoneInput.value = "";
+  emailInput.value = "";
+  languageInput.value = "English";
+  serviceInput.value = "";
+  methodInput.value = "Phone";
+  messageInput.value = "";
+
+
+  renderRequests();
+
+
+  result.scrollIntoView({
+    behavior:"smooth",
+    block:"nearest"
+  });
+
+}
+
+
+if(saveButton){
+
+  saveButton.addEventListener(
+    "click",
+    saveRequest
+  );
+
+}
+
+
+renderRequests();
+
+})();
+</script>
+
+</body>
+</html>
