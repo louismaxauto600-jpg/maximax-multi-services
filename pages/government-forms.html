@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Government Form Center | Maximax Multi Services</title>
+
+<meta name="description" content="Maximax Multi Services Government Form Center — administrative assistance, document organization and navigation for supported government forms.">
+
+<meta name="theme-color" content="#000000">
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+.gov-page{
+  min-height:calc(100vh - 84px);
+  padding:70px 0 90px;
+}
+
+.gov-hero{
+  padding:52px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:30px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.25),transparent 45%),
+    linear-gradient(145deg,#000,#120600,#000);
+  box-shadow:var(--glow);
+}
+
+.gov-icon{
+  font-size:4.5rem;
+}
+
+.gov-hero h1{
+  margin-top:18px;
+  color:var(--orange);
+  font-size:clamp(2.7rem,8vw,5.7rem);
+  line-height:.92;
+  text-transform:uppercase;
+}
+
+.gov-hero p{
+  max-width:900px;
+  margin:20px auto 0;
+  line-height:1.75;
+}
+
+.gov-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:38px;
+}
+
+.gov-card{
+  min-height:225px;
+  display:flex;
+  flex-direction:column;
+  padding:25px;
+  border:1px solid var(--border);
+  border-radius:21px;
+  background:
+    radial-gradient(circle at top right,rgba(255,121,0,.12),transparent 42%),
+    #050200;
+  transition:.25s;
+}
+
+.gov-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--orange);
+  box-shadow:var(--glow);
+}
+
+.gov-card span{
+  font-size:2.5rem;
+}
+
+.gov-card h2{
+  margin-top:15px;
+  color:var(--orange);
+  font-size:1rem;
+  text-transform:uppercase;
+}
+
+.gov-card p{
+  margin-top:10px;
+  font-size:.76rem;
+  line-height:1.65;
+}
+
+.gov-card .card-link{
+  margin-top:auto;
+}
+
+.gov-center{
+  margin-top:40px;
+  padding:38px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:28px;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.16),transparent 45%),
+    #050200;
+  box-shadow:var(--glow);
+}
+
+.center-header{
+  text-align:center;
+}
+
+.center-header h2{
+  margin-top:10px;
+  color:var(--orange);
+  font-size:clamp(2rem,6vw,4rem);
+  text-transform:uppercase;
+}
+
+.center-header p{
+  max-width:850px;
+  margin:14px auto 0;
+  line-height:1.7;
+}
+
+.form-workspace{
+  max-width:1000px;
+  margin:30px auto 0;
+  padding:22px;
+  border:1px solid var(--border);
+  border-radius:22px;
+  background:#000;
+}
+
+.form-workspace label{
+  display:block;
+  margin-bottom:8px;
+  color:var(--orange);
+  font-size:.69rem;
+  font-weight:1000;
+  text-transform:uppercase;
+}
+
+.form-workspace select,
+.form-workspace input,
+.form-workspace textarea{
+  width:100%;
+  margin-bottom:15px;
+  padding:14px 15px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  outline:none;
+  color:var(--text);
+  background:#050200;
+}
+
+.form-workspace select:focus,
+.form-workspace input:focus,
+.form-workspace textarea:focus{
+  border-color:var(--orange);
+  box-shadow:0 0 15px rgba(255,121,0,.12);
+}
+
+.form-workspace input::placeholder,
+.form-workspace textarea::placeholder{
+  color:var(--text-soft);
+}
+
+.form-workspace option{
+  color:var(--text);
+  background:#000;
+}
+
+.form-workspace textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.form-result{
+  display:none;
+  margin-top:20px;
+  padding:20px;
+  border:1px solid var(--border-strong);
+  border-radius:17px;
+  background:#0b0400;
+}
+
+.form-result.show{
+  display:block;
+}
+
+.form-result h3{
+  color:var(--orange);
+  text-transform:uppercase;
+}
+
+.form-result p{
+  margin-top:10px;
+  font-size:.76rem;
+  line-height:1.7;
+}
+
+.document-section{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.document-section h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.document-section > p{
+  max-width:850px;
+  margin:13px auto 0;
+  text-align:center;
+  line-height:1.7;
+}
+
+.document-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:25px;
+}
+
+.document-item{
+  padding:18px 14px;
+  border:1px solid var(--border);
+  border-radius:15px;
+  text-align:center;
+  background:#000;
+  font-size:.69rem;
+  font-weight:900;
+}
+
+.document-item span{
+  display:block;
+  margin-bottom:8px;
+  color:var(--orange);
+  font-size:1.5rem;
+}
+
+.pathway{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.pathway h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.pathway-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:13px;
+  margin-top:25px;
+}
+
+.pathway-step{
+  padding:22px 15px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  text-align:center;
+  background:#000;
+}
+
+.step-number{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  margin:0 auto 12px;
+  border-radius:50%;
+  color:#000;
+  background:var(--orange);
+  font-weight:1000;
+}
+
+.pathway-step strong{
+  display:block;
+  color:var(--orange);
+  font-size:.73rem;
+}
+
+.pathway-step p{
+  margin-top:8px;
+  font-size:.68rem;
+  line-height:1.55;
+}
+
+.digital-center{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.digital-center h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.digital-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:25px;
+}
+
+.digital-box{
+  min-height:170px;
+  display:flex;
+  flex-direction:column;
+  padding:22px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:#000;
+}
+
+.digital-box strong{
+  display:block;
+  color:var(--orange);
+  margin-bottom:8px;
+}
+
+.digital-box p{
+  font-size:.73rem;
+  line-height:1.6;
+}
+
+.digital-box .card-link{
+  margin-top:auto;
+}
+
+.action-box{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  text-align:center;
+  background:#050200;
+}
+
+.action-box h2{
+  margin-top:10px;
+  color:var(--orange);
+  text-transform:uppercase;
+}
+
+.action-box p{
+  max-width:800px;
+  margin:14px auto 0;
+  line-height:1.7;
+}
+
+.notice{
+  margin-top:30px;
+  padding:20px;
+  border-left:4px solid var(--orange);
+  border-radius:10px;
+  background:#0b0400;
+  font-size:.75rem;
+  line-height:1.7;
+}
+
+.back-home{
+  margin-top:30px;
+  text-align:center;
+}
+
+@media(max-width:1000px){
+  .gov-grid,
+  .digital-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .document-grid,
+  .pathway-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:700px){
+  .gov-grid,
+  .digital-grid,
+  .document-grid,
+  .pathway-grid,
+  .form-row{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+MAXIMAX MULTI SERVICES • GOVERNMENT FORM CENTER
+</div>
+
+<header>
+
+<div class="container header-inner">
+
+<a href="../index.html" class="brand">
+
+<div class="brand-mark">M</div>
+
+<div class="brand-text">
+<strong>MAXIMAX</strong>
+<span>MULTI SERVICES</span>
+</div>
+
+</a>
+
+<nav id="mainNav">
+
+<a href="../index.html">HOME</a>
+<a href="../index.html#services">SERVICES</a>
+<a href="#government-center">GOVERNMENT FORMS</a>
+<a href="./form-helper.html">FORM CENTER</a>
+<a href="../index.html#contact">CONTACT</a>
+
+</nav>
+
+<div class="header-actions">
+
+<div class="language-switch">
+
+<button class="lang-btn active" data-lang="en">ENG</button>
+<button class="lang-btn" data-lang="fr">FRA</button>
+<button class="lang-btn" data-lang="ht">KRE</button>
+
+</div>
+
+<button id="menuToggle" class="menu-toggle">☰</button>
+
+</div>
+
+</div>
+
+</header>
+
+
+<main class="gov-page">
+
+<div class="container">
+
+
+<section class="gov-hero
