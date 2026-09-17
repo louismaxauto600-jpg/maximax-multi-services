@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Apostille Services | Maximax Multi Services</title>
+
+<meta name="description" content="Maximax Multi Services Apostille Center — apostille document preparation, authentication support, document organization and international document assistance.">
+
+<meta name="theme-color" content="#000000">
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+.service-page{
+  min-height:calc(100vh - 84px);
+  padding:70px 0 90px;
+}
+
+.service-hero{
+  padding:45px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:28px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.20),transparent 45%),
+    linear-gradient(145deg,#000,#120600,#000);
+  box-shadow:var(--glow);
+}
+
+.service-big-icon{
+  font-size:4rem;
+}
+
+.service-hero h1{
+  margin-top:18px;
+  color:var(--orange);
+  font-size:clamp(2.5rem,8vw,5.5rem);
+  line-height:.9;
+  text-transform:uppercase;
+}
+
+.service-hero p{
+  max-width:900px;
+  margin:20px auto 0;
+  line-height:1.75;
+}
+
+.page-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:35px;
+}
+
+.page-card{
+  min-height:235px;
+  display:flex;
+  flex-direction:column;
+  padding:24px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:
+    radial-gradient(circle at top right,rgba(255,121,0,.12),transparent 40%),
+    #050200;
+  transition:.25s;
+}
+
+.page-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--orange);
+  box-shadow:var(--glow);
+}
+
+.page-icon{
+  font-size:2.3rem;
+}
+
+.page-card h2{
+  margin-top:15px;
+  color:var(--orange);
+  font-size:1rem;
+  text-transform:uppercase;
+}
+
+.page-card p{
+  margin-top:11px;
+  font-size:.80rem;
+  line-height:1.65;
+}
+
+.process-center{
+  margin-top:40px;
+  padding:38px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:26px;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.15),transparent 48%),
+    #050200;
+}
+
+.process-center h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+  font-size:clamp(1.8rem,5vw,3rem);
+}
+
+.process-center > p{
+  max-width:850px;
+  margin:14px auto 30px;
+  text-align:center;
+  line-height:1.7;
+}
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.step{
+  padding:22px 16px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:#000;
+  text-align:center;
+}
+
+.step-number{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  margin:0 auto 12px;
+  border-radius:50%;
+  color:#000;
+  background:var(--orange);
+  font-weight:1000;
+}
+
+.step strong{
+  display:block;
+  color:var(--orange);
+  font-size:.78rem;
+}
+
+.step p{
+  margin-top:8px;
+  font-size:.70rem;
+  line-height:1.55;
+}
+
+.document-center{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.document-center h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.document-center > p{
+  max-width:800px;
+  margin:14px auto 25px;
+  text-align:center;
+  line-height:1.7;
+}
+
+.document-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.document-box{
+  padding:20px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:#000;
+}
+
+.document-box strong{
+  display:block;
+  color:var(--orange);
+  margin-bottom:8px;
+}
+
+.document-box p{
+  font-size:.78rem;
+  line-height:1.6;
+}
+
+.checklist{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.checklist h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.checklist-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:25px;
+}
+
+.check-item{
+  padding:17px 12px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:#000;
+  text-align:center;
+  font-size:.72rem;
+  font-weight:900;
+}
+
+.check-item span{
+  display:block;
+  margin-bottom:7px;
+  font-size:1.5rem;
+}
+
+.action-box{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  text-align:center;
+  background:#050200;
+}
+
+.action-box h2{
+  margin-top:10px;
+  color:var(--orange);
+  text-transform:uppercase;
+}
+
+.action-box p{
+  max-width:780px;
+  margin:14px auto 0;
+  line-height:1.7;
+}
+
+.notice{
+  margin-top:30px;
+  padding:18px;
+  border-left:4px solid var(--orange);
+  border-radius:10px;
+  background:#0b0400;
+  font-size:.75rem;
+  line-height:1.65;
+}
+
+.back-home{
+  margin-top:30px;
+  text-align:center;
+}
+
+@media(max-width:950px){
+  .page-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .steps,
+  .checklist-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:700px){
+  .page-grid,
+  .steps,
+  .document-grid,
+  .checklist-grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+MAXIMAX MULTI SERVICES • APOSTILLE CENTER
+</div>
+
+<header>
+
+<div class="container header-inner">
+
+<a href="../index.html" class="brand">
+
+<div class="brand-mark">M</div>
+
+<div class="brand-text">
+<strong>MAXIMAX</strong>
+<span>MULTI SERVICES</span>
+</div>
+
+</a>
+
+<nav id="mainNav">
+
+<a href="../index.html">HOME</a>
+
+<a href="../index.html#services">SERVICES</a>
+
+<a href="#apostille-services">APOSTILLE</a>
+
+<a href="./notary.html">NOTARY</a>
+
+<a href="../index.html#contact">CONTACT</a>
+
+</nav>
+
+<div class="header-actions">
+
+<div class="language-switch">
+
+<button class="lang-btn active" data-lang="en">
+ENG
+</button>
+
+<button class="lang-btn" data-lang="fr">
+FRA
+</button>
+
+<button class="lang-btn" data-lang="ht">
+KRE
+</button>
+
+</div>
+
+<button id="menuToggle" class="menu-toggle">
+☰
+</button>
+
+</div>
+
+</div>
+
+</header>
+
+
+<main class="service-page">
+
+<div class="container">
+
+
+<section class="service-hero">
+
+<div class="service-big-icon">
+🌎
+</div>
+
+<div class="eyebrow">
+MAXIMAX MULTI SERVICES
+</div>
+
+<h1
+data-en="APOSTILLE CENTER"
+data-fr="CENTRE APOSTILLE"
+data-ht="SANT APOSTILLE">
+APOSTILLE CENTER
+</h1>
+
+<p
+data-en="Document preparation, organization and administrative assistance for apostille and authentication processes involving eligible documents intended for international use."
+data-fr="Préparation, organisation et assistance administrative pour les procédures d'apostille et d'authentification de documents admissibles destinés à être utilisés à l'étranger."
+data-ht="Preparasyon, òganizasyon ak asistans administratif pou pwosesis apostille ak otantifikasyon dokiman ki aplikab pou itilize aletranje.">
+Document preparation, organization and administrative assistance for apostille and authentication processes involving eligible documents intended for international use.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#apostille-services" class="btn primary"
+data-en="EXPLORE APOSTILLE SERVICES"
+data-fr="VOIR LES SERVICES APOSTILLE"
+data-ht="GADE SÈVIS APOSTILLE">
+EXPLORE APOSTILLE SERVICES
+</a>
+
+<a href="#apostille-process" class="btn outline"
+data-en="HOW IT WORKS"
+data-fr="COMMENT ÇA MARCHE"
+data-ht="KÒMAN LI MACHE">
+HOW IT WORKS
+</a>
+
+</div>
+
+</section>
+
+
+<section id="apostille-services" class="page-grid">
+
+
+<div class="page-card">
+
+<div class="page-icon">
+📜
+</div>
+
+<h2
+data-en="APOSTILLE DOCUMENT SUPPORT"
+data-fr="ASSISTANCE DOCUMENT APOSTILLE"
+data-ht="ASISTANS DOKIMAN APOSTILLE">
+APOSTILLE DOCUMENT SUPPORT
+</h2>
+
+<p
+data-en="Administrative assistance organizing eligible documents for submission to the appropriate apostille authority."
+data-fr="Assistance administrative pour organiser les documents admissibles avant leur soumission à l'autorité compétente."
+data-ht="Asistans administratif pou òganize dokiman ki aplikab anvan yo soumèt yo bay otorite apostille ki apwopriye a.">
+Administrative assistance organizing eligible documents for submission to the appropriate apostille authority.
+</p>
+
+</div>
+
+
+<div class="page-card">
+
+<div class="page-icon">
+🎓
+</div>
+
+<h2
+data-en="EDUCATION DOCUMENTS"
+data-fr="DOCUMENTS SCOLAIRES"
+data-ht="DOKIMAN EDIKASYON">
+EDUCATION DOCUMENTS
+</h2>
+
+<p
+data-en="Administrative support for eligible diplomas, transcripts and other educational records that may require authentication."
+data-fr="Assistance administrative pour les diplômes, relevés de notes et autres documents scolaires admissibles pouvant nécessiter une authentification."
+data-ht="Asistans administratif pou diplòm, relve nòt ak lòt dokiman edikasyon ki ka bezwen otantifikasyon.">
+Administrative support for eligible diplomas, transcripts and other educational records that may require authentication.
+</p>
+
+</div>
+
+
+<div class="page-card">
+
+<div class="page-icon">
+👶
+</div>
+
+<h2
+data-en="BIRTH DOCUMENTS"
+data-fr="ACTES DE NAISSANCE"
+data-ht="AK NESANS">
+BIRTH DOCUMENTS
+</h2>
+
+<p
+data-en="Document organization and process navigation for eligible birth records requiring apostille or authentication."
+data-fr="Organisation des documents et orientation pour les actes de naissance admissibles nécessitant une apostille ou une authentification."
+data-ht="Òganizasyon dokiman ak asistans pou ak nesans ki aplikab ki bezwen apostille oswa otantifikasyon.">
+Document organization and process navigation for eligible birth records requiring apostille or authentication.
+</p>
+
+</div>
+
+
+<div class="page-card">
+
+<div class="page-icon">
+💍
+</div>
+
+<h2
+data-en="MARRIAGE DOCUMENTS"
+data-fr="ACTES DE MARIAGE"
+data-ht="DOKIMAN MARYAJ">
+MARRIAGE DOCUMENTS
+</h2>
+
+<p
+data-en="Administrative assistance with eligible marriage records intended for international use."
+data-fr="Assistance administrative concernant les actes de mariage admissibles destinés à être utilisés à l'étranger."
+data-ht="Asistans administratif pou dokiman maryaj ki aplikab pou itilize aletranje.">
+Administrative assistance with eligible marriage records intended for international use.
+</p>
+
+</div>
+
+
+<div class="page-card">
+
+<div class="page-icon">
+⚖️
+</div>
+
+<h2
+data-en="COURT DOCUMENTS"
+data-fr="DOCUMENTS JUDICIAIRES"
+data-ht="DOKIMAN TRIBINAL">
+COURT DOCUMENTS
+</h2>
+
+<p
+data-en="Administrative document organization for eligible court records requiring authentication for international use."
+data-fr="Organisation administrative des documents judiciaires admissibles nécessitant une authentification pour une utilisation internationale."
+data-ht="Òganizasyon administratif dokiman tribinal ki aplikab ki bezwen otantifikasyon pou itilize entènasyonal.">
+Administrative document organization for eligible court records requiring authentication for international use.
+</p>
+
+</div>
+
+
+<div class="page-card">
+
+<div class="page-icon">
+🏢
+</div>
+
+<h2
+data-en="BUSINESS DOCUMENTS"
+data-fr="DOCUMENTS D'ENTREPRISE"
+data-ht="DOKIMAN BIZNIS">
+BUSINESS DOCUMENTS
+</h2>
+
+<p
+data-en="Administrative assistance organizing eligible corporate and business documents for authentication."
+data-fr="Assistance administrative pour organiser les documents d'entreprise admissibles en vue de leur authentification."
+data-ht="Asistans administratif pou òganize dokiman antrepriz ak biznis ki aplikab pou otantifikasyon.">
+Administrative assistance organizing eligible corporate and business documents for authentication.
+</p>
+
+</div>
+
+
+<div class="page-card">
+
+<div class="page-icon">
+🖋️
+</div>
+
+<h2
+data-en="NOTARIZED DOCUMENTS"
+data-fr="DOCUMENTS NOTARIÉS"
+data-ht="DOKIMAN NOTARYE">
+NOTARIZED DOCUMENTS
+</h2>
+
+<p
+data-en="Document support for eligible notarized records that may require additional certification or authentication."
+data-fr="Assistance pour les documents notariés admissibles pouvant nécessiter une certification ou authentification supplémentaire."
+data-ht="Asistans pou dokiman notarye ki aplikab ki ka bezwen lòt sètifikasyon oswa otantifikasyon.">
+Document support for eligible notarized records that may require additional certification or authentication.
+</p>
+
+</div>
+
+
+<div class="page-card">
+
+<div class="page-icon">
+✈️
+</div>
+
+<h2
+data-en="INTERNATIONAL DOCUMENTS"
+data-fr="DOCUMENTS INTERNATIONAUX"
+data-ht="DOKIMAN ENTÈNASYONAL">
+INTERNATIONAL DOCUMENTS
+</h2>
+
+<p
+data-en="General administrative support for documents being prepared for use outside the United States."
+data-fr="Assistance administrative générale pour les documents destinés à être utilisés en dehors des États-Unis."
+data-ht="Asistans administratif jeneral pou dokiman k ap prepare pou itilize andeyò Etazini.">
+General administrative support for documents being prepared for use outside the United States.
+</p>
+
+</div>
+
+
+<div class="page-card">
+
+<div class="page-icon">
+🌐
+</div>
+
+<h2
+data-en="MULTILINGUAL SUPPORT"
+data-fr="ASSISTANCE MULTILINGUE"
+data-ht="ASISTANS NAN 3 LANG">
+MULTILINGUAL SUPPORT
+</h2>
+
+<p
+data-en="Service navigation available in English, French and Haitian Creole."
+data-fr="Orientation des services disponible en anglais, français et créole haïtien."
+data-ht="Asistans sèvis disponib an Anglè, Fransè ak Kreyòl Ayisyen.">
+Service navigation available in English, French and Haitian Creole.
+</p>
+
+</div>
+
+</section>
+
+
+<section class="process-center" id="apostille-process">
+
+<h2
+data-en="APOSTILLE PROCESS"
+data-fr="PROCESSUS D'APOSTILLE"
+data-ht="PWOSÈS APOSTILLE">
+APOSTILLE PROCESS
+</h2>
+
+<p
+data-en="The exact process depends on the document, issuing authority and destination country. Maximax helps organize the administrative steps."
+data-fr="La procédure exacte dépend du document, de l'autorité émettrice et du pays de destination. Maximax aide à organiser les étapes administratives."
+data-ht="Pwosesis egzak la depann de dokiman an, otorite ki te bay li ak peyi kote dokiman an pral itilize. Maximax ede òganize etap administratif yo.">
+The exact process depends on the document, issuing authority and destination country. Maximax helps organize the administrative steps.
+</p>
+
+
+<div class="steps">
+
+<div class="step">
+
+<div class="step-number">1</div>
+
+<strong
+data-en="DOCUMENT REVIEW"
+data-fr="VÉRIFICATION"
+data-ht="VERIFYE DOKIMAN">
+DOCUMENT REVIEW
+</strong>
+
+<p
+data-en="Identify the document and where it was issued."
+data-fr="Identifiez le document et l'endroit où il a été délivré."
+data-ht="Idantifye dokiman an ak kote yo te bay li.">
+Identify the document and where it was issued.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">2</div>
+
+<strong
+data-en="REQUIREMENTS"
+data-fr="EXIGENCES"
+data-ht="KONDISYON">
+REQUIREMENTS
+</strong>
+
+<p
+data-en="Determine the applicable administrative requirements."
+data-fr="Déterminez les exigences administratives applicables."
+data-ht="Detèmine kondisyon administratif ki aplikab yo.">
+Determine the applicable administrative requirements.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">3</div>
+
+<strong
+data-en="PREPARATION"
+data-fr="PRÉPARATION"
+data-ht="PREPARASYON">
+PREPARATION
+</strong>
+
+<p
+data-en="Organize the document and supporting information."
+data-fr="Organisez le document et les informations justificatives."
+data-ht="Òganize dokiman an ak enfòmasyon sipò yo.">
+Organize the document and supporting information.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">4</div>
+
+<strong
+data-en="SUBMISSION"
+data-fr="SOUMISSION"
+data-ht="SOUMÈT">
+SUBMISSION
+</strong>
+
+<p
+data-en="Submit through the appropriate government authority or process."
+data-fr="Soumettez le document auprès de l'autorité gouvernementale compétente."
+data-ht="Soumèt dokiman an atravè otorite gouvènman ki apwopriye a.">
+Submit through the appropriate government authority or process.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="document-center">
+
+<h2
+data-en="DOCUMENT CENTER"
+data-fr="CENTRE DE DOCUMENTS"
+data-ht="SANT DOKIMAN">
+DOCUMENT CENTER
+</h2>
+
+<p
+data-en="Common document categories that may require apostille or authentication depending on the destination and intended use."
+data-fr="Catégories courantes de documents pouvant nécessiter une apostille ou une authentification selon la destination et l'utilisation prévue."
+data-ht="Kategori dokiman komen ki ka bezwen apostille oswa otantifikasyon selon peyi destinasyon an ak fason dokiman an pral itilize.">
+Common document categories that may require apostille or authentication depending on the destination and intended use.
+</p>
+
+
+<div class="document-grid">
+
+<div class="document-box">
+<strong>📜 VITAL RECORDS</strong>
+<p>Birth, marriage, death and other eligible vital records.</p>
+</div>
+
+<div class="document-box">
+<strong>🎓 EDUCATION RECORDS</strong>
+<p>Eligible diplomas, transcripts and educational documents.</p>
+</div>
+
+<div class="document-box">
+<strong>🏢 BUSINESS RECORDS</strong>
+<p>Eligible corporate, company and commercial documents.</p>
+</div>
+
+<div class="document-box">
+<strong>⚖️ LEGAL & COURT RECORDS</strong>
+<p>Eligible public or court-issued documents requiring authentication.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="checklist">
+
+<h2
+data-en="APOSTILLE DOCUMENT CHECKLIST"
+data-fr="LISTE DE CONTRÔLE APOSTILLE"
+data-ht="LIS DOKIMAN APOSTILLE">
+APOSTILLE DOCUMENT CHECKLIST
+</h2>
+
+<div class="checklist-grid">
+
+<div class="check-item">
+<span>🪪</span>
+IDENTIFICATION
+</div>
+
+<div class="check-item">
+<span>📄</span>
+ORIGINAL DOCUMENT
+</div>
+
+<div class="check-item">
+<span>🌎</span>
+DESTINATION COUNTRY
+</div>
+
+<div class="check-item">
+<span>🏛️</span>
+ISSUING AUTHORITY
+</div>
+
+<div class="check-item">
+<span>🖋️</span>
+NOTARIZATION IF REQUIRED
+</div>
+
+<div class="check-item">
+<span>📑</span>
+SUPPORTING RECORDS
+</div>
+
+<div class="check-item">
+<span>📞</span>
+CONTACT INFORMATION
+</div>
+
+<div class="check-item">
+<span>✈️</span>
+INTENDED INTERNATIONAL USE
+</div>
+
+</div>
+
+</section>
+
+
+<section class="action-box">
+
+<div class="eyebrow">
+MAXIMAX APOSTILLE CENTER
+</div>
+
+<h2
+data-en="NEED APOSTILLE ASSISTANCE?"
+data-fr="BESOIN D'AIDE POUR UNE APOSTILLE ?"
+data-ht="OU BEZWEN ASISTANS APOSTILLE?">
+NEED APOSTILLE ASSISTANCE?
+</h2>
+
+<p
+data-en="Contact Maximax Multi Services for administrative document organization and apostille process navigation."
+data-fr="Contactez Maximax Multi Services pour l'organisation administrative des documents et l'orientation dans le processus d'apostille."
+data-ht="Kontakte Maximax Multi Services pou òganizasyon administratif dokiman ak asistans pou navige pwosesis apostille la.">
+Contact Maximax Multi Services for administrative document organization and apostille process navigation.
+</p>
+
+
+<div class="hero-buttons">
+
+<a href="tel:+14076405166" class="btn primary">
+📞 (407) 640-5166
+</a>
+
+<a href="./notary.html" class="btn outline"
+data-en="NOTARY CENTER"
+data-fr="CENTRE NOTARIAL"
+data-ht="SANT NOTÈ">
+NOTARY CENTER
+</a>
+
+<a href="../index.html#contact" class="btn outline"
+data-en="CONTACT CENTER"
+data-fr="CENTRE DE CONTACT"
+data-ht="SANT KONTAK">
+CONTACT CENTER
+</a>
+
+</div>
+
+</section>
+
+
+<div class="notice">
+
+<strong>IMPORTANT:</strong>
+Apostille and authentication requirements depend on the type of document, the authority that issued it, the jurisdiction involved and the country where it will be used. Maximax Multi Services provides administrative document preparation, organization and process-navigation assistance within the scope permitted by law. Government authorities make the final determination regarding authentication or apostille issuance.
+
+</div>
+
+
+<div class="back-home">
+
+<a href="../index.html#services" class="btn outline"
+data-en="← BACK TO ALL SERVICES"
+data-fr="← RETOUR AUX SERVICES"
+data-ht="← RETOUNEN NAN TOUT SÈVIS YO">
+← BACK TO ALL SERVICES
+</a>
+
+</div>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<div class="container">
+
+<div class="footer-logo">
+M
+</div>
+
+<h3>
+MAXIMAX MULTI SERVICES
+</h3>
+
+<p>
+PROFESSIONAL SERVICES • DIGITAL SOLUTIONS • AI ASSISTANCE
+</p>
+
+<p class="hub-link">
+Part of BSS1815 PRO-MAX DMP
+</p>
+
+<p>
+© <span id="currentYear"></span> Maximax Multi Services
+</p>
+
+</div>
+
+</footer>
+
+<script src="../javascript.js"></script>
+
+</body>
+</html>
