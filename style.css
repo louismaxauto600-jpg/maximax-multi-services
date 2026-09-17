@@ -1,220 +1,456 @@
 /* =========================================================
    MAXIMAX MULTI SERVICES
-   FILE: style.css
-   COMPLETE GLOBAL STYLESHEET
-   Theme: Orange / Apricot / Black
+   GLOBAL PRINT SYSTEM
+   ORANGE APRICOT + BLACK FADE
+   NO WHITE BACKGROUND
    ========================================================= */
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
 :root{
-  --orange:#ff7900;
-  --orange-dark:#c94f00;
-  --apricot:#ffad4d;
-  --black:#000000;
-  --black-soft:#050200;
-  --black-card:#090300;
-  --black-card-2:#120600;
-  --text:#f4c999;
-  --text-soft:#c99668;
-  --border:rgba(255,121,0,.30);
-  --border-strong:rgba(255,121,0,.72);
-  --glow:
-    0 0 18px rgba(255,121,0,.18),
-    0 0 45px rgba(255,121,0,.08);
-  --max-width:1220px;
+  --print-orange:#ff7900;
+  --print-apricot:#ffad4d;
+  --print-black:#000000;
+  --print-deep:#050200;
+  --print-soft:#120600;
+  --print-text:#ffd2a3;
+  --print-border:rgba(255,121,0,.75);
 }
 
-body{
-  min-height:100vh;
+/* ALL PRINTABLE DOCUMENTS */
+
+.print-document,
+.receipt-preview,
+.invoice-preview,
+.payment-preview,
+.appointment-preview,
+.document-preview,
+.form-preview,
+.checklist-preview,
+.client-preview,
+.confirmation-preview,
+.certificate-preview,
+.report-preview{
+  color:var(--print-text) !important;
+
   background:
-    radial-gradient(circle at top left,rgba(255,121,0,.10),transparent 28%),
-    radial-gradient(circle at bottom right,rgba(255,173,77,.07),transparent 30%),
-    #000;
-  color:var(--text);
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-  overflow-x:hidden;
+    radial-gradient(
+      circle at top center,
+      rgba(255,173,77,.25),
+      rgba(255,121,0,.12) 28%,
+      transparent 55%
+    ),
+    linear-gradient(
+      145deg,
+      var(--print-black) 0%,
+      var(--print-soft) 35%,
+      var(--print-deep) 68%,
+      var(--print-black) 100%
+    ) !important;
+
+  border:2px solid var(--print-orange) !important;
+
+  box-shadow:
+    0 0 25px rgba(255,121,0,.25),
+    inset 0 0 35px rgba(255,121,0,.06) !important;
 }
 
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:-1;
+/* HEADINGS */
+
+.print-document h1,
+.print-document h2,
+.print-document h3,
+.receipt-preview h1,
+.receipt-preview h2,
+.receipt-preview h3,
+.invoice-preview h1,
+.invoice-preview h2,
+.invoice-preview h3,
+.payment-preview h1,
+.payment-preview h2,
+.payment-preview h3,
+.appointment-preview h1,
+.appointment-preview h2,
+.appointment-preview h3,
+.document-preview h1,
+.document-preview h2,
+.document-preview h3,
+.form-preview h1,
+.form-preview h2,
+.form-preview h3,
+.checklist-preview h1,
+.checklist-preview h2,
+.checklist-preview h3,
+.client-preview h1,
+.client-preview h2,
+.client-preview h3,
+.confirmation-preview h1,
+.confirmation-preview h2,
+.certificate-preview h1,
+.certificate-preview h2,
+.report-preview h1,
+.report-preview h2{
+  color:var(--print-orange) !important;
+}
+
+/* LABELS */
+
+.print-document label,
+.print-document .label,
+.receipt-detail span,
+.invoice-detail span,
+.payment-detail span,
+.appointment-detail span,
+.document-detail span{
+  color:var(--print-apricot) !important;
+}
+
+/* IMPORTANT VALUES */
+
+.print-document strong,
+.print-document .amount,
+.print-document .total,
+.receipt-detail strong,
+.invoice-detail strong,
+.payment-detail strong,
+.appointment-detail strong,
+.document-detail strong,
+.receipt-total strong{
+  color:var(--print-orange) !important;
+}
+
+/* DETAIL BOXES */
+
+.receipt-detail,
+.invoice-detail,
+.payment-detail,
+.appointment-detail,
+.document-detail,
+.print-box{
+  color:var(--print-text) !important;
+  background:rgba(0,0,0,.88) !important;
+  border:1px solid var(--print-border) !important;
+}
+
+/* PRINT BRAND */
+
+.print-brand,
+.receipt-brand,
+.invoice-brand,
+.document-brand{
+  text-align:center !important;
+}
+
+.print-brand-mark,
+.receipt-brand-mark,
+.invoice-brand-mark,
+.document-brand-mark{
+  color:var(--print-orange) !important;
+  background:var(--print-black) !important;
+  border:2px solid var(--print-orange) !important;
+  box-shadow:0 0 20px rgba(255,121,0,.35) !important;
+}
+
+/* PRINT FOOTER */
+
+.print-footer,
+.receipt-footer,
+.invoice-footer,
+.document-footer{
+  color:var(--print-apricot) !important;
+  border-top:1px solid var(--print-orange) !important;
+}
+
+/* GLOBAL PRINT BUTTON */
+
+.print-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:13px 20px;
+
+  border:1px solid var(--orange);
+  border-radius:14px;
+
+  color:#000 !important;
+
   background:
     linear-gradient(
       135deg,
-      rgba(255,121,0,.025),
-      transparent 25%,
-      transparent 75%,
-      rgba(255,173,77,.025)
-    );
-}
+      var(--orange),
+      var(--apricot)
+    ) !important;
 
-::selection{
-  color:#000;
-  background:var(--orange);
-}
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-button,
-input,
-textarea,
-select{
-  font:inherit;
-}
-
-button{
-  border:0;
-}
-
-img{
-  max-width:100%;
-  display:block;
-}
-
-.container{
-  width:min(92%,var(--max-width));
-  margin:auto;
-}
-
-.top-bar{
-  min-height:32px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:7px 18px;
-  color:var(--orange);
-  background:#000;
-  border-bottom:1px solid var(--border);
-  text-align:center;
-  font-size:.65rem;
   font-weight:1000;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-}
+  cursor:pointer;
 
-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(0,0,0,.94);
-  backdrop-filter:blur(15px);
-  -webkit-backdrop-filter:blur(15px);
-  border-bottom:1px solid var(--border);
-}
-
-.header-inner{
-  min-height:82px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:11px;
-  min-width:max-content;
-}
-
-.brand-mark{
-  width:48px;
-  height:48px;
-  display:grid;
-  place-items:center;
-  border-radius:15px;
-  color:#000;
-  background:
-    linear-gradient(
-      145deg,
-      var(--apricot),
-      var(--orange)
-    );
-  font-size:1.55rem;
-  font-weight:1000;
   box-shadow:
-    0 0 18px rgba(255,121,0,.38);
+    0 0 18px rgba(255,121,0,.22);
+
+  transition:.25s;
 }
 
-.brand-text{
-  display:flex;
-  flex-direction:column;
-  line-height:1;
+.print-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:
+    0 0 28px rgba(255,121,0,.38);
 }
 
-.brand-text strong{
-  color:var(--orange);
-  font-size:1.05rem;
-  letter-spacing:.08em;
-}
+/* =========================================================
+   ACTUAL PRINT OUTPUT
+   ========================================================= */
 
-.brand-text span{
-  margin-top:6px;
-  color:var(--text-soft);
-  font-size:.60rem;
-  font-weight:900;
-  letter-spacing:.16em;
-}
+@media print{
 
-nav{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:21px;
-}
+  @page{
+    margin:.35in;
+  }
 
-nav a{
-  position:relative;
-  padding:8px 0;
-  color:var(--text);
-  font-size:.68rem;
-  font-weight:1000;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  transition:.2s;
-}
+  html,
+  body{
+    margin:0 !important;
+    padding:0 !important;
 
-nav a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:0;
-  width:0;
-  height:2px;
-  background:var(--orange);
-  transition:.22s;
-}
+    color:#ffd2a3 !important;
 
-nav a:hover{
-  color:var(--orange);
-}
+    background:#000000 !important;
 
-nav a:hover::after{
-  width:100%;
-}
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+  }
 
-.header-actions{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
+  body{
+    background:
+      radial-gradient(
+        circle at top center,
+        rgba(255,173,77,.28) 0%,
+        rgba(255,121,0,.14) 28%,
+        transparent 55%
+      ),
+      linear-gradient(
+        145deg,
+        #000000 0%,
+        #120600 35%,
+        #050200 68%,
+        #000000 100%
+      ) !important;
+  }
 
-.language-switch{
+  *,
+  *::before,
+  *::after{
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+  }
+
+  /* REMOVE WEBSITE CONTROLS FROM PAPER */
+
+  header,
+  .top-bar,
+  nav,
+  footer,
+  .menu-toggle,
+  .language-switch,
+  .preview-actions,
+  .back-home,
+  .no-print,
+  .print-btn{
+    display:none !important;
+  }
+
+  /* PRINTABLE AREA */
+
+  .print-document,
+  .receipt-preview,
+  .invoice-preview,
+  .payment-preview,
+  .appointment-preview,
+  .document-preview,
+  .form-preview,
+  .checklist-preview,
+  .client-preview,
+  .confirmation-preview,
+  .certificate-preview,
+  .report-preview{
+    display:block !important;
+
+    position:relative !important;
+
+    width:100% !important;
+    max-width:none !important;
+
+    margin:0 !important;
+    padding:32px !important;
+
+    color:#ffd2a3 !important;
+
+    background:
+      radial-gradient(
+        circle at top center,
+        rgba(255,173,77,.30) 0%,
+        rgba(255,121,0,.15) 27%,
+        transparent 55%
+      ),
+      linear-gradient(
+        145deg,
+        #000000 0%,
+        #120600 32%,
+        #050200 68%,
+        #000000 100%
+      ) !important;
+
+    border:3px solid #ff7900 !important;
+    border-radius:20px !important;
+
+    box-shadow:
+      inset 0 0 40px rgba(255,121,0,.10) !important;
+
+    overflow:visible !important;
+
+    break-inside:avoid !important;
+    page-break-inside:avoid !important;
+  }
+
+  /* ORANGE / APRICOT TOP BAR */
+
+  .print-document::before,
+  .receipt-preview::before,
+  .invoice-preview::before,
+  .payment-preview::before,
+  .appointment-preview::before,
+  .document-preview::before,
+  .form-preview::before,
+  .checklist-preview::before,
+  .client-preview::before,
+  .confirmation-preview::before,
+  .certificate-preview::before,
+  .report-preview::before{
+    content:"";
+
+    display:block;
+
+    width:100%;
+    height:8px;
+
+    margin-bottom:25px;
+
+    border-radius:999px;
+
+    background:
+      linear-gradient(
+        90deg,
+        #ff7900,
+        #ffad4d,
+        #ff7900
+      ) !important;
+  }
+
+  /* ORANGE / APRICOT BOTTOM BAR */
+
+  .print-document::after,
+  .receipt-preview::after,
+  .invoice-preview::after,
+  .payment-preview::after,
+  .appointment-preview::after,
+  .document-preview::after,
+  .form-preview::after,
+  .checklist-preview::after,
+  .client-preview::after,
+  .confirmation-preview::after,
+  .certificate-preview::after,
+  .report-preview::after{
+    content:"";
+
+    display:block;
+
+    width:100%;
+    height:8px;
+
+    margin-top:25px;
+
+    border-radius:999px;
+
+    background:
+      linear-gradient(
+        90deg,
+        #ff7900,
+        #ffad4d,
+        #ff7900
+      ) !important;
+  }
+
+  /* TEXT */
+
+  .print-document p,
+  .receipt-preview p,
+  .invoice-preview p,
+  .payment-preview p,
+  .appointment-preview p,
+  .document-preview p,
+  .form-preview p,
+  .checklist-preview p,
+  .client-preview p,
+  .confirmation-preview p,
+  .certificate-preview p,
+  .report-preview p{
+    color:#ffd2a3 !important;
+  }
+
+  /* TABLES */
+
+  table{
+    width:100% !important;
+    border-collapse:collapse !important;
+  }
+
+  th{
+    color:#000000 !important;
+
+    background:
+      linear-gradient(
+        135deg,
+        #ff7900,
+        #ffad4d
+      ) !important;
+
+    border:1px solid #ff7900 !important;
+  }
+
+  td{
+    color:#ffd2a3 !important;
+    background:#050200 !important;
+    border:1px solid rgba(255,121,0,.65) !important;
+  }
+
+  /* INPUTS / FORM VALUES */
+
+  input,
+  textarea,
+  select{
+    color:#ffd2a3 !important;
+    background:#000000 !important;
+    border:1px solid #ff7900 !important;
+    -webkit-text-fill-color:#ffd2a3 !important;
+  }
+
+  /* LINKS */
+
+  a{
+    color:#ffad4d !important;
+    text-decoration:none !important;
+  }
+
+  /* PREVENT CARDS FROM BREAKING BETWEEN PAGES */
+
+  .receipt-detail,
+  .invoice-detail,
+  .payment-detail,
+  .appointment-detail,
+  .document-detail,
+  .print-box,
+  .page-card,
+  .check-item,
+  tr{
+    break-inside:avoid !important;
+    page-break-inside:avoid !important;
+  }
+}
