@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Credit Repair | Maximax Multi Services</title>
+
+<meta name="description" content="Maximax Multi Services Credit Center — credit education, report organization, dispute-document assistance, debt organization and credit-building resources.">
+
+<meta name="theme-color" content="#000000">
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+.credit-page{
+  min-height:calc(100vh - 84px);
+  padding:70px 0 90px;
+}
+
+.credit-hero{
+  padding:52px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:30px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.25),transparent 45%),
+    linear-gradient(145deg,#000,#120600,#000);
+  box-shadow:var(--glow);
+}
+
+.credit-icon{
+  font-size:4.5rem;
+}
+
+.credit-hero h1{
+  margin-top:18px;
+  color:var(--orange);
+  font-size:clamp(2.8rem,8vw,5.8rem);
+  line-height:.9;
+  text-transform:uppercase;
+}
+
+.credit-hero p{
+  max-width:900px;
+  margin:20px auto 0;
+  line-height:1.75;
+}
+
+.credit-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:38px;
+}
+
+.credit-card{
+  min-height:235px;
+  display:flex;
+  flex-direction:column;
+  padding:25px;
+  border:1px solid var(--border);
+  border-radius:21px;
+  background:
+    radial-gradient(circle at top right,rgba(255,121,0,.12),transparent 42%),
+    #050200;
+  transition:.25s;
+}
+
+.credit-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--orange);
+  box-shadow:var(--glow);
+}
+
+.credit-card-icon{
+  font-size:2.5rem;
+}
+
+.credit-card h2{
+  margin-top:15px;
+  color:var(--orange);
+  font-size:1rem;
+  text-transform:uppercase;
+}
+
+.credit-card p{
+  margin-top:10px;
+  font-size:.78rem;
+  line-height:1.65;
+}
+
+.credit-card .btn{
+  margin-top:auto;
+}
+
+.credit-center{
+  margin-top:40px;
+  padding:38px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:28px;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.16),transparent 45%),
+    #050200;
+  box-shadow:var(--glow);
+}
+
+.credit-center-header{
+  text-align:center;
+}
+
+.credit-center-header h2{
+  margin-top:10px;
+  color:var(--orange);
+  font-size:clamp(2rem,6vw,4rem);
+  text-transform:uppercase;
+}
+
+.credit-center-header p{
+  max-width:850px;
+  margin:14px auto 0;
+  line-height:1.7;
+}
+
+.credit-workspace{
+  max-width:1000px;
+  margin:30px auto 0;
+  padding:22px;
+  border:1px solid var(--border);
+  border-radius:22px;
+  background:#000;
+}
+
+.credit-workspace label{
+  display:block;
+  margin-bottom:8px;
+  color:var(--orange);
+  font-size:.70rem;
+  font-weight:1000;
+  text-transform:uppercase;
+}
+
+.credit-workspace select,
+.credit-workspace input,
+.credit-workspace textarea{
+  width:100%;
+  margin-bottom:15px;
+  padding:14px 15px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  outline:none;
+  color:var(--text);
+  background:#050200;
+}
+
+.credit-workspace select:focus,
+.credit-workspace input:focus,
+.credit-workspace textarea:focus{
+  border-color:var(--orange);
+  box-shadow:0 0 15px rgba(255,121,0,.12);
+}
+
+.credit-workspace option{
+  color:var(--text);
+  background:#000;
+}
+
+.credit-workspace input::placeholder,
+.credit-workspace textarea::placeholder{
+  color:var(--text-soft);
+}
+
+.credit-workspace textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.credit-result{
+  display:none;
+  margin-top:20px;
+  padding:20px;
+  border:1px solid var(--border-strong);
+  border-radius:17px;
+  background:#0b0400;
+}
+
+.credit-result.show{
+  display:block;
+}
+
+.credit-result h3{
+  color:var(--orange);
+  text-transform:uppercase;
+}
+
+.credit-result p{
+  margin-top:10px;
+  line-height:1.7;
+  font-size:.78rem;
+}
+
+.report-section{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.report-section h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.report-section > p{
+  max-width:850px;
+  margin:13px auto 0;
+  text-align:center;
+  line-height:1.7;
+}
+
+.report-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:25px;
+}
+
+.report-box{
+  padding:23px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  text-align:center;
+  background:#000;
+}
+
+.report-box span{
+  display:block;
+  font-size:2rem;
+}
+
+.report-box strong{
+  display:block;
+  margin-top:10px;
+  color:var(--orange);
+  font-size:.76rem;
+}
+
+.report-box p{
+  margin-top:8px;
+  font-size:.70rem;
+  line-height:1.55;
+}
+
+.checklist-section{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.checklist-section h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.checklist-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:25px;
+}
+
+.check-item{
+  padding:17px;
+  border:1px solid var(--border);
+  border-radius:15px;
+  background:#000;
+  text-align:center;
+  font-size:.70rem;
+  font-weight:900;
+}
+
+.check-item span{
+  display:block;
+  margin-bottom:7px;
+  color:var(--orange);
+  font-size:1.4rem;
+}
+
+.pathway{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.pathway h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.pathway-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:13px;
+  margin-top:25px;
+}
+
+.pathway-step{
+  padding:22px 15px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:#000;
+  text-align:center;
+}
+
+.step-number{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  margin:0 auto 12px;
+  border-radius:50%;
+  color:#000;
+  background:var(--orange);
+  font-weight:1000;
+}
+
+.pathway-step strong{
+  display:block;
+  color:var(--orange);
+  font-size:.74rem;
+}
+
+.pathway-step p{
+  margin-top:8px;
+  font-size:.69rem;
+  line-height:1.55;
+}
+
+.education-section{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.education-section h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.education-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:25px;
+}
+
+.education-box{
+  padding:22px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:#000;
+}
+
+.education-box strong{
+  display:block;
+  color:var(--orange);
+  margin-bottom:8px;
+}
+
+.education-box p{
+  font-size:.74rem;
+  line-height:1.6;
+}
+
+.action-box{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  text-align:center;
+  background:#050200;
+}
+
+.action-box h2{
+  margin-top:10px;
+  color:var(--orange);
+  text-transform:uppercase;
+}
+
+.action-box p{
+  max-width:800px;
+  margin:14px auto 0;
+  line-height:1.7;
+}
+
+.notice{
+  margin-top:30px;
+  padding:18px;
+  border-left:4px solid var(--orange);
+  border-radius:10px;
+  background:#0b0400;
+  font-size:.75rem;
+  line-height:1.65;
+}
+
+.back-home{
+  margin-top:30px;
+  text-align:center;
+}
+
+@media(max-width:1000px){
+  .credit-grid,
+  .report-grid,
+  .education-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .checklist-grid,
+  .pathway-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:700px){
+  .credit-grid,
+  .report-grid,
+  .education-grid,
+  .checklist-grid,
+  .pathway-grid,
+  .form-row{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+MAXIMAX MULTI SERVICES • CREDIT CENTER
+</div>
+
+<header>
+
+<div class="container header-inner">
+
+<a href="../index.html" class="brand">
+
+<div class="brand-mark">M</div>
+
+<div class="brand-text">
+<strong>MAXIMAX</strong>
+<span>MULTI SERVICES</span>
+</div>
+
+</a>
+
+<nav id="mainNav">
+
+<a href="../index.html">HOME</a>
+<a href="../index.html#services">SERVICES</a>
+<a href="#credit-center">CREDIT CENTER</a>
+<a href="./ai-center.html">AI CENTER</a>
+<a href="../index.html#contact">CONTACT</a>
+
+</nav>
+
+<div class="header-actions">
+
+<div class="language-switch">
+
+<button class="lang-btn active" data-lang="en">ENG</button>
+<button class="lang-btn" data-lang="fr">FRA</button>
+<button class="lang-btn" data-lang="ht">KRE</button>
+
+</div>
+
+<button id="menuToggle" class="menu-toggle">☰</button>
+
+</div>
+
+</div>
+
+</header>
+
+
+<main class="credit-page">
+
+<div class="container">
+
+
+<section class="credit-hero">
+
+<div class="credit-icon">
+📈
+</div>
+
+<div class="eyebrow">
+MAXIMAX FINANCIAL DOCUMENT CENTER
+</div>
+
+<h1
+data-en="CREDIT REPAIR"
+data-fr="RÉPARATION DE CRÉDIT"
+data-ht="REPARASYON KREDI">
+CREDIT REPAIR
+</h1>
+
+<p
+data-en="Organize your credit information, review credit-report items, prepare supported dispute documentation and build a clearer credit-improvement plan."
+data-fr="Organisez vos informations de crédit, examinez les éléments de vos rapports, préparez les documents de contestation pris en charge et construisez un plan d'amélioration du crédit."
+data-ht="Òganize enfòmasyon kredi ou, revize sa ki sou rapò kredi yo, prepare dokiman kontestasyon sistèm nan sipòte epi bati yon plan pou amelyore kredi ou.">
+Organize your credit information, review credit-report items, prepare supported dispute documentation and build a clearer credit-improvement plan.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#credit-center" class="btn primary"
+data-en="START CREDIT REVIEW"
+data-fr="COMMENCER L'EXAMEN"
+data-ht="KÒMANSE REVIZYON KREDI">
+START CREDIT REVIEW
+</a>
+
+<a href="#credit-education" class="btn outline"
+data-en="CREDIT EDUCATION"
+data-fr="ÉDUCATION CRÉDIT"
+data-ht="EDIKASYON KREDI">
+CREDIT EDUCATION
+</a>
+
+</div>
+
+</section>
+
+
+<section class="credit-grid">
+
+
+<div class="credit-card">
+
+<div class="credit-card-icon">📊</div>
+
+<h2
+data-en="CREDIT REPORT REVIEW"
+data-fr="EXAMEN DU RAPPORT"
+data-ht="REVIZYON RAPÒ KREDI">
+CREDIT REPORT REVIEW
+</h2>
+
+<p
+data-en="Organize information appearing on your credit reports and identify items you want to review."
+data-fr="Organisez les informations figurant sur vos rapports de crédit et identifiez les éléments à examiner."
+data-ht="Òganize enfòmasyon ki sou rapò kredi ou epi idantifye sa ou vle revize.">
+Organize information appearing on your credit reports and identify items you want to review.
+</p>
+
+<a href="#credit-center" class="btn outline">
+START REVIEW
+</a>
+
+</div>
+
+
+<div class="credit-card">
+
+<div class="credit-card-icon">📝</div>
+
+<h2
+data-en="DISPUTE DOCUMENT SUPPORT"
+data-fr="DOCUMENTS DE CONTESTATION"
+data-ht="DOKIMAN KONTESTASYON">
+DISPUTE DOCUMENT SUPPORT
+</h2>
+
+<p
+data-en="Organize supporting information for disputes involving credit-report information you believe may be inaccurate or incomplete."
+data-fr="Organisez les informations justificatives pour contester des données de crédit que vous estimez inexactes ou incomplètes."
+data-ht="Òganize enfòmasyon sipò pou konteste enfòmasyon kredi ou kwè ki pa egzak oswa ki pa konplè.">
+Organize supporting information for disputes involving credit-report information you believe may be inaccurate or incomplete.
+</p>
+
+<a href="./form-helper.html" class="btn outline">
+FORM CENTER
+</a>
+
+</div>
+
+
+<div class="credit-card">
+
+<div class="credit-card-icon">💳</div>
+
+<h2
+data-en="ACCOUNT ORGANIZATION"
+data-fr="ORGANISATION DES COMPTES"
+data-ht="ÒGANIZASYON KONT">
+ACCOUNT ORGANIZATION
+</h2>
+
+<p
+data-en="Create a clearer list of credit accounts, balances, payment information and items requiring attention."
+data-fr="Créez une liste claire des comptes de crédit, soldes, paiements et éléments nécessitant votre attention."
+data-ht="Kreye yon lis klè kont kredi, balans, enfòmasyon peman ak sa ki bezwen atansyon.">
+Create a clearer list of credit accounts, balances, payment information and items requiring attention.
+</p>
+
+<a href="#credit-center" class="btn outline">
+ORGANIZE
+</a>
+
+</div>
+
+
+<div class="credit-card">
+
+<div class="credit-card-icon">📅</div>
+
+<h2
+data-en="PAYMENT ORGANIZATION"
+data-fr="ORGANISATION DES PAIEMENTS"
+data-ht="ÒGANIZASYON PEMAN">
+PAYMENT ORGANIZATION
+</h2>
+
+<p
+data-en="Organize payment dates and account information to support consistent account management."
+data-fr="Organisez les dates de paiement et les informations de compte pour une gestion plus régulière."
+data-ht="Òganize dat peman ak enfòmasyon kont pou ede w jere kont yo regilyèman.">
+Organize payment dates and account information to support consistent account management.
+</p>
+
+<a href="#credit-education" class="btn outline">
+LEARN MORE
+</a>
+
+</div>
+
+
+<div class="credit-card">
+
+<div class="credit-card-icon">🧠</div>
+
+<h2
+data-en="CREDIT EDUCATION"
+data-fr="ÉDUCATION CRÉDIT"
+data-ht="EDIKASYON KREDI">
+CREDIT EDUCATION
+</h2>
+
+<p
+data-en="Learn general information about payment history, utilization, credit inquiries, account age and credit-report monitoring."
+data-fr="Découvrez des informations générales sur l'historique des paiements, l'utilisation, les demandes de crédit et le suivi des rapports."
+data-ht="Aprann enfòmasyon jeneral sou istwa peman, itilizasyon kredi, demann kredi, laj kont ak siveyans rapò kredi.">
+Learn general information about payment history, utilization, credit inquiries, account age and credit-report monitoring.
+</p>
+
+<a href="#credit-education" class="btn outline">
+OPEN EDUCATION
+</a>
+
+</div>
+
+
+<div class="credit-card">
+
+<div class="credit-card-icon">🤖</div>
+
+<h2
+data-en="AI DOCUMENT ASSISTANCE"
+data-fr="ASSISTANCE DOCUMENTAIRE IA"
+data-ht="ASISTANS DOKIMAN AI">
+AI DOCUMENT ASSISTANCE
+</h2>
+
+<p
+data-en="Use Maximax AI to help organize general letters, summaries, questions and credit-related document information."
+data-fr="Utilisez Maximax AI pour organiser des lettres, résumés, questions et informations générales liées au crédit."
+data-ht="Sèvi ak Maximax AI pou òganize lèt, rezime, kesyon ak enfòmasyon jeneral sou dokiman kredi.">
+Use Maximax AI to help organize general letters, summaries, questions and credit-related document information.
+</p>
+
+<a href="./ai-center.html" class="btn outline">
+AI CENTER
+</a>
+
+</div>
+
+</section>
+
+
+<section class="credit-center" id="credit-center">
+
+<div class="credit-center-header">
+
+<div class="eyebrow">
+MAXIMAX CREDIT ORGANIZER
+</div>
+
+<h2
+data-en="CREDIT REVIEW WORKSPACE"
+data-fr="ESPACE D'EXAMEN DU CRÉDIT"
+data-ht="ESPAS REVIZYON KREDI">
+CREDIT REVIEW WORKSPACE
+</h2>
+
+<p
+data-en="Use this workspace to organize a credit-report item you want to review. Do not enter Social Security numbers, passwords or complete account numbers."
+data-fr="Utilisez cet espace pour organiser un élément de rapport de crédit à examiner. N'entrez pas de numéro de sécurité sociale, mot de passe ou numéro de compte complet."
+data-ht="Sèvi ak espas sa a pou òganize yon bagay sou rapò kredi ou vle revize. Pa antre nimewo Social Security, modpas oswa nimewo kont konplè.">
+Use this workspace to organize a credit-report item you want to review. Do not enter Social Security numbers, passwords or complete account numbers.
+</p>
+
+</div>
+
+
+<div class="credit-workspace">
+
+<div class="form-row">
+
+<div>
+
+<label for="creditBureau">
+CREDIT BUREAU
+</label>
+
+<select id="creditBureau">
+
+<option value="">
+Select
+</option>
+
+<option value="Experian">
+Experian
+</option>
+
+<option value="Equifax">
+Equifax
+</option>
+
+<option value="TransUnion">
+TransUnion
+</option>
+
+<option value="Multiple">
+Multiple Reports
+</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label for="itemType">
+ITEM TYPE
+</label>
+
+<select id="itemType">
+
+<option value="">
+Select
+</option>
+
+<option value="Account">
+Account
+</option>
+
+<option value="Collection">
+Collection
+</option>
+
+<option value="Late Payment">
+Late Payment
+</option>
+
+<option value="Inquiry">
+Inquiry
+</option>
+
+<option value="Personal Information">
+Personal Information
+</option>
+
+<option value="Public Record">
+Public Record
+</option>
+
+<option value="Other">
+Other
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<div class="form-row">
+
+<div>
+
+<label for="creditorName">
+CREDITOR / COMPANY
+</label>
+
+<input
+type="text"
+id="creditorName"
+placeholder="Company or creditor name">
+
+</div>
+
+
+<div>
+
+<label for="accountReference">
+ACCOUNT REFERENCE
+</label>
+
+<input
+type="text"
+id="accountReference"
+placeholder="Last 4 digits only, if needed"
+maxlength="4"
+inputmode="numeric">
+
+</div>
+
+</div>
+
+
+<label for="creditIssue">
+WHAT DO YOU WANT TO REVIEW?
+</label>
+
+<textarea
+id="creditIssue"
+placeholder="Describe the item and why you want to review it. Do not enter passwords, Social Security numbers or complete account numbers."></textarea>
+
+
+<button
+type="button"
+class="btn primary"
+id="prepareCreditReview">
+PREPARE REVIEW
+</button>
+
+
+<div class="credit-result" id="creditResult">
+
+<h3>
+CREDIT REVIEW READY
+</h3>
+
+<p id="creditResultText"></p>
+
+<div class="hero-buttons">
+
+<a href="./form-helper.html" class="btn primary">
+📝 FORM HELP CENTER
+</a>
+
+<a href="./ai-center.html" class="btn outline">
+🤖 AI CENTER
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="report-section">
+
+<h2
+data-en="CREDIT REPORT CENTER"
+data-fr="CENTRE DES RAPPORTS DE CRÉDIT"
+data-ht="SANT RAPÒ KREDI">
+CREDIT REPORT CENTER
+</h2>
+
+<p
+data-en="The three nationwide consumer reporting companies commonly associated with consumer credit reports are Experian, Equifax and TransUnion."
+data-fr="Les trois principales sociétés nationales de rapports de crédit à la consommation sont Experian, Equifax et TransUnion."
+data-ht="Twa gwo konpayi nasyonal ki asosye ak rapò kredi konsomatè yo se Experian, Equifax ak TransUnion.">
+The three nationwide consumer reporting companies commonly associated with consumer credit reports are Experian, Equifax and TransUnion.
+</p>
+
+
+<div class="report-grid">
+
+<div class="report-box">
+
+<span>📊</span>
+
+<strong>EXPERIAN</strong>
+
+<p>
+Organize items appearing on an Experian credit report.
+</p>
+
+</div>
+
+
+<div class="report-box">
+
+<span>📊</span>
+
+<strong>EQUIFAX</strong>
+
+<p>
+Organize items appearing on an Equifax credit report.
+</p>
+
+</div>
+
+
+<div class="report-box">
+
+<span>📊</span>
+
+<strong>TRANSUNION</strong>
+
+<p>
+Organize items appearing on a TransUnion credit report.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="checklist-section">
+
+<h2
+data-en="CREDIT REVIEW CHECKLIST"
+data-fr="LISTE DE VÉRIFICATION"
+data-ht="LIS REVIZYON KREDI">
+CREDIT REVIEW CHECKLIST
+</h2>
+
+
+<div class="checklist-grid">
+
+<div class="check-item">
+<span>✓</span>
+PERSONAL INFORMATION
+</div>
+
+<div class="check-item">
+<span>✓</span>
+OPEN ACCOUNTS
+</div>
+
+<div class="check-item">
+<span>✓</span>
+CLOSED ACCOUNTS
+</div>
+
+<div class="check-item">
+<span>✓</span>
+PAYMENT HISTORY
+</div>
+
+<div class="check-item">
+<span>✓</span>
+COLLECTION ITEMS
+</div>
+
+<div class="check-item">
+<span>✓</span>
+CREDIT INQUIRIES
+</div>
+
+<div class="check-item">
+<span>✓</span>
+ACCOUNT BALANCES
+</div>
+
+<div class="check-item">
+<span>✓</span>
+POTENTIAL ERRORS
+</div>
+
+</div>
+
+</section>
+
+
+<section class="pathway">
+
+<h2
+data-en="CREDIT IMPROVEMENT PATHWAY"
+data-fr="PARCOURS D'AMÉLIORATION DU CRÉDIT"
+data-ht="CHEMEN AMELYORASYON KREDI">
+CREDIT IMPROVEMENT PATHWAY
+</h2>
+
+
+<div class="pathway-grid">
+
+<div class="pathway-step">
+
+<div class="step-number">1</div>
+
+<strong
+data-en="REVIEW"
+data-fr="EXAMINER"
+data-ht="REVIZE">
+REVIEW
+</strong>
+
+<p
+data-en="Review your available credit-report information."
+data-fr="Examinez les informations disponibles dans vos rapports."
+data-ht="Revize enfòmasyon ki disponib sou rapò kredi ou.">
+Review your available credit-report information.
+</p>
+
+</div>
+
+
+<div class="pathway-step">
+
+<div class="step-number">2</div>
+
+<strong
+data-en="ORGANIZE"
+data-fr="ORGANISER"
+data-ht="ÒGANIZE">
+ORGANIZE
+</strong>
+
+<p
+data-en="Create a clear list of accounts and items needing attention."
+data-fr="Créez une liste claire des comptes et éléments nécessitant votre attention."
+data-ht="Kreye yon lis klè kont ak bagay ki bezwen atansyon.">
+Create a clear list of accounts and items needing attention.
+</p>
+
+</div>
+
+
+<div class="pathway-step">
+
+<div class="step-number">3</div>
+
+<strong
+data-en="ADDRESS"
+data-fr="TRAITER"
+data-ht="JERE">
+ADDRESS
+</strong>
+
+<p
+data-en="Take appropriate steps on inaccurate information or account-management issues."
+data-fr="Prenez les mesures appropriées concernant les informations inexactes ou la gestion des comptes."
+data-ht="Pran etap ki apwopriye pou enfòmasyon ki pa egzak oswa pwoblèm jesyon kont.">
+Take appropriate steps on inaccurate information or account-management issues.
+</p>
+
+</div>
+
+
+<div class="pathway-step">
+
+<div class="step-number">4</div>
+
+<strong
+data-en="MONITOR"
+data-fr="SURVEILLER"
+data-ht="SIVEYE">
+MONITOR
+</strong>
+
+<p
+data-en="Continue monitoring reports, accounts and payment information."
+data-fr="Continuez à surveiller les rapports, comptes et informations de paiement."
+data-ht="Kontinye siveye rapò, kont ak enfòmasyon peman.">
+Continue monitoring reports, accounts and payment information.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="education-section" id="credit-education">
+
+<h2
+data-en="CREDIT EDUCATION CENTER"
+data-fr="CENTRE D'ÉDUCATION AU CRÉDIT"
+data-ht="SANT EDIKASYON KREDI">
+CREDIT EDUCATION CENTER
+</h2>
+
+
+<div class="education-grid">
+
+<div class="education-box">
+
+<strong>📅 PAYMENT HISTORY</strong>
+
+<p>
+Paying accounts as agreed can be an important part of maintaining credit history.
+</p>
+
+</div>
+
+
+<div class="education-box">
+
+<strong>💳 CREDIT UTILIZATION</strong>
+
+<p>
+Credit utilization generally compares revolving balances with available revolving credit limits.
+</p>
+
+</div>
+
+
+<div class="education-box">
+
+<strong>🔎 CREDIT INQUIRIES</strong>
+
+<p>
+Review inquiries on your reports and understand which organizations accessed your credit information.
+</p>
+
+</div>
+
+
+<div class="education-box">
+
+<strong>📈 ACCOUNT HISTORY</strong>
+
+<p>
+Credit reports can contain information about the history and status of credit accounts.
+</p>
+
+</div>
+
+
+<div class="education-box">
+
+<strong>🛡️ IDENTITY INFORMATION</strong>
+
+<p>
+Review personal identifying information appearing on your reports and investigate unfamiliar information.
+</p>
+
+</div>
+
+
+<div class="education-box">
+
+<strong>📊 REGULAR MONITORING</strong>
+
+<p>
+Reviewing your credit reports periodically can help you identify changes or information requiring attention.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="action-box">
+
+<div class="eyebrow">
+MAXIMAX CREDIT CENTER
+</div>
+
+<h2
+data-en="READY TO ORGANIZE YOUR CREDIT FILE?"
+data-fr="PRÊT À ORGANISER VOTRE DOSSIER DE CRÉDIT ?"
+data-ht="OU PARE POU ÒGANIZE DOSYE KREDI OU?">
+READY TO ORGANIZE YOUR CREDIT FILE?
+</h2>
+
+<p
+data-en="Use the Maximax Credit Center to organize credit-report information, supporting documents and general credit-improvement steps."
+data-fr="Utilisez le Maximax Credit Center pour organiser les informations de crédit, les documents justificatifs et les étapes générales d'amélioration."
+data-ht="Sèvi ak Maximax Credit Center pou òganize enfòmasyon rapò kredi, dokiman sipò ak etap jeneral pou amelyore kredi.">
+Use the Maximax Credit Center to organize credit-report information, supporting documents and general credit-improvement steps.
+</p>
+
+
+<div class="hero-buttons">
+
+<a href="tel:+14076405166" class="btn primary">
+📞 (407) 640-5166
+</a>
+
+<a href="./form-helper.html" class="btn outline">
+📝 FORM CENTER
+</a>
+
+<a href="./ai-center.html" class="btn outline">
+🤖 AI CENTER
+</a>
+
+</div>
+
+</section>
+
+
+<div class="notice">
+
+<strong>IMPORTANT:</strong>
+Maximax Multi Services provides general credit education, administrative document organization and related support within the scope permitted by law. No specific credit-score increase, deletion, approval, loan, financing result or time frame is guaranteed. Accurate and verifiable negative information generally cannot be removed merely because it is unfavorable. Consumers may dispute information they believe is inaccurate or incomplete directly with consumer reporting companies and information furnishers. Maximax does not replace legal, financial or licensed professional advice.
+
+</div>
+
+
+<div class="back-home">
+
+<a href="../index.html#services" class="btn outline"
+data-en="← BACK TO ALL SERVICES"
+data-fr="← RETOUR AUX SERVICES"
+data-ht="← RETOUNEN NAN TOUT SÈVIS YO">
+← BACK TO ALL SERVICES
+</a>
+
+</div>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<div class="container">
+
+<div class="footer-logo">
+M
+</div>
+
+<h3>
+MAXIMAX MULTI SERVICES
+</h3>
+
+<p>
+PROFESSIONAL SERVICES • DIGITAL SOLUTIONS • AI ASSISTANCE
+</p>
+
+<p class="hub-link">
+Part of BSS1815 PRO-MAX DMP
+</p>
+
+<p>
+© <span id="currentYear"></span> Maximax Multi Services
+</p>
+
+</div>
+
+</footer>
+
+
+<script src="../javascript.js"></script>
+
+<script>
+(() => {
+  "use strict";
+
+  const bureau =
+    document.getElementById("creditBureau");
+
+  const itemType =
+    document.getElementById("itemType");
+
+  const creditor =
+    document.getElementById("creditorName");
+
+  const accountReference =
+    document.getElementById("accountReference");
+
+  const issue =
+    document.getElementById("creditIssue");
+
+  const prepareButton =
+    document.getElementById("prepareCreditReview");
+
+  const result =
+    document.getElementById("creditResult");
+
+  const resultText =
+    document.getElementById("creditResultText");
+
+
+  if (accountReference) {
+
+    accountReference.addEventListener(
+      "input",
+      () => {
+
+        accountReference.value =
+          accountReference.value
+            .replace(/\D/g,"")
+            .slice(0,4);
+
+      }
+    );
+
+  }
+
+
+  if (prepareButton) {
+
+    prepareButton.addEventListener(
+      "click",
+      () => {
+
+        const bureauValue =
+          bureau.value.trim();
+
+        const typeValue =
+          itemType.value.trim();
+
+        const creditorValue =
+          creditor.value.trim();
+
+        const referenceValue =
+          accountReference.value.trim();
+
+        const issueValue =
+          issue.value.trim();
+
+
+        if (
+          !bureauValue &&
+          !typeValue &&
+          !creditorValue &&
+          !issueValue
+        ) {
+
+          result.classList.add("show");
+
+          resultText.textContent =
+            "Please add information about the credit-report item you want to review.";
+
+          return;
+
+        }
+
+
+        const parts = [];
+
+
+        if (bureauValue) {
+
+          parts.push(
+            "Credit report: " +
+            bureauValue +
+            "."
+          );
+
+        }
+
+
+        if (typeValue) {
+
+          parts.push(
+            "Item type: " +
+            typeValue +
+            "."
+          );
+
+        }
+
+
+        if (creditorValue) {
+
+          parts.push(
+            "Company: " +
+            creditorValue +
+            "."
+          );
+
+        }
+
+
+        if (referenceValue) {
+
+          parts.push(
+            "Account reference ending in " +
+            referenceValue +
+            "."
+          );
+
+        }
+
+
+        if (issueValue) {
+
+          parts.push(
+            "Review note: " +
+            issueValue
+          );
+
+        }
+
+
+        result.classList.add("show");
+
+        resultText.textContent =
+          parts.join(" ") +
+          " Your information is organized for review. Verify all facts against your actual credit report before preparing any dispute or correspondence.";
+
+
+        try {
+
+          localStorage.setItem(
+            "maximaxCreditReview",
+            JSON.stringify({
+              bureau:bureauValue,
+              itemType:typeValue,
+              creditor:creditorValue,
+              accountLast4:referenceValue,
+              issue:issueValue,
+              savedAt:new Date().toISOString()
+            })
+          );
+
+        } catch (error) {
+
+          console.warn(
+            "Credit review could not be saved.",
+            error
+          );
+
+        }
+
+      }
+    );
+
+  }
+
+})();
+</script>
+
+</body>
+</html>
