@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Career Tracker | Maximax Multi Services</title>
+
+<meta name="description" content="Maximax Multi Services Career Tracker — organize job applications, career goals, resumes, interviews and professional development.">
+
+<meta name="theme-color" content="#000000">
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+.career-page{
+  min-height:calc(100vh - 84px);
+  padding:70px 0 90px;
+}
+
+.career-hero{
+  padding:50px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:30px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.23),transparent 45%),
+    linear-gradient(145deg,#000,#120600,#000);
+  box-shadow:var(--glow);
+}
+
+.career-icon{
+  font-size:4.3rem;
+}
+
+.career-hero h1{
+  margin-top:18px;
+  color:var(--orange);
+  font-size:clamp(2.8rem,8vw,5.8rem);
+  line-height:.9;
+  text-transform:uppercase;
+}
+
+.career-hero p{
+  max-width:900px;
+  margin:20px auto 0;
+  line-height:1.75;
+}
+
+.career-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:38px;
+}
+
+.career-card{
+  min-height:235px;
+  display:flex;
+  flex-direction:column;
+  padding:25px;
+  border:1px solid var(--border);
+  border-radius:21px;
+  background:
+    radial-gradient(circle at top right,rgba(255,121,0,.12),transparent 42%),
+    #050200;
+  transition:.25s;
+}
+
+.career-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--orange);
+  box-shadow:var(--glow);
+}
+
+.career-card-icon{
+  font-size:2.5rem;
+}
+
+.career-card h2{
+  margin-top:15px;
+  color:var(--orange);
+  font-size:1rem;
+  text-transform:uppercase;
+}
+
+.career-card p{
+  margin-top:10px;
+  font-size:.78rem;
+  line-height:1.65;
+}
+
+.career-card .btn{
+  margin-top:auto;
+}
+
+.tracker-center{
+  margin-top:40px;
+  padding:38px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:28px;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.16),transparent 45%),
+    #050200;
+  box-shadow:var(--glow);
+}
+
+.tracker-header{
+  text-align:center;
+}
+
+.tracker-header h2{
+  margin-top:10px;
+  color:var(--orange);
+  font-size:clamp(2rem,6vw,4rem);
+  text-transform:uppercase;
+}
+
+.tracker-header p{
+  max-width:820px;
+  margin:14px auto 0;
+  line-height:1.7;
+}
+
+.tracker-form{
+  max-width:1000px;
+  margin:30px auto 0;
+  padding:22px;
+  border:1px solid var(--border);
+  border-radius:22px;
+  background:#000;
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.tracker-form label{
+  display:block;
+  margin-bottom:8px;
+  color:var(--orange);
+  font-size:.70rem;
+  font-weight:1000;
+  text-transform:uppercase;
+}
+
+.tracker-form input,
+.tracker-form select,
+.tracker-form textarea{
+  width:100%;
+  margin-bottom:15px;
+  padding:14px 15px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  outline:none;
+  color:var(--text);
+  background:#050200;
+}
+
+.tracker-form input:focus,
+.tracker-form select:focus,
+.tracker-form textarea:focus{
+  border-color:var(--orange);
+  box-shadow:0 0 15px rgba(255,121,0,.12);
+}
+
+.tracker-form input::placeholder,
+.tracker-form textarea::placeholder{
+  color:var(--text-soft);
+}
+
+.tracker-form option{
+  color:var(--text);
+  background:#000;
+}
+
+.tracker-form textarea{
+  min-height:110px;
+  resize:vertical;
+}
+
+.saved-jobs{
+  margin-top:30px;
+}
+
+.saved-jobs h3{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.empty-message{
+  margin-top:18px;
+  padding:20px;
+  border:1px dashed var(--border);
+  border-radius:15px;
+  text-align:center;
+  font-size:.76rem;
+  background:#050200;
+}
+
+.job-list{
+  display:grid;
+  gap:13px;
+  margin-top:18px;
+}
+
+.job-entry{
+  padding:20px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:#050200;
+}
+
+.job-entry-top{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.job-entry h4{
+  color:var(--orange);
+  text-transform:uppercase;
+}
+
+.job-entry .company{
+  margin-top:5px;
+  font-size:.76rem;
+  font-weight:800;
+}
+
+.job-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
+}
+
+.job-tag{
+  padding:6px 9px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  color:var(--orange);
+  background:#000;
+  font-size:.62rem;
+  font-weight:900;
+}
+
+.job-entry p{
+  margin-top:12px;
+  font-size:.74rem;
+  line-height:1.6;
+}
+
+.delete-job{
+  padding:8px 10px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  color:var(--orange);
+  background:#000;
+  cursor:pointer;
+  font-weight:900;
+}
+
+.delete-job:hover{
+  border-color:var(--orange);
+}
+
+.career-tools{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.career-tools h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.career-tools > p{
+  max-width:820px;
+  margin:13px auto 0;
+  text-align:center;
+  line-height:1.7;
+}
+
+.tool-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:13px;
+  margin-top:25px;
+}
+
+.tool-box{
+  min-height:155px;
+  padding:20px 15px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:#000;
+  text-align:center;
+}
+
+.tool-box span{
+  display:block;
+  font-size:2rem;
+}
+
+.tool-box strong{
+  display:block;
+  margin-top:10px;
+  color:var(--orange);
+  font-size:.72rem;
+}
+
+.tool-box p{
+  margin-top:8px;
+  font-size:.68rem;
+  line-height:1.55;
+}
+
+.pathway{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.pathway h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.pathway-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:13px;
+  margin-top:25px;
+}
+
+.pathway-step{
+  padding:22px 15px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:#000;
+  text-align:center;
+}
+
+.step-number{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  margin:0 auto 12px;
+  border-radius:50%;
+  color:#000;
+  background:var(--orange);
+  font-weight:1000;
+}
+
+.pathway-step strong{
+  display:block;
+  color:var(--orange);
+  font-size:.74rem;
+}
+
+.pathway-step p{
+  margin-top:8px;
+  font-size:.69rem;
+  line-height:1.55;
+}
+
+.action-box{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  text-align:center;
+  background:#050200;
+}
+
+.action-box h2{
+  margin-top:10px;
+  color:var(--orange);
+  text-transform:uppercase;
+}
+
+.action-box p{
+  max-width:780px;
+  margin:14px auto 0;
+  line-height:1.7;
+}
+
+.notice{
+  margin-top:30px;
+  padding:18px;
+  border-left:4px solid var(--orange);
+  border-radius:10px;
+  background:#0b0400;
+  font-size:.75rem;
+  line-height:1.65;
+}
+
+.back-home{
+  margin-top:30px;
+  text-align:center;
+}
+
+@media(max-width:1000px){
+  .career-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .tool-grid,
+  .pathway-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:700px){
+  .career-grid,
+  .tool-grid,
+  .pathway-grid,
+  .form-row{
+    grid-template-columns:1fr;
+  }
+
+  .job-entry-top{
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+MAXIMAX MULTI SERVICES • CAREER TRACKER
+</div>
+
+<header>
+
+<div class="container header-inner">
+
+<a href="../index.html" class="brand">
+
+<div class="brand-mark">M</div>
+
+<div class="brand-text">
+<strong>MAXIMAX</strong>
+<span>MULTI SERVICES</span>
+</div>
+
+</a>
+
+<nav id="mainNav">
+
+<a href="../index.html">HOME</a>
+<a href="../index.html#services">SERVICES</a>
+<a href="#tracker">TRACKER</a>
+<a href="./ai-center.html">AI CENTER</a>
+<a href="../index.html#contact">CONTACT</a>
+
+</nav>
+
+<div class="header-actions">
+
+<div class="language-switch">
+
+<button class="lang-btn active" data-lang="en">ENG</button>
+<button class="lang-btn" data-lang="fr">FRA</button>
+<button class="lang-btn" data-lang="ht">KRE</button>
+
+</div>
+
+<button id="menuToggle" class="menu-toggle">☰</button>
+
+</div>
+
+</div>
+
+</header>
+
+
+<main class="career-page">
+
+<div class="container">
+
+
+<section class="career-hero">
+
+<div class="career-icon">
+🎯
+</div>
+
+<div class="eyebrow">
+MAXIMAX CAREER CENTER
+</div>
+
+<h1
+data-en="CAREER TRACKER"
+data-fr="SUIVI DE CARRIÈRE"
+data-ht="SWIVI KARYÈ">
+CAREER TRACKER
+</h1>
+
+<p
+data-en="Organize your job search, track applications, prepare your resume, manage interviews and build a clearer path toward your next professional opportunity."
+data-fr="Organisez votre recherche d'emploi, suivez vos candidatures, préparez votre CV, gérez vos entretiens et construisez un parcours professionnel plus clair."
+data-ht="Òganize rechèch travay ou, swiv aplikasyon yo, prepare rezime ou, jere entèvyou epi bati yon chemen pi klè pou pwochen opòtinite pwofesyonèl ou.">
+Organize your job search, track applications, prepare your resume, manage interviews and build a clearer path toward your next professional opportunity.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#tracker" class="btn primary"
+data-en="OPEN CAREER TRACKER"
+data-fr="OUVRIR LE SUIVI"
+data-ht="LOUVRI CAREER TRACKER">
+OPEN CAREER TRACKER
+</a>
+
+<a href="#career-tools" class="btn outline"
+data-en="CAREER TOOLS"
+data-fr="OUTILS CARRIÈRE"
+data-ht="ZOUTI KARYÈ">
+CAREER TOOLS
+</a>
+
+</div>
+
+</section>
+
+
+<section class="career-grid">
+
+
+<div class="career-card">
+
+<div class="career-card-icon">📄</div>
+
+<h2
+data-en="RESUME SUPPORT"
+data-fr="ASSISTANCE CV"
+data-ht="ASISTANS REZIME">
+RESUME SUPPORT
+</h2>
+
+<p
+data-en="Organize your work history, education, skills and professional experience into a clear resume."
+data-fr="Organisez votre expérience professionnelle, votre formation et vos compétences dans un CV clair."
+data-ht="Òganize eksperyans travay, edikasyon ak konpetans ou nan yon rezime ki klè.">
+Organize your work history, education, skills and professional experience into a clear resume.
+</p>
+
+<a href="./ai-center.html" class="btn outline">
+AI RESUME HELP
+</a>
+
+</div>
+
+
+<div class="career-card">
+
+<div class="career-card-icon">🔎</div>
+
+<h2
+data-en="JOB SEARCH"
+data-fr="RECHERCHE D'EMPLOI"
+data-ht="RECHÈCH TRAVAY">
+JOB SEARCH
+</h2>
+
+<p
+data-en="Create a structured job-search plan and keep important opportunities organized."
+data-fr="Créez un plan structuré de recherche d'emploi et organisez les opportunités importantes."
+data-ht="Kreye yon plan rechèch travay epi kenbe opòtinite enpòtan yo òganize.">
+Create a structured job-search plan and keep important opportunities organized.
+</p>
+
+<a href="#tracker" class="btn outline">
+TRACK APPLICATIONS
+</a>
+
+</div>
+
+
+<div class="career-card">
+
+<div class="career-card-icon">🎤</div>
+
+<h2
+data-en="INTERVIEW PREPARATION"
+data-fr="PRÉPARATION ENTRETIEN"
+data-ht="PREPARASYON ENTÈVYOU">
+INTERVIEW PREPARATION
+</h2>
+
+<p
+data-en="Prepare questions, talking points and practice responses before an interview."
+data-fr="Préparez vos questions, points clés et réponses avant un entretien."
+data-ht="Prepare kesyon, pwen enpòtan ak repons anvan yon entèvyou.">
+Prepare questions, talking points and practice responses before an interview.
+</p>
+
+<a href="./ai-center.html" class="btn outline">
+PRACTICE WITH AI
+</a>
+
+</div>
+
+
+<div class="career-card">
+
+<div class="career-card-icon">✉️</div>
+
+<h2
+data-en="COVER LETTER"
+data-fr="LETTRE DE MOTIVATION"
+data-ht="LÈT MOTIVASYON">
+COVER LETTER
+</h2>
+
+<p
+data-en="Create organized cover-letter content tailored to a job opportunity."
+data-fr="Créez une lettre de motivation organisée et adaptée à une offre d'emploi."
+data-ht="Kreye yon lèt motivasyon òganize ki adapte ak yon opòtinite travay.">
+Create organized cover-letter content tailored to a job opportunity.
+</p>
+
+<a href="./ai-center.html" class="btn outline">
+AI WRITER
+</a>
+
+</div>
+
+
+<div class="career-card">
+
+<div class="career-card-icon">🧠</div>
+
+<h2
+data-en="SKILLS DEVELOPMENT"
+data-fr="DÉVELOPPEMENT DES COMPÉTENCES"
+data-ht="DEVLOPMAN KONPETANS">
+SKILLS DEVELOPMENT
+</h2>
+
+<p
+data-en="Identify skills to strengthen and organize professional-development goals."
+data-fr="Identifiez les compétences à renforcer et organisez vos objectifs de développement professionnel."
+data-ht="Idantifye konpetans pou ranfòse epi òganize objektif devlopman pwofesyonèl ou.">
+Identify skills to strengthen and organize professional-development goals.
+</p>
+
+<a href="./ai-center.html" class="btn outline">
+AI CAREER PLAN
+</a>
+
+</div>
+
+
+<div class="career-card">
+
+<div class="career-card-icon">📊</div>
+
+<h2
+data-en="APPLICATION TRACKER"
+data-fr="SUIVI DES CANDIDATURES"
+data-ht="SWIV APLIKASYON">
+APPLICATION TRACKER
+</h2>
+
+<p
+data-en="Save job applications and keep company, position, status and follow-up information together."
+data-fr="Enregistrez vos candidatures et gardez ensemble l'entreprise, le poste, le statut et le suivi."
+data-ht="Sove aplikasyon travay yo epi kenbe konpayi, pozisyon, estati ak swivi yo ansanm.">
+Save job applications and keep company, position, status and follow-up information together.
+</p>
+
+<a href="#tracker" class="btn outline">
+OPEN TRACKER
+</a>
+
+</div>
+
+</section>
+
+
+<section class="tracker-center" id="tracker">
+
+<div class="tracker-header">
+
+<div class="eyebrow">
+MAXIMAX DIGITAL CAREER TOOL
+</div>
+
+<h2
+data-en="JOB APPLICATION TRACKER"
+data-fr="SUIVI DES CANDIDATURES"
+data-ht="SWIV APLIKASYON TRAVAY">
+JOB APPLICATION TRACKER
+</h2>
+
+<p
+data-en="Add a job opportunity below. Your saved applications are stored on this device."
+data-fr="Ajoutez une offre d'emploi ci-dessous. Vos candidatures sont enregistrées sur cet appareil."
+data-ht="Ajoute yon opòtinite travay anba a. Aplikasyon ou sove yo rete sou aparèy sa a.">
+Add a job opportunity below. Your saved applications are stored on this device.
+</p>
+
+</div>
+
+
+<div class="tracker-form">
+
+<div class="form-row">
+
+<div>
+
+<label for="companyName">
+COMPANY
+</label>
+
+<input
+type="text"
+id="companyName"
+placeholder="Company name">
+
+</div>
+
+
+<div>
+
+<label for="jobTitle">
+JOB TITLE
+</label>
+
+<input
+type="text"
+id="jobTitle"
+placeholder="Position">
+
+</div>
+
+</div>
+
+
+<div class="form-row">
+
+<div>
+
+<label for="jobStatus">
+APPLICATION STATUS
+</label>
+
+<select id="jobStatus">
+
+<option value="Interested">
+Interested
+</option>
+
+<option value="Applied">
+Applied
+</option>
+
+<option value="Interview">
+Interview
+</option>
+
+<option value="Follow-Up">
+Follow-Up
+</option>
+
+<option value="Offer">
+Offer
+</option>
+
+<option value="Closed">
+Closed
+</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label for="applicationDate">
+APPLICATION DATE
+</label>
+
+<input
+type="date"
+id="applicationDate">
+
+</div>
+
+</div>
+
+
+<div class="form-row">
+
+<div>
+
+<label for="jobLocation">
+LOCATION
+</label>
+
+<input
+type="text"
+id="jobLocation"
+placeholder="City / Remote">
+
+</div>
+
+
+<div>
+
+<label for="jobContact">
+CONTACT
+</label>
+
+<input
+type="text"
+id="jobContact"
+placeholder="Recruiter / Email / Phone">
+
+</div>
+
+</div>
+
+
+<label for="jobNotes">
+NOTES
+</label>
+
+<textarea
+id="jobNotes"
+placeholder="Interview date, follow-up information, salary information, requirements or other notes..."></textarea>
+
+
+<button
+type="button"
+class="btn primary"
+id="saveJob">
+SAVE APPLICATION
+</button>
+
+
+<div class="saved-jobs">
+
+<h3
+data-en="SAVED APPLICATIONS"
+data-fr="CANDIDATURES ENREGISTRÉES"
+data-ht="APLIKASYON SOVE">
+SAVED APPLICATIONS
+</h3>
+
+<div id="emptyJobs" class="empty-message">
+No applications saved yet.
+</div>
+
+<div id="jobList" class="job-list"></div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="career-tools" id="career-tools">
+
+<h2
+data-en="CAREER TOOLKIT"
+data-fr="OUTILS DE CARRIÈRE"
+data-ht="ZOUTI KARYÈ">
+CAREER TOOLKIT
+</h2>
+
+<p
+data-en="Use these tools to organize the main parts of your professional journey."
+data-fr="Utilisez ces outils pour organiser les principales étapes de votre parcours professionnel."
+data-ht="Sèvi ak zouti sa yo pou òganize pati prensipal nan chemen pwofesyonèl ou.">
+Use these tools to organize the main parts of your professional journey.
+</p>
+
+
+<div class="tool-grid">
+
+<div class="tool-box">
+<span>📄</span>
+<strong>RESUME</strong>
+<p>Organize skills, education and work history.</p>
+</div>
+
+<div class="tool-box">
+<span>✉️</span>
+<strong>COVER LETTER</strong>
+<p>Prepare job-specific professional letters.</p>
+</div>
+
+<div class="tool-box">
+<span>🎤</span>
+<strong>INTERVIEW</strong>
+<p>Prepare questions and practice responses.</p>
+</div>
+
+<div class="tool-box">
+<span>📞</span>
+<strong>FOLLOW-UP</strong>
+<p>Track recruiter contacts and next steps.</p>
+</div>
+
+<div class="tool-box">
+<span>🎯</span>
+<strong>CAREER GOALS</strong>
+<p>Define short-term and long-term goals.</p>
+</div>
+
+<div class="tool-box">
+<span>🧠</span>
+<strong>SKILLS</strong>
+<p>Track skills you want to strengthen.</p>
+</div>
+
+<div class="tool-box">
+<span>🤖</span>
+<strong>AI ASSISTANT</strong>
+<p>Use AI for general career-writing assistance.</p>
+</div>
+
+<div class="tool-box">
+<span>🌎</span>
+<strong>TRANSLATION</strong>
+<p>Prepare multilingual general career content.</p>
+</div>
+
+</div>
+
+<div class="hero-buttons">
+
+<a href="./ai-center.html" class="btn primary">
+🤖 OPEN AI CENTER
+</a>
+
+<a href="./translation-ai.html" class="btn outline">
+🌎 AI TRANSLATION
+</a>
+
+</div>
+
+</section>
+
+
+<section class="pathway">
+
+<h2
+data-en="CAREER PATHWAY"
+data-fr="PARCOURS PROFESSIONNEL"
+data-ht="CHEMEN KARYÈ">
+CAREER PATHWAY
+</h2>
+
+
+<div class="pathway-grid">
+
+<div class="pathway-step">
+
+<div class="step-number">1</div>
+
+<strong
+data-en="PREPARE"
+data-fr="PRÉPARER"
+data-ht="PREPARE">
+PREPARE
+</strong>
+
+<p
+data-en="Build your resume and organize your professional information."
+data-fr="Préparez votre CV et organisez vos informations professionnelles."
+data-ht="Prepare rezime ou epi òganize enfòmasyon pwofesyonèl ou.">
+Build your resume and organize your professional information.
+</p>
+
+</div>
+
+
+<div class="pathway-step">
+
+<div class="step-number">2</div>
+
+<strong
+data-en="SEARCH"
+data-fr="RECHERCHER"
+data-ht="CHÈCHE">
+SEARCH
+</strong>
+
+<p
+data-en="Identify opportunities that match your goals."
+data-fr="Identifiez les opportunités correspondant à vos objectifs."
+data-ht="Idantifye opòtinite ki mache ak objektif ou.">
+Identify opportunities that match your goals.
+</p>
+
+</div>
+
+
+<div class="pathway-step">
+
+<div class="step-number">3</div>
+
+<strong
+data-en="APPLY"
+data-fr="POSTULER"
+data-ht="APLIKE">
+APPLY
+</strong>
+
+<p
+data-en="Submit applications and track your progress."
+data-fr="Soumettez vos candidatures et suivez votre progression."
+data-ht="Soumèt aplikasyon epi swiv pwogrè ou.">
+Submit applications and track your progress.
+</p>
+
+</div>
+
+
+<div class="pathway-step">
+
+<div class="step-number">4</div>
+
+<strong
+data-en="FOLLOW UP"
+data-fr="SUIVRE"
+data-ht="FÈ SWIVI">
+FOLLOW UP
+</strong>
+
+<p
+data-en="Track interviews, communications and next steps."
+data-fr="Suivez les entretiens, communications et prochaines étapes."
+data-ht="Swiv entèvyou, kominikasyon ak pwochen etap yo.">
+Track interviews, communications and next steps.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="action-box">
+
+<div class="eyebrow">
+MAXIMAX CAREER CENTER
+</div>
+
+<h2
+data-en="READY FOR YOUR NEXT OPPORTUNITY?"
+data-fr="PRÊT POUR VOTRE PROCHAINE OPPORTUNITÉ ?"
+data-ht="OU PARE POU PWOCHEN OPÒTINITE OU?">
+READY FOR YOUR NEXT OPPORTUNITY?
+</h2>
+
+<p
+data-en="Use Maximax Career Tracker and AI tools to keep your professional information organized."
+data-fr="Utilisez Maximax Career Tracker et les outils IA pour garder vos informations professionnelles organisées."
+data-ht="Sèvi ak Maximax Career Tracker ak zouti AI yo pou kenbe enfòmasyon pwofesyonèl ou òganize.">
+Use Maximax Career Tracker and AI tools to keep your professional information organized.
+</p>
+
+<div class="hero-buttons">
+
+<a href="tel:+14076405166" class="btn primary">
+📞 (407) 640-5166
+</a>
+
+<a href="./ai-center.html" class="btn outline">
+🤖 AI CENTER
+</a>
+
+<a href="../index.html#contact" class="btn outline">
+CONTACT
+</a>
+
+</div>
+
+</section>
+
+
+<div class="notice">
+
+<strong>IMPORTANT:</strong>
+Maximax Career Tracker is an organizational and informational tool. It does not guarantee employment, interviews, job offers, wages or hiring outcomes. Users should review application materials before submitting them to an employer.
+
+</div>
+
+
+<div class="back-home">
+
+<a href="../index.html#services" class="btn outline"
+data-en="← BACK TO ALL SERVICES"
+data-fr="← RETOUR AUX SERVICES"
+data-ht="← RETOUNEN NAN TOUT SÈVIS YO">
+← BACK TO ALL SERVICES
+</a>
+
+</div>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<div class="container">
+
+<div class="footer-logo">M</div>
+
+<h3>MAXIMAX MULTI SERVICES</h3>
+
+<p>
+PROFESSIONAL SERVICES • DIGITAL SOLUTIONS • AI ASSISTANCE
+</p>
+
+<p class="hub-link">
+Part of BSS1815 PRO-MAX DMP
+</p>
+
+<p>
+© <span id="currentYear"></span> Maximax Multi Services
+</p>
+
+</div>
+
+</footer>
+
+
+<script src="../javascript.js"></script>
+
+<script>
+(() => {
+  "use strict";
+
+  const companyInput =
+    document.getElementById("companyName");
+
+  const titleInput =
+    document.getElementById("jobTitle");
+
+  const statusInput =
+    document.getElementById("jobStatus");
+
+  const dateInput =
+    document.getElementById("applicationDate");
+
+  const locationInput =
+    document.getElementById("jobLocation");
+
+  const contactInput =
+    document.getElementById("jobContact");
+
+  const notesInput =
+    document.getElementById("jobNotes");
+
+  const saveButton =
+    document.getElementById("saveJob");
+
+  const jobList =
+    document.getElementById("jobList");
+
+  const emptyJobs =
+    document.getElementById("emptyJobs");
+
+  const STORAGE_KEY =
+    "maximaxCareerApplications";
+
+  let jobs = [];
+
+  function escapeHTML(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function loadJobs() {
+    try {
+      const saved =
+        localStorage.getItem(STORAGE_KEY);
+
+      jobs = saved
+        ? JSON.parse(saved)
+        : [];
+
+      if (!Array.isArray(jobs)) {
+        jobs = [];
+      }
+
+    } catch (error) {
+      jobs = [];
+    }
+
+    renderJobs();
+  }
+
+  function saveJobs() {
+    try {
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(jobs)
+      );
+    } catch (error) {
+      console.warn(
+        "Career applications could not be saved.",
+        error
+      );
+    }
+  }
+
+  function renderJobs() {
+    if (!jobList || !emptyJobs) {
+      return;
+    }
+
+    jobList.innerHTML = "";
+
+    if (jobs.length === 0) {
+      emptyJobs.style.display = "block";
+      return;
+    }
+
+    emptyJobs.style.display = "none";
+
+    jobs.forEach((job, index) => {
+
+      const entry =
+        document.createElement("div");
+
+      entry.className = "job-entry";
+
+      entry.innerHTML = `
+        <div class="job-entry-top">
+
+          <div>
+            <h4>${escapeHTML(job.title)}</h4>
+            <div class="company">
+              ${escapeHTML(job.company)}
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="delete-job"
+            data-index="${index}">
+            DELETE
+          </button>
+
+        </div>
+
+        <div class="job-meta">
+
+          <span class="job-tag">
+            ${escapeHTML(job.status)}
+          </span>
+
+          ${
+            job.date
+            ? `<span class="job-tag">${escapeHTML(job.date)}</span>`
+            : ""
+          }
+
+          ${
+            job.location
+            ? `<span class="job-tag">${escapeHTML(job.location)}</span>`
+            : ""
+          }
+
+        </div>
+
+        ${
+          job.contact
+          ? `<p><strong>CONTACT:</strong> ${escapeHTML(job.contact)}</p>`
+          : ""
+        }
+
+        ${
+          job.notes
+          ? `<p><strong>NOTES:</strong> ${escapeHTML(job.notes)}</p>`
+          : ""
+        }
+      `;
+
+      jobList.appendChild(entry);
+
+    });
+
+    document
+      .querySelectorAll(".delete-job")
+      .forEach((button) => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            const index =
+              Number(button.dataset.index);
+
+            if (
+              Number.isInteger(index) &&
+              index >= 0 &&
+              index < jobs.length
+            ) {
+              jobs.splice(index, 1);
+
+              saveJobs();
+              renderJobs();
+            }
+
+          }
+        );
+
+      });
+  }
+
+  function clearForm() {
+    companyInput.value = "";
+    titleInput.value = "";
+    statusInput.value = "Interested";
+    dateInput.value = "";
+    locationInput.value = "";
+    contactInput.value = "";
+    notesInput.value = "";
+  }
+
+  if (saveButton) {
+
+    saveButton.addEventListener(
+      "click",
+      () => {
+
+        const company =
+          companyInput.value.trim();
+
+        const title =
+          titleInput.value.trim();
+
+        if (!company || !title) {
+          alert(
+            "Please enter the company name and job title."
+          );
+          return;
+        }
+
+        const newJob = {
+          company: company,
+          title: title,
+          status: statusInput.value,
+          date: dateInput.value,
+          location: locationInput.value.trim(),
+          contact: contactInput.value.trim(),
+          notes: notesInput.value.trim(),
+          createdAt: new Date().toISOString()
+        };
+
+        jobs.unshift(newJob);
+
+        saveJobs();
+        renderJobs();
+        clearForm();
+
+      }
+    );
+
+  }
+
+  loadJobs();
+
+})();
+</script>
+
+</body>
+</html>
