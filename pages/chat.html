@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chat 24/7 | Maximax Multi Services</title>
+
+<meta name="description" content="Maximax Multi Services Chat 24/7 — digital assistance center for services, forms, documents, AI tools and general support.">
+
+<meta name="theme-color" content="#000000">
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+.chat-page{
+  min-height:calc(100vh - 84px);
+  padding:70px 0 90px;
+}
+
+.chat-hero{
+  padding:50px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:30px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.24),transparent 45%),
+    linear-gradient(145deg,#000,#120600,#000);
+  box-shadow:var(--glow);
+}
+
+.chat-icon{
+  font-size:4.4rem;
+}
+
+.chat-hero h1{
+  margin-top:18px;
+  color:var(--orange);
+  font-size:clamp(2.8rem,8vw,5.8rem);
+  line-height:.9;
+  text-transform:uppercase;
+}
+
+.chat-hero p{
+  max-width:900px;
+  margin:20px auto 0;
+  line-height:1.75;
+}
+
+.status-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:20px;
+  padding:8px 15px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  color:var(--orange);
+  background:#000;
+  font-size:.67rem;
+  font-weight:1000;
+}
+
+.status-dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--orange);
+  box-shadow:0 0 12px var(--orange);
+}
+
+.chat-center{
+  margin-top:40px;
+  padding:25px;
+  border:1px solid var(--border-strong);
+  border-radius:28px;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.15),transparent 42%),
+    #050200;
+  box-shadow:var(--glow);
+}
+
+.chat-window{
+  max-width:1000px;
+  margin:auto;
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-radius:22px;
+  background:#000;
+}
+
+.chat-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  padding:18px;
+  border-bottom:1px solid var(--border);
+  background:#050200;
+}
+
+.chat-brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.chat-logo{
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  color:#000;
+  background:var(--orange);
+  font-weight:1000;
+}
+
+.chat-brand strong{
+  display:block;
+  color:var(--orange);
+}
+
+.chat-brand span{
+  display:block;
+  margin-top:3px;
+  color:var(--text-soft);
+  font-size:.65rem;
+}
+
+.chat-messages{
+  height:430px;
+  overflow-y:auto;
+  padding:22px;
+  scroll-behavior:smooth;
+}
+
+.message{
+  max-width:80%;
+  margin-bottom:14px;
+  padding:14px 16px;
+  border-radius:17px;
+  font-size:.78rem;
+  line-height:1.6;
+  word-wrap:break-word;
+}
+
+.message.bot{
+  border:1px solid var(--border);
+  border-bottom-left-radius:5px;
+  background:#0b0400;
+}
+
+.message.user{
+  margin-left:auto;
+  border-bottom-right-radius:5px;
+  color:#000;
+  background:var(--orange);
+  font-weight:700;
+}
+
+.message-time{
+  display:block;
+  margin-top:6px;
+  opacity:.65;
+  font-size:.58rem;
+}
+
+.typing{
+  display:none;
+  width:max-content;
+  margin:0 0 14px 22px;
+  padding:11px 15px;
+  border:1px solid var(--border);
+  border-radius:15px;
+  color:var(--orange);
+  background:#0b0400;
+  font-size:.68rem;
+}
+
+.typing.show{
+  display:block;
+}
+
+.quick-options{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:15px 18px;
+  border-top:1px solid var(--border);
+  background:#050200;
+}
+
+.quick-chat{
+  padding:9px 12px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  color:var(--orange);
+  background:#000;
+  cursor:pointer;
+  font-size:.65rem;
+  font-weight:900;
+}
+
+.quick-chat:hover{
+  border-color:var(--orange);
+  box-shadow:0 0 12px rgba(255,121,0,.18);
+}
+
+.chat-input-area{
+  display:flex;
+  gap:10px;
+  padding:16px;
+  border-top:1px solid var(--border);
+  background:#050200;
+}
+
+.chat-input-area textarea{
+  flex:1;
+  min-height:55px;
+  max-height:140px;
+  resize:vertical;
+  padding:15px;
+  border:1px solid var(--border);
+  border-radius:15px;
+  outline:none;
+  color:var(--text);
+  background:#000;
+}
+
+.chat-input-area textarea:focus{
+  border-color:var(--orange);
+  box-shadow:0 0 15px rgba(255,121,0,.12);
+}
+
+.chat-input-area textarea::placeholder{
+  color:var(--text-soft);
+}
+
+.send-button{
+  min-width:110px;
+  border:0;
+  border-radius:15px;
+  color:#000;
+  background:var(--orange);
+  cursor:pointer;
+  font-weight:1000;
+}
+
+.send-button:hover{
+  background:var(--apricot);
+}
+
+.support-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-top:38px;
+}
+
+.support-card{
+  min-height:190px;
+  display:flex;
+  flex-direction:column;
+  padding:22px;
+  border:1px solid var(--border);
+  border-radius:19px;
+  background:
+    radial-gradient(circle at top right,rgba(255,121,0,.12),transparent 40%),
+    #050200;
+  transition:.25s;
+}
+
+.support-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--orange);
+}
+
+.support-card span{
+  font-size:2.2rem;
+}
+
+.support-card h2{
+  margin-top:12px;
+  color:var(--orange);
+  font-size:.88rem;
+  text-transform:uppercase;
+}
+
+.support-card p{
+  margin-top:8px;
+  font-size:.72rem;
+  line-height:1.6;
+}
+
+.support-card .card-link{
+  margin-top:auto;
+}
+
+.contact-center{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+  text-align:center;
+}
+
+.contact-center h2{
+  color:var(--orange);
+  text-transform:uppercase;
+}
+
+.contact-center p{
+  max-width:800px;
+  margin:13px auto 0;
+  line-height:1.7;
+}
+
+.notice{
+  margin-top:30px;
+  padding:18px;
+  border-left:4px solid var(--orange);
+  border-radius:10px;
+  background:#0b0400;
+  font-size:.75rem;
+  line-height:1.65;
+}
+
+.back-home{
+  margin-top:30px;
+  text-align:center;
+}
+
+@media(max-width:1000px){
+  .support-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:700px){
+  .support-grid{
+    grid-template-columns:1fr;
+  }
+
+  .chat-header{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .chat-messages{
+    height:390px;
+    padding:15px;
+  }
+
+  .message{
+    max-width:92%;
+  }
+
+  .chat-input-area{
+    flex-direction:column;
+  }
+
+  .send-button{
+    min-height:50px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+MAXIMAX MULTI SERVICES • CHAT 24/7
+</div>
+
+<header>
+
+<div class="container header-inner">
+
+<a href="../index.html" class="brand">
+
+<div class="brand-mark">M</div>
+
+<div class="brand-text">
+<strong>MAXIMAX</strong>
+<span>MULTI SERVICES</span>
+</div>
+
+</a>
+
+<nav id="mainNav">
+
+<a href="../index.html">HOME</a>
+<a href="../index.html#services">SERVICES</a>
+<a href="#chat-center">CHAT 24/7</a>
+<a href="./ai-center.html">AI CENTER</a>
+<a href="../index.html#contact">CONTACT</a>
+
+</nav>
+
+<div class="header-actions">
+
+<div class="language-switch">
+
+<button class="lang-btn active" data-lang="en">ENG</button>
+<button class="lang-btn" data-lang="fr">FRA</button>
+<button class="lang-btn" data-lang="ht">KRE</button>
+
+</div>
+
+<button id="menuToggle" class="menu-toggle">☰</button>
+
+</div>
+
+</div>
+
+</header>
+
+
+<main class="chat-page">
+
+<div class="container">
+
+
+<section class="chat-hero">
+
+<div class="chat-icon">
+💬
+</div>
+
+<div class="eyebrow">
+MAXIMAX DIGITAL SUPPORT
+</div>
+
+<h1
+data-en="CHAT 24/7"
+data-fr="CHAT 24/7"
+data-ht="CHAT 24/7">
+CHAT 24/7
+</h1>
+
+<p
+data-en="Your digital entry point for Maximax services, forms, documents, AI tools and general service navigation."
+data-fr="Votre point d'accès numérique aux services Maximax, formulaires, documents, outils IA et orientation générale."
+data-ht="Pòt dijital ou pou sèvis Maximax, fòm, dokiman, zouti AI ak navigasyon sèvis jeneral.">
+Your digital entry point for Maximax services, forms, documents, AI tools and general service navigation.
+</p>
+
+<div class="status-pill">
+<span class="status-dot"></span>
+DIGITAL CENTER READY
+</div>
+
+<div class="hero-buttons">
+
+<a href="#chat-center" class="btn primary"
+data-en="START CHAT"
+data-fr="COMMENCER LE CHAT"
+data-ht="KÒMANSE CHAT">
+START CHAT
+</a>
+
+<a href="./ai-center.html" class="btn outline">
+🤖 AI CENTER
+</a>
+
+</div>
+
+</section>
+
+
+<section class="chat-center" id="chat-center">
+
+<div class="chat-window">
+
+<div class="chat-header">
+
+<div class="chat-brand">
+
+<div class="chat-logo">
+M
+</div>
+
+<div>
+
+<strong>
+MAXIMAX ASSISTANT
+</strong>
+
+<span>
+Digital Service Navigator
+</span>
+
+</div>
+
+</div>
+
+<div class="status-pill">
+<span class="status-dot"></span>
+READY
+</div>
+
+</div>
+
+
+<div class="chat-messages" id="chatMessages">
+
+<div class="message bot">
+
+<span
+data-en="Welcome to Maximax Multi Services. I can help you find the right service center. Choose an option below or type what you need."
+data-fr="Bienvenue chez Maximax Multi Services. Je peux vous aider à trouver le bon service. Choisissez une option ci-dessous ou écrivez ce dont vous avez besoin."
+data-ht="Byenveni nan Maximax Multi Services. Mwen ka ede w jwenn bon sant sèvis la. Chwazi yon opsyon anba a oswa ekri sa ou bezwen.">
+Welcome to Maximax Multi Services. I can help you find the right service center. Choose an option below or type what you need.
+</span>
+
+<span class="message-time">
+MAXIMAX
+</span>
+
+</div>
+
+</div>
+
+
+<div class="typing" id="typingIndicator">
+MAXIMAX IS RESPONDING...
+</div>
+
+
+<div class="quick-options">
+
+<button
+type="button"
+class="quick-chat"
+data-message="I need immigration assistance.">
+🗽 IMMIGRATION
+</button>
+
+<button
+type="button"
+class="quick-chat"
+data-message="I need help with a form.">
+📝 FORM HELP
+</button>
+
+<button
+type="button"
+class="quick-chat"
+data-message="I need tax services.">
+💰 TAXES
+</button>
+
+<button
+type="button"
+class="quick-chat"
+data-message="I need notary services.">
+✍️ NOTARY
+</button>
+
+<button
+type="button"
+class="quick-chat"
+data-message="I need business services.">
+💼 BUSINESS
+</button>
+
+<button
+type="button"
+class="quick-chat"
+data-message="I need Travel or DMV assistance.">
+🚗 TRAVEL + DMV
+</button>
+
+<button
+type="button"
+class="quick-chat"
+data-message="I need translation assistance.">
+🌎 TRANSLATION
+</button>
+
+<button
+type="button"
+class="quick-chat"
+data-message="I want to use the AI Center.">
+🤖 AI CENTER
+</button>
+
+</div>
+
+
+<div class="chat-input-area">
+
+<textarea
+id="chatInput"
+rows="2"
+placeholder="Type your message..."
+aria-label="Chat message"></textarea>
+
+<button
+type="button"
+class="send-button"
+id="sendMessage">
+SEND
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="support-grid">
+
+
+<div class="support-card">
+
+<span>🗽</span>
+
+<h2
+data-en="IMMIGRATION"
+data-fr="IMMIGRATION"
+data-ht="IMIGRASYON">
+IMMIGRATION
+</h2>
+
+<p
+data-en="Administrative immigration document and form support."
+data-fr="Assistance administrative pour les documents et formulaires d'immigration."
+data-ht="Asistans administratif pou dokiman ak fòm imigrasyon.">
+Administrative immigration document and form support.
+</p>
+
+<a href="./immigration.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="support-card">
+
+<span>📝</span>
+
+<h2
+data-en="FORM CENTER"
+data-fr="FORMULAIRES"
+data-ht="SANT FÒM">
+FORM CENTER
+</h2>
+
+<p
+data-en="Organize information for supported administrative forms."
+data-fr="Organisez les informations pour les formulaires administratifs pris en charge."
+data-ht="Òganize enfòmasyon pou fòm administratif sistèm nan sipòte.">
+Organize information for supported administrative forms.
+</p>
+
+<a href="./form-helper.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="support-card">
+
+<span>🤖</span>
+
+<h2
+data-en="AI CENTER"
+data-fr="CENTRE IA"
+data-ht="SANT AI">
+AI CENTER
+</h2>
+
+<p
+data-en="Access Maximax AI tools for general writing, organization and digital assistance."
+data-fr="Accédez aux outils Maximax AI pour la rédaction, l'organisation et l'assistance numérique."
+data-ht="Antre nan zouti Maximax AI pou ekriti, òganizasyon ak asistans dijital.">
+Access Maximax AI tools for general writing, organization and digital assistance.
+</p>
+
+<a href="./ai-center.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="support-card">
+
+<span>🌎</span>
+
+<h2
+data-en="TRANSLATION"
+data-fr="TRADUCTION"
+data-ht="TRADIKSYON">
+TRANSLATION
+</h2>
+
+<p
+data-en="English, French and Haitian Creole general translation workspace."
+data-fr="Espace de traduction générale anglais, français et créole haïtien."
+data-ht="Espas tradiksyon jeneral Anglè, Fransè ak Kreyòl Ayisyen.">
+English, French and Haitian Creole general translation workspace.
+</p>
+
+<a href="./translation-ai.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="support-card">
+
+<span>💼</span>
+
+<h2
+data-en="BUSINESS"
+data-fr="ENTREPRISE"
+data-ht="BIZNIS">
+BUSINESS
+</h2>
+
+<p
+data-en="Business formation, document organization and administrative support."
+data-fr="Création d'entreprise, organisation des documents et assistance administrative."
+data-ht="Fòmasyon biznis, òganizasyon dokiman ak asistans administratif.">
+Business formation, document organization and administrative support.
+</p>
+
+<a href="./business.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="support-card">
+
+<span>🎯</span>
+
+<h2
+data-en="CAREER TRACKER"
+data-fr="SUIVI DE CARRIÈRE"
+data-ht="SWIVI KARYÈ">
+CAREER TRACKER
+</h2>
+
+<p
+data-en="Organize applications, resumes, interviews and professional goals."
+data-fr="Organisez les candidatures, CV, entretiens et objectifs professionnels."
+data-ht="Òganize aplikasyon, rezime, entèvyou ak objektif pwofesyonèl.">
+Organize applications, resumes, interviews and professional goals.
+</p>
+
+<a href="./career-tracker.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="support-card">
+
+<span>🚗</span>
+
+<h2
+data-en="TRAVEL + DMV"
+data-fr="VOYAGE + DMV"
+data-ht="VWAYAJ + DMV">
+TRAVEL + DMV
+</h2>
+
+<p
+data-en="Travel and motor-vehicle document organization and service navigation."
+data-fr="Organisation des documents de voyage et de véhicule et orientation des services."
+data-ht="Òganizasyon dokiman vwayaj ak machin ak navigasyon sèvis.">
+Travel and motor-vehicle document organization and service navigation.
+</p>
+
+<a href="./travel-dmv.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="support-card">
+
+<span>🌐</span>
+
+<h2
+data-en="ALL SERVICES"
+data-fr="TOUS LES SERVICES"
+data-ht="TOUT SÈVIS">
+ALL SERVICES
+</h2>
+
+<p
+data-en="Return to the Maximax Multi Services main service center."
+data-fr="Retournez au centre principal des services Maximax Multi Services."
+data-ht="Retounen nan sant prensipal Maximax Multi Services la.">
+Return to the Maximax Multi Services main service center.
+</p>
+
+<a href="../index.html#services" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+</section>
+
+
+<section class="contact-center">
+
+<div class="eyebrow">
+MAXIMAX MULTI SERVICES
+</div>
+
+<h2
+data-en="NEED DIRECT ASSISTANCE?"
+data-fr="BESOIN D'ASSISTANCE DIRECTE ?"
+data-ht="OU BEZWEN ASISTANS DIRÈK?">
+NEED DIRECT ASSISTANCE?
+</h2>
+
+<p
+data-en="Use the digital service center or contact Maximax Multi Services for additional assistance."
+data-fr="Utilisez le centre de services numérique ou contactez Maximax Multi Services pour une assistance supplémentaire."
+data-ht="Sèvi ak sant sèvis dijital la oswa kontakte Maximax Multi Services pou plis asistans.">
+Use the digital service center or contact Maximax Multi Services for additional assistance.
+</p>
+
+<div class="hero-buttons">
+
+<a href="tel:+14076405166" class="btn primary">
+📞 (407) 640-5166
+</a>
+
+<a href="./ai-center.html" class="btn outline">
+🤖 AI CENTER
+</a>
+
+<a href="../index.html#contact" class="btn outline">
+CONTACT CENTER
+</a>
+
+</div>
+
+</section>
+
+
+<div class="notice">
+
+<strong>IMPORTANT:</strong>
+Chat 24/7 is a digital service-navigation and general information tool. Automated responses may contain errors and should be reviewed before important decisions or submissions. The chat does not replace legal, medical, financial, tax, insurance or other licensed professional advice.
+
+</div>
+
+
+<div class="back-home">
+
+<a href="../index.html#services" class="btn outline"
+data-en="← BACK TO ALL SERVICES"
+data-fr="← RETOUR AUX SERVICES"
+data-ht="← RETOUNEN NAN TOUT SÈVIS YO">
+← BACK TO ALL SERVICES
+</a>
+
+</div>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<div class="container">
+
+<div class="footer-logo">
+M
+</div>
+
+<h3>
+MAXIMAX MULTI SERVICES
+</h3>
+
+<p>
+PROFESSIONAL SERVICES • DIGITAL SOLUTIONS • AI ASSISTANCE
+</p>
+
+<p class="hub-link">
+Part of BSS1815 PRO-MAX DMP
+</p>
+
+<p>
+© <span id="currentYear"></span> Maximax Multi Services
+</p>
+
+</div>
+
+</footer>
+
+
+<script src="../javascript.js"></script>
+
+<script>
+(() => {
+  "use strict";
+
+  const chatMessages =
+    document.getElementById("chatMessages");
+
+  const chatInput =
+    document.getElementById("chatInput");
+
+  const sendButton =
+    document.getElementById("sendMessage");
+
+  const typing =
+    document.getElementById("typingIndicator");
+
+  const quickButtons =
+    document.querySelectorAll(".quick-chat");
+
+
+  function getTime() {
+    return new Date().toLocaleTimeString(
+      [],
+      {
+        hour:"2-digit",
+        minute:"2-digit"
+      }
+    );
+  }
+
+
+  function addMessage(text, type) {
+
+    const message =
+      document.createElement("div");
+
+    message.className =
+      "message " + type;
+
+    const content =
+      document.createElement("span");
+
+    content.textContent = text;
+
+    const time =
+      document.createElement("span");
+
+    time.className =
+      "message-time";
+
+    time.textContent =
+      type === "user"
+        ? "YOU • " + getTime()
+        : "MAXIMAX • " + getTime();
+
+    message.appendChild(content);
+    message.appendChild(time);
+
+    chatMessages.appendChild(message);
+
+    chatMessages.scrollTop =
+      chatMessages.scrollHeight;
+
+  }
+
+
+  function findResponse(message) {
+
+    const text =
+      message.toLowerCase();
+
+
+    if (
+      text.includes("immigration") ||
+      text.includes("imigrasyon") ||
+      text.includes("uscis")
+    ) {
+
+      return {
+        text:
+          "The Immigration Center can help organize supported immigration forms and administrative documents. Open the Immigration Center for the next step.",
+        link:
+          "./immigration.html"
+      };
+
+    }
+
+
+    if (
+      text.includes("eoir") ||
+      text.includes("bia") ||
+      text.includes("court")
+    ) {
+
+      return {
+        text:
+          "For immigration-court or BIA document organization, use the EOIR + BIA Center.",
+        link:
+          "./eoir-bia.html"
+      };
+
+    }
+
+
+    if (
+      text.includes("form") ||
+      text.includes("fòm") ||
+      text.includes("formulaire")
+    ) {
+
+      return {
+        text:
+          "The Form Help Center organizes supported government, immigration, business, tax, Travel + DMV and other administrative form requests.",
+        link:
+          "./form-helper.html"
+      };
+
+    }
+
+
+    if (
+      text.includes("tax") ||
+      text.includes("taks") ||
+      text.includes("impôt")
+    ) {
+
+      return {
+        text:
+          "Use the Maximax Tax Center for tax document organization and supported tax services.",
+        link:
+          "./taxes.html"
+      };
+
+    }
+
+
+    if (
+      text.includes("notary") ||
+      text.includes("notaire") ||
+      text.includes("notè")
+    ) {
+
+      return {
+        text:
+          "Use the Maximax Notary Center for available notarial and document-related services.",
+        link:
+          "./notary.html"
+      };
+
+    }
+
+
+    if (
+      text.includes("business") ||
+      text.includes("biznis") ||
+      text.includes("entreprise") ||
+      text.includes("llc") ||
+      text.includes("ein")
+    ) {
+
+      return {
+        text:
+          "Use the Business Center for business formation, LLC document support, EIN assistance and business-document organization.",
+        link:
+          "./business.html"
+      };
+
+    }
+
+
+    if (
+      text.includes("dmv") ||
+      text.includes("driver") ||
+      text.includes("vehicle") ||
+      text.includes("travel") ||
+      text.includes("vwayaj") ||
+      text.includes("passport")
+    ) {
+
+      return {
+        text:
+          "The Travel + DMV Center provides administrative document organization and general service navigation for supported travel and motor-vehicle needs.",
+        link:
+          "./travel-dmv.html"
+      };
+
+    }
+
+
+    if (
+      text.includes("translate") ||
+      text.includes("translation") ||
+      text.includes("tradiksyon") ||
+      text.includes("traduction") ||
+      text.includes("french") ||
+      text.includes("creole")
+    ) {
+
+      return {
+        text:
+          "Use Maximax AI Translation for general English, French and Haitian Creole translation assistance.",
+        link:
+          "./translation-ai.html"
+      };
+
+    }
+
+
+    if (
+      text.includes("career") ||
+      text.includes("job") ||
+      text.includes("resume") ||
+      text.includes("travay") ||
+      text.includes("cv")
+    ) {
+
+      return {
+        text:
+          "The Career Tracker can organize job applications, resumes, interviews and professional-development information.",
+        link:
+          "./career-tracker.html"
+      };
+
+    }
+
+
+    if (
+      text.includes("insurance") ||
+      text.includes("asirans")
+    ) {
+
+      return {
+        text:
+          "Use the Insurance Center for available insurance-related service information and navigation.",
+        link:
+          "./insurance.html"
+      };
+
+    }
+
+
+    if (
+      text.includes("real estate") ||
+      text.includes("house") ||
+      text.includes("property") ||
+      text.includes("kay")
+    ) {
+
+      return {
+        text:
+          "Use the Real Estate Center for available property, buying, selling, rental and document-support resources.",
+        link:
+          "./real-estate.html"
+      };
+
+    }
+
+
+    if (
+      text.includes("apostille")
+    ) {
+
+      return {
+        text:
+          "Use the Apostille Center for document organization and general apostille-process navigation.",
+        link:
+          "./apostille.html"
+      };
+
+    }
+
+
+    if (
+      text.includes("ai") ||
+      text.includes("artificial intelligence")
+    ) {
+
+      return {
+        text:
+          "The Maximax AI Center connects AI tools for writing, documents, forms, translation, business and career assistance.",
+        link:
+          "./ai-center.html"
+      };
+
+    }
+
+
+    return {
+      text:
+        "I can help route you to the correct Maximax service. Tell me whether you need Immigration, Forms, Taxes, Notary, Business, Insurance, Real Estate, Apostille, Travel + DMV, Translation, Career or AI assistance.",
+      link:
+        null
+    };
+
+  }
+
+
+  function addBotResponse(response) {
+
+    typing.classList.remove("show");
+
+    addMessage(
+      response.text,
+      "bot"
+    );
+
+
+    if (response.link) {
+
+      const link =
+        document.createElement("a");
+
+      link.href =
+        response.link;
+
+      link.className =
+        "btn outline";
+
+      link.style.margin =
+        "0 22px 16px";
+
+      link.style.display =
+        "inline-flex";
+
+      link.textContent =
+        "OPEN SERVICE →";
+
+      chatMessages.appendChild(link);
+
+      chatMessages.scrollTop =
+        chatMessages.scrollHeight;
+
+    }
+
+  }
+
+
+  function sendMessage(messageText) {
+
+    const text =
+      (
+        messageText ||
+        chatInput.value
+      ).trim();
+
+    if (!text) {
+      return;
+    }
+
+    addMessage(
+      text,
+      "user"
+    );
+
+    chatInput.value = "";
+
+    typing.classList.add("show");
+
+    chatMessages.scrollTop =
+      chatMessages.scrollHeight;
+
+
+    const response =
+      findResponse(text);
+
+
+    setTimeout(
+      () => {
+        addBotResponse(response);
+      },
+      550
+    );
+
+  }
+
+
+  if (sendButton) {
+
+    sendButton.addEventListener(
+      "click",
+      () => {
+        sendMessage();
+      }
+    );
+
+  }
+
+
+  if (chatInput) {
+
+    chatInput.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Enter" &&
+          !event.shiftKey
+        ) {
+
+          event.preventDefault();
+
+          sendMessage();
+
+        }
+
+      }
+    );
+
+  }
+
+
+  quickButtons.forEach(
+    button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          const message =
+            button.dataset.message || "";
+
+          sendMessage(message);
+
+        }
+      );
+
+    }
+  );
+
+})();
+</script>
+
+</body>
+</html>
