@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Payment Center | Maximax Multi Services</title>
+
+<meta name="description" content="Maximax Multi Services Payment Center — organize service payments, invoices, receipts and payment records.">
+
+<meta name="theme-color" content="#000000">
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+.payment-page{
+  min-height:calc(100vh - 84px);
+  padding:70px 0 90px;
+}
+
+.payment-hero{
+  padding:55px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:30px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.25),transparent 45%),
+    linear-gradient(145deg,#000,#120600,#000);
+  box-shadow:var(--glow);
+}
+
+.payment-icon{
+  font-size:4.6rem;
+}
+
+.payment-hero h1{
+  margin-top:18px;
+  color:var(--orange);
+  font-size:clamp(2.8rem,8vw,5.8rem);
+  line-height:.92;
+  text-transform:uppercase;
+}
+
+.payment-hero p{
+  max-width:900px;
+  margin:20px auto 0;
+  line-height:1.75;
+}
+
+.status-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  margin-top:20px;
+  padding:10px 16px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  color:var(--orange);
+  background:#050200;
+  font-size:.69rem;
+  font-weight:1000;
+}
+
+.status-dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--orange);
+  box-shadow:0 0 12px var(--orange);
+}
+
+.payment-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:38px;
+}
+
+.payment-card{
+  min-height:220px;
+  display:flex;
+  flex-direction:column;
+  padding:24px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:
+    radial-gradient(circle at top right,rgba(255,121,0,.11),transparent 42%),
+    #050200;
+  transition:.25s;
+}
+
+.payment-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--orange);
+  box-shadow:var(--glow);
+}
+
+.payment-card span{
+  font-size:2.5rem;
+}
+
+.payment-card h2{
+  margin-top:13px;
+  color:var(--orange);
+  font-size:.86rem;
+  text-transform:uppercase;
+}
+
+.payment-card p{
+  margin-top:9px;
+  font-size:.72rem;
+  line-height:1.6;
+}
+
+.payment-card .card-link{
+  margin-top:auto;
+}
+
+.record-section{
+  margin-top:40px;
+  padding:38px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:28px;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.16),transparent 45%),
+    #050200;
+  box-shadow:var(--glow);
+}
+
+.section-header{
+  text-align:center;
+}
+
+.section-header h2{
+  color:var(--orange);
+  font-size:clamp(2rem,6vw,4rem);
+  text-transform:uppercase;
+}
+
+.section-header p{
+  max-width:850px;
+  margin:14px auto 0;
+  line-height:1.7;
+}
+
+.payment-form{
+  max-width:1000px;
+  margin:30px auto 0;
+  padding:22px;
+  border:1px solid var(--border);
+  border-radius:22px;
+  background:#000;
+}
+
+.payment-form label{
+  display:block;
+  margin-bottom:8px;
+  color:var(--orange);
+  font-size:.69rem;
+  font-weight:1000;
+  text-transform:uppercase;
+}
+
+.payment-form input,
+.payment-form select,
+.payment-form textarea{
+  width:100%;
+  margin-bottom:15px;
+  padding:14px 15px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  outline:none;
+  color:var(--text);
+  background:#050200;
+}
+
+.payment-form input:focus,
+.payment-form select:focus,
+.payment-form textarea:focus{
+  border-color:var(--orange);
+  box-shadow:0 0 15px rgba(255,121,0,.12);
+}
+
+.payment-form input::placeholder,
+.payment-form textarea::placeholder{
+  color:var(--text-soft);
+}
+
+.payment-form option{
+  color:var(--text);
+  background:#000;
+}
+
+.payment-form textarea{
+  min-height:110px;
+  resize:vertical;
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.payment-result{
+  display:none;
+  margin-top:20px;
+  padding:20px;
+  border:1px solid var(--border-strong);
+  border-radius:17px;
+  background:#0b0400;
+}
+
+.payment-result.show{
+  display:block;
+}
+
+.payment-result h3{
+  color:var(--orange);
+  text-transform:uppercase;
+}
+
+.payment-result p{
+  margin-top:10px;
+  font-size:.75rem;
+  line-height:1.7;
+}
+
+.summary-section{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.summary-section h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.summary-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:25px;
+}
+
+.summary-card{
+  padding:25px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  text-align:center;
+  background:#000;
+}
+
+.summary-card strong{
+  display:block;
+  color:var(--orange);
+  font-size:2.3rem;
+}
+
+.summary-card span{
+  display:block;
+  margin-top:7px;
+  color:var(--text-soft);
+  font-size:.67rem;
+  font-weight:900;
+}
+
+.records-section{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.records-section h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.records-list{
+  max-width:1000px;
+  display:grid;
+  gap:12px;
+  margin:25px auto 0;
+}
+
+.payment-record{
+  padding:19px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:#000;
+}
+
+.record-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:15px;
+}
+
+.payment-record h3{
+  color:var(--orange);
+  font-size:.85rem;
+  text-transform:uppercase;
+}
+
+.payment-record p{
+  margin-top:7px;
+  font-size:.69rem;
+  line-height:1.55;
+}
+
+.record-amount{
+  margin-top:10px;
+  color:var(--orange);
+  font-size:1.2rem;
+  font-weight:1000;
+}
+
+.record-meta{
+  margin-top:9px;
+  color:var(--text-soft);
+  font-size:.62rem;
+}
+
+.delete-record{
+  flex-shrink:0;
+  padding:8px 11px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  color:var(--orange);
+  background:#050200;
+  cursor:pointer;
+  font-weight:900;
+}
+
+.delete-record:hover{
+  border-color:var(--orange);
+}
+
+.empty-state{
+  padding:22px;
+  border:1px dashed var(--border);
+  border-radius:15px;
+  text-align:center;
+  color:var(--text-soft);
+  background:#000;
+}
+
+.resource-section{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.resource-section h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.resource-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:25px;
+}
+
+.resource-box{
+  min-height:165px;
+  display:flex;
+  flex-direction:column;
+  padding:22px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:#000;
+}
+
+.resource-box strong{
+  color:var(--orange);
+}
+
+.resource-box p{
+  margin-top:8px;
+  font-size:.72rem;
+  line-height:1.6;
+}
+
+.resource-box .card-link{
+  margin-top:auto;
+}
+
+.notice{
+  margin-top:30px;
+  padding:20px;
+  border-left:4px solid var(--orange);
+  border-radius:10px;
+  background:#0b0400;
+  font-size:.75rem;
+  line-height:1.7;
+}
+
+.back-home{
+  margin-top:30px;
+  text-align:center;
+}
+
+@media(max-width:1000px){
+  .payment-grid,
+  .resource-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:700px){
+  .payment-grid,
+  .resource-grid,
+  .summary-grid,
+  .form-row{
+    grid-template-columns:1fr;
+  }
+
+  .record-top{
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+MAXIMAX MULTI SERVICES • PAYMENT CENTER
+</div>
+
+<header>
+
+<div class="container header-inner">
+
+<a href="../index.html" class="brand">
+
+<div class="brand-mark">M</div>
+
+<div class="brand-text">
+<strong>MAXIMAX</strong>
+<span>MULTI SERVICES</span>
+</div>
+
+</a>
+
+<nav id="mainNav">
+
+<a href="../index.html">HOME</a>
+<a href="../index.html#services">SERVICES</a>
+<a href="#payment-record">PAYMENTS</a>
+<a href="./client-portal.html">CLIENT PORTAL</a>
+<a href="./contact-center.html">CONTACT</a>
+
+</nav>
+
+<div class="header-actions">
+
+<div class="language-switch">
+<button class="lang-btn active" data-lang="en">ENG</button>
+<button class="lang-btn" data-lang="fr">FRA</button>
+<button class="lang-btn" data-lang="ht">KRE</button>
+</div>
+
+<button id="menuToggle" class="menu-toggle">☰</button>
+
+</div>
+
+</div>
+
+</header>
+
+
+<main class="payment-page">
+
+<div class="container">
+
+
+<section class="payment-hero">
+
+<div class="payment-icon">💳</div>
+
+<div class="eyebrow">
+MAXIMAX DIGITAL PAYMENT CENTER
+</div>
+
+<h1
+data-en="PAYMENT CENTER"
+data-fr="CENTRE DE PAIEMENT"
+data-ht="SANT PEMAN">
+PAYMENT CENTER
+</h1>
+
+<p
+data-en="Organize service payment records, invoice references and receipt information from one Maximax digital workspace."
+data-fr="Organisez les paiements de services, références de factures et informations de reçus dans un seul espace numérique Maximax."
+data-ht="Òganize dosye peman sèvis, referans fakti ak enfòmasyon resi nan yon sèl espas dijital Maximax.">
+Organize service payment records, invoice references and receipt information from one Maximax digital workspace.
+</p>
+
+<div class="status-pill">
+
+<span class="status-dot"></span>
+
+<span
+data-en="PAYMENT RECORD CENTER READY"
+data-fr="CENTRE DE PAIEMENT PRÊT"
+data-ht="SANT DOSYE PEMAN PARE">
+PAYMENT RECORD CENTER READY
+</span>
+
+</div>
+
+<div class="hero-buttons">
+
+<a href="#payment-record" class="btn primary"
+data-en="ADD PAYMENT RECORD"
+data-fr="AJOUTER UN PAIEMENT"
+data-ht="AJOUTE DOSYE PEMAN">
+ADD PAYMENT RECORD
+</a>
+
+<a href="./client-portal.html" class="btn outline">
+👤 CLIENT PORTAL
+</a>
+
+</div>
+
+</section>
+
+
+<section class="payment-grid">
+
+<div class="payment-card">
+
+<span>🧾</span>
+
+<h2
+data-en="INVOICE RECORD"
+data-fr="FACTURE"
+data-ht="DOSYE FAKTI">
+INVOICE RECORD
+</h2>
+
+<p
+data-en="Organize invoice numbers and the service associated with each record."
+data-fr="Organisez les numéros de facture et le service associé."
+data-ht="Òganize nimewo fakti ak sèvis ki asosye ak chak dosye.">
+Organize invoice numbers and the service associated with each record.
+</p>
+
+<a href="#payment-record" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="payment-card">
+
+<span>💵</span>
+
+<h2
+data-en="PAYMENT RECORD"
+data-fr="DOSSIER DE PAIEMENT"
+data-ht="DOSYE PEMAN">
+PAYMENT RECORD
+</h2>
+
+<p
+data-en="Record the amount, method, status and date of a service payment."
+data-fr="Enregistrez le montant, la méthode, le statut et la date d'un paiement."
+data-ht="Anrejistre kantite, metòd, estati ak dat yon peman sèvis.">
+Record the amount, method, status and date of a service payment.
+</p>
+
+<a href="#payment-record" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="payment-card">
+
+<span>📄</span>
+
+<h2
+data-en="RECEIPT RECORD"
+data-fr="REÇU"
+data-ht="DOSYE RESI">
+RECEIPT RECORD
+</h2>
+
+<p
+data-en="Keep a local reference showing which service payment has been recorded."
+data-fr="Conservez une référence locale indiquant les paiements de services enregistrés."
+data-ht="Kenbe yon referans lokal ki montre ki peman sèvis ki anrejistre.">
+Keep a local reference showing which service payment has been recorded.
+</p>
+
+<a href="#records" class="card-link">
+VIEW →
+</a>
+
+</div>
+
+</section>
+
+
+<section class="record-section" id="payment-record">
+
+<div class="section-header">
+
+<h2
+data-en="CREATE PAYMENT RECORD"
+data-fr="CRÉER UN DOSSIER DE PAIEMENT"
+data-ht="KREYE DOSYE PEMAN">
+CREATE PAYMENT RECORD
+</h2>
+
+<p
+data-en="Create a local payment record for Maximax services. Do not enter card numbers, bank-account numbers, passwords or other sensitive financial credentials."
+data-fr="Créez un dossier local de paiement. N'entrez pas de numéro de carte, numéro bancaire, mot de passe ou autres informations financières sensibles."
+data-ht="Kreye yon dosye peman lokal pou sèvis Maximax. Pa antre nimewo kat, nimewo kont labank, modpas oswa lòt enfòmasyon finansye sansib.">
+Create a local payment record for Maximax services. Do not enter card numbers, bank-account numbers, passwords or other sensitive financial credentials.
+</p>
+
+</div>
+
+
+<div class="payment-form">
+
+<div class="form-row">
+
+<div>
+
+<label for="clientName">
+CLIENT NAME
+</label>
+
+<input
+type="text"
+id="clientName"
+placeholder="Client name">
+
+</div>
+
+
+<div>
+
+<label for="paymentService">
+SERVICE
+</label>
+
+<select id="paymentService">
+
+<option value="">Select Service</option>
+<option value="Notary">Notary</option>
+<option value="Taxes">Taxes</option>
+<option value="Immigration">Immigration</option>
+<option value="EOIR + BIA">EOIR + BIA</option>
+<option value="Insurance">Insurance</option>
+<option value="Real Estate">Real Estate</option>
+<option value="Business">Business</option>
+<option value="Apostille">Apostille</option>
+<option value="Travel + DMV">Travel + DMV</option>
+<option value="Form Help">Form Help</option>
+<option value="Government Forms">Government Forms</option>
+<option value="Credit Review">Credit Review</option>
+<option value="Non-Contested Divorce Documents">Non-Contested Divorce Documents</option>
+<option value="Translation">Translation</option>
+<option value="AI Assistance">AI Assistance</option>
+<option value="Other">Other</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<div class="form-row">
+
+<div>
+
+<label for="invoiceNumber">
+INVOICE / REFERENCE
+</label>
+
+<input
+type="text"
+id="invoiceNumber"
+placeholder="Example: MMS-1001">
+
+</div>
+
+
+<div>
+
+<label for="paymentAmount">
+AMOUNT (USD)
+</label>
+
+<input
+type="number"
+id="paymentAmount"
+min="0"
+step="0.01"
+inputmode="decimal"
+placeholder="0.00">
+
+</div>
+
+</div>
+
+
+<div class="form-row">
+
+<div>
+
+<label for="paymentMethod">
+PAYMENT METHOD
+</label>
+
+<select id="paymentMethod">
+
+<option value="Cash">Cash</option>
+<option value="Card">Card</option>
+<option value="Bank Transfer">Bank Transfer</option>
+<option value="Digital Payment">Digital Payment</option>
+<option value="Other">Other</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label for="paymentStatus">
+PAYMENT STATUS
+</label>
+
+<select id="paymentStatus">
+
+<option value="Pending">Pending</option>
+<option value="Partial">Partial</option>
+<option value="Paid">Paid</option>
+<option value="Refunded">Refunded</option>
+<option value="Cancelled">Cancelled</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<div class="form-row">
+
+<div>
+
+<label for="paymentDate">
+PAYMENT DATE
+</label>
+
+<input
+type="date"
+id="paymentDate">
+
+</div>
+
+
+<div>
+
+<label for="receiptReference">
+RECEIPT REFERENCE
+</label>
+
+<input
+type="text"
+id="receiptReference"
+placeholder="Optional receipt reference">
+
+</div>
+
+</div>
+
+
+<label for="paymentNotes">
+NOTES
+</label>
+
+<textarea
+id="paymentNotes"
+placeholder="General payment notes only. Do not enter card numbers, CVV codes, bank-account numbers, passwords or other sensitive financial information."></textarea>
+
+
+<button
+type="button"
+class="btn primary"
+id="savePayment">
+SAVE PAYMENT RECORD
+</button>
+
+
+<div class="payment-result" id="paymentResult">
+
+<h3>
+PAYMENT RECORD SAVED
+</h3>
+
+<p id="paymentResultText"></p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="summary-section">
+
+<h2
+data-en="PAYMENT SUMMARY"
+data-fr="RÉSUMÉ DES PAIEMENTS"
+data-ht="REZIME PEMAN">
+PAYMENT SUMMARY
+</h2>
+
+<div class="summary-grid">
+
+<div class="summary-card">
+
+<strong id="totalRecords">0</strong>
+
+<span
+data-en="TOTAL RECORDS"
+data-fr="TOTAL DES DOSSIERS"
+data-ht="TOTAL DOSYE">
+TOTAL RECORDS
+</span>
+
+</div>
+
+
+<div class="summary-card">
+
+<strong id="paidRecords">0</strong>
+
+<span
+data-en="PAID RECORDS"
+data-fr="PAIEMENTS EFFECTUÉS"
+data-ht="DOSYE PEYE">
+PAID RECORDS
+</span>
+
+</div>
+
+
+<div class="summary-card">
+
+<strong id="totalPaid">$0.00</strong>
+
+<span
+data-en="RECORDED PAID TOTAL"
+data-fr="TOTAL PAYÉ ENREGISTRÉ"
+data-ht="TOTAL PEMAN ANREJISTRE">
+RECORDED PAID TOTAL
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="records-section" id="records">
+
+<h2
+data-en="SAVED PAYMENT RECORDS"
+data-fr="PAIEMENTS ENREGISTRÉS"
+data-ht="DOSYE PEMAN SOVE">
+SAVED PAYMENT RECORDS
+</h2>
+
+<div class="records-list" id="paymentRecords"></div>
+
+</section>
+
+
+<section class="resource-section">
+
+<h2
+data-en="PAYMENT RESOURCES"
+data-fr="RESSOURCES DE PAIEMENT"
+data-ht="RESOUS PEMAN">
+PAYMENT RESOURCES
+</h2>
+
+
+<div class="resource-grid">
+
+<div class="resource-box">
+
+<strong>👤 CLIENT PORTAL</strong>
+
+<p>
+Return to the Maximax client dashboard.
+</p>
+
+<a href="./client-portal.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="resource-box">
+
+<strong>📅 APPOINTMENT CENTER</strong>
+
+<p>
+Prepare and organize service appointment requests.
+</p>
+
+<a href="./appointment-center.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="resource-box">
+
+<strong>🗂️ DOCUMENT CENTER</strong>
+
+<p>
+Organize service documents and working files.
+</p>
+
+<a href="./document-center.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="resource-box">
+
+<strong>📋 DOCUMENT CHECKLIST</strong>
+
+<p>
+Prepare service-specific document checklists.
+</p>
+
+<a href="./document-checklist.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="resource-box">
+
+<strong>☎️ CONTACT CENTER</strong>
+
+<p>
+Contact Maximax about a service or payment question.
+</p>
+
+<a href="./contact-center.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="resource-box">
+
+<strong>💬 CHAT 24/7</strong>
+
+<p>
+Navigate Maximax digital services.
+</p>
+
+<a href="./chat.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<div class="notice">
+
+<strong>IMPORTANT:</strong>
+This page currently creates local payment records only. It does not process credit cards, debit cards, bank transfers or other financial transactions. A payment record shown here is not proof that Maximax received funds unless an actual payment has been independently confirmed. Never enter full card numbers, CVV codes, bank-account numbers, passwords or other sensitive financial credentials into this page.
+
+</div>
+
+
+<div class="back-home">
+
+<a href="../index.html" class="btn outline"
+data-en="← BACK TO MAXIMAX HOME"
+data-fr="← RETOUR À L'ACCUEIL"
+data-ht="← RETOUNEN NAN AKÈY MAXIMAX">
+← BACK TO MAXIMAX HOME
+</a>
+
+</div>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<div class="container">
+
+<div class="footer-logo">M</div>
+
+<h3>
+MAXIMAX MULTI SERVICES
+</h3>
+
+<p>
+PROFESSIONAL SERVICES • DIGITAL SOLUTIONS • AI ASSISTANCE
+</p>
+
+<p class="hub-link">
+Part of BSS1815 PRO-MAX DMP
+</p>
+
+<p>
+© <span id="currentYear"></span> Maximax Multi Services
+</p>
+
+</div>
+
+</footer>
+
+
+<script src="../javascript.js"></script>
+
+<script>
+(() => {
+"use strict";
+
+const clientName =
+  document.getElementById("clientName");
+
+const paymentService =
+  document.getElementById("paymentService");
+
+const invoiceNumber =
+  document.getElementById("invoiceNumber");
+
+const paymentAmount =
+  document.getElementById("paymentAmount");
+
+const paymentMethod =
+  document.getElementById("paymentMethod");
+
+const paymentStatus =
+  document.getElementById("paymentStatus");
+
+const paymentDate =
+  document.getElementById("paymentDate");
+
+const receiptReference =
+  document.getElementById("receiptReference");
+
+const paymentNotes =
+  document.getElementById("paymentNotes");
+
+const savePayment =
+  document.getElementById("savePayment");
+
+const paymentResult =
+  document.getElementById("paymentResult");
+
+const paymentResultText =
+  document.getElementById("paymentResultText");
+
+const paymentRecords =
+  document.getElementById("paymentRecords");
+
+const totalRecords =
+  document.getElementById("totalRecords");
+
+const paidRecords =
+  document.getElementById("paidRecords");
+
+const totalPaid =
+  document.getElementById("totalPaid");
+
+const STORAGE_KEY =
+  "maximaxPaymentRecords";
+
+
+function getRecords(){
+
+  try{
+
+    const data =
+      JSON.parse(
+        localStorage.getItem(STORAGE_KEY)
+      );
+
+    return Array.isArray(data)
+      ? data
+      : [];
+
+  }catch(error){
+
+    return [];
+
+  }
+
+}
+
+
+function storeRecords(records){
+
+  try{
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify(records)
+    );
+
+  }catch(error){
+
+    console.warn(
+      "Payment records could not be saved.",
+      error
+    );
+
+  }
+
+}
+
+
+function createElement(
+  tag,
+  text,
+  className
+){
+
+  const element =
+    document.createElement(tag);
+
+  if(text !== undefined){
+    element.textContent = text;
+  }
+
+  if(className){
+    element.className = className;
+  }
+
+  return element;
+
+}
+
+
+function formatMoney(value){
+
+  const number =
+    Number(value);
+
+  if(!Number.isFinite(number)){
+    return "$0.00";
+  }
+
+  return new Intl.NumberFormat(
+    "en-US",
+    {
+      style:"currency",
+      currency:"USD"
+    }
+  ).format(number);
+
+}
+
+
+function updateSummary(records){
+
+  totalRecords.textContent =
+    records.length;
+
+
+  const paid =
+    records.filter(
+      record =>
+        record.status === "Paid"
+    );
+
+
+  paidRecords.textContent =
+    paid.length;
+
+
+  const amount =
+    paid.reduce(
+      (total,record) =>
+        total +
+        Number(record.amount || 0),
+      0
+    );
+
+
+  totalPaid.textContent =
+    formatMoney(amount);
+
+}
+
+
+function renderRecords(){
+
+  const records =
+    getRecords();
+
+  paymentRecords.innerHTML = "";
+
+  updateSummary(records);
+
+
+  if(!records.length){
+
+    paymentRecords.appendChild(
+      createElement(
+        "div",
+        "No payment records saved yet.",
+        "empty-state"
+      )
+    );
+
+    return;
+
+  }
+
+
+  records.forEach(
+    (record,index) => {
+
+      const card =
+        createElement(
+          "div",
+          "",
+          "payment-record"
+        );
+
+
+      const top =
+        createElement(
+          "div",
+          "",
+          "record-top"
+        );
+
+
+      const content =
+        document.createElement("div");
+
+
+      content.appendChild(
+        createElement(
+          "h3",
+          record.service ||
+          "Maximax Payment"
+        )
+      );
+
+
+      if(record.client){
+
+        content.appendChild(
+          createElement(
+            "p",
+            "Client: " +
+            record.client
+          )
+        );
+
+      }
+
+
+      if(record.invoice){
+
+        content.appendChild(
+          createElement(
+            "p",
+            "Invoice / Reference: " +
+            record.invoice
+          )
+        );
+
+      }
+
+
+      content.appendChild(
+        createElement(
+          "p",
+          "Status: " +
+          record.status
+        )
+      );
+
+
+      content.appendChild(
+        createElement(
+          "p",
+          "Method: " +
+          record.method
+        )
+      );
+
+
+      if(record.date){
+
+        content.appendChild(
+          createElement(
+            "p",
+            "Payment Date: " +
+            record.date
+          )
+        );
+
+      }
+
+
+      if(record.receipt){
+
+        content.appendChild(
+          createElement(
+            "p",
+            "Receipt Reference: " +
+            record.receipt
+          )
+        );
+
+      }
+
+
+      content.appendChild(
+        createElement(
+          "div",
+          formatMoney(
+            record.amount
+          ),
+          "record-amount"
+        )
+      );
+
+
+      if(record.notes){
+
+        content.appendChild(
+          createElement(
+            "p",
+            "Notes: " +
+            record.notes
+          )
+        );
+
+      }
+
+
+      if(record.savedAt){
+
+        content.appendChild(
+          createElement(
+            "div",
+            "Saved: " +
+            new Date(
+              record.savedAt
+            ).toLocaleString(),
+            "record-meta"
+          )
+        );
+
+      }
+
+
+      const deleteButton =
+        createElement(
+          "button",
+          "DELETE",
+          "delete-record"
+        );
+
+      deleteButton.type =
+        "button";
+
+
+      deleteButton.addEventListener(
+        "click",
+        () => {
+
+          const current =
+            getRecords();
+
+          current.splice(
+            index,
+            1
+          );
+
+          storeRecords(
+            current
+          );
+
+          renderRecords();
+
+        }
+      );
+
+
+      top.appendChild(content);
+      top.appendChild(deleteButton);
+
+      card.appendChild(top);
+
+      paymentRecords.appendChild(card);
+
+    }
+  );
+
+}
+
+
+function saveRecord(){
+
+  const client =
+    clientName.value.trim();
+
+  const service =
+    paymentService.value;
+
+  const invoice =
+    invoiceNumber.value.trim();
+
+  const amount =
+    Number(
+      paymentAmount.value
+    );
+
+  const method =
+    paymentMethod.value;
+
+  const status =
+    paymentStatus.value;
+
+  const date =
+    paymentDate.value;
+
+  const receipt =
+    receiptReference.value.trim();
+
+  const notes =
+    paymentNotes.value.trim();
+
+
+  if(
+    !client ||
+    !service ||
+    !Number.isFinite(amount) ||
+    amount < 0
+  ){
+
+    paymentResult.classList.add(
+      "show"
+    );
+
+    paymentResultText.textContent =
+      "Please enter the client name, select a service and enter a valid payment amount.";
+
+    return;
+
+  }
+
+
+  const record = {
+
+    id:
+      Date.now(),
+
+    client,
+    service,
+    invoice,
+    amount,
+    method,
+    status,
+    date,
+    receipt,
+    notes,
+
+    savedAt:
+      new Date().toISOString()
+
+  };
+
+
+  const records =
+    getRecords();
+
+  records.unshift(record);
+
+  storeRecords(records);
+
+
+  paymentResult.classList.add(
+    "show"
+  );
+
+  paymentResultText.textContent =
+    "The payment record has been saved locally on this device. This record does not process or independently confirm a financial transaction.";
+
+
+  clientName.value = "";
+  paymentService.value = "";
+  invoiceNumber.value = "";
+  paymentAmount.value = "";
+  paymentMethod.value = "Cash";
+  paymentStatus.value = "Pending";
+  receiptReference.value = "";
+  paymentNotes.value = "";
+
+
+  renderRecords();
+
+
+  paymentResult.scrollIntoView({
+    behavior:"smooth",
+    block:"nearest"
+  });
+
+}
+
+
+if(paymentDate){
+
+  const today =
+    new Date();
+
+  const year =
+    today.getFullYear();
+
+  const month =
+    String(
+      today.getMonth() + 1
+    ).padStart(2,"0");
+
+  const day =
+    String(
+      today.getDate()
+    ).padStart(2,"0");
+
+  paymentDate.value =
+    year + "-" + month + "-" + day;
+
+}
+
+
+if(savePayment){
+
+  savePayment.addEventListener(
+    "click",
+    saveRecord
+  );
+
+}
+
+
+renderRecords();
+
+})();
+</script>
+
+</body>
+</html>
