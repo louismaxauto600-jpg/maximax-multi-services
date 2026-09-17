@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Invoice Center | Maximax Multi Services</title>
+
+<meta name="description" content="Maximax Multi Services Invoice Center — create, save, organize and print professional service invoices.">
+<meta name="theme-color" content="#000000">
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+.invoice-page{
+  min-height:100vh;
+  padding:70px 0 90px;
+}
+
+.invoice-hero{
+  padding:55px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:30px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top,rgba(255,173,77,.20),transparent 42%),
+    linear-gradient(145deg,#000,#120600,#000);
+  box-shadow:var(--glow);
+}
+
+.invoice-icon{
+  font-size:4.5rem;
+}
+
+.invoice-hero h1{
+  margin-top:15px;
+  color:var(--orange);
+  font-size:clamp(2.7rem,8vw,5.7rem);
+  line-height:.95;
+}
+
+.invoice-hero p{
+  max-width:850px;
+  margin:18px auto 0;
+  line-height:1.7;
+}
+
+.invoice-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:35px;
+}
+
+.invoice-card{
+  min-height:190px;
+  padding:23px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:
+    radial-gradient(circle at top right,rgba(255,121,0,.12),transparent 45%),
+    #050200;
+}
+
+.invoice-card span{
+  font-size:2.5rem;
+}
+
+.invoice-card h2{
+  margin-top:12px;
+  color:var(--orange);
+  font-size:.88rem;
+}
+
+.invoice-card p{
+  margin-top:9px;
+  font-size:.72rem;
+  line-height:1.6;
+}
+
+.creator{
+  margin-top:38px;
+  padding:35px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:28px;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.15),transparent 45%),
+    #050200;
+  box-shadow:var(--glow);
+}
+
+.creator h2,
+.saved-section h2{
+  color:var(--orange);
+  text-align:center;
+  font-size:clamp(2rem,6vw,3.7rem);
+}
+
+.creator-intro{
+  max-width:800px;
+  margin:12px auto 0;
+  text-align:center;
+  line-height:1.65;
+}
+
+.invoice-form{
+  max-width:1000px;
+  margin:28px auto 0;
+  padding:22px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:#000;
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.invoice-form label{
+  display:block;
+  margin-bottom:7px;
+  color:var(--orange);
+  font-size:.68rem;
+  font-weight:1000;
+}
+
+.invoice-form input,
+.invoice-form select,
+.invoice-form textarea{
+  width:100%;
+  margin-bottom:15px;
+  padding:14px;
+  color:var(--text);
+  background:#050200;
+  border:1px solid var(--border);
+  border-radius:13px;
+  outline:none;
+}
+
+.invoice-form input:focus,
+.invoice-form select:focus,
+.invoice-form textarea:focus{
+  border-color:var(--orange);
+}
+
+.invoice-form textarea{
+  min-height:100px;
+  resize:vertical;
+}
+
+.invoice-form option{
+  background:#000;
+}
+
+.invoice-result{
+  display:none;
+  margin-top:18px;
+  padding:18px;
+  border:1px solid var(--orange);
+  border-radius:15px;
+  background:#0b0400;
+}
+
+.invoice-result.show{
+  display:block;
+}
+
+.invoice-result h3{
+  color:var(--orange);
+}
+
+.preview-wrapper{
+  display:none;
+  margin-top:35px;
+}
+
+.preview-wrapper.show{
+  display:block;
+}
+
+.preview-title{
+  margin-bottom:20px;
+  color:var(--orange);
+  text-align:center;
+}
+
+.invoice-preview{
+  max-width:800px;
+  margin:auto;
+  padding:35px;
+  border:3px solid var(--orange);
+  border-radius:22px;
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(255,173,77,.26),
+      rgba(255,121,0,.12) 30%,
+      transparent 56%
+    ),
+    linear-gradient(
+      145deg,
+      #000 0%,
+      #120600 38%,
+      #050200 70%,
+      #000 100%
+    );
+
+  box-shadow:var(--glow);
+}
+
+.invoice-brand{
+  text-align:center;
+}
+
+.invoice-brand-mark{
+  width:68px;
+  height:68px;
+  display:grid;
+  place-items:center;
+  margin:auto;
+  color:#000;
+  background:linear-gradient(145deg,var(--apricot),var(--orange));
+  border-radius:18px;
+  font-size:2rem;
+  font-weight:1000;
+}
+
+.invoice-brand h2{
+  margin-top:13px;
+  color:var(--orange);
+}
+
+.invoice-brand p{
+  margin-top:5px;
+  font-size:.68rem;
+}
+
+.invoice-number{
+  margin-top:25px;
+  padding:12px;
+  border:1px solid var(--orange);
+  border-radius:12px;
+  color:var(--orange);
+  text-align:center;
+  font-weight:1000;
+}
+
+.invoice-details{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:22px;
+}
+
+.invoice-detail{
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:13px;
+  background:#000;
+}
+
+.invoice-detail span{
+  display:block;
+  color:var(--apricot);
+  font-size:.60rem;
+  font-weight:1000;
+}
+
+.invoice-detail strong{
+  display:block;
+  margin-top:6px;
+  color:var(--orange);
+  word-break:break-word;
+}
+
+.service-description{
+  margin-top:18px;
+  padding:16px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:#000;
+  line-height:1.6;
+  white-space:pre-wrap;
+}
+
+.invoice-total{
+  margin-top:20px;
+  padding:20px;
+  border:2px solid var(--orange);
+  border-radius:15px;
+  text-align:center;
+  background:#050200;
+}
+
+.invoice-total span{
+  display:block;
+  color:var(--apricot);
+  font-size:.68rem;
+  font-weight:1000;
+}
+
+.invoice-total strong{
+  display:block;
+  margin-top:7px;
+  color:var(--orange);
+  font-size:2.1rem;
+}
+
+.invoice-footer{
+  margin-top:25px;
+  padding-top:18px;
+  border-top:1px solid var(--orange);
+  text-align:center;
+  font-size:.66rem;
+  line-height:1.7;
+}
+
+.preview-actions{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:20px;
+}
+
+.saved-section{
+  margin-top:38px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:25px;
+  background:#050200;
+}
+
+.saved-list{
+  max-width:1000px;
+  display:grid;
+  gap:12px;
+  margin:25px auto 0;
+}
+
+.saved-invoice{
+  padding:18px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:#000;
+}
+
+.saved-top{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.saved-invoice h3{
+  color:var(--orange);
+}
+
+.saved-invoice p{
+  margin-top:6px;
+  font-size:.70rem;
+}
+
+.saved-amount{
+  margin-top:8px;
+  color:var(--orange);
+  font-size:1.15rem;
+  font-weight:1000;
+}
+
+.saved-actions{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+}
+
+.small-btn{
+  padding:8px 10px;
+  color:var(--orange);
+  background:#050200;
+  border:1px solid var(--border);
+  border-radius:9px;
+  cursor:pointer;
+  font-weight:900;
+}
+
+.small-btn:hover{
+  border-color:var(--orange);
+}
+
+.empty-state{
+  padding:22px;
+  color:var(--text-soft);
+  background:#000;
+  border:1px dashed var(--border);
+  border-radius:14px;
+  text-align:center;
+}
+
+.notice{
+  margin-top:30px;
+  padding:20px;
+  border-left:4px solid var(--orange);
+  border-radius:10px;
+  background:#0b0400;
+  line-height:1.7;
+  font-size:.74rem;
+}
+
+.back-home{
+  margin-top:30px;
+  text-align:center;
+}
+
+@media(max-width:850px){
+  .invoice-grid{
+    grid-template-columns:1fr;
+  }
+
+  .form-row,
+  .invoice-details{
+    grid-template-columns:1fr;
+  }
+
+  .saved-top{
+    flex-direction:column;
+  }
+}
+
+@media print{
+  @page{
+    margin:.35in;
+  }
+
+  html,
+  body{
+    background:#000 !important;
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+  }
+
+  body *{
+    visibility:hidden !important;
+  }
+
+  #invoicePreview,
+  #invoicePreview *{
+    visibility:visible !important;
+  }
+
+  #invoicePreview{
+    position:absolute !important;
+    top:0 !important;
+    left:0 !important;
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+
+    background:
+      radial-gradient(
+        circle at top,
+        rgba(255,173,77,.30),
+        rgba(255,121,0,.15) 30%,
+        transparent 56%
+      ),
+      linear-gradient(
+        145deg,
+        #000 0%,
+        #120600 38%,
+        #050200 70%,
+        #000 100%
+      ) !important;
+
+    color:#ffd2a3 !important;
+
+    border:3px solid #ff7900 !important;
+
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+MAXIMAX MULTI SERVICES • INVOICE CENTER
+</div>
+
+<header>
+<div class="container header-inner">
+
+<a href="../index.html" class="brand">
+<div class="brand-mark">M</div>
+
+<div class="brand-text">
+<strong>MAXIMAX</strong>
+<span>MULTI SERVICES</span>
+</div>
+</a>
+
+<nav id="mainNav">
+<a href="../index.html">HOME</a>
+<a href="../index.html#services">SERVICES</a>
+<a href="#invoice-creator">INVOICE</a>
+<a href="./payment-center.html">PAYMENTS</a>
+<a href="./receipt-center.html">RECEIPTS</a>
+</nav>
+
+<div class="header-actions">
+
+<div class="language-switch">
+<button class="lang-btn active" data-lang="en">ENG</button>
+<button class="lang-btn" data-lang="fr">FRA</button>
+<button class="lang-btn" data-lang="ht">KRE</button>
+</div>
+
+<button id="menuToggle" class="menu-toggle">☰</button>
+
+</div>
+</div>
+</header>
+
+
+<main class="invoice-page">
+<div class="container">
+
+<section class="invoice-hero">
+
+<div class="invoice-icon">📑</div>
+
+<div class="eyebrow">
+MAXIMAX DIGITAL BILLING SYSTEM
+</div>
+
+<h1
+data-en="INVOICE CENTER"
+data-fr="CENTRE DE FACTURATION"
+data-ht="SANT FAKTI">
+INVOICE CENTER
+</h1>
+
+<p
+data-en="Create professional Maximax service invoices, save them locally and print them in the official Orange Apricot and Black design."
+data-fr="Créez des factures professionnelles Maximax, sauvegardez-les localement et imprimez-les avec le design officiel Orange Abricot et Noir."
+data-ht="Kreye fakti pwofesyonèl Maximax, sove yo lokalman epi enprime yo nan koulè ofisyèl Orange Apricot ak Nwa.">
+Create professional Maximax service invoices, save them locally and print them in the official Orange Apricot and Black design.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#invoice-creator" class="btn primary"
+data-en="CREATE INVOICE"
+data-fr="CRÉER UNE FACTURE"
+data-ht="KREYE FAKTI">
+CREATE INVOICE
+</a>
+
+<a href="./payment-center.html" class="btn outline">
+💳 PAYMENT CENTER
+</a>
+
+</div>
+
+</section>
+
+
+<section class="invoice-grid">
+
+<div class="invoice-card">
+<span>📑</span>
+<h2>CREATE INVOICE</h2>
+<p>Create a professional service invoice with a unique Maximax invoice number.</p>
+</div>
+
+<div class="invoice-card">
+<span>💳</span>
+<h2>PAYMENT STATUS</h2>
+<p>Set the invoice as pending, partial, paid, cancelled or refunded.</p>
+</div>
+
+<div class="invoice-card">
+<span>🖨️</span>
+<h2>COLOR PRINT</h2>
+<p>Print invoices using the official Orange Apricot and Black fade design.</p>
+</div>
+
+</section>
+
+
+<section class="creator" id="invoice-creator">
+
+<h2
+data-en="CREATE INVOICE"
+data-fr="CRÉER UNE FACTURE"
+data-ht="KREYE FAKTI">
+CREATE INVOICE
+</h2>
+
+<p class="creator-intro">
+Enter the service and billing information below.
+</p>
+
+
+<div class="invoice-form">
+
+<div class="form-row">
+
+<div>
+<label for="clientName">CLIENT NAME</label>
+<input type="text" id="clientName" placeholder="Client name">
+</div>
+
+<div>
+<label for="clientContact">CLIENT CONTACT</label>
+<input type="text" id="clientContact" placeholder="Phone or email">
+</div>
+
+</div>
+
+
+<div class="form-row">
+
+<div>
+
+<label for="service">SERVICE</label>
+
+<select id="service">
+
+<option value="">Select Service</option>
+<option>Notary</option>
+<option>Taxes</option>
+<option>Immigration</option>
+<option>EOIR + BIA</option>
+<option>Insurance</option>
+<option>Real Estate</option>
+<option>Business</option>
+<option>Apostille</option>
+<option>Travel + DMV</option>
+<option>Form Help</option>
+<option>Government Forms</option>
+<option>Credit Review</option>
+<option>Non-Contested Divorce Documents</option>
+<option>Translation</option>
+<option>AI Assistance</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label for="amount">AMOUNT (USD)</label>
+
+<input
+type="number"
+id="amount"
+min="0"
+step="0.01"
+inputmode="decimal"
+placeholder="0.00">
+
+</div>
+
+</div>
+
+
+<div class="form-row">
+
+<div>
+
+<label for="invoiceDate">
+INVOICE DATE
+</label>
+
+<input
+type="date"
+id="invoiceDate">
+
+</div>
+
+
+<div>
+
+<label for="dueDate">
+DUE DATE
+</label>
+
+<input
+type="date"
+id="dueDate">
+
+</div>
+
+</div>
+
+
+<div class="form-row">
+
+<div>
+
+<label for="status">
+STATUS
+</label>
+
+<select id="status">
+
+<option>Pending</option>
+<option>Partial</option>
+<option>Paid</option>
+<option>Cancelled</option>
+<option>Refunded</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label for="reference">
+REFERENCE
+</label>
+
+<input
+type="text"
+id="reference"
+placeholder="Optional reference">
+
+</div>
+
+</div>
+
+
+<label for="description">
+SERVICE DESCRIPTION
+</label>
+
+<textarea
+id="description"
+placeholder="Describe the service or work included in this invoice."></textarea>
+
+
+<button
+type="button"
+class="btn primary"
+id="createInvoice">
+CREATE & SAVE INVOICE
+</button>
+
+
+<div class="invoice-result" id="invoiceResult">
+
+<h3>INVOICE CREATED</h3>
+
+<p id="invoiceResultText"></p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="preview-wrapper" id="previewWrapper">
+
+<h2 class="preview-title">
+INVOICE PREVIEW
+</h2>
+
+
+<div class="invoice-preview print-document" id="invoicePreview">
+
+<div class="invoice-brand">
+
+<div class="invoice-brand-mark">
+M
+</div>
+
+<h2>
+MAXIMAX MULTI SERVICES
+</h2>
+
+<p>
+PROFESSIONAL SERVICES • DIGITAL SOLUTIONS • AI ASSISTANCE
+</p>
+
+</div>
+
+
+<div class="invoice-number" id="previewNumber">
+INVOICE #
+</div>
+
+
+<div class="invoice-details">
+
+<div class="invoice-detail">
+<span>CLIENT</span>
+<strong id="previewClient">—</strong>
+</div>
+
+<div class="invoice-detail">
+<span>CLIENT CONTACT</span>
+<strong id="previewContact">—</strong>
+</div>
+
+<div class="invoice-detail">
+<span>SERVICE</span>
+<strong id="previewService">—</strong>
+</div>
+
+<div class="invoice-detail">
+<span>STATUS</span>
+<strong id="previewStatus">—</strong>
+</div>
+
+<div class="invoice-detail">
+<span>INVOICE DATE</span>
+<strong id="previewInvoiceDate">—</strong>
+</div>
+
+<div class="invoice-detail">
+<span>DUE DATE</span>
+<strong id="previewDueDate">—</strong>
+</div>
+
+<div class="invoice-detail">
+<span>REFERENCE</span>
+<strong id="previewReference">—</strong>
+</div>
+
+<div class="invoice-detail">
+<span>CURRENCY</span>
+<strong>USD</strong>
+</div>
+
+</div>
+
+
+<div class="service-description" id="previewDescription">
+Service description
+</div>
+
+
+<div class="invoice-total">
+
+<span>TOTAL AMOUNT</span>
+
+<strong id="previewAmount">
+$0.00
+</strong>
+
+</div>
+
+
+<div class="invoice-footer">
+
+<strong>MAXIMAX MULTI SERVICES</strong><br><br>
+
+Phone: (407) 640-5166<br>
+
+Professional Services • Digital Solutions<br>
+
+Part of BSS1815 PRO-MAX DMP
+
+</div>
+
+</div>
+
+
+<div class="preview-actions no-print">
+
+<button
+type="button"
+class="print-btn"
+id="printInvoice">
+🖨️ PRINT IN COLOR
+</button>
+
+<a
+href="./payment-center.html"
+class="btn outline">
+💳 PAYMENT CENTER
+</a>
+
+<a
+href="./receipt-center.html"
+class="btn outline">
+🧾 RECEIPT CENTER
+</a>
+
+</div>
+
+</section>
+
+
+<section class="saved-section">
+
+<h2
+data-en="SAVED INVOICES"
+data-fr="FACTURES ENREGISTRÉES"
+data-ht="FAKTI SOVE">
+SAVED INVOICES
+</h2>
+
+<div class="saved-list" id="savedInvoices"></div>
+
+</section>
+
+
+<div class="notice">
+
+<strong>IMPORTANT:</strong>
+This Invoice Center creates local billing records. It does not independently process or verify a payment. Payment confirmation and receipts should only be issued after the actual transaction has been confirmed. Do not enter full card numbers, CVV codes, bank account numbers or passwords.
+
+</div>
+
+
+<div class="back-home">
+
+<a href="../index.html" class="btn outline">
+← BACK TO MAXIMAX HOME
+</a>
+
+</div>
+
+</div>
+</main>
+
+
+<footer>
+
+<div class="container">
+
+<div class="footer-logo">M</div>
+
+<h3>MAXIMAX MULTI SERVICES</h3>
+
+<p>
+PROFESSIONAL SERVICES • DIGITAL SOLUTIONS • AI ASSISTANCE
+</p>
+
+<p class="hub-link">
+Part of BSS1815 PRO-MAX DMP
+</p>
+
+<p>
+© <span id="currentYear"></span> Maximax Multi Services
+</p>
+
+</div>
+
+</footer>
+
+
+<script src="../javascript.js"></script>
+
+<script>
+(() => {
+"use strict";
+
+const STORAGE_KEY = "maximaxInvoiceRecords";
+
+const clientName = document.getElementById("clientName");
+const clientContact = document.getElementById("clientContact");
+const service = document.getElementById("service");
+const amount = document.getElementById("amount");
+const invoiceDate = document.getElementById("invoiceDate");
+const dueDate = document.getElementById("dueDate");
+const status = document.getElementById("status");
+const reference = document.getElementById("reference");
+const description = document.getElementById("description");
+
+const createInvoiceButton = document.getElementById("createInvoice");
+
+const result = document.getElementById("invoiceResult");
+const resultText = document.getElementById("invoiceResultText");
+
+const previewWrapper = document.getElementById("previewWrapper");
+
+const previewNumber = document.getElementById("previewNumber");
+const previewClient = document.getElementById("previewClient");
+const previewContact = document.getElementById("previewContact");
+const previewService = document.getElementById("previewService");
+const previewStatus = document.getElementById("previewStatus");
+const previewInvoiceDate = document.getElementById("previewInvoiceDate");
+const previewDueDate = document.getElementById("previewDueDate");
+const previewReference = document.getElementById("previewReference");
+const previewDescription = document.getElementById("previewDescription");
+const previewAmount = document.getElementById("previewAmount");
+
+const savedInvoices = document.getElementById("savedInvoices");
+const printInvoice = document.getElementById("printInvoice");
+
+
+function getInvoices(){
+
+  try{
+
+    const data = JSON.parse(
+      localStorage.getItem(STORAGE_KEY)
+    );
+
+    return Array.isArray(data)
+      ? data
+      : [];
+
+  }catch(error){
+
+    return [];
+
+  }
+
+}
+
+
+function saveInvoices(records){
+
+  try{
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify(records)
+    );
+
+  }catch(error){
+
+    console.warn(
+      "Invoice records could not be saved.",
+      error
+    );
+
+  }
+
+}
+
+
+function money(value){
+
+  return new Intl.NumberFormat(
+    "en-US",
+    {
+      style:"currency",
+      currency:"USD"
+    }
+  ).format(Number(value) || 0);
+
+}
+
+
+function generateInvoiceNumber(){
+
+  const date = new Date();
+
+  const year = date.getFullYear();
+
+  const month = String(
+    date.getMonth() + 1
+  ).padStart(2,"0");
+
+  const day = String(
+    date.getDate()
+  ).padStart(2,"0");
+
+  const random = Math.floor(
+    1000 + Math.random() * 9000
+  );
+
+  return (
+    "MMS-INV-" +
+    year +
+    month +
+    day +
+    "-" +
+    random
+  );
+
+}
+
+
+function element(tag,text,className){
+
+  const node = document.createElement(tag);
+
+  if(text !== undefined){
+    node.textContent = text;
+  }
+
+  if(className){
+    node.className = className;
+  }
+
+  return node;
+
+}
+
+
+function showInvoice(invoice){
+
+  previewNumber.textContent =
+    "INVOICE # " + invoice.number;
+
+  previewClient.textContent =
+    invoice.client;
+
+  previewContact.textContent =
+    invoice.contact || "—";
+
+  previewService.textContent =
+    invoice.service;
+
+  previewStatus.textContent =
+    invoice.status;
+
+  previewInvoiceDate.textContent =
+    invoice.invoiceDate || "—";
+
+  previewDueDate.textContent =
+    invoice.dueDate || "—";
+
+  previewReference.textContent =
+    invoice.reference || "—";
+
+  previewDescription.textContent =
+    invoice.description || "Service invoice.";
+
+  previewAmount.textContent =
+    money(invoice.amount);
+
+  previewWrapper.classList.add("show");
+
+  previewWrapper.scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+
+}
+
+
+function renderInvoices(){
+
+  const records = getInvoices();
+
+  savedInvoices.innerHTML = "";
+
+
+  if(!records.length){
+
+    savedInvoices.appendChild(
+      element(
+        "div",
+        "No invoices saved yet.",
+        "empty-state"
+      )
+    );
+
+    return;
+
+  }
+
+
+  records.forEach((invoice,index) => {
+
+    const card = element(
+      "div",
+      "",
+      "saved-invoice"
+    );
+
+    const top = element(
+      "div",
+      "",
+      "saved-top"
+    );
+
+    const info = document.createElement("div");
+
+    info.appendChild(
+      element(
+        "h3",
+        invoice.number
+      )
+    );
+
+    info.appendChild(
+      element(
+        "p",
+        "Client: " + invoice.client
+      )
+    );
+
+    info.appendChild(
+      element(
+        "p",
+        "Service: " + invoice.service
+      )
+    );
+
+    info.appendChild(
+      element(
+        "p",
+        "Status: " + invoice.status
+      )
+    );
+
+    info.appendChild(
+      element(
+        "div",
+        money(invoice.amount),
+        "saved-amount"
+      )
+    );
+
+
+    const actions = element(
+      "div",
+      "",
+      "saved-actions"
+    );
+
+
+    const viewButton = element(
+      "button",
+      "VIEW / PRINT",
+      "small-btn"
+    );
+
+    viewButton.type = "button";
+
+    viewButton.addEventListener(
+      "click",
+      () => showInvoice(invoice)
+    );
+
+
+    const deleteButton = element(
+      "button",
+      "DELETE",
+      "small-btn"
+    );
+
+    deleteButton.type = "button";
+
+    deleteButton.addEventListener(
+      "click",
+      () => {
+
+        const current = getInvoices();
+
+        current.splice(index,1);
+
+        saveInvoices(current);
+
+        renderInvoices();
+
+      }
+    );
+
+
+    actions.appendChild(viewButton);
+    actions.appendChild(deleteButton);
+
+    top.appendChild(info);
+    top.appendChild(actions);
+
+    card.appendChild(top);
+
+    savedInvoices.appendChild(card);
+
+  });
+
+}
+
+
+function createInvoice(){
+
+  const client = clientName.value.trim();
+  const contact = clientContact.value.trim();
+  const selectedService = service.value;
+  const invoiceAmount = Number(amount.value);
+
+  if(
+    !client ||
+    !selectedService ||
+    !Number.isFinite(invoiceAmount) ||
+    invoiceAmount <= 0
+  ){
+
+    result.classList.add("show");
+
+    resultText.textContent =
+      "Enter the client name, select a service and enter a valid amount.";
+
+    return;
+
+  }
+
+
+  const invoice = {
+
+    id:Date.now(),
+
+    number:generateInvoiceNumber(),
+
+    client,
+
+    contact,
+
+    service:selectedService,
+
+    amount:invoiceAmount,
+
+    invoiceDate:invoiceDate.value,
+
+    dueDate:dueDate.value,
+
+    status:status.value,
+
+    reference:reference.value.trim(),
+
+    description:description.value.trim(),
+
+    createdAt:new Date().toISOString()
+
+  };
+
+
+  const records = getInvoices();
+
+  records.unshift(invoice);
+
+  saveInvoices(records);
+
+  showInvoice(invoice);
+
+  renderInvoices();
+
+
+  result.classList.add("show");
+
+  resultText.textContent =
+    "Invoice " +
+    invoice.number +
+    " has been created and saved locally.";
+
+
+  clientName.value = "";
+  clientContact.value = "";
+  service.value = "";
+  amount.value = "";
+  status.value = "Pending";
+  reference.value = "";
+  description.value = "";
+
+}
+
+
+function setDefaultDates(){
+
+  const today = new Date();
+
+  const yyyy = today.getFullYear();
+
+  const mm = String(
+    today.getMonth() + 1
+  ).padStart(2,"0");
+
+  const dd = String(
+    today.getDate()
+  ).padStart(2,"0");
+
+  invoiceDate.value =
+    `${yyyy}-${mm}-${dd}`;
+
+}
+
+
+createInvoiceButton.addEventListener(
+  "click",
+  createInvoice
+);
+
+
+printInvoice.addEventListener(
+  "click",
+  () => window.print()
+);
+
+
+setDefaultDates();
+
+renderInvoices();
+
+})();
+</script>
+
+</body>
+</html>
