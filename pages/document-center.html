@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Document Center | Maximax Multi Services</title>
+
+<meta name="description" content="Maximax Multi Services Document Center — organize documents, build document files, connect forms, checklists, translation and AI assistance.">
+
+<meta name="theme-color" content="#000000">
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+.document-page{
+  min-height:calc(100vh - 84px);
+  padding:70px 0 90px;
+}
+
+.document-hero{
+  padding:55px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:30px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.25),transparent 45%),
+    linear-gradient(145deg,#000,#120600,#000);
+  box-shadow:var(--glow);
+}
+
+.document-icon{
+  font-size:4.6rem;
+}
+
+.document-hero h1{
+  margin-top:18px;
+  color:var(--orange);
+  font-size:clamp(2.8rem,8vw,5.8rem);
+  line-height:.92;
+  text-transform:uppercase;
+}
+
+.document-hero p{
+  max-width:900px;
+  margin:20px auto 0;
+  line-height:1.75;
+}
+
+.document-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:38px;
+}
+
+.document-card{
+  min-height:235px;
+  display:flex;
+  flex-direction:column;
+  padding:25px;
+  border:1px solid var(--border);
+  border-radius:21px;
+  background:
+    radial-gradient(circle at top right,rgba(255,121,0,.12),transparent 42%),
+    #050200;
+  transition:.25s;
+}
+
+.document-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--orange);
+  box-shadow:var(--glow);
+}
+
+.document-card-icon{
+  font-size:2.5rem;
+}
+
+.document-card h2{
+  margin-top:15px;
+  color:var(--orange);
+  font-size:1rem;
+  text-transform:uppercase;
+}
+
+.document-card p{
+  margin-top:10px;
+  font-size:.76rem;
+  line-height:1.65;
+}
+
+.document-card .card-link{
+  margin-top:auto;
+}
+
+.organizer-section{
+  margin-top:40px;
+  padding:38px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:28px;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.16),transparent 45%),
+    #050200;
+  box-shadow:var(--glow);
+}
+
+.section-header{
+  text-align:center;
+}
+
+.section-header h2{
+  margin-top:10px;
+  color:var(--orange);
+  font-size:clamp(2rem,6vw,4rem);
+  text-transform:uppercase;
+}
+
+.section-header p{
+  max-width:850px;
+  margin:14px auto 0;
+  line-height:1.7;
+}
+
+.organizer{
+  max-width:1000px;
+  margin:30px auto 0;
+  padding:22px;
+  border:1px solid var(--border);
+  border-radius:22px;
+  background:#000;
+}
+
+.organizer label{
+  display:block;
+  margin-bottom:8px;
+  color:var(--orange);
+  font-size:.69rem;
+  font-weight:1000;
+  text-transform:uppercase;
+}
+
+.organizer select,
+.organizer input,
+.organizer textarea{
+  width:100%;
+  margin-bottom:15px;
+  padding:14px 15px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  outline:none;
+  color:var(--text);
+  background:#050200;
+}
+
+.organizer select:focus,
+.organizer input:focus,
+.organizer textarea:focus{
+  border-color:var(--orange);
+  box-shadow:0 0 15px rgba(255,121,0,.12);
+}
+
+.organizer option{
+  color:var(--text);
+  background:#000;
+}
+
+.organizer input::placeholder,
+.organizer textarea::placeholder{
+  color:var(--text-soft);
+}
+
+.organizer textarea{
+  min-height:115px;
+  resize:vertical;
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.organizer-result{
+  display:none;
+  margin-top:20px;
+  padding:20px;
+  border:1px solid var(--border-strong);
+  border-radius:17px;
+  background:#0b0400;
+}
+
+.organizer-result.show{
+  display:block;
+}
+
+.organizer-result h3{
+  color:var(--orange);
+  text-transform:uppercase;
+}
+
+.organizer-result p{
+  margin-top:10px;
+  font-size:.76rem;
+  line-height:1.7;
+}
+
+.saved-section{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.saved-section h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.saved-section > p{
+  max-width:820px;
+  margin:13px auto 0;
+  text-align:center;
+  line-height:1.7;
+}
+
+.saved-list{
+  max-width:1000px;
+  margin:25px auto 0;
+  display:grid;
+  gap:12px;
+}
+
+.saved-empty{
+  padding:22px;
+  border:1px dashed var(--border);
+  border-radius:15px;
+  text-align:center;
+  color:var(--text-soft);
+  background:#000;
+}
+
+.saved-document{
+  padding:18px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:#000;
+}
+
+.saved-document-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.saved-document h3{
+  color:var(--orange);
+  font-size:.85rem;
+  text-transform:uppercase;
+}
+
+.saved-document p{
+  margin-top:7px;
+  font-size:.70rem;
+  line-height:1.55;
+}
+
+.saved-meta{
+  margin-top:10px;
+  color:var(--text-soft);
+  font-size:.62rem;
+}
+
+.delete-document{
+  flex-shrink:0;
+  padding:8px 11px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  color:var(--orange);
+  background:#050200;
+  cursor:pointer;
+  font-weight:900;
+}
+
+.delete-document:hover{
+  border-color:var(--orange);
+}
+
+.category-section{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.category-section h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:25px;
+}
+
+.category-box{
+  min-height:150px;
+  padding:18px 14px;
+  border:1px solid var(--border);
+  border-radius:15px;
+  text-align:center;
+  background:#000;
+}
+
+.category-box span{
+  display:block;
+  font-size:2rem;
+}
+
+.category-box strong{
+  display:block;
+  margin-top:9px;
+  color:var(--orange);
+  font-size:.70rem;
+}
+
+.category-box p{
+  margin-top:7px;
+  font-size:.65rem;
+  line-height:1.5;
+}
+
+.pathway{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.pathway h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.pathway-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:13px;
+  margin-top:25px;
+}
+
+.pathway-step{
+  padding:22px 15px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  text-align:center;
+  background:#000;
+}
+
+.step-number{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  margin:0 auto 12px;
+  border-radius:50%;
+  color:#000;
+  background:var(--orange);
+  font-weight:1000;
+}
+
+.pathway-step strong{
+  display:block;
+  color:var(--orange);
+  font-size:.72rem;
+}
+
+.pathway-step p{
+  margin-top:8px;
+  font-size:.67rem;
+  line-height:1.55;
+}
+
+.resource-section{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.resource-section h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.resource-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:25px;
+}
+
+.resource-box{
+  min-height:170px;
+  display:flex;
+  flex-direction:column;
+  padding:22px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:#000;
+}
+
+.resource-box strong{
+  color:var(--orange);
+}
+
+.resource-box p{
+  margin-top:8px;
+  font-size:.72rem;
+  line-height:1.6;
+}
+
+.resource-box .card-link{
+  margin-top:auto;
+}
+
+.action-box{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  text-align:center;
+  background:#050200;
+}
+
+.action-box h2{
+  margin-top:10px;
+  color:var(--orange);
+  text-transform:uppercase;
+}
+
+.action-box p{
+  max-width:800px;
+  margin:14px auto 0;
+  line-height:1.7;
+}
+
+.notice{
+  margin-top:30px;
+  padding:20px;
+  border-left:4px solid var(--orange);
+  border-radius:10px;
+  background:#0b0400;
+  font-size:.75rem;
+  line-height:1.7;
+}
+
+.back-home{
+  margin-top:30px;
+  text-align:center;
+}
+
+@media(max-width:1000px){
+  .document-grid,
+  .resource-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .category-grid,
+  .pathway-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:700px){
+  .document-grid,
+  .resource-grid,
+  .category-grid,
+  .pathway-grid,
+  .form-row{
+    grid-template-columns:1fr;
+  }
+
+  .saved-document-top{
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+MAXIMAX MULTI SERVICES • DOCUMENT CENTER
+</div>
+
+<header>
+
+<div class="container header-inner">
+
+<a href="../index.html" class="brand">
+
+<div class="brand-mark">M</div>
+
+<div class="brand-text">
+<strong>MAXIMAX</strong>
+<span>MULTI SERVICES</span>
+</div>
+
+</a>
+
+<nav id="mainNav">
+<a href="../index.html">HOME</a>
+<a href="../index.html#services">SERVICES</a>
+<a href="#document-organizer">DOCUMENT CENTER</a>
+<a href="./form-helper.html">FORM CENTER</a>
+<a href="../index.html#contact">CONTACT</a>
+</nav>
+
+<div class="header-actions">
+
+<div class="language-switch">
+<button class="lang-btn active" data-lang="en">ENG</button>
+<button class="lang-btn" data-lang="fr">FRA</button>
+<button class="lang-btn" data-lang="ht">KRE</button>
+</div>
+
+<button id="menuToggle" class="menu-toggle">☰</button>
+
+</div>
+
+</div>
+
+</header>
+
+
+<main class="document-page">
+
+<div class="container">
+
+
+<section class="document-hero">
+
+<div class="document-icon">🗂️</div>
+
+<div class="eyebrow">
+MAXIMAX DIGITAL DOCUMENT SYSTEM
+</div>
+
+<h1
+data-en="DOCUMENT CENTER"
+data-fr="CENTRE DE DOCUMENTS"
+data-ht="SANT DOKIMAN">
+DOCUMENT CENTER
+</h1>
+
+<p
+data-en="One central workspace to organize document files, build checklists, prepare form requests and connect Maximax digital assistance."
+data-fr="Un espace central pour organiser vos dossiers, créer des listes, préparer les demandes de formulaires et accéder aux outils numériques Maximax."
+data-ht="Yon sèl espas santral pou òganize dosye dokiman, kreye lis, prepare demann fòm epi konekte ak zouti dijital Maximax.">
+One central workspace to organize document files, build checklists, prepare form requests and connect Maximax digital assistance.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#document-organizer" class="btn primary"
+data-en="CREATE DOCUMENT FILE"
+data-fr="CRÉER UN DOSSIER"
+data-ht="KREYE DOSYE DOKIMAN">
+CREATE DOCUMENT FILE
+</a>
+
+<a href="./document-checklist.html" class="btn outline">
+📋 DOCUMENT CHECKLIST
+</a>
+
+</div>
+
+</section>
+
+
+<section class="document-grid">
+
+
+<div class="document-card">
+
+<div class="document-card-icon">📂</div>
+
+<h2
+data-en="DOCUMENT ORGANIZER"
+data-fr="ORGANISATEUR"
+data-ht="ÒGANIZATÈ DOKIMAN">
+DOCUMENT ORGANIZER
+</h2>
+
+<p
+data-en="Create and organize a working record for the service documents you are preparing."
+data-fr="Créez et organisez un dossier de travail pour les documents que vous préparez."
+data-ht="Kreye epi òganize yon dosye travay pou dokiman sèvis wap prepare yo.">
+Create and organize a working record for the service documents you are preparing.
+</p>
+
+<a href="#document-organizer" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="document-card">
+
+<div class="document-card-icon">📋</div>
+
+<h2
+data-en="DOCUMENT CHECKLIST"
+data-fr="LISTE DE DOCUMENTS"
+data-ht="LIS DOKIMAN">
+DOCUMENT CHECKLIST
+</h2>
+
+<p
+data-en="Build service-specific working checklists and track document preparation progress."
+data-fr="Créez des listes de travail par service et suivez la préparation des documents."
+data-ht="Kreye lis dokiman pa sèvis epi swiv pwogrè preparasyon dokiman yo.">
+Build service-specific working checklists and track document preparation progress.
+</p>
+
+<a href="./document-checklist.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="document-card">
+
+<div class="document-card-icon">📝</div>
+
+<h2
+data-en="FORM CENTER"
+data-fr="CENTRE DE FORMULAIRES"
+data-ht="SANT FÒM">
+FORM CENTER
+</h2>
+
+<p
+data-en="Connect documents to supported administrative form-assistance workflows."
+data-fr="Connectez vos documents aux services administratifs de formulaires."
+data-ht="Konekte dokiman ak pwosesis asistans administratif pou fòm yo.">
+Connect documents to supported administrative form-assistance workflows.
+</p>
+
+<a href="./form-helper.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="document-card">
+
+<div class="document-card-icon">🏛️</div>
+
+<h2
+data-en="GOVERNMENT FORMS"
+data-fr="FORMULAIRES GOUVERNEMENTAUX"
+data-ht="FÒM GOUVÈNMAN">
+GOVERNMENT FORMS
+</h2>
+
+<p
+data-en="Navigate supported government-document and administrative-form categories."
+data-fr="Parcourez les catégories de documents et formulaires gouvernementaux pris en charge."
+data-ht="Navige kategori dokiman ak fòm gouvènman sistèm nan sipòte.">
+Navigate supported government-document and administrative-form categories.
+</p>
+
+<a href="./government-forms.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="document-card">
+
+<div class="document-card-icon">🌎</div>
+
+<h2
+data-en="TRANSLATION"
+data-fr="TRADUCTION"
+data-ht="TRADIKSYON">
+TRANSLATION
+</h2>
+
+<p
+data-en="Connect to general English, French and Haitian Creole translation assistance."
+data-fr="Accédez à l'assistance générale en anglais, français et créole haïtien."
+data-ht="Konekte ak asistans tradiksyon jeneral an Anglè, Fransè ak Kreyòl Ayisyen.">
+Connect to general English, French and Haitian Creole translation assistance.
+</p>
+
+<a href="./translation-ai.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="document-card">
+
+<div class="document-card-icon">🤖</div>
+
+<h2
+data-en="AI DOCUMENT ASSISTANT"
+data-fr="ASSISTANT DOCUMENTAIRE IA"
+data-ht="ASISTAN DOKIMAN AI">
+AI DOCUMENT ASSISTANT
+</h2>
+
+<p
+data-en="Prepare general writing, summaries, organization requests and other document-assistance tasks."
+data-fr="Préparez des demandes de rédaction, résumé, organisation et assistance documentaire."
+data-ht="Prepare demann pou ekriti, rezime, òganizasyon ak lòt asistans dokiman.">
+Prepare general writing, summaries, organization requests and other document-assistance tasks.
+</p>
+
+<a href="./ai-center.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+</section>
+
+
+<section class="organizer-section" id="document-organizer">
+
+<div class="section-header">
+
+<div class="eyebrow">
+MAXIMAX DOCUMENT ORGANIZER
+</div>
+
+<h2
+data-en="CREATE A DOCUMENT FILE"
+data-fr="CRÉER UN DOSSIER"
+data-ht="KREYE YON DOSYE">
+CREATE A DOCUMENT FILE
+</h2>
+
+<p
+data-en="Create a local working record for a document request. Do not enter passwords, Social Security numbers, complete bank-account numbers or other highly sensitive information."
+data-fr="Créez un dossier de travail local. N'entrez pas de mot de passe, numéro de sécurité sociale ou numéro bancaire complet."
+data-ht="Kreye yon dosye travay lokal. Pa antre modpas, nimewo Social Security, nimewo kont labank konplè oswa lòt enfòmasyon trè sansib.">
+Create a local working record for a document request. Do not enter passwords, Social Security numbers, complete bank-account numbers or other highly sensitive information.
+</p>
+
+</div>
+
+
+<div class="organizer">
+
+<div class="form-row">
+
+<div>
+
+<label for="documentService">
+SERVICE CATEGORY
+</label>
+
+<select id="documentService">
+
+<option value="">Select Service</option>
+<option value="Notary">Notary</option>
+<option value="Taxes">Taxes</option>
+<option value="Immigration">Immigration</option>
+<option value="EOIR + BIA">EOIR + BIA</option>
+<option value="Insurance">Insurance</option>
+<option value="Real Estate">Real Estate</option>
+<option value="Business">Business</option>
+<option value="Apostille">Apostille</option>
+<option value="Travel + DMV">Travel + DMV</option>
+<option value="Credit Review">Credit Review</option>
+<option value="Non-Contested Divorce">Non-Contested Divorce</option>
+<option value="Government Form">Government Form</option>
+<option value="Other">Other</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label for="documentType">
+DOCUMENT TYPE
+</label>
+
+<input
+type="text"
+id="documentType"
+placeholder="Example: Application, notice, letter, certificate">
+
+</div>
+
+</div>
+
+
+<div class="form-row">
+
+<div>
+
+<label for="documentStatus">
+STATUS
+</label>
+
+<select id="documentStatus">
+
+<option value="Need to Start">Need to Start</option>
+<option value="Collecting Documents">Collecting Documents</option>
+<option value="In Preparation">In Preparation</option>
+<option value="Ready for Review">Ready for Review</option>
+<option value="Submitted">Submitted</option>
+<option value="Completed">Completed</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label for="documentDeadline">
+DEADLINE / APPOINTMENT
+</label>
+
+<input
+type="date"
+id="documentDeadline">
+
+</div>
+
+</div>
+
+
+<label for="documentNotes">
+DOCUMENT NOTES
+</label>
+
+<textarea
+id="documentNotes"
+placeholder="Add general notes about what needs to be organized or prepared."></textarea>
+
+
+<button
+type="button"
+class="btn primary"
+id="saveDocument">
+SAVE DOCUMENT FILE
+</button>
+
+
+<div class="organizer-result" id="organizerResult">
+
+<h3>DOCUMENT FILE SAVED</h3>
+
+<p id="organizerResultText"></p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="saved-section">
+
+<h2
+data-en="SAVED DOCUMENT FILES"
+data-fr="DOSSIERS ENREGISTRÉS"
+data-ht="DOSYE DOKIMAN SOVE">
+SAVED DOCUMENT FILES
+</h2>
+
+<p
+data-en="Working records saved on this browser will appear below."
+data-fr="Les dossiers de travail enregistrés dans ce navigateur apparaîtront ci-dessous."
+data-ht="Dosye travay ki sove nan navigatè sa a ap parèt anba a.">
+Working records saved on this browser will appear below.
+</p>
+
+<div class="saved-list" id="savedDocuments"></div>
+
+</section>
+
+
+<section class="category-section">
+
+<h2
+data-en="DOCUMENT CATEGORIES"
+data-fr="CATÉGORIES DE DOCUMENTS"
+data-ht="KATEGORI DOKIMAN">
+DOCUMENT CATEGORIES
+</h2>
+
+<div class="category-grid">
+
+<div class="category-box">
+<span>🪪</span>
+<strong>IDENTIFICATION</strong>
+<p>Identity and general identification records.</p>
+</div>
+
+<div class="category-box">
+<span>📄</span>
+<strong>APPLICATIONS</strong>
+<p>Forms, applications and administrative requests.</p>
+</div>
+
+<div class="category-box">
+<span>📬</span>
+<strong>OFFICIAL NOTICES</strong>
+<p>Agency, court and administrative notices.</p>
+</div>
+
+<div class="category-box">
+<span>📂</span>
+<strong>SUPPORTING RECORDS</strong>
+<p>Documents supporting an application or request.</p>
+</div>
+
+<div class="category-box">
+<span>💰</span>
+<strong>FINANCIAL RECORDS</strong>
+<p>Relevant financial records when required.</p>
+</div>
+
+<div class="category-box">
+<span>🏠</span>
+<strong>PROPERTY RECORDS</strong>
+<p>Property, rental and real-estate documentation.</p>
+</div>
+
+<div class="category-box">
+<span>💼</span>
+<strong>BUSINESS RECORDS</strong>
+<p>Formation and administrative business documents.</p>
+</div>
+
+<div class="category-box">
+<span>🌎</span>
+<strong>INTERNATIONAL DOCUMENTS</strong>
+<p>Travel, apostille and international-use records.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="pathway">
+
+<h2
+data-en="DOCUMENT WORKFLOW"
+data-fr="PROCESSUS DOCUMENTAIRE"
+data-ht="PWOSÈS DOKIMAN">
+DOCUMENT WORKFLOW
+</h2>
+
+<div class="pathway-grid">
+
+<div class="pathway-step">
+
+<div class="step-number">1</div>
+
+<strong
+data-en="CREATE"
+data-fr="CRÉER"
+data-ht="KREYE">
+CREATE
+</strong>
+
+<p
+data-en="Create a working document file."
+data-fr="Créez un dossier de travail."
+data-ht="Kreye yon dosye dokiman travay.">
+Create a working document file.
+</p>
+
+</div>
+
+
+<div class="pathway-step">
+
+<div class="step-number">2</div>
+
+<strong
+data-en="ORGANIZE"
+data-fr="ORGANISER"
+data-ht="ÒGANIZE">
+ORGANIZE
+</strong>
+
+<p
+data-en="Organize available information and supporting records."
+data-fr="Organisez les informations et documents disponibles."
+data-ht="Òganize enfòmasyon ak dokiman sipò ki disponib.">
+Organize available information and supporting records.
+</p>
+
+</div>
+
+
+<div class="pathway-step">
+
+<div class="step-number">3</div>
+
+<strong
+data-en="REVIEW"
+data-fr="VÉRIFIER"
+data-ht="REVIZE">
+REVIEW
+</strong>
+
+<p
+data-en="Review documents and identify missing information."
+data-fr="Vérifiez les documents et identifiez les éléments manquants."
+data-ht="Revize dokiman yo epi idantifye sa ki manke.">
+Review documents and identify missing information.
+</p>
+
+</div>
+
+
+<div class="pathway-step">
+
+<div class="step-number">4</div>
+
+<strong
+data-en="COMPLETE"
+data-fr="TERMINER"
+data-ht="FINI">
+COMPLETE
+</strong>
+
+<p
+data-en="Follow the applicable service or official submission process."
+data-fr="Suivez le processus applicable de service ou de soumission."
+data-ht="Swiv pwosesis sèvis oswa soumèt ofisyèl ki aplikab la.">
+Follow the applicable service or official submission process.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="resource-section">
+
+<h2
+data-en="DOCUMENT TOOLS"
+data-fr="OUTILS DOCUMENTAIRES"
+data-ht="ZOUTI DOKIMAN">
+DOCUMENT TOOLS
+</h2>
+
+<div class="resource-grid">
+
+<div class="resource-box">
+
+<strong>📋 DOCUMENT CHECKLIST</strong>
+
+<p>
+Build and track service-specific document checklists.
+</p>
+
+<a href="./document-checklist.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="resource-box">
+
+<strong>📝 FORM HELP CENTER</strong>
+
+<p>
+Prepare supported administrative form requests.
+</p>
+
+<a href="./form-helper.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="resource-box">
+
+<strong>🏛️ GOVERNMENT FORMS</strong>
+
+<p>
+Navigate government-form and document categories.
+</p>
+
+<a href="./government-forms.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="resource-box">
+
+<strong>🌎 AI TRANSLATION</strong>
+
+<p>
+General English, French and Haitian Creole translation workspace.
+</p>
+
+<a href="./translation-ai.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="resource-box">
+
+<strong>🤖 AI CENTER</strong>
+
+<p>
+General writing, summaries and document organization.
+</p>
+
+<a href="./ai-center.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="resource-box">
+
+<strong>💬 CHAT 24/7</strong>
+
+<p>
+Navigate Maximax digital services and service centers.
+</p>
+
+<a href="./chat.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="action-box">
+
+<div class="eyebrow">
+MAXIMAX DOCUMENT CENTER
+</div>
+
+<h2
+data-en="NEED DOCUMENT ASSISTANCE?"
+data-fr="BESOIN D'AIDE DOCUMENTAIRE ?"
+data-ht="OU BEZWEN ASISTANS DOKIMAN?">
+NEED DOCUMENT ASSISTANCE?
+</h2>
+
+<p
+data-en="Contact Maximax Multi Services or continue through the Form Help Center for available administrative document services."
+data-fr="Contactez Maximax Multi Services ou continuez vers le Centre d'assistance aux formulaires."
+data-ht="Kontakte Maximax Multi Services oswa kontinye nan Form Help Center pou sèvis administratif dokiman ki disponib.">
+Contact Maximax Multi Services or continue through the Form Help Center for available administrative document services.
+</p>
+
+<div class="hero-buttons">
+
+<a href="tel:+14076405166" class="btn primary">
+📞 (407) 640-5166
+</a>
+
+<a href="./form-helper.html" class="btn outline">
+📝 FORM CENTER
+</a>
+
+<a href="../index.html#contact" class="btn outline">
+CONTACT
+</a>
+
+</div>
+
+</section>
+
+
+<div class="notice">
+
+<strong>IMPORTANT:</strong>
+The Maximax Document Center is an administrative organization tool. Records created on this page are stored locally in the browser and are not automatically submitted to Maximax, a government agency, court or other organization. Exact document requirements depend on the service, agency, jurisdiction and individual circumstances. Verify current official requirements before filing or submitting documents. Maximax Multi Services is not a government agency and does not provide legal advice or legal representation.
+
+</div>
+
+
+<div class="back-home">
+
+<a href="../index.html#services" class="btn outline"
+data-en="← BACK TO ALL SERVICES"
+data-fr="← RETOUR AUX SERVICES"
+data-ht="← RETOUNEN NAN TOUT SÈVIS YO">
+← BACK TO ALL SERVICES
+</a>
+
+</div>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<div class="container">
+
+<div class="footer-logo">M</div>
+
+<h3>
+MAXIMAX MULTI SERVICES
+</h3>
+
+<p>
+PROFESSIONAL SERVICES • DIGITAL SOLUTIONS • AI ASSISTANCE
+</p>
+
+<p class="hub-link">
+Part of BSS1815 PRO-MAX DMP
+</p>
+
+<p>
+© <span id="currentYear"></span> Maximax Multi Services
+</p>
+
+</div>
+
+</footer>
+
+
+<script src="../javascript.js"></script>
+
+<script>
+(() => {
+"use strict";
+
+const service =
+  document.getElementById("documentService");
+
+const type =
+  document.getElementById("documentType");
+
+const status =
+  document.getElementById("documentStatus");
+
+const deadline =
+  document.getElementById("documentDeadline");
+
+const notes =
+  document.getElementById("documentNotes");
+
+const saveButton =
+  document.getElementById("saveDocument");
+
+const result =
+  document.getElementById("organizerResult");
+
+const resultText =
+  document.getElementById("organizerResultText");
+
+const savedContainer =
+  document.getElementById("savedDocuments");
+
+const STORAGE_KEY =
+  "maximaxDocumentCenterFiles";
+
+
+function getDocuments(){
+
+  try{
+
+    const data =
+      JSON.parse(
+        localStorage.getItem(STORAGE_KEY)
+      );
+
+    return Array.isArray(data)
+      ? data
+      : [];
+
+  }catch(error){
+
+    return [];
+
+  }
+
+}
+
+
+function storeDocuments(documents){
+
+  try{
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify(documents)
+    );
+
+  }catch(error){
+
+    console.warn(
+      "Document files could not be saved.",
+      error
+    );
+
+  }
+
+}
+
+
+function createTextElement(
+  tag,
+  text,
+  className
+){
+
+  const element =
+    document.createElement(tag);
+
+  element.textContent =
+    text;
+
+  if(className){
+    element.className =
+      className;
+  }
+
+  return element;
+
+}
+
+
+function renderDocuments(){
+
+  const documents =
+    getDocuments();
+
+  savedContainer.innerHTML = "";
+
+
+  if(!documents.length){
+
+    const empty =
+      createTextElement(
+        "div",
+        "No document files saved yet.",
+        "saved-empty"
+      );
+
+    savedContainer.appendChild(empty);
+
+    return;
+
+  }
+
+
+  documents.forEach(
+    (documentFile,index) => {
+
+      const card =
+        document.createElement("div");
+
+      card.className =
+        "saved-document";
+
+
+      const top =
+        document.createElement("div");
+
+      top.className =
+        "saved-document-top";
+
+
+      const content =
+        document.createElement("div");
+
+
+      const titleText =
+        documentFile.type ||
+        documentFile.service ||
+        "Document File";
+
+
+      const title =
+        createTextElement(
+          "h3",
+          titleText
+        );
+
+
+      const serviceText =
+        createTextElement(
+          "p",
+          "Service: " +
+          (
+            documentFile.service ||
+            "Not specified"
+          )
+        );
+
+
+      const statusText =
+        createTextElement(
+          "p",
+          "Status: " +
+          (
+            documentFile.status ||
+            "Not specified"
+          )
+        );
+
+
+      content.appendChild(title);
+      content.appendChild(serviceText);
+      content.appendChild(statusText);
+
+
+      if(documentFile.deadline){
+
+        content.appendChild(
+          createTextElement(
+            "p",
+            "Deadline / Appointment: " +
+            documentFile.deadline
+          )
+        );
+
+      }
+
+
+      if(documentFile.notes){
+
+        content.appendChild(
+          createTextElement(
+            "p",
+            "Notes: " +
+            documentFile.notes
+          )
+        );
+
+      }
+
+
+      const meta =
+        createTextElement(
+          "div",
+          documentFile.createdAt
+            ? "Created: " +
+              new Date(
+                documentFile.createdAt
+              ).toLocaleString()
+            : "",
+          "saved-meta"
+        );
+
+      content.appendChild(meta);
+
+
+      const deleteButton =
+        createTextElement(
+          "button",
+          "DELETE",
+          "delete-document"
+        );
+
+      deleteButton.type =
+        "button";
+
+      deleteButton.setAttribute(
+        "aria-label",
+        "Delete document file"
+      );
+
+
+      deleteButton.addEventListener(
+        "click",
+        () => {
+
+          const current =
+            getDocuments();
+
+          current.splice(
+            index,
+            1
+          );
+
+          storeDocuments(
+            current
+          );
+
+          renderDocuments();
+
+        }
+      );
+
+
+      top.appendChild(content);
+      top.appendChild(deleteButton);
+
+      card.appendChild(top);
+
+      savedContainer.appendChild(card);
+
+    }
+  );
+
+}
+
+
+function saveDocumentFile(){
+
+  const serviceValue =
+    service.value.trim();
+
+  const typeValue =
+    type.value.trim();
+
+  const statusValue =
+    status.value.trim();
+
+  const deadlineValue =
+    deadline.value;
+
+  const notesValue =
+    notes.value.trim();
+
+
+  if(
+    !serviceValue &&
+    !typeValue
+  ){
+
+    result.classList.add("show");
+
+    resultText.textContent =
+      "Please select a service category or enter a document type.";
+
+    return;
+
+  }
+
+
+  const documentFile = {
+
+    id:
+      Date.now(),
+
+    service:
+      serviceValue,
+
+    type:
+      typeValue,
+
+    status:
+      statusValue,
+
+    deadline:
+      deadlineValue,
+
+    notes:
+      notesValue,
+
+    createdAt:
+      new Date().toISOString()
+
+  };
+
+
+  const documents =
+    getDocuments();
+
+  documents.unshift(
+    documentFile
+  );
+
+  storeDocuments(
+    documents
+  );
+
+
+  result.classList.add("show");
+
+  resultText.textContent =
+    "Your working document file has been saved on this browser. It has not been submitted to Maximax or any outside organization.";
+
+
+  service.value = "";
+  type.value = "";
+  status.value =
+    "Need to Start";
+  deadline.value = "";
+  notes.value = "";
+
+
+  renderDocuments();
+
+
+  result.scrollIntoView({
+    behavior:"smooth",
+    block:"nearest"
+  });
+
+}
+
+
+if(saveButton){
+
+  saveButton.addEventListener(
+    "click",
+    saveDocumentFile
+  );
+
+}
+
+
+renderDocuments();
+
+})();
+</script>
+
+</body>
+</html>
