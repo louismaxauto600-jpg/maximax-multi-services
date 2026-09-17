@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Appointment Center | Maximax Multi Services</title>
+
+<meta name="description" content="Maximax Multi Services Appointment Center — organize service requests, preferred appointment dates, contact information and appointment preparation.">
+
+<meta name="theme-color" content="#000000">
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+.appointment-page{
+  min-height:calc(100vh - 84px);
+  padding:70px 0 90px;
+}
+
+.appointment-hero{
+  padding:55px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:30px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.25),transparent 45%),
+    linear-gradient(145deg,#000,#120600,#000);
+  box-shadow:var(--glow);
+}
+
+.appointment-icon{
+  font-size:4.6rem;
+}
+
+.appointment-hero h1{
+  margin-top:18px;
+  color:var(--orange);
+  font-size:clamp(2.8rem,8vw,5.8rem);
+  line-height:.92;
+  text-transform:uppercase;
+}
+
+.appointment-hero p{
+  max-width:900px;
+  margin:20px auto 0;
+  line-height:1.75;
+}
+
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-top:38px;
+}
+
+.service-box{
+  min-height:175px;
+  display:flex;
+  flex-direction:column;
+  padding:20px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:
+    radial-gradient(circle at top right,rgba(255,121,0,.12),transparent 45%),
+    #050200;
+  transition:.25s;
+}
+
+.service-box:hover{
+  transform:translateY(-4px);
+  border-color:var(--orange);
+  box-shadow:var(--glow);
+}
+
+.service-box span{
+  font-size:2rem;
+}
+
+.service-box strong{
+  display:block;
+  margin-top:10px;
+  color:var(--orange);
+  font-size:.73rem;
+  text-transform:uppercase;
+}
+
+.service-box p{
+  margin-top:8px;
+  font-size:.67rem;
+  line-height:1.55;
+}
+
+.booking-section{
+  margin-top:40px;
+  padding:38px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:28px;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.16),transparent 45%),
+    #050200;
+  box-shadow:var(--glow);
+}
+
+.booking-header{
+  text-align:center;
+}
+
+.booking-header h2{
+  margin-top:10px;
+  color:var(--orange);
+  font-size:clamp(2rem,6vw,4rem);
+  text-transform:uppercase;
+}
+
+.booking-header p{
+  max-width:850px;
+  margin:14px auto 0;
+  line-height:1.7;
+}
+
+.booking-form{
+  max-width:1000px;
+  margin:30px auto 0;
+  padding:22px;
+  border:1px solid var(--border);
+  border-radius:22px;
+  background:#000;
+}
+
+.booking-form label{
+  display:block;
+  margin-bottom:8px;
+  color:var(--orange);
+  font-size:.69rem;
+  font-weight:1000;
+  text-transform:uppercase;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea{
+  width:100%;
+  margin-bottom:15px;
+  padding:14px 15px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  outline:none;
+  color:var(--text);
+  background:#050200;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus{
+  border-color:var(--orange);
+  box-shadow:0 0 15px rgba(255,121,0,.12);
+}
+
+.booking-form input::placeholder,
+.booking-form textarea::placeholder{
+  color:var(--text-soft);
+}
+
+.booking-form option{
+  color:var(--text);
+  background:#000;
+}
+
+.booking-form textarea{
+  min-height:115px;
+  resize:vertical;
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.booking-result{
+  display:none;
+  margin-top:20px;
+  padding:20px;
+  border:1px solid var(--border-strong);
+  border-radius:17px;
+  background:#0b0400;
+}
+
+.booking-result.show{
+  display:block;
+}
+
+.booking-result h3{
+  color:var(--orange);
+  text-transform:uppercase;
+}
+
+.booking-result p{
+  margin-top:10px;
+  font-size:.76rem;
+  line-height:1.7;
+}
+
+.saved-section{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.saved-section h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.saved-section > p{
+  max-width:850px;
+  margin:13px auto 0;
+  text-align:center;
+  line-height:1.7;
+}
+
+.appointment-list{
+  max-width:1000px;
+  display:grid;
+  gap:12px;
+  margin:25px auto 0;
+}
+
+.empty-message{
+  padding:22px;
+  border:1px dashed var(--border);
+  border-radius:15px;
+  text-align:center;
+  color:var(--text-soft);
+  background:#000;
+}
+
+.appointment-card{
+  padding:19px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:#000;
+}
+
+.appointment-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.appointment-card h3{
+  color:var(--orange);
+  font-size:.88rem;
+  text-transform:uppercase;
+}
+
+.appointment-card p{
+  margin-top:7px;
+  font-size:.70rem;
+  line-height:1.55;
+}
+
+.appointment-meta{
+  margin-top:10px;
+  color:var(--text-soft);
+  font-size:.62rem;
+}
+
+.delete-btn{
+  flex-shrink:0;
+  padding:8px 11px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  color:var(--orange);
+  background:#050200;
+  cursor:pointer;
+  font-weight:900;
+}
+
+.delete-btn:hover{
+  border-color:var(--orange);
+}
+
+.preparation-section{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.preparation-section h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.preparation-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:13px;
+  margin-top:25px;
+}
+
+.preparation-box{
+  padding:20px 15px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  text-align:center;
+  background:#000;
+}
+
+.preparation-box span{
+  display:block;
+  font-size:2rem;
+}
+
+.preparation-box strong{
+  display:block;
+  margin-top:9px;
+  color:var(--orange);
+  font-size:.70rem;
+}
+
+.preparation-box p{
+  margin-top:7px;
+  font-size:.66rem;
+  line-height:1.55;
+}
+
+.pathway{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.pathway h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.pathway-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:13px;
+  margin-top:25px;
+}
+
+.pathway-step{
+  padding:22px 15px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  text-align:center;
+  background:#000;
+}
+
+.step-number{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  margin:0 auto 12px;
+  border-radius:50%;
+  color:#000;
+  background:var(--orange);
+  font-weight:1000;
+}
+
+.pathway-step strong{
+  display:block;
+  color:var(--orange);
+  font-size:.72rem;
+}
+
+.pathway-step p{
+  margin-top:8px;
+  font-size:.67rem;
+  line-height:1.55;
+}
+
+.resource-section{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.resource-section h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.resource-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:25px;
+}
+
+.resource-box{
+  min-height:165px;
+  display:flex;
+  flex-direction:column;
+  padding:22px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:#000;
+}
+
+.resource-box strong{
+  color:var(--orange);
+}
+
+.resource-box p{
+  margin-top:8px;
+  font-size:.72rem;
+  line-height:1.6;
+}
+
+.resource-box .card-link{
+  margin-top:auto;
+}
+
+.notice{
+  margin-top:30px;
+  padding:20px;
+  border-left:4px solid var(--orange);
+  border-radius:10px;
+  background:#0b0400;
+  font-size:.75rem;
+  line-height:1.7;
+}
+
+.back-home{
+  margin-top:30px;
+  text-align:center;
+}
+
+@media(max-width:1000px){
+  .service-grid,
+  .preparation-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .resource-grid,
+  .pathway-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:700px){
+  .service-grid,
+  .preparation-grid,
+  .resource-grid,
+  .pathway-grid,
+  .form-row{
+    grid-template-columns:1fr;
+  }
+
+  .appointment-top{
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+MAXIMAX MULTI SERVICES • APPOINTMENT CENTER
+</div>
+
+<header>
+
+<div class="container header-inner">
+
+<a href="../index.html" class="brand">
+
+<div class="brand-mark">M</div>
+
+<div class="brand-text">
+<strong>MAXIMAX</strong>
+<span>MULTI SERVICES</span>
+</div>
+
+</a>
+
+<nav id="mainNav">
+<a href="../index.html">HOME</a>
+<a href="../index.html#services">SERVICES</a>
+<a href="#appointment-center">APPOINTMENT</a>
+<a href="./document-center.html">DOCUMENTS</a>
+<a href="../index.html#contact">CONTACT</a>
+</nav>
+
+<div class="header-actions">
+
+<div class="language-switch">
+<button class="lang-btn active" data-lang="en">ENG</button>
+<button class="lang-btn" data-lang="fr">FRA</button>
+<button class="lang-btn" data-lang="ht">KRE</button>
+</div>
+
+<button id="menuToggle" class="menu-toggle">☰</button>
+
+</div>
+
+</div>
+
+</header>
+
+
+<main class="appointment-page">
+
+<div class="container">
+
+
+<section class="appointment-hero">
+
+<div class="appointment-icon">📅</div>
+
+<div class="eyebrow">
+MAXIMAX SERVICE CENTER
+</div>
+
+<h1
+data-en="APPOINTMENT CENTER"
+data-fr="CENTRE DE RENDEZ-VOUS"
+data-ht="SANT RANDEVOU">
+APPOINTMENT CENTER
+</h1>
+
+<p
+data-en="Organize your Maximax service request, preferred appointment date, contact information and document-preparation needs in one place."
+data-fr="Organisez votre demande de service Maximax, votre date de rendez-vous préférée, vos coordonnées et vos besoins documentaires."
+data-ht="Òganize demann sèvis Maximax ou, dat randevou ou prefere, enfòmasyon kontak ak bezwen dokiman ou nan yon sèl kote.">
+Organize your Maximax service request, preferred appointment date, contact information and document-preparation needs in one place.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#appointment-center" class="btn primary"
+data-en="REQUEST APPOINTMENT"
+data-fr="DEMANDER UN RENDEZ-VOUS"
+data-ht="MANDE RANDEVOU">
+REQUEST APPOINTMENT
+</a>
+
+<a href="tel:+14076405166" class="btn outline">
+📞 (407) 640-5166
+</a>
+
+</div>
+
+</section>
+
+
+<section class="service-grid">
+
+<div class="service-box">
+<span>✍️</span>
+<strong>NOTARY</strong>
+<p>Notarial document service requests.</p>
+</div>
+
+<div class="service-box">
+<span>💰</span>
+<strong>TAXES</strong>
+<p>Tax-document preparation and organization.</p>
+</div>
+
+<div class="service-box">
+<span>🗽</span>
+<strong>IMMIGRATION</strong>
+<p>Immigration document-preparation services.</p>
+</div>
+
+<div class="service-box">
+<span>⚖️</span>
+<strong>EOIR + BIA</strong>
+<p>Administrative case-document organization.</p>
+</div>
+
+<div class="service-box">
+<span>🛡️</span>
+<strong>INSURANCE</strong>
+<p>Insurance service navigation and appointments.</p>
+</div>
+
+<div class="service-box">
+<span>🏠</span>
+<strong>REAL ESTATE</strong>
+<p>Property and real-estate service requests.</p>
+</div>
+
+<div class="service-box">
+<span>💼</span>
+<strong>BUSINESS</strong>
+<p>Business administrative service requests.</p>
+</div>
+
+<div class="service-box">
+<span>🌎</span>
+<strong>APOSTILLE</strong>
+<p>Apostille document-preparation requests.</p>
+</div>
+
+<div class="service-box">
+<span>✈️</span>
+<strong>TRAVEL + DMV</strong>
+<p>Travel and DMV administrative support.</p>
+</div>
+
+<div class="service-box">
+<span>📈</span>
+<strong>CREDIT</strong>
+<p>Credit-report organization and support.</p>
+</div>
+
+<div class="service-box">
+<span>📑</span>
+<strong>DIVORCE DOCUMENTS</strong>
+<p>Supported administrative document preparation.</p>
+</div>
+
+<div class="service-box">
+<span>🤖</span>
+<strong>AI SERVICES</strong>
+<p>Digital AI assistance and service navigation.</p>
+</div>
+
+</section>
+
+
+<section class="booking-section" id="appointment-center">
+
+<div class="booking-header">
+
+<div class="eyebrow">
+MAXIMAX APPOINTMENT REQUEST
+</div>
+
+<h2
+data-en="REQUEST AN APPOINTMENT"
+data-fr="DEMANDER UN RENDEZ-VOUS"
+data-ht="MANDE YON RANDEVOU">
+REQUEST AN APPOINTMENT
+</h2>
+
+<p
+data-en="Enter your service request and preferred date. This form creates a local appointment request on your device; it does not automatically confirm an appointment."
+data-fr="Entrez votre demande et votre date préférée. Ce formulaire crée une demande locale sur votre appareil; il ne confirme pas automatiquement le rendez-vous."
+data-ht="Antre sèvis ou bezwen ak dat ou prefere. Fòm sa a kreye yon demann lokal sou aparèy ou; li pa konfime randevou a otomatikman.">
+Enter your service request and preferred date. This form creates a local appointment request on your device; it does not automatically confirm an appointment.
+</p>
+
+</div>
+
+
+<div class="booking-form">
+
+<div class="form-row">
+
+<div>
+
+<label for="clientName">
+FULL NAME
+</label>
+
+<input
+type="text"
+id="clientName"
+autocomplete="name"
+placeholder="Your name">
+
+</div>
+
+
+<div>
+
+<label for="clientPhone">
+PHONE
+</label>
+
+<input
+type="tel"
+id="clientPhone"
+autocomplete="tel"
+placeholder="Phone number">
+
+</div>
+
+</div>
+
+
+<div class="form-row">
+
+<div>
+
+<label for="clientEmail">
+EMAIL
+</label>
+
+<input
+type="email"
+id="clientEmail"
+autocomplete="email"
+placeholder="Email address">
+
+</div>
+
+
+<div>
+
+<label for="appointmentService">
+SERVICE
+</label>
+
+<select id="appointmentService">
+
+<option value="">Select Service</option>
+<option value="Notary">Notary</option>
+<option value="Taxes">Taxes</option>
+<option value="Immigration">Immigration</option>
+<option value="EOIR + BIA">EOIR + BIA</option>
+<option value="Insurance">Insurance</option>
+<option value="Real Estate">Real Estate</option>
+<option value="Business">Business</option>
+<option value="Apostille">Apostille</option>
+<option value="Travel + DMV">Travel + DMV</option>
+<option value="Form Help">Form Help</option>
+<option value="Credit Review">Credit Review</option>
+<option value="Non-Contested Divorce Documents">Non-Contested Divorce Documents</option>
+<option value="Translation">Translation</option>
+<option value="AI Assistance">AI Assistance</option>
+<option value="Other">Other</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<div class="form-row">
+
+<div>
+
+<label for="appointmentDate">
+PREFERRED DATE
+</label>
+
+<input
+type="date"
+id="appointmentDate">
+
+</div>
+
+
+<div>
+
+<label for="appointmentTime">
+PREFERRED TIME
+</label>
+
+<select id="appointmentTime">
+
+<option value="">Select Time</option>
+<option value="Morning">Morning</option>
+<option value="Afternoon">Afternoon</option>
+<option value="Evening">Evening</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<div class="form-row">
+
+<div>
+
+<label for="appointmentType">
+APPOINTMENT TYPE
+</label>
+
+<select id="appointmentType">
+
+<option value="Phone">Phone</option>
+<option value="Virtual">Virtual</option>
+<option value="In Person">In Person</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label for="languagePreference">
+PREFERRED LANGUAGE
+</label>
+
+<select id="languagePreference">
+
+<option value="English">English</option>
+<option value="French">Français</option>
+<option value="Haitian Creole">Kreyòl Ayisyen</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<label for="appointmentNotes">
+SERVICE NOTES
+</label>
+
+<textarea
+id="appointmentNotes"
+placeholder="Briefly describe the service you need. Do not enter Social Security numbers, passwords, complete bank-account numbers or other highly sensitive information."></textarea>
+
+
+<button
+type="button"
+class="btn primary"
+id="saveAppointment">
+SAVE APPOINTMENT REQUEST
+</button>
+
+
+<div class="booking-result" id="bookingResult">
+
+<h3>
+APPOINTMENT REQUEST SAVED
+</h3>
+
+<p id="bookingResultText"></p>
+
+<div class="hero-buttons">
+
+<a href="tel:+14076405166" class="btn primary">
+📞 CALL MAXIMAX
+</a>
+
+<a href="./document-checklist.html" class="btn outline">
+📋 PREPARE DOCUMENTS
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="saved-section">
+
+<h2
+data-en="SAVED APPOINTMENT REQUESTS"
+data-fr="DEMANDES DE RENDEZ-VOUS ENREGISTRÉES"
+data-ht="DEMANN RANDEVOU SOVE">
+SAVED APPOINTMENT REQUESTS
+</h2>
+
+<p
+data-en="Appointment requests saved on this browser will appear below."
+data-fr="Les demandes enregistrées dans ce navigateur apparaîtront ci-dessous."
+data-ht="Demann randevou ki sove nan navigatè sa a ap parèt anba a.">
+Appointment requests saved on this browser will appear below.
+</p>
+
+<div class="appointment-list" id="appointmentList"></div>
+
+</section>
+
+
+<section class="preparation-section">
+
+<h2
+data-en="APPOINTMENT PREPARATION"
+data-fr="PRÉPARATION DU RENDEZ-VOUS"
+data-ht="PREPARASYON RANDEVOU">
+APPOINTMENT PREPARATION
+</h2>
+
+<div class="preparation-grid">
+
+<div class="preparation-box">
+<span>🪪</span>
+<strong>IDENTIFICATION</strong>
+<p>Bring or prepare applicable identification.</p>
+</div>
+
+<div class="preparation-box">
+<span>📂</span>
+<strong>DOCUMENTS</strong>
+<p>Organize documents related to the requested service.</p>
+</div>
+
+<div class="preparation-box">
+<span>📬</span>
+<strong>NOTICES</strong>
+<p>Prepare relevant letters, notices or correspondence.</p>
+</div>
+
+<div class="preparation-box">
+<span>❓</span>
+<strong>QUESTIONS</strong>
+<p>Prepare a list of questions before the appointment.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="pathway">
+
+<h2
+data-en="APPOINTMENT PATHWAY"
+data-fr="PARCOURS DU RENDEZ-VOUS"
+data-ht="CHEMEN RANDEVOU">
+APPOINTMENT PATHWAY
+</h2>
+
+<div class="pathway-grid">
+
+<div class="pathway-step">
+
+<div class="step-number">1</div>
+
+<strong
+data-en="SELECT SERVICE"
+data-fr="CHOISIR LE SERVICE"
+data-ht="CHWAZI SÈVIS">
+SELECT SERVICE
+</strong>
+
+<p>
+Choose the Maximax service you need.
+</p>
+
+</div>
+
+
+<div class="pathway-step">
+
+<div class="step-number">2</div>
+
+<strong
+data-en="REQUEST"
+data-fr="DEMANDER"
+data-ht="MANDE">
+REQUEST
+</strong>
+
+<p>
+Enter your preferred appointment information.
+</p>
+
+</div>
+
+
+<div class="pathway-step">
+
+<div class="step-number">3</div>
+
+<strong
+data-en="PREPARE"
+data-fr="PRÉPARER"
+data-ht="PREPARE">
+PREPARE
+</strong>
+
+<p>
+Organize applicable documents before the appointment.
+</p>
+
+</div>
+
+
+<div class="pathway-step">
+
+<div class="step-number">4</div>
+
+<strong
+data-en="CONFIRM"
+data-fr="CONFIRMER"
+data-ht="KONFIME">
+CONFIRM
+</strong>
+
+<p>
+Contact Maximax to obtain actual appointment confirmation.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="resource-section">
+
+<h2
+data-en="APPOINTMENT RESOURCES"
+data-fr="RESSOURCES DE RENDEZ-VOUS"
+data-ht="RESOUS RANDEVOU">
+APPOINTMENT RESOURCES
+</h2>
+
+<div class="resource-grid">
+
+<div class="resource-box">
+
+<strong>🗂️ DOCUMENT CENTER</strong>
+
+<p>
+Create and organize working document files.
+</p>
+
+<a href="./document-center.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="resource-box">
+
+<strong>📋 DOCUMENT CHECKLIST</strong>
+
+<p>
+Build a service-specific preparation checklist.
+</p>
+
+<a href="./document-checklist.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="resource-box">
+
+<strong>📝 FORM HELP CENTER</strong>
+
+<p>
+Organize supported administrative form requests.
+</p>
+
+<a href="./form-helper.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="resource-box">
+
+<strong>🏛️ GOVERNMENT FORMS</strong>
+
+<p>
+Navigate supported government-document categories.
+</p>
+
+<a href="./government-forms.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="resource-box">
+
+<strong>🤖 AI CENTER</strong>
+
+<p>
+General digital writing and document organization.
+</p>
+
+<a href="./ai-center.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="resource-box">
+
+<strong>💬 CHAT 24/7</strong>
+
+<p>
+Navigate Maximax services digitally.
+</p>
+
+<a href="./chat.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<div class="notice">
+
+<strong>IMPORTANT:</strong>
+Saving an appointment request on this page does not create or confirm an actual appointment with Maximax Multi Services. The request is stored locally in this browser unless a live scheduling/backend system is connected later. Contact Maximax at (407) 640-5166 for confirmation. Do not enter passwords, Social Security numbers, complete financial-account numbers or other highly sensitive information in the notes field.
+
+</div>
+
+
+<div class="back-home">
+
+<a href="../index.html#services" class="btn outline"
+data-en="← BACK TO ALL SERVICES"
+data-fr="← RETOUR AUX SERVICES"
+data-ht="← RETOUNEN NAN TOUT SÈVIS YO">
+← BACK TO ALL SERVICES
+</a>
+
+</div>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<div class="container">
+
+<div class="footer-logo">M</div>
+
+<h3>
+MAXIMAX MULTI SERVICES
+</h3>
+
+<p>
+PROFESSIONAL SERVICES • DIGITAL SOLUTIONS • AI ASSISTANCE
+</p>
+
+<p class="hub-link">
+Part of BSS1815 PRO-MAX DMP
+</p>
+
+<p>
+© <span id="currentYear"></span> Maximax Multi Services
+</p>
+
+</div>
+
+</footer>
+
+
+<script src="../javascript.js"></script>
+
+<script>
+(() => {
+"use strict";
+
+const nameInput =
+  document.getElementById("clientName");
+
+const phoneInput =
+  document.getElementById("clientPhone");
+
+const emailInput =
+  document.getElementById("clientEmail");
+
+const serviceInput =
+  document.getElementById("appointmentService");
+
+const dateInput =
+  document.getElementById("appointmentDate");
+
+const timeInput =
+  document.getElementById("appointmentTime");
+
+const typeInput =
+  document.getElementById("appointmentType");
+
+const languageInput =
+  document.getElementById("languagePreference");
+
+const notesInput =
+  document.getElementById("appointmentNotes");
+
+const saveButton =
+  document.getElementById("saveAppointment");
+
+const result =
+  document.getElementById("bookingResult");
+
+const resultText =
+  document.getElementById("bookingResultText");
+
+const appointmentList =
+  document.getElementById("appointmentList");
+
+const STORAGE_KEY =
+  "maximaxAppointmentRequests";
+
+
+function getAppointments(){
+
+  try{
+
+    const saved =
+      JSON.parse(
+        localStorage.getItem(STORAGE_KEY)
+      );
+
+    return Array.isArray(saved)
+      ? saved
+      : [];
+
+  }catch(error){
+
+    return [];
+
+  }
+
+}
+
+
+function storeAppointments(items){
+
+  try{
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify(items)
+    );
+
+  }catch(error){
+
+    console.warn(
+      "Appointment requests could not be saved.",
+      error
+    );
+
+  }
+
+}
+
+
+function makeElement(tag,text,className){
+
+  const element =
+    document.createElement(tag);
+
+  if(text !== undefined){
+    element.textContent = text;
+  }
+
+  if(className){
+    element.className = className;
+  }
+
+  return element;
+
+}
+
+
+function renderAppointments(){
+
+  const appointments =
+    getAppointments();
+
+  appointmentList.innerHTML = "";
+
+
+  if(!appointments.length){
+
+    appointmentList.appendChild(
+      makeElement(
+        "div",
+        "No appointment requests saved yet.",
+        "empty-message"
+      )
+    );
+
+    return;
+
+  }
+
+
+  appointments.forEach(
+    (appointment,index) => {
+
+      const card =
+        makeElement(
+          "div",
+          "",
+          "appointment-card"
+        );
+
+      const top =
+        makeElement(
+          "div",
+          "",
+          "appointment-top"
+        );
+
+      const content =
+        document.createElement("div");
+
+
+      content.appendChild(
+        makeElement(
+          "h3",
+          appointment.service ||
+          "Maximax Appointment"
+        )
+      );
+
+
+      content.appendChild(
+        makeElement(
+          "p",
+          "Name: " +
+          (
+            appointment.name ||
+            "Not specified"
+          )
+        )
+      );
+
+
+      if(appointment.date){
+
+        content.appendChild(
+          makeElement(
+            "p",
+            "Preferred Date: " +
+            appointment.date
+          )
+        );
+
+      }
+
+
+      if(appointment.time){
+
+        content.appendChild(
+          makeElement(
+            "p",
+            "Preferred Time: " +
+            appointment.time
+          )
+        );
+
+      }
+
+
+      content.appendChild(
+        makeElement(
+          "p",
+          "Appointment Type: " +
+          appointment.type
+        )
+      );
+
+
+      content.appendChild(
+        makeElement(
+          "p",
+          "Language: " +
+          appointment.language
+        )
+      );
+
+
+      if(appointment.phone){
+
+        content.appendChild(
+          makeElement(
+            "p",
+            "Phone: " +
+            appointment.phone
+          )
+        );
+
+      }
+
+
+      if(appointment.email){
+
+        content.appendChild(
+          makeElement(
+            "p",
+            "Email: " +
+            appointment.email
+          )
+        );
+
+      }
+
+
+      if(appointment.notes){
+
+        content.appendChild(
+          makeElement(
+            "p",
+            "Notes: " +
+            appointment.notes
+          )
+        );
+
+      }
+
+
+      if(appointment.savedAt){
+
+        content.appendChild(
+          makeElement(
+            "div",
+            "Saved: " +
+            new Date(
+              appointment.savedAt
+            ).toLocaleString(),
+            "appointment-meta"
+          )
+        );
+
+      }
+
+
+      const deleteButton =
+        makeElement(
+          "button",
+          "DELETE",
+          "delete-btn"
+        );
+
+      deleteButton.type =
+        "button";
+
+
+      deleteButton.addEventListener(
+        "click",
+        () => {
+
+          const current =
+            getAppointments();
+
+          current.splice(
+            index,
+            1
+          );
+
+          storeAppointments(
+            current
+          );
+
+          renderAppointments();
+
+        }
+      );
+
+
+      top.appendChild(content);
+      top.appendChild(deleteButton);
+
+      card.appendChild(top);
+
+      appointmentList.appendChild(card);
+
+    }
+  );
+
+}
+
+
+function saveAppointmentRequest(){
+
+  const name =
+    nameInput.value.trim();
+
+  const phone =
+    phoneInput.value.trim();
+
+  const email =
+    emailInput.value.trim();
+
+  const service =
+    serviceInput.value.trim();
+
+  const date =
+    dateInput.value;
+
+  const time =
+    timeInput.value;
+
+  const type =
+    typeInput.value;
+
+  const language =
+    languageInput.value;
+
+  const notes =
+    notesInput.value.trim();
+
+
+  if(
+    !name ||
+    !service ||
+    (!phone && !email)
+  ){
+
+    result.classList.add("show");
+
+    resultText.textContent =
+      "Please enter your name, select a service, and provide at least a phone number or email address.";
+
+    return;
+
+  }
+
+
+  const appointment = {
+
+    id:
+      Date.now(),
+
+    name,
+    phone,
+    email,
+    service,
+    date,
+    time,
+    type,
+    language,
+    notes,
+
+    savedAt:
+      new Date().toISOString()
+
+  };
+
+
+  const appointments =
+    getAppointments();
+
+  appointments.unshift(
+    appointment
+  );
+
+  storeAppointments(
+    appointments
+  );
+
+
+  result.classList.add("show");
+
+  resultText.textContent =
+    "Your appointment request has been saved on this device. This is not a confirmed appointment. Please contact Maximax at (407) 640-5166 for confirmation.";
+
+
+  nameInput.value = "";
+  phoneInput.value = "";
+  emailInput.value = "";
+  serviceInput.value = "";
+  dateInput.value = "";
+  timeInput.value = "";
+  typeInput.value = "Phone";
+  languageInput.value = "English";
+  notesInput.value = "";
+
+
+  renderAppointments();
+
+
+  result.scrollIntoView({
+    behavior:"smooth",
+    block:"nearest"
+  });
+
+}
+
+
+if(dateInput){
+
+  const today =
+    new Date();
+
+  const year =
+    today.getFullYear();
+
+  const month =
+    String(
+      today.getMonth() + 1
+    ).padStart(2,"0");
+
+  const day =
+    String(
+      today.getDate()
+    ).padStart(2,"0");
+
+  dateInput.min =
+    year + "-" + month + "-" + day;
+
+}
+
+
+if(saveButton){
+
+  saveButton.addEventListener(
+    "click",
+    saveAppointmentRequest
+  );
+
+}
+
+
+renderAppointments();
+
+})();
+</script>
+
+</body>
+</html>
