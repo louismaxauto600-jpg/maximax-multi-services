@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Try AI | Maximax Multi Services</title>
+
+<meta name="description" content="Try Maximax AI — a digital workspace for writing, forms, document organization, translation, business and general assistance.">
+
+<meta name="theme-color" content="#000000">
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+.try-ai-page{
+  min-height:calc(100vh - 84px);
+  padding:70px 0 90px;
+}
+
+.try-ai-hero{
+  padding:52px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:30px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.25),transparent 45%),
+    linear-gradient(145deg,#000,#120600,#000);
+  box-shadow:var(--glow);
+}
+
+.try-ai-icon{
+  font-size:4.5rem;
+}
+
+.try-ai-hero h1{
+  margin-top:18px;
+  color:var(--orange);
+  font-size:clamp(3rem,9vw,6rem);
+  line-height:.9;
+  text-transform:uppercase;
+}
+
+.try-ai-hero p{
+  max-width:900px;
+  margin:20px auto 0;
+  line-height:1.75;
+}
+
+.status-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:20px;
+  padding:8px 15px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:#000;
+  color:var(--orange);
+  font-size:.66rem;
+  font-weight:1000;
+}
+
+.status-dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--orange);
+  box-shadow:0 0 12px var(--orange);
+}
+
+.workspace{
+  margin-top:40px;
+  padding:30px;
+  border:1px solid var(--border-strong);
+  border-radius:28px;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.15),transparent 45%),
+    #050200;
+  box-shadow:var(--glow);
+}
+
+.workspace-header{
+  text-align:center;
+}
+
+.workspace-header h2{
+  margin-top:10px;
+  color:var(--orange);
+  font-size:clamp(2rem,6vw,4rem);
+  text-transform:uppercase;
+}
+
+.workspace-header p{
+  max-width:820px;
+  margin:14px auto 0;
+  line-height:1.7;
+}
+
+.ai-panel{
+  max-width:1050px;
+  margin:30px auto 0;
+  border:1px solid var(--border);
+  border-radius:22px;
+  overflow:hidden;
+  background:#000;
+}
+
+.ai-panel-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  padding:18px;
+  border-bottom:1px solid var(--border);
+  background:#050200;
+}
+
+.ai-brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.ai-logo{
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  color:#000;
+  background:var(--orange);
+  font-weight:1000;
+}
+
+.ai-brand strong{
+  display:block;
+  color:var(--orange);
+}
+
+.ai-brand span{
+  display:block;
+  margin-top:4px;
+  color:var(--text-soft);
+  font-size:.64rem;
+}
+
+.mode-selector{
+  padding:18px;
+  border-bottom:1px solid var(--border);
+  background:#050200;
+}
+
+.mode-selector label{
+  display:block;
+  margin-bottom:8px;
+  color:var(--orange);
+  font-size:.68rem;
+  font-weight:1000;
+}
+
+.mode-selector select{
+  width:100%;
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  outline:none;
+  color:var(--text);
+  background:#000;
+}
+
+.mode-selector select:focus{
+  border-color:var(--orange);
+}
+
+.mode-selector option{
+  color:var(--text);
+  background:#000;
+}
+
+.ai-chat{
+  height:420px;
+  overflow-y:auto;
+  padding:22px;
+  scroll-behavior:smooth;
+}
+
+.ai-message{
+  max-width:82%;
+  margin-bottom:14px;
+  padding:14px 16px;
+  border-radius:17px;
+  line-height:1.6;
+  font-size:.78rem;
+}
+
+.ai-message.bot{
+  border:1px solid var(--border);
+  border-bottom-left-radius:5px;
+  background:#0b0400;
+}
+
+.ai-message.user{
+  margin-left:auto;
+  border-bottom-right-radius:5px;
+  color:#000;
+  background:var(--orange);
+  font-weight:700;
+}
+
+.ai-message small{
+  display:block;
+  margin-top:7px;
+  opacity:.62;
+  font-size:.58rem;
+}
+
+.typing{
+  display:none;
+  width:max-content;
+  margin:0 22px 15px;
+  padding:10px 14px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  color:var(--orange);
+  background:#0b0400;
+  font-size:.65rem;
+}
+
+.typing.show{
+  display:block;
+}
+
+.prompt-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  padding:15px 18px;
+  border-top:1px solid var(--border);
+  background:#050200;
+}
+
+.prompt-btn{
+  min-height:64px;
+  padding:10px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  color:var(--orange);
+  background:#000;
+  cursor:pointer;
+  font-size:.64rem;
+  font-weight:900;
+  line-height:1.35;
+}
+
+.prompt-btn:hover{
+  border-color:var(--orange);
+  box-shadow:0 0 12px rgba(255,121,0,.18);
+}
+
+.ai-input-area{
+  display:flex;
+  gap:10px;
+  padding:16px;
+  border-top:1px solid var(--border);
+  background:#050200;
+}
+
+.ai-input-area textarea{
+  flex:1;
+  min-height:58px;
+  max-height:150px;
+  resize:vertical;
+  padding:15px;
+  border:1px solid var(--border);
+  border-radius:15px;
+  outline:none;
+  color:var(--text);
+  background:#000;
+}
+
+.ai-input-area textarea:focus{
+  border-color:var(--orange);
+  box-shadow:0 0 15px rgba(255,121,0,.12);
+}
+
+.ai-input-area textarea::placeholder{
+  color:var(--text-soft);
+}
+
+.send-button{
+  min-width:115px;
+  border:0;
+  border-radius:15px;
+  color:#000;
+  background:var(--orange);
+  cursor:pointer;
+  font-weight:1000;
+}
+
+.send-button:hover{
+  background:var(--apricot);
+}
+
+.capability-section{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.capability-section h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.capability-section > p{
+  max-width:820px;
+  margin:13px auto 0;
+  text-align:center;
+  line-height:1.7;
+}
+
+.capability-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:13px;
+  margin-top:25px;
+}
+
+.capability-card{
+  min-height:175px;
+  padding:20px 15px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  text-align:center;
+  background:#000;
+}
+
+.capability-card span{
+  display:block;
+  font-size:2.1rem;
+}
+
+.capability-card strong{
+  display:block;
+  margin-top:10px;
+  color:var(--orange);
+  font-size:.72rem;
+}
+
+.capability-card p{
+  margin-top:8px;
+  font-size:.68rem;
+  line-height:1.55;
+}
+
+.connection-center{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.connection-center h2{
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.connection-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:25px;
+}
+
+.connection-box{
+  padding:21px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:#000;
+}
+
+.connection-box strong{
+  display:block;
+  color:var(--orange);
+  margin-bottom:8px;
+}
+
+.connection-box p{
+  font-size:.75rem;
+  line-height:1.6;
+}
+
+.notice{
+  margin-top:30px;
+  padding:18px;
+  border-left:4px solid var(--orange);
+  border-radius:10px;
+  background:#0b0400;
+  font-size:.75rem;
+  line-height:1.65;
+}
+
+.back-home{
+  margin-top:30px;
+  text-align:center;
+}
+
+@media(max-width:1000px){
+  .capability-grid,
+  .prompt-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .connection-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:700px){
+  .capability-grid,
+  .connection-grid,
+  .prompt-grid{
+    grid-template-columns:1fr;
+  }
+
+  .ai-panel-top{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .ai-chat{
+    height:390px;
+    padding:15px;
+  }
+
+  .ai-message{
+    max-width:94%;
+  }
+
+  .ai-input-area{
+    flex-direction:column;
+  }
+
+  .send-button{
+    min-height:50px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+MAXIMAX MULTI SERVICES • TRY AI
+</div>
+
+<header>
+
+<div class="container header-inner">
+
+<a href="../index.html" class="brand">
+
+<div class="brand-mark">M</div>
+
+<div class="brand-text">
+<strong>MAXIMAX</strong>
+<span>MULTI SERVICES</span>
+</div>
+
+</a>
+
+<nav id="mainNav">
+
+<a href="../index.html">HOME</a>
+<a href="../index.html#services">SERVICES</a>
+<a href="#workspace">TRY AI</a>
+<a href="./ai-center.html">AI CENTER</a>
+<a href="../index.html#contact">CONTACT</a>
+
+</nav>
+
+<div class="header-actions">
+
+<div class="language-switch">
+
+<button class="lang-btn active" data-lang="en">ENG</button>
+<button class="lang-btn" data-lang="fr">FRA</button>
+<button class="lang-btn" data-lang="ht">KRE</button>
+
+</div>
+
+<button id="menuToggle" class="menu-toggle">☰</button>
+
+</div>
+
+</div>
+
+</header>
+
+
+<main class="try-ai-page">
+
+<div class="container">
+
+
+<section class="try-ai-hero">
+
+<div class="try-ai-icon">
+🧠
+</div>
+
+<div class="eyebrow">
+MAXIMAX INTELLIGENCE LAB
+</div>
+
+<h1
+data-en="TRY AI"
+data-fr="ESSAYER L'IA"
+data-ht="ESEYE AI">
+TRY AI
+</h1>
+
+<p
+data-en="Explore the Maximax AI workspace for writing, document organization, forms, translation, business, career and general administrative assistance."
+data-fr="Explorez l'espace Maximax AI pour la rédaction, l'organisation des documents, les formulaires, la traduction, les entreprises, les carrières et l'assistance administrative générale."
+data-ht="Eksplore espas Maximax AI pou ekriti, òganizasyon dokiman, fòm, tradiksyon, biznis, karyè ak asistans administratif jeneral.">
+Explore the Maximax AI workspace for writing, document organization, forms, translation, business, career and general administrative assistance.
+</p>
+
+<div class="status-pill">
+<span class="status-dot"></span>
+MAXIMAX AI WORKSPACE
+</div>
+
+<div class="hero-buttons">
+
+<a href="#workspace" class="btn primary"
+data-en="START AI WORKSPACE"
+data-fr="OUVRIR L'ESPACE IA"
+data-ht="LOUVRI ESPAS AI">
+START AI WORKSPACE
+</a>
+
+<a href="./ai-center.html" class="btn outline">
+🤖 AI CENTER
+</a>
+
+</div>
+
+</section>
+
+
+<section class="workspace" id="workspace">
+
+<div class="workspace-header">
+
+<div class="eyebrow">
+MAXIMAX AI
+</div>
+
+<h2
+data-en="AI WORKSPACE"
+data-fr="ESPACE DE TRAVAIL IA"
+data-ht="ESPAS TRAVAY AI">
+AI WORKSPACE
+</h2>
+
+<p
+data-en="Choose a mode, enter your request and prepare it for the live AI connection."
+data-fr="Choisissez un mode, saisissez votre demande et préparez-la pour la connexion IA en direct."
+data-ht="Chwazi yon mòd, antre demann ou epi prepare li pou koneksyon AI an dirèk.">
+Choose a mode, enter your request and prepare it for the live AI connection.
+</p>
+
+</div>
+
+
+<div class="ai-panel">
+
+<div class="ai-panel-top">
+
+<div class="ai-brand">
+
+<div class="ai-logo">
+AI
+</div>
+
+<div>
+
+<strong>
+MAXIMAX AI
+</strong>
+
+<span>
+Interactive Digital Workspace
+</span>
+
+</div>
+
+</div>
+
+<div class="status-pill">
+<span class="status-dot"></span>
+READY
+</div>
+
+</div>
+
+
+<div class="mode-selector">
+
+<label for="aiMode">
+AI MODE
+</label>
+
+<select id="aiMode">
+
+<option value="General Assistant">
+General Assistant
+</option>
+
+<option value="Professional Writer">
+Professional Writer
+</option>
+
+<option value="Document Organizer">
+Document Organizer
+</option>
+
+<option value="Form Assistant">
+Form Assistant
+</option>
+
+<option value="Translation Assistant">
+Translation Assistant
+</option>
+
+<option value="Business Assistant">
+Business Assistant
+</option>
+
+<option value="Career Assistant">
+Career Assistant
+</option>
+
+</select>
+
+</div>
+
+
+<div class="ai-chat" id="aiChat">
+
+<div class="ai-message bot">
+
+<span
+data-en="Welcome to Maximax AI. Select a mode or type your request below."
+data-fr="Bienvenue dans Maximax AI. Choisissez un mode ou saisissez votre demande ci-dessous."
+data-ht="Byenveni nan Maximax AI. Chwazi yon mòd oswa ekri demann ou anba a.">
+Welcome to Maximax AI. Select a mode or type your request below.
+</span>
+
+<small>
+MAXIMAX AI
+</small>
+
+</div>
+
+</div>
+
+
+<div class="typing" id="typingIndicator">
+MAXIMAX AI IS PROCESSING...
+</div>
+
+
+<div class="prompt-grid">
+
+<button
+type="button"
+class="prompt-btn"
+data-prompt="Help me write a professional letter.">
+✍️ WRITE A LETTER
+</button>
+
+<button
+type="button"
+class="prompt-btn"
+data-prompt="Help me organize a document.">
+📄 ORGANIZE DOCUMENT
+</button>
+
+<button
+type="button"
+class="prompt-btn"
+data-prompt="Help me organize information for a form.">
+📝 FORM ASSISTANCE
+</button>
+
+<button
+type="button"
+class="prompt-btn"
+data-prompt="Help me translate text between English, French and Haitian Creole.">
+🌎 TRANSLATE TEXT
+</button>
+
+<button
+type="button"
+class="prompt-btn"
+data-prompt="Help me write a business description.">
+💼 BUSINESS WRITER
+</button>
+
+<button
+type="button"
+class="prompt-btn"
+data-prompt="Help me prepare a resume.">
+🎯 RESUME HELP
+</button>
+
+<button
+type="button"
+class="prompt-btn"
+data-prompt="Help me summarize information clearly.">
+📋 SUMMARIZE
+</button>
+
+<button
+type="button"
+class="prompt-btn"
+data-prompt="Help me find the correct Maximax service.">
+🧭 FIND A SERVICE
+</button>
+
+</div>
+
+
+<div class="ai-input-area">
+
+<textarea
+id="aiInput"
+rows="2"
+placeholder="Ask Maximax AI..."
+aria-label="Ask Maximax AI"></textarea>
+
+<button
+type="button"
+class="send-button"
+id="sendAI">
+SEND
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="capability-section">
+
+<h2
+data-en="WHAT YOU CAN TRY"
+data-fr="CE QUE VOUS POUVEZ ESSAYER"
+data-ht="SA OU KA ESEYE">
+WHAT YOU CAN TRY
+</h2>
+
+<p
+data-en="The Maximax AI workspace is designed to connect multiple digital-assistance tools in one place."
+data-fr="L'espace Maximax AI est conçu pour connecter plusieurs outils d'assistance numérique en un seul endroit."
+data-ht="Espas Maximax AI fèt pou konekte plizyè zouti asistans dijital nan yon sèl kote.">
+The Maximax AI workspace is designed to connect multiple digital-assistance tools in one place.
+</p>
+
+
+<div class="capability-grid">
+
+<div class="capability-card">
+
+<span>✍️</span>
+
+<strong
+data-en="AI WRITING"
+data-fr="RÉDACTION IA"
+data-ht="EKRITI AI">
+AI WRITING
+</strong>
+
+<p>
+Draft letters, descriptions, announcements and general professional content.
+</p>
+
+</div>
+
+
+<div class="capability-card">
+
+<span>📄</span>
+
+<strong
+data-en="DOCUMENT SUPPORT"
+data-fr="SUPPORT DOCUMENTAIRE"
+data-ht="ASISTANS DOKIMAN">
+DOCUMENT SUPPORT
+</strong>
+
+<p>
+Organize, summarize and prepare general document information.
+</p>
+
+</div>
+
+
+<div class="capability-card">
+
+<span>📝</span>
+
+<strong
+data-en="FORM SUPPORT"
+data-fr="SUPPORT FORMULAIRES"
+data-ht="ASISTANS FÒM">
+FORM SUPPORT
+</strong>
+
+<p>
+Organize information before working on supported administrative forms.
+</p>
+
+</div>
+
+
+<div class="capability-card">
+
+<span>🌎</span>
+
+<strong
+data-en="TRANSLATION"
+data-fr="TRADUCTION"
+data-ht="TRADIKSYON">
+TRANSLATION
+</strong>
+
+<p>
+Work with general English, French and Haitian Creole text.
+</p>
+
+</div>
+
+
+<div class="capability-card">
+
+<span>💼</span>
+
+<strong
+data-en="BUSINESS AI"
+data-fr="IA ENTREPRISE"
+data-ht="AI BIZNIS">
+BUSINESS AI
+</strong>
+
+<p>
+Prepare business descriptions, summaries and general administrative content.
+</p>
+
+</div>
+
+
+<div class="capability-card">
+
+<span>🎯</span>
+
+<strong
+data-en="CAREER AI"
+data-fr="IA CARRIÈRE"
+data-ht="AI KARYÈ">
+CAREER AI
+</strong>
+
+<p>
+Organize resume, interview and job-search information.
+</p>
+
+</div>
+
+
+<div class="capability-card">
+
+<span>📋</span>
+
+<strong
+data-en="SUMMARIES"
+data-fr="RÉSUMÉS"
+data-ht="REZIME">
+SUMMARIES
+</strong>
+
+<p>
+Turn long general information into clear organized summaries.
+</p>
+
+</div>
+
+
+<div class="capability-card">
+
+<span>🧭</span>
+
+<strong
+data-en="SERVICE NAVIGATION"
+data-fr="ORIENTATION SERVICES"
+data-ht="NAVIGASYON SÈVIS">
+SERVICE NAVIGATION
+</strong>
+
+<p>
+Find the Maximax service center that matches your request.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="connection-center">
+
+<h2
+data-en="CONNECTED MAXIMAX TOOLS"
+data-fr="OUTILS MAXIMAX CONNECTÉS"
+data-ht="ZOUTI MAXIMAX KONEKTE">
+CONNECTED MAXIMAX TOOLS
+</h2>
+
+
+<div class="connection-grid">
+
+<div class="connection-box">
+
+<strong>🤖 AI CENTER</strong>
+
+<p>
+Main Maximax AI gateway.
+</p>
+
+<a href="./ai-center.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="connection-box">
+
+<strong>📝 FORM HELP CENTER</strong>
+
+<p>
+Organize supported administrative form requests.
+</p>
+
+<a href="./form-helper.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="connection-box">
+
+<strong>🌎 AI TRANSLATION</strong>
+
+<p>
+General English, French and Haitian Creole translation workspace.
+</p>
+
+<a href="./translation-ai.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="connection-box">
+
+<strong>💬 CHAT 24/7</strong>
+
+<p>
+Digital service navigation and general support.
+</p>
+
+<a href="./chat.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="connection-box">
+
+<strong>🎯 CAREER TRACKER</strong>
+
+<p>
+Track jobs, resumes, interviews and professional goals.
+</p>
+
+<a href="./career-tracker.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+
+<div class="connection-box">
+
+<strong>💼 BUSINESS CENTER</strong>
+
+<p>
+Business formation and administrative support.
+</p>
+
+<a href="./business.html" class="card-link">
+OPEN →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<div class="notice">
+
+<strong>IMPORTANT:</strong>
+This page provides the front-end workspace for Maximax AI. Live generative AI responses require connection to the approved AI API/backend. Until that connection is added, requests can be prepared and routed but are not represented as live AI-generated professional advice. Always verify important legal, immigration, tax, financial, medical, insurance and government-related information with the appropriate qualified professional or official source.
+
+</div>
+
+
+<div class="back-home">
+
+<a href="../index.html#services" class="btn outline"
+data-en="← BACK TO ALL SERVICES"
+data-fr="← RETOUR AUX SERVICES"
+data-ht="← RETOUNEN NAN TOUT SÈVIS YO">
+← BACK TO ALL SERVICES
+</a>
+
+</div>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<div class="container">
+
+<div class="footer-logo">
+M
+</div>
+
+<h3>
+MAXIMAX MULTI SERVICES
+</h3>
+
+<p>
+PROFESSIONAL SERVICES • DIGITAL SOLUTIONS • AI ASSISTANCE
+</p>
+
+<p class="hub-link">
+Part of BSS1815 PRO-MAX DMP
+</p>
+
+<p>
+© <span id="currentYear"></span> Maximax Multi Services
+</p>
+
+</div>
+
+</footer>
+
+
+<script src="../javascript.js"></script>
+
+<script>
+(() => {
+  "use strict";
+
+  const mode =
+    document.getElementById("aiMode");
+
+  const chat =
+    document.getElementById("aiChat");
+
+  const input =
+    document.getElementById("aiInput");
+
+  const sendButton =
+    document.getElementById("sendAI");
+
+  const typing =
+    document.getElementById("typingIndicator");
+
+  const promptButtons =
+    document.querySelectorAll(".prompt-btn");
+
+
+  function currentTime() {
+    return new Date().toLocaleTimeString(
+      [],
+      {
+        hour:"2-digit",
+        minute:"2-digit"
+      }
+    );
+  }
+
+
+  function addMessage(text, type) {
+
+    const message =
+      document.createElement("div");
+
+    message.className =
+      "ai-message " + type;
+
+    const content =
+      document.createElement("span");
+
+    content.textContent = text;
+
+    const stamp =
+      document.createElement("small");
+
+    stamp.textContent =
+      type === "user"
+        ? "YOU • " + currentTime()
+        : "MAXIMAX AI • " + currentTime();
+
+    message.appendChild(content);
+    message.appendChild(stamp);
+
+    chat.appendChild(message);
+
+    chat.scrollTop =
+      chat.scrollHeight;
+
+  }
+
+
+  function prepareRequest() {
+
+    const text =
+      input.value.trim();
+
+    if (!text) {
+      return;
+    }
+
+    const selectedMode =
+      mode.value;
+
+    addMessage(
+      text,
+      "user"
+    );
+
+    input.value = "";
+
+    typing.classList.add("show");
+
+    chat.scrollTop =
+      chat.scrollHeight;
+
+
+    try {
+
+      localStorage.setItem(
+        "maximaxTryAIRequest",
+        JSON.stringify({
+          mode:selectedMode,
+          prompt:text,
+          savedAt:new Date().toISOString()
+        })
+      );
+
+    } catch (error) {
+
+      console.warn(
+        "AI request could not be saved.",
+        error
+      );
+
+    }
+
+
+    setTimeout(
+      () => {
+
+        typing.classList.remove("show");
+
+        addMessage(
+          "Your " +
+          selectedMode +
+          " request is prepared. Connect the Maximax AI backend/API to generate a live AI response.",
+          "bot"
+        );
+
+      },
+      500
+    );
+
+  }
+
+
+  if (sendButton) {
+
+    sendButton.addEventListener(
+      "click",
+      prepareRequest
+    );
+
+  }
+
+
+  if (input) {
+
+    input.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Enter" &&
+          !event.shiftKey
+        ) {
+
+          event.preventDefault();
+
+          prepareRequest();
+
+        }
+
+      }
+    );
+
+  }
+
+
+  promptButtons.forEach(
+    button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          input.value =
+            button.dataset.prompt || "";
+
+          input.focus();
+
+          document
+            .getElementById("workspace")
+            .scrollIntoView({
+              behavior:"smooth",
+              block:"start"
+            });
+
+        }
+      );
+
+    }
+  );
+
+})();
+</script>
+
+</body>
+</html>
