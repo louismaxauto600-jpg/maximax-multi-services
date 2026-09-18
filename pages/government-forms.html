@@ -3,406 +3,446 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Government Form Center | Maximax Multi Services</title>
-
-<meta name="description" content="Maximax Multi Services Government Form Center — administrative assistance, document organization and navigation for supported government forms.">
-
 <meta name="theme-color" content="#000000">
 
-<link rel="stylesheet" href="../style.css">
+<title>Government Forms Center | Maximax Multi Services</title>
 
 <style>
-.gov-page{
-  min-height:calc(100vh - 84px);
-  padding:70px 0 90px;
+:root{
+  --orange:#ff7900;
+  --apricot:#ffad4d;
+  --black:#000;
+  --deep:#050200;
+  --soft:#120600;
+  --text:#ffd2a3;
+  --muted:#d89558;
+  --border:rgba(255,121,0,.55);
 }
 
-.gov-hero{
-  padding:52px 25px;
-  border:1px solid var(--border-strong);
-  border-radius:30px;
-  text-align:center;
-  background:
-    radial-gradient(circle at top,rgba(255,121,0,.25),transparent 45%),
-    linear-gradient(145deg,#000,#120600,#000);
-  box-shadow:var(--glow);
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-.gov-icon{
-  font-size:4.5rem;
-}
-
-.gov-hero h1{
-  margin-top:18px;
-  color:var(--orange);
-  font-size:clamp(2.7rem,8vw,5.7rem);
-  line-height:.92;
-  text-transform:uppercase;
-}
-
-.gov-hero p{
-  max-width:900px;
-  margin:20px auto 0;
-  line-height:1.75;
-}
-
-.gov-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
-  margin-top:38px;
-}
-
-.gov-card{
-  min-height:225px;
-  display:flex;
-  flex-direction:column;
-  padding:25px;
-  border:1px solid var(--border);
-  border-radius:21px;
-  background:
-    radial-gradient(circle at top right,rgba(255,121,0,.12),transparent 42%),
-    #050200;
-  transition:.25s;
-}
-
-.gov-card:hover{
-  transform:translateY(-5px);
-  border-color:var(--orange);
-  box-shadow:var(--glow);
-}
-
-.gov-card span{
-  font-size:2.5rem;
-}
-
-.gov-card h2{
-  margin-top:15px;
-  color:var(--orange);
-  font-size:1rem;
-  text-transform:uppercase;
-}
-
-.gov-card p{
-  margin-top:10px;
-  font-size:.76rem;
-  line-height:1.65;
-}
-
-.gov-card .card-link{
-  margin-top:auto;
-}
-
-.gov-center{
-  margin-top:40px;
-  padding:38px 25px;
-  border:1px solid var(--border-strong);
-  border-radius:28px;
-  background:
-    radial-gradient(circle at top,rgba(255,121,0,.16),transparent 45%),
-    #050200;
-  box-shadow:var(--glow);
-}
-
-.center-header{
-  text-align:center;
-}
-
-.center-header h2{
-  margin-top:10px;
-  color:var(--orange);
-  font-size:clamp(2rem,6vw,4rem);
-  text-transform:uppercase;
-}
-
-.center-header p{
-  max-width:850px;
-  margin:14px auto 0;
-  line-height:1.7;
-}
-
-.form-workspace{
-  max-width:1000px;
-  margin:30px auto 0;
-  padding:22px;
-  border:1px solid var(--border);
-  border-radius:22px;
+html{
+  scroll-behavior:smooth;
   background:#000;
 }
 
-.form-workspace label{
-  display:block;
-  margin-bottom:8px;
-  color:var(--orange);
-  font-size:.69rem;
+body{
+  min-height:100vh;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 10% 5%,rgba(255,121,0,.18),transparent 28%),
+    radial-gradient(circle at 90% 15%,rgba(255,173,77,.10),transparent 28%),
+    linear-gradient(180deg,#000,#050200 55%,#120600);
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,
+input{
+  font:inherit;
+}
+
+.container{
+  width:min(1200px,94%);
+  margin:auto;
+}
+
+/* TOP BAR */
+
+.topbar{
+  padding:10px 12px;
+  text-align:center;
+  color:#000;
+  background:linear-gradient(
+    90deg,
+    var(--orange),
+    var(--apricot),
+    var(--orange)
+  );
+  font-size:11px;
   font-weight:1000;
-  text-transform:uppercase;
+  letter-spacing:1px;
 }
 
-.form-workspace select,
-.form-workspace input,
-.form-workspace textarea{
-  width:100%;
-  margin-bottom:15px;
-  padding:14px 15px;
-  border:1px solid var(--border);
-  border-radius:14px;
-  outline:none;
-  color:var(--text);
-  background:#050200;
+/* HEADER */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  border-bottom:1px solid var(--border);
+  background:rgba(0,0,0,.96);
+  backdrop-filter:blur(14px);
 }
 
-.form-workspace select:focus,
-.form-workspace input:focus,
-.form-workspace textarea:focus{
-  border-color:var(--orange);
-  box-shadow:0 0 15px rgba(255,121,0,.12);
+.header-inner{
+  min-height:86px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
 }
 
-.form-workspace input::placeholder,
-.form-workspace textarea::placeholder{
-  color:var(--text-soft);
-}
-
-.form-workspace option{
-  color:var(--text);
-  background:#000;
-}
-
-.form-workspace textarea{
-  min-height:120px;
-  resize:vertical;
-}
-
-.form-row{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
-}
-
-.form-result{
-  display:none;
-  margin-top:20px;
-  padding:20px;
-  border:1px solid var(--border-strong);
-  border-radius:17px;
-  background:#0b0400;
-}
-
-.form-result.show{
-  display:block;
-}
-
-.form-result h3{
-  color:var(--orange);
-  text-transform:uppercase;
-}
-
-.form-result p{
-  margin-top:10px;
-  font-size:.76rem;
-  line-height:1.7;
-}
-
-.document-section{
-  margin-top:35px;
-  padding:35px 25px;
-  border:1px solid var(--border);
-  border-radius:24px;
-  background:#050200;
-}
-
-.document-section h2{
-  color:var(--orange);
-  text-align:center;
-  text-transform:uppercase;
-}
-
-.document-section > p{
-  max-width:850px;
-  margin:13px auto 0;
-  text-align:center;
-  line-height:1.7;
-}
-
-.document-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
+.brand{
+  display:flex;
+  align-items:center;
   gap:12px;
-  margin-top:25px;
 }
 
-.document-item{
-  padding:18px 14px;
-  border:1px solid var(--border);
-  border-radius:15px;
-  text-align:center;
+.logo{
+  width:62px;
+  height:62px;
+  padding:4px;
+  object-fit:contain;
+  border:2px solid var(--orange);
+  border-radius:16px;
   background:#000;
-  font-size:.69rem;
+  box-shadow:0 0 18px rgba(255,121,0,.40);
+}
+
+.brand h1{
+  color:var(--orange);
+  font-size:15px;
+  font-weight:1000;
+}
+
+.brand small{
+  display:block;
+  margin-top:5px;
+  color:var(--apricot);
+  font-size:8px;
   font-weight:900;
 }
 
-.document-item span{
-  display:block;
-  margin-bottom:8px;
-  color:var(--orange);
-  font-size:1.5rem;
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:9px;
 }
 
-.pathway{
-  margin-top:35px;
-  padding:35px 25px;
+.languages{
+  display:flex;
+  gap:4px;
+  padding:4px;
   border:1px solid var(--border);
-  border-radius:24px;
-  background:#050200;
+  border-radius:999px;
+  background:#080300;
 }
 
-.pathway h2{
-  color:var(--orange);
-  text-align:center;
-  text-transform:uppercase;
-}
-
-.pathway-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:13px;
-  margin-top:25px;
-}
-
-.pathway-step{
-  padding:22px 15px;
-  border:1px solid var(--border);
-  border-radius:17px;
-  text-align:center;
+.lang-btn{
+  min-height:35px;
+  padding:6px 10px;
+  border:1px solid transparent;
+  border-radius:999px;
+  color:var(--apricot);
   background:#000;
-}
-
-.step-number{
-  width:44px;
-  height:44px;
-  display:grid;
-  place-items:center;
-  margin:0 auto 12px;
-  border-radius:50%;
-  color:#000;
-  background:var(--orange);
+  cursor:pointer;
+  font-size:10px;
   font-weight:1000;
 }
 
-.pathway-step strong{
-  display:block;
+.lang-btn.active{
+  color:#000;
+  border-color:var(--orange);
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+}
+
+.home-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:40px;
+  padding:8px 14px;
+  border:2px solid var(--orange);
+  border-radius:999px;
   color:var(--orange);
-  font-size:.73rem;
+  background:#000;
+  font-size:10px;
+  font-weight:1000;
 }
 
-.pathway-step p{
-  margin-top:8px;
-  font-size:.68rem;
-  line-height:1.55;
-}
+/* HERO */
 
-.digital-center{
-  margin-top:35px;
-  padding:35px 25px;
-  border:1px solid var(--border);
-  border-radius:24px;
-  background:#050200;
-}
-
-.digital-center h2{
-  color:var(--orange);
+.hero{
+  padding:70px 0 45px;
   text-align:center;
-  text-transform:uppercase;
 }
 
-.digital-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
+.hero-badge{
+  display:inline-block;
+  margin-bottom:16px;
+  padding:8px 15px;
+  border:1px solid var(--orange);
+  border-radius:999px;
+  color:var(--orange);
+  background:rgba(255,121,0,.06);
+  font-size:10px;
+  font-weight:1000;
+}
+
+.hero h2{
+  color:var(--orange);
+  font-size:clamp(36px,7vw,66px);
+  line-height:1;
+  font-weight:1000;
+  text-shadow:0 0 30px rgba(255,121,0,.28);
+}
+
+.hero p{
+  max-width:780px;
+  margin:20px auto 0;
+  line-height:1.7;
+  font-size:15px;
+}
+
+/* SEARCH */
+
+.search-box{
+  max-width:760px;
+  margin:32px auto 0;
+  position:relative;
+}
+
+.search-box input{
+  width:100%;
+  min-height:58px;
+  padding:15px 20px;
+  border:2px solid var(--orange);
+  border-radius:999px;
+  outline:none;
+  color:var(--text);
+  background:#050200;
+  box-shadow:0 0 24px rgba(255,121,0,.12);
+}
+
+.search-box input::placeholder{
+  color:#a46a39;
+}
+
+/* AGENCY NAV */
+
+.agency-nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
   margin-top:25px;
 }
 
-.digital-box{
-  min-height:170px;
+.agency-nav a{
+  padding:10px 16px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  color:var(--apricot);
+  background:#050200;
+  font-size:10px;
+  font-weight:1000;
+}
+
+.agency-nav a:hover{
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+}
+
+/* SECTION */
+
+.forms-section{
+  padding:35px 0 65px;
+}
+
+.section-head{
+  margin-bottom:24px;
+}
+
+.section-head span{
+  color:var(--apricot);
+  font-size:10px;
+  font-weight:1000;
+}
+
+.section-head h3{
+  margin-top:6px;
+  color:var(--orange);
+  font-size:30px;
+  font-weight:1000;
+}
+
+/* GRID */
+
+.forms-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.form-card{
   display:flex;
   flex-direction:column;
+  min-height:250px;
   padding:22px;
   border:1px solid var(--border);
-  border-radius:17px;
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(255,173,77,.10),transparent 35%),
+    linear-gradient(145deg,#120600,#000);
+  transition:.2s ease;
+}
+
+.form-card:hover{
+  transform:translateY(-3px);
+  border-color:var(--orange);
+  box-shadow:0 12px 30px rgba(255,121,0,.12);
+}
+
+.form-number{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  align-self:flex-start;
+  min-width:75px;
+  min-height:34px;
+  padding:6px 12px;
+  border:1px solid var(--orange);
+  border-radius:999px;
+  color:var(--orange);
+  background:#000;
+  font-size:12px;
+  font-weight:1000;
+}
+
+.form-card h4{
+  margin-top:17px;
+  color:var(--orange);
+  font-size:18px;
+  line-height:1.25;
+}
+
+.form-card p{
+  margin-top:10px;
+  color:var(--text);
+  font-size:11px;
+  line-height:1.65;
+}
+
+.form-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:auto;
+  padding-top:20px;
+}
+
+.form-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:43px;
+  padding:8px 10px;
+  border:2px solid var(--orange);
+  border-radius:999px;
+  color:var(--orange);
+  background:#000;
+  text-align:center;
+  font-size:9px;
+  font-weight:1000;
+}
+
+.form-btn.primary{
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+}
+
+/* NOTICE */
+
+.notice{
+  margin:20px 0 65px;
+  padding:22px;
+  border:1px solid var(--orange);
+  border-radius:20px;
+  background:
+    linear-gradient(145deg,rgba(255,121,0,.08),#000);
+  line-height:1.7;
+  font-size:11px;
+}
+
+.notice strong{
+  color:var(--orange);
+}
+
+/* FOOTER */
+
+footer{
+  padding:40px 15px;
+  border-top:1px solid var(--border);
+  text-align:center;
   background:#000;
 }
 
-.digital-box strong{
-  display:block;
+footer strong{
   color:var(--orange);
-  margin-bottom:8px;
 }
 
-.digital-box p{
-  font-size:.73rem;
-  line-height:1.6;
+footer p{
+  margin-top:7px;
+  color:var(--apricot);
+  font-size:10px;
 }
 
-.digital-box .card-link{
-  margin-top:auto;
-}
+/* MOBILE */
 
-.action-box{
-  margin-top:35px;
-  padding:35px 25px;
-  border:1px solid var(--border);
-  border-radius:24px;
-  text-align:center;
-  background:#050200;
-}
-
-.action-box h2{
-  margin-top:10px;
-  color:var(--orange);
-  text-transform:uppercase;
-}
-
-.action-box p{
-  max-width:800px;
-  margin:14px auto 0;
-  line-height:1.7;
-}
-
-.notice{
-  margin-top:30px;
-  padding:20px;
-  border-left:4px solid var(--orange);
-  border-radius:10px;
-  background:#0b0400;
-  font-size:.75rem;
-  line-height:1.7;
-}
-
-.back-home{
-  margin-top:30px;
-  text-align:center;
-}
-
-@media(max-width:1000px){
-  .gov-grid,
-  .digital-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .document-grid,
-  .pathway-grid{
+@media(max-width:900px){
+  .forms-grid{
     grid-template-columns:repeat(2,1fr);
   }
 }
 
-@media(max-width:700px){
-  .gov-grid,
-  .digital-grid,
-  .document-grid,
-  .pathway-grid,
-  .form-row{
+@media(max-width:650px){
+
+  .header-inner{
+    min-height:78px;
+  }
+
+  .logo{
+    width:48px;
+    height:48px;
+  }
+
+  .brand h1{
+    max-width:135px;
+    font-size:10px;
+  }
+
+  .brand small{
+    font-size:6px;
+  }
+
+  .home-btn{
+    display:none;
+  }
+
+  .lang-btn{
+    min-height:32px;
+    padding:5px 7px;
+    font-size:8px;
+  }
+
+  .forms-grid{
+    grid-template-columns:1fr;
+  }
+
+  .form-card{
+    min-height:230px;
+  }
+
+  .form-actions{
     grid-template-columns:1fr;
   }
 }
@@ -411,57 +451,936 @@
 
 <body>
 
-<div class="top-bar">
-MAXIMAX MULTI SERVICES • GOVERNMENT FORM CENTER
+<div class="topbar">
+MAXIMAX MULTI SERVICES • OFFICIAL GOVERNMENT FORMS CENTER
 </div>
 
 <header>
-
 <div class="container header-inner">
 
-<a href="../index.html" class="brand">
+<a class="brand" href="../index.html">
 
-<div class="brand-mark">M</div>
+<img
+  class="logo"
+  src="../maximax-multi-services.jpg?v=20260918"
+  alt="Maximax Multi Services">
 
-<div class="brand-text">
-<strong>MAXIMAX</strong>
-<span>MULTI SERVICES</span>
+<div>
+<h1>MAXIMAX MULTI SERVICES</h1>
+<small>GOVERNMENT FORMS CENTER</small>
 </div>
 
 </a>
 
-<nav id="mainNav">
+<div class="header-right">
 
-<a href="../index.html">HOME</a>
-<a href="../index.html#services">SERVICES</a>
-<a href="#government-center">GOVERNMENT FORMS</a>
-<a href="./form-helper.html">FORM CENTER</a>
-<a href="../index.html#contact">CONTACT</a>
-
-</nav>
-
-<div class="header-actions">
-
-<div class="language-switch">
-
-<button class="lang-btn active" data-lang="en">ENG</button>
-<button class="lang-btn" data-lang="fr">FRA</button>
-<button class="lang-btn" data-lang="ht">KRE</button>
-
+<div class="languages">
+<button class="lang-btn active" data-lang="en">🇺🇸 ENG</button>
+<button class="lang-btn" data-lang="es">🇪🇸 ESP</button>
+<button class="lang-btn" data-lang="ht">🇭🇹 KRE</button>
 </div>
 
-<button id="menuToggle" class="menu-toggle">☰</button>
+<a
+  class="home-btn"
+  href="../index.html"
+  data-en="← HOME"
+  data-es="← INICIO"
+  data-ht="← AKÈY">
+← HOME
+</a>
 
 </div>
-
 </div>
-
 </header>
 
+<main>
 
-<main class="gov-page">
+<section class="hero">
+<div class="container">
+
+<div
+  class="hero-badge"
+  data-en="OFFICIAL GOVERNMENT RESOURCES"
+  data-es="RECURSOS OFICIALES DEL GOBIERNO"
+  data-ht="RESOUS OFISYÈL GOUVÈNMAN">
+OFFICIAL GOVERNMENT RESOURCES
+</div>
+
+<h2
+  data-en="GOVERNMENT FORMS CENTER"
+  data-es="CENTRO DE FORMULARIOS DEL GOBIERNO"
+  data-ht="SANT FÒM GOUVÈNMAN">
+GOVERNMENT FORMS CENTER
+</h2>
+
+<p
+  data-en="Find government forms faster. Select the form you need and open the official government form or agency page directly."
+  data-es="Encuentre formularios gubernamentales más rápido. Seleccione el formulario y abra directamente el formulario oficial o la página de la agencia."
+  data-ht="Jwenn fòm gouvènman yo pi vit. Chwazi fòm ou bezwen an epi ouvri fòm ofisyèl la oswa paj ajans lan dirèkteman.">
+Find government forms faster. Select the form you need and open the official government form or agency page directly.
+</p>
+
+<div class="search-box">
+<input
+  id="formSearch"
+  type="search"
+  placeholder="Search I-130, I-485, I-765, N-400...">
+</div>
+
+<div class="agency-nav">
+<a href="#uscis">USCIS</a>
+<a href="#eoir">EOIR / BIA</a>
+<a href="#irs">IRS</a>
+</div>
+
+</div>
+</section>
+
+
+<!-- ===================================================
+     USCIS
+=================================================== -->
+
+<section class="forms-section" id="uscis">
+<div class="container">
+
+<div class="section-head">
+<span>U.S. CITIZENSHIP AND IMMIGRATION SERVICES</span>
+<h3>USCIS IMMIGRATION FORMS</h3>
+</div>
+
+<div class="forms-grid">
+
+
+<!-- I-130 -->
+
+<article
+  class="form-card"
+  data-search="i-130 petition alien relative family immigration uscis">
+
+<span class="form-number">I-130</span>
+
+<h4>Petition for Alien Relative</h4>
+
+<p>
+Family-based petition used to establish a qualifying relationship
+between a petitioner and certain relatives.
+</p>
+
+<div class="form-actions">
+
+<a
+  class="form-btn primary"
+  href="https://www.uscis.gov/i-130"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN OFFICIAL PAGE
+</a>
+
+<a
+  class="form-btn"
+  href="https://www.uscis.gov/sites/default/files/document/forms/i-130.pdf"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN PDF
+</a>
+
+</div>
+</article>
+
+
+<!-- I-485 -->
+
+<article
+  class="form-card"
+  data-search="i-485 green card permanent residence adjustment status uscis">
+
+<span class="form-number">I-485</span>
+
+<h4>Application to Register Permanent Residence or Adjust Status</h4>
+
+<p>
+USCIS application used by eligible applicants seeking adjustment
+to lawful permanent resident status.
+</p>
+
+<div class="form-actions">
+
+<a
+  class="form-btn primary"
+  href="https://www.uscis.gov/i-485"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN OFFICIAL PAGE
+</a>
+
+<a
+  class="form-btn"
+  href="https://www.uscis.gov/sites/default/files/document/forms/i-485.pdf"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN PDF
+</a>
+
+</div>
+</article>
+
+
+<!-- I-765 -->
+
+<article
+  class="form-card"
+  data-search="i-765 employment authorization work permit ead uscis">
+
+<span class="form-number">I-765</span>
+
+<h4>Application for Employment Authorization</h4>
+
+<p>
+Application used by eligible applicants requesting employment
+authorization from USCIS.
+</p>
+
+<div class="form-actions">
+
+<a
+  class="form-btn primary"
+  href="https://www.uscis.gov/i-765"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN OFFICIAL PAGE
+</a>
+
+<a
+  class="form-btn"
+  href="https://www.uscis.gov/sites/default/files/document/forms/i-765.pdf"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN PDF
+</a>
+
+</div>
+</article>
+
+
+<!-- I-131 -->
+
+<article
+  class="form-card"
+  data-search="i-131 travel document advance parole uscis">
+
+<span class="form-number">I-131</span>
+
+<h4>Application for Travel Documents</h4>
+
+<p>
+USCIS travel-document application. Eligibility and filing
+requirements depend on the requested travel-document category.
+</p>
+
+<div class="form-actions">
+
+<a
+  class="form-btn primary"
+  href="https://www.uscis.gov/i-131"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN OFFICIAL PAGE
+</a>
+
+<a
+  class="form-btn"
+  href="https://www.uscis.gov/sites/default/files/document/forms/i-131.pdf"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN PDF
+</a>
+
+</div>
+</article>
+
+
+<!-- I-864 -->
+
+<article
+  class="form-card"
+  data-search="i-864 affidavit support sponsor immigration uscis">
+
+<span class="form-number">I-864</span>
+
+<h4>Affidavit of Support Under Section 213A</h4>
+
+<p>
+Affidavit of support required in many family-based immigration
+cases and certain employment-based cases.
+</p>
+
+<div class="form-actions">
+
+<a
+  class="form-btn primary"
+  href="https://www.uscis.gov/i-864"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN OFFICIAL PAGE
+</a>
+
+<a
+  class="form-btn"
+  href="https://www.uscis.gov/sites/default/files/document/forms/i-864.pdf"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN PDF
+</a>
+
+</div>
+</article>
+
+
+<!-- I-90 -->
+
+<article
+  class="form-card"
+  data-search="i-90 replace permanent resident green card renewal uscis">
+
+<span class="form-number">I-90</span>
+
+<h4>Application to Replace Permanent Resident Card</h4>
+
+<p>
+Application used for qualifying Green Card replacement or renewal
+requests.
+</p>
+
+<div class="form-actions">
+
+<a
+  class="form-btn primary"
+  href="https://www.uscis.gov/i-90"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN OFFICIAL PAGE
+</a>
+
+<a
+  class="form-btn"
+  href="https://www.uscis.gov/sites/default/files/document/forms/i-90.pdf"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN PDF
+</a>
+
+</div>
+</article>
+
+
+<!-- I-589 -->
+
+<article
+  class="form-card"
+  data-search="i-589 asylum withholding removal uscis">
+
+<span class="form-number">I-589</span>
+
+<h4>Application for Asylum and for Withholding of Removal</h4>
+
+<p>
+Government form for qualifying asylum and withholding-of-removal
+applications.
+</p>
+
+<div class="form-actions">
+
+<a
+  class="form-btn primary"
+  href="https://www.uscis.gov/i-589"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN OFFICIAL PAGE
+</a>
+
+<a
+  class="form-btn"
+  href="https://www.uscis.gov/sites/default/files/document/forms/i-589.pdf"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN PDF
+</a>
+
+</div>
+</article>
+
+
+<!-- N-400 -->
+
+<article
+  class="form-card"
+  data-search="n-400 naturalization citizenship application uscis">
+
+<span class="form-number">N-400</span>
+
+<h4>Application for Naturalization</h4>
+
+<p>
+USCIS application for eligible lawful permanent residents seeking
+U.S. naturalization.
+</p>
+
+<div class="form-actions">
+
+<a
+  class="form-btn primary"
+  href="https://www.uscis.gov/n-400"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN OFFICIAL PAGE
+</a>
+
+<a
+  class="form-btn"
+  href="https://www.uscis.gov/sites/default/files/document/forms/n-400.pdf"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN PDF
+</a>
+
+</div>
+</article>
+
+
+<!-- I-751 -->
+
+<article
+  class="form-card"
+  data-search="i-751 remove conditions residence green card uscis">
+
+<span class="form-number">I-751</span>
+
+<h4>Petition to Remove Conditions on Residence</h4>
+
+<p>
+Petition used by qualifying conditional permanent residents to
+request removal of conditions on residence.
+</p>
+
+<div class="form-actions">
+
+<a
+  class="form-btn primary"
+  href="https://www.uscis.gov/i-751"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN OFFICIAL PAGE
+</a>
+
+<a
+  class="form-btn"
+  href="https://www.uscis.gov/sites/default/files/document/forms/i-751.pdf"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN PDF
+</a>
+
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
+
+<!-- ===================================================
+     EOIR / BIA
+=================================================== -->
+
+<section class="forms-section" id="eoir">
+<div class="container">
+
+<div class="section-head">
+<span>U.S. DEPARTMENT OF JUSTICE</span>
+<h3>EOIR / BIA FORMS</h3>
+</div>
+
+<div class="forms-grid">
+
+<article class="form-card" data-search="eoir immigration court forms">
+<span class="form-number">EOIR</span>
+<h4>Immigration Court Forms</h4>
+<p>
+Official Executive Office for Immigration Review forms center.
+</p>
+
+<div class="form-actions">
+<a
+  class="form-btn primary"
+  href="https://www.justice.gov/eoir/eoir-forms"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN EOIR FORMS
+</a>
+</div>
+</article>
+
+
+<article class="form-card" data-search="eoir-26 appeal immigration judge bia">
+<span class="form-number">EOIR-26</span>
+<h4>Notice of Appeal</h4>
+<p>
+Access the current EOIR forms directory for the official
+EOIR-26 and filing information.
+</p>
+
+<div class="form-actions">
+<a
+  class="form-btn primary"
+  href="https://www.justice.gov/eoir/eoir-forms"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN OFFICIAL SOURCE
+</a>
+</div>
+</article>
+
+
+<article class="form-card" data-search="eoir-28 attorney representative">
+<span class="form-number">EOIR-28</span>
+<h4>Attorney / Representative Appearance</h4>
+<p>
+Access the official EOIR source for the current form and
+applicable filing requirements.
+</p>
+
+<div class="form-actions">
+<a
+  class="form-btn primary"
+  href="https://www.justice.gov/eoir/eoir-forms"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN OFFICIAL SOURCE
+</a>
+</div>
+</article>
+
+
+<article class="form-card" data-search="eoir-33 change address immigration court">
+<span class="form-number">EOIR-33</span>
+<h4>Change of Address / Contact Information</h4>
+<p>
+Use the official EOIR forms center to select the appropriate
+change-of-address form.
+</p>
+
+<div class="form-actions">
+<a
+  class="form-btn primary"
+  href="https://www.justice.gov/eoir/eoir-forms"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN OFFICIAL SOURCE
+</a>
+</div>
+</article>
+
+
+<article class="form-card" data-search="eoir-42a cancellation removal permanent resident">
+<span class="form-number">EOIR-42A</span>
+<h4>Cancellation of Removal — Permanent Residents</h4>
+<p>
+Official EOIR source for Form EOIR-42A and current filing
+information.
+</p>
+
+<div class="form-actions">
+<a
+  class="form-btn primary"
+  href="https://www.justice.gov/eoir/eoir-forms"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN OFFICIAL SOURCE
+</a>
+</div>
+</article>
+
+
+<article class="form-card" data-search="eoir-42b cancellation removal nonpermanent resident">
+<span class="form-number">EOIR-42B</span>
+<h4>Cancellation of Removal — Certain Nonpermanent Residents</h4>
+<p>
+Official EOIR source for Form EOIR-42B and current filing
+information.
+</p>
+
+<div class="form-actions">
+<a
+  class="form-btn primary"
+  href="https://www.justice.gov/eoir/eoir-forms"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN OFFICIAL SOURCE
+</a>
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
+
+<!-- ===================================================
+     IRS
+=================================================== -->
+
+<section class="forms-section" id="irs">
+<div class="container">
+
+<div class="section-head">
+<span>INTERNAL REVENUE SERVICE</span>
+<h3>IRS TAX FORMS</h3>
+</div>
+
+<div class="forms-grid">
+
+<article class="form-card" data-search="1040 individual income tax return irs">
+<span class="form-number">1040</span>
+<h4>U.S. Individual Income Tax Return</h4>
+<p>
+Access Form 1040 and current IRS filing information.
+</p>
+
+<div class="form-actions">
+
+<a
+  class="form-btn primary"
+  href="https://www.irs.gov/forms-pubs/about-form-1040"
+  target="_blank"
+  rel="noopener noreferrer">
+OFFICIAL PAGE
+</a>
+
+<a
+  class="form-btn"
+  href="https://www.irs.gov/pub/irs-pdf/f1040.pdf"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN PDF
+</a>
+
+</div>
+</article>
+
+
+<article class="form-card" data-search="w-2 wage tax statement irs">
+<span class="form-number">W-2</span>
+<h4>Wage and Tax Statement</h4>
+<p>
+Official IRS information and current Form W-2 resources.
+</p>
+
+<div class="form-actions">
+<a
+  class="form-btn primary"
+  href="https://www.irs.gov/forms-pubs/about-form-w-2"
+  target="_blank"
+  rel="noopener noreferrer">
+OFFICIAL PAGE
+</a>
+</div>
+</article>
+
+
+<article class="form-card" data-search="w-4 withholding employee irs">
+<span class="form-number">W-4</span>
+<h4>Employee's Withholding Certificate</h4>
+<p>
+Official IRS Form W-4 resources for federal income-tax withholding.
+</p>
+
+<div class="form-actions">
+
+<a
+  class="form-btn primary"
+  href="https://www.irs.gov/forms-pubs/about-form-w-4"
+  target="_blank"
+  rel="noopener noreferrer">
+OFFICIAL PAGE
+</a>
+
+<a
+  class="form-btn"
+  href="https://www.irs.gov/pub/irs-pdf/fw4.pdf"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN PDF
+</a>
+
+</div>
+</article>
+
+
+<article class="form-card" data-search="w-9 taxpayer identification number irs">
+<span class="form-number">W-9</span>
+<h4>Request for Taxpayer Identification Number</h4>
+<p>
+Official IRS Form W-9 resources.
+</p>
+
+<div class="form-actions">
+
+<a
+  class="form-btn primary"
+  href="https://www.irs.gov/forms-pubs/about-form-w-9"
+  target="_blank"
+  rel="noopener noreferrer">
+OFFICIAL PAGE
+</a>
+
+<a
+  class="form-btn"
+  href="https://www.irs.gov/pub/irs-pdf/fw9.pdf"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN PDF
+</a>
+
+</div>
+</article>
+
+
+<article class="form-card" data-search="4506-t transcript tax return irs">
+<span class="form-number">4506-T</span>
+<h4>Request for Transcript of Tax Return</h4>
+<p>
+Access current IRS Form 4506-T resources.
+</p>
+
+<div class="form-actions">
+
+<a
+  class="form-btn primary"
+  href="https://www.irs.gov/forms-pubs/about-form-4506-t"
+  target="_blank"
+  rel="noopener noreferrer">
+OFFICIAL PAGE
+</a>
+
+<a
+  class="form-btn"
+  href="https://www.irs.gov/pub/irs-pdf/f4506t.pdf"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN PDF
+</a>
+
+</div>
+</article>
+
+
+<article class="form-card" data-search="irs forms instructions all tax forms">
+<span class="form-number">IRS</span>
+<h4>All IRS Forms & Instructions</h4>
+<p>
+Search the official IRS forms and instructions directory.
+</p>
+
+<div class="form-actions">
+
+<a
+  class="form-btn primary"
+  href="https://www.irs.gov/forms-instructions"
+  target="_blank"
+  rel="noopener noreferrer">
+OPEN IRS CENTER
+</a>
+
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
 
 <div class="container">
 
+<div class="notice">
 
-<section class="gov-hero
+<strong
+  data-en="IMPORTANT:"
+  data-es="IMPORTANTE:"
+  data-ht="ENPÒTAN:">
+IMPORTANT:
+</strong>
+
+<span
+  data-en=" Maximax Multi Services provides convenient access to government resources. Government forms, editions, fees, instructions and filing requirements may change. Always verify the current form and instructions on the official agency website before filing."
+  data-es=" Maximax Multi Services proporciona acceso conveniente a recursos gubernamentales. Los formularios, ediciones, tarifas, instrucciones y requisitos pueden cambiar. Verifique siempre la versión actual en el sitio oficial de la agencia antes de presentar."
+  data-ht=" Maximax Multi Services fasilite aksè ak resous gouvènman yo. Fòm, edisyon, frè, enstriksyon ak kondisyon pou depoze yo ka chanje. Toujou verifye dènye vèsyon an sou sit ofisyèl ajans lan anvan ou depoze li.">
+ Maximax Multi Services provides convenient access to government resources. Government forms, editions, fees, instructions and filing requirements may change. Always verify the current form and instructions on the official agency website before filing.
+</span>
+
+</div>
+
+</div>
+
+</main>
+
+<footer>
+
+<strong>MAXIMAX MULTI SERVICES</strong>
+
+<p>PART OF BSS1815 PRO-MAX DMP</p>
+
+<p>bss1815promaxdmp@gmail.com</p>
+
+<p>BSS1815PRO-MAXDMP.COM</p>
+
+<p>© <span id="year"></span> MAXIMAX MULTI SERVICES</p>
+
+</footer>
+
+<script>
+(function(){
+"use strict";
+
+/* YEAR */
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+
+/* ===================================================
+   LANGUAGE
+=================================================== */
+
+const langButtons =
+  document.querySelectorAll(".lang-btn");
+
+const translated =
+  document.querySelectorAll(
+    "[data-en],[data-es],[data-ht]"
+  );
+
+function setLanguage(lang){
+
+  if(!["en","es","ht"].includes(lang)){
+    lang="en";
+  }
+
+  document.documentElement.lang=lang;
+
+  translated.forEach(element=>{
+
+    const value =
+      element.getAttribute("data-"+lang);
+
+    if(value){
+      element.textContent=value;
+    }
+
+  });
+
+  langButtons.forEach(button=>{
+
+    const active =
+      button.dataset.lang===lang;
+
+    button.classList.toggle(
+      "active",
+      active
+    );
+
+    button.setAttribute(
+      "aria-pressed",
+      active ? "true":"false"
+    );
+
+  });
+
+  try{
+    localStorage.setItem(
+      "maximaxLanguage",
+      lang
+    );
+  }catch(error){}
+}
+
+
+langButtons.forEach(button=>{
+
+  button.addEventListener(
+    "click",
+    ()=>setLanguage(button.dataset.lang)
+  );
+
+});
+
+
+let savedLanguage="en";
+
+try{
+
+  savedLanguage =
+    localStorage.getItem(
+      "maximaxLanguage"
+    ) || "en";
+
+}catch(error){}
+
+setLanguage(savedLanguage);
+
+
+/* ===================================================
+   SEARCH
+=================================================== */
+
+const search =
+  document.getElementById("formSearch");
+
+const cards =
+  document.querySelectorAll(".form-card");
+
+
+search.addEventListener("input",()=>{
+
+  const term =
+    search.value
+      .toLowerCase()
+      .trim();
+
+  cards.forEach(card=>{
+
+    const searchable =
+      (
+        card.dataset.search +
+        " " +
+        card.textContent
+      ).toLowerCase();
+
+    card.style.display =
+      searchable.includes(term)
+        ? ""
+        : "none";
+
+  });
+
+});
+
+
+/* ===================================================
+   SAFE EXTERNAL LINKS
+=================================================== */
+
+document
+  .querySelectorAll('a[target="_blank"]')
+  .forEach(link=>{
+
+    link.rel =
+      "noopener noreferrer";
+
+  });
+
+})();
+</script>
+
+</body>
+</html>
