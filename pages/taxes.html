@@ -1,2322 +1,2078 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <meta
-    name="description"
-    content="Maximax Multi Services Tax Center — tax preparation support, document organization, tax forms, appointments and client services."
-  >
-
-  <meta name="theme-color" content="#000000">
-
-  <title>Tax Services | Maximax Multi Services</title>
-
-  <!-- GLOBAL MAXIMAX CSS -->
-  <link rel="stylesheet" href="../style.css">
-
-  <style>
-    /* =========================================================
-       MAXIMAX MULTI SERVICES
-       TAX CENTER
-       PAGE-SPECIFIC DESIGN
-       ORANGE APRICOT + BLACK ONLY
-       ========================================================= */
-
-    :root{
-      --tax-orange:#ff7900;
-      --tax-orange2:#ff8c1a;
-      --tax-apricot:#ffad4d;
-      --tax-black:#000000;
-      --tax-deep:#070300;
-      --tax-soft:#120600;
-      --tax-text:#ffd2a3;
-      --tax-border:rgba(255,121,0,.38);
-    }
-
-    html{
-      scroll-behavior:smooth;
-      background:#000;
-    }
-
-    body{
-      margin:0;
-      min-height:100vh;
-      overflow-x:hidden;
-      color:var(--tax-text);
-      background:
-        radial-gradient(
-          circle at 50% 10%,
-          rgba(255,121,0,.15),
-          transparent 34%
-        ),
-        linear-gradient(
-          145deg,
-          #000000 0%,
-          #120600 45%,
-          #000000 100%
-        );
-    }
-
-    body,
-    button,
-    input,
-    textarea,
-    select{
-      font-family:Arial,Helvetica,sans-serif;
-    }
-
-    *{
-      box-sizing:border-box;
-    }
-
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
-
-    .tax-container{
-      width:min(1180px,calc(100% - 32px));
-      margin:auto;
-    }
-
-    /* =========================================================
-       TOP BAR
-       ========================================================= */
-
-    .tax-topbar{
-      padding:9px 15px;
-      text-align:center;
-      color:#000;
-      background:
-        linear-gradient(
-          90deg,
-          #9a3900,
-          var(--tax-orange),
-          var(--tax-apricot),
-          var(--tax-orange),
-          #9a3900
-        );
-      font-size:.72rem;
-      font-weight:1000;
-      letter-spacing:.11em;
-      text-transform:uppercase;
-    }
-
-    /* =========================================================
-       HEADER
-       ========================================================= */
-
-    .tax-header{
-      position:sticky;
-      top:0;
-      z-index:1000;
-      border-bottom:1px solid var(--tax-border);
-      background:rgba(0,0,0,.97);
-      backdrop-filter:blur(15px);
-      -webkit-backdrop-filter:blur(15px);
-    }
-
-    .tax-header-inner{
-      min-height:100px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
-    }
-
-    .tax-brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-    }
-
-    .tax-logo{
-      width:78px;
-      height:78px;
-      display:block;
-      object-fit:cover;
-      border:2px solid var(--tax-orange);
-      border-radius:20px;
-      background:#000;
-      box-shadow:
-        0 0 18px rgba(255,121,0,.50),
-        0 0 45px rgba(255,121,0,.18);
-    }
-
-    .tax-brand-text strong{
-      display:block;
-      color:var(--tax-orange);
-      font-size:1.05rem;
-      font-weight:1000;
-      letter-spacing:.02em;
-    }
-
-    .tax-brand-text span{
-      display:block;
-      margin-top:5px;
-      color:var(--tax-apricot);
-      font-size:.62rem;
-      font-weight:900;
-      letter-spacing:.13em;
-    }
-
-    .tax-header-actions{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-
-    .tax-language{
-      display:flex;
-      align-items:center;
-      gap:5px;
-      padding:4px;
-      border:1px solid var(--tax-border);
-      border-radius:999px;
-      background:#000;
-    }
-
-    .tax-lang{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:5px;
-      min-width:72px;
-      padding:10px 12px;
-      border:0;
-      border-radius:999px;
-      color:var(--tax-apricot);
-      background:#000;
-      font-size:.68rem;
-      font-weight:1000;
-      cursor:pointer;
-    }
-
-    .tax-lang.active,
-    .tax-lang:hover{
-      color:#000;
-      background:linear-gradient(
-        135deg,
-        var(--tax-orange),
-        var(--tax-apricot)
-      );
-    }
-
-    .flag{
-      font-size:1.05rem;
-    }
-
-    .tax-menu-btn{
-      width:52px;
-      height:48px;
-      border:1px solid var(--tax-orange);
-      border-radius:15px;
-      color:var(--tax-orange);
-      background:#000;
-      font-size:1.35rem;
-      cursor:pointer;
-    }
-
-    .tax-menu{
-      display:none;
-      position:absolute;
-      top:100%;
-      right:16px;
-      width:min(330px,calc(100% - 32px));
-      padding:12px;
-      border:1px solid var(--tax-orange);
-      border-radius:18px;
-      background:#000;
-      box-shadow:0 20px 60px rgba(0,0,0,.85);
-    }
-
-    .tax-menu.open{
-      display:grid;
-      gap:7px;
-    }
-
-    .tax-menu a{
-      padding:13px 15px;
-      border:1px solid rgba(255,121,0,.20);
-      border-radius:12px;
-      color:var(--tax-apricot);
-      font-size:.72rem;
-      font-weight:900;
-    }
-
-    .tax-menu a:hover{
-      color:#000;
-      background:var(--tax-orange);
-    }
-
-    /* =========================================================
-       HERO / BIG CARD
-       ========================================================= */
-
-    .tax-hero{
-      padding:70px 0 35px;
-    }
-
-    .tax-hero-card{
-      position:relative;
-      min-height:610px;
-      overflow:hidden;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:55px 35px;
-      border:2px solid var(--tax-orange);
-      border-radius:32px;
-      background:#000;
-      box-shadow:
-        0 0 25px rgba(255,121,0,.30),
-        0 0 70px rgba(255,121,0,.12);
-    }
-
-    .tax-hero-image{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center;
-      z-index:0;
-    }
-
-    .tax-hero-overlay{
-      position:absolute;
-      inset:0;
-      z-index:1;
-      background:
-        linear-gradient(
-          180deg,
-          rgba(0,0,0,.38) 0%,
-          rgba(0,0,0,.72) 42%,
-          rgba(0,0,0,.92) 100%
-        ),
-        radial-gradient(
-          circle at center,
-          rgba(255,121,0,.15),
-          transparent 55%
-        );
-    }
-
-    .tax-hero-content{
-      position:relative;
-      z-index:2;
-      width:min(850px,100%);
-      text-align:center;
-    }
-
-    .hero-brand-badge{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      margin-bottom:20px;
-      padding:10px 18px;
-      border:1px solid var(--tax-orange);
-      border-radius:999px;
-      color:var(--tax-orange);
-      background:rgba(0,0,0,.82);
-      font-size:.73rem;
-      font-weight:1000;
-      letter-spacing:.13em;
-      text-transform:uppercase;
-    }
-
-    .hero-brand-badge img{
-      width:34px;
-      height:34px;
-      object-fit:cover;
-      border-radius:9px;
-      border:1px solid var(--tax-orange);
-    }
-
-    .tax-money{
-      font-size:4rem;
-      margin-bottom:8px;
-    }
-
-    .tax-eyebrow{
-      color:var(--tax-orange);
-      font-size:.78rem;
-      font-weight:1000;
-      letter-spacing:.22em;
-      text-transform:uppercase;
-    }
-
-    .tax-hero h1{
-      margin:20px 0 0;
-      color:var(--tax-orange);
-      font-size:clamp(3rem,9vw,6.2rem);
-      line-height:.88;
-      letter-spacing:-.045em;
-      text-transform:uppercase;
-      text-shadow:0 0 30px rgba(255,121,0,.38);
-    }
-
-    .tax-hero-description{
-      max-width:800px;
-      margin:25px auto 0;
-      color:var(--tax-text);
-      font-size:1.05rem;
-      line-height:1.75;
-    }
-
-    .tax-buttons{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:12px;
-      margin-top:30px;
-    }
-
-    .tax-btn{
-      min-height:52px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:13px 24px;
-      border:2px solid var(--tax-orange);
-      border-radius:999px;
-      font-size:.70rem;
-      font-weight:1000;
-      text-transform:uppercase;
-      transition:.25s;
-    }
-
-    .tax-btn:hover{
-      transform:translateY(-3px);
-      box-shadow:0 0 25px rgba(255,121,0,.40);
-    }
-
-    .tax-btn.primary{
-      color:#000;
-      background:
-        linear-gradient(
-          135deg,
-          var(--tax-orange),
-          var(--tax-apricot)
-        );
-    }
-
-    .tax-btn.outline{
-      color:var(--tax-orange);
-      background:rgba(0,0,0,.90);
-    }
-
-    /* =========================================================
-       SECTION
-       ========================================================= */
-
-    .tax-section{
-      padding:45px 0;
-    }
-
-    .tax-section-heading{
-      max-width:850px;
-      margin:0 auto 35px;
-      text-align:center;
-    }
-
-    .tax-section-heading h2{
-      margin:10px 0 0;
-      color:var(--tax-orange);
-      font-size:clamp(2rem,6vw,4rem);
-      text-transform:uppercase;
-    }
-
-    .tax-section-heading p{
-      color:var(--tax-text);
-      line-height:1.7;
-    }
-
-    /* =========================================================
-       SERVICE CARDS
-       ========================================================= */
-
-    .tax-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:20px;
-    }
-
-    .tax-card{
-      min-height:275px;
-      padding:32px;
-      border:1px solid var(--tax-border);
-      border-radius:27px;
-      background:
-        radial-gradient(
-          circle at top right,
-          rgba(255,121,0,.13),
-          transparent 42%
-        ),
-        linear-gradient(
-          145deg,
-          #000,
-          #0d0400
-        );
-      transition:.25s;
-    }
-
-    .tax-card:hover{
-      transform:translateY(-4px);
-      border-color:var(--tax-orange);
-      box-shadow:0 0 25px rgba(255,121,0,.20);
-    }
-
-    .tax-card-icon{
-      font-size:2.3rem;
-    }
-
-    .tax-card h3{
-      margin:17px 0 0;
-      color:var(--tax-orange);
-      font-size:1.12rem;
-      text-transform:uppercase;
-    }
-
-    .tax-card p{
-      color:var(--tax-text);
-      line-height:1.7;
-    }
-
-    /* =========================================================
-       CHECKLIST
-       ========================================================= */
-
-    .tax-checklist{
-      padding:32px;
-      border:1px solid var(--tax-border);
-      border-radius:30px;
-      background:
-        radial-gradient(
-          circle at top,
-          rgba(255,121,0,.10),
-          transparent 45%
-        ),
-        #050200;
-    }
-
-    .check-grid{
-      display:grid;
-      gap:14px;
-    }
-
-    .check-item{
-      padding:20px 22px;
-      border:1px solid var(--tax-border);
-      border-radius:18px;
-      background:#000;
-    }
-
-    .check-item strong{
-      display:block;
-      color:var(--tax-orange);
-      text-transform:uppercase;
-    }
-
-    .check-item p{
-      margin:7px 0 0;
-      color:var(--tax-text);
-      line-height:1.55;
-    }
-
-    /* =========================================================
-       MODULE CENTER
-       ========================================================= */
-
-    .module-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-    }
-
-    .module-card{
-      min-height:170px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      padding:24px;
-      border:1px solid var(--tax-border);
-      border-radius:22px;
-      background:#050200;
-      transition:.25s;
-    }
-
-    .module-card:hover{
-      transform:translateY(-4px);
-      border-color:var(--tax-orange);
-      box-shadow:0 0 20px rgba(255,121,0,.25);
-    }
-
-    .module-card .module-icon{
-      font-size:1.8rem;
-    }
-
-    .module-card strong{
-      display:block;
-      margin-top:12px;
-      color:var(--tax-orange);
-      text-transform:uppercase;
-    }
-
-    .module-card span{
-      display:block;
-      margin-top:8px;
-      color:var(--tax-text);
-      font-size:.78rem;
-      line-height:1.5;
-    }
-
-    /* =========================================================
-       CTA
-       ========================================================= */
-
-    .tax-cta{
-      padding:45px 0 55px;
-    }
-
-    .tax-cta-box{
-      padding:45px 28px;
-      border:1px solid var(--tax-border);
-      border-radius:30px;
-      background:
-        radial-gradient(
-          circle at top,
-          rgba(255,121,0,.15),
-          transparent 45%
-        ),
-        #000;
-      text-align:center;
-    }
-
-    .tax-cta-box h2{
-      margin:12px 0 0;
-      color:var(--tax-orange);
-      font-size:clamp(2rem,5vw,3.5rem);
-    }
-
-    .tax-cta-box p{
-      max-width:800px;
-      margin:20px auto 0;
-      color:var(--tax-text);
-      line-height:1.7;
-    }
-
-    /* =========================================================
-       CONTACT NUMBERS
-       ========================================================= */
-
-    .phone-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-      margin-top:28px;
-    }
-
-    .phone-card{
-      padding:20px;
-      border:1px solid var(--tax-orange);
-      border-radius:18px;
-      color:var(--tax-orange);
-      background:#000;
-      font-weight:1000;
-      transition:.2s;
-    }
-
-    .phone-card:hover{
-      color:#000;
-      background:var(--tax-orange);
-    }
-
-    /* =========================================================
-       SOCIAL NETWORKS
-       ========================================================= */
-
-    .social-section{
-      padding:30px 0 65px;
-    }
-
-    .social-title{
-      margin-bottom:22px;
-      color:var(--tax-orange);
-      text-align:center;
-      font-size:1.4rem;
-      text-transform:uppercase;
-    }
-
-    .social-grid{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:11px;
-    }
-
-    .social-link{
-      min-width:120px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:12px 15px;
-      border:1px solid var(--tax-border);
-      border-radius:999px;
-      color:var(--tax-apricot);
-      background:#000;
-      font-size:.68rem;
-      font-weight:1000;
-      transition:.2s;
-    }
-
-    .social-link:hover{
-      transform:translateY(-3px);
-      border-color:var(--tax-orange);
-      color:#000;
-      background:var(--tax-orange);
-    }
-
-    .social-symbol{
-      font-size:1.15rem;
-      font-weight:1000;
-    }
-
-    /* =========================================================
-       IMPORTANT NOTICE
-       ========================================================= */
-
-    .tax-notice{
-      margin:0 auto 40px;
-      padding:23px;
-      border:1px solid var(--tax-orange);
-      border-left:6px solid var(--tax-orange);
-      border-radius:17px;
-      color:var(--tax-text);
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255,121,0,.08),
-          #000
-        );
-      line-height:1.7;
-    }
-
-    .tax-notice strong{
-      color:var(--tax-orange);
-    }
-
-    /* =========================================================
-       FOOTER
-       ========================================================= */
-
-    .tax-footer{
-      padding:55px 0;
-      border-top:1px solid var(--tax-border);
-      background:#000;
-      text-align:center;
-    }
-
-    .tax-footer-logo{
-      width:95px;
-      height:95px;
-      display:block;
-      margin:0 auto 18px;
-      object-fit:cover;
-      border:2px solid var(--tax-orange);
-      border-radius:24px;
-      box-shadow:0 0 28px rgba(255,121,0,.35);
-    }
-
-    .tax-footer h3{
-      color:var(--tax-orange);
-    }
-
-    .tax-footer p{
-      color:var(--tax-text);
-      line-height:1.7;
-    }
-
-    .tax-footer a{
-      color:var(--tax-apricot);
-    }
-
-    /* =========================================================
-       RESPONSIVE
-       ========================================================= */
-
-    @media(max-width:850px){
-
-      .tax-brand-text{
-        display:none;
-      }
-
-      .tax-lang{
-        min-width:58px;
-        padding:9px 8px;
-      }
-
-      .tax-grid{
-        grid-template-columns:1fr;
-      }
-
-      .module-grid{
-        grid-template-columns:repeat(2,1fr);
-      }
-
-      .phone-grid{
-        grid-template-columns:1fr;
-      }
-    }
-
-    @media(max-width:600px){
-
-      .tax-container{
-        width:min(100% - 22px,1180px);
-      }
-
-      .tax-header-inner{
-        min-height:86px;
-      }
-
-      .tax-logo{
-        width:58px;
-        height:58px;
-        border-radius:16px;
-      }
-
-      .tax-language{
-        gap:1px;
-      }
-
-      .tax-lang{
-        min-width:auto;
-        padding:8px 7px;
-        font-size:.58rem;
-      }
-
-      .flag{
-        font-size:.85rem;
-      }
-
-      .tax-menu-btn{
-        width:45px;
-        height:43px;
-      }
-
-      .tax-hero{
-        padding-top:35px;
-      }
-
-      .tax-hero-card{
-        min-height:570px;
-        padding:40px 18px;
-        border-radius:25px;
-      }
-
-      .tax-buttons{
-        display:grid;
-        grid-template-columns:1fr;
-      }
-
-      .tax-btn{
-        width:100%;
-      }
-
-      .module-grid{
-        grid-template-columns:1fr;
-      }
-
-      .social-link{
-        min-width:calc(50% - 8px);
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
+
+<title>Tax Services | Maximax Multi Services</title>
+
+<style>
+:root{
+  --orange:#ff7900;
+  --orange2:#ff8c1a;
+  --apricot:#ffad4d;
+  --black:#000;
+  --deep:#050200;
+  --soft:#120600;
+  --text:#ffd2a3;
+  --muted:#d89558;
+  --border:rgba(255,121,0,.55);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{
+  scroll-behavior:smooth;
+  background:#000;
+}
+
+body{
+  min-height:100vh;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 15% 5%,rgba(255,121,0,.18),transparent 30%),
+    radial-gradient(circle at 90% 20%,rgba(255,173,77,.10),transparent 30%),
+    linear-gradient(180deg,#000,#050200 45%,#120600);
+}
+
+a{color:inherit;text-decoration:none}
+
+button,input,select,textarea{font:inherit}
+
+button,a{-webkit-tap-highlight-color:transparent}
+
+.container{
+  width:min(1180px,92%);
+  margin:auto;
+}
+
+/* =====================================================
+   TOP BAR
+===================================================== */
+
+.topbar{
+  padding:10px 15px;
+  text-align:center;
+  color:#000;
+  background:linear-gradient(90deg,#ff7900,#ffad4d,#ff7900);
+  font-size:12px;
+  font-weight:1000;
+  letter-spacing:1.3px;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  border-bottom:1px solid var(--border);
+  background:rgba(0,0,0,.96);
+  backdrop-filter:blur(15px);
+}
+
+.header-inner{
+  min-height:90px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+
+.logo{
+  width:68px;
+  height:68px;
+  object-fit:contain;
+  padding:4px;
+  border:2px solid var(--orange);
+  border-radius:17px;
+  background:#000;
+  box-shadow:0 0 20px rgba(255,121,0,.45);
+}
+
+.brand h1{
+  color:var(--orange);
+  font-size:17px;
+  font-weight:1000;
+}
+
+.brand small{
+  display:block;
+  margin-top:5px;
+  color:var(--apricot);
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.languages{
+  display:flex;
+  gap:5px;
+  padding:5px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:#090300;
+}
+
+.lang{
+  min-height:38px;
+  padding:7px 11px;
+  border:1px solid transparent;
+  border-radius:999px;
+  color:var(--apricot);
+  background:#000;
+  cursor:pointer;
+  font-size:11px;
+  font-weight:1000;
+}
+
+.lang.active{
+  color:#000;
+  border-color:var(--orange);
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+}
+
+.back{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  padding:10px 16px;
+  border:2px solid var(--orange);
+  border-radius:999px;
+  color:var(--orange);
+  background:#000;
+  font-size:11px;
+  font-weight:1000;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+  padding:75px 0 45px;
+  text-align:center;
+}
+
+.hero-badge{
+  display:inline-block;
+  margin-bottom:20px;
+  padding:9px 16px;
+  border:1px solid var(--orange);
+  border-radius:999px;
+  color:var(--orange);
+  background:rgba(255,121,0,.07);
+  font-size:11px;
+  font-weight:1000;
+  letter-spacing:1px;
+}
+
+.hero h2{
+  color:var(--orange);
+  font-size:clamp(38px,7vw,72px);
+  line-height:1;
+  font-weight:1000;
+  text-shadow:0 0 30px rgba(255,121,0,.25);
+}
+
+.hero p{
+  max-width:780px;
+  margin:22px auto 0;
+  font-size:17px;
+  line-height:1.7;
+}
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+.section{
+  padding:50px 0;
+}
+
+.section-title{
+  margin-bottom:12px;
+  color:var(--orange);
+  text-align:center;
+  font-size:clamp(27px,5vw,44px);
+  font-weight:1000;
+}
+
+.section-subtitle{
+  max-width:800px;
+  margin:0 auto 32px;
+  text-align:center;
+  line-height:1.7;
+}
+
+/* =====================================================
+   TAX SERVICE OPTIONS
+===================================================== */
+
+.services{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.service-btn{
+  width:100%;
+  min-height:185px;
+  padding:24px;
+  border:2px solid var(--border);
+  border-radius:22px;
+  color:var(--text);
+  text-align:left;
+  cursor:pointer;
+  background:
+    radial-gradient(circle at 90% 0%,rgba(255,121,0,.14),transparent 35%),
+    linear-gradient(145deg,#100500,#000);
+  transition:.2s ease;
+}
+
+.service-btn:hover,
+.service-btn.selected{
+  transform:translateY(-3px);
+  border-color:var(--orange);
+  box-shadow:0 0 30px rgba(255,121,0,.25);
+}
+
+.service-icon{
+  display:block;
+  margin-bottom:15px;
+  font-size:32px;
+}
+
+.service-btn strong{
+  display:block;
+  margin-bottom:10px;
+  color:var(--orange);
+  font-size:17px;
+  font-weight:1000;
+}
+
+.service-btn small{
+  display:block;
+  font-size:12px;
+  line-height:1.6;
+}
+
+/* =====================================================
+   WORKSPACE
+===================================================== */
+
+.workspace{
+  margin-top:25px;
+  padding:30px;
+  border:2px solid var(--orange);
+  border-radius:28px;
+  background:
+    radial-gradient(circle at 90% 5%,rgba(255,173,77,.10),transparent 30%),
+    linear-gradient(145deg,#100500,#000);
+  box-shadow:0 0 45px rgba(255,121,0,.13);
+}
+
+.workspace-title{
+  margin-bottom:8px;
+  color:var(--orange);
+  font-size:25px;
+  font-weight:1000;
+}
+
+.workspace-subtitle{
+  margin-bottom:25px;
+  color:var(--apricot);
+  font-size:12px;
+  line-height:1.6;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.field.full{grid-column:1/-1}
+
+label{
+  color:var(--apricot);
+  font-size:11px;
+  font-weight:1000;
+  letter-spacing:.5px;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  min-height:50px;
+  padding:13px 15px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  outline:none;
+  color:var(--text);
+  background:#050200;
+}
+
+textarea{
+  min-height:115px;
+  resize:vertical;
+}
+
+input::placeholder,
+textarea::placeholder{
+  color:#9c6538;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:var(--orange);
+  box-shadow:0 0 0 3px rgba(255,121,0,.12);
+}
+
+select option{
+  color:var(--text);
+  background:#000;
+}
+
+/* =====================================================
+   DOCUMENT CHECKLIST
+===================================================== */
+
+.checklist{
+  margin-top:30px;
+  padding:24px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:#050200;
+}
+
+.checklist h3{
+  margin-bottom:18px;
+  color:var(--orange);
+  font-size:19px;
+}
+
+.check-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.check-item{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:13px;
+  border:1px solid rgba(255,121,0,.30);
+  border-radius:13px;
+  background:#000;
+}
+
+.check-item input{
+  width:19px;
+  min-width:19px;
+  min-height:19px;
+  margin-top:1px;
+  accent-color:var(--orange);
+}
+
+.check-item span{
+  font-size:12px;
+  line-height:1.5;
+}
+
+.confirmation{
+  display:flex;
+  align-items:flex-start;
+  gap:11px;
+  margin-top:20px;
+  padding:16px;
+  border:1px solid var(--border);
+  border-radius:15px;
+  background:#050200;
+}
+
+.confirmation input{
+  width:20px;
+  min-width:20px;
+  min-height:20px;
+  margin-top:1px;
+  accent-color:var(--orange);
+}
+
+.confirmation span{
+  font-size:12px;
+  line-height:1.6;
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.actions{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:25px;
+}
+
+.btn{
+  min-height:50px;
+  padding:12px 18px;
+  border:2px solid var(--orange);
+  border-radius:999px;
+  color:var(--orange);
+  background:#000;
+  cursor:pointer;
+  font-size:11px;
+  font-weight:1000;
+  transition:.2s ease;
+}
+
+.btn.primary{
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 22px rgba(255,121,0,.35);
+}
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status{
+  display:none;
+  margin-top:20px;
+  padding:14px 17px;
+  border:1px solid var(--orange);
+  border-radius:14px;
+  color:var(--orange);
+  background:rgba(255,121,0,.07);
+  font-size:12px;
+  font-weight:900;
+}
+
+.status.show{display:block}
+
+/* =====================================================
+   PRINT PREVIEW
+===================================================== */
+
+.preview-wrap{
+  display:none;
+  margin-top:35px;
+}
+
+.preview-wrap.show{display:block}
+
+.print-document{
+  position:relative;
+  overflow:hidden;
+  padding:35px;
+  border:3px solid var(--orange);
+  border-radius:25px;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 85% 10%,rgba(255,173,77,.18),transparent 30%),
+    linear-gradient(145deg,#120600,#000 65%);
+  box-shadow:0 0 35px rgba(255,121,0,.18);
+}
+
+.print-document::before,
+.print-document::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  height:8px;
+  background:linear-gradient(90deg,var(--orange),var(--apricot),var(--orange));
+}
+
+.print-document::before{top:0}
+.print-document::after{bottom:0}
+
+.document-head{
+  padding-bottom:20px;
+  margin-bottom:25px;
+  border-bottom:2px solid var(--orange);
+  text-align:center;
+}
+
+.document-head h2{
+  color:var(--orange);
+  font-size:28px;
+}
+
+.document-head h3{
+  margin-top:6px;
+  color:var(--apricot);
+}
+
+.document-head p{
+  margin-top:8px;
+  font-size:11px;
+}
+
+.document-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:13px;
+}
+
+.document-item{
+  min-height:75px;
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:#050200;
+}
+
+.document-item.full{grid-column:1/-1}
+
+.document-label{
+  display:block;
+  margin-bottom:7px;
+  color:var(--orange);
+  font-size:10px;
+  font-weight:1000;
+  text-transform:uppercase;
+}
+
+.document-value{
+  font-size:13px;
+  line-height:1.5;
+  word-break:break-word;
+}
+
+.document-footer{
+  margin-top:25px;
+  padding-top:20px;
+  border-top:1px solid var(--orange);
+  color:var(--apricot);
+  text-align:center;
+  font-size:10px;
+  line-height:1.8;
+}
+
+.document-footer strong{
+  color:var(--orange);
+  font-size:13px;
+}
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.official-contact{
+  padding:55px 0;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.contact-card{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:150px;
+  padding:25px;
+  border:2px solid var(--orange);
+  border-radius:22px;
+  text-align:center;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(255,173,77,.12),transparent 45%),
+    linear-gradient(145deg,#120600,#000);
+}
+
+.contact-card .icon{
+  margin-bottom:12px;
+  font-size:30px;
+}
+
+.contact-card strong{
+  margin-bottom:10px;
+  color:var(--orange);
+}
+
+.contact-card span{
+  color:var(--apricot);
+  font-weight:900;
+  word-break:break-word;
+}
+
+/* =====================================================
+   NOTICE + FOOTER
+===================================================== */
+
+.notice{
+  margin-top:30px;
+  padding:20px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:#050200;
+  font-size:11px;
+  line-height:1.7;
+}
+
+.notice strong{color:var(--orange)}
+
+footer{
+  margin-top:40px;
+  padding:40px 15px;
+  border-top:1px solid var(--border);
+  text-align:center;
+  background:#000;
+}
+
+footer strong{color:var(--orange)}
+
+footer p{
+  margin-top:8px;
+  color:var(--apricot);
+  font-size:11px;
+}
+
+footer a{
+  color:var(--apricot);
+  font-weight:900;
+}
+
+/* =====================================================
+   PRINT
+===================================================== */
+
+@media print{
+  @page{margin:.35in}
+
+  *{
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+  }
+
+  html,body{
+    background:#000 !important;
+  }
+
+  .topbar,
+  header,
+  .hero,
+  .services-section,
+  .workspace,
+  .official-contact,
+  .notice,
+  footer,
+  .no-print{
+    display:none !important;
+  }
+
+  .preview-wrap{
+    display:block !important;
+    margin:0 !important;
+  }
+
+  .container{
+    width:100% !important;
+    max-width:none !important;
+  }
+
+  .print-document{
+    min-height:95vh;
+    margin:0 !important;
+    border:3px solid #ff7900 !important;
+    border-radius:0 !important;
+    color:#ffd2a3 !important;
+    background:
+      radial-gradient(circle at 85% 10%,rgba(255,173,77,.20),transparent 30%),
+      linear-gradient(145deg,#120600,#000 65%) !important;
+    box-shadow:none !important;
+  }
+
+  .document-item{
+    background:#050200 !important;
+    border:1px solid rgba(255,121,0,.75) !important;
+  }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:850px){
+  .services{grid-template-columns:repeat(2,1fr)}
+  .actions{grid-template-columns:repeat(2,1fr)}
+  .back{display:none}
+}
+
+@media(max-width:650px){
+  .container{width:94%}
+
+  .header-inner{
+    min-height:80px;
+    gap:8px;
+  }
+
+  .brand{gap:8px}
+
+  .logo{
+    width:50px;
+    height:50px;
+  }
+
+  .brand h1{
+    max-width:135px;
+    font-size:11px;
+  }
+
+  .brand small{display:none}
+
+  .languages{
+    gap:2px;
+    padding:3px;
+  }
+
+  .lang{
+    min-height:34px;
+    padding:6px 8px;
+    font-size:9px;
+  }
+
+  .hero{padding:55px 0 35px}
+
+  .services,
+  .form-grid,
+  .check-grid,
+  .document-grid,
+  .contact-grid,
+  .actions{
+    grid-template-columns:1fr;
+  }
+
+  .field.full,
+  .document-item.full{
+    grid-column:auto;
+  }
+
+  .workspace{padding:20px}
+
+  .btn{width:100%}
+
+  .print-document{
+    padding:25px 18px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- =======================================================
-       TOP BAR
-       ======================================================= -->
-
-  <div
-    class="tax-topbar"
-    data-en="MAXIMAX MULTI SERVICES • TAX CENTER"
-    data-es="MAXIMAX MULTI SERVICES • CENTRO DE IMPUESTOS"
-    data-ht="MAXIMAX MULTI SERVICES • SANT TAKS"
-  >
-    MAXIMAX MULTI SERVICES • TAX CENTER
-  </div>
-
-
-  <!-- =======================================================
-       HEADER
-       ======================================================= -->
-
-  <header class="tax-header">
-
-    <div class="tax-container tax-header-inner">
-
-      <a class="tax-brand" href="../index.html">
-
-        <img
-          class="tax-logo"
-          src="../maximax-logo.jpg"
-          alt="Maximax Multi Services Logo"
-        >
-
-        <div class="tax-brand-text">
-          <strong>MAXIMAX</strong>
-          <span>MULTI SERVICES</span>
-        </div>
-
-      </a>
-
-
-      <div class="tax-header-actions">
-
-        <div class="tax-language">
-
-          <button
-            class="tax-lang active"
-            type="button"
-            data-lang="en"
-          >
-            <span class="flag">🇺🇸</span>
-            ENG
-          </button>
-
-          <button
-            class="tax-lang"
-            type="button"
-            data-lang="es"
-          >
-            <span class="flag">🇪🇸</span>
-            ESP
-          </button>
-
-          <button
-            class="tax-lang"
-            type="button"
-            data-lang="ht"
-          >
-            <span class="flag">🇭🇹</span>
-            KRE
-          </button>
-
-        </div>
-
-
-        <button
-          class="tax-menu-btn"
-          id="taxMenuBtn"
-          type="button"
-          aria-label="Open menu"
-          aria-expanded="false"
-        >
-          ☰
-        </button>
-
-      </div>
-
-
-      <nav class="tax-menu" id="taxMenu">
-
-        <a
-          href="../index.html"
-          data-en="HOME"
-          data-es="INICIO"
-          data-ht="AKÈY"
-        >
-          HOME
-        </a>
-
-        <a
-          href="#tax-services"
-          data-en="TAX SERVICES"
-          data-es="SERVICIOS DE IMPUESTOS"
-          data-ht="SÈVIS TAKS"
-        >
-          TAX SERVICES
-        </a>
-
-        <a
-          href="#documents"
-          data-en="DOCUMENT CHECKLIST"
-          data-es="LISTA DE DOCUMENTOS"
-          data-ht="LIS DOKIMAN"
-        >
-          DOCUMENT CHECKLIST
-        </a>
-
-        <a
-          href="#modules"
-          data-en="DIGITAL CENTERS"
-          data-es="CENTROS DIGITALES"
-          data-ht="SANT DIJITAL"
-        >
-          DIGITAL CENTERS
-        </a>
-
-        <a
-          href="#contact"
-          data-en="CONTACT"
-          data-es="CONTACTO"
-          data-ht="KONTAK"
-        >
-          CONTACT
-        </a>
-
-      </nav>
-
-    </div>
-
-  </header>
-
-
-  <main>
-
-    <!-- =====================================================
-         HERO — BIG CARD
-         ===================================================== -->
-
-    <section class="tax-hero">
-
-      <div class="tax-container">
-
-        <div class="tax-hero-card">
-
-          <img
-            class="tax-hero-image"
-            src="../maximax-multi-services.jpg"
-            alt="Maximax Multi Services Tax Services"
-          >
-
-          <div class="tax-hero-overlay"></div>
-
-
-          <div class="tax-hero-content">
-
-            <div class="hero-brand-badge">
-
-              <img
-                src="../maximax-logo.jpg"
-                alt="Maximax Multi Services"
-              >
-
-              <span>MAXIMAX MULTI SERVICES</span>
-
-            </div>
-
-
-            <div class="tax-money">💰</div>
-
-
-            <div
-              class="tax-eyebrow"
-              data-en="MAXIMAX MULTI SERVICES"
-              data-es="MAXIMAX MULTI SERVICES"
-              data-ht="MAXIMAX MULTI SERVICES"
-            >
-              MAXIMAX MULTI SERVICES
-            </div>
-
-
-            <h1
-              data-en="TAX SERVICES"
-              data-es="SERVICIOS DE IMPUESTOS"
-              data-ht="SÈVIS TAKS"
-            >
-              TAX SERVICES
-            </h1>
-
-
-            <p
-              class="tax-hero-description"
-              data-en="Tax preparation, document organization and filing assistance for individuals, families and eligible businesses."
-              data-es="Preparación de impuestos, organización de documentos y asistencia de presentación para individuos, familias y negocios elegibles."
-              data-ht="Preparasyon taks, òganizasyon dokiman ak asistans pou depoze taks pou moun, fanmi ak biznis ki kalifye."
-            >
-              Tax preparation, document organization and filing assistance
-              for individuals, families and eligible businesses.
-            </p>
-
-
-            <div class="tax-buttons">
-
-              <a
-                class="tax-btn primary"
-                href="#tax-services"
-                data-en="VIEW TAX SERVICES"
-                data-es="VER SERVICIOS"
-                data-ht="GADE SÈVIS TAKS"
-              >
-                VIEW TAX SERVICES
-              </a>
-
-              <a
-                class="tax-btn outline"
-                href="./document-checklist.html"
-                data-en="DOCUMENT CHECKLIST"
-                data-es="LISTA DE DOCUMENTOS"
-                data-ht="LIS DOKIMAN"
-              >
-                DOCUMENT CHECKLIST
-              </a>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         TAX SERVICES
-         ===================================================== -->
-
-    <section
-      class="tax-section"
-      id="tax-services"
-    >
-
-      <div class="tax-container">
-
-        <div class="tax-section-heading">
-
-          <div
-            class="tax-eyebrow"
-            data-en="MAXIMAX TAX CENTER"
-            data-es="CENTRO DE IMPUESTOS MAXIMAX"
-            data-ht="SANT TAKS MAXIMAX"
-          >
-            MAXIMAX TAX CENTER
-          </div>
-
-          <h2
-            data-en="TAX SERVICES"
-            data-es="SERVICIOS DE IMPUESTOS"
-            data-ht="SÈVIS TAKS"
-          >
-            TAX SERVICES
-          </h2>
-
-        </div>
-
-
-        <div class="tax-grid">
-
-          <article class="tax-card">
-            <div class="tax-card-icon">👤</div>
-
-            <h3
-              data-en="INDIVIDUAL TAX RETURNS"
-              data-es="DECLARACIONES INDIVIDUALES"
-              data-ht="TAKS ENDIVIDYÈL"
-            >
-              INDIVIDUAL TAX RETURNS
-            </h3>
-
-            <p
-              data-en="Tax preparation assistance for eligible individual federal and state income tax returns."
-              data-es="Asistencia en la preparación de declaraciones de impuestos federales y estatales para individuos elegibles."
-              data-ht="Asistans preparasyon taks federal ak taks eta pou moun ki kalifye."
-            >
-              Tax preparation assistance for eligible individual federal
-              and state income tax returns.
-            </p>
-          </article>
-
-
-          <article class="tax-card">
-            <div class="tax-card-icon">👨‍👩‍👧‍👦</div>
-
-            <h3
-              data-en="FAMILY TAX RETURNS"
-              data-es="DECLARACIONES FAMILIARES"
-              data-ht="TAKS FANMI"
-            >
-              FAMILY TAX RETURNS
-            </h3>
-
-            <p
-              data-en="Tax preparation and document organization for households and eligible dependents."
-              data-es="Preparación de impuestos y organización de documentos para hogares y dependientes elegibles."
-              data-ht="Preparasyon taks ak òganizasyon dokiman pou fanmi ak depandan ki kalifye."
-            >
-              Tax preparation and document organization for households
-              and eligible dependents.
-            </p>
-          </article>
-
-
-          <article class="tax-card">
-            <div class="tax-card-icon">💼</div>
-
-            <h3
-              data-en="BUSINESS TAX SUPPORT"
-              data-es="APOYO DE IMPUESTOS PARA NEGOCIOS"
-              data-ht="ASISTANS TAKS BIZNIS"
-            >
-              BUSINESS TAX SUPPORT
-            </h3>
-
-            <p
-              data-en="Tax document organization and preparation assistance for eligible small businesses and self-employed clients."
-              data-es="Organización de documentos fiscales y asistencia para pequeños negocios y trabajadores independientes elegibles."
-              data-ht="Òganizasyon dokiman taks ak asistans pou ti biznis ak moun k ap travay pou tèt yo."
-            >
-              Tax document organization and preparation assistance for
-              eligible small businesses and self-employed clients.
-            </p>
-          </article>
-
-
-          <article class="tax-card">
-            <div class="tax-card-icon">🧾</div>
-
-            <h3
-              data-en="W-2 & 1099 SUPPORT"
-              data-es="ASISTENCIA W-2 & 1099"
-              data-ht="ASISTANS W-2 & 1099"
-            >
-              W-2 & 1099 SUPPORT
-            </h3>
-
-            <p
-              data-en="Organization and review of common income documents including W-2 and 1099 forms."
-              data-es="Organización y revisión de documentos de ingresos, incluidos formularios W-2 y 1099."
-              data-ht="Òganizasyon ak revizyon dokiman revni tankou W-2 ak 1099."
-            >
-              Organization and review of common income documents
-              including W-2 and 1099 forms.
-            </p>
-          </article>
-
-
-          <article class="tax-card">
-            <div class="tax-card-icon">📁</div>
-
-            <h3
-              data-en="TAX DOCUMENT ORGANIZATION"
-              data-es="ORGANIZACIÓN DE DOCUMENTOS"
-              data-ht="ÒGANIZASYON DOKIMAN TAKS"
-            >
-              TAX DOCUMENT ORGANIZATION
-            </h3>
-
-            <p
-              data-en="Help organizing income records, tax documents and supporting information before preparation."
-              data-es="Ayuda para organizar ingresos, documentos fiscales e información de respaldo antes de la preparación."
-              data-ht="Asistans pou òganize revni, dokiman taks ak lòt enfòmasyon anvan preparasyon."
-            >
-              Help organizing income records, tax documents and
-              supporting information before preparation.
-            </p>
-          </article>
-
-
-          <article class="tax-card">
-            <div class="tax-card-icon">📤</div>
-
-            <h3
-              data-en="E-FILE ASSISTANCE"
-              data-es="ASISTENCIA E-FILE"
-              data-ht="ASISTANS E-FILE"
-            >
-              E-FILE ASSISTANCE
-            </h3>
-
-            <p
-              data-en="Electronic filing assistance for eligible completed tax returns."
-              data-es="Asistencia de presentación electrónica para declaraciones elegibles completadas."
-              data-ht="Asistans pou depoze deklarasyon taks elektwonikman lè yo kalifye."
-            >
-              Electronic filing assistance for eligible completed tax returns.
-            </p>
-          </article>
-
-
-          <article class="tax-card">
-            <div class="tax-card-icon">🏡</div>
-
-            <h3
-              data-en="COMMON TAX CREDITS"
-              data-es="CRÉDITOS FISCALES COMUNES"
-              data-ht="KREDI TAKS KOMEN"
-            >
-              COMMON TAX CREDITS
-            </h3>
-
-            <p
-              data-en="Review information related to common credits and deductions that may apply based on the taxpayer's circumstances."
-              data-es="Revisión de información sobre créditos y deducciones que pueden aplicar según las circunstancias del contribuyente."
-              data-ht="Revizyon enfòmasyon sou kredi ak dediksyon ki ka aplike selon sitiyasyon kontribyab la."
-            >
-              Review information related to common credits and deductions
-              that may apply based on the taxpayer's circumstances.
-            </p>
-          </article>
-
-
-          <article class="tax-card">
-            <div class="tax-card-icon">📅</div>
-
-            <h3
-              data-en="PRIOR-YEAR DOCUMENTS"
-              data-es="DOCUMENTOS DE AÑOS ANTERIORES"
-              data-ht="DOKIMAN ANE ANVAN"
-            >
-              PRIOR-YEAR DOCUMENTS
-            </h3>
-
-            <p
-              data-en="Organization and preparation assistance involving available prior-year tax documents."
-              data-es="Organización y preparación de documentos fiscales disponibles de años anteriores."
-              data-ht="Òganizasyon ak preparasyon dokiman taks ane anvan ki disponib."
-            >
-              Organization and preparation assistance involving available
-              prior-year tax documents.
-            </p>
-          </article>
-
-
-          <article class="tax-card">
-            <div class="tax-card-icon">🌎</div>
-
-            <h3
-              data-en="MULTILINGUAL ASSISTANCE"
-              data-es="ASISTENCIA MULTILINGÜE"
-              data-ht="ASISTANS NAN PLIZYÈ LANG"
-            >
-              MULTILINGUAL ASSISTANCE
-            </h3>
-
-            <p
-              data-en="Service navigation available in English, Spanish and Haitian Creole."
-              data-es="Navegación de servicios disponible en inglés, español y criollo haitiano."
-              data-ht="Navigasyon sèvis disponib an Anglè, Panyòl ak Kreyòl Ayisyen."
-            >
-              Service navigation available in English, Spanish
-              and Haitian Creole.
-            </p>
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         DOCUMENT CHECKLIST
-         ===================================================== -->
-
-    <section
-      class="tax-section"
-      id="documents"
-    >
-
-      <div class="tax-container">
-
-        <div class="tax-section-heading">
-
-          <div
-            class="tax-eyebrow"
-            data-en="PREPARATION CENTER"
-            data-es="CENTRO DE PREPARACIÓN"
-            data-ht="SANT PREPARASYON"
-          >
-            PREPARATION CENTER
-          </div>
-
-          <h2
-            data-en="DOCUMENT CHECKLIST"
-            data-es="LISTA DE DOCUMENTOS"
-            data-ht="LIS DOKIMAN"
-          >
-            DOCUMENT CHECKLIST
-          </h2>
-
-        </div>
-
-
-        <div class="tax-checklist">
-
-          <div class="check-grid">
-
-            <div class="check-item">
-              <strong
-                data-en="✓ IDENTIFICATION"
-                data-es="✓ IDENTIFICACIÓN"
-                data-ht="✓ IDANTIFIKASYON"
-              >
-                ✓ IDENTIFICATION
-              </strong>
-
-              <p
-                data-en="Government-issued identification for applicable taxpayers."
-                data-es="Identificación emitida por el gobierno para contribuyentes aplicables."
-                data-ht="Pyès idantite gouvènman bay pou kontribyab ki konsène yo."
-              >
-                Government-issued identification for applicable taxpayers.
-              </p>
-            </div>
-
-
-            <div class="check-item">
-              <strong
-                data-en="✓ SOCIAL SECURITY / TAX ID INFORMATION"
-                data-es="✓ INFORMACIÓN DE SEGURO SOCIAL / TAX ID"
-                data-ht="✓ ENFÒMASYON SOCIAL SECURITY / TAX ID"
-              >
-                ✓ SOCIAL SECURITY / TAX ID INFORMATION
-              </strong>
-
-              <p
-                data-en="Applicable taxpayer and dependent identification information."
-                data-es="Información de identificación del contribuyente y dependientes."
-                data-ht="Enfòmasyon idantifikasyon kontribyab ak depandan yo."
-              >
-                Applicable taxpayer and dependent identification information.
-              </p>
-            </div>
-
-
-            <div class="check-item">
-              <strong>✓ W-2 FORMS</strong>
-
-              <p
-                data-en="Wage and salary statements received from employers."
-                data-es="Comprobantes de salarios recibidos de empleadores."
-                data-ht="Dokiman salè ou resevwa nan men anplwayè."
-              >
-                Wage and salary statements received from employers.
-              </p>
-            </div>
-
-
-            <div class="check-item">
-              <strong>✓ 1099 FORMS</strong>
-
-              <p
-                data-en="Applicable contractor, interest, dividend or other income forms."
-                data-es="Formularios aplicables de contratista, intereses, dividendos u otros ingresos."
-                data-ht="Fòm kontraktè, enterè, dividann oswa lòt revni ki aplikab."
-              >
-                Applicable contractor, interest, dividend or other income forms.
-              </p>
-            </div>
-
-
-            <div class="check-item">
-              <strong
-                data-en="✓ BUSINESS RECORDS"
-                data-es="✓ REGISTROS DE NEGOCIO"
-                data-ht="✓ DOSYE BIZNIS"
-              >
-                ✓ BUSINESS RECORDS
-              </strong>
-
-              <p
-                data-en="Applicable income and expense records for eligible business or self-employment activity."
-                data-es="Registros de ingresos y gastos para negocios o trabajo independiente elegible."
-                data-ht="Dosye revni ak depans pou biznis oswa travay endepandan ki kalifye."
-              >
-                Applicable income and expense records for eligible
-                business or self-employment activity.
-              </p>
-            </div>
-
-
-            <div class="check-item">
-              <strong
-                data-en="✓ PRIOR TAX RETURN"
-                data-es="✓ DECLARACIÓN ANTERIOR"
-                data-ht="✓ ANSYEN DEKLARASYON TAKS"
-              >
-                ✓ PRIOR TAX RETURN
-              </strong>
-
-              <p
-                data-en="A previous tax return may be useful depending on the situation."
-                data-es="Una declaración anterior puede ser útil dependiendo de la situación."
-                data-ht="Yon deklarasyon taks ane anvan ka itil selon sitiyasyon an."
-              >
-                A previous tax return may be useful depending on the situation.
-              </p>
-            </div>
-
-
-            <div class="check-item">
-              <strong
-                data-en="✓ BANK INFORMATION"
-                data-es="✓ INFORMACIÓN BANCARIA"
-                data-ht="✓ ENFÒMASYON BANK"
-              >
-                ✓ BANK INFORMATION
-              </strong>
-
-              <p
-                data-en="Applicable routing and account information when direct deposit or payment is requested."
-                data-es="Información bancaria aplicable cuando se solicita depósito directo o pago."
-                data-ht="Routing ak enfòmasyon kont bank lè depo dirèk oswa peman nesesè."
-              >
-                Applicable routing and account information when direct
-                deposit or payment is requested.
-              </p>
-            </div>
-
-
-            <div class="check-item">
-              <strong
-                data-en="✓ SUPPORTING DOCUMENTS"
-                data-es="✓ DOCUMENTOS DE RESPALDO"
-                data-ht="✓ DOKIMAN SIPÒ"
-              >
-                ✓ SUPPORTING DOCUMENTS
-              </strong>
-
-              <p
-                data-en="Other records relevant to income, deductions, credits or the taxpayer's circumstances."
-                data-es="Otros documentos relacionados con ingresos, deducciones, créditos o circunstancias del contribuyente."
-                data-ht="Lòt dokiman ki gen rapò ak revni, dediksyon, kredi oswa sitiyasyon kontribyab la."
-              >
-                Other records relevant to income, deductions,
-                credits or the taxpayer's circumstances.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         WORKING MODULE LINKS
-         ===================================================== -->
-
-    <section
-      class="tax-section"
-      id="modules"
-    >
-
-      <div class="tax-container">
-
-        <div class="tax-section-heading">
-
-          <div
-            class="tax-eyebrow"
-            data-en="CONNECTED MAXIMAX SYSTEM"
-            data-es="SISTEMA MAXIMAX CONECTADO"
-            data-ht="SISTÈM MAXIMAX KONEKTE"
-          >
-            CONNECTED MAXIMAX SYSTEM
-          </div>
-
-          <h2
-            data-en="DIGITAL CENTERS"
-            data-es="CENTROS DIGITALES"
-            data-ht="SANT DIJITAL"
-          >
-            DIGITAL CENTERS
-          </h2>
-
-        </div>
-
-
-        <div class="module-grid">
-
-          <a class="module-card" href="./form-helper.html">
-            <div class="module-icon">📝</div>
-            <strong data-en="FORM HELP CENTER" data-es="CENTRO DE FORMULARIOS" data-ht="SANT ÈD POU FÒM">
-              FORM HELP CENTER
-            </strong>
-            <span data-en="Forms and service assistance." data-es="Asistencia con formularios." data-ht="Asistans pou fòm ak sèvis.">
-              Forms and service assistance.
-            </span>
-          </a>
-
-
-          <a class="module-card" href="./government-forms.html">
-            <div class="module-icon">🏛️</div>
-            <strong data-en="GOVERNMENT FORMS" data-es="FORMULARIOS DEL GOBIERNO" data-ht="FÒM GOUVÈNMAN">
-              GOVERNMENT FORMS
-            </strong>
-            <span data-en="Government form resources." data-es="Recursos de formularios gubernamentales." data-ht="Resous fòm gouvènman.">
-              Government form resources.
-            </span>
-          </a>
-
-
-          <a class="module-card" href="./document-checklist.html">
-            <div class="module-icon">☑️</div>
-            <strong data-en="DOCUMENT CHECKLIST" data-es="LISTA DE DOCUMENTOS" data-ht="LIS DOKIMAN">
-              DOCUMENT CHECKLIST
-            </strong>
-            <span data-en="Organize required documents." data-es="Organice documentos requeridos." data-ht="Òganize dokiman nesesè yo.">
-              Organize required documents.
-            </span>
-          </a>
-
-
-          <a class="module-card" href="./document-center.html">
-            <div class="module-icon">🗂️</div>
-            <strong data-en="DOCUMENT CENTER" data-es="CENTRO DE DOCUMENTOS" data-ht="SANT DOKIMAN">
-              DOCUMENT CENTER
-            </strong>
-            <span data-en="Manage service documents." data-es="Administre documentos de servicio." data-ht="Jere dokiman sèvis.">
-              Manage service documents.
-            </span>
-          </a>
-
-
-          <a class="module-card" href="./appointment-center.html">
-            <div class="module-icon">📅</div>
-            <strong data-en="APPOINTMENT CENTER" data-es="CENTRO DE CITAS" data-ht="SANT RANDEVOU">
-              APPOINTMENT CENTER
-            </strong>
-            <span data-en="Request an appointment." data-es="Solicite una cita." data-ht="Mande yon randevou.">
-              Request an appointment.
-            </span>
-          </a>
-
-
-          <a class="module-card" href="./client-portal.html">
-            <div class="module-icon">👤</div>
-            <strong data-en="CLIENT PORTAL" data-es="PORTAL DEL CLIENTE" data-ht="PÒTAL KLIYAN">
-              CLIENT PORTAL
-            </strong>
-            <span data-en="Access client tools." data-es="Acceda a herramientas del cliente." data-ht="Antre nan zouti kliyan.">
-              Access client tools.
-            </span>
-          </a>
-
-
-          <a class="module-card" href="./service-request-center.html">
-            <div class="module-icon">📨</div>
-            <strong data-en="SERVICE REQUEST" data-es="SOLICITUD DE SERVICIO" data-ht="DEMANN SÈVIS">
-              SERVICE REQUEST
-            </strong>
-            <span data-en="Start a service request." data-es="Inicie una solicitud." data-ht="Kòmanse yon demann sèvis.">
-              Start a service request.
-            </span>
-          </a>
-
-
-          <a class="module-card" href="./payment-center.html">
-            <div class="module-icon">💰</div>
-            <strong data-en="PAYMENT CENTER" data-es="CENTRO DE PAGOS" data-ht="SANT PEMAN">
-              PAYMENT CENTER
-            </strong>
-            <span data-en="Payment record center." data-es="Centro de registros de pago." data-ht="Sant dosye peman.">
-              Payment record center.
-            </span>
-          </a>
-
-
-          <a class="module-card" href="./receipt-center.html">
-            <div class="module-icon">🧾</div>
-            <strong data-en="RECEIPT CENTER" data-es="CENTRO DE RECIBOS" data-ht="SANT RESI">
-              RECEIPT CENTER
-            </strong>
-            <span data-en="Create professional receipts." data-es="Cree recibos profesionales." data-ht="Kreye resi pwofesyonèl.">
-              Create professional receipts.
-            </span>
-          </a>
-
-
-          <a class="module-card" href="./invoice-center.html">
-            <div class="module-icon">📋</div>
-            <strong data-en="INVOICE CENTER" data-es="CENTRO DE FACTURAS" data-ht="SANT FAKTI">
-              INVOICE CENTER
-            </strong>
-            <span data-en="Create client invoices." data-es="Cree facturas de clientes." data-ht="Kreye fakti kliyan.">
-              Create client invoices.
-            </span>
-          </a>
-
-
-          <a class="module-card" href="./contact-center.html">
-            <div class="module-icon">☎️</div>
-            <strong data-en="CONTACT CENTER" data-es="CENTRO DE CONTACTO" data-ht="SANT KONTAK">
-              CONTACT CENTER
-            </strong>
-            <span data-en="Contact Maximax Multi Services." data-es="Contacte Maximax Multi Services." data-ht="Kontakte Maximax Multi Services.">
-              Contact Maximax Multi Services.
-            </span>
-          </a>
-
-
-          <a class="module-card" href="./ai-center.html">
-            <div class="module-icon">🤖</div>
-            <strong data-en="AI CENTER" data-es="CENTRO IA" data-ht="SANT AI">
-              AI CENTER
-            </strong>
-            <span data-en="Open Maximax AI tools." data-es="Abra herramientas de IA." data-ht="Louvri zouti AI Maximax.">
-              Open Maximax AI tools.
-            </span>
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         CONTACT
-         ===================================================== -->
-
-    <section
-      class="tax-cta"
-      id="contact"
-    >
-
-      <div class="tax-container">
-
-        <div class="tax-cta-box">
-
-          <div
-            class="tax-eyebrow"
-            data-en="MAXIMAX TAX CENTER"
-            data-es="CENTRO DE IMPUESTOS MAXIMAX"
-            data-ht="SANT TAKS MAXIMAX"
-          >
-            MAXIMAX TAX CENTER
-          </div>
-
-          <h2
-            data-en="READY TO PREPARE YOUR TAXES?"
-            data-es="¿LISTO PARA PREPARAR SUS IMPUESTOS?"
-            data-ht="OU PARE POU PREPARE TAKS OU?"
-          >
-            READY TO PREPARE YOUR TAXES?
-          </h2>
-
-          <p
-            data-en="Contact Maximax Multi Services to discuss your tax preparation needs and the documents relevant to your situation."
-            data-es="Contacte Maximax Multi Services para hablar sobre sus necesidades de preparación de impuestos y los documentos relevantes."
-            data-ht="Kontakte Maximax Multi Services pou pale sou preparasyon taks ou ak dokiman ki nesesè pou sitiyasyon ou."
-          >
-            Contact Maximax Multi Services to discuss your tax preparation
-            needs and the documents relevant to your situation.
-          </p>
-
-
-          <div class="phone-grid">
-
-            <a class="phone-card" href="tel:+14076405166">
-              ☎ (407) 640-5166
-            </a>
-
-            <a class="phone-card" href="tel:+13175381150">
-              ☎ (317) 538-1150
-            </a>
-
-            <a class="phone-card" href="tel:+15162168494">
-              ☎ (516) 216-8494
-            </a>
-
-          </div>
-
-
-          <div class="tax-buttons">
-
-            <a
-              class="tax-btn primary"
-              href="./appointment-center.html"
-              data-en="MAKE APPOINTMENT"
-              data-es="HACER UNA CITA"
-              data-ht="PRAN RANDEVOU"
-            >
-              MAKE APPOINTMENT
-            </a>
-
-            <a
-              class="tax-btn outline"
-              href="./contact-center.html"
-              data-en="CONTACT CENTER"
-              data-es="CENTRO DE CONTACTO"
-              data-ht="SANT KONTAK"
-            >
-              CONTACT CENTER
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         IMPORTANT NOTICE
-         ===================================================== -->
-
-    <div class="tax-container">
-
-      <div class="tax-notice">
-
-        <strong
-          data-en="IMPORTANT:"
-          data-es="IMPORTANTE:"
-          data-ht="ENPÒTAN:"
-        >
-          IMPORTANT:
-        </strong>
-
-        <span
-          data-en=" Tax requirements vary by taxpayer and situation. Eligibility for credits, deductions, filing status, refunds or other tax treatment depends on applicable tax law and the taxpayer's facts. Additional documentation may be required."
-          data-es=" Los requisitos fiscales varían según el contribuyente y la situación. La elegibilidad para créditos, deducciones, estado civil tributario, reembolsos u otros tratamientos depende de la ley aplicable y de los hechos del contribuyente. Puede requerirse documentación adicional."
-          data-ht=" Kondisyon taks yo varye selon kontribyab la ak sitiyasyon an. Kalifikasyon pou kredi, dediksyon, filing status, refund oswa lòt tretman taks depann de lwa ki aplikab ak enfòmasyon kontribyab la. Lòt dokiman ka nesesè."
-        >
-          Tax requirements vary by taxpayer and situation.
-        </span>
-
-      </div>
-
-
-      <div class="tax-buttons" style="justify-content:flex-start;margin-bottom:55px;">
-
-        <a
-          class="tax-btn outline"
-          href="../index.html#services"
-          data-en="← BACK TO ALL SERVICES"
-          data-es="← VOLVER A SERVICIOS"
-          data-ht="← RETOUNEN NAN SÈVIS YO"
-        >
-          ← BACK TO ALL SERVICES
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         SOCIAL NETWORKS
-         ===================================================== -->
-
-    <section class="social-section">
-
-      <div class="tax-container">
-
-        <h2
-          class="social-title"
-          data-en="FOLLOW MAXIMAX MULTI SERVICES"
-          data-es="SIGUE MAXIMAX MULTI SERVICES"
-          data-ht="SWIV MAXIMAX MULTI SERVICES"
-        >
-          FOLLOW MAXIMAX MULTI SERVICES
-        </h2>
-
-
-        <div class="social-grid">
-
-          <a
-            class="social-link"
-            href="https://www.facebook.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="social-symbol">ⓕ</span>
-            FACEBOOK
-          </a>
-
-
-          <a
-            class="social-link"
-            href="https://www.whatsapp.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="social-symbol">◉</span>
-            WHATSAPP
-          </a>
-
-
-          <a
-            class="social-link"
-            href="https://www.youtube.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="social-symbol">▶</span>
-            YOUTUBE
-          </a>
-
-
-          <a
-            class="social-link"
-            href="https://www.spotify.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="social-symbol">◉</span>
-            SPOTIFY
-          </a>
-
-
-          <a
-            class="social-link"
-            href="https://www.tiktok.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="social-symbol">♪</span>
-            TIKTOK
-          </a>
-
-
-          <a
-            class="social-link"
-            href="https://www.instagram.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="social-symbol">◎</span>
-            INSTAGRAM
-          </a>
-
-
-          <a
-            class="social-link"
-            href="https://telegram.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="social-symbol">➤</span>
-            TELEGRAM
-          </a>
-
-
-          <a
-            class="social-link"
-            href="https://x.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="social-symbol">𝕏</span>
-            X / TWITTER
-          </a>
-
-
-          <a
-            class="social-link"
-            href="https://truthsocial.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="social-symbol">T</span>
-            TRUTH SOCIAL
-          </a>
-
-
-          <a
-            class="social-link"
-            href="https://www.linkedin.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="social-symbol">in</span>
-            LINKEDIN
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- =======================================================
-       FOOTER
-       ======================================================= -->
-
-  <footer class="tax-footer">
-
-    <div class="tax-container">
-
-      <img
-        class="tax-footer-logo"
-        src="../maximax-logo.jpg"
-        alt="Maximax Multi Services Logo"
-      >
-
-      <h3>MAXIMAX MULTI SERVICES</h3>
-
-      <p
-        data-en="PROFESSIONAL SERVICES • DIGITAL SOLUTIONS • AI ASSISTANCE"
-        data-es="SERVICIOS PROFESIONALES • SOLUCIONES DIGITALES • ASISTENCIA IA"
-        data-ht="SÈVIS PWOFESYONÈL • SOLISYON DIJITAL • ASISTANS AI"
-      >
-        PROFESSIONAL SERVICES • DIGITAL SOLUTIONS • AI ASSISTANCE
-      </p>
-
-      <p>
-        <a href="tel:+14076405166">(407) 640-5166</a>
-        &nbsp; • &nbsp;
-        <a href="tel:+13175381150">(317) 538-1150</a>
-        &nbsp; • &nbsp;
-        <a href="tel:+15162168494">(516) 216-8494</a>
-      </p>
-
-      <p>
-        <a
-          href="https://bss1815pro-maxdmp.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          BSS1815 PRO-MAX DMP
-        </a>
-      </p>
-
-      <p>
-        © <span id="taxYear"></span>
-        MAXIMAX MULTI SERVICES
-      </p>
-
-    </div>
-
-  </footer>
-
-
-  <!-- =======================================================
-       PAGE JAVASCRIPT
-       ======================================================= -->
-
-  <script>
-    (() => {
-      "use strict";
-
-      const languageButtons =
-        document.querySelectorAll(".tax-lang");
-
-      const translatedElements =
-        document.querySelectorAll(
-          "[data-en][data-es][data-ht]"
-        );
-
-      const menuButton =
-        document.getElementById("taxMenuBtn");
-
-      const menu =
-        document.getElementById("taxMenu");
-
-      const year =
-        document.getElementById("taxYear");
-
-      const storageKey =
-        "maximaxLanguage";
-
-
-      /* =========================================
-         YEAR
-         ========================================= */
-
-      if(year){
-        year.textContent =
-          new Date().getFullYear();
-      }
-
-
-      /* =========================================
-         LANGUAGE
-         ENG / ESP / KRE
-         ========================================= */
-
-      function setLanguage(language){
-
-        const supported =
-          ["en","es","ht"];
-
-        if(!supported.includes(language)){
-          language = "en";
-        }
-
-        document.documentElement.lang =
-          language;
-
-        translatedElements.forEach(
-          element => {
-
-            const value =
-              element.dataset[language];
-
-            if(
-              typeof value === "string" &&
-              value.trim() !== ""
-            ){
-              element.textContent =
-                value;
-            }
-
-          }
-        );
-
-        languageButtons.forEach(
-          button => {
-
-            const active =
-              button.dataset.lang === language;
-
-            button.classList.toggle(
-              "active",
-              active
-            );
-
-            button.setAttribute(
-              "aria-pressed",
-              active ? "true" : "false"
-            );
-
-          }
-        );
-
-        try{
-          localStorage.setItem(
-            storageKey,
-            language
-          );
-        }catch(error){
-          /* localStorage unavailable */
-        }
-      }
-
-
-      languageButtons.forEach(
-        button => {
-
-          button.addEventListener(
-            "click",
-            () => {
-
-              setLanguage(
-                button.dataset.lang
-              );
-
-            }
-          );
-
-        }
+<div class="topbar">
+MAXIMAX MULTI SERVICES • TAX SERVICE CENTER
+</div>
+
+<header>
+<div class="container header-inner">
+
+<a class="brand" href="../index.html">
+<img
+  class="logo"
+  src="../maximax-multi-services.jpg?v=20260918"
+  alt="Maximax Multi Services Logo">
+
+<div>
+<h1>MAXIMAX MULTI SERVICES</h1>
+<small>TAX SERVICE CENTER</small>
+</div>
+</a>
+
+<div class="header-right">
+
+<div class="languages">
+<button class="lang active" type="button" data-lang="en">🇺🇸 ENG</button>
+<button class="lang" type="button" data-lang="es">🇪🇸 ESP</button>
+<button class="lang" type="button" data-lang="ht">🇭🇹 KRE</button>
+</div>
+
+<a
+ class="back"
+ href="../index.html"
+ data-en="← HOMEPAGE"
+ data-es="← INICIO"
+ data-ht="← AKÈY">
+← HOMEPAGE
+</a>
+
+</div>
+</div>
+</header>
+
+<main>
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+<div class="container">
+
+<div
+ class="hero-badge"
+ data-en="MAXIMAX PROFESSIONAL TAX SERVICE CENTER"
+ data-es="CENTRO PROFESIONAL DE SERVICIOS DE IMPUESTOS MAXIMAX"
+ data-ht="SANT SÈVIS TAKS PWOFESYONÈL MAXIMAX">
+MAXIMAX PROFESSIONAL TAX SERVICE CENTER
+</div>
+
+<h2
+ data-en="TAX SERVICES"
+ data-es="SERVICIOS DE IMPUESTOS"
+ data-ht="SÈVIS TAKS">
+TAX SERVICES
+</h2>
+
+<p
+ data-en="Organize your tax service request, income documents, dependents, deductions and tax preparation information in one professional center."
+ data-es="Organice su solicitud de impuestos, documentos de ingresos, dependientes, deducciones e información de preparación de impuestos en un solo centro profesional."
+ data-ht="Òganize demann sèvis taks ou, dokiman revni, depandan, dediksyon ak enfòmasyon preparasyon taks nan yon sèl sant pwofesyonèl.">
+Organize your tax service request, income documents, dependents, deductions and tax preparation information in one professional center.
+</p>
+
+</div>
+</section>
+
+<!-- =====================================================
+     TAX SERVICE OPTIONS
+===================================================== -->
+
+<section class="section services-section">
+<div class="container">
+
+<h2
+ class="section-title"
+ data-en="TAX SERVICE OPTIONS"
+ data-es="OPCIONES DE SERVICIO DE IMPUESTOS"
+ data-ht="OPSYON SÈVIS TAKS">
+TAX SERVICE OPTIONS
+</h2>
+
+<p
+ class="section-subtitle"
+ data-en="Choose the tax service you need. Your selection will automatically enter the Tax Service Request."
+ data-es="Seleccione el servicio de impuestos que necesita. Su selección se agregará automáticamente a la solicitud."
+ data-ht="Chwazi sèvis taks ou bezwen an. Chwa a ap antre otomatikman nan demann sèvis taks la.">
+Choose the tax service you need. Your selection will automatically enter the Tax Service Request.
+</p>
+
+<div class="services">
+
+<button class="service-btn" type="button" data-service="Individual Tax Preparation">
+<span class="service-icon">🧾</span>
+<strong
+ data-en="Individual Tax Preparation"
+ data-es="Preparación de Impuestos Individuales"
+ data-ht="Preparasyon Taks Endividyèl">
+Individual Tax Preparation
+</strong>
+<small
+ data-en="Organize information for an individual income tax preparation request."
+ data-es="Organice la información para una solicitud de preparación de impuestos individuales."
+ data-ht="Òganize enfòmasyon pou yon demann preparasyon taks endividyèl.">
+Organize information for an individual income tax preparation request.
+</small>
+</button>
+
+<button class="service-btn" type="button" data-service="W-2 Tax Preparation">
+<span class="service-icon">📄</span>
+<strong>W-2 Tax Preparation</strong>
+<small
+ data-en="Tax preparation intake for clients with W-2 wage income."
+ data-es="Preparación de impuestos para clientes con ingresos salariales W-2."
+ data-ht="Preparasyon taks pou kliyan ki gen revni salè W-2.">
+Tax preparation intake for clients with W-2 wage income.
+</small>
+</button>
+
+<button class="service-btn" type="button" data-service="1099 Tax Preparation">
+<span class="service-icon">📑</span>
+<strong>1099 Tax Preparation</strong>
+<small
+ data-en="Organize 1099 income and related tax information."
+ data-es="Organice ingresos 1099 e información fiscal relacionada."
+ data-ht="Òganize revni 1099 ak enfòmasyon taks ki gen rapò.">
+Organize 1099 income and related tax information.
+</small>
+</button>
+
+<button class="service-btn" type="button" data-service="Self-Employment Tax Preparation">
+<span class="service-icon">💼</span>
+<strong
+ data-en="Self-Employment"
+ data-es="Trabajo por Cuenta Propia"
+ data-ht="Travay Endepandan">
+Self-Employment
+</strong>
+<small
+ data-en="Organize business income and expense information for self-employed clients."
+ data-es="Organice ingresos y gastos comerciales para trabajadores por cuenta propia."
+ data-ht="Òganize revni ak depans biznis pou kliyan k ap travay pou tèt yo.">
+Organize business income and expense information for self-employed clients.
+</small>
+</button>
+
+<button class="service-btn" type="button" data-service="Prior-Year Tax Assistance">
+<span class="service-icon">📆</span>
+<strong
+ data-en="Prior-Year Tax Assistance"
+ data-es="Asistencia de Años Anteriores"
+ data-ht="Asistans Taks Ane Pase">
+Prior-Year Tax Assistance
+</strong>
+<small
+ data-en="Organize information for prior-year tax preparation assistance."
+ data-es="Organice información para asistencia tributaria de años anteriores."
+ data-ht="Òganize enfòmasyon pou asistans preparasyon taks ane pase.">
+Organize information for prior-year tax preparation assistance.
+</small>
+</button>
+
+<button class="service-btn" type="button" data-service="Tax Document Organization">
+<span class="service-icon">📚</span>
+<strong
+ data-en="Tax Document Organization"
+ data-es="Organización de Documentos Fiscales"
+ data-ht="Òganizasyon Dokiman Taks">
+Tax Document Organization
+</strong>
+<small
+ data-en="Organize tax documents before preparation begins."
+ data-es="Organice los documentos fiscales antes de comenzar la preparación."
+ data-ht="Òganize dokiman taks anvan preparasyon an kòmanse.">
+Organize tax documents before preparation begins.
+</small>
+</button>
+
+</div>
+</div>
+</section>
+
+<!-- =====================================================
+     TAX SERVICE REQUEST
+===================================================== -->
+
+<section class="section" id="request">
+<div class="container">
+
+<h2
+ class="section-title"
+ data-en="CREATE TAX SERVICE REQUEST"
+ data-es="CREAR SOLICITUD DE IMPUESTOS"
+ data-ht="KREYE DEMANN SÈVIS TAKS">
+CREATE TAX SERVICE REQUEST
+</h2>
+
+<div class="workspace">
+
+<div
+ class="workspace-title"
+ data-en="Client & Tax Information"
+ data-es="Información del Cliente e Impuestos"
+ data-ht="Enfòmasyon Kliyan ak Taks">
+Client & Tax Information
+</div>
+
+<div
+ class="workspace-subtitle"
+ data-en="Enter the information available for this tax service request."
+ data-es="Ingrese la información disponible para esta solicitud de servicio."
+ data-ht="Antre enfòmasyon ki disponib pou demann sèvis taks sa a.">
+Enter the information available for this tax service request.
+</div>
+
+<form id="taxForm">
+
+<div class="form-grid">
+
+<div class="field">
+<label
+ data-en="CLIENT FULL NAME"
+ data-es="NOMBRE COMPLETO DEL CLIENTE"
+ data-ht="NON KONPLÈ KLIYAN">
+CLIENT FULL NAME
+</label>
+<input id="clientName" type="text" autocomplete="name" required>
+</div>
+
+<div class="field">
+<label
+ data-en="PHONE NUMBER"
+ data-es="NÚMERO DE TELÉFONO"
+ data-ht="NIMEWO TELEFÒN">
+PHONE NUMBER
+</label>
+<input id="phone" type="tel" autocomplete="tel">
+</div>
+
+<div class="field">
+<label>EMAIL</label>
+<input id="email" type="email" autocomplete="email">
+</div>
+
+<div class="field">
+<label
+ data-en="TAX YEAR"
+ data-es="AÑO FISCAL"
+ data-ht="ANE TAKS">
+TAX YEAR
+</label>
+
+<select id="taxYear">
+<option value="2026">2026</option>
+<option value="2025">2025</option>
+<option value="2024">2024</option>
+<option value="2023">2023</option>
+<option value="2022">2022</option>
+<option value="Prior Year">Prior Year</option>
+</select>
+</div>
+
+<div class="field">
+<label
+ data-en="SERVICE TYPE"
+ data-es="TIPO DE SERVICIO"
+ data-ht="KALITE SÈVIS">
+SERVICE TYPE
+</label>
+
+<select id="serviceType" required>
+<option value="">Select Service</option>
+<option>Individual Tax Preparation</option>
+<option>W-2 Tax Preparation</option>
+<option>1099 Tax Preparation</option>
+<option>Self-Employment Tax Preparation</option>
+<option>Prior-Year Tax Assistance</option>
+<option>Tax Document Organization</option>
+<option>Other Tax Service</option>
+</select>
+</div>
+
+<div class="field">
+<label
+ data-en="FILING STATUS"
+ data-es="ESTADO CIVIL PARA DECLARAR"
+ data-ht="ESTATI DEKLARASYON">
+FILING STATUS
+</label>
+
+<select id="filingStatus">
+<option value="">Select Filing Status</option>
+<option>Single</option>
+<option>Married Filing Jointly</option>
+<option>Married Filing Separately</option>
+<option>Head of Household</option>
+<option>Qualifying Surviving Spouse</option>
+<option>To Be Determined</option>
+</select>
+</div>
+
+<div class="field">
+<label
+ data-en="NUMBER OF DEPENDENTS"
+ data-es="NÚMERO DE DEPENDIENTES"
+ data-ht="KANTITE DEPANDAN">
+NUMBER OF DEPENDENTS
+</label>
+<input id="dependents" type="number" min="0" value="0">
+</div>
+
+<div class="field">
+<label
+ data-en="STATE OF RESIDENCE"
+ data-es="ESTADO DE RESIDENCIA"
+ data-ht="ETA KOTE W RETE">
+STATE OF RESIDENCE
+</label>
+<input id="state" type="text" placeholder="Example: Florida">
+</div>
+
+<div class="field">
+<label
+ data-en="W-2 WAGE INCOME"
+ data-es="INGRESOS W-2"
+ data-ht="REVNI W-2">
+W-2 WAGE INCOME
+</label>
+<input id="w2Income" type="number" min="0" step="0.01" placeholder="0.00">
+</div>
+
+<div class="field">
+<label
+ data-en="1099 / OTHER INCOME"
+ data-es="INGRESOS 1099 / OTROS"
+ data-ht="REVNI 1099 / LÒT REVNI">
+1099 / OTHER INCOME
+</label>
+<input id="otherIncome" type="number" min="0" step="0.01" placeholder="0.00">
+</div>
+
+<div class="field">
+<label
+ data-en="SELF-EMPLOYMENT GROSS INCOME"
+ data-es="INGRESOS BRUTOS POR CUENTA PROPIA"
+ data-ht="REVNI BRIT TRAVAY ENDEPANDAN">
+SELF-EMPLOYMENT GROSS INCOME
+</label>
+<input id="businessIncome" type="number" min="0" step="0.01" placeholder="0.00">
+</div>
+
+<div class="field">
+<label
+ data-en="BUSINESS EXPENSES"
+ data-es="GASTOS DEL NEGOCIO"
+ data-ht="DEPANS BIZNIS">
+BUSINESS EXPENSES
+</label>
+<input id="businessExpenses" type="number" min="0" step="0.01" placeholder="0.00">
+</div>
+
+<div class="field">
+<label
+ data-en="FEDERAL TAX WITHHELD"
+ data-es="IMPUESTO FEDERAL RETENIDO"
+ data-ht="TAKS FEDERAL KI RETNI">
+FEDERAL TAX WITHHELD
+</label>
+<input id="federalWithheld" type="number" min="0" step="0.01" placeholder="0.00">
+</div>
+
+<div class="field">
+<label
+ data-en="ESTIMATED / AGREED SERVICE FEE"
+ data-es="TARIFA ESTIMADA / ACORDADA"
+ data-ht="FRÈ SÈVIS ESTIME / AKÒDE">
+ESTIMATED / AGREED SERVICE FEE
+</label>
+<input id="serviceFee" type="number" min="0" step="0.01" placeholder="0.00">
+</div>
+
+<div class="field full">
+<label
+ data-en="DEPENDENT INFORMATION"
+ data-es="INFORMACIÓN DE DEPENDIENTES"
+ data-ht="ENFÒMASYON DEPANDAN">
+DEPENDENT INFORMATION
+</label>
+
+<textarea
+ id="dependentInfo"
+ placeholder="Names, relationship and relevant information"></textarea>
+</div>
+
+<div class="field full">
+<label
+ data-en="DEDUCTIONS / CREDITS INFORMATION"
+ data-es="INFORMACIÓN DE DEDUCCIONES / CRÉDITOS"
+ data-ht="ENFÒMASYON DEDIKSYON / KREDI">
+DEDUCTIONS / CREDITS INFORMATION
+</label>
+
+<textarea id="deductions"></textarea>
+</div>
+
+<div class="field full">
+<label
+ data-en="NOTES / SPECIAL INSTRUCTIONS"
+ data-es="NOTAS / INSTRUCCIONES ESPECIALES"
+ data-ht="NÒT / ENSTRIKSYON ESPESYAL">
+NOTES / SPECIAL INSTRUCTIONS
+</label>
+
+<textarea id="notes"></textarea>
+</div>
+
+</div>
+
+<!-- =================================================
+     DOCUMENT CHECKLIST
+================================================== -->
+
+<div class="checklist">
+
+<h3
+ data-en="TAX DOCUMENT CHECKLIST"
+ data-es="LISTA DE DOCUMENTOS FISCALES"
+ data-ht="LIS DOKIMAN TAKS">
+TAX DOCUMENT CHECKLIST
+</h3>
+
+<div class="check-grid">
+
+<label class="check-item">
+<input class="tax-doc" type="checkbox" value="Government-issued ID">
+<span
+ data-en="Government-issued ID"
+ data-es="Identificación oficial"
+ data-ht="Pyès idantite gouvènman">
+Government-issued ID
+</span>
+</label>
+
+<label class="check-item">
+<input class="tax-doc" type="checkbox" value="Social Security / ITIN Information">
+<span
+ data-en="Social Security / ITIN Information"
+ data-es="Información de Seguro Social / ITIN"
+ data-ht="Enfòmasyon Social Security / ITIN">
+Social Security / ITIN Information
+</span>
+</label>
+
+<label class="check-item">
+<input class="tax-doc" type="checkbox" value="W-2 Forms">
+<span>W-2 Forms</span>
+</label>
+
+<label class="check-item">
+<input class="tax-doc" type="checkbox" value="1099 Forms">
+<span>1099 Forms</span>
+</label>
+
+<label class="check-item">
+<input class="tax-doc" type="checkbox" value="Prior-Year Tax Return">
+<span
+ data-en="Prior-Year Tax Return"
+ data-es="Declaración del Año Anterior"
+ data-ht="Deklarasyon Taks Ane Pase">
+Prior-Year Tax Return
+</span>
+</label>
+
+<label class="check-item">
+<input class="tax-doc" type="checkbox" value="Business Income / Expense Records">
+<span
+ data-en="Business Income / Expense Records"
+ data-es="Registros de Ingresos / Gastos del Negocio"
+ data-ht="Dosye Revni / Depans Biznis">
+Business Income / Expense Records
+</span>
+</label>
+
+<label class="check-item">
+<input class="tax-doc" type="checkbox" value="Dependent Information">
+<span
+ data-en="Dependent Information"
+ data-es="Información de Dependientes"
+ data-ht="Enfòmasyon Depandan">
+Dependent Information
+</span>
+</label>
+
+<label class="check-item">
+<input class="tax-doc" type="checkbox" value="Education / Childcare / Other Tax Documents">
+<span
+ data-en="Education / Childcare / Other Tax Documents"
+ data-es="Educación / Cuidado Infantil / Otros Documentos"
+ data-ht="Edikasyon / Gadri / Lòt Dokiman Taks">
+Education / Childcare / Other Tax Documents
+</span>
+</label>
+
+</div>
+</div>
+
+<div class="confirmation">
+
+<input id="confirmation" type="checkbox">
+
+<span
+ data-en="I confirm that the information entered is accurate to the best of my knowledge and understand that this is a tax service intake record, not a completed or filed tax return."
+ data-es="Confirmo que la información ingresada es correcta según mi conocimiento y entiendo que este es un registro de servicio, no una declaración de impuestos completada o presentada."
+ data-ht="Mwen konfime enfòmasyon mwen antre yo kòrèk dapre sa mwen konnen, epi mwen konprann sa a se yon dosye demann sèvis taks, se pa yon deklarasyon taks ki deja prepare oswa depoze.">
+I confirm that the information entered is accurate to the best of my knowledge and understand that this is a tax service intake record, not a completed or filed tax return.
+</span>
+
+</div>
+
+<div class="actions no-print">
+
+<button
+ class="btn primary"
+ type="button"
+ id="generateBtn"
+ data-en="GENERATE TAX RECORD"
+ data-es="GENERAR REGISTRO"
+ data-ht="JENERE DOSYE TAKS">
+GENERATE TAX RECORD
+</button>
+
+<button
+ class="btn"
+ type="button"
+ id="saveBtn"
+ data-en="SAVE"
+ data-es="GUARDAR"
+ data-ht="SOVE">
+SAVE
+</button>
+
+<button
+ class="btn"
+ type="button"
+ id="loadBtn"
+ data-en="LOAD SAVED"
+ data-es="CARGAR GUARDADO"
+ data-ht="LOUVRI SA KI SOVE">
+LOAD SAVED
+</button>
+
+<button
+ class="btn"
+ type="button"
+ id="editBtn"
+ data-en="EDIT"
+ data-es="EDITAR"
+ data-ht="EDITE">
+EDIT
+</button>
+
+<button
+ class="btn"
+ type="button"
+ id="printBtn"
+ data-en="PRINT"
+ data-es="IMPRIMIR"
+ data-ht="ENPRIME">
+PRINT
+</button>
+
+<button
+ class="btn"
+ type="button"
+ id="resetBtn"
+ data-en="RESET"
+ data-es="REINICIAR"
+ data-ht="NETWAYE">
+RESET
+</button>
+
+</div>
+
+<div class="status" id="status"></div>
+
+</form>
+</div>
+
+<!-- =================================================
+     PRINTABLE TAX RECORD
+================================================== -->
+
+<div class="preview-wrap" id="previewWrap">
+
+<div class="print-document">
+
+<div class="document-head">
+<h2>MAXIMAX MULTI SERVICES</h2>
+<h3>TAX SERVICE CENTER</h3>
+<p>TAX SERVICE REQUEST / CLIENT INTAKE RECORD</p>
+</div>
+
+<div class="document-grid">
+
+<div class="document-item">
+<span class="document-label">Request Number</span>
+<div class="document-value" id="pRequest">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Created</span>
+<div class="document-value" id="pCreated">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Client</span>
+<div class="document-value" id="pName">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Phone</span>
+<div class="document-value" id="pPhone">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Email</span>
+<div class="document-value" id="pEmail">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Tax Year</span>
+<div class="document-value" id="pTaxYear">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Service Type</span>
+<div class="document-value" id="pService">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Filing Status</span>
+<div class="document-value" id="pFiling">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Dependents</span>
+<div class="document-value" id="pDependents">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">State</span>
+<div class="document-value" id="pState">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">W-2 Wage Income</span>
+<div class="document-value" id="pW2">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">1099 / Other Income</span>
+<div class="document-value" id="pOtherIncome">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Self-Employment Gross Income</span>
+<div class="document-value" id="pBusinessIncome">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Business Expenses</span>
+<div class="document-value" id="pBusinessExpenses">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Federal Tax Withheld</span>
+<div class="document-value" id="pFederal">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Service Fee</span>
+<div class="document-value" id="pFee">—</div>
+</div>
+
+<div class="document-item full">
+<span class="document-label">Dependent Information</span>
+<div class="document-value" id="pDependentInfo">—</div>
+</div>
+
+<div class="document-item full">
+<span class="document-label">Deductions / Credits</span>
+<div class="document-value" id="pDeductions">—</div>
+</div>
+
+<div class="document-item full">
+<span class="document-label">Documents Received / Available</span>
+<div class="document-value" id="pDocuments">—</div>
+</div>
+
+<div class="document-item full">
+<span class="document-label">Notes</span>
+<div class="document-value" id="pNotes">—</div>
+</div>
+
+</div>
+
+<div class="document-footer">
+<strong>MAXIMAX MULTI SERVICES</strong><br>
+TAX SERVICE CENTER<br><br>
+
+EMAIL: bss1815promaxdmp@gmail.com<br>
+WEBSITE: BSS1815PRO-MAXDMP.COM<br><br>
+
+This document is a tax service intake and organization record.
+It is not a filed tax return and does not itself represent tax advice,
+a refund calculation, or confirmation of filing.
+</div>
+
+</div>
+</div>
+
+<div class="notice">
+
+<strong
+ data-en="IMPORTANT:"
+ data-es="IMPORTANTE:"
+ data-ht="ENPÒTAN:">
+IMPORTANT:
+</strong>
+
+<span
+ data-en=" This center collects and organizes information for tax service assistance. Final filing positions, eligibility for credits or deductions, tax liability and refund amounts depend on the client's complete records and applicable tax rules."
+ data-es=" Este centro recopila y organiza información para servicios de impuestos. Las posiciones finales, créditos, deducciones, obligaciones y reembolsos dependen de los registros completos del cliente y las reglas fiscales aplicables."
+ data-ht=" Sant sa a kolekte epi òganize enfòmasyon pou sèvis taks. Pozisyon final sou deklarasyon an, kredi, dediksyon, kantite taks oswa ranbousman depann de tout dokiman kliyan an ak règ taks ki aplikab yo.">
+This center collects and organizes information for tax service assistance. Final filing positions, eligibility for credits or deductions, tax liability and refund amounts depend on the client's complete records and applicable tax rules.
+</span>
+
+</div>
+
+</div>
+</section>
+
+<!-- =====================================================
+     OFFICIAL CONTACT
+===================================================== -->
+
+<section class="official-contact">
+<div class="container">
+
+<h2
+ class="section-title"
+ data-en="OFFICIAL CONTACT"
+ data-es="CONTACTO OFICIAL"
+ data-ht="KONTAK OFISYÈL">
+OFFICIAL CONTACT
+</h2>
+
+<div class="contact-grid">
+
+<a
+ class="contact-card"
+ href="mailto:bss1815promaxdmp@gmail.com">
+
+<span class="icon">✉️</span>
+
+<strong
+ data-en="EMAIL"
+ data-es="CORREO ELECTRÓNICO"
+ data-ht="IMÈL">
+EMAIL
+</strong>
+
+<span>bss1815promaxdmp@gmail.com</span>
+</a>
+
+<a
+ class="contact-card"
+ href="https://bss1815pro-maxdmp.com"
+ target="_blank"
+ rel="noopener noreferrer">
+
+<span class="icon">🌐</span>
+
+<strong
+ data-en="WEBSITE"
+ data-es="SITIO WEB"
+ data-ht="SIT ENTÈNÈT">
+WEBSITE
+</strong>
+
+<span>BSS1815PRO-MAXDMP.COM</span>
+</a>
+
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="container">
+
+<strong>MAXIMAX MULTI SERVICES</strong>
+
+<p>PART OF BSS1815 PRO-MAX DMP</p>
+
+<p>
+EMAIL:
+<a href="mailto:bss1815promaxdmp@gmail.com">
+bss1815promaxdmp@gmail.com
+</a>
+</p>
+
+<p>
+WEBSITE:
+<a
+ href="https://bss1815pro-maxdmp.com"
+ target="_blank"
+ rel="noopener noreferrer">
+BSS1815PRO-MAXDMP.COM
+</a>
+</p>
+
+<p>© <span id="year"></span> MAXIMAX MULTI SERVICES</p>
+
+</div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+
+const $=id=>document.getElementById(id);
+
+$("year").textContent=new Date().getFullYear();
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
+const languageButtons=document.querySelectorAll(".lang");
+const translatable=document.querySelectorAll("[data-en],[data-es],[data-ht]");
+
+function setLanguage(language){
+
+  if(!["en","es","ht"].includes(language)){
+    language="en";
+  }
+
+  document.documentElement.lang=language;
+
+  translatable.forEach(element=>{
+    const value=element.getAttribute("data-"+language);
+    if(value) element.textContent=value;
+  });
+
+  languageButtons.forEach(button=>{
+    const active=button.dataset.lang===language;
+    button.classList.toggle("active",active);
+    button.setAttribute("aria-pressed",active ? "true":"false");
+  });
+
+  try{
+    localStorage.setItem("maximaxLanguage",language);
+  }catch(error){}
+}
+
+languageButtons.forEach(button=>{
+  button.addEventListener("click",()=>{
+    setLanguage(button.dataset.lang);
+  });
+});
+
+let savedLanguage="en";
+
+try{
+  savedLanguage=localStorage.getItem("maximaxLanguage") || "en";
+}catch(error){}
+
+setLanguage(savedLanguage);
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+let statusTimer;
+
+function showStatus(message){
+
+  const status=$("status");
+
+  status.textContent=message;
+  status.classList.add("show");
+
+  clearTimeout(statusTimer);
+
+  statusTimer=setTimeout(()=>{
+    status.classList.remove("show");
+  },3500);
+}
+
+/* =====================================================
+   SERVICE BUTTONS
+===================================================== */
+
+const serviceButtons=document.querySelectorAll(".service-btn");
+
+serviceButtons.forEach(button=>{
+
+  button.addEventListener("click",()=>{
+
+    serviceButtons.forEach(item=>{
+      item.classList.remove("selected");
+    });
+
+    button.classList.add("selected");
+
+    $("serviceType").value=button.dataset.service;
+
+    $("request").scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+
+    showStatus("Tax service selected: "+button.dataset.service);
+  });
+
+});
+
+/* =====================================================
+   HELPERS
+===================================================== */
+
+function value(id){
+  const element=$(id);
+  return element ? element.value.trim() : "";
+}
+
+function setValue(id,data){
+  const element=$(id);
+  if(element) element.value=data || "";
+}
+
+function money(raw){
+
+  if(raw==="" || raw===null || raw===undefined){
+    return "—";
+  }
+
+  const number=Number(raw);
+
+  if(!Number.isFinite(number)){
+    return raw;
+  }
+
+  return "$"+number.toFixed(2);
+}
+
+function selectedDocuments(){
+
+  return Array
+    .from(document.querySelectorAll(".tax-doc:checked"))
+    .map(item=>item.value);
+}
+
+/* =====================================================
+   COLLECT DATA
+===================================================== */
+
+function collectData(){
+
+  return{
+    clientName:value("clientName"),
+    phone:value("phone"),
+    email:value("email"),
+    taxYear:value("taxYear"),
+    serviceType:value("serviceType"),
+    filingStatus:value("filingStatus"),
+    dependents:value("dependents"),
+    state:value("state"),
+    w2Income:value("w2Income"),
+    otherIncome:value("otherIncome"),
+    businessIncome:value("businessIncome"),
+    businessExpenses:value("businessExpenses"),
+    federalWithheld:value("federalWithheld"),
+    serviceFee:value("serviceFee"),
+    dependentInfo:value("dependentInfo"),
+    deductions:value("deductions"),
+    notes:value("notes"),
+    documents:selectedDocuments(),
+    confirmation:$("confirmation").checked
+  };
+}
+
+/* =====================================================
+   REQUEST NUMBER
+===================================================== */
+
+function requestNumber(){
+
+  const now=new Date();
+
+  const date=
+    now.getFullYear()+
+    String(now.getMonth()+1).padStart(2,"0")+
+    String(now.getDate()).padStart(2,"0");
+
+  const time=
+    String(now.getHours()).padStart(2,"0")+
+    String(now.getMinutes()).padStart(2,"0")+
+    String(now.getSeconds()).padStart(2,"0");
+
+  return "MAX-TAX-"+date+"-"+time;
+}
+
+/* =====================================================
+   VALIDATE
+===================================================== */
+
+function validate(){
+
+  if(!value("clientName")){
+    showStatus("Please enter the client's full name.");
+    $("clientName").focus();
+    return false;
+  }
+
+  if(!value("serviceType")){
+    showStatus("Please select a tax service.");
+    $("serviceType").focus();
+    return false;
+  }
+
+  if(!$("confirmation").checked){
+    showStatus("Please confirm the tax service information.");
+    return false;
+  }
+
+  return true;
+}
+
+/* =====================================================
+   GENERATE
+===================================================== */
+
+function generate(){
+
+  if(!validate()){
+    return false;
+  }
+
+  const data=collectData();
+
+  $("pRequest").textContent=requestNumber();
+  $("pCreated").textContent=new Date().toLocaleString();
+
+  $("pName").textContent=data.clientName || "—";
+  $("pPhone").textContent=data.phone || "—";
+  $("pEmail").textContent=data.email || "—";
+  $("pTaxYear").textContent=data.taxYear || "—";
+  $("pService").textContent=data.serviceType || "—";
+  $("pFiling").textContent=data.filingStatus || "—";
+  $("pDependents").textContent=data.dependents || "0";
+  $("pState").textContent=data.state || "—";
+
+  $("pW2").textContent=money(data.w2Income);
+  $("pOtherIncome").textContent=money(data.otherIncome);
+  $("pBusinessIncome").textContent=money(data.businessIncome);
+  $("pBusinessExpenses").textContent=money(data.businessExpenses);
+  $("pFederal").textContent=money(data.federalWithheld);
+  $("pFee").textContent=money(data.serviceFee);
+
+  $("pDependentInfo").textContent=data.dependentInfo || "—";
+  $("pDeductions").textContent=data.deductions || "—";
+
+  $("pDocuments").textContent=
+    data.documents.length
+      ? data.documents.join(" • ")
+      : "No documents marked";
+
+  $("pNotes").textContent=data.notes || "—";
+
+  $("previewWrap").classList.add("show");
+
+  $("previewWrap").scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+
+  showStatus("Tax service record generated.");
+
+  return true;
+}
+
+$("generateBtn").addEventListener("click",generate);
+
+/* =====================================================
+   SAVE
+===================================================== */
+
+$("saveBtn").addEventListener("click",()=>{
+
+  const data=collectData();
+
+  try{
+
+    localStorage.setItem(
+      "maximaxTaxRequest",
+      JSON.stringify(data)
+    );
+
+    showStatus("Tax service request saved.");
+
+  }catch(error){
+
+    showStatus("Unable to save on this device.");
+  }
+
+});
+
+/* =====================================================
+   LOAD
+===================================================== */
+
+$("loadBtn").addEventListener("click",()=>{
+
+  try{
+
+    const saved=localStorage.getItem("maximaxTaxRequest");
+
+    if(!saved){
+      showStatus("No saved tax request found.");
+      return;
+    }
+
+    const data=JSON.parse(saved);
+
+    setValue("clientName",data.clientName);
+    setValue("phone",data.phone);
+    setValue("email",data.email);
+    setValue("taxYear",data.taxYear);
+    setValue("serviceType",data.serviceType);
+    setValue("filingStatus",data.filingStatus);
+    setValue("dependents",data.dependents);
+    setValue("state",data.state);
+    setValue("w2Income",data.w2Income);
+    setValue("otherIncome",data.otherIncome);
+    setValue("businessIncome",data.businessIncome);
+    setValue("businessExpenses",data.businessExpenses);
+    setValue("federalWithheld",data.federalWithheld);
+    setValue("serviceFee",data.serviceFee);
+    setValue("dependentInfo",data.dependentInfo);
+    setValue("deductions",data.deductions);
+    setValue("notes",data.notes);
+
+    $("confirmation").checked=Boolean(data.confirmation);
+
+    document.querySelectorAll(".tax-doc").forEach(item=>{
+      item.checked=Array.isArray(data.documents) &&
+        data.documents.includes(item.value);
+    });
+
+    serviceButtons.forEach(button=>{
+      button.classList.toggle(
+        "selected",
+        button.dataset.service===data.serviceType
       );
+    });
 
+    showStatus("Saved tax request loaded.");
 
-      let savedLanguage = "en";
+  }catch(error){
 
-      try{
+    showStatus("Unable to load saved tax request.");
+  }
 
-        const saved =
-          localStorage.getItem(
-            storageKey
-          );
+});
 
-        if(
-          ["en","es","ht"].includes(saved)
-        ){
-          savedLanguage = saved;
-        }
+/* =====================================================
+   EDIT
+===================================================== */
 
-      }catch(error){
-        savedLanguage = "en";
-      }
+$("editBtn").addEventListener("click",()=>{
 
-      setLanguage(savedLanguage);
+  $("previewWrap").classList.remove("show");
 
+  $("request").scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
 
-      /* =========================================
-         MENU
-         ========================================= */
+  setTimeout(()=>{
+    $("clientName").focus();
+  },350);
 
-      if(menuButton && menu){
+  showStatus("Edit mode ready.");
+});
 
-        menuButton.addEventListener(
-          "click",
-          () => {
+/* =====================================================
+   PRINT
+===================================================== */
 
-            const open =
-              menu.classList.toggle(
-                "open"
-              );
+$("printBtn").addEventListener("click",()=>{
 
-            menuButton.setAttribute(
-              "aria-expanded",
-              open ? "true" : "false"
-            );
+  if(!$("previewWrap").classList.contains("show")){
 
-            menuButton.textContent =
-              open ? "✕" : "☰";
+    if(!generate()){
+      return;
+    }
+  }
 
-          }
-        );
+  setTimeout(()=>{
+    window.print();
+  },300);
+});
 
+/* =====================================================
+   RESET
+===================================================== */
 
-        menu.querySelectorAll("a").forEach(
-          link => {
+$("resetBtn").addEventListener("click",()=>{
 
-            link.addEventListener(
-              "click",
-              () => {
+  $("taxForm").reset();
 
-                menu.classList.remove(
-                  "open"
-                );
+  $("dependents").value="0";
+  $("taxYear").value="2026";
 
-                menuButton.setAttribute(
-                  "aria-expanded",
-                  "false"
-                );
+  $("previewWrap").classList.remove("show");
 
-                menuButton.textContent =
-                  "☰";
+  serviceButtons.forEach(button=>{
+    button.classList.remove("selected");
+  });
 
-              }
-            );
+  showStatus("Tax service form reset.");
 
-          }
-        );
+  $("request").scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+});
 
+/* =====================================================
+   SERVICE SELECT SYNC
+===================================================== */
 
-        document.addEventListener(
-          "click",
-          event => {
+$("serviceType").addEventListener("change",()=>{
 
-            if(
-              !menu.contains(event.target) &&
-              !menuButton.contains(event.target)
-            ){
-              menu.classList.remove(
-                "open"
-              );
+  const selected=$("serviceType").value;
 
-              menuButton.setAttribute(
-                "aria-expanded",
-                "false"
-              );
+  serviceButtons.forEach(button=>{
+    button.classList.toggle(
+      "selected",
+      button.dataset.service===selected
+    );
+  });
 
-              menuButton.textContent =
-                "☰";
-            }
+});
 
-          }
-        );
+/* =====================================================
+   PREVENT PAGE RELOAD
+===================================================== */
 
+$("taxForm").addEventListener("submit",event=>{
+  event.preventDefault();
+  generate();
+});
 
-        document.addEventListener(
-          "keydown",
-          event => {
-
-            if(event.key === "Escape"){
-
-              menu.classList.remove(
-                "open"
-              );
-
-              menuButton.setAttribute(
-                "aria-expanded",
-                "false"
-              );
-
-              menuButton.textContent =
-                "☰";
-
-            }
-
-          }
-        );
-
-      }
-
-
-      /* =========================================
-         SMOOTH SCROLL
-         ========================================= */
-
-      document.querySelectorAll(
-        'a[href^="#"]'
-      ).forEach(
-        link => {
-
-          link.addEventListener(
-            "click",
-            event => {
-
-              const href =
-                link.getAttribute(
-                  "href"
-                );
-
-              if(
-                !href ||
-                href === "#"
-              ){
-                return;
-              }
-
-              const target =
-                document.querySelector(
-                  href
-                );
-
-              if(!target){
-                return;
-              }
-
-              event.preventDefault();
-
-              target.scrollIntoView({
-                behavior:"smooth",
-                block:"start"
-              });
-
-            }
-          );
-
-        }
-      );
-
-
-      /* =========================================
-         SAFE EXTERNAL LINKS
-         ========================================= */
-
-      document.querySelectorAll(
-        'a[target="_blank"]'
-      ).forEach(
-        link => {
-
-          link.setAttribute(
-            "rel",
-            "noopener noreferrer"
-          );
-
-        }
-      );
-
-    })();
-  </script>
+})();
+</script>
 
 </body>
 </html>
