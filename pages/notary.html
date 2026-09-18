@@ -2,19 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#000000">
 
 <title>Notary Services | Maximax Multi Services</title>
 
 <style>
-/* =========================================================
-   MAXIMAX MULTI SERVICES
-   NOTARY SERVICE CENTER
-   COMPLETE & FINAL
-   ORANGE APRICOT + BLACK — NO WHITE
-========================================================= */
-
 :root{
   --orange:#ff7900;
   --orange2:#ff8c1a;
@@ -71,9 +64,9 @@ a{
   margin:auto;
 }
 
-/* =========================================================
+/* =====================================================
    TOP BAR
-========================================================= */
+===================================================== */
 
 .topbar{
   padding:10px 15px;
@@ -85,9 +78,9 @@ a{
   letter-spacing:1.3px;
 }
 
-/* =========================================================
+/* =====================================================
    HEADER
-========================================================= */
+===================================================== */
 
 header{
   position:sticky;
@@ -185,9 +178,9 @@ header{
   font-weight:1000;
 }
 
-/* =========================================================
+/* =====================================================
    HERO
-========================================================= */
+===================================================== */
 
 .hero{
   padding:75px 0 45px;
@@ -216,16 +209,39 @@ header{
 }
 
 .hero p{
-  max-width:760px;
+  max-width:800px;
   margin:22px auto 0;
-  color:var(--text);
   font-size:17px;
   line-height:1.7;
 }
 
-/* =========================================================
-   GENERAL SECTION
-========================================================= */
+.hero-actions{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:28px;
+}
+
+.hero-btn{
+  min-height:48px;
+  padding:13px 20px;
+  border:2px solid var(--orange);
+  border-radius:999px;
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+  font-size:11px;
+  font-weight:1000;
+}
+
+.hero-btn.alt{
+  color:var(--orange);
+  background:#000;
+}
+
+/* =====================================================
+   SECTIONS
+===================================================== */
 
 .section{
   padding:50px 0;
@@ -240,16 +256,15 @@ header{
 }
 
 .section-subtitle{
-  max-width:780px;
+  max-width:850px;
   margin:0 auto 32px;
   text-align:center;
-  color:var(--text);
   line-height:1.7;
 }
 
-/* =========================================================
-   NOTARY SERVICE BUTTONS
-========================================================= */
+/* =====================================================
+   SERVICE OPTIONS
+===================================================== */
 
 .services{
   display:grid;
@@ -258,9 +273,8 @@ header{
 }
 
 .service-btn{
-  position:relative;
   width:100%;
-  min-height:185px;
+  min-height:190px;
   padding:24px;
   border:2px solid var(--border);
   border-radius:22px;
@@ -283,49 +297,115 @@ header{
 .service-icon{
   display:block;
   margin-bottom:15px;
-  font-size:32px;
+  font-size:34px;
 }
 
 .service-btn strong{
   display:block;
   margin-bottom:10px;
   color:var(--orange);
-  font-size:17px;
+  font-size:18px;
   font-weight:1000;
 }
 
 .service-btn small{
   display:block;
-  color:var(--text);
   font-size:12px;
   line-height:1.6;
 }
 
-/* =========================================================
-   WORKSPACE
-========================================================= */
+/* =====================================================
+   FORMS CENTER
+===================================================== */
 
-.workspace{
-  margin-top:25px;
-  padding:30px;
+.forms-center{
+  border-top:1px solid rgba(255,121,0,.25);
+  border-bottom:1px solid rgba(255,121,0,.25);
+  background:
+    radial-gradient(circle at 50% 0%,rgba(255,121,0,.12),transparent 45%),
+    linear-gradient(180deg,#050200,#000);
+}
+
+.forms-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.form-card{
+  position:relative;
+  min-height:245px;
+  padding:25px;
   border:2px solid var(--orange);
+  border-radius:24px;
+  background:
+    radial-gradient(circle at 90% 0%,rgba(255,173,77,.12),transparent 38%),
+    linear-gradient(145deg,#120600,#000);
+  box-shadow:0 0 25px rgba(255,121,0,.08);
+}
+
+.form-card-icon{
+  display:block;
+  margin-bottom:15px;
+  font-size:34px;
+}
+
+.form-card h3{
+  margin-bottom:10px;
+  color:var(--orange);
+  font-size:19px;
+}
+
+.form-card p{
+  min-height:58px;
+  margin-bottom:18px;
+  font-size:12px;
+  line-height:1.6;
+}
+
+.open-form{
+  min-height:42px;
+  padding:10px 16px;
+  border:2px solid var(--orange);
+  border-radius:999px;
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+  cursor:pointer;
+  font-size:10px;
+  font-weight:1000;
+}
+
+/* =====================================================
+   ACTIVE FORM WORKSPACE
+===================================================== */
+
+.form-workspace{
+  display:none;
+  margin-top:32px;
+  padding:30px;
+  border:3px solid var(--orange);
   border-radius:28px;
   background:
     radial-gradient(circle at 90% 5%,rgba(255,173,77,.10),transparent 30%),
     linear-gradient(145deg,#100500,#000);
-  box-shadow:0 0 45px rgba(255,121,0,.13);
+  box-shadow:0 0 45px rgba(255,121,0,.15);
 }
 
-.workspace-title{
-  margin-bottom:8px;
-  color:var(--orange);
-  font-size:25px;
-  font-weight:1000;
+.form-workspace.show{
+  display:block;
 }
 
-.workspace-subtitle{
+.workspace-head{
   margin-bottom:25px;
-  color:var(--apricot);
+}
+
+.workspace-head h3{
+  color:var(--orange);
+  font-size:27px;
+}
+
+.workspace-head p{
+  margin-top:8px;
   font-size:12px;
   line-height:1.6;
 }
@@ -367,7 +447,7 @@ textarea{
 }
 
 textarea{
-  min-height:120px;
+  min-height:115px;
   resize:vertical;
 }
 
@@ -388,37 +468,83 @@ select option{
   background:#000;
 }
 
-/* =========================================================
-   CHECKBOX
-========================================================= */
+/* =====================================================
+   REQUEST WORKSPACE
+===================================================== */
 
-.check-row{
-  display:flex;
-  align-items:flex-start;
-  gap:11px;
-  margin-top:20px;
-  padding:16px;
-  border:1px solid var(--border);
-  border-radius:15px;
-  background:#050200;
+.workspace{
+  padding:30px;
+  border:2px solid var(--orange);
+  border-radius:28px;
+  background:
+    radial-gradient(circle at 90% 5%,rgba(255,173,77,.10),transparent 30%),
+    linear-gradient(145deg,#100500,#000);
+  box-shadow:0 0 45px rgba(255,121,0,.13);
 }
 
-.check-row input{
-  width:20px;
-  min-width:20px;
-  min-height:20px;
-  margin-top:1px;
-  accent-color:var(--orange);
+.workspace-title{
+  margin-bottom:8px;
+  color:var(--orange);
+  font-size:25px;
+  font-weight:1000;
 }
 
-.check-row span{
+.workspace-subtitle{
+  margin-bottom:25px;
+  color:var(--apricot);
   font-size:12px;
   line-height:1.6;
 }
 
-/* =========================================================
-   ACTION BUTTONS
-========================================================= */
+/* =====================================================
+   CHECKLIST
+===================================================== */
+
+.checklist{
+  margin-top:30px;
+  padding:24px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:#050200;
+}
+
+.checklist h3{
+  margin-bottom:18px;
+  color:var(--orange);
+}
+
+.check-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.check-item{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:13px;
+  border:1px solid rgba(255,121,0,.30);
+  border-radius:13px;
+  background:#000;
+}
+
+.check-item input{
+  width:19px;
+  min-width:19px;
+  min-height:19px;
+  margin-top:1px;
+  accent-color:var(--orange);
+}
+
+.check-item span{
+  font-size:12px;
+  line-height:1.5;
+}
+
+/* =====================================================
+   ACTIONS
+===================================================== */
 
 .actions{
   display:grid;
@@ -437,7 +563,6 @@ select option{
   cursor:pointer;
   font-size:11px;
   font-weight:1000;
-  transition:.2s ease;
 }
 
 .btn.primary{
@@ -449,10 +574,6 @@ select option{
   transform:translateY(-2px);
   box-shadow:0 0 22px rgba(255,121,0,.35);
 }
-
-/* =========================================================
-   STATUS
-========================================================= */
 
 .status{
   display:none;
@@ -470,9 +591,9 @@ select option{
   display:block;
 }
 
-/* =========================================================
-   PREVIEW
-========================================================= */
+/* =====================================================
+   PRINT DOCUMENT
+===================================================== */
 
 .preview-wrap{
   display:none;
@@ -493,7 +614,6 @@ select option{
   background:
     radial-gradient(circle at 85% 10%,rgba(255,173,77,.18),transparent 30%),
     linear-gradient(145deg,#120600,#000 65%);
-  box-shadow:0 0 35px rgba(255,121,0,.18);
 }
 
 .print-document::before,
@@ -506,8 +626,8 @@ select option{
   background:linear-gradient(90deg,var(--orange),var(--apricot),var(--orange));
 }
 
-.print-document::before{top:0;}
-.print-document::after{bottom:0;}
+.print-document::before{top:0}
+.print-document::after{bottom:0}
 
 .document-head{
   padding-bottom:20px;
@@ -522,14 +642,12 @@ select option{
 }
 
 .document-head h3{
-  margin-top:6px;
+  margin-top:7px;
   color:var(--apricot);
-  font-size:16px;
 }
 
 .document-head p{
   margin-top:8px;
-  color:var(--text);
   font-size:11px;
 }
 
@@ -561,10 +679,16 @@ select option{
 }
 
 .document-value{
-  color:var(--text);
   font-size:13px;
-  line-height:1.5;
+  line-height:1.6;
+  white-space:pre-wrap;
   word-break:break-word;
+}
+
+.signature-line{
+  min-height:90px;
+  padding-top:45px;
+  border-bottom:1px solid var(--orange);
 }
 
 .document-footer{
@@ -582,13 +706,9 @@ select option{
   font-size:13px;
 }
 
-/* =========================================================
+/* =====================================================
    CONTACT
-========================================================= */
-
-.official-contact{
-  padding:55px 0;
-}
+===================================================== */
 
 .contact-grid{
   display:grid;
@@ -606,9 +726,7 @@ select option{
   border:2px solid var(--orange);
   border-radius:22px;
   text-align:center;
-  background:
-    radial-gradient(circle at 50% 0%,rgba(255,173,77,.12),transparent 45%),
-    linear-gradient(145deg,#120600,#000);
+  background:linear-gradient(145deg,#120600,#000);
 }
 
 .contact-card .icon{
@@ -619,7 +737,6 @@ select option{
 .contact-card strong{
   margin-bottom:10px;
   color:var(--orange);
-  font-size:13px;
 }
 
 .contact-card span{
@@ -628,12 +745,8 @@ select option{
   word-break:break-word;
 }
 
-/* =========================================================
-   NOTICE
-========================================================= */
-
 .notice{
-  margin-top:30px;
+  margin-top:25px;
   padding:20px;
   border:1px solid var(--border);
   border-radius:18px;
@@ -645,10 +758,6 @@ select option{
 .notice strong{
   color:var(--orange);
 }
-
-/* =========================================================
-   FOOTER
-========================================================= */
 
 footer{
   margin-top:40px;
@@ -668,17 +777,11 @@ footer p{
   font-size:11px;
 }
 
-footer a{
-  color:var(--apricot);
-  font-weight:900;
-}
-
-/* =========================================================
+/* =====================================================
    PRINT
-========================================================= */
+===================================================== */
 
 @media print{
-
   @page{
     margin:.35in;
   }
@@ -697,9 +800,9 @@ footer a{
   header,
   .hero,
   .services-section,
-  .workspace,
-  .official-contact,
-  .notice,
+  .forms-center,
+  .request-section,
+  .contact-section,
   footer,
   .no-print{
     display:none !important;
@@ -733,17 +836,13 @@ footer a{
   }
 }
 
-/* =========================================================
-   RESPONSIVE
-========================================================= */
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:850px){
-
-  .services{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .actions{
+  .services,
+  .forms-grid{
     grid-template-columns:repeat(2,1fr);
   }
 
@@ -753,7 +852,6 @@ footer a{
 }
 
 @media(max-width:650px){
-
   .container{
     width:94%;
   }
@@ -773,12 +871,12 @@ footer a{
   }
 
   .brand h1{
-    max-width:135px;
+    max-width:145px;
     font-size:11px;
   }
 
   .brand small{
-    display:none;
+    font-size:7px;
   }
 
   .languages{
@@ -797,10 +895,12 @@ footer a{
   }
 
   .services,
+  .forms-grid,
   .form-grid,
+  .check-grid,
+  .actions,
   .document-grid,
-  .contact-grid,
-  .actions{
+  .contact-grid{
     grid-template-columns:1fr;
   }
 
@@ -809,8 +909,13 @@ footer a{
     grid-column:auto;
   }
 
-  .workspace{
+  .workspace,
+  .form-workspace{
     padding:20px;
+  }
+
+  .form-card{
+    min-height:auto;
   }
 
   .btn{
@@ -827,44 +932,43 @@ footer a{
 <body>
 
 <div class="topbar">
-  MAXIMAX MULTI SERVICES • NOTARY SERVICE CENTER
+MAXIMAX MULTI SERVICES • NOTARY SERVICE CENTER • BSS1815 PRO-MAX DMP
 </div>
 
 <header>
-  <div class="container header-inner">
+<div class="container header-inner">
 
-    <a class="brand" href="../index.html">
-      <img
-        class="logo"
-        src="../maximax-multi-services.jpg?v=20260918"
-        alt="Maximax Multi Services Logo"
-      >
+<a class="brand" href="../index.html">
+<img
+ class="logo"
+ src="../maximax-multi-services.jpg?v=20260918"
+ alt="Maximax Multi Services Logo">
 
-      <div>
-        <h1>MAXIMAX MULTI SERVICES</h1>
-        <small>NOTARY SERVICE CENTER</small>
-      </div>
-    </a>
+<div>
+<h1>MAXIMAX MULTI SERVICES</h1>
+<small>NOTARY SERVICE CENTER</small>
+</div>
+</a>
 
-    <div class="header-right">
+<div class="header-right">
 
-      <div class="languages">
-        <button class="lang active" type="button" data-lang="en">🇺🇸 ENG</button>
-        <button class="lang" type="button" data-lang="es">🇪🇸 ESP</button>
-        <button class="lang" type="button" data-lang="ht">🇭🇹 KRE</button>
-      </div>
+<div class="languages">
+<button class="lang active" type="button" data-lang="en">🇺🇸 ENG</button>
+<button class="lang" type="button" data-lang="es">🇪🇸 ESP</button>
+<button class="lang" type="button" data-lang="ht">🇭🇹 KRE</button>
+</div>
 
-      <a
-        class="back"
-        href="../index.html"
-        data-en="← HOMEPAGE"
-        data-es="← INICIO"
-        data-ht="← AKÈY">
-        ← HOMEPAGE
-      </a>
+<a
+ class="back"
+ href="../index.html"
+ data-en="← HOMEPAGE"
+ data-es="← INICIO"
+ data-ht="← AKÈY">
+← HOMEPAGE
+</a>
 
-    </div>
-  </div>
+</div>
+</div>
 </header>
 
 <main>
@@ -874,1334 +978,1701 @@ footer a{
 ===================================================== -->
 
 <section class="hero">
-  <div class="container">
+<div class="container">
 
-    <div
-      class="hero-badge"
-      data-en="MAXIMAX PROFESSIONAL SERVICE CENTER"
-      data-es="CENTRO DE SERVICIOS PROFESIONALES MAXIMAX"
-      data-ht="SANT SÈVIS PWOFESYONÈL MAXIMAX">
-      MAXIMAX PROFESSIONAL SERVICE CENTER
-    </div>
+<div
+ class="hero-badge"
+ data-en="MAXIMAX PROFESSIONAL NOTARY SERVICE CENTER"
+ data-es="CENTRO PROFESIONAL DE SERVICIOS NOTARIALES MAXIMAX"
+ data-ht="SANT SÈVIS NOTÈ PWOFESYONÈL MAXIMAX">
+MAXIMAX PROFESSIONAL NOTARY SERVICE CENTER
+</div>
 
-    <h2
-      data-en="NOTARY SERVICES"
-      data-es="SERVICIOS NOTARIALES"
-      data-ht="SÈVIS NOTÈ">
-      NOTARY SERVICES
-    </h2>
+<h2
+ data-en="NOTARY SERVICES"
+ data-es="SERVICIOS NOTARIALES"
+ data-ht="SÈVIS NOTÈ">
+NOTARY SERVICES
+</h2>
 
-    <p
-      data-en="Select a notary service, enter the client and document information, save the request, generate a professional service record and print it."
-      data-es="Seleccione un servicio notarial, ingrese la información del cliente y del documento, guarde la solicitud, genere un registro profesional e imprímalo."
-      data-ht="Chwazi yon sèvis notè, antre enfòmasyon kliyan ak dokiman an, sove demann lan, jenere yon dosye sèvis pwofesyonèl epi enprime li.">
-      Select a notary service, enter the client and document information, save the request, generate a professional service record and print it.
-    </p>
+<p
+ data-en="Choose a notary service, open the Forms Center, complete the client request and prepare a printable service record from one professional center."
+ data-es="Seleccione un servicio notarial, abra el Centro de Formularios, complete la solicitud del cliente y prepare un registro imprimible."
+ data-ht="Chwazi yon sèvis notè, ouvri Sant Fòm yo, ranpli demann kliyan an epi prepare yon dosye sèvis pou enprime nan yon sèl sant pwofesyonèl.">
+Choose a notary service, open the Forms Center, complete the client request and prepare a printable service record from one professional center.
+</p>
 
-  </div>
+<div class="hero-actions">
+<a
+ class="hero-btn"
+ href="#formsCenter"
+ data-en="OPEN FORMS CENTER"
+ data-es="ABRIR CENTRO DE FORMULARIOS"
+ data-ht="OUVRI SANT FÒM YO">
+OPEN FORMS CENTER
+</a>
+
+<a
+ class="hero-btn alt"
+ href="#serviceRequest"
+ data-en="CREATE SERVICE REQUEST"
+ data-es="CREAR SOLICITUD"
+ data-ht="KREYE DEMANN SÈVIS">
+CREATE SERVICE REQUEST
+</a>
+</div>
+
+</div>
 </section>
 
 <!-- =====================================================
-     NOTARY SERVICES
+     SERVICE OPTIONS
 ===================================================== -->
 
-<section class="section services-section" id="services">
-  <div class="container">
+<section class="section services-section">
+<div class="container">
 
-    <h2
-      class="section-title"
-      data-en="NOTARY SERVICE OPTIONS"
-      data-es="OPCIONES DE SERVICIO NOTARIAL"
-      data-ht="OPSYON SÈVIS NOTÈ">
-      NOTARY SERVICE OPTIONS
-    </h2>
+<h2
+ class="section-title"
+ data-en="NOTARY SERVICE OPTIONS"
+ data-es="OPCIONES DE SERVICIOS NOTARIALES"
+ data-ht="OPSYON SÈVIS NOTÈ">
+NOTARY SERVICE OPTIONS
+</h2>
 
-    <p
-      class="section-subtitle"
-      data-en="Tap a service below. Your selection will automatically be added to the service request."
-      data-es="Toque un servicio. Su selección se agregará automáticamente a la solicitud."
-      data-ht="Peze sou yon sèvis anba a. Chwa ou a ap antre otomatikman nan demann sèvis la.">
-      Tap a service below. Your selection will automatically be added to the service request.
-    </p>
+<p
+ class="section-subtitle"
+ data-en="Choose the service needed. Your selection will automatically be added to the service request."
+ data-es="Seleccione el servicio necesario. Su selección se agregará automáticamente a la solicitud."
+ data-ht="Chwazi sèvis ou bezwen an. Chwa a ap antre otomatikman nan demann sèvis la.">
+Choose the service needed. Your selection will automatically be added to the service request.
+</p>
 
-    <div class="services">
+<div class="services">
 
-      <button class="service-btn" type="button" data-service="Acknowledgment">
-        <span class="service-icon">✍🏽</span>
-        <strong
-          data-en="Acknowledgment"
-          data-es="Reconocimiento"
-          data-ht="Rekonesans Siyati">
-          Acknowledgment
-        </strong>
-        <small
-          data-en="Notarial acknowledgment service for eligible documents."
-          data-es="Servicio de reconocimiento notarial para documentos elegibles."
-          data-ht="Sèvis rekonesans notaryal pou dokiman ki kalifye.">
-          Notarial acknowledgment service for eligible documents.
-        </small>
-      </button>
+<button class="service-btn" type="button" data-service="Acknowledgment">
+<span class="service-icon">✍🏽</span>
+<strong
+ data-en="Acknowledgment"
+ data-es="Reconocimiento"
+ data-ht="Rekonesans Siyati">
+Acknowledgment
+</strong>
+<small
+ data-en="Notarial acknowledgment service for eligible documents."
+ data-es="Servicio de reconocimiento notarial para documentos elegibles."
+ data-ht="Sèvis rekonesans notaryal pou dokiman ki kalifye.">
+Notarial acknowledgment service for eligible documents.
+</small>
+</button>
 
-      <button class="service-btn" type="button" data-service="Jurat">
-        <span class="service-icon">📝</span>
-        <strong>Jurat</strong>
-        <small
-          data-en="For documents requiring a sworn or affirmed statement."
-          data-es="Para documentos que requieren una declaración jurada o afirmada."
-          data-ht="Pou dokiman ki mande yon deklarasyon sou sèman oswa afimasyon.">
-          For documents requiring a sworn or affirmed statement.
-        </small>
-      </button>
+<button class="service-btn" type="button" data-service="Jurat">
+<span class="service-icon">📝</span>
+<strong>Jurat</strong>
+<small
+ data-en="For a document requiring a sworn or affirmed statement."
+ data-es="Para documentos que requieren una declaración jurada o afirmada."
+ data-ht="Pou dokiman ki mande yon deklarasyon sou sèman oswa afimasyon.">
+For a document requiring a sworn or affirmed statement.
+</small>
+</button>
 
-      <button class="service-btn" type="button" data-service="Document Notarization">
-        <span class="service-icon">📄</span>
-        <strong
-          data-en="Document Notarization"
-          data-es="Notarización de Documentos"
-          data-ht="Notarizasyon Dokiman">
-          Document Notarization
-        </strong>
-        <small
-          data-en="General notarial service request for eligible documents."
-          data-es="Servicio notarial general para documentos elegibles."
-          data-ht="Sèvis notaryal jeneral pou dokiman ki kalifye.">
-          General notarial service request for eligible documents.
-        </small>
-      </button>
+<button class="service-btn" type="button" data-service="Document Notarization">
+<span class="service-icon">📄</span>
+<strong
+ data-en="Document Notarization"
+ data-es="Notarización de Documentos"
+ data-ht="Notarye Dokiman">
+Document Notarization
+</strong>
+<small
+ data-en="General notarial service request for eligible documents."
+ data-es="Solicitud general de servicio notarial para documentos elegibles."
+ data-ht="Demann sèvis notè jeneral pou dokiman ki kalifye.">
+General notarial service request for eligible documents.
+</small>
+</button>
 
-      <button class="service-btn" type="button" data-service="Witness Coordination">
-        <span class="service-icon">👥</span>
-        <strong
-          data-en="Witness Coordination"
-          data-es="Coordinación de Testigos"
-          data-ht="Kowòdinasyon Temwen">
-          Witness Coordination
-        </strong>
-        <small
-          data-en="Record and coordinate witness requirements for the appointment."
-          data-es="Registre y coordine los requisitos de testigos para la cita."
-          data-ht="Anrejistre epi kowòdone bezwen temwen pou randevou a.">
-          Record and coordinate witness requirements for the appointment.
-        </small>
-      </button>
+<button class="service-btn" type="button" data-service="Witness Coordination">
+<span class="service-icon">👥</span>
+<strong
+ data-en="Witness Coordination"
+ data-es="Coordinación de Testigos"
+ data-ht="Kowòdinasyon Temwen">
+Witness Coordination
+</strong>
+<small
+ data-en="Record and coordinate witness requirements for an appointment."
+ data-es="Registre y coordine los requisitos de testigos para una cita."
+ data-ht="Anrejistre epi kowòdone bezwen temwen pou randevou a.">
+Record and coordinate witness requirements for an appointment.
+</small>
+</button>
 
-      <button class="service-btn" type="button" data-service="Mobile Notary Request">
-        <span class="service-icon">🚗</span>
-        <strong
-          data-en="Mobile Notary Request"
-          data-es="Solicitud de Notario Móvil"
-          data-ht="Demann Notè Mobil">
-          Mobile Notary Request
-        </strong>
-        <small
-          data-en="Request notary service at a client location."
-          data-es="Solicite servicio notarial en la ubicación del cliente."
-          data-ht="Mande sèvis notè nan lokal kliyan an.">
-          Request notary service at a client location.
-        </small>
-      </button>
+<button class="service-btn" type="button" data-service="Mobile Notary Request">
+<span class="service-icon">🚗</span>
+<strong
+ data-en="Mobile Notary Request"
+ data-es="Solicitud de Notario Móvil"
+ data-ht="Demann Notè Mobil">
+Mobile Notary Request
+</strong>
+<small
+ data-en="Request notary service at a client location."
+ data-es="Solicite servicio notarial en la ubicación del cliente."
+ data-ht="Mande sèvis notè nan kote kliyan an ye.">
+Request notary service at a client location.
+</small>
+</button>
 
-      <button class="service-btn" type="button" data-service="Document Organization">
-        <span class="service-icon">📚</span>
-        <strong
-          data-en="Document Organization"
-          data-es="Organización de Documentos"
-          data-ht="Òganizasyon Dokiman">
-          Document Organization
-        </strong>
-        <small
-          data-en="Organize document information before the notarial appointment."
-          data-es="Organice la información del documento antes de la cita notarial."
-          data-ht="Òganize enfòmasyon dokiman an anvan randevou notaryal la.">
-          Organize document information before the notarial appointment.
-        </small>
-      </button>
+<button class="service-btn" type="button" data-service="Document Organization">
+<span class="service-icon">📚</span>
+<strong
+ data-en="Document Organization"
+ data-es="Organización de Documentos"
+ data-ht="Òganizasyon Dokiman">
+Document Organization
+</strong>
+<small
+ data-en="Organize document information before the notarial appointment."
+ data-es="Organice la información de documentos antes de la cita."
+ data-ht="Òganize enfòmasyon dokiman anvan randevou notè a.">
+Organize document information before the notarial appointment.
+</small>
+</button>
 
-    </div>
-  </div>
+</div>
+</div>
+</section>
+
+<!-- =====================================================
+     FORMS CENTER
+===================================================== -->
+
+<section class="section forms-center" id="formsCenter">
+<div class="container">
+
+<h2
+ class="section-title"
+ data-en="NOTARY FORMS CENTER"
+ data-es="CENTRO DE FORMULARIOS NOTARIALES"
+ data-ht="SANT FÒM NOTÈ">
+NOTARY FORMS CENTER
+</h2>
+
+<p
+ class="section-subtitle"
+ data-en="Open a form below, enter the information, save the record, edit it or generate a printable Orange Apricot + Black document."
+ data-es="Abra un formulario, ingrese la información, guarde el registro, edítelo o genere un documento imprimible."
+ data-ht="Ouvri yon fòm anba a, antre enfòmasyon yo, sove dosye a, edite li oswa jenere yon dokiman Orange Apricot + Black pou enprime.">
+Open a form below, enter the information, save the record, edit it or generate a printable Orange Apricot + Black document.
+</p>
+
+<div class="forms-grid">
+
+<div class="form-card">
+<span class="form-card-icon">✍🏽</span>
+<h3
+ data-en="Acknowledgment Certificate"
+ data-es="Certificado de Reconocimiento"
+ data-ht="Sètifika Rekonesans">
+Acknowledgment Certificate
+</h3>
+<p
+ data-en="Prepare an acknowledgment information record for an eligible notarial act."
+ data-es="Prepare un registro de información para un reconocimiento notarial."
+ data-ht="Prepare yon dosye enfòmasyon pou yon zak notaryal rekonesans.">
+Prepare an acknowledgment information record for an eligible notarial act.
+</p>
+<button class="open-form" type="button" data-form="acknowledgment">OPEN FORM</button>
+</div>
+
+<div class="form-card">
+<span class="form-card-icon">📝</span>
+<h3>Jurat Certificate</h3>
+<p
+ data-en="Prepare a jurat information record for a sworn or affirmed document."
+ data-es="Prepare un registro de jurat para un documento jurado o afirmado."
+ data-ht="Prepare yon dosye jurat pou yon dokiman sou sèman oswa afimasyon.">
+Prepare a jurat information record for a sworn or affirmed document.
+</p>
+<button class="open-form" type="button" data-form="jurat">OPEN FORM</button>
+</div>
+
+<div class="form-card">
+<span class="form-card-icon">📜</span>
+<h3
+ data-en="Affidavit"
+ data-es="Declaración Jurada"
+ data-ht="Afidavi">
+Affidavit
+</h3>
+<p
+ data-en="Create an affidavit information worksheet for a declarant's statement."
+ data-es="Cree una hoja de información para una declaración jurada."
+ data-ht="Kreye yon fich enfòmasyon pou deklarasyon yon moun.">
+Create an affidavit information worksheet for a declarant's statement.
+</p>
+<button class="open-form" type="button" data-form="affidavit">OPEN FORM</button>
+</div>
+
+<div class="form-card">
+<span class="form-card-icon">⚖️</span>
+<h3
+ data-en="Power of Attorney Intake"
+ data-es="Registro de Poder Legal"
+ data-ht="Fòm Power of Attorney">
+Power of Attorney Intake
+</h3>
+<p
+ data-en="Organize principal, agent and document information for a power-of-attorney service request."
+ data-es="Organice información del principal, agente y documento para una solicitud de poder."
+ data-ht="Òganize enfòmasyon moun prensipal la, ajan an ak dokiman an pou yon demann power of attorney.">
+Organize principal, agent and document information for a power-of-attorney service request.
+</p>
+<button class="open-form" type="button" data-form="poa">OPEN FORM</button>
+</div>
+
+<div class="form-card">
+<span class="form-card-icon">✅</span>
+<h3
+ data-en="Authorization Letter"
+ data-es="Carta de Autorización"
+ data-ht="Lèt Otorizasyon">
+Authorization Letter
+</h3>
+<p
+ data-en="Create an authorization information record identifying the parties and authorized action."
+ data-es="Cree un registro de autorización identificando las partes y la acción autorizada."
+ data-ht="Kreye yon dosye otorizasyon ki idantifye moun yo ak aksyon ki otorize a.">
+Create an authorization information record identifying the parties and authorized action.
+</p>
+<button class="open-form" type="button" data-form="authorization">OPEN FORM</button>
+</div>
+
+<div class="form-card">
+<span class="form-card-icon">🚘</span>
+<h3
+ data-en="Bill of Sale"
+ data-es="Contrato de Venta"
+ data-ht="Bill of Sale">
+Bill of Sale
+</h3>
+<p
+ data-en="Record seller, buyer, property or vehicle and sale information."
+ data-es="Registre vendedor, comprador, propiedad o vehículo y datos de la venta."
+ data-ht="Anrejistre vandè, achtè, byen oswa machin ak enfòmasyon vant lan.">
+Record seller, buyer, property or vehicle and sale information.
+</p>
+<button class="open-form" type="button" data-form="billofsale">OPEN FORM</button>
+</div>
+
+<div class="form-card">
+<span class="form-card-icon">👥</span>
+<h3
+ data-en="Witness Statement"
+ data-es="Declaración de Testigo"
+ data-ht="Deklarasyon Temwen">
+Witness Statement
+</h3>
+<p
+ data-en="Record witness identification and statement information."
+ data-es="Registre identificación e información de la declaración del testigo."
+ data-ht="Anrejistre idantifikasyon temwen ak enfòmasyon deklarasyon an.">
+Record witness identification and statement information.
+</p>
+<button class="open-form" type="button" data-form="witness">OPEN FORM</button>
+</div>
+
+<div class="form-card">
+<span class="form-card-icon">🚗</span>
+<h3
+ data-en="Mobile Notary Request"
+ data-es="Solicitud de Notario Móvil"
+ data-ht="Demann Notè Mobil">
+Mobile Notary Request
+</h3>
+<p
+ data-en="Record the requested date, time, client address and mobile-service details."
+ data-es="Registre fecha, hora, dirección y detalles del servicio móvil."
+ data-ht="Anrejistre dat, lè, adrès kliyan ak detay sèvis mobil la.">
+Record the requested date, time, client address and mobile-service details.
+</p>
+<button class="open-form" type="button" data-form="mobile">OPEN FORM</button>
+</div>
+
+<div class="form-card">
+<span class="form-card-icon">📋</span>
+<h3
+ data-en="Document Checklist"
+ data-es="Lista de Documentos"
+ data-ht="Lis Dokiman">
+Document Checklist
+</h3>
+<p
+ data-en="Prepare a checklist of identification, documents, signers and witnesses."
+ data-es="Prepare una lista de identificación, documentos, firmantes y testigos."
+ data-ht="Prepare yon lis pyès idantite, dokiman, siyatè ak temwen.">
+Prepare a checklist of identification, documents, signers and witnesses.
+</p>
+<button class="open-form" type="button" data-form="checklist">OPEN FORM</button>
+</div>
+
+<div class="form-card">
+<span class="form-card-icon">🗂️</span>
+<h3
+ data-en="Notary Service Record"
+ data-es="Registro de Servicio Notarial"
+ data-ht="Dosye Sèvis Notè">
+Notary Service Record
+</h3>
+<p
+ data-en="Create a general record of the requested notarial service and document details."
+ data-es="Cree un registro general del servicio notarial solicitado."
+ data-ht="Kreye yon dosye jeneral pou sèvis notè ak detay dokiman an.">
+Create a general record of the requested notarial service and document details.
+</p>
+<button class="open-form" type="button" data-form="record">OPEN FORM</button>
+</div>
+
+</div>
+
+<!-- ACTIVE FORM -->
+
+<div class="form-workspace" id="formWorkspace">
+
+<div class="workspace-head">
+<h3 id="activeFormTitle">NOTARY FORM</h3>
+<p
+ data-en="Complete the information below. The selected form can be saved, edited and printed."
+ data-es="Complete la información. El formulario puede guardarse, editarse e imprimirse."
+ data-ht="Ranpli enfòmasyon anba yo. Ou ka sove, edite epi enprime fòm nan.">
+Complete the information below. The selected form can be saved, edited and printed.
+</p>
+</div>
+
+<form id="dynamicForm">
+
+<input type="hidden" id="activeFormType">
+
+<div class="form-grid">
+
+<div class="field">
+<label
+ data-en="FULL NAME / PRIMARY PARTY"
+ data-es="NOMBRE COMPLETO / PARTE PRINCIPAL"
+ data-ht="NON KONPLÈ / MOUN PRENSIPAL">
+FULL NAME / PRIMARY PARTY
+</label>
+<input id="formName" type="text">
+</div>
+
+<div class="field">
+<label
+ data-en="SECOND PARTY / AGENT / WITNESS"
+ data-es="SEGUNDA PARTE / AGENTE / TESTIGO"
+ data-ht="DEZYÈM MOUN / AJAN / TEMWEN">
+SECOND PARTY / AGENT / WITNESS
+</label>
+<input id="formSecondParty" type="text">
+</div>
+
+<div class="field">
+<label
+ data-en="PHONE NUMBER"
+ data-es="NÚMERO DE TELÉFONO"
+ data-ht="NIMEWO TELEFÒN">
+PHONE NUMBER
+</label>
+<input id="formPhone" type="tel">
+</div>
+
+<div class="field">
+<label>EMAIL</label>
+<input id="formEmail" type="email">
+</div>
+
+<div class="field">
+<label
+ data-en="DATE"
+ data-es="FECHA"
+ data-ht="DAT">
+DATE
+</label>
+<input id="formDate" type="date">
+</div>
+
+<div class="field">
+<label
+ data-en="TIME"
+ data-es="HORA"
+ data-ht="LÈ">
+TIME
+</label>
+<input id="formTime" type="time">
+</div>
+
+<div class="field">
+<label
+ data-en="STATE"
+ data-es="ESTADO"
+ data-ht="ETA">
+STATE
+</label>
+<input id="formState" type="text" placeholder="Florida">
+</div>
+
+<div class="field">
+<label
+ data-en="COUNTY"
+ data-es="CONDADO"
+ data-ht="KONTE">
+COUNTY
+</label>
+<input id="formCounty" type="text">
+</div>
+
+<div class="field full">
+<label
+ data-en="ADDRESS / LOCATION"
+ data-es="DIRECCIÓN / UBICACIÓN"
+ data-ht="ADRÈS / KOTE">
+ADDRESS / LOCATION
+</label>
+<input id="formAddress" type="text">
+</div>
+
+<div class="field full">
+<label
+ data-en="DOCUMENT / PROPERTY / VEHICLE INFORMATION"
+ data-es="INFORMACIÓN DEL DOCUMENTO / PROPIEDAD / VEHÍCULO"
+ data-ht="ENFÒMASYON DOKIMAN / BYEN / MACHIN">
+DOCUMENT / PROPERTY / VEHICLE INFORMATION
+</label>
+<textarea id="formDocument"></textarea>
+</div>
+
+<div class="field full">
+<label
+ data-en="STATEMENT / AUTHORIZATION / PURPOSE"
+ data-es="DECLARACIÓN / AUTORIZACIÓN / PROPÓSITO"
+ data-ht="DEKLARASYON / OTORIZASYON / OBJEKTIF">
+STATEMENT / AUTHORIZATION / PURPOSE
+</label>
+<textarea id="formStatement"></textarea>
+</div>
+
+<div class="field">
+<label
+ data-en="IDENTIFICATION TYPE"
+ data-es="TIPO DE IDENTIFICACIÓN"
+ data-ht="KALITE PYÈS IDANTITE">
+IDENTIFICATION TYPE
+</label>
+
+<select id="formIdType">
+<option value="">Select ID</option>
+<option>Driver License</option>
+<option>State ID</option>
+<option>Passport</option>
+<option>Other Identification</option>
+</select>
+</div>
+
+<div class="field">
+<label
+ data-en="IDENTIFICATION NUMBER / REFERENCE"
+ data-es="NÚMERO DE IDENTIFICACIÓN / REFERENCIA"
+ data-ht="NIMEWO IDANTIFIKASYON / REFERANS">
+IDENTIFICATION NUMBER / REFERENCE
+</label>
+<input id="formIdNumber" type="text">
+</div>
+
+<div class="field full">
+<label
+ data-en="ADDITIONAL NOTES"
+ data-es="NOTAS ADICIONALES"
+ data-ht="LÒT NÒT">
+ADDITIONAL NOTES
+</label>
+<textarea id="formNotes"></textarea>
+</div>
+
+</div>
+
+<div class="actions no-print">
+<button class="btn primary" id="formGenerate" type="button">GENERATE FORM</button>
+<button class="btn" id="formSave" type="button">SAVE FORM</button>
+<button class="btn" id="formLoad" type="button">LOAD SAVED</button>
+<button class="btn" id="formEdit" type="button">EDIT FORM</button>
+<button class="btn" id="formPrint" type="button">PRINT FORM</button>
+<button class="btn" id="formReset" type="button">RESET FORM</button>
+</div>
+
+</form>
+
+<div class="status" id="formStatus"></div>
+
+</div>
+
+<!-- FORM PRINT PREVIEW -->
+
+<div class="preview-wrap" id="formPreview">
+
+<div class="print-document">
+
+<div class="document-head">
+<h2>MAXIMAX MULTI SERVICES</h2>
+<h3>NOTARY FORMS CENTER</h3>
+<p id="printFormTitle">NOTARY FORM RECORD</p>
+</div>
+
+<div class="document-grid">
+
+<div class="document-item">
+<span class="document-label">Record Number</span>
+<div class="document-value" id="pfRecord">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Created</span>
+<div class="document-value" id="pfCreated">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Primary Party</span>
+<div class="document-value" id="pfName">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Second Party / Agent / Witness</span>
+<div class="document-value" id="pfSecond">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Phone</span>
+<div class="document-value" id="pfPhone">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Email</span>
+<div class="document-value" id="pfEmail">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Date / Time</span>
+<div class="document-value" id="pfDate">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">State / County</span>
+<div class="document-value" id="pfLocation">—</div>
+</div>
+
+<div class="document-item full">
+<span class="document-label">Address / Location</span>
+<div class="document-value" id="pfAddress">—</div>
+</div>
+
+<div class="document-item full">
+<span class="document-label">Document / Property / Vehicle Information</span>
+<div class="document-value" id="pfDocument">—</div>
+</div>
+
+<div class="document-item full">
+<span class="document-label">Statement / Authorization / Purpose</span>
+<div class="document-value" id="pfStatement">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Identification Type</span>
+<div class="document-value" id="pfIdType">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Identification Reference</span>
+<div class="document-value" id="pfIdNumber">—</div>
+</div>
+
+<div class="document-item full">
+<span class="document-label">Additional Notes</span>
+<div class="document-value" id="pfNotes">—</div>
+</div>
+
+<div class="document-item full">
+<span class="document-label">Primary Party Signature</span>
+<div class="signature-line"></div>
+</div>
+
+<div class="document-item full">
+<span class="document-label">Notarial Section</span>
+<div class="document-value">
+Notary Name: ______________________________________
+
+Commission Number: _________________________________
+
+Commission Expiration: ______________________________
+
+Signature: _________________________________________
+
+Seal / Stamp Area:
+</div>
+<div style="height:100px;border:1px dashed #ff7900;border-radius:12px;margin-top:15px;"></div>
+</div>
+
+</div>
+
+<div class="document-footer">
+<strong>MAXIMAX MULTI SERVICES</strong><br>
+NOTARY SERVICE CENTER<br>
+BSS1815PRO-MAXDMP.COM<br>
+bss1815promaxdmp@gmail.com
+</div>
+
+</div>
+</div>
+
+</div>
 </section>
 
 <!-- =====================================================
      SERVICE REQUEST
 ===================================================== -->
 
-<section class="section" id="request">
-  <div class="container">
-
-    <h2
-      class="section-title"
-      data-en="CREATE NOTARY SERVICE REQUEST"
-      data-es="CREAR SOLICITUD NOTARIAL"
-      data-ht="KREYE DEMANN SÈVIS NOTÈ">
-      CREATE NOTARY SERVICE REQUEST
-    </h2>
-
-    <div class="workspace">
-
-      <div
-        class="workspace-title"
-        data-en="Client & Document Information"
-        data-es="Información del Cliente y Documento"
-        data-ht="Enfòmasyon Kliyan ak Dokiman">
-        Client & Document Information
-      </div>
-
-      <div
-        class="workspace-subtitle"
-        data-en="Complete the information below to create the service record."
-        data-es="Complete la información para crear el registro del servicio."
-        data-ht="Ranpli enfòmasyon anba yo pou kreye dosye sèvis la.">
-        Complete the information below to create the service record.
-      </div>
-
-      <form id="notaryForm">
-
-        <div class="form-grid">
-
-          <div class="field">
-            <label
-              data-en="CLIENT FULL NAME"
-              data-es="NOMBRE COMPLETO DEL CLIENTE"
-              data-ht="NON KONPLÈ KLIYAN">
-              CLIENT FULL NAME
-            </label>
-            <input id="clientName" type="text" autocomplete="name" required>
-          </div>
-
-          <div class="field">
-            <label
-              data-en="PHONE NUMBER"
-              data-es="NÚMERO DE TELÉFONO"
-              data-ht="NIMEWO TELEFÒN">
-              PHONE NUMBER
-            </label>
-            <input id="phone" type="tel" autocomplete="tel">
-          </div>
-
-          <div class="field">
-            <label>EMAIL</label>
-            <input id="email" type="email" autocomplete="email">
-          </div>
-
-          <div class="field">
-            <label
-              data-en="SERVICE TYPE"
-              data-es="TIPO DE SERVICIO"
-              data-ht="KALITE SÈVIS">
-              SERVICE TYPE
-            </label>
-
-            <select id="serviceType" required>
-              <option value="">Select Service</option>
-              <option value="Acknowledgment">Acknowledgment</option>
-              <option value="Jurat">Jurat</option>
-              <option value="Document Notarization">Document Notarization</option>
-              <option value="Witness Coordination">Witness Coordination</option>
-              <option value="Mobile Notary Request">Mobile Notary Request</option>
-              <option value="Document Organization">Document Organization</option>
-              <option value="Other Notary Service">Other Notary Service</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label
-              data-en="DOCUMENT TYPE"
-              data-es="TIPO DE DOCUMENTO"
-              data-ht="KALITE DOKIMAN">
-              DOCUMENT TYPE
-            </label>
-
-            <select id="documentType">
-              <option value="">Select Document</option>
-              <option>Affidavit</option>
-              <option>Power of Attorney</option>
-              <option>Authorization</option>
-              <option>Contract / Agreement</option>
-              <option>Real Estate Document</option>
-              <option>Vehicle Document</option>
-              <option>School Document</option>
-              <option>Business Document</option>
-              <option>Personal Document</option>
-              <option>Other</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label
-              data-en="NUMBER OF SIGNERS"
-              data-es="NÚMERO DE FIRMANTES"
-              data-ht="KANTITE MOUN K AP SIYEN">
-              NUMBER OF SIGNERS
-            </label>
-            <input id="signers" type="number" min="1" value="1">
-          </div>
-
-          <div class="field">
-            <label
-              data-en="NUMBER OF DOCUMENTS"
-              data-es="NÚMERO DE DOCUMENTOS"
-              data-ht="KANTITE DOKIMAN">
-              NUMBER OF DOCUMENTS
-            </label>
-            <input id="documents" type="number" min="1" value="1">
-          </div>
-
-          <div class="field">
-            <label
-              data-en="APPOINTMENT DATE"
-              data-es="FECHA DE LA CITA"
-              data-ht="DAT RANDEVOU">
-              APPOINTMENT DATE
-            </label>
-            <input id="appointmentDate" type="date">
-          </div>
-
-          <div class="field">
-            <label
-              data-en="APPOINTMENT TIME"
-              data-es="HORA DE LA CITA"
-              data-ht="LÈ RANDEVOU">
-              APPOINTMENT TIME
-            </label>
-            <input id="appointmentTime" type="time">
-          </div>
-
-          <div class="field">
-            <label
-              data-en="SERVICE LOCATION"
-              data-es="LUGAR DEL SERVICIO"
-              data-ht="KOTE SÈVIS LA">
-              SERVICE LOCATION
-            </label>
-
-            <select id="location">
-              <option value="Office">Office</option>
-              <option value="Mobile Service">Mobile Service</option>
-              <option value="Client Location">Client Location</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label
-              data-en="ESTIMATED / AGREED FEE"
-              data-es="TARIFA ESTIMADA / ACORDADA"
-              data-ht="FRÈ ESTIME / AKÒDE">
-              ESTIMATED / AGREED FEE
-            </label>
-
-            <input
-              id="fee"
-              type="number"
-              min="0"
-              step="0.01"
-              placeholder="0.00">
-          </div>
-
-          <div class="field full">
-            <label
-              data-en="SERVICE ADDRESS / MOBILE LOCATION"
-              data-es="DIRECCIÓN DEL SERVICIO"
-              data-ht="ADRÈS SÈVIS / KOTE NOTÈ MOBIL">
-              SERVICE ADDRESS / MOBILE LOCATION
-            </label>
-
-            <input
-              id="serviceAddress"
-              type="text"
-              autocomplete="street-address">
-          </div>
-
-          <div class="field full">
-            <label
-              data-en="DOCUMENT DESCRIPTION"
-              data-es="DESCRIPCIÓN DEL DOCUMENTO"
-              data-ht="DESKRIPSYON DOKIMAN">
-              DOCUMENT DESCRIPTION
-            </label>
-            <textarea id="description"></textarea>
-          </div>
-
-          <div class="field full">
-            <label
-              data-en="NOTES / SPECIAL INSTRUCTIONS"
-              data-es="NOTAS / INSTRUCCIONES ESPECIALES"
-              data-ht="NÒT / ENSTRIKSYON ESPESYAL">
-              NOTES / SPECIAL INSTRUCTIONS
-            </label>
-            <textarea id="notes"></textarea>
-          </div>
-
-        </div>
-
-        <div class="check-row">
-          <input id="confirmation" type="checkbox">
-
-          <span
-            data-en="I confirm that the information entered in this service request is accurate to the best of my knowledge. This request does not itself constitute a completed notarization."
-            data-es="Confirmo que la información ingresada es correcta según mi conocimiento. Esta solicitud no constituye por sí misma una notarización completada."
-            data-ht="Mwen konfime enfòmasyon mwen antre nan demann sa a kòrèk dapre sa mwen konnen. Demann sa a poukont li pa vle di notarizasyon an deja fèt.">
-            I confirm that the information entered in this service request is accurate to the best of my knowledge. This request does not itself constitute a completed notarization.
-          </span>
-        </div>
-
-        <div class="actions no-print">
-
-          <button
-            class="btn primary"
-            type="button"
-            id="generateBtn"
-            data-en="GENERATE SERVICE RECORD"
-            data-es="GENERAR REGISTRO"
-            data-ht="JENERE DOSYE SÈVIS">
-            GENERATE SERVICE RECORD
-          </button>
-
-          <button
-            class="btn"
-            type="button"
-            id="saveBtn"
-            data-en="SAVE"
-            data-es="GUARDAR"
-            data-ht="SOVE">
-            SAVE
-          </button>
-
-          <button
-            class="btn"
-            type="button"
-            id="loadBtn"
-            data-en="LOAD SAVED"
-            data-es="CARGAR GUARDADO"
-            data-ht="LOUVRI SA KI SOVE">
-            LOAD SAVED
-          </button>
-
-          <button
-            class="btn"
-            type="button"
-            id="editBtn"
-            data-en="EDIT"
-            data-es="EDITAR"
-            data-ht="EDITE">
-            EDIT
-          </button>
-
-          <button
-            class="btn"
-            type="button"
-            id="printBtn"
-            data-en="PRINT"
-            data-es="IMPRIMIR"
-            data-ht="ENPRIME">
-            PRINT
-          </button>
-
-          <button
-            class="btn"
-            type="button"
-            id="resetBtn"
-            data-en="RESET"
-            data-es="REINICIAR"
-            data-ht="NETWAYE">
-            RESET
-          </button>
-
-        </div>
-
-        <div class="status" id="status"></div>
-
-      </form>
-
-    </div>
-
-    <!-- =================================================
-         PRINTABLE SERVICE RECORD
-    ================================================== -->
-
-    <div class="preview-wrap" id="previewWrap">
-
-      <div class="print-document">
-
-        <div class="document-head">
-          <h2>MAXIMAX MULTI SERVICES</h2>
-          <h3>NOTARY SERVICE CENTER</h3>
-          <p>NOTARY SERVICE REQUEST / SERVICE RECORD</p>
-        </div>
-
-        <div class="document-grid">
-
-          <div class="document-item">
-            <span class="document-label">Request Number</span>
-            <div class="document-value" id="pRequest">—</div>
-          </div>
-
-          <div class="document-item">
-            <span class="document-label">Created</span>
-            <div class="document-value" id="pCreated">—</div>
-          </div>
-
-          <div class="document-item">
-            <span class="document-label">Client</span>
-            <div class="document-value" id="pName">—</div>
-          </div>
-
-          <div class="document-item">
-            <span class="document-label">Phone</span>
-            <div class="document-value" id="pPhone">—</div>
-          </div>
-
-          <div class="document-item">
-            <span class="document-label">Email</span>
-            <div class="document-value" id="pEmail">—</div>
-          </div>
-
-          <div class="document-item">
-            <span class="document-label">Service</span>
-            <div class="document-value" id="pService">—</div>
-          </div>
-
-          <div class="document-item">
-            <span class="document-label">Document Type</span>
-            <div class="document-value" id="pDocument">—</div>
-          </div>
-
-          <div class="document-item">
-            <span class="document-label">Number of Signers</span>
-            <div class="document-value" id="pSigners">—</div>
-          </div>
-
-          <div class="document-item">
-            <span class="document-label">Number of Documents</span>
-            <div class="document-value" id="pDocuments">—</div>
-          </div>
-
-          <div class="document-item">
-            <span class="document-label">Service Location</span>
-            <div class="document-value" id="pLocation">—</div>
-          </div>
-
-          <div class="document-item">
-            <span class="document-label">Appointment</span>
-            <div class="document-value" id="pAppointment">—</div>
-          </div>
-
-          <div class="document-item">
-            <span class="document-label">Fee</span>
-            <div class="document-value" id="pFee">—</div>
-          </div>
-
-          <div class="document-item full">
-            <span class="document-label">Service Address</span>
-            <div class="document-value" id="pAddress">—</div>
-          </div>
-
-          <div class="document-item full">
-            <span class="document-label">Document Description</span>
-            <div class="document-value" id="pDescription">—</div>
-          </div>
-
-          <div class="document-item full">
-            <span class="document-label">Notes / Special Instructions</span>
-            <div class="document-value" id="pNotes">—</div>
-          </div>
-
-        </div>
-
-        <div class="document-footer">
-          <strong>MAXIMAX MULTI SERVICES</strong><br>
-          NOTARY SERVICE CENTER<br><br>
-
-          EMAIL: bss1815promaxdmp@gmail.com<br>
-          WEBSITE: BSS1815PRO-MAXDMP.COM<br><br>
-
-          This record documents a notary service request.
-          It is not itself a notarial certificate and does not certify
-          that a notarization has been completed.
-        </div>
-
-      </div>
-    </div>
-
-    <div class="notice">
-
-      <strong
-        data-en="IMPORTANT:"
-        data-es="IMPORTANTE:"
-        data-ht="ENPÒTAN:">
-        IMPORTANT:
-      </strong>
-
-      <span
-        data-en=" A notary service request is not a notarization. Applicable identification, presence, willingness, document and legal requirements must be satisfied before a notarial act can be completed. Maximax Multi Services does not use this page to provide legal advice."
-        data-es=" Una solicitud de servicio notarial no es una notarización. Deben cumplirse los requisitos aplicables de identificación, presencia, voluntad, documento y ley antes de completar un acto notarial. Maximax Multi Services no utiliza esta página para brindar asesoría legal."
-        data-ht=" Yon demann sèvis notè se pa yon notarizasyon. Tout kondisyon ki aplikab pou idantifikasyon, prezans, volonte, dokiman ak lalwa dwe satisfè anvan yon zak notaryal kapab fèt. Maximax Multi Services pa sèvi ak paj sa a pou bay konsèy legal.">
-        A notary service request is not a notarization. Applicable identification, presence, willingness, document and legal requirements must be satisfied before a notarial act can be completed. Maximax Multi Services does not use this page to provide legal advice.
-      </span>
-
-    </div>
-
-  </div>
+<section class="section request-section" id="serviceRequest">
+<div class="container">
+
+<h2
+ class="section-title"
+ data-en="CREATE NOTARY SERVICE REQUEST"
+ data-es="CREAR SOLICITUD DE SERVICIO NOTARIAL"
+ data-ht="KREYE DEMANN SÈVIS NOTÈ">
+CREATE NOTARY SERVICE REQUEST
+</h2>
+
+<div class="workspace">
+
+<div
+ class="workspace-title"
+ data-en="Client & Document Information"
+ data-es="Información del Cliente y Documento"
+ data-ht="Enfòmasyon Kliyan ak Dokiman">
+Client & Document Information
+</div>
+
+<div
+ class="workspace-subtitle"
+ data-en="Complete the information below to create the service record."
+ data-es="Complete la información para crear el registro del servicio."
+ data-ht="Ranpli enfòmasyon anba yo pou kreye dosye sèvis la.">
+Complete the information below to create the service record.
+</div>
+
+<form id="requestForm">
+
+<div class="form-grid">
+
+<div class="field">
+<label
+ data-en="CLIENT FULL NAME"
+ data-es="NOMBRE COMPLETO DEL CLIENTE"
+ data-ht="NON KONPLÈ KLIYAN">
+CLIENT FULL NAME
+</label>
+<input id="clientName" type="text" required>
+</div>
+
+<div class="field">
+<label
+ data-en="PHONE NUMBER"
+ data-es="NÚMERO DE TELÉFONO"
+ data-ht="NIMEWO TELEFÒN">
+PHONE NUMBER
+</label>
+<input id="clientPhone" type="tel">
+</div>
+
+<div class="field">
+<label>EMAIL</label>
+<input id="clientEmail" type="email">
+</div>
+
+<div class="field">
+<label
+ data-en="SERVICE TYPE"
+ data-es="TIPO DE SERVICIO"
+ data-ht="KALITE SÈVIS">
+SERVICE TYPE
+</label>
+
+<select id="serviceType">
+<option value="">Select Service</option>
+<option>Acknowledgment</option>
+<option>Jurat</option>
+<option>Document Notarization</option>
+<option>Witness Coordination</option>
+<option>Mobile Notary Request</option>
+<option>Document Organization</option>
+</select>
+</div>
+
+<div class="field">
+<label
+ data-en="DOCUMENT TYPE"
+ data-es="TIPO DE DOCUMENTO"
+ data-ht="KALITE DOKIMAN">
+DOCUMENT TYPE
+</label>
+
+<select id="documentType">
+<option value="">Select Document</option>
+<option>Affidavit</option>
+<option>Power of Attorney</option>
+<option>Authorization Letter</option>
+<option>Bill of Sale</option>
+<option>Real Estate Document</option>
+<option>Vehicle / Title Document</option>
+<option>Agreement / Contract</option>
+<option>Other Document</option>
+</select>
+</div>
+
+<div class="field">
+<label
+ data-en="NUMBER OF SIGNERS"
+ data-es="NÚMERO DE FIRMANTES"
+ data-ht="KANTITE SIYATÈ">
+NUMBER OF SIGNERS
+</label>
+<input id="signers" type="number" min="1" value="1">
+</div>
+
+<div class="field">
+<label
+ data-en="NUMBER OF DOCUMENTS"
+ data-es="NÚMERO DE DOCUMENTOS"
+ data-ht="KANTITE DOKIMAN">
+NUMBER OF DOCUMENTS
+</label>
+<input id="documentCount" type="number" min="1" value="1">
+</div>
+
+<div class="field">
+<label
+ data-en="APPOINTMENT DATE"
+ data-es="FECHA DE CITA"
+ data-ht="DAT RANDEVOU">
+APPOINTMENT DATE
+</label>
+<input id="appointmentDate" type="date">
+</div>
+
+<div class="field">
+<label
+ data-en="APPOINTMENT TIME"
+ data-es="HORA DE CITA"
+ data-ht="LÈ RANDEVOU">
+APPOINTMENT TIME
+</label>
+<input id="appointmentTime" type="time">
+</div>
+
+<div class="field">
+<label
+ data-en="SERVICE LOCATION"
+ data-es="UBICACIÓN DEL SERVICIO"
+ data-ht="KOTE SÈVIS LA">
+SERVICE LOCATION
+</label>
+
+<select id="serviceLocation">
+<option>Office</option>
+<option>Client Location / Mobile</option>
+<option>Hospital / Care Facility</option>
+<option>Business Location</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="field">
+<label
+ data-en="ESTIMATED / AGREED FEE"
+ data-es="TARIFA ESTIMADA / ACORDADA"
+ data-ht="FRÈ ESTIME / AKÒDE">
+ESTIMATED / AGREED FEE
+</label>
+<input id="serviceFee" type="number" min="0" step="0.01" placeholder="0.00">
+</div>
+
+<div class="field full">
+<label
+ data-en="SERVICE ADDRESS / MOBILE LOCATION"
+ data-es="DIRECCIÓN DEL SERVICIO"
+ data-ht="ADRÈS SÈVIS / KOTE MOBIL">
+SERVICE ADDRESS / MOBILE LOCATION
+</label>
+<input id="serviceAddress" type="text">
+</div>
+
+<div class="field full">
+<label
+ data-en="DOCUMENT DESCRIPTION"
+ data-es="DESCRIPCIÓN DEL DOCUMENTO"
+ data-ht="DESKRIPSYON DOKIMAN">
+DOCUMENT DESCRIPTION
+</label>
+<textarea id="documentDescription"></textarea>
+</div>
+
+<div class="field full">
+<label
+ data-en="NOTES / SPECIAL INSTRUCTIONS"
+ data-es="NOTAS / INSTRUCCIONES ESPECIALES"
+ data-ht="NÒT / ENSTRIKSYON ESPESYAL">
+NOTES / SPECIAL INSTRUCTIONS
+</label>
+<textarea id="requestNotes"></textarea>
+</div>
+
+</div>
+
+<div class="checklist">
+<h3
+ data-en="DOCUMENT CHECKLIST"
+ data-es="LISTA DE DOCUMENTOS"
+ data-ht="LIS DOKIMAN">
+DOCUMENT CHECKLIST
+</h3>
+
+<div class="check-grid">
+
+<label class="check-item">
+<input class="request-check" type="checkbox" value="Government-issued identification">
+<span
+ data-en="Government-issued identification"
+ data-es="Identificación oficial"
+ data-ht="Pyès idantite gouvènman">
+Government-issued identification
+</span>
+</label>
+
+<label class="check-item">
+<input class="request-check" type="checkbox" value="Unsigned document available">
+<span
+ data-en="Document available for review"
+ data-es="Documento disponible para revisión"
+ data-ht="Dokiman disponib pou revizyon">
+Document available for review
+</span>
+</label>
+
+<label class="check-item">
+<input class="request-check" type="checkbox" value="All signers identified">
+<span
+ data-en="All signers identified"
+ data-es="Todos los firmantes identificados"
+ data-ht="Tout siyatè yo idantifye">
+All signers identified
+</span>
+</label>
+
+<label class="check-item">
+<input class="request-check" type="checkbox" value="Witness requirement reviewed">
+<span
+ data-en="Witness requirement reviewed"
+ data-es="Requisito de testigos revisado"
+ data-ht="Bezwen temwen verifye">
+Witness requirement reviewed
+</span>
+</label>
+
+</div>
+</div>
+
+<div class="actions no-print">
+<button class="btn primary" id="requestGenerate" type="button">GENERATE SERVICE RECORD</button>
+<button class="btn" id="requestSave" type="button">SAVE</button>
+<button class="btn" id="requestLoad" type="button">LOAD SAVED</button>
+<button class="btn" id="requestEdit" type="button">EDIT</button>
+<button class="btn" id="requestPrint" type="button">PRINT</button>
+<button class="btn" id="requestReset" type="button">RESET</button>
+</div>
+
+<div class="status" id="requestStatus"></div>
+
+</form>
+
+</div>
+
+<div class="preview-wrap" id="requestPreview">
+
+<div class="print-document">
+
+<div class="document-head">
+<h2>MAXIMAX MULTI SERVICES</h2>
+<h3>NOTARY SERVICE CENTER</h3>
+<p>NOTARY SERVICE REQUEST / CLIENT RECORD</p>
+</div>
+
+<div class="document-grid">
+
+<div class="document-item">
+<span class="document-label">Request Number</span>
+<div class="document-value" id="prNumber">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Created</span>
+<div class="document-value" id="prCreated">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Client</span>
+<div class="document-value" id="prName">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Phone</span>
+<div class="document-value" id="prPhone">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Email</span>
+<div class="document-value" id="prEmail">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Service Type</span>
+<div class="document-value" id="prService">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Document Type</span>
+<div class="document-value" id="prDocumentType">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Signers / Documents</span>
+<div class="document-value" id="prCounts">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Appointment</span>
+<div class="document-value" id="prAppointment">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Service Location</span>
+<div class="document-value" id="prServiceLocation">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Service Fee</span>
+<div class="document-value" id="prFee">—</div>
+</div>
+
+<div class="document-item full">
+<span class="document-label">Address</span>
+<div class="document-value" id="prAddress">—</div>
+</div>
+
+<div class="document-item full">
+<span class="document-label">Document Description</span>
+<div class="document-value" id="prDescription">—</div>
+</div>
+
+<div class="document-item full">
+<span class="document-label">Checklist</span>
+<div class="document-value" id="prChecklist">—</div>
+</div>
+
+<div class="document-item full">
+<span class="document-label">Notes</span>
+<div class="document-value" id="prNotes">—</div>
+</div>
+
+</div>
+
+<div class="document-footer">
+<strong>MAXIMAX MULTI SERVICES</strong><br>
+NOTARY SERVICE CENTER<br>
+BSS1815PRO-MAXDMP.COM<br>
+bss1815promaxdmp@gmail.com
+</div>
+
+</div>
+</div>
+
+<div class="notice">
+<strong>IMPORTANT:</strong>
+This center is used to organize notary service requests and document information. The appropriate notarial act and certificate must be determined according to the document, the signer's request, and applicable law. Maximax Multi Services does not use this intake page to select a legal document or notarial act on behalf of a signer.
+</div>
+
+</div>
 </section>
 
 <!-- =====================================================
-     OFFICIAL CONTACT
+     CONTACT
 ===================================================== -->
 
-<section class="official-contact">
-  <div class="container">
+<section class="section contact-section">
+<div class="container">
 
-    <h2
-      class="section-title"
-      data-en="OFFICIAL CONTACT"
-      data-es="CONTACTO OFICIAL"
-      data-ht="KONTAK OFISYÈL">
-      OFFICIAL CONTACT
-    </h2>
+<h2
+ class="section-title"
+ data-en="OFFICIAL CONTACT"
+ data-es="CONTACTO OFICIAL"
+ data-ht="KONTAK OFISYÈL">
+OFFICIAL CONTACT
+</h2>
 
-    <div class="contact-grid">
+<div class="contact-grid">
 
-      <a
-        class="contact-card"
-        href="mailto:bss1815promaxdmp@gmail.com">
+<a class="contact-card" href="mailto:bss1815promaxdmp@gmail.com">
+<span class="icon">✉️</span>
+<strong>EMAIL</strong>
+<span>bss1815promaxdmp@gmail.com</span>
+</a>
 
-        <span class="icon">✉️</span>
+<a
+ class="contact-card"
+ href="https://bss1815pro-maxdmp.com"
+ target="_blank"
+ rel="noopener noreferrer">
+<span class="icon">🌐</span>
+<strong>WEBSITE</strong>
+<span>BSS1815PRO-MAXDMP.COM</span>
+</a>
 
-        <strong
-          data-en="EMAIL"
-          data-es="CORREO ELECTRÓNICO"
-          data-ht="IMÈL">
-          EMAIL
-        </strong>
-
-        <span>bss1815promaxdmp@gmail.com</span>
-      </a>
-
-      <a
-        class="contact-card"
-        href="https://bss1815pro-maxdmp.com"
-        target="_blank"
-        rel="noopener noreferrer">
-
-        <span class="icon">🌐</span>
-
-        <strong
-          data-en="WEBSITE"
-          data-es="SITIO WEB"
-          data-ht="SIT ENTÈNÈT">
-          WEBSITE
-        </strong>
-
-        <span>BSS1815PRO-MAXDMP.COM</span>
-      </a>
-
-    </div>
-
-  </div>
+</div>
+</div>
 </section>
 
 </main>
 
 <footer>
-  <div class="container">
-
-    <strong>MAXIMAX MULTI SERVICES</strong>
-
-    <p>PART OF BSS1815 PRO-MAX DMP</p>
-
-    <p>
-      EMAIL:
-      <a href="mailto:bss1815promaxdmp@gmail.com">
-        bss1815promaxdmp@gmail.com
-      </a>
-    </p>
-
-    <p>
-      WEBSITE:
-      <a
-        href="https://bss1815pro-maxdmp.com"
-        target="_blank"
-        rel="noopener noreferrer">
-        BSS1815PRO-MAXDMP.COM
-      </a>
-    </p>
-
-    <p>© <span id="year"></span> MAXIMAX MULTI SERVICES</p>
-
-  </div>
+<div class="container">
+<strong>MAXIMAX MULTI SERVICES</strong>
+<p>PART OF BSS1815 PRO-MAX DMP</p>
+<p>bss1815promaxdmp@gmail.com</p>
+<p>BSS1815PRO-MAXDMP.COM</p>
+<p>© <span id="year"></span> MAXIMAX MULTI SERVICES</p>
+</div>
 </footer>
 
 <script>
 (function(){
 "use strict";
 
-/* =========================================================
-   ELEMENT HELPERS
-========================================================= */
+const $=id=>document.getElementById(id);
 
-const $ = function(id){
-  return document.getElementById(id);
-};
+$("year").textContent=new Date().getFullYear();
 
-$("year").textContent = new Date().getFullYear();
+/* =====================================================
+   LANGUAGE
+===================================================== */
 
-/* =========================================================
-   LANGUAGE SYSTEM
-   ENG / ESP / KRE
-========================================================= */
+const languageButtons=document.querySelectorAll(".lang");
+const translatable=document.querySelectorAll("[data-en],[data-es],[data-ht]");
 
-const languageButtons =
-  document.querySelectorAll(".lang");
+function setLanguage(lang){
 
-const translatable =
-  document.querySelectorAll("[data-en],[data-es],[data-ht]");
-
-function setLanguage(language){
-
-  if(!["en","es","ht"].includes(language)){
-    language="en";
+  if(!["en","es","ht"].includes(lang)){
+    lang="en";
   }
 
-  document.documentElement.lang=language;
+  document.documentElement.lang=lang;
 
-  translatable.forEach(function(element){
-
-    const translation =
-      element.getAttribute("data-"+language);
-
-    if(translation){
-      element.textContent=translation;
-    }
-
+  translatable.forEach(element=>{
+    const text=element.getAttribute("data-"+lang);
+    if(text) element.textContent=text;
   });
 
-  languageButtons.forEach(function(button){
-
-    const active =
-      button.dataset.lang===language;
-
+  languageButtons.forEach(button=>{
+    const active=button.dataset.lang===lang;
     button.classList.toggle("active",active);
-    button.setAttribute(
-      "aria-pressed",
-      active ? "true" : "false"
-    );
-
+    button.setAttribute("aria-pressed",active ? "true":"false");
   });
 
   try{
-    localStorage.setItem(
-      "maximaxLanguage",
-      language
-    );
+    localStorage.setItem("maximaxLanguage",lang);
   }catch(error){}
-
 }
 
-languageButtons.forEach(function(button){
-
-  button.addEventListener("click",function(){
+languageButtons.forEach(button=>{
+  button.addEventListener("click",()=>{
     setLanguage(button.dataset.lang);
   });
-
 });
 
 let savedLanguage="en";
 
 try{
-  savedLanguage=
-    localStorage.getItem("maximaxLanguage") || "en";
+  savedLanguage=localStorage.getItem("maximaxLanguage") || "en";
 }catch(error){}
 
 setLanguage(savedLanguage);
 
-/* =========================================================
-   STATUS SYSTEM
-========================================================= */
+/* =====================================================
+   HELPERS
+===================================================== */
 
-let statusTimer=null;
+function getValue(id){
+  const element=$(id);
+  return element ? element.value.trim() : "";
+}
 
-function showStatus(message){
+function setValue(id,value){
+  const element=$(id);
+  if(element) element.value=value || "";
+}
 
-  const status=$("status");
+function display(value){
+  return value && String(value).trim() ? value : "—";
+}
+
+function money(value){
+  if(value==="" || value===null || value===undefined) return "—";
+
+  const number=Number(value);
+
+  if(!Number.isFinite(number)) return value;
+
+  return "$"+number.toFixed(2);
+}
+
+function recordNumber(prefix){
+
+  const now=new Date();
+
+  const date=
+    now.getFullYear()+
+    String(now.getMonth()+1).padStart(2,"0")+
+    String(now.getDate()).padStart(2,"0");
+
+  const time=
+    String(now.getHours()).padStart(2,"0")+
+    String(now.getMinutes()).padStart(2,"0")+
+    String(now.getSeconds()).padStart(2,"0");
+
+  return prefix+"-"+date+"-"+time;
+}
+
+let statusTimers={};
+
+function showStatus(id,message){
+
+  const status=$(id);
+
+  if(!status) return;
 
   status.textContent=message;
   status.classList.add("show");
 
-  clearTimeout(statusTimer);
+  clearTimeout(statusTimers[id]);
 
-  statusTimer=setTimeout(function(){
+  statusTimers[id]=setTimeout(()=>{
     status.classList.remove("show");
   },3500);
-
 }
 
-/* =========================================================
-   SERVICE BUTTONS
-========================================================= */
+/* =====================================================
+   SERVICE OPTIONS
+===================================================== */
 
-const serviceButtons =
-  document.querySelectorAll(".service-btn");
+const serviceButtons=document.querySelectorAll(".service-btn");
 
-serviceButtons.forEach(function(button){
+serviceButtons.forEach(button=>{
 
-  button.addEventListener("click",function(){
+  button.addEventListener("click",()=>{
 
-    serviceButtons.forEach(function(item){
-      item.classList.remove("selected");
-    });
+    serviceButtons.forEach(item=>item.classList.remove("selected"));
 
     button.classList.add("selected");
 
-    $("serviceType").value=
-      button.dataset.service;
+    $("serviceType").value=button.dataset.service;
 
-    $("request").scrollIntoView({
+    $("serviceRequest").scrollIntoView({
       behavior:"smooth",
       block:"start"
     });
 
     showStatus(
-      "Service selected: " +
-      button.dataset.service
+      "requestStatus",
+      "Service selected: "+button.dataset.service
     );
 
   });
 
 });
 
-/* =========================================================
-   VALUE HELPERS
-========================================================= */
+/* =====================================================
+   FORMS CENTER
+===================================================== */
 
-function getValue(id){
+const formNames={
+  acknowledgment:"ACKNOWLEDGMENT CERTIFICATE INFORMATION RECORD",
+  jurat:"JURAT CERTIFICATE INFORMATION RECORD",
+  affidavit:"AFFIDAVIT INFORMATION WORKSHEET",
+  poa:"POWER OF ATTORNEY INTAKE",
+  authorization:"AUTHORIZATION LETTER RECORD",
+  billofsale:"BILL OF SALE INFORMATION RECORD",
+  witness:"WITNESS STATEMENT RECORD",
+  mobile:"MOBILE NOTARY REQUEST",
+  checklist:"NOTARY DOCUMENT CHECKLIST",
+  record:"NOTARY SERVICE RECORD"
+};
 
-  const element=$(id);
+const openFormButtons=document.querySelectorAll(".open-form");
 
-  if(!element){
-    return "";
-  }
+openFormButtons.forEach(button=>{
 
-  return element.value.trim();
+  button.addEventListener("click",()=>{
 
-}
+    const type=button.dataset.form;
 
-function setValue(id,value){
+    $("activeFormType").value=type;
+    $("activeFormTitle").textContent=formNames[type] || "NOTARY FORM";
+    $("printFormTitle").textContent=formNames[type] || "NOTARY FORM RECORD";
 
-  const element=$(id);
+    $("formWorkspace").classList.add("show");
+    $("formPreview").classList.remove("show");
 
-  if(element){
-    element.value=value || "";
-  }
+    $("formWorkspace").scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
 
-}
+    showStatus(
+      "formStatus",
+      "Form opened: "+(formNames[type] || "Notary Form")
+    );
 
-/* =========================================================
-   COLLECT REQUEST DATA
-========================================================= */
+  });
 
-function collectData(){
+});
+
+function collectForm(){
 
   return{
-    clientName:getValue("clientName"),
-    phone:getValue("phone"),
-    email:getValue("email"),
-    serviceType:getValue("serviceType"),
-    documentType:getValue("documentType"),
-    signers:getValue("signers"),
-    documents:getValue("documents"),
-    appointmentDate:getValue("appointmentDate"),
-    appointmentTime:getValue("appointmentTime"),
-    location:getValue("location"),
-    serviceAddress:getValue("serviceAddress"),
-    fee:getValue("fee"),
-    description:getValue("description"),
-    notes:getValue("notes"),
-    confirmation:$("confirmation").checked
+    type:getValue("activeFormType"),
+    name:getValue("formName"),
+    second:getValue("formSecondParty"),
+    phone:getValue("formPhone"),
+    email:getValue("formEmail"),
+    date:getValue("formDate"),
+    time:getValue("formTime"),
+    state:getValue("formState"),
+    county:getValue("formCounty"),
+    address:getValue("formAddress"),
+    document:getValue("formDocument"),
+    statement:getValue("formStatement"),
+    idType:getValue("formIdType"),
+    idNumber:getValue("formIdNumber"),
+    notes:getValue("formNotes")
   };
-
 }
 
-/* =========================================================
-   REQUEST NUMBER
-========================================================= */
+function generateForm(){
 
-function createRequestNumber(){
+  const data=collectForm();
 
-  const now=new Date();
+  if(!data.type){
+    showStatus("formStatus","Please select a form from the Forms Center.");
+    return false;
+  }
 
-  const year=now.getFullYear();
+  $("printFormTitle").textContent=
+    formNames[data.type] || "NOTARY FORM RECORD";
 
-  const month=
-    String(now.getMonth()+1).padStart(2,"0");
+  $("pfRecord").textContent=recordNumber("MAX-NOT");
+  $("pfCreated").textContent=new Date().toLocaleString();
 
-  const day=
-    String(now.getDate()).padStart(2,"0");
+  $("pfName").textContent=display(data.name);
+  $("pfSecond").textContent=display(data.second);
+  $("pfPhone").textContent=display(data.phone);
+  $("pfEmail").textContent=display(data.email);
 
-  const hour=
-    String(now.getHours()).padStart(2,"0");
-
-  const minute=
-    String(now.getMinutes()).padStart(2,"0");
-
-  const second=
-    String(now.getSeconds()).padStart(2,"0");
-
-  return(
-    "MAX-NOT-" +
-    year +
-    month +
-    day +
-    "-" +
-    hour +
-    minute +
-    second
-  );
-
-}
-
-/* =========================================================
-   VALIDATE
-========================================================= */
-
-function validateRequest(){
-
-  if(!getValue("clientName")){
-
-    showStatus(
-      "Please enter the client's full name."
+  $("pfDate").textContent=
+    display(
+      [data.date,data.time].filter(Boolean).join(" • ")
     );
 
-    $("clientName").focus();
-
-    return false;
-  }
-
-  if(!getValue("serviceType")){
-
-    showStatus(
-      "Please select a notary service."
+  $("pfLocation").textContent=
+    display(
+      [data.state,data.county].filter(Boolean).join(" • ")
     );
 
-    $("serviceType").focus();
+  $("pfAddress").textContent=display(data.address);
+  $("pfDocument").textContent=display(data.document);
+  $("pfStatement").textContent=display(data.statement);
+  $("pfIdType").textContent=display(data.idType);
+  $("pfIdNumber").textContent=display(data.idNumber);
+  $("pfNotes").textContent=display(data.notes);
 
-    return false;
-  }
+  $("formPreview").classList.add("show");
 
-  if(!$("confirmation").checked){
-
-    showStatus(
-      "Please confirm the service request information."
-    );
-
-    return false;
-  }
-
-  return true;
-
-}
-
-/* =========================================================
-   GENERATE SERVICE RECORD
-========================================================= */
-
-function generateServiceRecord(){
-
-  if(!validateRequest()){
-    return false;
-  }
-
-  const data=collectData();
-
-  $("pRequest").textContent=
-    createRequestNumber();
-
-  $("pCreated").textContent=
-    new Date().toLocaleString();
-
-  $("pName").textContent=
-    data.clientName || "—";
-
-  $("pPhone").textContent=
-    data.phone || "—";
-
-  $("pEmail").textContent=
-    data.email || "—";
-
-  $("pService").textContent=
-    data.serviceType || "—";
-
-  $("pDocument").textContent=
-    data.documentType || "—";
-
-  $("pSigners").textContent=
-    data.signers || "1";
-
-  $("pDocuments").textContent=
-    data.documents || "1";
-
-  $("pLocation").textContent=
-    data.location || "—";
-
-  $("pAddress").textContent=
-    data.serviceAddress || "—";
-
-  let appointment="Not scheduled";
-
-  if(data.appointmentDate){
-    appointment=data.appointmentDate;
-  }
-
-  if(data.appointmentTime){
-
-    if(data.appointmentDate){
-      appointment+=" • ";
-    }else{
-      appointment="";
-    }
-
-    appointment+=data.appointmentTime;
-  }
-
-  $("pAppointment").textContent=
-    appointment;
-
-  if(data.fee){
-
-    const feeNumber=
-      Number(data.fee);
-
-    $("pFee").textContent=
-      Number.isFinite(feeNumber)
-        ? "$"+feeNumber.toFixed(2)
-        : data.fee;
-
-  }else{
-
-    $("pFee").textContent=
-      "Not entered";
-
-  }
-
-  $("pDescription").textContent=
-    data.description || "—";
-
-  $("pNotes").textContent=
-    data.notes || "—";
-
-  $("previewWrap").classList.add("show");
-
-  $("previewWrap").scrollIntoView({
+  $("formPreview").scrollIntoView({
     behavior:"smooth",
     block:"start"
   });
 
-  showStatus(
-    "Notary service record generated."
-  );
+  showStatus("formStatus","Notary form generated.");
 
   return true;
-
 }
 
-$("generateBtn").addEventListener(
-  "click",
-  generateServiceRecord
-);
+$("formGenerate").addEventListener("click",generateForm);
 
-/* =========================================================
-   SAVE
-========================================================= */
+/* SAVE FORM */
 
-$("saveBtn").addEventListener(
-  "click",
-  function(){
+$("formSave").addEventListener("click",()=>{
 
-    const data=collectData();
+  const data=collectForm();
 
-    try{
+  if(!data.type){
+    showStatus("formStatus","Open a form before saving.");
+    return;
+  }
 
-      localStorage.setItem(
-        "maximaxNotaryRequest",
-        JSON.stringify(data)
-      );
+  try{
+    localStorage.setItem(
+      "maximaxNotaryForm",
+      JSON.stringify(data)
+    );
 
-      showStatus(
-        "Notary service request saved."
-      );
+    showStatus("formStatus","Notary form saved.");
+  }catch(error){
+    showStatus("formStatus","Unable to save this form.");
+  }
 
-    }catch(error){
+});
 
-      showStatus(
-        "Unable to save on this device."
-      );
+/* LOAD FORM */
 
+$("formLoad").addEventListener("click",()=>{
+
+  try{
+
+    const saved=localStorage.getItem("maximaxNotaryForm");
+
+    if(!saved){
+      showStatus("formStatus","No saved notary form found.");
+      return;
     }
 
+    const data=JSON.parse(saved);
+
+    setValue("activeFormType",data.type);
+    setValue("formName",data.name);
+    setValue("formSecondParty",data.second);
+    setValue("formPhone",data.phone);
+    setValue("formEmail",data.email);
+    setValue("formDate",data.date);
+    setValue("formTime",data.time);
+    setValue("formState",data.state);
+    setValue("formCounty",data.county);
+    setValue("formAddress",data.address);
+    setValue("formDocument",data.document);
+    setValue("formStatement",data.statement);
+    setValue("formIdType",data.idType);
+    setValue("formIdNumber",data.idNumber);
+    setValue("formNotes",data.notes);
+
+    $("activeFormTitle").textContent=
+      formNames[data.type] || "NOTARY FORM";
+
+    $("formWorkspace").classList.add("show");
+
+    showStatus("formStatus","Saved notary form loaded.");
+
+  }catch(error){
+    showStatus("formStatus","Unable to load saved form.");
   }
-);
 
-/* =========================================================
-   LOAD SAVED
-========================================================= */
+});
 
-$("loadBtn").addEventListener(
-  "click",
-  function(){
+/* EDIT */
 
-    try{
+$("formEdit").addEventListener("click",()=>{
 
-      const saved=
-        localStorage.getItem(
-          "maximaxNotaryRequest"
-        );
+  $("formPreview").classList.remove("show");
 
-      if(!saved){
+  $("formWorkspace").scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
 
-        showStatus(
-          "No saved notary request found."
-        );
+  showStatus("formStatus","Edit mode ready.");
 
-        return;
-      }
+});
 
-      const data=
-        JSON.parse(saved);
+/* PRINT */
 
-      setValue(
-        "clientName",
-        data.clientName
-      );
+$("formPrint").addEventListener("click",()=>{
 
-      setValue(
-        "phone",
-        data.phone
-      );
+  if(!$("formPreview").classList.contains("show")){
+    if(!generateForm()) return;
+  }
 
-      setValue(
-        "email",
-        data.email
-      );
+  setTimeout(()=>{
+    window.print();
+  },300);
 
-      setValue(
-        "serviceType",
-        data.serviceType
-      );
+});
 
-      setValue(
-        "documentType",
-        data.documentType
-      );
+/* RESET */
 
-      setValue(
-        "signers",
-        data.signers || "1"
-      );
+$("formReset").addEventListener("click",()=>{
 
-      setValue(
-        "documents",
-        data.documents || "1"
-      );
+  $("dynamicForm").reset();
+  $("activeFormType").value="";
+  $("activeFormTitle").textContent="NOTARY FORM";
+  $("formPreview").classList.remove("show");
 
-      setValue(
-        "appointmentDate",
-        data.appointmentDate
-      );
+  showStatus("formStatus","Notary form reset.");
 
-      setValue(
-        "appointmentTime",
-        data.appointmentTime
-      );
+});
 
-      setValue(
-        "location",
-        data.location || "Office"
-      );
+/* =====================================================
+   SERVICE REQUEST
+===================================================== */
 
-      setValue(
-        "serviceAddress",
-        data.serviceAddress
-      );
+function requestChecklist(){
 
-      setValue(
-        "fee",
-        data.fee
-      );
+  return Array
+    .from(document.querySelectorAll(".request-check:checked"))
+    .map(item=>item.value);
+}
 
-      setValue(
-        "description",
-        data.description
-      );
+function collectRequest(){
 
-      setValue(
-        "notes",
-        data.notes
-      );
+  return{
+    clientName:getValue("clientName"),
+    phone:getValue("clientPhone"),
+    email:getValue("clientEmail"),
+    serviceType:getValue("serviceType"),
+    documentType:getValue("documentType"),
+    signers:getValue("signers"),
+    documents:getValue("documentCount"),
+    appointmentDate:getValue("appointmentDate"),
+    appointmentTime:getValue("appointmentTime"),
+    location:getValue("serviceLocation"),
+    fee:getValue("serviceFee"),
+    address:getValue("serviceAddress"),
+    description:getValue("documentDescription"),
+    notes:getValue("requestNotes"),
+    checklist:requestChecklist()
+  };
+}
 
-      $("confirmation").checked=
-        Boolean(data.confirmation);
+function generateRequest(){
 
-      serviceButtons.forEach(
-        function(button){
+  const data=collectRequest();
 
-          button.classList.toggle(
-            "selected",
-            button.dataset.service===
-            data.serviceType
-          );
+  if(!data.clientName){
+    showStatus("requestStatus","Please enter the client's full name.");
+    $("clientName").focus();
+    return false;
+  }
 
-        }
-      );
+  if(!data.serviceType){
+    showStatus("requestStatus","Please select a notary service.");
+    $("serviceType").focus();
+    return false;
+  }
 
-      showStatus(
-        "Saved notary request loaded."
-      );
+  $("prNumber").textContent=recordNumber("MAX-NOT-REQ");
+  $("prCreated").textContent=new Date().toLocaleString();
 
-    }catch(error){
+  $("prName").textContent=display(data.clientName);
+  $("prPhone").textContent=display(data.phone);
+  $("prEmail").textContent=display(data.email);
+  $("prService").textContent=display(data.serviceType);
+  $("prDocumentType").textContent=display(data.documentType);
 
-      showStatus(
-        "Unable to load saved request."
-      );
+  $("prCounts").textContent=
+    "Signers: "+display(data.signers)+
+    " • Documents: "+display(data.documents);
 
+  $("prAppointment").textContent=
+    display(
+      [data.appointmentDate,data.appointmentTime]
+      .filter(Boolean)
+      .join(" • ")
+    );
+
+  $("prServiceLocation").textContent=display(data.location);
+  $("prFee").textContent=money(data.fee);
+  $("prAddress").textContent=display(data.address);
+  $("prDescription").textContent=display(data.description);
+
+  $("prChecklist").textContent=
+    data.checklist.length
+      ? data.checklist.join(" • ")
+      : "No checklist items marked";
+
+  $("prNotes").textContent=display(data.notes);
+
+  $("requestPreview").classList.add("show");
+
+  $("requestPreview").scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+
+  showStatus("requestStatus","Notary service record generated.");
+
+  return true;
+}
+
+$("requestGenerate").addEventListener("click",generateRequest);
+
+/* SAVE REQUEST */
+
+$("requestSave").addEventListener("click",()=>{
+
+  const data=collectRequest();
+
+  try{
+    localStorage.setItem(
+      "maximaxNotaryRequest",
+      JSON.stringify(data)
+    );
+
+    showStatus("requestStatus","Notary service request saved.");
+  }catch(error){
+    showStatus("requestStatus","Unable to save this request.");
+  }
+
+});
+
+/* LOAD REQUEST */
+
+$("requestLoad").addEventListener("click",()=>{
+
+  try{
+
+    const saved=localStorage.getItem("maximaxNotaryRequest");
+
+    if(!saved){
+      showStatus("requestStatus","No saved request found.");
+      return;
     }
 
-  }
-);
+    const data=JSON.parse(saved);
 
-/* =========================================================
-   EDIT
-========================================================= */
+    setValue("clientName",data.clientName);
+    setValue("clientPhone",data.phone);
+    setValue("clientEmail",data.email);
+    setValue("serviceType",data.serviceType);
+    setValue("documentType",data.documentType);
+    setValue("signers",data.signers);
+    setValue("documentCount",data.documents);
+    setValue("appointmentDate",data.appointmentDate);
+    setValue("appointmentTime",data.appointmentTime);
+    setValue("serviceLocation",data.location);
+    setValue("serviceFee",data.fee);
+    setValue("serviceAddress",data.address);
+    setValue("documentDescription",data.description);
+    setValue("requestNotes",data.notes);
 
-$("editBtn").addEventListener(
-  "click",
-  function(){
-
-    $("previewWrap")
-      .classList
-      .remove("show");
-
-    $("request").scrollIntoView({
-      behavior:"smooth",
-      block:"start"
+    document.querySelectorAll(".request-check").forEach(item=>{
+      item.checked=
+        Array.isArray(data.checklist) &&
+        data.checklist.includes(item.value);
     });
 
-    setTimeout(function(){
-      $("clientName").focus();
-    },350);
-
-    showStatus(
-      "Edit mode ready."
-    );
-
-  }
-);
-
-/* =========================================================
-   PRINT
-========================================================= */
-
-$("printBtn").addEventListener(
-  "click",
-  function(){
-
-    if(
-      !$("previewWrap")
-        .classList
-        .contains("show")
-    ){
-
-      const generated=
-        generateServiceRecord();
-
-      if(!generated){
-        return;
-      }
-
-    }
-
-    setTimeout(function(){
-      window.print();
-    },300);
-
-  }
-);
-
-/* =========================================================
-   RESET
-========================================================= */
-
-$("resetBtn").addEventListener(
-  "click",
-  function(){
-
-    const form=$("notaryForm");
-
-    form.reset();
-
-    $("signers").value="1";
-    $("documents").value="1";
-    $("location").value="Office";
-
-    $("previewWrap")
-      .classList
-      .remove("show");
-
-    serviceButtons.forEach(
-      function(button){
-        button.classList.remove("selected");
-      }
-    );
-
-    showStatus(
-      "Notary service form reset."
-    );
-
-    $("request").scrollIntoView({
-      behavior:"smooth",
-      block:"start"
+    serviceButtons.forEach(button=>{
+      button.classList.toggle(
+        "selected",
+        button.dataset.service===data.serviceType
+      );
     });
 
+    showStatus("requestStatus","Saved request loaded.");
+
+  }catch(error){
+    showStatus("requestStatus","Unable to load saved request.");
   }
-);
 
-/* =========================================================
-   SERVICE SELECT SYNC
-========================================================= */
+});
 
-$("serviceType").addEventListener(
-  "change",
-  function(){
+/* EDIT REQUEST */
 
-    const selected=
-      $("serviceType").value;
+$("requestEdit").addEventListener("click",()=>{
 
-    serviceButtons.forEach(
-      function(button){
+  $("requestPreview").classList.remove("show");
 
-        button.classList.toggle(
-          "selected",
-          button.dataset.service===selected
-        );
+  $("serviceRequest").scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
 
-      }
+  showStatus("requestStatus","Edit mode ready.");
+
+});
+
+/* PRINT REQUEST */
+
+$("requestPrint").addEventListener("click",()=>{
+
+  if(!$("requestPreview").classList.contains("show")){
+    if(!generateRequest()) return;
+  }
+
+  setTimeout(()=>{
+    window.print();
+  },300);
+
+});
+
+/* RESET REQUEST */
+
+$("requestReset").addEventListener("click",()=>{
+
+  $("requestForm").reset();
+
+  $("signers").value="1";
+  $("documentCount").value="1";
+
+  serviceButtons.forEach(button=>{
+    button.classList.remove("selected");
+  });
+
+  $("requestPreview").classList.remove("show");
+
+  showStatus("requestStatus","Notary service request reset.");
+
+});
+
+/* SERVICE SELECT SYNC */
+
+$("serviceType").addEventListener("change",()=>{
+
+  const selected=$("serviceType").value;
+
+  serviceButtons.forEach(button=>{
+    button.classList.toggle(
+      "selected",
+      button.dataset.service===selected
     );
+  });
 
-  }
-);
+});
 
-/* =========================================================
-   PREVENT FORM PAGE RELOAD
-========================================================= */
+/* PREVENT FORM RELOAD */
 
-$("notaryForm").addEventListener(
-  "submit",
-  function(event){
+$("dynamicForm").addEventListener("submit",event=>{
+  event.preventDefault();
+  generateForm();
+});
 
-    event.preventDefault();
-
-    generateServiceRecord();
-
-  }
-);
+$("requestForm").addEventListener("submit",event=>{
+  event.preventDefault();
+  generateRequest();
+});
 
 })();
 </script>
