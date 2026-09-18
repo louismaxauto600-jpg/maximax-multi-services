@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><style>
+@font-face {
+  font-family: "Optimistic";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Optimistic Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+}
+:where(html) {
+  font-family: "Optimistic", system-ui, sans-serif;
+}
+:where(code, pre, kbd, samp) {
+  font-family: "Optimistic Mono", ui-monospace, monospace;
+}
+</style>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#000000">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Acknowledgment Certificate | Maximax Multi Services</title>
+<title>Maximax Multi Services | Professional Services</title>
+
+<meta name="description" content="Maximax Multi Services — Professional Services, Digital Solutions and AI Assistance. Part of BSS1815 PRO-MAX DMP.">
+
+<link rel="stylesheet" href="./style.css?v=20260917">
 
 <style>
-:root{
-  --orange:#ff7900;
-  --apricot:#ffad4d;
-  --black:#000000;
-  --deep:#050200;
-  --soft:#120600;
-  --text:#ffd2a3;
-  --muted:#d89558;
-  --border:rgba(255,121,0,.58);
-}
+/* =========================================================
+   MAXIMAX MULTI SERVICES
+   HOMEPAGE EMERGENCY RESTORE
+   ORANGE APRICOT + BLACK — NO WHITE
+========================================================= */
 
 *{
   box-sizing:border-box;
@@ -32,12 +51,26 @@ html{
 
 body{
   min-height:100vh;
+  margin:0;
   font-family:Arial,Helvetica,sans-serif;
-  color:var(--text);
+  color:#ffd2a3;
   background:
     radial-gradient(circle at 15% 5%,rgba(255,121,0,.18),transparent 30%),
-    radial-gradient(circle at 90% 18%,rgba(255,173,77,.11),transparent 30%),
-    linear-gradient(180deg,#000,#050200 48%,#120600);
+    radial-gradient(circle at 85% 20%,rgba(255,173,77,.10),transparent 28%),
+    linear-gradient(180deg,#000,#050200 48%,#120600 100%);
+}
+
+:root{
+  --black:#000000;
+  --deep:#050200;
+  --soft:#120600;
+  --orange:#ff7900;
+  --orange2:#ff8c1a;
+  --apricot:#ffad4d;
+  --text:#ffd2a3;
+  --muted:#d89558;
+  --border:rgba(255,121,0,.48);
+  --glow:rgba(255,121,0,.30);
 }
 
 a{
@@ -45,113 +78,136 @@ a{
   text-decoration:none;
 }
 
-button,
-input,
-select,
-textarea{
+button{
   font:inherit;
 }
 
-button,
-a{
-  -webkit-tap-highlight-color:transparent;
+img{
+  max-width:100%;
 }
 
 .container{
-  width:min(1100px,94%);
+  width:min(1180px,92%);
   margin:auto;
 }
 
-/* =====================================================
-   TOP BAR
-===================================================== */
+.section{
+  padding:80px 0;
+}
 
-.topbar{
-  padding:10px 12px;
+.section-title{
+  margin-bottom:12px;
+  color:var(--orange);
   text-align:center;
-  color:#000;
-  background:linear-gradient(90deg,#ff7900,#ffad4d,#ff7900);
-  font-size:11px;
+  font-size:clamp(28px,5vw,48px);
   font-weight:1000;
+  text-transform:uppercase;
   letter-spacing:1px;
 }
 
-/* =====================================================
-   HEADER
-===================================================== */
+.section-subtitle{
+  max-width:760px;
+  margin:0 auto 38px;
+  color:var(--text);
+  text-align:center;
+  line-height:1.7;
+}
 
-header{
+/* TOP BAR */
+
+.top-bar{
+  padding:9px 15px;
+  text-align:center;
+  color:#000;
+  background:linear-gradient(90deg,#ff7900,#ffad4d,#ff7900);
+  font-size:12px;
+  font-weight:1000;
+  letter-spacing:1.5px;
+}
+
+/* HEADER */
+
+.site-header{
   position:sticky;
   top:0;
-  z-index:1000;
+  z-index:999;
   border-bottom:1px solid var(--border);
   background:rgba(0,0,0,.96);
-  backdrop-filter:blur(14px);
+  backdrop-filter:blur(15px);
 }
 
 .header-inner{
-  min-height:86px;
+  min-height:92px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:15px;
+  gap:20px;
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:13px;
+  min-width:0;
 }
 
-.logo{
-  width:62px;
-  height:62px;
-  padding:4px;
-  object-fit:contain;
-  border:2px solid var(--orange);
-  border-radius:16px;
-  background:#000;
-  box-shadow:0 0 18px rgba(255,121,0,.45);
-}
-
-.brand h1{
-  color:var(--orange);
-  font-size:15px;
-  font-weight:1000;
-}
-
-.brand small{
+.brand-logo{
   display:block;
-  margin-top:5px;
-  color:var(--apricot);
-  font-size:8px;
-  font-weight:900;
+  width:74px;
+  height:74px;
+  min-width:74px;
+  object-fit:contain;
+  padding:4px;
+  background:#000;
+  border:2px solid var(--orange);
+  border-radius:17px;
+  box-shadow:0 0 20px rgba(255,121,0,.48);
 }
 
-.header-right{
+.brand-text{
+  min-width:0;
+}
+
+.brand-title{
+  color:var(--orange);
+  font-size:18px;
+  font-weight:1000;
+  letter-spacing:.7px;
+}
+
+.brand-subtitle{
+  margin-top:4px;
+  color:var(--apricot);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.header-actions{
   display:flex;
   align-items:center;
-  gap:8px;
+  gap:13px;
 }
 
-.languages{
+.language-switcher{
   display:flex;
-  gap:4px;
-  padding:4px;
+  align-items:center;
+  gap:5px;
+  padding:5px;
   border:1px solid var(--border);
   border-radius:999px;
-  background:#080300;
+  background:#090300;
 }
 
 .lang-btn{
-  min-height:35px;
-  padding:6px 10px;
+  min-height:37px;
+  padding:7px 10px;
   border:1px solid transparent;
   border-radius:999px;
   color:var(--apricot);
   background:#000;
   cursor:pointer;
-  font-size:10px;
+  font-size:11px;
   font-weight:1000;
 }
 
@@ -161,494 +217,635 @@ header{
   background:linear-gradient(135deg,var(--orange),var(--apricot));
 }
 
-.back-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:42px;
-  padding:9px 14px;
+.menu-toggle{
+  display:none;
+  width:45px;
+  height:45px;
   border:2px solid var(--orange);
-  border-radius:999px;
+  border-radius:12px;
   color:var(--orange);
   background:#000;
-  font-size:10px;
-  font-weight:1000;
+  cursor:pointer;
+  font-size:22px;
 }
 
-/* =====================================================
-   HERO
-===================================================== */
+/* NAV */
+
+.main-nav{
+  border-top:1px solid rgba(255,121,0,.16);
+}
+
+.nav-inner{
+  min-height:52px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:28px;
+}
+
+.nav-link{
+  color:var(--apricot);
+  font-size:12px;
+  font-weight:1000;
+  letter-spacing:.8px;
+  transition:.2s ease;
+}
+
+.nav-link:hover{
+  color:var(--orange);
+}
+
+/* HERO */
 
 .hero{
-  padding:65px 0 38px;
+  position:relative;
+  overflow:hidden;
+  padding:95px 0 65px;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:420px;
+  height:420px;
+  top:-180px;
+  right:-130px;
+  border-radius:50%;
+  background:rgba(255,121,0,.13);
+  filter:blur(25px);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:920px;
+  margin:auto;
   text-align:center;
 }
 
 .hero-badge{
-  display:inline-block;
-  margin-bottom:17px;
-  padding:8px 14px;
+  display:inline-flex;
+  padding:10px 17px;
+  margin-bottom:23px;
   border:1px solid var(--orange);
   border-radius:999px;
   color:var(--orange);
-  background:rgba(255,121,0,.06);
-  font-size:10px;
+  background:rgba(255,121,0,.07);
+  font-size:12px;
   font-weight:1000;
+  letter-spacing:1px;
 }
 
-.hero h2{
+.hero h1{
   color:var(--orange);
-  font-size:clamp(34px,7vw,62px);
-  line-height:1.05;
+  font-size:clamp(42px,8vw,86px);
+  line-height:.96;
   font-weight:1000;
-  text-shadow:0 0 28px rgba(255,121,0,.25);
+  text-transform:uppercase;
+  text-shadow:0 0 28px rgba(255,121,0,.30);
 }
 
 .hero p{
-  max-width:760px;
-  margin:18px auto 0;
+  max-width:790px;
+  margin:25px auto;
+  color:var(--text);
+  font-size:clamp(16px,2.3vw,21px);
   line-height:1.7;
-  font-size:15px;
 }
 
-/* =====================================================
-   FORM
-===================================================== */
-
-.section{
-  padding:35px 0 60px;
-}
-
-.form-shell{
-  padding:28px;
-  border:2px solid var(--orange);
-  border-radius:26px;
-  background:
-    radial-gradient(circle at 92% 2%,rgba(255,173,77,.10),transparent 30%),
-    linear-gradient(145deg,#120600,#000);
-  box-shadow:0 0 40px rgba(255,121,0,.12);
-}
-
-.form-title{
-  margin-bottom:7px;
-  color:var(--orange);
-  font-size:26px;
-  font-weight:1000;
-}
-
-.form-subtitle{
-  margin-bottom:24px;
-  color:var(--apricot);
-  font-size:12px;
-  line-height:1.65;
-}
-
-.form-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:17px;
-}
-
-.field{
+.hero-buttons{
   display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-
-.field.full{
-  grid-column:1/-1;
-}
-
-label{
-  color:var(--apricot);
-  font-size:10px;
-  font-weight:1000;
-  letter-spacing:.5px;
-}
-
-input,
-select,
-textarea{
-  width:100%;
-  min-height:50px;
-  padding:13px 14px;
-  border:1px solid var(--border);
-  border-radius:13px;
-  outline:none;
-  color:var(--text);
-  background:#050200;
-}
-
-textarea{
-  min-height:115px;
-  resize:vertical;
-}
-
-input::placeholder,
-textarea::placeholder{
-  color:#9a6337;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-  border-color:var(--orange);
-  box-shadow:0 0 0 3px rgba(255,121,0,.11);
-}
-
-select option{
-  color:var(--text);
-  background:#000;
-}
-
-/* =====================================================
-   ACTIONS
-===================================================== */
-
-.actions{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  margin-top:25px;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:13px;
+  margin-top:30px;
 }
 
 .btn{
-  min-height:48px;
-  padding:11px 15px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:50px;
+  padding:13px 22px;
   border:2px solid var(--orange);
   border-radius:999px;
   color:var(--orange);
   background:#000;
-  cursor:pointer;
-  font-size:10px;
+  font-size:12px;
   font-weight:1000;
+  letter-spacing:.7px;
+  cursor:pointer;
+  transition:.2s ease;
 }
 
-.btn.primary{
+.btn-primary{
   color:#000;
   background:linear-gradient(135deg,var(--orange),var(--apricot));
 }
 
-.status{
-  display:none;
-  margin-top:18px;
-  padding:13px 15px;
-  border:1px solid var(--orange);
-  border-radius:13px;
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 25px rgba(255,121,0,.35);
+}
+
+/* STATS */
+
+.hero-stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-top:55px;
+}
+
+.stat-card{
+  min-height:125px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:linear-gradient(145deg,#100500,#000);
+  box-shadow:0 12px 40px rgba(0,0,0,.45);
+}
+
+.stat-number{
   color:var(--orange);
-  background:rgba(255,121,0,.07);
-  font-size:11px;
-  font-weight:900;
+  font-size:31px;
+  font-weight:1000;
 }
 
-.status.show{
-  display:block;
-}
-
-/* =====================================================
-   PREVIEW
-===================================================== */
-
-.preview-wrap{
-  display:none;
-  margin-top:32px;
-}
-
-.preview-wrap.show{
-  display:block;
-}
-
-.print-document{
-  position:relative;
-  overflow:hidden;
-  padding:34px;
-  border:3px solid var(--orange);
-  border-radius:24px;
-  color:var(--text);
-  background:
-    radial-gradient(circle at 86% 8%,rgba(255,173,77,.18),transparent 28%),
-    linear-gradient(145deg,#120600,#000 67%);
-}
-
-.print-document::before,
-.print-document::after{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  height:8px;
-  background:linear-gradient(90deg,var(--orange),var(--apricot),var(--orange));
-}
-
-.print-document::before{top:0}
-.print-document::after{bottom:0}
-
-.document-head{
-  padding-bottom:20px;
-  margin-bottom:24px;
-  border-bottom:2px solid var(--orange);
-  text-align:center;
-}
-
-.document-head h2{
-  color:var(--orange);
-  font-size:27px;
-}
-
-.document-head h3{
+.stat-label{
   margin-top:7px;
   color:var(--apricot);
-  font-size:17px;
-}
-
-.document-head p{
-  margin-top:7px;
+  text-align:center;
   font-size:10px;
-}
-
-.document-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-}
-
-.document-item{
-  min-height:72px;
-  padding:13px;
-  border:1px solid var(--border);
-  border-radius:11px;
-  background:#050200;
-}
-
-.document-item.full{
-  grid-column:1/-1;
-}
-
-.document-label{
-  display:block;
-  margin-bottom:6px;
-  color:var(--orange);
-  font-size:9px;
   font-weight:1000;
+  letter-spacing:1px;
+}
+
+/* VIDEO */
+
+.maximax-video-wrapper{
+  position:relative;
+  width:100%;
+  max-width:1180px;
+  margin:15px auto 65px;
+  overflow:hidden;
+  background:#000;
+  border:3px solid var(--orange);
+  border-radius:26px;
+  box-shadow:
+    0 0 25px rgba(255,121,0,.45),
+    0 0 65px rgba(255,121,0,.15);
+}
+
+.maximax-main-video{
+  display:block;
+  width:100%;
+  height:auto;
+  margin:0;
+  background:#000;
+  object-fit:contain;
+}
+
+.video-brand{
+  position:absolute;
+  left:16px;
+  bottom:16px;
+  z-index:10;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  max-width:calc(100% - 190px);
+  padding:9px 13px;
+  border:1px solid var(--orange);
+  border-radius:16px;
+  color:var(--orange);
+  background:rgba(0,0,0,.90);
+  font-size:11px;
+  font-weight:1000;
+}
+
+.video-brand img{
+  width:36px;
+  height:36px;
+  object-fit:contain;
+  border-radius:8px;
+}
+
+.maximax-sound-button{
+  position:absolute;
+  right:18px;
+  bottom:18px;
+  z-index:50;
+  min-width:145px;
+  min-height:48px;
+  padding:12px 18px;
+  border:2px solid var(--orange);
+  border-radius:999px;
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+  cursor:pointer;
+  font-size:12px;
+  font-weight:1000;
+  box-shadow:0 0 18px rgba(255,121,0,.55);
+}
+
+/* SERVICE GRID */
+
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:17px;
+}
+
+.service-card{
+  position:relative;
+  min-height:220px;
+  display:flex;
+  flex-direction:column;
+  padding:25px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-radius:23px;
+  background:
+    radial-gradient(circle at 90% 0%,rgba(255,121,0,.12),transparent 32%),
+    linear-gradient(145deg,#100500,#000);
+  transition:.25s ease;
+}
+
+.service-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--orange);
+  box-shadow:0 0 28px rgba(255,121,0,.22);
+}
+
+.service-number{
+  color:var(--orange);
+  font-size:12px;
+  font-weight:1000;
+}
+
+.service-icon{
+  margin:15px 0 13px;
+  font-size:32px;
+}
+
+.service-card h3{
+  margin-bottom:9px;
+  color:var(--orange);
+  font-size:17px;
+  font-weight:1000;
+}
+
+.service-card p{
+  color:var(--text);
+  font-size:12px;
+  line-height:1.6;
+}
+
+.service-open{
+  margin-top:auto;
+  padding-top:18px;
+  color:var(--apricot);
+  font-size:10px;
+  font-weight:1000;
+  letter-spacing:.8px;
+}
+
+/* SPECIAL CENTERS */
+
+.centers{
+  background:
+    linear-gradient(180deg,rgba(255,121,0,.035),transparent),
+    #020100;
+  border-top:1px solid rgba(255,121,0,.15);
+  border-bottom:1px solid rgba(255,121,0,.15);
+}
+
+.centers-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.center-card{
+  min-height:125px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:20px;
+  border:1px solid var(--border);
+  border-radius:19px;
+  background:#080300;
+  transition:.2s ease;
+}
+
+.center-card:hover{
+  border-color:var(--orange);
+  transform:translateY(-3px);
+}
+
+.center-icon{
+  font-size:29px;
+}
+
+.center-card h3{
+  color:var(--orange);
+  font-size:14px;
+  margin-bottom:5px;
+}
+
+.center-card p{
+  color:var(--text);
+  font-size:11px;
+  line-height:1.5;
+}
+
+/* AI */
+
+.ai-box{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:30px;
+  align-items:center;
+  padding:40px;
+  border:2px solid var(--orange);
+  border-radius:30px;
+  background:
+    radial-gradient(circle at 80% 20%,rgba(255,173,77,.13),transparent 30%),
+    linear-gradient(135deg,#100500,#000);
+  box-shadow:0 0 50px rgba(255,121,0,.12);
+}
+
+.ai-box h2{
+  color:var(--orange);
+  font-size:clamp(29px,5vw,53px);
+  line-height:1;
   text-transform:uppercase;
 }
 
-.document-value{
-  font-size:12px;
-  line-height:1.55;
-  white-space:pre-wrap;
-  word-break:break-word;
-}
-
-.signature-box{
-  margin-top:18px;
-  padding:18px;
-  border:1px solid var(--border);
-  border-radius:12px;
-  background:#050200;
-}
-
-.signature-line{
-  height:65px;
-  margin-top:10px;
-  border-bottom:1px solid var(--orange);
-}
-
-.notary-box{
-  margin-top:18px;
-  padding:18px;
-  border:1px solid var(--orange);
-  border-radius:12px;
-  background:#050200;
-}
-
-.notary-box h4{
-  margin-bottom:14px;
-  color:var(--orange);
-}
-
-.notary-lines{
-  color:var(--text);
-  font-size:12px;
-  line-height:2;
-  white-space:pre-line;
-}
-
-.seal-box{
-  height:100px;
-  margin-top:15px;
-  padding:10px;
-  border:1px dashed var(--orange);
-  border-radius:11px;
-  color:var(--apricot);
-  font-size:10px;
-}
-
-.document-footer{
-  margin-top:24px;
-  padding-top:18px;
-  border-top:1px solid var(--orange);
-  text-align:center;
-  color:var(--apricot);
-  font-size:9px;
-  line-height:1.8;
-}
-
-.document-footer strong{
-  color:var(--orange);
-  font-size:12px;
-}
-
-/* =====================================================
-   NOTICE + FOOTER
-===================================================== */
-
-.notice{
-  margin-top:25px;
-  padding:18px;
-  border:1px solid var(--border);
-  border-radius:16px;
-  background:#050200;
-  font-size:10px;
+.ai-box p{
+  margin:20px 0;
   line-height:1.7;
 }
 
-.notice strong{
-  color:var(--orange);
+.ai-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
 }
 
-footer{
-  padding:38px 15px;
-  border-top:1px solid var(--border);
-  text-align:center;
+.ai-symbol{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:260px;
+  border:1px solid var(--border);
+  border-radius:25px;
   background:#000;
+  color:var(--orange);
+  font-size:100px;
+  box-shadow:inset 0 0 50px rgba(255,121,0,.09);
 }
 
-footer strong{
+/* CONTACT */
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:17px;
+}
+
+.contact-card{
+  min-height:170px;
+  padding:24px;
+  border:1px solid var(--border);
+  border-radius:21px;
+  background:linear-gradient(145deg,#0d0400,#000);
+}
+
+.contact-card h3{
+  margin-bottom:15px;
+  color:var(--orange);
+  font-size:16px;
+}
+
+.contact-card p,
+.contact-card a{
+  display:block;
+  margin:7px 0;
+  color:var(--text);
+  font-size:13px;
+  line-height:1.5;
+}
+
+.contact-card a:hover{
   color:var(--orange);
 }
 
-footer p{
-  margin-top:7px;
+/* SOCIAL */
+
+.social-row{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:32px;
+}
+
+.social-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 16px 10px 12px;
+  border:1px solid var(--orange);
+  border-radius:999px;
   color:var(--apricot);
+  background:#000;
+  font-size:11px;
+  font-weight:900;
+  transition:.2s ease;
+}
+
+.social-chip svg{
+  width:16px;
+  height:16px;
+  flex:none;
+  fill:var(--orange);
+  transition:.2s ease;
+}
+
+.social-chip:hover{
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+  transform:translateY(-2px);
+  box-shadow:0 0 18px rgba(255,121,0,.35);
+}
+
+.social-chip:hover svg{
+  fill:#000;
+}
+
+/* FOOTER */
+
+.site-footer{
+  padding:45px 0 25px;
+  border-top:1px solid var(--border);
+  background:#000;
+  text-align:center;
+}
+
+.footer-logo{
+  width:78px;
+  height:78px;
+  object-fit:contain;
+  margin-bottom:15px;
+  padding:4px;
+  border:2px solid var(--orange);
+  border-radius:17px;
+}
+
+.footer-title{
+  color:var(--orange);
+  font-weight:1000;
+}
+
+.footer-platform{
+  margin-top:8px;
+  color:var(--apricot);
+  font-size:12px;
+}
+
+.copyright{
+  margin-top:22px;
+  color:var(--muted);
   font-size:10px;
 }
 
-/* =====================================================
-   PRINT
-===================================================== */
+/* MOBILE */
 
-@media print{
-  @page{
-    margin:.35in;
+@media(max-width:1000px){
+  .services-grid{
+    grid-template-columns:repeat(2,1fr);
   }
 
-  *{
-    -webkit-print-color-adjust:exact!important;
-    print-color-adjust:exact!important;
+  .hero-stats{
+    grid-template-columns:repeat(2,1fr);
   }
 
-  html,
-  body{
-    background:#000!important;
-  }
-
-  .topbar,
-  header,
-  .hero,
-  .form-shell,
-  .notice,
-  footer,
-  .no-print{
-    display:none!important;
-  }
-
-  .preview-wrap{
-    display:block!important;
-    margin:0!important;
-  }
-
-  .container{
-    width:100%!important;
-    max-width:none!important;
-  }
-
-  .print-document{
-    min-height:95vh;
-    margin:0!important;
-    border:3px solid #ff7900!important;
-    border-radius:0!important;
-    background:
-      radial-gradient(circle at 86% 8%,rgba(255,173,77,.18),transparent 28%),
-      linear-gradient(145deg,#120600,#000 67%)!important;
+  .centers-grid{
+    grid-template-columns:repeat(2,1fr);
   }
 }
 
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media(max-width:700px){
-
+@media(max-width:850px){
   .header-inner{
-    min-height:78px;
-    gap:7px;
+    min-height:82px;
   }
 
-  .brand{
-    gap:7px;
+  .brand-logo{
+    width:60px;
+    height:60px;
+    min-width:60px;
   }
 
-  .logo{
-    width:48px;
-    height:48px;
+  .brand-title{
+    font-size:14px;
   }
 
-  .brand h1{
-    max-width:130px;
-    font-size:10px;
-  }
-
-  .brand small{
-    font-size:6px;
-  }
-
-  .languages{
-    gap:2px;
-    padding:3px;
-  }
-
-  .lang-btn{
-    min-height:32px;
-    padding:5px 7px;
+  .brand-subtitle{
     font-size:8px;
   }
 
-  .back-btn{
+  .menu-toggle{
+    display:block;
+  }
+
+  .main-nav{
     display:none;
   }
 
-  .hero{
-    padding:50px 0 32px;
+  .main-nav.open{
+    display:block;
   }
 
-  .form-grid,
-  .document-grid,
-  .actions{
+  .nav-inner{
+    min-height:auto;
+    padding:18px 0;
+    flex-direction:column;
+    gap:18px;
+  }
+
+  .language-switcher{
+    position:fixed;
+    left:50%;
+    bottom:12px;
+    transform:translateX(-50%);
+    z-index:1500;
+    box-shadow:0 0 25px rgba(255,121,0,.35);
+  }
+
+  .ai-box{
     grid-template-columns:1fr;
   }
 
-  .field.full,
-  .document-item.full{
-    grid-column:auto;
+  .ai-symbol{
+    min-height:180px;
+  }
+}
+
+@media(max-width:700px){
+  .section{
+    padding:60px 0;
   }
 
-  .form-shell{
-    padding:19px;
+  .hero{
+    padding:65px 0 45px;
   }
 
-  .print-document{
-    padding:24px 17px;
+  .hero-stats,
+  .services-grid,
+  .centers-grid,
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+  }
+
+  .btn{
+    width:100%;
+  }
+
+  .service-card{
+    min-height:190px;
+  }
+
+  .maximax-video-wrapper{
+    border-radius:18px;
+  }
+
+  .maximax-sound-button{
+    right:10px;
+    bottom:10px;
+    min-width:125px;
+    min-height:43px;
+    padding:10px 14px;
+    font-size:11px;
+  }
+
+  .video-brand{
+    left:10px;
+    bottom:63px;
+    max-width:calc(100% - 20px);
+  }
+
+  .ai-box{
+    padding:25px;
   }
 }
 </style>
@@ -656,481 +853,762 @@ footer p{
 
 <body>
 
-<div class="topbar">
-MAXIMAX MULTI SERVICES • NOTARY FORMS CENTER • ACKNOWLEDGMENT
+<div class="top-bar">
+  MAXIMAX MULTI SERVICES • PROFESSIONAL SERVICES • DIGITAL SOLUTIONS
 </div>
 
-<header>
-<div class="container header-inner">
+<header class="site-header">
+  <div class="container header-inner">
 
-<a class="brand" href="../notary.html">
+    <a class="brand" href="#home">
+      <img
+        class="brand-logo"
+        src="./maximax-logo.jpg?v=20260917"
+        alt="Maximax Multi Services Logo"
+      >
 
-<img
-  class="logo"
-  src="../../maximax-multi-services.jpg?v=20260918"
-  alt="Maximax Multi Services Logo">
+      <div class="brand-text">
+        <div class="brand-title">MAXIMAX MULTI SERVICES</div>
+        <div class="brand-subtitle">PART OF BSS1815 PRO-MAX DMP</div>
+      </div>
+    </a>
 
-<div>
-<h1>MAXIMAX MULTI SERVICES</h1>
-<small>ACKNOWLEDGMENT CERTIFICATE</small>
-</div>
+    <div class="header-actions">
 
-</a>
+      <div class="language-switcher">
+        <button class="lang-btn active" data-lang="en">🇺🇸 ENG</button>
+        <button class="lang-btn" data-lang="es">🇪🇸 ESP</button>
+        <button class="lang-btn" data-lang="ht">🇭🇹 KRE</button>
+      </div>
 
-<div class="header-right">
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >☰</button>
 
-<div class="languages">
-<button class="lang-btn active" type="button" data-lang="en">🇺🇸 ENG</button>
-<button class="lang-btn" type="button" data-lang="es">🇪🇸 ESP</button>
-<button class="lang-btn" type="button" data-lang="ht">🇭🇹 KRE</button>
-</div>
+    </div>
+  </div>
 
-<a
-  class="back-btn"
-  href="../notary.html"
-  data-en="← NOTARY CENTER"
-  data-es="← CENTRO NOTARIAL"
-  data-ht="← SANT NOTÈ">
-← NOTARY CENTER
-</a>
+  <nav class="main-nav" id="mainNav">
+    <div class="container nav-inner">
+      <a class="nav-link" href="#home"
+         data-en="HOME"
+         data-es="INICIO"
+         data-ht="AKÈY">HOME</a>
 
-</div>
-</div>
+      <a class="nav-link" href="#services"
+         data-en="SERVICES"
+         data-es="SERVICIOS"
+         data-ht="SÈVIS">SERVICES</a>
+
+      <a class="nav-link" href="./pages/ai-center.html"
+         data-en="AI CENTER"
+         data-es="CENTRO IA"
+         data-ht="AI CENTER">AI CENTER</a>
+
+      <a class="nav-link" href="#centers"
+         data-en="DIGITAL CENTERS"
+         data-es="CENTROS DIGITALES"
+         data-ht="SANT DIJITAL">DIGITAL CENTERS</a>
+
+      <a class="nav-link" href="#contact"
+         data-en="CONTACT"
+         data-es="CONTACTO"
+         data-ht="KONTAK">CONTACT</a>
+    </div>
+  </nav>
 </header>
 
 <main>
 
-<section class="hero">
+<!-- HERO -->
+
+<section class="hero" id="home">
+  <div class="container">
+
+    <div class="hero-content">
+
+      <div class="hero-badge"
+           data-en="PROFESSIONAL SERVICES • DIGITAL SOLUTIONS • AI ASSISTANCE"
+           data-es="SERVICIOS PROFESIONALES • SOLUCIONES DIGITALES • ASISTENCIA IA"
+           data-ht="SÈVIS PWOFESYONÈL • SOLISYON DIJITAL • ASISTANS AI">
+        PROFESSIONAL SERVICES • DIGITAL SOLUTIONS • AI ASSISTANCE
+      </div>
+
+      <h1>MAXIMAX<br>MULTI SERVICES</h1>
+
+      <p
+        data-en="Professional services, digital solutions and intelligent assistance — all in one powerful service platform."
+        data-es="Servicios profesionales, soluciones digitales y asistencia inteligente — todo en una sola plataforma."
+        data-ht="Sèvis pwofesyonèl, solisyon dijital ak asistans entèlijan — tout nan yon sèl platfòm sèvis.">
+        Professional services, digital solutions and intelligent assistance — all in one powerful service platform.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="#services"
+           data-en="EXPLORE SERVICES"
+           data-es="VER SERVICIOS"
+           data-ht="GADE SÈVIS YO">
+          EXPLORE SERVICES
+        </a>
+
+        <a class="btn" href="./pages/client-portal.html"
+           data-en="CLIENT PORTAL"
+           data-es="PORTAL DEL CLIENTE"
+           data-ht="PÒTAL KLIYAN">
+          CLIENT PORTAL
+        </a>
+
+        <a class="btn" href="./pages/appointment-center.html"
+           data-en="APPOINTMENT"
+           data-es="CITA"
+           data-ht="RANDEVOU">
+          APPOINTMENT
+        </a>
+      </div>
+
+    </div>
+
+    <div class="hero-stats">
+
+      <a class="stat-card" href="#services">
+        <div class="stat-number">16</div>
+        <div class="stat-label"
+             data-en="CORE SERVICES"
+             data-es="SERVICIOS PRINCIPALES"
+             data-ht="SÈVIS PRENSIPAL">
+          CORE SERVICES
+        </div>
+      </a>
+
+      <div class="stat-card">
+        <div class="stat-number">3</div>
+        <div class="stat-label"
+             data-en="LANGUAGES"
+             data-es="IDIOMAS"
+             data-ht="LANG">
+          LANGUAGES
+        </div>
+      </div>
+
+      <a class="stat-card" href="./pages/ai-center.html">
+        <div class="stat-number">AI</div>
+        <div class="stat-label"
+             data-en="AI ASSISTANCE"
+             data-es="ASISTENCIA IA"
+             data-ht="ASISTANS AI">
+          AI ASSISTANCE
+        </div>
+      </a>
+
+      <a class="stat-card" href="./pages/chat.html">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label"
+             data-en="DIGITAL ACCESS"
+             data-es="ACCESO DIGITAL"
+             data-ht="AKSÈ DIJITAL">
+          DIGITAL ACCESS
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- VIDEO -->
+
+<section class="container">
+
+  <div class="maximax-video-wrapper">
+
+    <video
+      class="maximax-main-video"
+      id="maximaxMainVideo"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+    >
+      <source
+        src="./maximax-multi-services.mp4?v=20260917"
+        type="video/mp4"
+      >
+    </video>
+
+    <div class="video-brand">
+      <img
+        src="./maximax-logo.jpg?v=20260917"
+        alt="Maximax"
+      >
+      <span>MAXIMAX MULTI SERVICES</span>
+    </div>
+
+    <button
+      class="maximax-sound-button"
+      id="maximaxSoundButton"
+      type="button"
+    >
+      🔊 TURN SOUND ON
+    </button>
+
+  </div>
+
+</section>
+
+<!-- 16 CORE SERVICES -->
+
+<section class="section" id="services">
+  <div class="container">
+
+    <h2 class="section-title"
+        data-en="16 CORE SERVICES"
+        data-es="16 SERVICIOS PRINCIPALES"
+        data-ht="16 SÈVIS PRENSIPAL">
+      16 CORE SERVICES
+    </h2>
+
+    <p class="section-subtitle"
+       data-en="Choose the service you need. Every service opens its dedicated center."
+       data-es="Seleccione el servicio que necesita. Cada servicio abre su centro dedicado."
+       data-ht="Chwazi sèvis ou bezwen an. Chak sèvis ouvri sant pa li.">
+      Choose the service you need. Every service opens its dedicated center.
+    </p>
+
+    <div class="services-grid">
+
+      <a class="service-card" href="./pages/notary.html">
+        <span class="service-number">01</span>
+        <div class="service-icon">✍🏽</div>
+        <h3 data-en="Notary Services" data-es="Servicios Notariales" data-ht="Sèvis Notè">Notary Services</h3>
+        <p data-en="Professional notary assistance and document services."
+           data-es="Asistencia notarial profesional y servicios de documentos."
+           data-ht="Asistans notè pwofesyonèl ak sèvis dokiman.">
+          Professional notary assistance and document services.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/taxes.html">
+        <span class="service-number">02</span>
+        <div class="service-icon">🧾</div>
+        <h3 data-en="Tax Services" data-es="Servicios de Impuestos" data-ht="Sèvis Taks">Tax Services</h3>
+        <p data-en="Tax preparation and professional tax support."
+           data-es="Preparación de impuestos y apoyo profesional."
+           data-ht="Preparasyon taks ak asistans pwofesyonèl.">
+          Tax preparation and professional tax support.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/immigration.html">
+        <span class="service-number">03</span>
+        <div class="service-icon">🗽</div>
+        <h3 data-en="Immigration Services" data-es="Servicios de Inmigración" data-ht="Sèvis Imigrasyon">Immigration Services</h3>
+        <p data-en="Immigration document preparation and service assistance."
+           data-es="Preparación de documentos de inmigración y asistencia."
+           data-ht="Preparasyon dokiman imigrasyon ak asistans sèvis.">
+          Immigration document preparation and service assistance.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/eoir-bia.html">
+        <span class="service-number">04</span>
+        <div class="service-icon">⚖️</div>
+        <h3>EOIR + BIA</h3>
+        <p data-en="Dedicated EOIR and BIA document support center."
+           data-es="Centro dedicado de apoyo documental EOIR y BIA."
+           data-ht="Sant espesyal pou sipò dokiman EOIR ak BIA.">
+          Dedicated EOIR and BIA document support center.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/insurance.html">
+        <span class="service-number">05</span>
+        <div class="service-icon">🛡️</div>
+        <h3 data-en="Insurance" data-es="Seguros" data-ht="Asirans">Insurance</h3>
+        <p data-en="Insurance service information and assistance."
+           data-es="Información y asistencia de seguros."
+           data-ht="Enfòmasyon ak asistans pou sèvis asirans.">
+          Insurance service information and assistance.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/real-estate.html">
+        <span class="service-number">06</span>
+        <div class="service-icon">🏠</div>
+        <h3 data-en="Real Estate" data-es="Bienes Raíces" data-ht="Imobilye">Real Estate</h3>
+        <p data-en="Real estate resources and professional service assistance."
+           data-es="Recursos inmobiliarios y asistencia profesional."
+           data-ht="Resous imobilye ak asistans sèvis pwofesyonèl.">
+          Real estate resources and professional service assistance.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/business.html">
+        <span class="service-number">07</span>
+        <div class="service-icon">💼</div>
+        <h3 data-en="Business Services" data-es="Servicios Empresariales" data-ht="Sèvis Biznis">Business Services</h3>
+        <p data-en="Business setup, documents and professional support."
+           data-es="Creación de empresas, documentos y apoyo profesional."
+           data-ht="Kreyasyon biznis, dokiman ak sipò pwofesyonèl.">
+          Business setup, documents and professional support.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/apostille.html">
+        <span class="service-number">08</span>
+        <div class="service-icon">📜</div>
+        <h3>Apostille</h3>
+        <p data-en="Apostille document service and preparation assistance."
+           data-es="Servicio y preparación de documentos de apostilla."
+           data-ht="Sèvis apostille ak asistans preparasyon dokiman.">
+          Apostille document service and preparation assistance.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/travel-dmv.html">
+        <span class="service-number">09</span>
+        <div class="service-icon">✈️</div>
+        <h3>Travel + DMV</h3>
+        <p data-en="Travel resources and DMV service assistance."
+           data-es="Recursos de viaje y asistencia con servicios del DMV."
+           data-ht="Resous vwayaj ak asistans sèvis DMV.">
+          Travel resources and DMV service assistance.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/ai-center.html">
+        <span class="service-number">10</span>
+        <div class="service-icon">🤖</div>
+        <h3>AI Center</h3>
+        <p data-en="Smart digital assistance powered by artificial intelligence."
+           data-es="Asistencia digital inteligente con inteligencia artificial."
+           data-ht="Asistans dijital entèlijan avèk entèlijans atifisyèl.">
+          Smart digital assistance powered by artificial intelligence.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/form-helper.html">
+        <span class="service-number">11</span>
+        <div class="service-icon">📝</div>
+        <h3 data-en="Form Help Center" data-es="Centro de Formularios" data-ht="Sant Èd Fòm">Form Help Center</h3>
+        <p data-en="Guided help for forms and document preparation."
+           data-es="Ayuda guiada para formularios y preparación de documentos."
+           data-ht="Èd gide pou fòm ak preparasyon dokiman.">
+          Guided help for forms and document preparation.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/career-tracker.html">
+        <span class="service-number">12</span>
+        <div class="service-icon">📈</div>
+        <h3 data-en="Career Tracker" data-es="Seguimiento Profesional" data-ht="Career Tracker">Career Tracker</h3>
+        <p data-en="Career organization, progress and opportunity tracking."
+           data-es="Organización profesional y seguimiento de oportunidades."
+           data-ht="Òganizasyon karyè ak swivi opòtinite.">
+          Career organization, progress and opportunity tracking.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/translation-ai.html">
+        <span class="service-number">13</span>
+        <div class="service-icon">🌐</div>
+        <h3 data-en="AI Translation" data-es="Traducción IA" data-ht="Tradiksyon AI">AI Translation</h3>
+        <p data-en="Multilingual digital translation assistance."
+           data-es="Asistencia de traducción digital multilingüe."
+           data-ht="Asistans tradiksyon dijital nan plizyè lang.">
+          Multilingual digital translation assistance.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/chat.html">
+        <span class="service-number">14</span>
+        <div class="service-icon">💬</div>
+        <h3 data-en="Chat 24/7" data-es="Chat 24/7" data-ht="Chat 24/7">Chat 24/7</h3>
+        <p data-en="Digital access to assistance around the clock."
+           data-es="Acceso digital a asistencia las 24 horas."
+           data-ht="Aksè dijital pou asistans lajounen kou lannuit.">
+          Digital access to assistance around the clock.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/try-ai.html">
+        <span class="service-number">15</span>
+        <div class="service-icon">✨</div>
+        <h3>Try AI</h3>
+        <p data-en="Experience Maximax intelligent digital tools."
+           data-es="Pruebe las herramientas digitales inteligentes de Maximax."
+           data-ht="Eseye zouti dijital entèlijan Maximax yo.">
+          Experience Maximax intelligent digital tools.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/credit-repair.html">
+        <span class="service-number">16</span>
+        <div class="service-icon">💳</div>
+        <h3 data-en="Credit Repair" data-es="Reparación de Crédito" data-ht="Reparasyon Kredi">Credit Repair</h3>
+        <p data-en="Credit education, organization and service assistance."
+           data-es="Educación, organización y asistencia de crédito."
+           data-ht="Edikasyon, òganizasyon ak asistans pou kredi.">
+          Credit education, organization and service assistance.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- NOTARY SERVICES DETAIL (ADDED) -->
+
+<section class="section" id="notary">
+  <div class="container">
+
+    <h2 class="section-title"
+        data-en="NOTARY SERVICES"
+        data-es="SERVICIOS NOTARIALES"
+        data-ht="SÈVIS NOTÈ">
+      NOTARY SERVICES
+    </h2>
+
+    <p class="section-subtitle"
+       data-en="Professional notary assistance and document services — fast, reliable and secure notarization for all your important documents."
+       data-es="Asistencia notarial profesional y servicios de documentos — notarización rápida, confiable y segura para todos sus documentos importantes."
+       data-ht="Asistans notè pwofesyonèl ak sèvis dokiman — notarye rapid, serye epi an sekirite pou tout dokiman enpòtan ou yo.">
+      Professional notary assistance and document services — fast, reliable and secure notarization for all your important documents.
+    </p>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <span class="service-number">N-01</span>
+        <div class="service-icon">✍🏽</div>
+        <h3 data-en="Acknowledgments" data-es="Reconocimientos" data-ht="Rekonèsans">Acknowledgments</h3>
+        <p data-en="Notarization of signatures on deeds, contracts, powers of attorney and other legal documents."
+           data-es="Notarización de firmas en escrituras, contratos, poderes notariales y otros documentos legales."
+           data-ht="Notarye siyati sou papye kay, kontra, pouvwa ak lòt dokiman legal.">
+          Notarization of signatures on deeds, contracts, powers of attorney and other legal documents.
+        </p>
+        <span class="service-open">BOOK NOW →</span>
+      </div>
+
+      <div class="service-card">
+        <span class="service-number">N-02</span>
+        <div class="service-icon">⚖️</div>
+        <h3>Jurats</h3>
+        <p data-en="Oaths and affirmations for affidavits, sworn statements and legal declarations."
+           data-es="Juramentos y afirmaciones para declaraciones juradas y declaraciones legales."
+           data-ht="Sèman ak afimasyon pou afidavi, deklarasyon sou sèman ak deklarasyon legal.">
+          Oaths and affirmations for affidavits, sworn statements and legal declarations.
+        </p>
+        <span class="service-open">BOOK NOW →</span>
+      </div>
+
+      <div class="service-card">
+        <span class="service-number">N-03</span>
+        <div class="service-icon">📜</div>
+        <h3 data-en="Oaths & Affirmations" data-es="Juramentos y Afirmaciones" data-ht="Sèman & Afimasyon">Oaths & Affirmations</h3>
+        <p data-en="Administration of oaths for witnesses, affidavits and official statements."
+           data-es="Administración de juramentos para testigos, declaraciones juradas y declaraciones oficiales."
+           data-ht="Administre sèman pou temwen, afidavi ak deklarasyon ofisyèl.">
+          Administration of oaths for witnesses, affidavits and official statements.
+        </p>
+        <span class="service-open">BOOK NOW →</span>
+      </div>
+
+      <div class="service-card">
+        <span class="service-number">N-04</span>
+        <div class="service-icon">📝</div>
+        <h3 data-en="Copy Certification" data-es="Certificación de Copias" data-ht="Sètifikasyon Kopi">Copy Certification</h3>
+        <p data-en="Certified true copies of original documents where permitted by law."
+           data-es="Copias certificadas de documentos originales donde la ley lo permite."
+           data-ht="Kopi sètifye dokiman orijinal kote lalwa pèmèt li.">
+          Certified true copies of original documents where permitted by law.
+        </p>
+        <span class="service-open">BOOK NOW →</span>
+      </div>
+
+      <div class="service-card">
+        <span class="service-number">N-05</span>
+        <div class="service-icon">🏠</div>
+        <h3 data-en="Loan Signings" data-es="Firma de Préstamos" data-ht="Siyati Prè">Loan Signings</h3>
+        <p data-en="Professional signing agent services for real estate closings and loan documents."
+           data-es="Servicios profesionales de firma para cierres inmobiliarios y documentos de préstamos."
+           data-ht="Sèvis ajan siyati pwofesyonèl pou fèmen kay ak dokiman prè.">
+          Professional signing agent services for real estate closings and loan documents.
+        </p>
+        <span class="service-open">BOOK NOW →</span>
+      </div>
+
+      <div class="service-card">
+        <span class="service-number">N-06</span>
+        <div class="service-icon">🚗</div>
+        <h3 data-en="Mobile Notary" data-es="Notario Móvil" data-ht="Notè Mobil">Mobile Notary</h3>
+        <p data-en="We come to you — home, office or any convenient location for your notarization."
+           data-es="Vamos a usted — hogar, oficina o cualquier lugar conveniente para su notarización."
+           data-ht="Nou vin jwenn ou — lakay, biwo oswa nenpòt kote ki bon pou notarye ou.">
+          We come to you — home, office or any convenient location for your notarization.
+        </p>
+        <span class="service-open">BOOK NOW →</span>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:35px;display:flex;justify-content:center;flex-wrap:wrap;gap:13px;">
+      <a class="btn btn-primary" href="#contact"
+         data-en="BOOK NOTARY APPOINTMENT"
+         data-es="RESERVAR CITA NOTARIAL"
+         data-ht="REZÈVE RANDEVOU NOTÈ">
+        BOOK NOTARY APPOINTMENT
+      </a>
+      <a class="btn" href="tel:+14076405166">
+        📞 (407) 640-5166
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- SPECIAL CENTERS -->
+
+<section class="section centers" id="centers">
 <div class="container">
 
-<div
-  class="hero-badge"
-  data-en="NOTARY FORM 01"
-  data-es="FORMULARIO NOTARIAL 01"
-  data-ht="FÒM NOTÈ 01">
-NOTARY FORM 01
-</div>
-
-<h2
-  data-en="ACKNOWLEDGMENT CERTIFICATE"
-  data-es="CERTIFICADO DE RECONOCIMIENTO"
-  data-ht="SÈTIFIKA REKONESANS">
-ACKNOWLEDGMENT CERTIFICATE
+<h2 class="section-title"
+    data-en="DIGITAL & SPECIALIZED CENTERS"
+    data-es="CENTROS DIGITALES Y ESPECIALIZADOS"
+    data-ht="SANT DIJITAL AK ESPESYALIZE">
+DIGITAL & SPECIALIZED CENTERS
 </h2>
 
-<p
-  data-en="Complete the acknowledgment information record, save it, edit it, generate the printable record and print it when ready."
-  data-es="Complete el registro de reconocimiento, guárdelo, edítelo, genere el registro imprimible e imprímalo cuando esté listo."
-  data-ht="Ranpli dosye enfòmasyon rekonesans lan, sove li, edite li, jenere dosye pou enprime a epi enprime li lè li pare.">
-Complete the acknowledgment information record, save it, edit it, generate the printable record and print it when ready.
+<p class="section-subtitle"
+   data-en="Additional centers that support the 16 core services."
+   data-es="Centros adicionales que apoyan los 16 servicios principales."
+   data-ht="Sant anplis ki sipòte 16 sèvis prensipal yo.">
+Additional centers that support the 16 core services.
 </p>
 
+<div class="centers-grid">
+
+<a class="center-card" href="./pages/government-forms.html">
+<div class="center-icon">🏛️</div>
+<div>
+<h3>Government Forms</h3>
+<p>Government form resources and assistance.</p>
+</div>
+</a>
+
+<a class="center-card" href="./pages/non-contested-divorce.html">
+<div class="center-icon">📄</div>
+<div>
+<h3>Non-Contested Divorce</h3>
+<p>Dedicated document preparation center.</p>
+</div>
+</a>
+
+<a class="center-card" href="./pages/document-checklist.html">
+<div class="center-icon">☑️</div>
+<div>
+<h3>Document Checklist</h3>
+<p>Organize required documents and next steps.</p>
+</div>
+</a>
+
+<a class="center-card" href="./pages/document-center.html">
+<div class="center-icon">🗂️</div>
+<div>
+<h3>Document Center</h3>
+<p>Central document preparation workspace.</p>
+</div>
+</a>
+
+<a class="center-card" href="./pages/appointment-center.html">
+<div class="center-icon">📅</div>
+<div>
+<h3>Appointment Center</h3>
+<p>Appointment and service scheduling center.</p>
+</div>
+</a>
+
+<a class="center-card" href="./pages/client-portal.html">
+<div class="center-icon">👤</div>
+<div>
+<h3>Client Portal</h3>
+<p>Central digital client access.</p>
+</div>
+</a>
+
+<a class="center-card" href="./pages/contact-center.html">
+<div class="center-icon">☎️</div>
+<div>
+<h3>Contact Center</h3>
+<p>Central communication and assistance center.</p>
+</div>
+</a>
+
+<a class="center-card" href="./pages/payment-center.html">
+<div class="center-icon">💰</div>
+<div>
+<h3>Payment Center</h3>
+<p>Service payment management center.</p>
+</div>
+</a>
+
+<a class="center-card" href="./pages/receipt-center.html">
+<div class="center-icon">🧾</div>
+<div>
+<h3>Receipt Center</h3>
+<p>Generate and organize service receipts.</p>
+</div>
+</a>
+
+<a class="center-card" href="./pages/invoice-center.html">
+<div class="center-icon">📑</div>
+<div>
+<h3>Invoice Center</h3>
+<p>Create and organize service invoices.</p>
+</div>
+</a>
+
+<a class="center-card" href="./pages/service-request-center.html">
+<div class="center-icon">📨</div>
+<div>
+<h3>Service Request Center</h3>
+<p>Submit and manage service requests.</p>
+</div>
+</a>
+
+</div>
 </div>
 </section>
+
+<!-- AI -->
 
 <section class="section">
 <div class="container">
 
-<div class="form-shell">
+<div class="ai-box">
 
-<h3
-  class="form-title"
-  data-en="ACKNOWLEDGMENT INFORMATION"
-  data-es="INFORMACIÓN DE RECONOCIMIENTO"
-  data-ht="ENFÒMASYON REKONESANS">
-ACKNOWLEDGMENT INFORMATION
-</h3>
+<div>
+<h2>MAXIMAX AI CENTER</h2>
 
 <p
-  class="form-subtitle"
-  data-en="Enter the information associated with the requested acknowledgment."
-  data-es="Ingrese la información relacionada con el reconocimiento solicitado."
-  data-ht="Antre enfòmasyon ki gen rapò ak rekonesans yo mande a.">
-Enter the information associated with the requested acknowledgment.
+ data-en="Use Maximax digital tools for intelligent assistance, form guidance, translation and service navigation."
+ data-es="Utilice las herramientas digitales de Maximax para asistencia inteligente, formularios, traducción y navegación de servicios."
+ data-ht="Sèvi ak zouti dijital Maximax pou asistans entèlijan, gid fòm, tradiksyon ak navigasyon sèvis.">
+Use Maximax digital tools for intelligent assistance, form guidance, translation and service navigation.
 </p>
 
-<form id="ackForm">
-
-<div class="form-grid">
-
-<div class="field">
-<label
-  data-en="SIGNER FULL NAME"
-  data-es="NOMBRE COMPLETO DEL FIRMANTE"
-  data-ht="NON KONPLÈ SIYATÈ">
-SIGNER FULL NAME
-</label>
-<input id="signerName" type="text" required>
-</div>
-
-<div class="field">
-<label
-  data-en="PHONE NUMBER"
-  data-es="NÚMERO DE TELÉFONO"
-  data-ht="NIMEWO TELEFÒN">
-PHONE NUMBER
-</label>
-<input id="phone" type="tel">
-</div>
-
-<div class="field">
-<label>EMAIL</label>
-<input id="email" type="email">
-</div>
-
-<div class="field">
-<label
-  data-en="DATE OF ACKNOWLEDGMENT"
-  data-es="FECHA DEL RECONOCIMIENTO"
-  data-ht="DAT REKONESANS">
-DATE OF ACKNOWLEDGMENT
-</label>
-<input id="ackDate" type="date">
-</div>
-
-<div class="field">
-<label
-  data-en="STATE"
-  data-es="ESTADO"
-  data-ht="ETA">
-STATE
-</label>
-<input id="state" type="text" placeholder="Florida">
-</div>
-
-<div class="field">
-<label
-  data-en="COUNTY"
-  data-es="CONDADO"
-  data-ht="KONTE">
-COUNTY
-</label>
-<input id="county" type="text">
-</div>
-
-<div class="field full">
-<label
-  data-en="SIGNER ADDRESS"
-  data-es="DIRECCIÓN DEL FIRMANTE"
-  data-ht="ADRÈS SIYATÈ">
-SIGNER ADDRESS
-</label>
-<input id="address" type="text">
-</div>
-
-<div class="field">
-<label
-  data-en="DOCUMENT DATE"
-  data-es="FECHA DEL DOCUMENTO"
-  data-ht="DAT DOKIMAN">
-DOCUMENT DATE
-</label>
-<input id="documentDate" type="date">
-</div>
-
-<div class="field">
-<label
-  data-en="NUMBER OF PAGES"
-  data-es="NÚMERO DE PÁGINAS"
-  data-ht="KANTITE PAJ">
-NUMBER OF PAGES
-</label>
-<input id="pages" type="number" min="1">
-</div>
-
-<div class="field full">
-<label
-  data-en="DOCUMENT TITLE / DESCRIPTION"
-  data-es="TÍTULO / DESCRIPCIÓN DEL DOCUMENTO"
-  data-ht="TIT / DESKRIPSYON DOKIMAN">
-DOCUMENT TITLE / DESCRIPTION
-</label>
-<input id="documentTitle" type="text">
-</div>
-
-<div class="field">
-<label
-  data-en="SIGNER CAPACITY / TITLE"
-  data-es="CAPACIDAD / TÍTULO DEL FIRMANTE"
-  data-ht="KAPASITE / TIT SIYATÈ">
-SIGNER CAPACITY / TITLE
-</label>
-<input id="capacity" type="text" placeholder="Individual, officer, representative...">
-</div>
-
-<div class="field">
-<label
-  data-en="IDENTIFICATION TYPE"
-  data-es="TIPO DE IDENTIFICACIÓN"
-  data-ht="KALITE PYÈS IDANTITE">
-IDENTIFICATION TYPE
-</label>
-
-<select id="idType">
-<option value="">Select ID</option>
-<option>Driver License</option>
-<option>State ID</option>
-<option>Passport</option>
-<option>Other Identification</option>
-</select>
-</div>
-
-<div class="field">
-<label
-  data-en="IDENTIFICATION NUMBER / REFERENCE"
-  data-es="NÚMERO / REFERENCIA DE IDENTIFICACIÓN"
-  data-ht="NIMEWO / REFERANS IDANTIFIKASYON">
-IDENTIFICATION NUMBER / REFERENCE
-</label>
-<input id="idNumber" type="text">
-</div>
-
-<div class="field">
-<label
-  data-en="IDENTIFICATION EXPIRATION"
-  data-es="VENCIMIENTO DE IDENTIFICACIÓN"
-  data-ht="DAT EKSPIRASYON IDANTITE">
-IDENTIFICATION EXPIRATION
-</label>
-<input id="idExpiration" type="date">
-</div>
-
-<div class="field full">
-<label
-  data-en="ADDITIONAL NOTES"
-  data-es="NOTAS ADICIONALES"
-  data-ht="LÒT NÒT">
-ADDITIONAL NOTES
-</label>
-<textarea id="notes"></textarea>
+<div class="ai-actions">
+<a class="btn btn-primary" href="./pages/ai-center.html">OPEN AI CENTER</a>
+<a class="btn" href="./pages/form-helper.html">FORM HELP CENTER</a>
+<a class="btn" href="./pages/try-ai.html">TRY AI</a>
 </div>
 
 </div>
 
-<div class="actions no-print">
-
-<button
-  class="btn primary"
-  type="button"
-  id="generateBtn"
-  data-en="GENERATE RECORD"
-  data-es="GENERAR REGISTRO"
-  data-ht="JENERE DOSYE">
-GENERATE RECORD
-</button>
-
-<button
-  class="btn"
-  type="button"
-  id="saveBtn"
-  data-en="SAVE FORM"
-  data-es="GUARDAR FORMULARIO"
-  data-ht="SOVE FÒM">
-SAVE FORM
-</button>
-
-<button
-  class="btn"
-  type="button"
-  id="loadBtn"
-  data-en="LOAD SAVED"
-  data-es="CARGAR GUARDADO"
-  data-ht="LOUVRI SA KI SOVE">
-LOAD SAVED
-</button>
-
-<button
-  class="btn"
-  type="button"
-  id="editBtn"
-  data-en="EDIT FORM"
-  data-es="EDITAR FORMULARIO"
-  data-ht="EDITE FÒM">
-EDIT FORM
-</button>
-
-<button
-  class="btn"
-  type="button"
-  id="printBtn"
-  data-en="PRINT FORM"
-  data-es="IMPRIMIR FORMULARIO"
-  data-ht="ENPRIME FÒM">
-PRINT FORM
-</button>
-
-<button
-  class="btn"
-  type="button"
-  id="resetBtn"
-  data-en="RESET FORM"
-  data-es="REINICIAR FORMULARIO"
-  data-ht="NETWAYE FÒM">
-RESET FORM
-</button>
+<div class="ai-symbol">AI</div>
 
 </div>
+</div>
+</section>
 
-<div class="status" id="status"></div>
+<!-- CONTACT -->
 
-</form>
+<section class="section" id="contact">
+<div class="container">
 
+<h2 class="section-title"
+ data-en="CONTACT MAXIMAX"
+ data-es="CONTACTAR MAXIMAX"
+ data-ht="KONTAKTE MAXIMAX">
+CONTACT MAXIMAX
+</h2>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+<h3>📞 PHONE</h3>
+<a href="tel:+14076405166">(407) 640-5166</a>
+<a href="tel:+13175381150">(317) 538-1150</a>
+<a href="tel:+15162168494">(516) 216-8494</a>
 </div>
 
-<!-- =====================================================
-     PRINT PREVIEW
-===================================================== -->
-
-<div class="preview-wrap" id="previewWrap">
-
-<div class="print-document">
-
-<div class="document-head">
-<h2>MAXIMAX MULTI SERVICES</h2>
-<h3>ACKNOWLEDGMENT CERTIFICATE INFORMATION RECORD</h3>
-<p>NOTARY FORMS CENTER</p>
-</div>
-
-<div class="document-grid">
-
-<div class="document-item">
-<span class="document-label">Record Number</span>
-<div class="document-value" id="pRecord">—</div>
-</div>
-
-<div class="document-item">
-<span class="document-label">Created</span>
-<div class="document-value" id="pCreated">—</div>
-</div>
-
-<div class="document-item">
-<span class="document-label">Signer Full Name</span>
-<div class="document-value" id="pSigner">—</div>
-</div>
-
-<div class="document-item">
-<span class="document-label">Phone</span>
-<div class="document-value" id="pPhone">—</div>
-</div>
-
-<div class="document-item">
-<span class="document-label">Email</span>
-<div class="document-value" id="pEmail">—</div>
-</div>
-
-<div class="document-item">
-<span class="document-label">Acknowledgment Date</span>
-<div class="document-value" id="pAckDate">—</div>
-</div>
-
-<div class="document-item">
-<span class="document-label">State</span>
-<div class="document-value" id="pState">—</div>
-</div>
-
-<div class="document-item">
-<span class="document-label">County</span>
-<div class="document-value" id="pCounty">—</div>
-</div>
-
-<div class="document-item full">
-<span class="document-label">Signer Address</span>
-<div class="document-value" id="pAddress">—</div>
-</div>
-
-<div class="document-item">
-<span class="document-label">Document Date</span>
-<div class="document-value" id="pDocumentDate">—</div>
-</div>
-
-<div class="document-item">
-<span class="document-label">Number of Pages</span>
-<div class="document-value" id="pPages">—</div>
-</div>
-
-<div class="document-item full">
-<span class="document-label">Document Title / Description</span>
-<div class="document-value" id="pDocumentTitle">—</div>
-</div>
-
-<div class="document-item">
-<span class="document-label">Signer Capacity / Title</span>
-<div class="document-value" id="pCapacity">—</div>
-</div>
-
-<div class="document-item">
-<span class="document-label">Identification Type</span>
-<div class="document-value" id="pIdType">—</div>
-</div>
-
-<div class="document-item">
-<span class="document-label">Identification Reference</span>
-<div class="document-value" id="pIdNumber">—</div>
-</div>
-
-<div class="document-item">
-<span class="document-label">Identification Expiration</span>
-<div class="document-value" id="pIdExpiration">—</div>
-</div>
-
-<div class="document-item full">
-<span class="document-label">Additional Notes</span>
-<div class="document-value" id="pNotes">—</div>
-</div>
-
-</div>
-
-<div class="signature-box">
-<strong style="color:#ff7900;">SIGNER SIGNATURE</strong>
-<div class="signature-line"></div>
-</div>
-
-<div class="notary-box">
-
-<h4>NOTARIAL SECTION</h4>
-
-<div class="notary-lines">
-Notary Name: ______________________________________
-
-Commission Number: _________________________________
-
-Commission Expiration: ______________________________
-
-Notary Signature: __________________________________
-
-Date: ______________________________________________
-</div>
-
-<div class="seal-box">
-NOTARY SEAL / STAMP AREA
-</div>
-
-</div>
-
-<div class="document-footer">
-<strong>MAXIMAX MULTI SERVICES</strong><br>
-NOTARY SERVICE CENTER<br>
-BSS1815PRO-MAXDMP.COM<br>
+<div class="contact-card">
+<h3>✉️ EMAIL</h3>
+<a href="mailto:bss1815promaxdmp@gmail.com">
 bss1815promaxdmp@gmail.com
+</a>
+</div>
+
+<div class="contact-card">
+<h3>🌐 WEBSITE</h3>
+<a href="https://bss1815pro-maxdmp.com">
+bss1815pro-maxdmp.com
+</a>
+<p>Part of BSS1815 PRO-MAX DMP</p>
 </div>
 
 </div>
-</div>
 
-<div class="notice">
-<strong
-  data-en="IMPORTANT:"
-  data-es="IMPORTANTE:"
-  data-ht="ENPÒTAN:">
-IMPORTANT:
-</strong>
-
-<span
-  data-en=" This page is an acknowledgment information and service record. The notary must use the certificate wording and procedures required by the applicable jurisdiction and the document presented."
-  data-es=" Esta página es un registro de información y servicio. El notario debe utilizar el texto del certificado y los procedimientos exigidos por la jurisdicción aplicable."
-  data-ht=" Paj sa a se yon dosye enfòmasyon ak sèvis pou rekonesans. Notè a dwe sèvi ak tèks sètifika ak pwosedi jiridiksyon ki aplikab la mande pou dokiman yo prezante a.">
- This page is an acknowledgment information and service record. The notary must use the certificate wording and procedures required by the applicable jurisdiction and the document presented.
-</span>
+<div class="social-row">
+<a class="social-chip" href="#" target="_blank" rel="noopener" aria-label="Facebook">
+<svg viewBox="0 0 24 24"><path d="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94Z"/></svg>
+<span>Facebook</span>
+</a>
+<a class="social-chip" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
+<svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.35a9.9 9.9 0 0 0 4.62 1.14h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.09c-.25.7-1.24 1.29-2.02 1.45-.54.11-1.24.2-3.6-.77-3.02-1.25-4.96-4.31-5.11-4.51-.15-.2-1.22-1.62-1.22-3.09 0-1.47.77-2.19 1.04-2.49.27-.3.6-.37.8-.37.2 0 .4 0 .58.01.19.01.44-.07.68.52.25.6.85 2.08.92 2.23.07.15.12.33.02.53-.1.2-.15.33-.3.5-.15.18-.31.4-.44.53-.15.15-.3.31-.13.61.17.3.75 1.24 1.62 2.01 1.11.99 2.05 1.3 2.35 1.45.3.15.48.13.66-.08.18-.2.76-.89.96-1.19.2-.3.4-.25.68-.15.28.1 1.76.83 2.06.98.3.15.5.23.57.36.07.13.07.75-.18 1.45Z"/></svg>
+<span>WhatsApp</span>
+</a>
+<a class="social-chip" href="#" target="_blank" rel="noopener" aria-label="TikTok">
+<svg viewBox="0 0 24 24"><path d="M16.6 2h-3.2v13.6a2.9 2.9 0 1 1-2.05-2.77V9.5a6.1 6.1 0 1 0 5.25 6.06V8.4a7.6 7.6 0 0 0 4.4 1.4V6.6a4.4 4.4 0 0 1-4.4-4.4Z"/></svg>
+<span>TikTok</span>
+</a>
+<a class="social-chip" href="#" target="_blank" rel="noopener" aria-label="Instagram">
+<svg viewBox="0 0 24 24"><path d="M12 2.2c2.7 0 3.03.01 4.1.06 1.06.05 1.79.22 2.43.47.66.26 1.21.6 1.76 1.15.55.55.89 1.1 1.15 1.76.25.64.42 1.37.47 2.43.05 1.07.06 1.4.06 4.1s-.01 3.03-.06 4.1c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.76 4.9 4.9 0 0 1-1.76 1.15c-.64.25-1.37.42-2.43.47-1.07.05-1.4.06-4.1.06s-3.03-.01-4.1-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.76-1.15 4.9 4.9 0 0 1-1.15-1.76c-.25-.64-.42-1.37-.47-2.43C2.21 15.03 2.2 14.7 2.2 12s.01-3.03.06-4.1c.05-1.06.22-1.79.47-2.43.26-.66.6-1.21 1.15-1.76A4.9 4.9 0 0 1 5.64 2.56c.64-.25 1.37-.42 2.43-.47C9.14 2.04 9.47 2.03 12 2.03Zm0 1.62c-2.65 0-2.96.01-4.01.06-.97.04-1.5.2-1.85.34-.46.18-.79.4-1.14.75-.35.35-.57.68-.75 1.14-.14.35-.3.88-.34 1.85-.05 1.05-.06 1.36-.06 4.01s.01 2.96.06 4.01c.04.97.2 1.5.34 1.85.18.46.4.79.75 1.14.35.35.68.57 1.14.75.35.14.88.3 1.85.34 1.05.05 1.36.06 4.01.06s2.96-.01 4.01-.06c.97-.04 1.5-.2 1.85-.34.46-.18.79-.4 1.14-.75.35-.35.57-.68.75-1.14.14-.35.3-.88.34-1.85.05-1.05.06-1.36.06-4.01s-.01-2.96-.06-4.01c-.04-.97-.2-1.5-.34-1.85a3.1 3.1 0 0 0-.75-1.14 3.1 3.1 0 0 0-1.14-.75c-.35-.14-.88-.3-1.85-.34-1.05-.05-1.36-.06-4.01-.06Zm0 3.1a5.08 5.08 0 1 1 0 10.16 5.08 5.08 0 0 1 0-10.16Zm0 1.62a3.46 3.46 0 1 0 0 6.92 3.46 3.46 0 0 0 0-6.92Zm5.28-1.8a1.19 1.19 0 1 1-2.37 0 1.19 1.19 0 0 1 2.37 0Z"/></svg>
+<span>Instagram</span>
+</a>
+<a class="social-chip" href="#" target="_blank" rel="noopener" aria-label="Telegram">
+<svg viewBox="0 0 24 24"><path d="M21.94 3.72 18.4 20.28c-.27 1.2-.98 1.5-1.98.94l-5.47-4.03-2.64 2.54c-.29.29-.53.53-1.09.53l.39-5.55L18.03 6.1c.5-.44-.11-.69-.78-.25L5.66 12.94l-5.4-1.7c-1.18-.37-1.2-1.18.25-1.74L20.47 2c.98-.37 1.84.24 1.47 1.72Z"/></svg>
+<span>Telegram</span>
+</a>
+<a class="social-chip" href="#" target="_blank" rel="noopener" aria-label="YouTube">
+<svg viewBox="0 0 24 24"><path d="M23.5 7.19c0-1.9-1.5-3.42-3.35-3.42C17.6 3.5 12 3.5 12 3.5s-5.6 0-8.15.27C2 3.77.5 5.3.5 7.19 0 8.99 0 12 0 12s0 3.01.5 4.81c0 1.9 1.5 3.42 3.35 3.42C6.4 20.5 12 20.5 12 20.5s5.6 0 8.15-.27c1.85 0 3.35-1.52 3.35-3.42.5-1.8.5-4.81.5-4.81s0-3.01-.5-4.81ZM9.6 15.4V8.6L15.8 12l-6.2 3.4Z"/></svg>
+<span>YouTube</span>
+</a>
+<a class="social-chip" href="#" target="_blank" rel="noopener" aria-label="Spotify">
+<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm4.59 14.42a.62.62 0 0 1-.85.21c-2.33-1.42-5.26-1.75-8.72-.96a.62.62 0 1 1-.28-1.21c3.79-.87 7.05-.5 9.65 1.1.3.18.39.57.2.86Zm1.22-2.72a.78.78 0 0 1-1.07.26c-2.67-1.64-6.74-2.12-9.9-1.16a.78.78 0 1 1-.45-1.49c3.6-1.09 8.08-.56 11.15 1.32.37.23.49.71.27 1.07Zm.11-2.83c-3.2-1.9-8.49-2.08-11.55-1.15a.94.94 0 1 1-.54-1.8c3.51-1.06 9.34-.86 13.02 1.33a.94.94 0 0 1-.93 1.62Z"/></svg>
+<span>Spotify</span>
+</a>
+<a class="social-chip" href="#" target="_blank" rel="noopener" aria-label="X / Twitter">
+<svg viewBox="0 0 24 24"><path d="M18.24 2.75h3.31l-7.23 8.26 8.5 10.24h-6.66l-5.22-6.71-5.97 6.71H1.66l7.73-8.84L1.24 2.75h6.83l4.72 6.13ZM17 19.34h1.83L7.1 4.56H5.13Z"/></svg>
+<span>X / Twitter</span>
+</a>
+<a class="social-chip" href="#" target="_blank" rel="noopener" aria-label="Truth Social">
+<svg viewBox="0 0 24 24"><path d="M12 2 3 6v6c0 5.2 3.6 9.9 9 11 5.4-1.1 9-5.8 9-11V6l-9-4Zm0 2.24 7 3.11v4.4c0 4.19-2.83 8.02-7 9.12-4.17-1.1-7-4.93-7-9.12v-4.4l7-3.11Zm-1 4.14v9.1l5-4.55-5-4.55Z"/></svg>
+<span>Truth Social</span>
+</a>
+<a class="social-chip" href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
+<svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.55V9h3.57v11.45Z"/></svg>
+<span>LinkedIn</span>
+</a>
 </div>
 
 </div>
@@ -1138,445 +1616,286 @@ IMPORTANT:
 
 </main>
 
-<footer>
-<strong>MAXIMAX MULTI SERVICES</strong>
-<p>PART OF BSS1815 PRO-MAX DMP</p>
-<p>bss1815promaxdmp@gmail.com</p>
-<p>BSS1815PRO-MAXDMP.COM</p>
-<p>© <span id="year"></span> MAXIMAX MULTI SERVICES</p>
+<footer class="site-footer">
+<div class="container">
+
+<img
+ class="footer-logo"
+ src="./maximax-logo.jpg?v=20260917"
+ alt="Maximax Multi Services Logo"
+>
+
+<div class="footer-title">MAXIMAX MULTI SERVICES</div>
+
+<div class="footer-platform">
+PART OF BSS1815 PRO-MAX DMP
+</div>
+
+<div class="copyright">
+© <span id="currentYear"></span> MAXIMAX MULTI SERVICES • ALL RIGHTS RESERVED
+</div>
+
+</div>
 </footer>
 
 <script>
 (function(){
 "use strict";
 
-const $=id=>document.getElementById(id);
+/* YEAR */
 
-$("year").textContent=new Date().getFullYear();
+const year = document.getElementById("currentYear");
+if(year){
+  year.textContent = new Date().getFullYear();
+}
 
-/* =====================================================
-   LANGUAGE
-===================================================== */
+/* MOBILE MENU */
 
-const languageButtons=document.querySelectorAll(".lang-btn");
+const menuToggle = document.getElementById("menuToggle");
+const mainNav = document.getElementById("mainNav");
 
-const translated=
+if(menuToggle && mainNav){
+
+  menuToggle.addEventListener("click",function(){
+
+    const open = mainNav.classList.toggle("open");
+
+    menuToggle.setAttribute(
+      "aria-expanded",
+      open ? "true" : "false"
+    );
+
+    menuToggle.textContent = open ? "✕" : "☰";
+  });
+
+  mainNav.querySelectorAll("a").forEach(function(link){
+    link.addEventListener("click",function(){
+
+      if(window.innerWidth <= 850){
+        mainNav.classList.remove("open");
+        menuToggle.textContent = "☰";
+        menuToggle.setAttribute("aria-expanded","false");
+      }
+
+    });
+  });
+
+}
+
+/* LANGUAGE */
+
+const languageButtons = document.querySelectorAll(".lang-btn");
+const translatedElements =
   document.querySelectorAll("[data-en],[data-es],[data-ht]");
 
-function setLanguage(language){
+const supportedLanguages = ["en","es","ht"];
 
-  if(!["en","es","ht"].includes(language)){
-    language="en";
+function setLanguage(lang){
+
+  if(!supportedLanguages.includes(lang)){
+    lang = "en";
   }
 
-  document.documentElement.lang=language;
+  document.documentElement.lang =
+    lang === "ht" ? "ht" : lang;
 
-  translated.forEach(element=>{
+  translatedElements.forEach(function(element){
 
-    const value=
-      element.getAttribute("data-"+language);
+    const value = element.getAttribute("data-" + lang);
 
     if(value){
-      element.textContent=value;
+      element.textContent = value;
     }
 
   });
 
-  languageButtons.forEach(button=>{
+  languageButtons.forEach(function(button){
 
-    const active=
-      button.dataset.lang===language;
+    const active =
+      button.getAttribute("data-lang") === lang;
 
     button.classList.toggle("active",active);
 
     button.setAttribute(
       "aria-pressed",
-      active ? "true":"false"
+      active ? "true" : "false"
     );
 
   });
 
   try{
-    localStorage.setItem(
-      "maximaxLanguage",
-      language
-    );
+    localStorage.setItem("maximaxLanguage",lang);
   }catch(error){}
+
 }
 
-languageButtons.forEach(button=>{
+languageButtons.forEach(function(button){
 
-  button.addEventListener("click",()=>{
-    setLanguage(button.dataset.lang);
+  button.addEventListener("click",function(){
+
+    setLanguage(
+      button.getAttribute("data-lang")
+    );
+
   });
 
 });
 
-let savedLanguage="en";
+let savedLanguage = "en";
 
 try{
-  savedLanguage=
+  savedLanguage =
     localStorage.getItem("maximaxLanguage") || "en";
 }catch(error){}
 
 setLanguage(savedLanguage);
 
-/* =====================================================
-   HELPERS
-===================================================== */
+/* VIDEO */
 
-function value(id){
+const mainVideo =
+  document.getElementById("maximaxMainVideo");
 
-  const element=$(id);
+const soundButton =
+  document.getElementById("maximaxSoundButton");
 
-  return element
-    ? element.value.trim()
-    : "";
-}
+if(mainVideo){
 
-function setValue(id,val){
+  mainVideo.muted = true;
+  mainVideo.volume = 1;
 
-  const element=$(id);
+  const playPromise = mainVideo.play();
 
-  if(element){
-    element.value=val || "";
-  }
-}
-
-function show(value){
-  return value && String(value).trim()
-    ? value
-    : "—";
-}
-
-function recordNumber(){
-
-  const now=new Date();
-
-  const date=
-    now.getFullYear()+
-    String(now.getMonth()+1).padStart(2,"0")+
-    String(now.getDate()).padStart(2,"0");
-
-  const time=
-    String(now.getHours()).padStart(2,"0")+
-    String(now.getMinutes()).padStart(2,"0")+
-    String(now.getSeconds()).padStart(2,"0");
-
-  return "MAX-ACK-"+date+"-"+time;
-}
-
-let statusTimer;
-
-function showStatus(message){
-
-  const status=$("status");
-
-  status.textContent=message;
-  status.classList.add("show");
-
-  clearTimeout(statusTimer);
-
-  statusTimer=setTimeout(()=>{
-    status.classList.remove("show");
-  },3500);
-}
-
-/* =====================================================
-   COLLECT DATA
-===================================================== */
-
-function collect(){
-
-  return{
-    signerName:value("signerName"),
-    phone:value("phone"),
-    email:value("email"),
-    ackDate:value("ackDate"),
-    state:value("state"),
-    county:value("county"),
-    address:value("address"),
-    documentDate:value("documentDate"),
-    pages:value("pages"),
-    documentTitle:value("documentTitle"),
-    capacity:value("capacity"),
-    idType:value("idType"),
-    idNumber:value("idNumber"),
-    idExpiration:value("idExpiration"),
-    notes:value("notes")
-  };
-}
-
-/* =====================================================
-   GENERATE
-===================================================== */
-
-function generate(){
-
-  const data=collect();
-
-  if(!data.signerName){
-
-    showStatus(
-      "Please enter the signer's full name."
-    );
-
-    $("signerName").focus();
-
-    return false;
+  if(
+    playPromise &&
+    typeof playPromise.catch === "function"
+  ){
+    playPromise.catch(function(){});
   }
 
-  $("pRecord").textContent=
-    recordNumber();
+}
 
-  $("pCreated").textContent=
-    new Date().toLocaleString();
+if(mainVideo && soundButton){
 
-  $("pSigner").textContent=
-    show(data.signerName);
+  soundButton.addEventListener("click",function(){
 
-  $("pPhone").textContent=
-    show(data.phone);
+    if(mainVideo.muted){
 
-  $("pEmail").textContent=
-    show(data.email);
+      mainVideo.muted = false;
+      mainVideo.volume = 1;
 
-  $("pAckDate").textContent=
-    show(data.ackDate);
+      const playPromise = mainVideo.play();
 
-  $("pState").textContent=
-    show(data.state);
+      if(
+        playPromise &&
+        typeof playPromise.catch === "function"
+      ){
+        playPromise.catch(function(){});
+      }
 
-  $("pCounty").textContent=
-    show(data.county);
+      soundButton.textContent = "🔇 MUTE SOUND";
 
-  $("pAddress").textContent=
-    show(data.address);
+    }else{
 
-  $("pDocumentDate").textContent=
-    show(data.documentDate);
+      mainVideo.muted = true;
 
-  $("pPages").textContent=
-    show(data.pages);
+      soundButton.textContent = "🔊 TURN SOUND ON";
 
-  $("pDocumentTitle").textContent=
-    show(data.documentTitle);
+    }
 
-  $("pCapacity").textContent=
-    show(data.capacity);
-
-  $("pIdType").textContent=
-    show(data.idType);
-
-  $("pIdNumber").textContent=
-    show(data.idNumber);
-
-  $("pIdExpiration").textContent=
-    show(data.idExpiration);
-
-  $("pNotes").textContent=
-    show(data.notes);
-
-  $("previewWrap").classList.add("show");
-
-  $("previewWrap").scrollIntoView({
-    behavior:"smooth",
-    block:"start"
   });
 
-  showStatus(
-    "Acknowledgment record generated."
-  );
-
-  return true;
 }
 
-$("generateBtn").addEventListener(
-  "click",
-  generate
-);
+/* SMOOTH SAME-PAGE LINKS */
 
-/* =====================================================
-   SAVE
-===================================================== */
+document.querySelectorAll('a[href^="#"]').forEach(function(link){
 
-$("saveBtn").addEventListener(
-  "click",
-  ()=>{
+  link.addEventListener("click",function(event){
 
-    const data=collect();
+    const targetId = link.getAttribute("href");
 
-    try{
-
-      localStorage.setItem(
-        "maximaxAcknowledgmentForm",
-        JSON.stringify(data)
-      );
-
-      showStatus(
-        "Acknowledgment form saved."
-      );
-
-    }catch(error){
-
-      showStatus(
-        "Unable to save this form."
-      );
-
+    if(!targetId || targetId === "#"){
+      return;
     }
 
-  }
-);
+    const target =
+      document.querySelector(targetId);
 
-/* =====================================================
-   LOAD
-===================================================== */
-
-$("loadBtn").addEventListener(
-  "click",
-  ()=>{
-
-    try{
-
-      const saved=
-        localStorage.getItem(
-          "maximaxAcknowledgmentForm"
-        );
-
-      if(!saved){
-
-        showStatus(
-          "No saved acknowledgment form found."
-        );
-
-        return;
-      }
-
-      const data=JSON.parse(saved);
-
-      setValue("signerName",data.signerName);
-      setValue("phone",data.phone);
-      setValue("email",data.email);
-      setValue("ackDate",data.ackDate);
-      setValue("state",data.state);
-      setValue("county",data.county);
-      setValue("address",data.address);
-      setValue("documentDate",data.documentDate);
-      setValue("pages",data.pages);
-      setValue("documentTitle",data.documentTitle);
-      setValue("capacity",data.capacity);
-      setValue("idType",data.idType);
-      setValue("idNumber",data.idNumber);
-      setValue("idExpiration",data.idExpiration);
-      setValue("notes",data.notes);
-
-      showStatus(
-        "Saved acknowledgment form loaded."
-      );
-
-    }catch(error){
-
-      showStatus(
-        "Unable to load saved form."
-      );
-
+    if(!target){
+      return;
     }
-
-  }
-);
-
-/* =====================================================
-   EDIT
-===================================================== */
-
-$("editBtn").addEventListener(
-  "click",
-  ()=>{
-
-    $("previewWrap")
-      .classList
-      .remove("show");
-
-    $("signerName").scrollIntoView({
-      behavior:"smooth",
-      block:"center"
-    });
-
-    setTimeout(()=>{
-      $("signerName").focus();
-    },300);
-
-    showStatus(
-      "Edit mode ready."
-    );
-
-  }
-);
-
-/* =====================================================
-   PRINT
-===================================================== */
-
-$("printBtn").addEventListener(
-  "click",
-  ()=>{
-
-    if(
-      !$("previewWrap")
-      .classList
-      .contains("show")
-    ){
-
-      if(!generate()){
-        return;
-      }
-
-    }
-
-    setTimeout(()=>{
-      window.print();
-    },300);
-
-  }
-);
-
-/* =====================================================
-   RESET
-===================================================== */
-
-$("resetBtn").addEventListener(
-  "click",
-  ()=>{
-
-    $("ackForm").reset();
-
-    $("previewWrap")
-      .classList
-      .remove("show");
-
-    showStatus(
-      "Acknowledgment form reset."
-    );
-
-  }
-);
-
-/* =====================================================
-   PREVENT PAGE RELOAD
-===================================================== */
-
-$("ackForm").addEventListener(
-  "submit",
-  event=>{
 
     event.preventDefault();
-    generate();
+
+    const header =
+      document.querySelector(".site-header");
+
+    const offset =
+      header ? header.offsetHeight + 20 : 20;
+
+    const position =
+      target.getBoundingClientRect().top +
+      window.pageYOffset -
+      offset;
+
+    window.scrollTo({
+      top:position,
+      behavior:"smooth"
+    });
+
+  });
+
+});
+
+/* ESCAPE MENU */
+
+document.addEventListener("keydown",function(event){
+
+  if(
+    event.key === "Escape" &&
+    mainNav &&
+    mainNav.classList.contains("open")
+  ){
+
+    mainNav.classList.remove("open");
+
+    if(menuToggle){
+      menuToggle.textContent = "☰";
+      menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+    }
 
   }
-);
+
+});
+
+/* RESIZE */
+
+window.addEventListener("resize",function(){
+
+  if(
+    window.innerWidth > 850 &&
+    mainNav &&
+    menuToggle
+  ){
+
+    mainNav.classList.remove("open");
+    menuToggle.textContent = "☰";
+    menuToggle.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
+  }
+
+});
+
+document.body.classList.add("page-ready");
 
 })();
 </script>
 
-</body>
+<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
 </html>
