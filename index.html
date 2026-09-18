@@ -1,133 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Maximax Multi Services | Professional Services</title>
+
+<meta name="description" content="Maximax Multi Services — Professional Services, Digital Solutions and AI Assistance. Part of BSS1815 PRO-MAX DMP.">
+
+<link rel="stylesheet" href="./style.css?v=20260917">
+
 <style>
-/* =====================================================
-   MAXIMAX LOGO + VIDEO FIX
+/* =========================================================
+   MAXIMAX MULTI SERVICES
+   HOMEPAGE EMERGENCY RESTORE
    ORANGE APRICOT + BLACK — NO WHITE
-===================================================== */
+========================================================= */
 
-.brand-logo{
-  display:block !important;
-  width:90px !important;
-  height:90px !important;
-  min-width:90px !important;
-  object-fit:contain !important;
-
-  padding:4px;
-
-  background:#000 !important;
-
-  border:2px solid #ff7900 !important;
-  border-radius:18px !important;
-
-  box-shadow:
-    0 0 18px rgba(255,121,0,.55),
-    0 0 38px rgba(255,173,77,.18) !important;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
+html{
+  scroll-behavior:smooth;
+  background:#000;
+}
 
-/* VIDEO CONTAINER */
+body{
+  min-height:100vh;
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:#ffd2a3;
+  background:
+    radial-gradient(circle at 15% 5%,rgba(255,121,0,.18),transparent 30%),
+    radial-gradient(circle at 85% 20%,rgba(255,173,77,.10),transparent 28%),
+    linear-gradient(180deg,#000,#050200 48%,#120600 100%);
+}
+
+:root{
+  --black:#000000;
+  --deep:#050200;
+  --soft:#120600;
+  --orange:#ff7900;
+  --orange2:#ff8c1a;
+  --apricot:#ffad4d;
+  --text:#ffd2a3;
+  --muted:#d89558;
+  --border:rgba(255,121,0,.48);
+  --glow:rgba(255,121,0,.30);
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font:inherit;
+}
+
+img{
+  max-width:100%;
+}
+
+.container{
+  width:min(1180px,92%);
+  margin:auto;
+}
+
+.section{
+  padding:80px 0;
+}
+
+.section-title{
+  margin-bottom:12px;
+  color:var(--orange);
+  text-align:center;
+  font-size:clamp(28px,5vw,48px);
+  font-weight:1000;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+.section-subtitle{
+  max-width:760px;
+  margin:0 auto 38px;
+  color:var(--text);
+  text-align:center;
+  line-height:1.7;
+}
+
+/* TOP BAR */
+
+.top-bar{
+  padding:9px 15px;
+  text-align:center;
+  color:#000;
+  background:linear-gradient(90deg,#ff7900,#ffad4d,#ff7900);
+  font-size:12px;
+  font-weight:1000;
+  letter-spacing:1.5px;
+}
+
+/* HEADER */
+
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:999;
+  border-bottom:1px solid var(--border);
+  background:rgba(0,0,0,.96);
+  backdrop-filter:blur(15px);
+}
+
+.header-inner{
+  min-height:92px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  min-width:0;
+}
+
+.brand-logo{
+  display:block;
+  width:74px;
+  height:74px;
+  min-width:74px;
+  object-fit:contain;
+  padding:4px;
+  background:#000;
+  border:2px solid var(--orange);
+  border-radius:17px;
+  box-shadow:0 0 20px rgba(255,121,0,.48);
+}
+
+.brand-text{
+  min-width:0;
+}
+
+.brand-title{
+  color:var(--orange);
+  font-size:18px;
+  font-weight:1000;
+  letter-spacing:.7px;
+}
+
+.brand-subtitle{
+  margin-top:4px;
+  color:var(--apricot);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+
+.language-switcher{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  padding:5px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:#090300;
+}
+
+.lang-btn{
+  min-height:37px;
+  padding:7px 10px;
+  border:1px solid transparent;
+  border-radius:999px;
+  color:var(--apricot);
+  background:#000;
+  cursor:pointer;
+  font-size:11px;
+  font-weight:1000;
+}
+
+.lang-btn.active{
+  color:#000;
+  border-color:var(--orange);
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+}
+
+.menu-toggle{
+  display:none;
+  width:45px;
+  height:45px;
+  border:2px solid var(--orange);
+  border-radius:12px;
+  color:var(--orange);
+  background:#000;
+  cursor:pointer;
+  font-size:22px;
+}
+
+/* NAV */
+
+.main-nav{
+  border-top:1px solid rgba(255,121,0,.16);
+}
+
+.nav-inner{
+  min-height:52px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:28px;
+}
+
+.nav-link{
+  color:var(--apricot);
+  font-size:12px;
+  font-weight:1000;
+  letter-spacing:.8px;
+  transition:.2s ease;
+}
+
+.nav-link:hover{
+  color:var(--orange);
+}
+
+/* HERO */
+
+.hero{
+  position:relative;
+  overflow:hidden;
+  padding:95px 0 65px;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:420px;
+  height:420px;
+  top:-180px;
+  right:-130px;
+  border-radius:50%;
+  background:rgba(255,121,0,.13);
+  filter:blur(25px);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:920px;
+  margin:auto;
+  text-align:center;
+}
+
+.hero-badge{
+  display:inline-flex;
+  padding:10px 17px;
+  margin-bottom:23px;
+  border:1px solid var(--orange);
+  border-radius:999px;
+  color:var(--orange);
+  background:rgba(255,121,0,.07);
+  font-size:12px;
+  font-weight:1000;
+  letter-spacing:1px;
+}
+
+.hero h1{
+  color:var(--orange);
+  font-size:clamp(42px,8vw,86px);
+  line-height:.96;
+  font-weight:1000;
+  text-transform:uppercase;
+  text-shadow:0 0 28px rgba(255,121,0,.30);
+}
+
+.hero p{
+  max-width:790px;
+  margin:25px auto;
+  color:var(--text);
+  font-size:clamp(16px,2.3vw,21px);
+  line-height:1.7;
+}
+
+.hero-buttons{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:13px;
+  margin-top:30px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:50px;
+  padding:13px 22px;
+  border:2px solid var(--orange);
+  border-radius:999px;
+  color:var(--orange);
+  background:#000;
+  font-size:12px;
+  font-weight:1000;
+  letter-spacing:.7px;
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+.btn-primary{
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 25px rgba(255,121,0,.35);
+}
+
+/* STATS */
+
+.hero-stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-top:55px;
+}
+
+.stat-card{
+  min-height:125px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:linear-gradient(145deg,#100500,#000);
+  box-shadow:0 12px 40px rgba(0,0,0,.45);
+}
+
+.stat-number{
+  color:var(--orange);
+  font-size:31px;
+  font-weight:1000;
+}
+
+.stat-label{
+  margin-top:7px;
+  color:var(--apricot);
+  text-align:center;
+  font-size:10px;
+  font-weight:1000;
+  letter-spacing:1px;
+}
+
+/* VIDEO */
 
 .maximax-video-wrapper{
   position:relative;
-
   width:100%;
-  max-width:1200px;
-
-  margin:25px auto 45px;
-
+  max-width:1180px;
+  margin:15px auto 65px;
   overflow:hidden;
-
   background:#000;
-
-  border:3px solid #ff7900;
+  border:3px solid var(--orange);
   border-radius:26px;
-
   box-shadow:
     0 0 25px rgba(255,121,0,.45),
     0 0 65px rgba(255,121,0,.15);
 }
 
-
-/* VIDEO */
-
 .maximax-main-video{
-  display:block !important;
-
-  width:100% !important;
-  height:auto !important;
-
-  margin:0 !important;
-
-  background:#000 !important;
-
-  object-fit:contain !important;
+  display:block;
+  width:100%;
+  height:auto;
+  margin:0;
+  background:#000;
+  object-fit:contain;
 }
 
+.video-brand{
+  position:absolute;
+  left:16px;
+  bottom:16px;
+  z-index:10;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  max-width:calc(100% - 190px);
+  padding:9px 13px;
+  border:1px solid var(--orange);
+  border-radius:16px;
+  color:var(--orange);
+  background:rgba(0,0,0,.90);
+  font-size:11px;
+  font-weight:1000;
+}
 
-/* SOUND BUTTON */
+.video-brand img{
+  width:36px;
+  height:36px;
+  object-fit:contain;
+  border-radius:8px;
+}
 
 .maximax-sound-button{
   position:absolute;
-
   right:18px;
   bottom:18px;
-
   z-index:50;
+  min-width:145px;
+  min-height:48px;
+  padding:12px 18px;
+  border:2px solid var(--orange);
+  border-radius:999px;
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+  cursor:pointer;
+  font-size:12px;
+  font-weight:1000;
+  box-shadow:0 0 18px rgba(255,121,0,.55);
+}
 
+/* SERVICE GRID */
+
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:17px;
+}
+
+.service-card{
+  position:relative;
+  min-height:220px;
+  display:flex;
+  flex-direction:column;
+  padding:25px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-radius:23px;
+  background:
+    radial-gradient(circle at 90% 0%,rgba(255,121,0,.12),transparent 32%),
+    linear-gradient(145deg,#100500,#000);
+  transition:.25s ease;
+}
+
+.service-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--orange);
+  box-shadow:0 0 28px rgba(255,121,0,.22);
+}
+
+.service-number{
+  color:var(--orange);
+  font-size:12px;
+  font-weight:1000;
+}
+
+.service-icon{
+  margin:15px 0 13px;
+  font-size:32px;
+}
+
+.service-card h3{
+  margin-bottom:9px;
+  color:var(--orange);
+  font-size:17px;
+  font-weight:1000;
+}
+
+.service-card p{
+  color:var(--text);
+  font-size:12px;
+  line-height:1.6;
+}
+
+.service-open{
+  margin-top:auto;
+  padding-top:18px;
+  color:var(--apricot);
+  font-size:10px;
+  font-weight:1000;
+  letter-spacing:.8px;
+}
+
+/* SPECIAL CENTERS */
+
+.centers{
+  background:
+    linear-gradient(180deg,rgba(255,121,0,.035),transparent),
+    #020100;
+  border-top:1px solid rgba(255,121,0,.15);
+  border-bottom:1px solid rgba(255,121,0,.15);
+}
+
+.centers-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.center-card{
+  min-height:125px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:20px;
+  border:1px solid var(--border);
+  border-radius:19px;
+  background:#080300;
+  transition:.2s ease;
+}
+
+.center-card:hover{
+  border-color:var(--orange);
+  transform:translateY(-3px);
+}
+
+.center-icon{
+  font-size:29px;
+}
+
+.center-card h3{
+  color:var(--orange);
+  font-size:14px;
+  margin-bottom:5px;
+}
+
+.center-card p{
+  color:var(--text);
+  font-size:11px;
+  line-height:1.5;
+}
+
+/* AI */
+
+.ai-box{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:30px;
+  align-items:center;
+  padding:40px;
+  border:2px solid var(--orange);
+  border-radius:30px;
+  background:
+    radial-gradient(circle at 80% 20%,rgba(255,173,77,.13),transparent 30%),
+    linear-gradient(135deg,#100500,#000);
+  box-shadow:0 0 50px rgba(255,121,0,.12);
+}
+
+.ai-box h2{
+  color:var(--orange);
+  font-size:clamp(29px,5vw,53px);
+  line-height:1;
+  text-transform:uppercase;
+}
+
+.ai-box p{
+  margin:20px 0;
+  line-height:1.7;
+}
+
+.ai-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.ai-symbol{
   display:flex;
   align-items:center;
   justify-content:center;
+  min-height:260px;
+  border:1px solid var(--border);
+  border-radius:25px;
+  background:#000;
+  color:var(--orange);
+  font-size:100px;
+  box-shadow:inset 0 0 50px rgba(255,121,0,.09);
+}
 
-  min-width:145px;
-  min-height:48px;
+/* CONTACT */
 
-  padding:12px 18px;
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:17px;
+}
 
-  border:2px solid #ff7900;
-  border-radius:999px;
+.contact-card{
+  min-height:170px;
+  padding:24px;
+  border:1px solid var(--border);
+  border-radius:21px;
+  background:linear-gradient(145deg,#0d0400,#000);
+}
 
-  background:
-    linear-gradient(
-      135deg,
-      #ff7900,
-      #ffad4d
-    );
+.contact-card h3{
+  margin-bottom:15px;
+  color:var(--orange);
+  font-size:16px;
+}
 
-  color:#000;
-
-  font-family:Arial,sans-serif;
+.contact-card p,
+.contact-card a{
+  display:block;
+  margin:7px 0;
+  color:var(--text);
   font-size:13px;
+  line-height:1.5;
+}
+
+.contact-card a:hover{
+  color:var(--orange);
+}
+
+/* SOCIAL */
+
+.social-row{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:32px;
+}
+
+.social-chip{
+  padding:10px 14px;
+  border:1px solid var(--orange);
+  border-radius:999px;
+  color:var(--apricot);
+  background:#000;
+  font-size:11px;
   font-weight:900;
-
-  cursor:pointer;
-
-  box-shadow:
-    0 0 18px rgba(255,121,0,.55);
-
-  transition:
-    transform .2s ease,
-    box-shadow .2s ease;
 }
 
-.maximax-sound-button:hover{
-  transform:translateY(-2px);
+/* FOOTER */
 
-  box-shadow:
-    0 0 28px rgba(255,121,0,.75);
+.site-footer{
+  padding:45px 0 25px;
+  border-top:1px solid var(--border);
+  background:#000;
+  text-align:center;
 }
 
-.maximax-sound-button:active{
-  transform:scale(.97);
+.footer-logo{
+  width:78px;
+  height:78px;
+  object-fit:contain;
+  margin-bottom:15px;
+  padding:4px;
+  border:2px solid var(--orange);
+  border-radius:17px;
 }
 
+.footer-title{
+  color:var(--orange);
+  font-weight:1000;
+}
+
+.footer-platform{
+  margin-top:8px;
+  color:var(--apricot);
+  font-size:12px;
+}
+
+.copyright{
+  margin-top:22px;
+  color:var(--muted);
+  font-size:10px;
+}
 
 /* MOBILE */
 
-@media(max-width:700px){
+@media(max-width:1000px){
+  .services-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .hero-stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .centers-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:850px){
+  .header-inner{
+    min-height:82px;
+  }
 
   .brand-logo{
-    width:65px !important;
-    height:65px !important;
-    min-width:65px !important;
+    width:60px;
+    height:60px;
+    min-width:60px;
+  }
+
+  .brand-title{
+    font-size:14px;
+  }
+
+  .brand-subtitle{
+    font-size:8px;
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .main-nav{
+    display:none;
+  }
+
+  .main-nav.open{
+    display:block;
+  }
+
+  .nav-inner{
+    min-height:auto;
+    padding:18px 0;
+    flex-direction:column;
+    gap:18px;
+  }
+
+  .language-switcher{
+    position:fixed;
+    left:50%;
+    bottom:12px;
+    transform:translateX(-50%);
+    z-index:1500;
+    box-shadow:0 0 25px rgba(255,121,0,.35);
+  }
+
+  .ai-box{
+    grid-template-columns:1fr;
+  }
+
+  .ai-symbol{
+    min-height:180px;
+  }
+}
+
+@media(max-width:700px){
+  .section{
+    padding:60px 0;
+  }
+
+  .hero{
+    padding:65px 0 45px;
+  }
+
+  .hero-stats,
+  .services-grid,
+  .centers-grid,
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+  }
+
+  .btn{
+    width:100%;
+  }
+
+  .service-card{
+    min-height:190px;
   }
 
   .maximax-video-wrapper{
@@ -137,14 +788,930 @@
   .maximax-sound-button{
     right:10px;
     bottom:10px;
-
     min-width:125px;
     min-height:43px;
-
     padding:10px 14px;
-
     font-size:11px;
   }
 
+  .video-brand{
+    left:10px;
+    bottom:63px;
+    max-width:calc(100% - 20px);
+  }
+
+  .ai-box{
+    padding:25px;
+  }
 }
 </style>
+</head>
+
+<body>
+
+<div class="top-bar">
+  MAXIMAX MULTI SERVICES • PROFESSIONAL SERVICES • DIGITAL SOLUTIONS
+</div>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="brand" href="#home">
+      <img
+        class="brand-logo"
+        src="./maximax-multi-services.jpg?v=20260917"
+        alt="Maximax Multi Services Logo"
+      >
+
+      <div class="brand-text">
+        <div class="brand-title">MAXIMAX MULTI SERVICES</div>
+        <div class="brand-subtitle">PART OF BSS1815 PRO-MAX DMP</div>
+      </div>
+    </a>
+
+    <div class="header-actions">
+
+      <div class="language-switcher">
+        <button class="lang-btn active" data-lang="en">🇺🇸 ENG</button>
+        <button class="lang-btn" data-lang="es">🇪🇸 ESP</button>
+        <button class="lang-btn" data-lang="ht">🇭🇹 KRE</button>
+      </div>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >☰</button>
+
+    </div>
+  </div>
+
+  <nav class="main-nav" id="mainNav">
+    <div class="container nav-inner">
+      <a class="nav-link" href="#home"
+         data-en="HOME"
+         data-es="INICIO"
+         data-ht="AKÈY">HOME</a>
+
+      <a class="nav-link" href="#services"
+         data-en="SERVICES"
+         data-es="SERVICIOS"
+         data-ht="SÈVIS">SERVICES</a>
+
+      <a class="nav-link" href="./pages/ai-center.html"
+         data-en="AI CENTER"
+         data-es="CENTRO IA"
+         data-ht="AI CENTER">AI CENTER</a>
+
+      <a class="nav-link" href="#centers"
+         data-en="DIGITAL CENTERS"
+         data-es="CENTROS DIGITALES"
+         data-ht="SANT DIJITAL">DIGITAL CENTERS</a>
+
+      <a class="nav-link" href="#contact"
+         data-en="CONTACT"
+         data-es="CONTACTO"
+         data-ht="KONTAK">CONTACT</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+  <div class="container">
+
+    <div class="hero-content">
+
+      <div class="hero-badge"
+           data-en="PROFESSIONAL SERVICES • DIGITAL SOLUTIONS • AI ASSISTANCE"
+           data-es="SERVICIOS PROFESIONALES • SOLUCIONES DIGITALES • ASISTENCIA IA"
+           data-ht="SÈVIS PWOFESYONÈL • SOLISYON DIJITAL • ASISTANS AI">
+        PROFESSIONAL SERVICES • DIGITAL SOLUTIONS • AI ASSISTANCE
+      </div>
+
+      <h1>MAXIMAX<br>MULTI SERVICES</h1>
+
+      <p
+        data-en="Professional services, digital solutions and intelligent assistance — all in one powerful service platform."
+        data-es="Servicios profesionales, soluciones digitales y asistencia inteligente — todo en una sola plataforma."
+        data-ht="Sèvis pwofesyonèl, solisyon dijital ak asistans entèlijan — tout nan yon sèl platfòm sèvis.">
+        Professional services, digital solutions and intelligent assistance — all in one powerful service platform.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="#services"
+           data-en="EXPLORE SERVICES"
+           data-es="VER SERVICIOS"
+           data-ht="GADE SÈVIS YO">
+          EXPLORE SERVICES
+        </a>
+
+        <a class="btn" href="./pages/client-portal.html"
+           data-en="CLIENT PORTAL"
+           data-es="PORTAL DEL CLIENTE"
+           data-ht="PÒTAL KLIYAN">
+          CLIENT PORTAL
+        </a>
+
+        <a class="btn" href="./pages/appointment-center.html"
+           data-en="APPOINTMENT"
+           data-es="CITA"
+           data-ht="RANDEVOU">
+          APPOINTMENT
+        </a>
+      </div>
+
+    </div>
+
+    <div class="hero-stats">
+
+      <a class="stat-card" href="#services">
+        <div class="stat-number">16</div>
+        <div class="stat-label"
+             data-en="CORE SERVICES"
+             data-es="SERVICIOS PRINCIPALES"
+             data-ht="SÈVIS PRENSIPAL">
+          CORE SERVICES
+        </div>
+      </a>
+
+      <div class="stat-card">
+        <div class="stat-number">3</div>
+        <div class="stat-label"
+             data-en="LANGUAGES"
+             data-es="IDIOMAS"
+             data-ht="LANG">
+          LANGUAGES
+        </div>
+      </div>
+
+      <a class="stat-card" href="./pages/ai-center.html">
+        <div class="stat-number">AI</div>
+        <div class="stat-label"
+             data-en="AI ASSISTANCE"
+             data-es="ASISTENCIA IA"
+             data-ht="ASISTANS AI">
+          AI ASSISTANCE
+        </div>
+      </a>
+
+      <a class="stat-card" href="./pages/chat.html">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label"
+             data-en="DIGITAL ACCESS"
+             data-es="ACCESO DIGITAL"
+             data-ht="AKSÈ DIJITAL">
+          DIGITAL ACCESS
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- VIDEO -->
+
+<section class="container">
+
+  <div class="maximax-video-wrapper">
+
+    <video
+      class="maximax-main-video"
+      id="maximaxMainVideo"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+    >
+      <source
+        src="./maximax-multi-services.mp4?v=20260917"
+        type="video/mp4"
+      >
+    </video>
+
+    <div class="video-brand">
+      <img
+        src="./maximax-multi-services.jpg?v=20260917"
+        alt="Maximax"
+      >
+      <span>MAXIMAX MULTI SERVICES</span>
+    </div>
+
+    <button
+      class="maximax-sound-button"
+      id="maximaxSoundButton"
+      type="button"
+    >
+      🔊 TURN SOUND ON
+    </button>
+
+  </div>
+
+</section>
+
+<!-- 16 CORE SERVICES -->
+
+<section class="section" id="services">
+  <div class="container">
+
+    <h2 class="section-title"
+        data-en="16 CORE SERVICES"
+        data-es="16 SERVICIOS PRINCIPALES"
+        data-ht="16 SÈVIS PRENSIPAL">
+      16 CORE SERVICES
+    </h2>
+
+    <p class="section-subtitle"
+       data-en="Choose the service you need. Every service opens its dedicated center."
+       data-es="Seleccione el servicio que necesita. Cada servicio abre su centro dedicado."
+       data-ht="Chwazi sèvis ou bezwen an. Chak sèvis ouvri sant pa li.">
+      Choose the service you need. Every service opens its dedicated center.
+    </p>
+
+    <div class="services-grid">
+
+      <a class="service-card" href="./pages/notary.html">
+        <span class="service-number">01</span>
+        <div class="service-icon">✍🏽</div>
+        <h3 data-en="Notary Services" data-es="Servicios Notariales" data-ht="Sèvis Notè">Notary Services</h3>
+        <p data-en="Professional notary assistance and document services."
+           data-es="Asistencia notarial profesional y servicios de documentos."
+           data-ht="Asistans notè pwofesyonèl ak sèvis dokiman.">
+          Professional notary assistance and document services.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/taxes.html">
+        <span class="service-number">02</span>
+        <div class="service-icon">🧾</div>
+        <h3 data-en="Tax Services" data-es="Servicios de Impuestos" data-ht="Sèvis Taks">Tax Services</h3>
+        <p data-en="Tax preparation and professional tax support."
+           data-es="Preparación de impuestos y apoyo profesional."
+           data-ht="Preparasyon taks ak asistans pwofesyonèl.">
+          Tax preparation and professional tax support.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/immigration.html">
+        <span class="service-number">03</span>
+        <div class="service-icon">🗽</div>
+        <h3 data-en="Immigration Services" data-es="Servicios de Inmigración" data-ht="Sèvis Imigrasyon">Immigration Services</h3>
+        <p data-en="Immigration document preparation and service assistance."
+           data-es="Preparación de documentos de inmigración y asistencia."
+           data-ht="Preparasyon dokiman imigrasyon ak asistans sèvis.">
+          Immigration document preparation and service assistance.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/eoir-bia.html">
+        <span class="service-number">04</span>
+        <div class="service-icon">⚖️</div>
+        <h3>EOIR + BIA</h3>
+        <p data-en="Dedicated EOIR and BIA document support center."
+           data-es="Centro dedicado de apoyo documental EOIR y BIA."
+           data-ht="Sant espesyal pou sipò dokiman EOIR ak BIA.">
+          Dedicated EOIR and BIA document support center.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/insurance.html">
+        <span class="service-number">05</span>
+        <div class="service-icon">🛡️</div>
+        <h3 data-en="Insurance" data-es="Seguros" data-ht="Asirans">Insurance</h3>
+        <p data-en="Insurance service information and assistance."
+           data-es="Información y asistencia de seguros."
+           data-ht="Enfòmasyon ak asistans pou sèvis asirans.">
+          Insurance service information and assistance.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/real-estate.html">
+        <span class="service-number">06</span>
+        <div class="service-icon">🏠</div>
+        <h3 data-en="Real Estate" data-es="Bienes Raíces" data-ht="Imobilye">Real Estate</h3>
+        <p data-en="Real estate resources and professional service assistance."
+           data-es="Recursos inmobiliarios y asistencia profesional."
+           data-ht="Resous imobilye ak asistans sèvis pwofesyonèl.">
+          Real estate resources and professional service assistance.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/business.html">
+        <span class="service-number">07</span>
+        <div class="service-icon">💼</div>
+        <h3 data-en="Business Services" data-es="Servicios Empresariales" data-ht="Sèvis Biznis">Business Services</h3>
+        <p data-en="Business setup, documents and professional support."
+           data-es="Creación de empresas, documentos y apoyo profesional."
+           data-ht="Kreyasyon biznis, dokiman ak sipò pwofesyonèl.">
+          Business setup, documents and professional support.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/apostille.html">
+        <span class="service-number">08</span>
+        <div class="service-icon">📜</div>
+        <h3>Apostille</h3>
+        <p data-en="Apostille document service and preparation assistance."
+           data-es="Servicio y preparación de documentos de apostilla."
+           data-ht="Sèvis apostille ak asistans preparasyon dokiman.">
+          Apostille document service and preparation assistance.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/travel-dmv.html">
+        <span class="service-number">09</span>
+        <div class="service-icon">✈️</div>
+        <h3>Travel + DMV</h3>
+        <p data-en="Travel resources and DMV service assistance."
+           data-es="Recursos de viaje y asistencia con servicios del DMV."
+           data-ht="Resous vwayaj ak asistans sèvis DMV.">
+          Travel resources and DMV service assistance.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/ai-center.html">
+        <span class="service-number">10</span>
+        <div class="service-icon">🤖</div>
+        <h3>AI Center</h3>
+        <p data-en="Smart digital assistance powered by artificial intelligence."
+           data-es="Asistencia digital inteligente con inteligencia artificial."
+           data-ht="Asistans dijital entèlijan avèk entèlijans atifisyèl.">
+          Smart digital assistance powered by artificial intelligence.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/form-helper.html">
+        <span class="service-number">11</span>
+        <div class="service-icon">📝</div>
+        <h3 data-en="Form Help Center" data-es="Centro de Formularios" data-ht="Sant Èd Fòm">Form Help Center</h3>
+        <p data-en="Guided help for forms and document preparation."
+           data-es="Ayuda guiada para formularios y preparación de documentos."
+           data-ht="Èd gide pou fòm ak preparasyon dokiman.">
+          Guided help for forms and document preparation.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/career-tracker.html">
+        <span class="service-number">12</span>
+        <div class="service-icon">📈</div>
+        <h3 data-en="Career Tracker" data-es="Seguimiento Profesional" data-ht="Career Tracker">Career Tracker</h3>
+        <p data-en="Career organization, progress and opportunity tracking."
+           data-es="Organización profesional y seguimiento de oportunidades."
+           data-ht="Òganizasyon karyè ak swivi opòtinite.">
+          Career organization, progress and opportunity tracking.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/translation-ai.html">
+        <span class="service-number">13</span>
+        <div class="service-icon">🌐</div>
+        <h3 data-en="AI Translation" data-es="Traducción IA" data-ht="Tradiksyon AI">AI Translation</h3>
+        <p data-en="Multilingual digital translation assistance."
+           data-es="Asistencia de traducción digital multilingüe."
+           data-ht="Asistans tradiksyon dijital nan plizyè lang.">
+          Multilingual digital translation assistance.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/chat.html">
+        <span class="service-number">14</span>
+        <div class="service-icon">💬</div>
+        <h3 data-en="Chat 24/7" data-es="Chat 24/7" data-ht="Chat 24/7">Chat 24/7</h3>
+        <p data-en="Digital access to assistance around the clock."
+           data-es="Acceso digital a asistencia las 24 horas."
+           data-ht="Aksè dijital pou asistans lajounen kou lannuit.">
+          Digital access to assistance around the clock.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/try-ai.html">
+        <span class="service-number">15</span>
+        <div class="service-icon">✨</div>
+        <h3>Try AI</h3>
+        <p data-en="Experience Maximax intelligent digital tools."
+           data-es="Pruebe las herramientas digitales inteligentes de Maximax."
+           data-ht="Eseye zouti dijital entèlijan Maximax yo.">
+          Experience Maximax intelligent digital tools.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+      <a class="service-card" href="./pages/credit-repair.html">
+        <span class="service-number">16</span>
+        <div class="service-icon">💳</div>
+        <h3 data-en="Credit Repair" data-es="Reparación de Crédito" data-ht="Reparasyon Kredi">Credit Repair</h3>
+        <p data-en="Credit education, organization and service assistance."
+           data-es="Educación, organización y asistencia de crédito."
+           data-ht="Edikasyon, òganizasyon ak asistans pou kredi.">
+          Credit education, organization and service assistance.
+        </p>
+        <span class="service-open">OPEN CENTER →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- SPECIAL CENTERS -->
+
+<section class="section centers" id="centers">
+<div class="container">
+
+<h2 class="section-title"
+    data-en="DIGITAL & SPECIALIZED CENTERS"
+    data-es="CENTROS DIGITALES Y ESPECIALIZADOS"
+    data-ht="SANT DIJITAL AK ESPESYALIZE">
+DIGITAL & SPECIALIZED CENTERS
+</h2>
+
+<p class="section-subtitle"
+   data-en="Additional centers that support the 16 core services."
+   data-es="Centros adicionales que apoyan los 16 servicios principales."
+   data-ht="Sant anplis ki sipòte 16 sèvis prensipal yo.">
+Additional centers that support the 16 core services.
+</p>
+
+<div class="centers-grid">
+
+<a class="center-card" href="./pages/government-forms.html">
+<div class="center-icon">🏛️</div>
+<div>
+<h3>Government Forms</h3>
+<p>Government form resources and assistance.</p>
+</div>
+</a>
+
+<a class="center-card" href="./pages/non-contested-divorce.html">
+<div class="center-icon">📄</div>
+<div>
+<h3>Non-Contested Divorce</h3>
+<p>Dedicated document preparation center.</p>
+</div>
+</a>
+
+<a class="center-card" href="./pages/document-checklist.html">
+<div class="center-icon">☑️</div>
+<div>
+<h3>Document Checklist</h3>
+<p>Organize required documents and next steps.</p>
+</div>
+</a>
+
+<a class="center-card" href="./pages/document-center.html">
+<div class="center-icon">🗂️</div>
+<div>
+<h3>Document Center</h3>
+<p>Central document preparation workspace.</p>
+</div>
+</a>
+
+<a class="center-card" href="./pages/appointment-center.html">
+<div class="center-icon">📅</div>
+<div>
+<h3>Appointment Center</h3>
+<p>Appointment and service scheduling center.</p>
+</div>
+</a>
+
+<a class="center-card" href="./pages/client-portal.html">
+<div class="center-icon">👤</div>
+<div>
+<h3>Client Portal</h3>
+<p>Central digital client access.</p>
+</div>
+</a>
+
+<a class="center-card" href="./pages/contact-center.html">
+<div class="center-icon">☎️</div>
+<div>
+<h3>Contact Center</h3>
+<p>Central communication and assistance center.</p>
+</div>
+</a>
+
+<a class="center-card" href="./pages/payment-center.html">
+<div class="center-icon">💰</div>
+<div>
+<h3>Payment Center</h3>
+<p>Service payment management center.</p>
+</div>
+</a>
+
+<a class="center-card" href="./pages/receipt-center.html">
+<div class="center-icon">🧾</div>
+<div>
+<h3>Receipt Center</h3>
+<p>Generate and organize service receipts.</p>
+</div>
+</a>
+
+<a class="center-card" href="./pages/invoice-center.html">
+<div class="center-icon">📑</div>
+<div>
+<h3>Invoice Center</h3>
+<p>Create and organize service invoices.</p>
+</div>
+</a>
+
+<a class="center-card" href="./pages/service-request-center.html">
+<div class="center-icon">📨</div>
+<div>
+<h3>Service Request Center</h3>
+<p>Submit and manage service requests.</p>
+</div>
+</a>
+
+</div>
+</div>
+</section>
+
+<!-- AI -->
+
+<section class="section">
+<div class="container">
+
+<div class="ai-box">
+
+<div>
+<h2>MAXIMAX AI CENTER</h2>
+
+<p
+ data-en="Use Maximax digital tools for intelligent assistance, form guidance, translation and service navigation."
+ data-es="Utilice las herramientas digitales de Maximax para asistencia inteligente, formularios, traducción y navegación de servicios."
+ data-ht="Sèvi ak zouti dijital Maximax pou asistans entèlijan, gid fòm, tradiksyon ak navigasyon sèvis.">
+Use Maximax digital tools for intelligent assistance, form guidance, translation and service navigation.
+</p>
+
+<div class="ai-actions">
+<a class="btn btn-primary" href="./pages/ai-center.html">OPEN AI CENTER</a>
+<a class="btn" href="./pages/form-helper.html">FORM HELP CENTER</a>
+<a class="btn" href="./pages/try-ai.html">TRY AI</a>
+</div>
+
+</div>
+
+<div class="ai-symbol">AI</div>
+
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+
+<section class="section" id="contact">
+<div class="container">
+
+<h2 class="section-title"
+ data-en="CONTACT MAXIMAX"
+ data-es="CONTACTAR MAXIMAX"
+ data-ht="KONTAKTE MAXIMAX">
+CONTACT MAXIMAX
+</h2>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+<h3>📞 PHONE</h3>
+<a href="tel:+14076405166">(407) 640-5166</a>
+<a href="tel:+13175381150">(317) 538-1150</a>
+<a href="tel:+15162168494">(516) 216-8494</a>
+</div>
+
+<div class="contact-card">
+<h3>✉️ EMAIL</h3>
+<a href="mailto:bss1815promaxdmp@gmail.com">
+bss1815promaxdmp@gmail.com
+</a>
+</div>
+
+<div class="contact-card">
+<h3>🌐 WEBSITE</h3>
+<a href="https://bss1815pro-maxdmp.com">
+bss1815pro-maxdmp.com
+</a>
+<p>Part of BSS1815 PRO-MAX DMP</p>
+</div>
+
+</div>
+
+<div class="social-row">
+<span class="social-chip">Facebook</span>
+<span class="social-chip">WhatsApp</span>
+<span class="social-chip">TikTok</span>
+<span class="social-chip">Instagram</span>
+<span class="social-chip">Telegram</span>
+<span class="social-chip">YouTube</span>
+<span class="social-chip">Spotify</span>
+<span class="social-chip">X / Twitter</span>
+<span class="social-chip">Truth Social</span>
+<span class="social-chip">LinkedIn</span>
+</div>
+
+</div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+<div class="container">
+
+<img
+ class="footer-logo"
+ src="./maximax-multi-services.jpg?v=20260917"
+ alt="Maximax Multi Services Logo"
+>
+
+<div class="footer-title">MAXIMAX MULTI SERVICES</div>
+
+<div class="footer-platform">
+PART OF BSS1815 PRO-MAX DMP
+</div>
+
+<div class="copyright">
+© <span id="currentYear"></span> MAXIMAX MULTI SERVICES • ALL RIGHTS RESERVED
+</div>
+
+</div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+
+/* YEAR */
+
+const year = document.getElementById("currentYear");
+if(year){
+  year.textContent = new Date().getFullYear();
+}
+
+/* MOBILE MENU */
+
+const menuToggle = document.getElementById("menuToggle");
+const mainNav = document.getElementById("mainNav");
+
+if(menuToggle && mainNav){
+
+  menuToggle.addEventListener("click",function(){
+
+    const open = mainNav.classList.toggle("open");
+
+    menuToggle.setAttribute(
+      "aria-expanded",
+      open ? "true" : "false"
+    );
+
+    menuToggle.textContent = open ? "✕" : "☰";
+  });
+
+  mainNav.querySelectorAll("a").forEach(function(link){
+    link.addEventListener("click",function(){
+
+      if(window.innerWidth <= 850){
+        mainNav.classList.remove("open");
+        menuToggle.textContent = "☰";
+        menuToggle.setAttribute("aria-expanded","false");
+      }
+
+    });
+  });
+
+}
+
+/* LANGUAGE */
+
+const languageButtons = document.querySelectorAll(".lang-btn");
+const translatedElements =
+  document.querySelectorAll("[data-en],[data-es],[data-ht]");
+
+const supportedLanguages = ["en","es","ht"];
+
+function setLanguage(lang){
+
+  if(!supportedLanguages.includes(lang)){
+    lang = "en";
+  }
+
+  document.documentElement.lang =
+    lang === "ht" ? "ht" : lang;
+
+  translatedElements.forEach(function(element){
+
+    const value = element.getAttribute("data-" + lang);
+
+    if(value){
+      element.textContent = value;
+    }
+
+  });
+
+  languageButtons.forEach(function(button){
+
+    const active =
+      button.getAttribute("data-lang") === lang;
+
+    button.classList.toggle("active",active);
+
+    button.setAttribute(
+      "aria-pressed",
+      active ? "true" : "false"
+    );
+
+  });
+
+  try{
+    localStorage.setItem("maximaxLanguage",lang);
+  }catch(error){}
+
+}
+
+languageButtons.forEach(function(button){
+
+  button.addEventListener("click",function(){
+
+    setLanguage(
+      button.getAttribute("data-lang")
+    );
+
+  });
+
+});
+
+let savedLanguage = "en";
+
+try{
+  savedLanguage =
+    localStorage.getItem("maximaxLanguage") || "en";
+}catch(error){}
+
+setLanguage(savedLanguage);
+
+/* VIDEO */
+
+const mainVideo =
+  document.getElementById("maximaxMainVideo");
+
+const soundButton =
+  document.getElementById("maximaxSoundButton");
+
+if(mainVideo){
+
+  mainVideo.muted = true;
+  mainVideo.volume = 1;
+
+  const playPromise = mainVideo.play();
+
+  if(
+    playPromise &&
+    typeof playPromise.catch === "function"
+  ){
+    playPromise.catch(function(){});
+  }
+
+}
+
+if(mainVideo && soundButton){
+
+  soundButton.addEventListener("click",function(){
+
+    if(mainVideo.muted){
+
+      mainVideo.muted = false;
+      mainVideo.volume = 1;
+
+      const playPromise = mainVideo.play();
+
+      if(
+        playPromise &&
+        typeof playPromise.catch === "function"
+      ){
+        playPromise.catch(function(){});
+      }
+
+      soundButton.textContent = "🔇 MUTE SOUND";
+
+    }else{
+
+      mainVideo.muted = true;
+
+      soundButton.textContent = "🔊 TURN SOUND ON";
+
+    }
+
+  });
+
+}
+
+/* SMOOTH SAME-PAGE LINKS */
+
+document.querySelectorAll('a[href^="#"]').forEach(function(link){
+
+  link.addEventListener("click",function(event){
+
+    const targetId = link.getAttribute("href");
+
+    if(!targetId || targetId === "#"){
+      return;
+    }
+
+    const target =
+      document.querySelector(targetId);
+
+    if(!target){
+      return;
+    }
+
+    event.preventDefault();
+
+    const header =
+      document.querySelector(".site-header");
+
+    const offset =
+      header ? header.offsetHeight + 20 : 20;
+
+    const position =
+      target.getBoundingClientRect().top +
+      window.pageYOffset -
+      offset;
+
+    window.scrollTo({
+      top:position,
+      behavior:"smooth"
+    });
+
+  });
+
+});
+
+/* ESCAPE MENU */
+
+document.addEventListener("keydown",function(event){
+
+  if(
+    event.key === "Escape" &&
+    mainNav &&
+    mainNav.classList.contains("open")
+  ){
+
+    mainNav.classList.remove("open");
+
+    if(menuToggle){
+      menuToggle.textContent = "☰";
+      menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+    }
+
+  }
+
+});
+
+/* RESIZE */
+
+window.addEventListener("resize",function(){
+
+  if(
+    window.innerWidth > 850 &&
+    mainNav &&
+    menuToggle
+  ){
+
+    mainNav.classList.remove("open");
+    menuToggle.textContent = "☰";
+    menuToggle.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
+  }
+
+});
+
+document.body.classList.add("page-ready");
+
+})();
+</script>
+
+</body>
+</html>
