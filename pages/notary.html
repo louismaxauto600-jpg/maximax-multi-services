@@ -5,20 +5,18 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#000000">
 
-<title>Notary Services | Maximax Multi Services</title>
+<title>Acknowledgment Certificate | Maximax Multi Services</title>
 
 <style>
 :root{
   --orange:#ff7900;
-  --orange2:#ff8c1a;
   --apricot:#ffad4d;
-  --black:#000;
+  --black:#000000;
   --deep:#050200;
   --soft:#120600;
   --text:#ffd2a3;
   --muted:#d89558;
-  --border:rgba(255,121,0,.55);
-  --glow:rgba(255,121,0,.28);
+  --border:rgba(255,121,0,.58);
 }
 
 *{
@@ -38,8 +36,8 @@ body{
   color:var(--text);
   background:
     radial-gradient(circle at 15% 5%,rgba(255,121,0,.18),transparent 30%),
-    radial-gradient(circle at 90% 20%,rgba(255,173,77,.10),transparent 30%),
-    linear-gradient(180deg,#000,#050200 45%,#120600);
+    radial-gradient(circle at 90% 18%,rgba(255,173,77,.11),transparent 30%),
+    linear-gradient(180deg,#000,#050200 48%,#120600);
 }
 
 a{
@@ -47,32 +45,40 @@ a{
   text-decoration:none;
 }
 
-button,input,select,textarea{
+button,
+input,
+select,
+textarea{
   font:inherit;
 }
 
-button,a{
+button,
+a{
   -webkit-tap-highlight-color:transparent;
 }
 
 .container{
-  width:min(1180px,92%);
+  width:min(1100px,94%);
   margin:auto;
 }
 
-/* TOP BAR */
+/* =====================================================
+   TOP BAR
+===================================================== */
 
 .topbar{
-  padding:10px 15px;
+  padding:10px 12px;
   text-align:center;
   color:#000;
   background:linear-gradient(90deg,#ff7900,#ffad4d,#ff7900);
-  font-size:12px;
+  font-size:11px;
   font-weight:1000;
-  letter-spacing:1.3px;
+  letter-spacing:1px;
 }
 
-/* HEADER */
+/* =====================================================
+   HEADER
+===================================================== */
 
 header{
   position:sticky;
@@ -80,37 +86,37 @@ header{
   z-index:1000;
   border-bottom:1px solid var(--border);
   background:rgba(0,0,0,.96);
-  backdrop-filter:blur(15px);
+  backdrop-filter:blur(14px);
 }
 
 .header-inner{
-  min-height:90px;
+  min-height:86px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:18px;
+  gap:15px;
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:13px;
+  gap:12px;
 }
 
 .logo{
-  width:68px;
-  height:68px;
-  object-fit:contain;
+  width:62px;
+  height:62px;
   padding:4px;
+  object-fit:contain;
   border:2px solid var(--orange);
-  border-radius:17px;
+  border-radius:16px;
   background:#000;
-  box-shadow:0 0 20px rgba(255,121,0,.45);
+  box-shadow:0 0 18px rgba(255,121,0,.45);
 }
 
 .brand h1{
   color:var(--orange);
-  font-size:17px;
+  font-size:15px;
   font-weight:1000;
 }
 
@@ -118,276 +124,129 @@ header{
   display:block;
   margin-top:5px;
   color:var(--apricot);
-  font-size:9px;
+  font-size:8px;
   font-weight:900;
-  letter-spacing:1px;
 }
 
 .header-right{
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:8px;
 }
 
 .languages{
   display:flex;
-  gap:5px;
-  padding:5px;
+  gap:4px;
+  padding:4px;
   border:1px solid var(--border);
   border-radius:999px;
-  background:#090300;
+  background:#080300;
 }
 
-.lang{
-  min-height:38px;
-  padding:7px 11px;
+.lang-btn{
+  min-height:35px;
+  padding:6px 10px;
   border:1px solid transparent;
   border-radius:999px;
   color:var(--apricot);
   background:#000;
   cursor:pointer;
-  font-size:11px;
+  font-size:10px;
   font-weight:1000;
 }
 
-.lang.active{
+.lang-btn.active{
   color:#000;
   border-color:var(--orange);
   background:linear-gradient(135deg,var(--orange),var(--apricot));
 }
 
-.back{
+.back-btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  min-height:44px;
-  padding:10px 16px;
+  min-height:42px;
+  padding:9px 14px;
   border:2px solid var(--orange);
   border-radius:999px;
   color:var(--orange);
   background:#000;
-  font-size:11px;
+  font-size:10px;
   font-weight:1000;
 }
 
-/* HERO */
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero{
-  padding:75px 0 45px;
+  padding:65px 0 38px;
   text-align:center;
 }
 
 .hero-badge{
   display:inline-block;
-  margin-bottom:20px;
-  padding:9px 16px;
+  margin-bottom:17px;
+  padding:8px 14px;
   border:1px solid var(--orange);
   border-radius:999px;
   color:var(--orange);
-  background:rgba(255,121,0,.07);
-  font-size:11px;
+  background:rgba(255,121,0,.06);
+  font-size:10px;
   font-weight:1000;
 }
 
 .hero h2{
   color:var(--orange);
-  font-size:clamp(38px,7vw,72px);
-  line-height:1;
+  font-size:clamp(34px,7vw,62px);
+  line-height:1.05;
   font-weight:1000;
-  text-shadow:0 0 30px rgba(255,121,0,.25);
+  text-shadow:0 0 28px rgba(255,121,0,.25);
 }
 
 .hero p{
-  max-width:800px;
-  margin:22px auto 0;
-  font-size:17px;
+  max-width:760px;
+  margin:18px auto 0;
   line-height:1.7;
+  font-size:15px;
 }
 
-.hero-actions{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-top:28px;
-}
-
-.hero-btn{
-  min-height:48px;
-  padding:13px 20px;
-  border:2px solid var(--orange);
-  border-radius:999px;
-  color:#000;
-  background:linear-gradient(135deg,var(--orange),var(--apricot));
-  font-size:11px;
-  font-weight:1000;
-}
-
-.hero-btn.alt{
-  color:var(--orange);
-  background:#000;
-}
-
-/* SECTIONS */
+/* =====================================================
+   FORM
+===================================================== */
 
 .section{
-  padding:50px 0;
+  padding:35px 0 60px;
 }
 
-.section-title{
-  margin-bottom:12px;
-  color:var(--orange);
-  text-align:center;
-  font-size:clamp(27px,5vw,44px);
-  font-weight:1000;
-}
-
-.section-subtitle{
-  max-width:850px;
-  margin:0 auto 32px;
-  text-align:center;
-  line-height:1.7;
-}
-
-/* SERVICE OPTIONS */
-
-.services{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
-}
-
-.service-btn{
-  width:100%;
-  min-height:190px;
-  padding:24px;
-  border:2px solid var(--border);
-  border-radius:22px;
-  color:var(--text);
-  text-align:left;
-  cursor:pointer;
-  background:
-    radial-gradient(circle at 90% 0%,rgba(255,121,0,.14),transparent 35%),
-    linear-gradient(145deg,#100500,#000);
-}
-
-.service-btn:hover,
-.service-btn.selected{
-  transform:translateY(-3px);
-  border-color:var(--orange);
-  box-shadow:0 0 30px rgba(255,121,0,.25);
-}
-
-.service-icon{
-  display:block;
-  margin-bottom:15px;
-  font-size:34px;
-}
-
-.service-btn strong{
-  display:block;
-  margin-bottom:10px;
-  color:var(--orange);
-  font-size:18px;
-}
-
-.service-btn small{
-  font-size:12px;
-  line-height:1.6;
-}
-
-/* FORMS CENTER */
-
-.forms-center{
-  border-top:1px solid rgba(255,121,0,.25);
-  border-bottom:1px solid rgba(255,121,0,.25);
-  background:
-    radial-gradient(circle at 50% 0%,rgba(255,121,0,.12),transparent 45%),
-    linear-gradient(180deg,#050200,#000);
-}
-
-.forms-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
-}
-
-.form-card{
-  min-height:260px;
+.form-shell{
   padding:28px;
   border:2px solid var(--orange);
-  border-radius:25px;
+  border-radius:26px;
   background:
-    radial-gradient(circle at 90% 0%,rgba(255,173,77,.12),transparent 38%),
+    radial-gradient(circle at 92% 2%,rgba(255,173,77,.10),transparent 30%),
     linear-gradient(145deg,#120600,#000);
+  box-shadow:0 0 40px rgba(255,121,0,.12);
 }
 
-.form-card-icon{
-  display:block;
-  margin-bottom:15px;
-  font-size:36px;
-}
-
-.form-card h3{
-  margin-bottom:12px;
+.form-title{
+  margin-bottom:7px;
   color:var(--orange);
-  font-size:21px;
-}
-
-.form-card p{
-  min-height:65px;
-  margin-bottom:20px;
-  font-size:13px;
-  line-height:1.7;
-}
-
-.open-form{
-  min-height:45px;
-  padding:11px 20px;
-  border:2px solid var(--orange);
-  border-radius:999px;
-  color:#000;
-  background:linear-gradient(135deg,var(--orange),var(--apricot));
-  cursor:pointer;
-  font-size:11px;
+  font-size:26px;
   font-weight:1000;
 }
 
-/* FORM WORKSPACE */
-
-.form-workspace{
-  display:none;
-  margin-top:35px;
-  padding:30px;
-  border:3px solid var(--orange);
-  border-radius:28px;
-  background:
-    radial-gradient(circle at 90% 5%,rgba(255,173,77,.10),transparent 30%),
-    linear-gradient(145deg,#100500,#000);
-}
-
-.form-workspace.show{
-  display:block;
-}
-
-.workspace-head{
-  margin-bottom:25px;
-}
-
-.workspace-head h3{
-  color:var(--orange);
-  font-size:30px;
-}
-
-.workspace-head p{
-  margin-top:9px;
-  line-height:1.6;
+.form-subtitle{
+  margin-bottom:24px;
+  color:var(--apricot);
+  font-size:12px;
+  line-height:1.65;
 }
 
 .form-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:18px;
+  gap:17px;
 }
 
 .field{
@@ -402,7 +261,7 @@ header{
 
 label{
   color:var(--apricot);
-  font-size:11px;
+  font-size:10px;
   font-weight:1000;
   letter-spacing:.5px;
 }
@@ -411,30 +270,30 @@ input,
 select,
 textarea{
   width:100%;
-  min-height:52px;
-  padding:13px 15px;
+  min-height:50px;
+  padding:13px 14px;
   border:1px solid var(--border);
-  border-radius:14px;
+  border-radius:13px;
   outline:none;
   color:var(--text);
   background:#050200;
 }
 
 textarea{
-  min-height:120px;
+  min-height:115px;
   resize:vertical;
 }
 
 input::placeholder,
 textarea::placeholder{
-  color:#9c6538;
+  color:#9a6337;
 }
 
 input:focus,
 select:focus,
 textarea:focus{
   border-color:var(--orange);
-  box-shadow:0 0 0 3px rgba(255,121,0,.12);
+  box-shadow:0 0 0 3px rgba(255,121,0,.11);
 }
 
 select option{
@@ -442,7 +301,9 @@ select option{
   background:#000;
 }
 
-/* ACTIONS */
+/* =====================================================
+   ACTIONS
+===================================================== */
 
 .actions{
   display:grid;
@@ -452,14 +313,14 @@ select option{
 }
 
 .btn{
-  min-height:50px;
-  padding:12px 18px;
+  min-height:48px;
+  padding:11px 15px;
   border:2px solid var(--orange);
   border-radius:999px;
   color:var(--orange);
   background:#000;
   cursor:pointer;
-  font-size:11px;
+  font-size:10px;
   font-weight:1000;
 }
 
@@ -470,13 +331,13 @@ select option{
 
 .status{
   display:none;
-  margin-top:20px;
-  padding:14px 17px;
+  margin-top:18px;
+  padding:13px 15px;
   border:1px solid var(--orange);
-  border-radius:14px;
+  border-radius:13px;
   color:var(--orange);
   background:rgba(255,121,0,.07);
-  font-size:12px;
+  font-size:11px;
   font-weight:900;
 }
 
@@ -484,32 +345,13 @@ select option{
   display:block;
 }
 
-/* REQUEST */
-
-.workspace{
-  padding:30px;
-  border:2px solid var(--orange);
-  border-radius:28px;
-  background:linear-gradient(145deg,#100500,#000);
-}
-
-.workspace-title{
-  margin-bottom:8px;
-  color:var(--orange);
-  font-size:27px;
-  font-weight:1000;
-}
-
-.workspace-subtitle{
-  margin-bottom:25px;
-  line-height:1.6;
-}
-
-/* PRINT PREVIEW */
+/* =====================================================
+   PREVIEW
+===================================================== */
 
 .preview-wrap{
   display:none;
-  margin-top:35px;
+  margin-top:32px;
 }
 
 .preview-wrap.show{
@@ -519,13 +361,13 @@ select option{
 .print-document{
   position:relative;
   overflow:hidden;
-  padding:35px;
+  padding:34px;
   border:3px solid var(--orange);
-  border-radius:25px;
+  border-radius:24px;
   color:var(--text);
   background:
-    radial-gradient(circle at 85% 10%,rgba(255,173,77,.18),transparent 30%),
-    linear-gradient(145deg,#120600,#000 65%);
+    radial-gradient(circle at 86% 8%,rgba(255,173,77,.18),transparent 28%),
+    linear-gradient(145deg,#120600,#000 67%);
 }
 
 .print-document::before,
@@ -543,32 +385,38 @@ select option{
 
 .document-head{
   padding-bottom:20px;
-  margin-bottom:25px;
+  margin-bottom:24px;
   border-bottom:2px solid var(--orange);
   text-align:center;
 }
 
 .document-head h2{
   color:var(--orange);
-  font-size:28px;
+  font-size:27px;
 }
 
 .document-head h3{
   margin-top:7px;
   color:var(--apricot);
+  font-size:17px;
+}
+
+.document-head p{
+  margin-top:7px;
+  font-size:10px;
 }
 
 .document-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:13px;
+  gap:12px;
 }
 
 .document-item{
-  min-height:75px;
-  padding:14px;
+  min-height:72px;
+  padding:13px;
   border:1px solid var(--border);
-  border-radius:12px;
+  border-radius:11px;
   background:#050200;
 }
 
@@ -578,163 +426,191 @@ select option{
 
 .document-label{
   display:block;
-  margin-bottom:7px;
+  margin-bottom:6px;
   color:var(--orange);
-  font-size:10px;
+  font-size:9px;
   font-weight:1000;
   text-transform:uppercase;
 }
 
 .document-value{
-  font-size:13px;
-  line-height:1.6;
+  font-size:12px;
+  line-height:1.55;
   white-space:pre-wrap;
+  word-break:break-word;
+}
+
+.signature-box{
+  margin-top:18px;
+  padding:18px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:#050200;
 }
 
 .signature-line{
-  height:70px;
+  height:65px;
+  margin-top:10px;
   border-bottom:1px solid var(--orange);
 }
 
+.notary-box{
+  margin-top:18px;
+  padding:18px;
+  border:1px solid var(--orange);
+  border-radius:12px;
+  background:#050200;
+}
+
+.notary-box h4{
+  margin-bottom:14px;
+  color:var(--orange);
+}
+
+.notary-lines{
+  color:var(--text);
+  font-size:12px;
+  line-height:2;
+  white-space:pre-line;
+}
+
+.seal-box{
+  height:100px;
+  margin-top:15px;
+  padding:10px;
+  border:1px dashed var(--orange);
+  border-radius:11px;
+  color:var(--apricot);
+  font-size:10px;
+}
+
 .document-footer{
-  margin-top:25px;
-  padding-top:20px;
+  margin-top:24px;
+  padding-top:18px;
   border-top:1px solid var(--orange);
   text-align:center;
   color:var(--apricot);
-  font-size:10px;
+  font-size:9px;
   line-height:1.8;
 }
 
 .document-footer strong{
   color:var(--orange);
-  font-size:13px;
+  font-size:12px;
 }
 
-/* CONTACT */
+/* =====================================================
+   NOTICE + FOOTER
+===================================================== */
 
-.contact-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:18px;
+.notice{
+  margin-top:25px;
+  padding:18px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:#050200;
+  font-size:10px;
+  line-height:1.7;
 }
 
-.contact-card{
-  min-height:150px;
-  padding:25px;
-  border:2px solid var(--orange);
-  border-radius:22px;
-  text-align:center;
-  background:linear-gradient(145deg,#120600,#000);
-}
-
-.contact-card .icon{
-  display:block;
-  margin-bottom:12px;
-  font-size:30px;
-}
-
-.contact-card strong{
-  display:block;
-  margin-bottom:10px;
+.notice strong{
   color:var(--orange);
 }
 
 footer{
-  padding:40px 15px;
+  padding:38px 15px;
   border-top:1px solid var(--border);
   text-align:center;
   background:#000;
 }
 
-footer strong{color:var(--orange)}
-footer p{
-  margin-top:8px;
-  color:var(--apricot);
-  font-size:11px;
+footer strong{
+  color:var(--orange);
 }
 
-/* PRINT */
+footer p{
+  margin-top:7px;
+  color:var(--apricot);
+  font-size:10px;
+}
+
+/* =====================================================
+   PRINT
+===================================================== */
 
 @media print{
-  @page{margin:.35in}
+  @page{
+    margin:.35in;
+  }
 
   *{
     -webkit-print-color-adjust:exact!important;
     print-color-adjust:exact!important;
   }
 
-  html,body{
+  html,
+  body{
     background:#000!important;
   }
 
   .topbar,
   header,
   .hero,
-  .services-section,
-  .forms-center > .container > .section-title,
-  .forms-center > .container > .section-subtitle,
-  .forms-grid,
-  .form-workspace,
-  .request-section,
-  .contact-section,
+  .form-shell,
+  .notice,
   footer,
   .no-print{
     display:none!important;
   }
 
-  .preview-wrap.show{
+  .preview-wrap{
     display:block!important;
     margin:0!important;
   }
 
+  .container{
+    width:100%!important;
+    max-width:none!important;
+  }
+
   .print-document{
+    min-height:95vh;
+    margin:0!important;
     border:3px solid #ff7900!important;
     border-radius:0!important;
     background:
-      radial-gradient(circle at 85% 10%,rgba(255,173,77,.20),transparent 30%),
-      linear-gradient(145deg,#120600,#000 65%)!important;
+      radial-gradient(circle at 86% 8%,rgba(255,173,77,.18),transparent 28%),
+      linear-gradient(145deg,#120600,#000 67%)!important;
   }
 }
 
-/* MOBILE */
+/* =====================================================
+   MOBILE
+===================================================== */
 
-@media(max-width:850px){
-  .services{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .back{
-    display:none;
-  }
-}
-
-@media(max-width:650px){
-  .container{
-    width:94%;
-  }
+@media(max-width:700px){
 
   .header-inner{
-    min-height:80px;
-    gap:8px;
+    min-height:78px;
+    gap:7px;
   }
 
   .brand{
-    gap:8px;
+    gap:7px;
   }
 
   .logo{
-    width:50px;
-    height:50px;
+    width:48px;
+    height:48px;
   }
 
   .brand h1{
-    max-width:145px;
-    font-size:11px;
+    max-width:130px;
+    font-size:10px;
   }
 
   .brand small{
-    font-size:7px;
+    font-size:6px;
   }
 
   .languages{
@@ -742,18 +618,23 @@ footer p{
     padding:3px;
   }
 
-  .lang{
-    min-height:34px;
-    padding:6px 8px;
-    font-size:9px;
+  .lang-btn{
+    min-height:32px;
+    padding:5px 7px;
+    font-size:8px;
   }
 
-  .services,
-  .forms-grid,
+  .back-btn{
+    display:none;
+  }
+
+  .hero{
+    padding:50px 0 32px;
+  }
+
   .form-grid,
-  .actions,
   .document-grid,
-  .contact-grid{
+  .actions{
     grid-template-columns:1fr;
   }
 
@@ -762,9 +643,12 @@ footer p{
     grid-column:auto;
   }
 
-  .workspace,
-  .form-workspace{
-    padding:20px;
+  .form-shell{
+    padding:19px;
+  }
+
+  .print-document{
+    padding:24px 17px;
   }
 }
 </style>
@@ -773,32 +657,42 @@ footer p{
 <body>
 
 <div class="topbar">
-MAXIMAX MULTI SERVICES • NOTARY SERVICE CENTER • BSS1815 PRO-MAX DMP
+MAXIMAX MULTI SERVICES • NOTARY FORMS CENTER • ACKNOWLEDGMENT
 </div>
 
 <header>
 <div class="container header-inner">
 
-<a class="brand" href="../index.html">
-<img class="logo"
-src="../maximax-multi-services.jpg?v=20260918"
-alt="Maximax Multi Services Logo">
+<a class="brand" href="../notary.html">
+
+<img
+  class="logo"
+  src="../../maximax-multi-services.jpg?v=20260918"
+  alt="Maximax Multi Services Logo">
 
 <div>
 <h1>MAXIMAX MULTI SERVICES</h1>
-<small>NOTARY SERVICE CENTER</small>
+<small>ACKNOWLEDGMENT CERTIFICATE</small>
 </div>
+
 </a>
 
 <div class="header-right">
 
 <div class="languages">
-<button class="lang active" data-lang="en">🇺🇸 ENG</button>
-<button class="lang" data-lang="es">🇪🇸 ESP</button>
-<button class="lang" data-lang="ht">🇭🇹 KRE</button>
+<button class="lang-btn active" type="button" data-lang="en">🇺🇸 ENG</button>
+<button class="lang-btn" type="button" data-lang="es">🇪🇸 ESP</button>
+<button class="lang-btn" type="button" data-lang="ht">🇭🇹 KRE</button>
 </div>
 
-<a class="back" href="../index.html">← HOMEPAGE</a>
+<a
+  class="back-btn"
+  href="../notary.html"
+  data-en="← NOTARY CENTER"
+  data-es="← CENTRO NOTARIAL"
+  data-ht="← SANT NOTÈ">
+← NOTARY CENTER
+</a>
 
 </div>
 </div>
@@ -809,243 +703,393 @@ alt="Maximax Multi Services Logo">
 <section class="hero">
 <div class="container">
 
-<div class="hero-badge"
-data-en="MAXIMAX PROFESSIONAL NOTARY SERVICE CENTER"
-data-es="CENTRO PROFESIONAL DE SERVICIOS NOTARIALES MAXIMAX"
-data-ht="SANT SÈVIS NOTÈ PWOFESYONÈL MAXIMAX">
-MAXIMAX PROFESSIONAL NOTARY SERVICE CENTER
+<div
+  class="hero-badge"
+  data-en="NOTARY FORM 01"
+  data-es="FORMULARIO NOTARIAL 01"
+  data-ht="FÒM NOTÈ 01">
+NOTARY FORM 01
 </div>
 
 <h2
-data-en="NOTARY SERVICES"
-data-es="SERVICIOS NOTARIALES"
-data-ht="SÈVIS NOTÈ">
-NOTARY SERVICES
+  data-en="ACKNOWLEDGMENT CERTIFICATE"
+  data-es="CERTIFICADO DE RECONOCIMIENTO"
+  data-ht="SÈTIFIKA REKONESANS">
+ACKNOWLEDGMENT CERTIFICATE
 </h2>
 
 <p
-data-en="Professional notary intake, forms, document organization and service request center."
-data-es="Centro profesional de formularios, organización de documentos y solicitudes notariales."
-data-ht="Sant pwofesyonèl pou fòm notè, òganizasyon dokiman ak demann sèvis.">
-Professional notary intake, forms, document organization and service request center.
+  data-en="Complete the acknowledgment information record, save it, edit it, generate the printable record and print it when ready."
+  data-es="Complete el registro de reconocimiento, guárdelo, edítelo, genere el registro imprimible e imprímalo cuando esté listo."
+  data-ht="Ranpli dosye enfòmasyon rekonesans lan, sove li, edite li, jenere dosye pou enprime a epi enprime li lè li pare.">
+Complete the acknowledgment information record, save it, edit it, generate the printable record and print it when ready.
 </p>
-
-<div class="hero-actions">
-<a class="hero-btn" href="#formsCenter">OPEN FORMS CENTER</a>
-<a class="hero-btn alt" href="#serviceRequest">CREATE SERVICE REQUEST</a>
-</div>
 
 </div>
 </section>
 
-<!-- SERVICES -->
-
-<section class="section services-section">
+<section class="section">
 <div class="container">
 
-<h2 class="section-title"
-data-en="NOTARY SERVICE OPTIONS"
-data-es="OPCIONES DE SERVICIOS NOTARIALES"
-data-ht="OPSYON SÈVIS NOTÈ">
-NOTARY SERVICE OPTIONS
-</h2>
+<div class="form-shell">
 
-<p class="section-subtitle"
-data-en="Choose the service needed."
-data-es="Seleccione el servicio necesario."
-data-ht="Chwazi sèvis ou bezwen an.">
-Choose the service needed.
+<h3
+  class="form-title"
+  data-en="ACKNOWLEDGMENT INFORMATION"
+  data-es="INFORMACIÓN DE RECONOCIMIENTO"
+  data-ht="ENFÒMASYON REKONESANS">
+ACKNOWLEDGMENT INFORMATION
+</h3>
+
+<p
+  class="form-subtitle"
+  data-en="Enter the information associated with the requested acknowledgment."
+  data-es="Ingrese la información relacionada con el reconocimiento solicitado."
+  data-ht="Antre enfòmasyon ki gen rapò ak rekonesans yo mande a.">
+Enter the information associated with the requested acknowledgment.
 </p>
 
-<div class="services">
+<form id="ackForm">
 
-<button class="service-btn" data-service="Acknowledgment">
-<span class="service-icon">✍🏽</span>
-<strong>Acknowledgment</strong>
-<small>Notarial acknowledgment service for eligible documents.</small>
-</button>
+<div class="form-grid">
 
-<button class="service-btn" data-service="Jurat">
-<span class="service-icon">📝</span>
-<strong>Jurat</strong>
-<small>For documents requiring a sworn or affirmed statement.</small>
-</button>
-
-<button class="service-btn" data-service="Document Notarization">
-<span class="service-icon">📄</span>
-<strong>Document Notarization</strong>
-<small>General notarial service for eligible documents.</small>
-</button>
-
-<button class="service-btn" data-service="Witness Coordination">
-<span class="service-icon">👥</span>
-<strong>Witness Coordination</strong>
-<small>Coordinate witness requirements for the appointment.</small>
-</button>
-
-<button class="service-btn" data-service="Mobile Notary Request">
-<span class="service-icon">🚗</span>
-<strong>Mobile Notary Request</strong>
-<small>Request notary service at a client location.</small>
-</button>
-
-<button class="service-btn" data-service="Document Organization">
-<span class="service-icon">📚</span>
-<strong>Document Organization</strong>
-<small>Organize document information before the appointment.</small>
-</button>
-
-</div>
-</div>
-</section>
-
-<!-- FORMS CENTER -->
-
-<section class="section forms-center" id="formsCenter">
-<div class="container">
-
-<h2 class="section-title"
-data-en="NOTARY FORMS CENTER"
-data-es="CENTRO DE FORMULARIOS NOTARIALES"
-data-ht="SANT FÒM NOTÈ">
-NOTARY FORMS CENTER
-</h2>
-
-<p class="section-subtitle"
-data-en="Each button below opens its own dedicated form."
-data-es="Cada botón abre su propio formulario."
-data-ht="Chak bouton anba a ouvri pwòp fòm pa li.">
-Each button below opens its own dedicated form.
-</p>
-
-<div class="forms-grid">
-
-<div class="form-card">
-<span class="form-card-icon">✍🏽</span>
-<h3>Acknowledgment Certificate</h3>
-<p>Prepare acknowledgment certificate information.</p>
-<button class="open-form" data-form="acknowledgment">OPEN FORM</button>
+<div class="field">
+<label
+  data-en="SIGNER FULL NAME"
+  data-es="NOMBRE COMPLETO DEL FIRMANTE"
+  data-ht="NON KONPLÈ SIYATÈ">
+SIGNER FULL NAME
+</label>
+<input id="signerName" type="text" required>
 </div>
 
-<div class="form-card">
-<span class="form-card-icon">📝</span>
-<h3>Jurat Certificate</h3>
-<p>Prepare information for a sworn or affirmed document.</p>
-<button class="open-form" data-form="jurat">OPEN FORM</button>
+<div class="field">
+<label
+  data-en="PHONE NUMBER"
+  data-es="NÚMERO DE TELÉFONO"
+  data-ht="NIMEWO TELEFÒN">
+PHONE NUMBER
+</label>
+<input id="phone" type="tel">
 </div>
 
-<div class="form-card">
-<span class="form-card-icon">📜</span>
-<h3>Affidavit</h3>
-<p>Prepare affidavit and declarant statement information.</p>
-<button class="open-form" data-form="affidavit">OPEN FORM</button>
+<div class="field">
+<label>EMAIL</label>
+<input id="email" type="email">
 </div>
 
-<div class="form-card">
-<span class="form-card-icon">⚖️</span>
-<h3>Power of Attorney Intake</h3>
-<p>Organize principal, agent and POA document information.</p>
-<button class="open-form" data-form="poa">OPEN FORM</button>
+<div class="field">
+<label
+  data-en="DATE OF ACKNOWLEDGMENT"
+  data-es="FECHA DEL RECONOCIMIENTO"
+  data-ht="DAT REKONESANS">
+DATE OF ACKNOWLEDGMENT
+</label>
+<input id="ackDate" type="date">
 </div>
 
-<div class="form-card">
-<span class="form-card-icon">✅</span>
-<h3>Authorization Letter</h3>
-<p>Prepare authorization information and authorized action.</p>
-<button class="open-form" data-form="authorization">OPEN FORM</button>
+<div class="field">
+<label
+  data-en="STATE"
+  data-es="ESTADO"
+  data-ht="ETA">
+STATE
+</label>
+<input id="state" type="text" placeholder="Florida">
 </div>
 
-<div class="form-card">
-<span class="form-card-icon">🚘</span>
-<h3>Bill of Sale</h3>
-<p>Record seller, buyer, vehicle/property and sale details.</p>
-<button class="open-form" data-form="billofsale">OPEN FORM</button>
+<div class="field">
+<label
+  data-en="COUNTY"
+  data-es="CONDADO"
+  data-ht="KONTE">
+COUNTY
+</label>
+<input id="county" type="text">
 </div>
 
-<div class="form-card">
-<span class="form-card-icon">👥</span>
-<h3>Witness Statement</h3>
-<p>Record witness identification and statement information.</p>
-<button class="open-form" data-form="witness">OPEN FORM</button>
+<div class="field full">
+<label
+  data-en="SIGNER ADDRESS"
+  data-es="DIRECCIÓN DEL FIRMANTE"
+  data-ht="ADRÈS SIYATÈ">
+SIGNER ADDRESS
+</label>
+<input id="address" type="text">
 </div>
 
-<div class="form-card">
-<span class="form-card-icon">🚗</span>
-<h3>Mobile Notary Request</h3>
-<p>Record mobile-service date, time and client location.</p>
-<button class="open-form" data-form="mobile">OPEN FORM</button>
+<div class="field">
+<label
+  data-en="DOCUMENT DATE"
+  data-es="FECHA DEL DOCUMENTO"
+  data-ht="DAT DOKIMAN">
+DOCUMENT DATE
+</label>
+<input id="documentDate" type="date">
 </div>
 
-<div class="form-card">
-<span class="form-card-icon">📋</span>
-<h3>Document Checklist</h3>
-<p>Prepare signer, identification, witness and document checklist.</p>
-<button class="open-form" data-form="checklist">OPEN FORM</button>
+<div class="field">
+<label
+  data-en="NUMBER OF PAGES"
+  data-es="NÚMERO DE PÁGINAS"
+  data-ht="KANTITE PAJ">
+NUMBER OF PAGES
+</label>
+<input id="pages" type="number" min="1">
 </div>
 
-<div class="form-card">
-<span class="form-card-icon">🗂️</span>
-<h3>Notary Service Record</h3>
-<p>Create a general notary service record.</p>
-<button class="open-form" data-form="record">OPEN FORM</button>
+<div class="field full">
+<label
+  data-en="DOCUMENT TITLE / DESCRIPTION"
+  data-es="TÍTULO / DESCRIPCIÓN DEL DOCUMENTO"
+  data-ht="TIT / DESKRIPSYON DOKIMAN">
+DOCUMENT TITLE / DESCRIPTION
+</label>
+<input id="documentTitle" type="text">
+</div>
+
+<div class="field">
+<label
+  data-en="SIGNER CAPACITY / TITLE"
+  data-es="CAPACIDAD / TÍTULO DEL FIRMANTE"
+  data-ht="KAPASITE / TIT SIYATÈ">
+SIGNER CAPACITY / TITLE
+</label>
+<input id="capacity" type="text" placeholder="Individual, officer, representative...">
+</div>
+
+<div class="field">
+<label
+  data-en="IDENTIFICATION TYPE"
+  data-es="TIPO DE IDENTIFICACIÓN"
+  data-ht="KALITE PYÈS IDANTITE">
+IDENTIFICATION TYPE
+</label>
+
+<select id="idType">
+<option value="">Select ID</option>
+<option>Driver License</option>
+<option>State ID</option>
+<option>Passport</option>
+<option>Other Identification</option>
+</select>
+</div>
+
+<div class="field">
+<label
+  data-en="IDENTIFICATION NUMBER / REFERENCE"
+  data-es="NÚMERO / REFERENCIA DE IDENTIFICACIÓN"
+  data-ht="NIMEWO / REFERANS IDANTIFIKASYON">
+IDENTIFICATION NUMBER / REFERENCE
+</label>
+<input id="idNumber" type="text">
+</div>
+
+<div class="field">
+<label
+  data-en="IDENTIFICATION EXPIRATION"
+  data-es="VENCIMIENTO DE IDENTIFICACIÓN"
+  data-ht="DAT EKSPIRASYON IDANTITE">
+IDENTIFICATION EXPIRATION
+</label>
+<input id="idExpiration" type="date">
+</div>
+
+<div class="field full">
+<label
+  data-en="ADDITIONAL NOTES"
+  data-es="NOTAS ADICIONALES"
+  data-ht="LÒT NÒT">
+ADDITIONAL NOTES
+</label>
+<textarea id="notes"></textarea>
 </div>
 
 </div>
-
-<!-- REAL DYNAMIC FORM WORKSPACE -->
-
-<div class="form-workspace" id="formWorkspace">
-
-<div class="workspace-head">
-<h3 id="activeFormTitle">NOTARY FORM</h3>
-<p id="activeFormDescription">
-Complete the selected form below.
-</p>
-</div>
-
-<form id="dynamicForm">
-
-<input type="hidden" id="activeFormType">
-
-<div class="form-grid" id="dynamicFields"></div>
 
 <div class="actions no-print">
-<button class="btn primary" type="button" id="formGenerate">GENERATE FORM</button>
-<button class="btn" type="button" id="formSave">SAVE FORM</button>
-<button class="btn" type="button" id="formLoad">LOAD SAVED</button>
-<button class="btn" type="button" id="formEdit">EDIT FORM</button>
-<button class="btn" type="button" id="formPrint">PRINT FORM</button>
-<button class="btn" type="button" id="formReset">RESET FORM</button>
+
+<button
+  class="btn primary"
+  type="button"
+  id="generateBtn"
+  data-en="GENERATE RECORD"
+  data-es="GENERAR REGISTRO"
+  data-ht="JENERE DOSYE">
+GENERATE RECORD
+</button>
+
+<button
+  class="btn"
+  type="button"
+  id="saveBtn"
+  data-en="SAVE FORM"
+  data-es="GUARDAR FORMULARIO"
+  data-ht="SOVE FÒM">
+SAVE FORM
+</button>
+
+<button
+  class="btn"
+  type="button"
+  id="loadBtn"
+  data-en="LOAD SAVED"
+  data-es="CARGAR GUARDADO"
+  data-ht="LOUVRI SA KI SOVE">
+LOAD SAVED
+</button>
+
+<button
+  class="btn"
+  type="button"
+  id="editBtn"
+  data-en="EDIT FORM"
+  data-es="EDITAR FORMULARIO"
+  data-ht="EDITE FÒM">
+EDIT FORM
+</button>
+
+<button
+  class="btn"
+  type="button"
+  id="printBtn"
+  data-en="PRINT FORM"
+  data-es="IMPRIMIR FORMULARIO"
+  data-ht="ENPRIME FÒM">
+PRINT FORM
+</button>
+
+<button
+  class="btn"
+  type="button"
+  id="resetBtn"
+  data-en="RESET FORM"
+  data-es="REINICIAR FORMULARIO"
+  data-ht="NETWAYE FÒM">
+RESET FORM
+</button>
+
 </div>
+
+<div class="status" id="status"></div>
 
 </form>
 
-<div class="status" id="formStatus"></div>
-
 </div>
 
-<!-- PRINT PREVIEW -->
+<!-- =====================================================
+     PRINT PREVIEW
+===================================================== -->
 
-<div class="preview-wrap" id="formPreview">
+<div class="preview-wrap" id="previewWrap">
 
 <div class="print-document">
 
 <div class="document-head">
 <h2>MAXIMAX MULTI SERVICES</h2>
-<h3>NOTARY SERVICE CENTER</h3>
-<p id="printFormTitle">NOTARY FORM</p>
+<h3>ACKNOWLEDGMENT CERTIFICATE INFORMATION RECORD</h3>
+<p>NOTARY FORMS CENTER</p>
 </div>
 
-<div class="document-grid" id="printFields"></div>
+<div class="document-grid">
 
-<div class="document-item full" style="margin-top:15px;">
-<span class="document-label">Primary Party / Signer Signature</span>
+<div class="document-item">
+<span class="document-label">Record Number</span>
+<div class="document-value" id="pRecord">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Created</span>
+<div class="document-value" id="pCreated">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Signer Full Name</span>
+<div class="document-value" id="pSigner">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Phone</span>
+<div class="document-value" id="pPhone">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Email</span>
+<div class="document-value" id="pEmail">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Acknowledgment Date</span>
+<div class="document-value" id="pAckDate">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">State</span>
+<div class="document-value" id="pState">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">County</span>
+<div class="document-value" id="pCounty">—</div>
+</div>
+
+<div class="document-item full">
+<span class="document-label">Signer Address</span>
+<div class="document-value" id="pAddress">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Document Date</span>
+<div class="document-value" id="pDocumentDate">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Number of Pages</span>
+<div class="document-value" id="pPages">—</div>
+</div>
+
+<div class="document-item full">
+<span class="document-label">Document Title / Description</span>
+<div class="document-value" id="pDocumentTitle">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Signer Capacity / Title</span>
+<div class="document-value" id="pCapacity">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Identification Type</span>
+<div class="document-value" id="pIdType">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Identification Reference</span>
+<div class="document-value" id="pIdNumber">—</div>
+</div>
+
+<div class="document-item">
+<span class="document-label">Identification Expiration</span>
+<div class="document-value" id="pIdExpiration">—</div>
+</div>
+
+<div class="document-item full">
+<span class="document-label">Additional Notes</span>
+<div class="document-value" id="pNotes">—</div>
+</div>
+
+</div>
+
+<div class="signature-box">
+<strong style="color:#ff7900;">SIGNER SIGNATURE</strong>
 <div class="signature-line"></div>
 </div>
 
-<div class="document-item full" style="margin-top:15px;">
-<span class="document-label">Notary Section</span>
-<div class="document-value">
+<div class="notary-box">
+
+<h4>NOTARIAL SECTION</h4>
+
+<div class="notary-lines">
 Notary Name: ______________________________________
 
 Commission Number: _________________________________
@@ -1057,16 +1101,10 @@ Notary Signature: __________________________________
 Date: ______________________________________________
 </div>
 
-<div style="
-height:100px;
-border:1px dashed #ff7900;
-border-radius:12px;
-margin-top:15px;
-padding:10px;
-color:#ffad4d;
-">
-SEAL / STAMP AREA
+<div class="seal-box">
+NOTARY SEAL / STAMP AREA
 </div>
+
 </div>
 
 <div class="document-footer">
@@ -1079,191 +1117,22 @@ bss1815promaxdmp@gmail.com
 </div>
 </div>
 
-</div>
-</section>
+<div class="notice">
+<strong
+  data-en="IMPORTANT:"
+  data-es="IMPORTANTE:"
+  data-ht="ENPÒTAN:">
+IMPORTANT:
+</strong>
 
-<!-- SERVICE REQUEST -->
-
-<section class="section request-section" id="serviceRequest">
-<div class="container">
-
-<h2 class="section-title"
-data-en="CREATE NOTARY SERVICE REQUEST"
-data-es="CREAR SOLICITUD DE SERVICIO NOTARIAL"
-data-ht="KREYE DEMANN SÈVIS NOTÈ">
-CREATE NOTARY SERVICE REQUEST
-</h2>
-
-<div class="workspace">
-
-<div class="workspace-title">Client & Document Information</div>
-
-<div class="workspace-subtitle">
-Complete the information below to create the service request.
+<span
+  data-en=" This page is an acknowledgment information and service record. The notary must use the certificate wording and procedures required by the applicable jurisdiction and the document presented."
+  data-es=" Esta página es un registro de información y servicio. El notario debe utilizar el texto del certificado y los procedimientos exigidos por la jurisdicción aplicable."
+  data-ht=" Paj sa a se yon dosye enfòmasyon ak sèvis pou rekonesans. Notè a dwe sèvi ak tèks sètifika ak pwosedi jiridiksyon ki aplikab la mande pou dokiman yo prezante a.">
+ This page is an acknowledgment information and service record. The notary must use the certificate wording and procedures required by the applicable jurisdiction and the document presented.
+</span>
 </div>
 
-<form id="requestForm">
-
-<div class="form-grid">
-
-<div class="field">
-<label>CLIENT FULL NAME</label>
-<input id="clientName" type="text" required>
-</div>
-
-<div class="field">
-<label>PHONE NUMBER</label>
-<input id="clientPhone" type="tel">
-</div>
-
-<div class="field">
-<label>EMAIL</label>
-<input id="clientEmail" type="email">
-</div>
-
-<div class="field">
-<label>SERVICE TYPE</label>
-<select id="serviceType">
-<option value="">Select Service</option>
-<option>Acknowledgment</option>
-<option>Jurat</option>
-<option>Document Notarization</option>
-<option>Witness Coordination</option>
-<option>Mobile Notary Request</option>
-<option>Document Organization</option>
-</select>
-</div>
-
-<div class="field">
-<label>DOCUMENT TYPE</label>
-<select id="documentType">
-<option value="">Select Document</option>
-<option>Affidavit</option>
-<option>Power of Attorney</option>
-<option>Authorization Letter</option>
-<option>Bill of Sale</option>
-<option>Real Estate Document</option>
-<option>Vehicle / Title Document</option>
-<option>Agreement / Contract</option>
-<option>Other Document</option>
-</select>
-</div>
-
-<div class="field">
-<label>NUMBER OF SIGNERS</label>
-<input id="signers" type="number" min="1" value="1">
-</div>
-
-<div class="field">
-<label>NUMBER OF DOCUMENTS</label>
-<input id="documentCount" type="number" min="1" value="1">
-</div>
-
-<div class="field">
-<label>APPOINTMENT DATE</label>
-<input id="appointmentDate" type="date">
-</div>
-
-<div class="field">
-<label>APPOINTMENT TIME</label>
-<input id="appointmentTime" type="time">
-</div>
-
-<div class="field">
-<label>SERVICE LOCATION</label>
-<select id="serviceLocation">
-<option>Office</option>
-<option>Client Location / Mobile</option>
-<option>Hospital / Care Facility</option>
-<option>Business Location</option>
-<option>Other</option>
-</select>
-</div>
-
-<div class="field">
-<label>ESTIMATED / AGREED FEE</label>
-<input id="serviceFee" type="number" min="0" step=".01" placeholder="0.00">
-</div>
-
-<div class="field full">
-<label>SERVICE ADDRESS / MOBILE LOCATION</label>
-<input id="serviceAddress" type="text">
-</div>
-
-<div class="field full">
-<label>DOCUMENT DESCRIPTION</label>
-<textarea id="documentDescription"></textarea>
-</div>
-
-<div class="field full">
-<label>NOTES / SPECIAL INSTRUCTIONS</label>
-<textarea id="requestNotes"></textarea>
-</div>
-
-</div>
-
-<div class="actions">
-<button class="btn primary" type="button" id="requestGenerate">GENERATE SERVICE RECORD</button>
-<button class="btn" type="button" id="requestSave">SAVE</button>
-<button class="btn" type="button" id="requestLoad">LOAD SAVED</button>
-<button class="btn" type="button" id="requestPrint">PRINT</button>
-<button class="btn" type="reset">RESET</button>
-</div>
-
-<div class="status" id="requestStatus"></div>
-
-</form>
-
-</div>
-
-<div class="preview-wrap" id="requestPreview">
-<div class="print-document">
-
-<div class="document-head">
-<h2>MAXIMAX MULTI SERVICES</h2>
-<h3>NOTARY SERVICE REQUEST</h3>
-</div>
-
-<div class="document-grid" id="requestPrintFields"></div>
-
-<div class="document-footer">
-<strong>MAXIMAX MULTI SERVICES</strong><br>
-NOTARY SERVICE CENTER<br>
-BSS1815PRO-MAXDMP.COM<br>
-bss1815promaxdmp@gmail.com
-</div>
-
-</div>
-</div>
-
-</div>
-</section>
-
-<!-- CONTACT -->
-
-<section class="section contact-section">
-<div class="container">
-
-<h2 class="section-title">OFFICIAL CONTACT</h2>
-
-<div class="contact-grid">
-
-<a class="contact-card" href="mailto:bss1815promaxdmp@gmail.com">
-<span class="icon">✉️</span>
-<strong>EMAIL</strong>
-<span>bss1815promaxdmp@gmail.com</span>
-</a>
-
-<a class="contact-card"
-href="https://bss1815pro-maxdmp.com"
-target="_blank"
-rel="noopener noreferrer">
-<span class="icon">🌐</span>
-<strong>WEBSITE</strong>
-<span>BSS1815PRO-MAXDMP.COM</span>
-</a>
-
-</div>
 </div>
 </section>
 
@@ -1285,665 +1154,426 @@ const $=id=>document.getElementById(id);
 
 $("year").textContent=new Date().getFullYear();
 
-/* LANGUAGE */
+/* =====================================================
+   LANGUAGE
+===================================================== */
 
-const langButtons=document.querySelectorAll(".lang");
+const languageButtons=document.querySelectorAll(".lang-btn");
 
-function setLanguage(lang){
+const translated=
+  document.querySelectorAll("[data-en],[data-es],[data-ht]");
 
-  if(!["en","es","ht"].includes(lang)) lang="en";
+function setLanguage(language){
 
-  document.documentElement.lang=lang;
+  if(!["en","es","ht"].includes(language)){
+    language="en";
+  }
 
-  document.querySelectorAll("[data-en],[data-es],[data-ht]")
-  .forEach(el=>{
-    const value=el.getAttribute("data-"+lang);
-    if(value) el.textContent=value;
+  document.documentElement.lang=language;
+
+  translated.forEach(element=>{
+
+    const value=
+      element.getAttribute("data-"+language);
+
+    if(value){
+      element.textContent=value;
+    }
+
   });
 
-  langButtons.forEach(btn=>{
-    btn.classList.toggle("active",btn.dataset.lang===lang);
+  languageButtons.forEach(button=>{
+
+    const active=
+      button.dataset.lang===language;
+
+    button.classList.toggle("active",active);
+
+    button.setAttribute(
+      "aria-pressed",
+      active ? "true":"false"
+    );
+
   });
 
-  localStorage.setItem("maximaxLanguage",lang);
+  try{
+    localStorage.setItem(
+      "maximaxLanguage",
+      language
+    );
+  }catch(error){}
 }
 
-langButtons.forEach(btn=>{
-  btn.addEventListener("click",()=>setLanguage(btn.dataset.lang));
+languageButtons.forEach(button=>{
+
+  button.addEventListener("click",()=>{
+    setLanguage(button.dataset.lang);
+  });
+
 });
 
-setLanguage(localStorage.getItem("maximaxLanguage") || "en");
+let savedLanguage="en";
 
-/* HELPERS */
+try{
+  savedLanguage=
+    localStorage.getItem("maximaxLanguage") || "en";
+}catch(error){}
 
-function esc(value){
-  return String(value || "")
-  .replace(/&/g,"&amp;")
-  .replace(/</g,"&lt;")
-  .replace(/>/g,"&gt;")
-  .replace(/"/g,"&quot;");
-}
+setLanguage(savedLanguage);
 
-function field(id,label,type="text",full=false,options=[]){
-
-  let control="";
-
-  if(type==="textarea"){
-    control=`<textarea id="${id}"></textarea>`;
-  }
-
-  else if(type==="select"){
-    control=`<select id="${id}">
-      <option value="">Select</option>
-      ${options.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join("")}
-    </select>`;
-  }
-
-  else{
-    control=`<input id="${id}" type="${type}">`;
-  }
-
-  return `
-  <div class="field ${full?"full":""}">
-    <label>${label}</label>
-    ${control}
-  </div>`;
-}
+/* =====================================================
+   HELPERS
+===================================================== */
 
 function value(id){
-  const el=$(id);
-  return el ? el.value.trim() : "";
+
+  const element=$(id);
+
+  return element
+    ? element.value.trim()
+    : "";
 }
 
-function recordNumber(prefix){
+function setValue(id,val){
+
+  const element=$(id);
+
+  if(element){
+    element.value=val || "";
+  }
+}
+
+function show(value){
+  return value && String(value).trim()
+    ? value
+    : "—";
+}
+
+function recordNumber(){
+
   const now=new Date();
 
-  return prefix+"-"+
-  now.getFullYear()+
-  String(now.getMonth()+1).padStart(2,"0")+
-  String(now.getDate()).padStart(2,"0")+"-"+
-  String(now.getHours()).padStart(2,"0")+
-  String(now.getMinutes()).padStart(2,"0")+
-  String(now.getSeconds()).padStart(2,"0");
+  const date=
+    now.getFullYear()+
+    String(now.getMonth()+1).padStart(2,"0")+
+    String(now.getDate()).padStart(2,"0");
+
+  const time=
+    String(now.getHours()).padStart(2,"0")+
+    String(now.getMinutes()).padStart(2,"0")+
+    String(now.getSeconds()).padStart(2,"0");
+
+  return "MAX-ACK-"+date+"-"+time;
 }
 
-function showStatus(id,text){
-  const el=$(id);
-  el.textContent=text;
-  el.classList.add("show");
+let statusTimer;
 
-  setTimeout(()=>{
-    el.classList.remove("show");
-  },3000);
+function showStatus(message){
+
+  const status=$("status");
+
+  status.textContent=message;
+  status.classList.add("show");
+
+  clearTimeout(statusTimer);
+
+  statusTimer=setTimeout(()=>{
+    status.classList.remove("show");
+  },3500);
 }
 
 /* =====================================================
-   EACH FORM HAS ITS OWN FIELDS
+   COLLECT DATA
 ===================================================== */
 
-const formDefinitions={
-
-acknowledgment:{
- title:"ACKNOWLEDGMENT CERTIFICATE",
- description:"Record the information needed for an acknowledgment certificate.",
- fields:[
-  ["ackSigner","SIGNER FULL NAME","text"],
-  ["ackDate","DATE OF ACKNOWLEDGMENT","date"],
-  ["ackState","STATE","text"],
-  ["ackCounty","COUNTY","text"],
-  ["ackDocument","DOCUMENT TITLE / DESCRIPTION","text",true],
-  ["ackDocumentDate","DOCUMENT DATE","date"],
-  ["ackCapacity","SIGNER CAPACITY / TITLE","text"],
-  ["ackIdType","IDENTIFICATION TYPE","select",false,
-   ["Driver License","State ID","Passport","Other"]],
-  ["ackIdNumber","IDENTIFICATION REFERENCE","text"],
-  ["ackNotes","ADDITIONAL NOTES","textarea",true]
- ]
-},
-
-jurat:{
- title:"JURAT CERTIFICATE",
- description:"Record information for a sworn or affirmed document.",
- fields:[
-  ["juratSigner","AFFIANT / SIGNER FULL NAME","text"],
-  ["juratDate","DATE","date"],
-  ["juratState","STATE","text"],
-  ["juratCounty","COUNTY","text"],
-  ["juratDocument","DOCUMENT / AFFIDAVIT TITLE","text",true],
-  ["juratOath","OATH / AFFIRMATION","select",false,
-   ["Oath","Affirmation"]],
-  ["juratIdType","IDENTIFICATION TYPE","select",false,
-   ["Driver License","State ID","Passport","Other"]],
-  ["juratIdNumber","IDENTIFICATION REFERENCE","text"],
-  ["juratStatement","STATEMENT / PURPOSE","textarea",true],
-  ["juratNotes","ADDITIONAL NOTES","textarea",true]
- ]
-},
-
-affidavit:{
- title:"AFFIDAVIT INFORMATION WORKSHEET",
- description:"Prepare the declarant's affidavit information.",
- fields:[
-  ["affName","AFFIANT / DECLARANT FULL NAME","text"],
-  ["affAddress","AFFIANT ADDRESS","text",true],
-  ["affState","STATE","text"],
-  ["affCounty","COUNTY","text"],
-  ["affDate","DATE","date"],
-  ["affSubject","AFFIDAVIT SUBJECT / TITLE","text",true],
-  ["affStatement","SWORN STATEMENT / FACTS","textarea",true],
-  ["affPurpose","PURPOSE OF AFFIDAVIT","textarea",true],
-  ["affId","IDENTIFICATION REFERENCE","text"],
-  ["affNotes","ADDITIONAL NOTES","textarea",true]
- ]
-},
-
-poa:{
- title:"POWER OF ATTORNEY INTAKE",
- description:"Organize principal, agent and power-of-attorney document information.",
- fields:[
-  ["poaPrincipal","PRINCIPAL FULL NAME","text"],
-  ["poaAgent","AGENT / ATTORNEY-IN-FACT","text"],
-  ["poaPrincipalAddress","PRINCIPAL ADDRESS","text",true],
-  ["poaAgentAddress","AGENT ADDRESS","text",true],
-  ["poaPhone","PRINCIPAL PHONE","tel"],
-  ["poaAgentPhone","AGENT PHONE","tel"],
-  ["poaDate","DOCUMENT DATE","date"],
-  ["poaState","GOVERNING STATE","text"],
-  ["poaType","POWER OF ATTORNEY TYPE","select",false,
-   ["General","Limited","Durable","Other"]],
-  ["poaDocument","DOCUMENT DESCRIPTION","textarea",true],
-  ["poaAuthority","AUTHORITY / PURPOSE","textarea",true],
-  ["poaNotes","ADDITIONAL NOTES","textarea",true]
- ]
-},
-
-authorization:{
- title:"AUTHORIZATION LETTER",
- description:"Record the person granting authorization and the authorized person/action.",
- fields:[
-  ["authGrantor","PERSON GRANTING AUTHORIZATION","text"],
-  ["authRecipient","AUTHORIZED PERSON / ORGANIZATION","text"],
-  ["authAddress","ADDRESS","text",true],
-  ["authPhone","PHONE","tel"],
-  ["authEmail","EMAIL","email"],
-  ["authDate","DATE","date"],
-  ["authStart","AUTHORIZATION START DATE","date"],
-  ["authEnd","AUTHORIZATION END DATE","date"],
-  ["authAction","AUTHORIZED ACTION / PURPOSE","textarea",true],
-  ["authDocument","RELATED DOCUMENT / PROPERTY","textarea",true],
-  ["authNotes","ADDITIONAL CONDITIONS","textarea",true]
- ]
-},
-
-billofsale:{
- title:"BILL OF SALE INFORMATION RECORD",
- description:"Record seller, buyer, property or vehicle and sale information.",
- fields:[
-  ["bosSeller","SELLER FULL NAME","text"],
-  ["bosBuyer","BUYER FULL NAME","text"],
-  ["bosSellerAddress","SELLER ADDRESS","text",true],
-  ["bosBuyerAddress","BUYER ADDRESS","text",true],
-  ["bosDate","SALE DATE","date"],
-  ["bosPrice","SALE PRICE","number"],
-  ["bosType","PROPERTY TYPE","select",false,
-   ["Motor Vehicle","Boat","Personal Property","Equipment","Other"]],
-  ["bosYear","YEAR","text"],
-  ["bosMake","MAKE","text"],
-  ["bosModel","MODEL","text"],
-  ["bosVin","VIN / SERIAL NUMBER","text",true],
-  ["bosDescription","PROPERTY / VEHICLE DESCRIPTION","textarea",true],
-  ["bosTerms","SALE TERMS / CONDITIONS","textarea",true]
- ]
-},
-
-witness:{
- title:"WITNESS STATEMENT",
- description:"Record witness identity and statement information.",
- fields:[
-  ["witName","WITNESS FULL NAME","text"],
-  ["witPhone","PHONE NUMBER","tel"],
-  ["witAddress","WITNESS ADDRESS","text",true],
-  ["witDate","STATEMENT DATE","date"],
-  ["witState","STATE","text"],
-  ["witCounty","COUNTY","text"],
-  ["witSubject","SUBJECT / MATTER","text",true],
-  ["witStatement","WITNESS STATEMENT","textarea",true],
-  ["witIdType","IDENTIFICATION TYPE","select",false,
-   ["Driver License","State ID","Passport","Other"]],
-  ["witId","IDENTIFICATION REFERENCE","text"],
-  ["witNotes","ADDITIONAL NOTES","textarea",true]
- ]
-},
-
-mobile:{
- title:"MOBILE NOTARY REQUEST",
- description:"Record the client's mobile notary appointment information.",
- fields:[
-  ["mobClient","CLIENT FULL NAME","text"],
-  ["mobPhone","PHONE NUMBER","tel"],
-  ["mobEmail","EMAIL","email"],
-  ["mobDate","REQUESTED DATE","date"],
-  ["mobTime","REQUESTED TIME","time"],
-  ["mobAddress","SERVICE ADDRESS / LOCATION","text",true],
-  ["mobLocationType","LOCATION TYPE","select",false,
-   ["Residence","Hospital","Nursing Facility","Business","Public Location","Other"]],
-  ["mobDocument","DOCUMENT TYPE / DESCRIPTION","textarea",true],
-  ["mobSigners","NUMBER OF SIGNERS","number"],
-  ["mobWitnesses","NUMBER OF WITNESSES","number"],
-  ["mobInstructions","ACCESS / PARKING / SPECIAL INSTRUCTIONS","textarea",true],
-  ["mobNotes","ADDITIONAL NOTES","textarea",true]
- ]
-},
-
-checklist:{
- title:"NOTARY DOCUMENT CHECKLIST",
- description:"Prepare a document and identification checklist before the appointment.",
- fields:[
-  ["chkClient","CLIENT / SIGNER NAME","text"],
-  ["chkDate","APPOINTMENT DATE","date"],
-  ["chkDocument","DOCUMENT NAME / TYPE","text",true],
-  ["chkId","IDENTIFICATION AVAILABLE","select",false,
-   ["Yes","No","Pending"]],
-  ["chkUnsigned","DOCUMENT READY FOR REVIEW","select",false,
-   ["Yes","No","Pending"]],
-  ["chkSigners","ALL SIGNERS IDENTIFIED","select",false,
-   ["Yes","No","Pending"]],
-  ["chkWitness","WITNESS REQUIREMENT REVIEWED","select",false,
-   ["Yes","No","Not Applicable"]],
-  ["chkCopies","COPIES / ATTACHMENTS READY","select",false,
-   ["Yes","No","Not Applicable"]],
-  ["chkInstructions","SPECIAL DOCUMENT INSTRUCTIONS","textarea",true],
-  ["chkNotes","CHECKLIST NOTES","textarea",true]
- ]
-},
-
-record:{
- title:"NOTARY SERVICE RECORD",
- description:"Create a general internal record of the requested notarial service.",
- fields:[
-  ["recClient","CLIENT FULL NAME","text"],
-  ["recPhone","PHONE NUMBER","tel"],
-  ["recEmail","EMAIL","email"],
-  ["recDate","SERVICE DATE","date"],
-  ["recTime","SERVICE TIME","time"],
-  ["recService","SERVICE TYPE","select",false,
-   ["Acknowledgment","Jurat","Document Notarization","Witness Coordination","Mobile Notary","Other"]],
-  ["recDocument","DOCUMENT TYPE / TITLE","text",true],
-  ["recSigners","NUMBER OF SIGNERS","number"],
-  ["recLocation","SERVICE LOCATION","text",true],
-  ["recFee","SERVICE FEE","number"],
-  ["recId","IDENTIFICATION / REFERENCE","text",true],
-  ["recNotes","SERVICE NOTES","textarea",true]
- ]
-}
-
-};
-
-/* OPEN REAL FORM */
-
-let currentForm=null;
-
-document.querySelectorAll(".open-form").forEach(button=>{
-
-  button.addEventListener("click",()=>{
-
-    const type=button.dataset.form;
-    const definition=formDefinitions[type];
-
-    if(!definition) return;
-
-    currentForm=type;
-
-    $("activeFormType").value=type;
-    $("activeFormTitle").textContent=definition.title;
-    $("activeFormDescription").textContent=definition.description;
-
-    $("dynamicFields").innerHTML=
-      definition.fields.map(item=>
-        field(
-          item[0],
-          item[1],
-          item[2],
-          item[3] || false,
-          item[4] || []
-        )
-      ).join("");
-
-    $("formPreview").classList.remove("show");
-    $("formWorkspace").classList.add("show");
-
-    $("formWorkspace").scrollIntoView({
-      behavior:"smooth",
-      block:"start"
-    });
-
-    showStatus("formStatus",definition.title+" OPENED");
-
-  });
-
-});
-
-/* COLLECT CURRENT FORM */
-
-function collectCurrentForm(){
-
-  if(!currentForm || !formDefinitions[currentForm]) return null;
-
-  const definition=formDefinitions[currentForm];
-
-  const data={
-    type:currentForm,
-    title:definition.title,
-    values:{}
-  };
-
-  definition.fields.forEach(item=>{
-    data.values[item[0]]=value(item[0]);
-  });
-
-  return data;
-}
-
-/* GENERATE REAL FORM */
-
-function generateCurrentForm(){
-
-  const data=collectCurrentForm();
-
-  if(!data){
-    showStatus("formStatus","SELECT A FORM FIRST.");
-    return false;
-  }
-
-  const definition=formDefinitions[data.type];
-
-  $("printFormTitle").textContent=data.title;
-
-  let html=`
-  <div class="document-item">
-    <span class="document-label">Record Number</span>
-    <div class="document-value">${recordNumber("MAX-NOT")}</div>
-  </div>
-
-  <div class="document-item">
-    <span class="document-label">Created</span>
-    <div class="document-value">${esc(new Date().toLocaleString())}</div>
-  </div>
-  `;
-
-  definition.fields.forEach(item=>{
-
-    const val=data.values[item[0]] || "—";
-
-    html+=`
-    <div class="document-item ${item[3]?"full":""}">
-      <span class="document-label">${esc(item[1])}</span>
-      <div class="document-value">${esc(val)}</div>
-    </div>`;
-  });
-
-  $("printFields").innerHTML=html;
-
-  $("formPreview").classList.add("show");
-
-  $("formPreview").scrollIntoView({
-    behavior:"smooth",
-    block:"start"
-  });
-
-  showStatus("formStatus","FORM GENERATED.");
-
-  return true;
-}
-
-$("formGenerate").addEventListener("click",generateCurrentForm);
-
-/* SAVE CURRENT FORM */
-
-$("formSave").addEventListener("click",()=>{
-
-  const data=collectCurrentForm();
-
-  if(!data){
-    showStatus("formStatus","OPEN A FORM FIRST.");
-    return;
-  }
-
-  localStorage.setItem(
-    "maximaxNotaryForm_"+data.type,
-    JSON.stringify(data)
-  );
-
-  showStatus("formStatus","FORM SAVED.");
-
-});
-
-/* LOAD CURRENT FORM */
-
-$("formLoad").addEventListener("click",()=>{
-
-  if(!currentForm){
-    showStatus("formStatus","OPEN THE FORM YOU WANT TO LOAD.");
-    return;
-  }
-
-  const raw=localStorage.getItem("maximaxNotaryForm_"+currentForm);
-
-  if(!raw){
-    showStatus("formStatus","NO SAVED FORM FOUND.");
-    return;
-  }
-
-  const data=JSON.parse(raw);
-
-  Object.entries(data.values || {}).forEach(([id,val])=>{
-    const el=$(id);
-    if(el) el.value=val;
-  });
-
-  showStatus("formStatus","SAVED FORM LOADED.");
-
-});
-
-/* EDIT */
-
-$("formEdit").addEventListener("click",()=>{
-
-  $("formPreview").classList.remove("show");
-
-  $("formWorkspace").scrollIntoView({
-    behavior:"smooth",
-    block:"start"
-  });
-
-});
-
-/* PRINT */
-
-$("formPrint").addEventListener("click",()=>{
-
-  if(!$("formPreview").classList.contains("show")){
-    if(!generateCurrentForm()) return;
-  }
-
-  setTimeout(()=>window.print(),250);
-
-});
-
-/* RESET */
-
-$("formReset").addEventListener("click",()=>{
-
-  if(!currentForm) return;
-
-  formDefinitions[currentForm].fields.forEach(item=>{
-    const el=$(item[0]);
-    if(el) el.value="";
-  });
-
-  $("formPreview").classList.remove("show");
-
-  showStatus("formStatus","FORM RESET.");
-
-});
-
-/* =====================================================
-   SERVICE SELECTION
-===================================================== */
-
-const serviceButtons=document.querySelectorAll(".service-btn");
-
-serviceButtons.forEach(button=>{
-
-  button.addEventListener("click",()=>{
-
-    serviceButtons.forEach(x=>x.classList.remove("selected"));
-    button.classList.add("selected");
-
-    $("serviceType").value=button.dataset.service;
-
-    $("serviceRequest").scrollIntoView({
-      behavior:"smooth",
-      block:"start"
-    });
-
-  });
-
-});
-
-/* =====================================================
-   SERVICE REQUEST
-===================================================== */
-
-function requestData(){
+function collect(){
 
   return{
-    "Client Full Name":value("clientName"),
-    "Phone":value("clientPhone"),
-    "Email":value("clientEmail"),
-    "Service Type":value("serviceType"),
-    "Document Type":value("documentType"),
-    "Number of Signers":value("signers"),
-    "Number of Documents":value("documentCount"),
-    "Appointment Date":value("appointmentDate"),
-    "Appointment Time":value("appointmentTime"),
-    "Service Location":value("serviceLocation"),
-    "Service Fee":value("serviceFee"),
-    "Service Address":value("serviceAddress"),
-    "Document Description":value("documentDescription"),
-    "Notes / Special Instructions":value("requestNotes")
+    signerName:value("signerName"),
+    phone:value("phone"),
+    email:value("email"),
+    ackDate:value("ackDate"),
+    state:value("state"),
+    county:value("county"),
+    address:value("address"),
+    documentDate:value("documentDate"),
+    pages:value("pages"),
+    documentTitle:value("documentTitle"),
+    capacity:value("capacity"),
+    idType:value("idType"),
+    idNumber:value("idNumber"),
+    idExpiration:value("idExpiration"),
+    notes:value("notes")
   };
 }
 
-function generateRequest(){
+/* =====================================================
+   GENERATE
+===================================================== */
 
-  const data=requestData();
+function generate(){
 
-  if(!data["Client Full Name"]){
-    showStatus("requestStatus","ENTER CLIENT FULL NAME.");
+  const data=collect();
+
+  if(!data.signerName){
+
+    showStatus(
+      "Please enter the signer's full name."
+    );
+
+    $("signerName").focus();
+
     return false;
   }
 
-  let html=`
-  <div class="document-item">
-    <span class="document-label">Request Number</span>
-    <div class="document-value">${recordNumber("MAX-NOT-REQ")}</div>
-  </div>
+  $("pRecord").textContent=
+    recordNumber();
 
-  <div class="document-item">
-    <span class="document-label">Created</span>
-    <div class="document-value">${esc(new Date().toLocaleString())}</div>
-  </div>
-  `;
+  $("pCreated").textContent=
+    new Date().toLocaleString();
 
-  Object.entries(data).forEach(([label,val])=>{
+  $("pSigner").textContent=
+    show(data.signerName);
 
-    html+=`
-    <div class="document-item">
-      <span class="document-label">${esc(label)}</span>
-      <div class="document-value">${esc(val || "—")}</div>
-    </div>`;
-  });
+  $("pPhone").textContent=
+    show(data.phone);
 
-  $("requestPrintFields").innerHTML=html;
-  $("requestPreview").classList.add("show");
+  $("pEmail").textContent=
+    show(data.email);
 
-  $("requestPreview").scrollIntoView({
+  $("pAckDate").textContent=
+    show(data.ackDate);
+
+  $("pState").textContent=
+    show(data.state);
+
+  $("pCounty").textContent=
+    show(data.county);
+
+  $("pAddress").textContent=
+    show(data.address);
+
+  $("pDocumentDate").textContent=
+    show(data.documentDate);
+
+  $("pPages").textContent=
+    show(data.pages);
+
+  $("pDocumentTitle").textContent=
+    show(data.documentTitle);
+
+  $("pCapacity").textContent=
+    show(data.capacity);
+
+  $("pIdType").textContent=
+    show(data.idType);
+
+  $("pIdNumber").textContent=
+    show(data.idNumber);
+
+  $("pIdExpiration").textContent=
+    show(data.idExpiration);
+
+  $("pNotes").textContent=
+    show(data.notes);
+
+  $("previewWrap").classList.add("show");
+
+  $("previewWrap").scrollIntoView({
     behavior:"smooth",
     block:"start"
   });
 
-  showStatus("requestStatus","SERVICE RECORD GENERATED.");
+  showStatus(
+    "Acknowledgment record generated."
+  );
 
   return true;
 }
 
-$("requestGenerate").addEventListener("click",generateRequest);
+$("generateBtn").addEventListener(
+  "click",
+  generate
+);
 
-$("requestSave").addEventListener("click",()=>{
+/* =====================================================
+   SAVE
+===================================================== */
 
-  localStorage.setItem(
-    "maximaxNotaryRequest",
-    JSON.stringify(requestData())
-  );
+$("saveBtn").addEventListener(
+  "click",
+  ()=>{
 
-  showStatus("requestStatus","SERVICE REQUEST SAVED.");
+    const data=collect();
 
-});
+    try{
 
-$("requestLoad").addEventListener("click",()=>{
+      localStorage.setItem(
+        "maximaxAcknowledgmentForm",
+        JSON.stringify(data)
+      );
 
-  const raw=localStorage.getItem("maximaxNotaryRequest");
+      showStatus(
+        "Acknowledgment form saved."
+      );
 
-  if(!raw){
-    showStatus("requestStatus","NO SAVED REQUEST FOUND.");
-    return;
+    }catch(error){
+
+      showStatus(
+        "Unable to save this form."
+      );
+
+    }
+
   }
+);
 
-  const data=JSON.parse(raw);
+/* =====================================================
+   LOAD
+===================================================== */
 
-  const mapping={
-    "Client Full Name":"clientName",
-    "Phone":"clientPhone",
-    "Email":"clientEmail",
-    "Service Type":"serviceType",
-    "Document Type":"documentType",
-    "Number of Signers":"signers",
-    "Number of Documents":"documentCount",
-    "Appointment Date":"appointmentDate",
-    "Appointment Time":"appointmentTime",
-    "Service Location":"serviceLocation",
-    "Service Fee":"serviceFee",
-    "Service Address":"serviceAddress",
-    "Document Description":"documentDescription",
-    "Notes / Special Instructions":"requestNotes"
-  };
+$("loadBtn").addEventListener(
+  "click",
+  ()=>{
 
-  Object.entries(mapping).forEach(([label,id])=>{
-    if($(id)) $(id).value=data[label] || "";
-  });
+    try{
 
-  showStatus("requestStatus","SAVED REQUEST LOADED.");
+      const saved=
+        localStorage.getItem(
+          "maximaxAcknowledgmentForm"
+        );
 
-});
+      if(!saved){
 
-$("requestPrint").addEventListener("click",()=>{
+        showStatus(
+          "No saved acknowledgment form found."
+        );
 
-  if(!$("requestPreview").classList.contains("show")){
-    if(!generateRequest()) return;
+        return;
+      }
+
+      const data=JSON.parse(saved);
+
+      setValue("signerName",data.signerName);
+      setValue("phone",data.phone);
+      setValue("email",data.email);
+      setValue("ackDate",data.ackDate);
+      setValue("state",data.state);
+      setValue("county",data.county);
+      setValue("address",data.address);
+      setValue("documentDate",data.documentDate);
+      setValue("pages",data.pages);
+      setValue("documentTitle",data.documentTitle);
+      setValue("capacity",data.capacity);
+      setValue("idType",data.idType);
+      setValue("idNumber",data.idNumber);
+      setValue("idExpiration",data.idExpiration);
+      setValue("notes",data.notes);
+
+      showStatus(
+        "Saved acknowledgment form loaded."
+      );
+
+    }catch(error){
+
+      showStatus(
+        "Unable to load saved form."
+      );
+
+    }
+
   }
+);
 
-  setTimeout(()=>window.print(),250);
+/* =====================================================
+   EDIT
+===================================================== */
 
-});
+$("editBtn").addEventListener(
+  "click",
+  ()=>{
 
-$("requestForm").addEventListener("submit",event=>{
-  event.preventDefault();
-});
+    $("previewWrap")
+      .classList
+      .remove("show");
 
-$("dynamicForm").addEventListener("submit",event=>{
-  event.preventDefault();
-});
+    $("signerName").scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    });
+
+    setTimeout(()=>{
+      $("signerName").focus();
+    },300);
+
+    showStatus(
+      "Edit mode ready."
+    );
+
+  }
+);
+
+/* =====================================================
+   PRINT
+===================================================== */
+
+$("printBtn").addEventListener(
+  "click",
+  ()=>{
+
+    if(
+      !$("previewWrap")
+      .classList
+      .contains("show")
+    ){
+
+      if(!generate()){
+        return;
+      }
+
+    }
+
+    setTimeout(()=>{
+      window.print();
+    },300);
+
+  }
+);
+
+/* =====================================================
+   RESET
+===================================================== */
+
+$("resetBtn").addEventListener(
+  "click",
+  ()=>{
+
+    $("ackForm").reset();
+
+    $("previewWrap")
+      .classList
+      .remove("show");
+
+    showStatus(
+      "Acknowledgment form reset."
+    );
+
+  }
+);
+
+/* =====================================================
+   PREVENT PAGE RELOAD
+===================================================== */
+
+$("ackForm").addEventListener(
+  "submit",
+  event=>{
+
+    event.preventDefault();
+    generate();
+
+  }
+);
 
 })();
 </script>
