@@ -1,17 +1,16 @@
-FILE NAME: javascript.js
-
 /* =========================================================
    MAXIMAX MULTI SERVICES
-   FILE: javascript.js
-   COMPLETE GLOBAL JAVASCRIPT
+   javascript.js — COMPLETE & FINAL
+   LANGUAGES: ENG / ESP / KRE
+   NO FRA
    ========================================================= */
 
-(() => {
+(function () {
   "use strict";
 
   /* =======================================================
-     ELEMENTS
-     ======================================================= */
+     GLOBAL ELEMENTS
+  ======================================================= */
 
   const menuToggle = document.getElementById("menuToggle");
   const mainNav = document.getElementById("mainNav");
@@ -19,205 +18,354 @@ FILE NAME: javascript.js
 
   const languageButtons = document.querySelectorAll(".lang-btn");
 
-  const translatableElements = document.querySelectorAll(
-    "[data-en], [data-fr], [data-ht]"
-  );
+  const STORAGE_KEY = "maximaxLanguage";
+
+  const SUPPORTED_LANGUAGES = ["en", "es", "ht"];
+
 
   /* =======================================================
      CURRENT YEAR
-     ======================================================= */
+  ======================================================= */
 
   if (currentYear) {
     currentYear.textContent = new Date().getFullYear();
   }
 
-  /* =======================================================
-     MOBILE MENU
-     ======================================================= */
-
-  if (menuToggle && mainNav) {
-
-    menuToggle.setAttribute("aria-label", "Open navigation menu");
-    menuToggle.setAttribute("aria-expanded", "false");
-
-    menuToggle.addEventListener("click", () => {
-
-      const isOpen = mainNav.classList.toggle("open");
-
-      menuToggle.setAttribute(
-        "aria-expanded",
-        isOpen ? "true" : "false"
-      );
-
-      menuToggle.textContent = isOpen ? "✕" : "☰";
-
-    });
-
-    mainNav.querySelectorAll("a").forEach((link) => {
-
-      link.addEventListener("click", () => {
-
-        mainNav.classList.remove("open");
-
-        menuToggle.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-
-        menuToggle.textContent = "☰";
-
-      });
-
-    });
-
-  }
 
   /* =======================================================
      LANGUAGE SYSTEM
-     ENG / FRA / KRE
-     ======================================================= */
-
-  const LANGUAGE_STORAGE_KEY = "maximaxLanguage";
-
-  const supportedLanguages = [
-    "en",
-    "fr",
-    "ht"
-  ];
-
-  function normalizeLanguage(language) {
-
-    if (supportedLanguages.includes(language)) {
-      return language;
-    }
-
-    return "en";
-
-  }
+     🇺🇸 ENG
+     🇪🇸 ESP
+     🇭🇹 KRE
+  ======================================================= */
 
   function setLanguage(language) {
 
-    const selectedLanguage = normalizeLanguage(language);
+    if (!SUPPORTED_LANGUAGES.includes(language)) {
+      language = "en";
+    }
 
     document.documentElement.lang =
-      selectedLanguage === "ht"
-        ? "ht"
-        : selectedLanguage;
+      language === "ht" ? "ht" : language;
 
-    translatableElements.forEach((element) => {
 
-      const translationKey = `data-${selectedLanguage}`;
+    /* -------------------------------------------------------
+       CHANGE PAGE TEXT
+    ------------------------------------------------------- */
 
-      const translatedText =
-        element.getAttribute(translationKey);
+    const translatedElements = document.querySelectorAll(
+      "[data-en], [data-es], [data-ht]"
+    );
 
-      if (
-        translatedText !== null &&
-        translatedText.trim() !== ""
-      ) {
+    translatedElements.forEach(function (element) {
 
+      let translatedText = "";
+
+      if (language === "en") {
+        translatedText = element.getAttribute("data-en");
+      }
+
+      if (language === "es") {
+        translatedText = element.getAttribute("data-es");
+      }
+
+      if (language === "ht") {
+        translatedText = element.getAttribute("data-ht");
+      }
+
+      /*
+       FALLBACK TO ENGLISH IF TRANSLATION
+       HAS NOT YET BEEN ADDED TO A PAGE.
+      */
+
+      if (!translatedText) {
+        translatedText = element.getAttribute("data-en");
+      }
+
+      if (translatedText) {
         element.textContent = translatedText;
-
       }
 
     });
 
-    languageButtons.forEach((button) => {
 
-      const buttonLanguage =
-        button.getAttribute("data-lang");
+    /* -------------------------------------------------------
+       UPDATE LANGUAGE BUTTONS
+    ------------------------------------------------------- */
 
-      if (buttonLanguage === selectedLanguage) {
+    languageButtons.forEach(function (button) {
 
-        button.classList.add("active");
+      const buttonLanguage = button.dataset.lang;
 
-        button.setAttribute(
-          "aria-pressed",
-          "true"
-        );
+      const isActive = buttonLanguage === language;
 
-      } else {
+      button.classList.toggle("active", isActive);
 
-        button.classList.remove("active");
-
-        button.setAttribute(
-          "aria-pressed",
-          "false"
-        );
-
-      }
+      button.setAttribute(
+        "aria-pressed",
+        isActive ? "true" : "false"
+      );
 
     });
+
+
+    /* -------------------------------------------------------
+       SAVE LANGUAGE
+    ------------------------------------------------------- */
 
     try {
-
       localStorage.setItem(
-        LANGUAGE_STORAGE_KEY,
-        selectedLanguage
+        STORAGE_KEY,
+        language
       );
-
     } catch (error) {
-
       console.warn(
-        "Language preference could not be saved.",
-        error
+        "Maximax language preference could not be saved."
       );
-
     }
 
   }
 
-  languageButtons.forEach((button) => {
 
-    button.addEventListener("click", () => {
+  /* =======================================================
+     LANGUAGE BUTTON EVENTS
+  ======================================================= */
 
-      const language =
-        button.getAttribute("data-lang");
+  languageButtons.forEach(function (button) {
 
-      setLanguage(language);
+    button.addEventListener(
+      "click",
+      function () {
 
-    });
+        const language = button.dataset.lang;
+
+        if (
+          SUPPORTED_LANGUAGES.includes(language)
+        ) {
+          setLanguage(language);
+        }
+
+      }
+    );
 
   });
+
+
+  /* =======================================================
+     LOAD SAVED LANGUAGE
+     REMOVE OLD FRA SETTING
+  ======================================================= */
 
   let savedLanguage = "en";
 
   try {
 
-    const localLanguage =
-      localStorage.getItem(
-        LANGUAGE_STORAGE_KEY
+    const storedLanguage =
+      localStorage.getItem(STORAGE_KEY);
+
+    if (
+      SUPPORTED_LANGUAGES.includes(storedLanguage)
+    ) {
+
+      savedLanguage = storedLanguage;
+
+    } else {
+
+      /*
+       OLD "fr" VALUE IS INVALID.
+       RESET TO ENGLISH.
+      */
+
+      localStorage.setItem(
+        STORAGE_KEY,
+        "en"
       );
 
-    if (localLanguage) {
-      savedLanguage = localLanguage;
+      savedLanguage = "en";
     }
 
   } catch (error) {
 
-    console.warn(
-      "Language preference could not be loaded.",
-      error
-    );
+    savedLanguage = "en";
 
   }
 
   setLanguage(savedLanguage);
 
+
   /* =======================================================
-     SMOOTH SCROLL FOR INTERNAL LINKS
-     ======================================================= */
+     MOBILE MENU
+  ======================================================= */
+
+  function openMenu() {
+
+    if (!mainNav || !menuToggle) {
+      return;
+    }
+
+    mainNav.classList.add("open");
+
+    menuToggle.classList.add("active");
+
+    menuToggle.setAttribute(
+      "aria-expanded",
+      "true"
+    );
+
+    menuToggle.innerHTML = "✕";
+
+  }
+
+
+  function closeMenu() {
+
+    if (!mainNav || !menuToggle) {
+      return;
+    }
+
+    mainNav.classList.remove("open");
+
+    menuToggle.classList.remove("active");
+
+    menuToggle.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
+    menuToggle.innerHTML = "☰";
+
+  }
+
+
+  function toggleMenu() {
+
+    if (!mainNav) {
+      return;
+    }
+
+    if (
+      mainNav.classList.contains("open")
+    ) {
+
+      closeMenu();
+
+    } else {
+
+      openMenu();
+
+    }
+
+  }
+
+
+  if (menuToggle) {
+
+    menuToggle.addEventListener(
+      "click",
+      function (event) {
+
+        event.stopPropagation();
+
+        toggleMenu();
+
+      }
+    );
+
+  }
+
+
+  /* =======================================================
+     CLOSE MENU AFTER NAVIGATION
+  ======================================================= */
+
+  if (mainNav) {
+
+    mainNav
+      .querySelectorAll("a")
+      .forEach(function (link) {
+
+        link.addEventListener(
+          "click",
+          closeMenu
+        );
+
+      });
+
+  }
+
+
+  /* =======================================================
+     CLICK OUTSIDE MENU
+  ======================================================= */
+
+  document.addEventListener(
+    "click",
+    function (event) {
+
+      if (
+        !mainNav ||
+        !menuToggle
+      ) {
+        return;
+      }
+
+      if (
+        !mainNav.contains(event.target) &&
+        !menuToggle.contains(event.target)
+      ) {
+        closeMenu();
+      }
+
+    }
+  );
+
+
+  /* =======================================================
+     ESCAPE KEY
+  ======================================================= */
+
+  document.addEventListener(
+    "keydown",
+    function (event) {
+
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+
+    }
+  );
+
+
+  /* =======================================================
+     RESET MENU ON DESKTOP
+  ======================================================= */
+
+  window.addEventListener(
+    "resize",
+    function () {
+
+      if (window.innerWidth > 850) {
+        closeMenu();
+      }
+
+    }
+  );
+
+
+  /* =======================================================
+     SMOOTH SCROLL
+  ======================================================= */
 
   document
     .querySelectorAll('a[href^="#"]')
-    .forEach((link) => {
+    .forEach(function (link) {
 
       link.addEventListener(
         "click",
-        function(event) {
+        function (event) {
 
           const href =
-            this.getAttribute("href");
+            link.getAttribute("href");
 
           if (
             !href ||
@@ -254,23 +402,24 @@ FILE NAME: javascript.js
             behavior: "smooth"
           });
 
+          closeMenu();
+
         }
       );
 
     });
 
+
   /* =======================================================
-     SERVICE CARD KEYBOARD ACCESS
-     ======================================================= */
+     SERVICE CARDS
+     KEYBOARD ACCESSIBILITY
+  ======================================================= */
 
   document
     .querySelectorAll(".service-card")
-    .forEach((card) => {
+    .forEach(function (card) {
 
-      const cardLink =
-        card.querySelector("a");
-
-      if (!cardLink) {
+      if (card.tagName.toLowerCase() === "a") {
         return;
       }
 
@@ -279,23 +428,26 @@ FILE NAME: javascript.js
         "0"
       );
 
-      card.setAttribute(
-        "role",
-        "link"
-      );
-
       card.addEventListener(
         "keydown",
-        (event) => {
+        function (event) {
 
           if (
             event.key === "Enter" ||
             event.key === " "
           ) {
 
-            event.preventDefault();
+            const link =
+              card.querySelector("a[href]");
 
-            cardLink.click();
+            if (link) {
+
+              event.preventDefault();
+
+              window.location.href =
+                link.href;
+
+            }
 
           }
 
@@ -304,166 +456,249 @@ FILE NAME: javascript.js
 
     });
 
-  /* =======================================================
-     CLOSE MOBILE MENU WHEN CLICKING OUTSIDE
-     ======================================================= */
-
-  document.addEventListener(
-    "click",
-    (event) => {
-
-      if (
-        !mainNav ||
-        !menuToggle
-      ) {
-        return;
-      }
-
-      if (
-        !mainNav.classList.contains("open")
-      ) {
-        return;
-      }
-
-      const clickedInsideNav =
-        mainNav.contains(event.target);
-
-      const clickedMenuButton =
-        menuToggle.contains(event.target);
-
-      if (
-        !clickedInsideNav &&
-        !clickedMenuButton
-      ) {
-
-        mainNav.classList.remove("open");
-
-        menuToggle.textContent = "☰";
-
-        menuToggle.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-
-      }
-
-    }
-  );
 
   /* =======================================================
-     ESCAPE KEY CLOSES MOBILE MENU
-     ======================================================= */
+     HOMEPAGE STAT CARDS
+  ======================================================= */
 
-  document.addEventListener(
-    "keydown",
-    (event) => {
+  function makeClickable(
+    selector,
+    destination
+  ) {
 
-      if (
-        event.key !== "Escape" ||
-        !mainNav ||
-        !menuToggle
-      ) {
-        return;
-      }
+    const element =
+      document.querySelector(selector);
 
-      mainNav.classList.remove("open");
-
-      menuToggle.textContent = "☰";
-
-      menuToggle.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
+    if (!element) {
+      return;
     }
-  );
 
-  /* =======================================================
-     RESPONSIVE NAV RESET
-     ======================================================= */
+    element.style.cursor = "pointer";
 
-  window.addEventListener(
-    "resize",
-    () => {
+    element.setAttribute(
+      "tabindex",
+      "0"
+    );
 
-      if (
-        window.innerWidth > 850 &&
-        mainNav &&
-        menuToggle
-      ) {
+    element.setAttribute(
+      "role",
+      "link"
+    );
 
-        mainNav.classList.remove("open");
 
-        menuToggle.textContent = "☰";
+    element.addEventListener(
+      "click",
+      function () {
 
-        menuToggle.setAttribute(
-          "aria-expanded",
-          "false"
-        );
+        if (
+          destination.startsWith("#")
+        ) {
+
+          const target =
+            document.querySelector(destination);
+
+          if (target) {
+
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
+
+          }
+
+        } else {
+
+          window.location.href =
+            destination;
+
+        }
 
       }
+    );
 
-    }
-  );
+
+    element.addEventListener(
+      "keydown",
+      function (event) {
+
+        if (
+          event.key === "Enter" ||
+          event.key === " "
+        ) {
+
+          event.preventDefault();
+
+          element.click();
+
+        }
+
+      }
+    );
+
+  }
+
+
+  const statCards =
+    document.querySelectorAll(
+      ".hero-stats > div"
+    );
+
+
+  if (statCards.length >= 4) {
+
+    /*
+      16 CORE SERVICES
+    */
+
+    statCards[0].style.cursor =
+      "pointer";
+
+    statCards[0].onclick =
+      function () {
+
+        const services =
+          document.getElementById(
+            "services"
+          );
+
+        if (services) {
+
+          services.scrollIntoView({
+            behavior: "smooth"
+          });
+
+        }
+
+      };
+
+
+    /*
+      3 LANGUAGES
+    */
+
+    statCards[1].style.cursor =
+      "pointer";
+
+    statCards[1].onclick =
+      function () {
+
+        const switcher =
+          document.querySelector(
+            ".language-switch"
+          );
+
+        if (switcher) {
+
+          switcher.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+
+        }
+
+      };
+
+
+    /*
+      AI ASSISTANCE
+    */
+
+    statCards[2].style.cursor =
+      "pointer";
+
+    statCards[2].onclick =
+      function () {
+
+        window.location.href =
+          "./pages/ai-center.html";
+
+      };
+
+
+    /*
+      24/7 DIGITAL ACCESS
+    */
+
+    statCards[3].style.cursor =
+      "pointer";
+
+    statCards[3].onclick =
+      function () {
+
+        window.location.href =
+          "./pages/client-portal.html";
+
+      };
+
+  }
+
 
   /* =======================================================
      EXTERNAL LINKS SECURITY
-     ======================================================= */
+  ======================================================= */
 
   document
     .querySelectorAll(
       'a[target="_blank"]'
     )
-    .forEach((link) => {
+    .forEach(function (link) {
 
-      const rel =
+      const currentRel =
         link.getAttribute("rel") || "";
 
       const relValues =
-        new Set(
-          rel
-            .split(" ")
-            .filter(Boolean)
-        );
+        currentRel
+          .split(/\s+/)
+          .filter(Boolean);
 
-      relValues.add("noopener");
-      relValues.add("noreferrer");
+      if (
+        !relValues.includes("noopener")
+      ) {
+        relValues.push("noopener");
+      }
+
+      if (
+        !relValues.includes("noreferrer")
+      ) {
+        relValues.push("noreferrer");
+      }
 
       link.setAttribute(
         "rel",
-        Array
-          .from(relValues)
-          .join(" ")
+        relValues.join(" ")
       );
 
     });
 
+
   /* =======================================================
-     ACTIVE SECTION NAVIGATION
-     ======================================================= */
+     ACTIVE NAVIGATION SECTION
+  ======================================================= */
 
   const sections =
     document.querySelectorAll(
-      "section[id]"
+      "main section[id]"
     );
 
-  const navLinks =
+  const navigationLinks =
     document.querySelectorAll(
       '#mainNav a[href^="#"]'
     );
 
+
   if (
+    "IntersectionObserver" in window &&
     sections.length &&
-    navLinks.length &&
-    "IntersectionObserver" in window
+    navigationLinks.length
   ) {
 
     const observer =
       new IntersectionObserver(
-        (entries) => {
+
+        function (entries) {
 
           entries.forEach(
-            (entry) => {
+            function (entry) {
 
               if (!entry.isIntersecting) {
                 return;
@@ -472,27 +707,17 @@ FILE NAME: javascript.js
               const id =
                 entry.target.id;
 
-              navLinks.forEach(
-                (link) => {
+              navigationLinks.forEach(
+                function (link) {
 
-                  const href =
-                    link.getAttribute("href");
+                  const isCurrent =
+                    link.getAttribute("href") ===
+                    "#" + id;
 
-                  if (
-                    href === `#${id}`
-                  ) {
-
-                    link.classList.add(
-                      "active-section"
-                    );
-
-                  } else {
-
-                    link.classList.remove(
-                      "active-section"
-                    );
-
-                  }
+                  link.classList.toggle(
+                    "active",
+                    isCurrent
+                  );
 
                 }
               );
@@ -501,26 +726,244 @@ FILE NAME: javascript.js
           );
 
         },
+
         {
-          rootMargin:
-            "-30% 0px -60% 0px"
+          root: null,
+          threshold: 0.35
         }
+
       );
 
+
     sections.forEach(
-      (section) => {
+      function (section) {
+
         observer.observe(section);
+
       }
     );
 
   }
 
+
+  /* =======================================================
+     FORMS — PREVENT EMPTY SUBMISSION
+  ======================================================= */
+
+  document
+    .querySelectorAll("form")
+    .forEach(function (form) {
+
+      form.addEventListener(
+        "submit",
+        function (event) {
+
+          if (!form.checkValidity()) {
+
+            event.preventDefault();
+
+            form.reportValidity();
+
+          }
+
+        }
+      );
+
+    });
+
+
+  /* =======================================================
+     CREDIT REVIEW WORKSPACE
+  ======================================================= */
+
+  const creditReviewForm =
+    document.querySelector(
+      "#creditReviewForm"
+    );
+
+
+  if (creditReviewForm) {
+
+    creditReviewForm.addEventListener(
+      "submit",
+      function (event) {
+
+        event.preventDefault();
+
+        if (
+          !creditReviewForm.checkValidity()
+        ) {
+
+          creditReviewForm.reportValidity();
+
+          return;
+
+        }
+
+
+        const formData =
+          new FormData(
+            creditReviewForm
+          );
+
+
+        const review = {
+
+          id:
+            "MMS-CR-" +
+            Date.now(),
+
+          created:
+            new Date()
+              .toISOString(),
+
+          bureau:
+            formData.get("bureau") || "",
+
+          itemType:
+            formData.get("itemType") || "",
+
+          creditor:
+            formData.get("creditor") || "",
+
+          reference:
+            formData.get("reference") || "",
+
+          review:
+            formData.get("review") || ""
+
+        };
+
+
+        let existingReviews = [];
+
+        try {
+
+          existingReviews =
+            JSON.parse(
+              localStorage.getItem(
+                "maximaxCreditReview"
+              )
+            ) || [];
+
+        } catch (error) {
+
+          existingReviews = [];
+
+        }
+
+
+        existingReviews.push(
+          review
+        );
+
+
+        try {
+
+          localStorage.setItem(
+            "maximaxCreditReview",
+            JSON.stringify(
+              existingReviews
+            )
+          );
+
+        } catch (error) {
+
+          console.warn(
+            "Credit review could not be saved locally."
+          );
+
+        }
+
+
+        const confirmation =
+          document.getElementById(
+            "creditReviewConfirmation"
+          );
+
+
+        if (confirmation) {
+
+          confirmation.hidden = false;
+
+          confirmation.innerHTML =
+            "<strong>MAXIMAX CREDIT REVIEW</strong>" +
+            "<p>Review prepared successfully.</p>" +
+            "<p>Reference: " +
+            review.id +
+            "</p>";
+
+          confirmation.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+
+        } else {
+
+          alert(
+            "MAXIMAX CREDIT REVIEW\n\n" +
+            "Review prepared successfully.\n" +
+            "Reference: " +
+            review.id
+          );
+
+        }
+
+      }
+    );
+
+  }
+
+
+  /* =======================================================
+     IMAGE FALLBACK
+     maximax-logo.jpg
+     maximax-multi-services.jpg
+  ======================================================= */
+
+  document
+    .querySelectorAll("img")
+    .forEach(function (image) {
+
+      image.addEventListener(
+        "error",
+        function () {
+
+          console.warn(
+            "Image not found:",
+            image.getAttribute("src")
+          );
+
+          image.classList.add(
+            "image-load-error"
+          );
+
+        }
+      );
+
+    });
+
+
   /* =======================================================
      PAGE READY
-     ======================================================= */
+  ======================================================= */
 
-  document.body.classList.add(
-    "page-ready"
+  document.documentElement
+    .classList.add(
+      "js-enabled"
+    );
+
+
+  window.addEventListener(
+    "load",
+    function () {
+
+      document.body
+        .classList.add(
+          "page-ready"
+        );
+
+    }
   );
 
 })();
