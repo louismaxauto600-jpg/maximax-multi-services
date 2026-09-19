@@ -1,1381 +1,205 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Non-Contested Divorce Document Center | Maximax Multi Services</title>
-
-<meta name="description" content="Maximax Multi Services Non-Contested Divorce Document Center — administrative document preparation, organization, checklist and form support.">
-
-<meta name="theme-color" content="#000000">
-
-<link rel="stylesheet" href="../style.css">
-
-<style>
-.divorce-page{
-  min-height:calc(100vh - 84px);
-  padding:70px 0 90px;
-}
-
-.divorce-hero{
-  padding:52px 25px;
-  border:1px solid var(--border-strong);
-  border-radius:30px;
-  text-align:center;
-  background:
-    radial-gradient(circle at top,rgba(255,121,0,.25),transparent 45%),
-    linear-gradient(145deg,#000,#120600,#000);
-  box-shadow:var(--glow);
-}
-
-.divorce-icon{
-  font-size:4.5rem;
-}
-
-.divorce-hero h1{
-  margin-top:18px;
-  color:var(--orange);
-  font-size:clamp(2.6rem,8vw,5.6rem);
-  line-height:.92;
-  text-transform:uppercase;
-}
-
-.divorce-hero p{
-  max-width:900px;
-  margin:20px auto 0;
-  line-height:1.75;
-}
-
-.service-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
-  margin-top:38px;
-}
-
-.divorce-card{
-  min-height:225px;
-  display:flex;
-  flex-direction:column;
-  padding:25px;
-  border:1px solid var(--border);
-  border-radius:21px;
-  background:
-    radial-gradient(circle at top right,rgba(255,121,0,.12),transparent 42%),
-    #050200;
-  transition:.25s;
-}
-
-.divorce-card:hover{
-  transform:translateY(-5px);
-  border-color:var(--orange);
-  box-shadow:var(--glow);
-}
-
-.divorce-card span{
-  font-size:2.5rem;
-}
-
-.divorce-card h2{
-  margin-top:15px;
-  color:var(--orange);
-  font-size:1rem;
-  text-transform:uppercase;
-}
-
-.divorce-card p{
-  margin-top:10px;
-  font-size:.76rem;
-  line-height:1.65;
-}
-
-.divorce-card .btn{
-  margin-top:auto;
-}
-
-.document-center{
-  margin-top:40px;
-  padding:38px 25px;
-  border:1px solid var(--border-strong);
-  border-radius:28px;
-  background:
-    radial-gradient(circle at top,rgba(255,121,0,.16),transparent 45%),
-    #050200;
-  box-shadow:var(--glow);
-}
-
-.center-header{
-  text-align:center;
-}
-
-.center-header h2{
-  margin-top:10px;
-  color:var(--orange);
-  font-size:clamp(2rem,6vw,4rem);
-  text-transform:uppercase;
-}
-
-.center-header p{
-  max-width:850px;
-  margin:14px auto 0;
-  line-height:1.7;
-}
-
-.helper-form{
-  max-width:1000px;
-  margin:30px auto 0;
-  padding:22px;
-  border:1px solid var(--border);
-  border-radius:22px;
-  background:#000;
-}
-
-.helper-form label{
-  display:block;
-  margin-bottom:8px;
-  color:var(--orange);
-  font-size:.69rem;
-  font-weight:1000;
-  text-transform:uppercase;
-}
-
-.helper-form input,
-.helper-form select,
-.helper-form textarea{
-  width:100%;
-  margin-bottom:15px;
-  padding:14px 15px;
-  border:1px solid var(--border);
-  border-radius:14px;
-  outline:none;
-  color:var(--text);
-  background:#050200;
-}
-
-.helper-form input:focus,
-.helper-form select:focus,
-.helper-form textarea:focus{
-  border-color:var(--orange);
-  box-shadow:0 0 15px rgba(255,121,0,.12);
-}
-
-.helper-form input::placeholder,
-.helper-form textarea::placeholder{
-  color:var(--text-soft);
-}
-
-.helper-form option{
-  color:var(--text);
-  background:#000;
-}
-
-.helper-form textarea{
-  min-height:115px;
-  resize:vertical;
-}
-
-.form-row{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
-}
-
-.helper-result{
-  display:none;
-  margin-top:20px;
-  padding:20px;
-  border:1px solid var(--border-strong);
-  border-radius:17px;
-  background:#0b0400;
-}
-
-.helper-result.show{
-  display:block;
-}
-
-.helper-result h3{
-  color:var(--orange);
-  text-transform:uppercase;
-}
-
-.helper-result p{
-  margin-top:10px;
-  font-size:.76rem;
-  line-height:1.7;
-}
-
-.checklist{
-  margin-top:35px;
-  padding:35px 25px;
-  border:1px solid var(--border);
-  border-radius:24px;
-  background:#050200;
-}
-
-.checklist h2{
-  color:var(--orange);
-  text-align:center;
-  text-transform:uppercase;
-}
-
-.checklist > p{
-  max-width:820px;
-  margin:13px auto 0;
-  text-align:center;
-  line-height:1.7;
-}
-
-.check-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-  margin-top:25px;
-}
-
-.check-item{
-  padding:18px 14px;
-  border:1px solid var(--border);
-  border-radius:15px;
-  background:#000;
-  text-align:center;
-  font-size:.68rem;
-  font-weight:900;
-}
-
-.check-item span{
-  display:block;
-  margin-bottom:8px;
-  color:var(--orange);
-  font-size:1.5rem;
-}
-
-.pathway{
-  margin-top:35px;
-  padding:35px 25px;
-  border:1px solid var(--border);
-  border-radius:24px;
-  background:#050200;
-}
-
-.pathway h2{
-  color:var(--orange);
-  text-align:center;
-  text-transform:uppercase;
-}
-
-.pathway-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:13px;
-  margin-top:25px;
-}
-
-.pathway-step{
-  padding:22px 15px;
-  border:1px solid var(--border);
-  border-radius:17px;
-  background:#000;
-  text-align:center;
-}
-
-.step-number{
-  width:44px;
-  height:44px;
-  display:grid;
-  place-items:center;
-  margin:0 auto 12px;
-  border-radius:50%;
-  color:#000;
-  background:var(--orange);
-  font-weight:1000;
-}
-
-.pathway-step strong{
-  display:block;
-  color:var(--orange);
-  font-size:.73rem;
-}
-
-.pathway-step p{
-  margin-top:8px;
-  font-size:.68rem;
-  line-height:1.55;
-}
-
-.resource-center{
-  margin-top:35px;
-  padding:35px 25px;
-  border:1px solid var(--border);
-  border-radius:24px;
-  background:#050200;
-}
-
-.resource-center h2{
-  color:var(--orange);
-  text-align:center;
-  text-transform:uppercase;
-}
-
-.resource-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
-  margin-top:25px;
-}
-
-.resource-box{
-  min-height:175px;
-  display:flex;
-  flex-direction:column;
-  padding:22px;
-  border:1px solid var(--border);
-  border-radius:17px;
-  background:#000;
-}
-
-.resource-box strong{
-  display:block;
-  color:var(--orange);
-  margin-bottom:8px;
-}
-
-.resource-box p{
-  font-size:.73rem;
-  line-height:1.6;
-}
-
-.resource-box .card-link{
-  margin-top:auto;
-}
-
-.action-box{
-  margin-top:35px;
-  padding:35px 25px;
-  border:1px solid var(--border);
-  border-radius:24px;
-  text-align:center;
-  background:#050200;
-}
-
-.action-box h2{
-  margin-top:10px;
-  color:var(--orange);
-  text-transform:uppercase;
-}
-
-.action-box p{
-  max-width:800px;
-  margin:14px auto 0;
-  line-height:1.7;
-}
-
-.notice{
-  margin-top:30px;
-  padding:20px;
-  border-left:4px solid var(--orange);
-  border-radius:10px;
-  background:#0b0400;
-  font-size:.75rem;
-  line-height:1.7;
-}
-
-.back-home{
-  margin-top:30px;
-  text-align:center;
-}
-
-@media(max-width:1000px){
-  .service-grid,
-  .resource-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .check-grid,
-  .pathway-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-@media(max-width:700px){
-  .service-grid,
-  .resource-grid,
-  .check-grid,
-  .pathway-grid,
-  .form-row{
-    grid-template-columns:1fr;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<div class="top-bar">
-MAXIMAX MULTI SERVICES • NON-CONTESTED DIVORCE DOCUMENT CENTER
-</div>
-
-<header>
-
-<div class="container header-inner">
-
-<a href="../index.html" class="brand">
-
-<div class="brand-mark">M</div>
-
-<div class="brand-text">
-<strong>MAXIMAX</strong>
-<span>MULTI SERVICES</span>
-</div>
-
-</a>
-
-<nav id="mainNav">
-
-<a href="../index.html">HOME</a>
-<a href="../index.html#services">SERVICES</a>
-<a href="#document-center">DOCUMENT CENTER</a>
-<a href="./form-helper.html">FORM CENTER</a>
-<a href="../index.html#contact">CONTACT</a>
-
-</nav>
-
-<div class="header-actions">
-
-<div class="language-switch">
-
-<button class="lang-btn active" data-lang="en">ENG</button>
-<button class="lang-btn" data-lang="fr">FRA</button>
-<button class="lang-btn" data-lang="ht">KRE</button>
-
-</div>
-
-<button id="menuToggle" class="menu-toggle">☰</button>
-
-</div>
-
-</div>
-
-</header>
-
-
-<main class="divorce-page">
-
-<div class="container">
-
-
-<section class="divorce-hero">
-
-<div class="divorce-icon">
-📑
-</div>
-
-<div class="eyebrow">
-MAXIMAX DOCUMENT PREPARATION CENTER
-</div>
-
-<h1
-data-en="NON-CONTESTED DIVORCE"
-data-fr="DIVORCE NON CONTESTÉ"
-data-ht="DIVÒS SAN KONTESTASYON">
-NON-CONTESTED DIVORCE
-</h1>
-
-<p
-data-en="Administrative document preparation and organization for eligible non-contested divorce matters, within the scope permitted by law."
-data-fr="Préparation et organisation administrative de documents pour les procédures de divorce non contesté admissibles, dans les limites autorisées par la loi."
-data-ht="Preparasyon ak òganizasyon administratif dokiman pou dosye divòs san kontestasyon ki kalifye, nan limit lalwa pèmèt.">
-Administrative document preparation and organization for eligible non-contested divorce matters, within the scope permitted by law.
-</p>
-
-<div class="hero-buttons">
-
-<a href="#document-center" class="btn primary"
-data-en="START DOCUMENT CENTER"
-data-fr="COMMENCER"
-data-ht="KÒMANSE SANT DOKIMAN">
-START DOCUMENT CENTER
-</a>
-
-<a href="#checklist" class="btn outline"
-data-en="DOCUMENT CHECKLIST"
-data-fr="LISTE DES DOCUMENTS"
-data-ht="LIS DOKIMAN">
-DOCUMENT CHECKLIST
-</a>
-
-</div>
+<!-- =====================================================
+     OFFICIAL FLORIDA NON-CONTESTED DIVORCE FORMS
+===================================================== -->
+<section id="divorce-forms" class="divorce-forms-section">
+
+  <div class="section-head">
+    <span>FLORIDA FAMILY LAW</span>
+    <h2>OFFICIAL DIVORCE FORMS</h2>
+
+    <p>
+      Open the Florida family-law forms needed for an uncontested
+      or simplified dissolution of marriage. Always verify the
+      current form edition before filing.
+    </p>
+  </div>
+
+  <div class="divorce-forms-grid">
+
+    <!-- 12.901(a) -->
+    <article class="divorce-form-card">
+      <span class="divorce-form-number">12.901(a)</span>
+
+      <h3>Joint Petition for Simplified Dissolution of Marriage</h3>
+
+      <p>
+        For spouses who qualify to file a simplified dissolution
+        of marriage together.
+      </p>
+
+      <a
+        class="divorce-form-btn primary"
+        href="https://www.flcourts.gov/content/download/685807/file_pdf/901a.pdf"
+        target="_blank"
+        rel="noopener noreferrer">
+        📄 OPEN FORM 12.901(a)
+      </a>
+    </article>
+
+
+    <!-- 12.901(b)(1) -->
+    <article class="divorce-form-card">
+      <span class="divorce-form-number">12.901(b)(1)</span>
+
+      <h3>Petition for Dissolution of Marriage — No Children or Property</h3>
+
+      <p>
+        Petition generally used when there are no dependent or
+        minor children and no property or debts to divide.
+      </p>
+
+      <a
+        class="divorce-form-btn"
+        href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
+        target="_blank"
+        rel="noopener noreferrer">
+        🌐 OPEN OFFICIAL FLORIDA FORMS
+      </a>
+    </article>
+
+
+    <!-- 12.901(b)(2) -->
+    <article class="divorce-form-card">
+      <span class="divorce-form-number">12.901(b)(2)</span>
+
+      <h3>Petition for Dissolution of Marriage — Property but No Children</h3>
+
+      <p>
+        For qualifying dissolution cases involving property or
+        debts but no dependent or minor children.
+      </p>
+
+      <a
+        class="divorce-form-btn"
+        href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
+        target="_blank"
+        rel="noopener noreferrer">
+        🌐 OPEN OFFICIAL FLORIDA FORMS
+      </a>
+    </article>
+
+
+    <!-- 12.901(b)(3) -->
+    <article class="divorce-form-card">
+      <span class="divorce-form-number">12.901(b)(3)</span>
+
+      <h3>Petition for Dissolution of Marriage — Dependent or Minor Children</h3>
+
+      <p>
+        For dissolution cases involving dependent or minor
+        children.
+      </p>
+
+      <a
+        class="divorce-form-btn"
+        href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
+        target="_blank"
+        rel="noopener noreferrer">
+        🌐 OPEN OFFICIAL FLORIDA FORMS
+      </a>
+    </article>
+
+
+    <!-- 12.902(b) -->
+    <article class="divorce-form-card">
+      <span class="divorce-form-number">12.902(b)</span>
+
+      <h3>Family Law Financial Affidavit — Short Form</h3>
+
+      <p>
+        Financial affidavit used when the applicable income
+        requirements for the short form are met.
+      </p>
+
+      <a
+        class="divorce-form-btn"
+        href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
+        target="_blank"
+        rel="noopener noreferrer">
+        🌐 OPEN OFFICIAL FORM
+      </a>
+    </article>
+
+
+    <!-- 12.902(c) -->
+    <article class="divorce-form-card">
+      <span class="divorce-form-number">12.902(c)</span>
+
+      <h3>Family Law Financial Affidavit — Long Form</h3>
+
+      <p>
+        Financial affidavit for cases requiring the Florida
+        Family Law long-form financial disclosure.
+      </p>
+
+      <a
+        class="divorce-form-btn"
+        href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
+        target="_blank"
+        rel="noopener noreferrer">
+        🌐 OPEN OFFICIAL FORM
+      </a>
+    </article>
+
+
+    <!-- 12.902(f)(3) -->
+    <article class="divorce-form-card">
+      <span class="divorce-form-number">12.902(f)(3)</span>
+
+      <h3>Marital Settlement Agreement</h3>
+
+      <p>
+        Florida family-law settlement agreement resource for
+        spouses resolving applicable issues by agreement.
+      </p>
+
+      <a
+        class="divorce-form-btn"
+        href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
+        target="_blank"
+        rel="noopener noreferrer">
+        🌐 OPEN OFFICIAL FORM
+      </a>
+    </article>
+
+
+    <!-- 12.900(h) -->
+    <article class="divorce-form-card">
+      <span class="divorce-form-number">12.900(h)</span>
+
+      <h3>Notice of Related Cases</h3>
+
+      <p>
+        Florida family-law form used to identify related cases
+        when applicable.
+      </p>
+
+      <a
+        class="divorce-form-btn"
+        href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
+        target="_blank"
+        rel="noopener noreferrer">
+        🌐 OPEN OFFICIAL FORM
+      </a>
+    </article>
+
+  </div>
+
+  <div class="divorce-official-center">
+    <strong>FLORIDA COURTS — FAMILY LAW FORMS</strong>
+
+    <p>
+      Form editions and filing requirements can change.
+      Verify every form with Florida Courts before filing.
+    </p>
+
+    <a
+      class="divorce-form-btn primary"
+      href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
+      target="_blank"
+      rel="noopener noreferrer">
+      ⚖️ OPEN ALL OFFICIAL FLORIDA FAMILY LAW FORMS
+    </a>
+  </div>
 
 </section>
-
-
-<section class="service-grid">
-
-
-<div class="divorce-card">
-
-<span>📝</span>
-
-<h2
-data-en="DOCUMENT PREPARATION"
-data-fr="PRÉPARATION DES DOCUMENTS"
-data-ht="PREPARASYON DOKIMAN">
-DOCUMENT PREPARATION
-</h2>
-
-<p
-data-en="Administrative preparation and typing of information supplied by the customer for supported documents."
-data-fr="Préparation administrative et saisie des informations fournies par le client pour les documents pris en charge."
-data-ht="Preparasyon administratif ak antre enfòmasyon kliyan bay pou dokiman sistèm nan sipòte.">
-Administrative preparation and typing of information supplied by the customer for supported documents.
-</p>
-
-<a href="#document-center" class="btn outline">
-START
-</a>
-
-</div>
-
-
-<div class="divorce-card">
-
-<span>📂</span>
-
-<h2
-data-en="DOCUMENT ORGANIZATION"
-data-fr="ORGANISATION DES DOCUMENTS"
-data-ht="ÒGANIZASYON DOKIMAN">
-DOCUMENT ORGANIZATION
-</h2>
-
-<p
-data-en="Organize identification, marriage information, financial documents and other customer-provided records."
-data-fr="Organisez les pièces d'identité, informations de mariage, documents financiers et autres dossiers fournis."
-data-ht="Òganize idantifikasyon, enfòmasyon maryaj, dokiman finansye ak lòt dosye kliyan bay.">
-Organize identification, marriage information, financial documents and other customer-provided records.
-</p>
-
-<a href="#checklist" class="btn outline">
-CHECKLIST
-</a>
-
-</div>
-
-
-<div class="divorce-card">
-
-<span>📋</span>
-
-<h2
-data-en="FORM SUPPORT"
-data-fr="ASSISTANCE FORMULAIRES"
-data-ht="ASISTANS FÒM">
-FORM SUPPORT
-</h2>
-
-<p
-data-en="Connect to the Maximax Form Help Center for supported administrative form organization."
-data-fr="Accédez au centre Maximax d'assistance aux formulaires pour l'organisation administrative."
-data-ht="Konekte ak Maximax Form Help Center pou òganizasyon administratif fòm yo.">
-Connect to the Maximax Form Help Center for supported administrative form organization.
-</p>
-
-<a href="./form-helper.html" class="btn outline">
-FORM CENTER
-</a>
-
-</div>
-
-
-<div class="divorce-card">
-
-<span>✍️</span>
-
-<h2
-data-en="NOTARY CONNECTION"
-data-fr="SERVICE NOTARIAL"
-data-ht="KONEKSYON NOTÈ">
-NOTARY CONNECTION
-</h2>
-
-<p
-data-en="Connect to available notarial services when notarization is required for an eligible document."
-data-fr="Accédez aux services notariaux disponibles lorsqu'une notarisation est requise."
-data-ht="Konekte ak sèvis notè ki disponib lè yon dokiman kalifye bezwen notarye.">
-Connect to available notarial services when notarization is required for an eligible document.
-</p>
-
-<a href="./notary.html" class="btn outline">
-NOTARY CENTER
-</a>
-
-</div>
-
-
-<div class="divorce-card">
-
-<span>🌎</span>
-
-<h2
-data-en="TRANSLATION SUPPORT"
-data-fr="ASSISTANCE TRADUCTION"
-data-ht="ASISTANS TRADIKSYON">
-TRANSLATION SUPPORT
-</h2>
-
-<p
-data-en="Use the Maximax translation workspace for general multilingual document assistance."
-data-fr="Utilisez l'espace de traduction Maximax pour une assistance multilingue générale."
-data-ht="Sèvi ak espas tradiksyon Maximax pou asistans jeneral ak dokiman miltileng.">
-Use the Maximax translation workspace for general multilingual document assistance.
-</p>
-
-<a href="./translation-ai.html" class="btn outline">
-TRANSLATION
-</a>
-
-</div>
-
-
-<div class="divorce-card">
-
-<span>🤖</span>
-
-<h2
-data-en="AI DOCUMENT TOOLS"
-data-fr="OUTILS DOCUMENTAIRES IA"
-data-ht="ZOUTI DOKIMAN AI">
-AI DOCUMENT TOOLS
-</h2>
-
-<p
-data-en="Use Maximax AI for general writing, organization and document-assistance tasks."
-data-fr="Utilisez Maximax AI pour la rédaction générale, l'organisation et l'assistance documentaire."
-data-ht="Sèvi ak Maximax AI pou ekriti jeneral, òganizasyon ak asistans dokiman.">
-Use Maximax AI for general writing, organization and document-assistance tasks.
-</p>
-
-<a href="./ai-center.html" class="btn outline">
-AI CENTER
-</a>
-
-</div>
-
-</section>
-
-
-<section class="document-center" id="document-center">
-
-<div class="center-header">
-
-<div class="eyebrow">
-MAXIMAX DOCUMENT ORGANIZER
-</div>
-
-<h2
-data-en="START YOUR DOCUMENT FILE"
-data-fr="COMMENCEZ VOTRE DOSSIER"
-data-ht="KÒMANSE DOSYE DOKIMAN OU">
-START YOUR DOCUMENT FILE
-</h2>
-
-<p
-data-en="Use this organizer to identify the type of administrative assistance you need. Do not enter Social Security numbers, passwords, bank-account numbers or other highly sensitive information."
-data-fr="Utilisez cet outil pour identifier l'assistance administrative dont vous avez besoin. N'entrez pas de numéro de sécurité sociale, mot de passe ou numéro bancaire."
-data-ht="Sèvi ak òganizatè sa a pou idantifye kalite asistans administratif ou bezwen. Pa antre nimewo Social Security, modpas oswa nimewo kont labank.">
-Use this organizer to identify the type of administrative assistance you need. Do not enter Social Security numbers, passwords, bank-account numbers or other highly sensitive information.
-</p>
-
-</div>
-
-
-<div class="helper-form">
-
-<div class="form-row">
-
-<div>
-
-<label for="state">
-STATE / JURISDICTION
-</label>
-
-<input
-type="text"
-id="state"
-placeholder="Example: Florida">
-
-</div>
-
-
-<div>
-
-<label for="caseStage">
-CURRENT STAGE
-</label>
-
-<select id="caseStage">
-
-<option value="">
-Select
-</option>
-
-<option value="Preparing Documents">
-Preparing Documents
-</option>
-
-<option value="Documents Already Started">
-Documents Already Started
-</option>
-
-<option value="Filed / Need Organization">
-Filed / Need Organization
-</option>
-
-<option value="Not Sure">
-Not Sure
-</option>
-
-</select>
-
-</div>
-
-</div>
-
-
-<div class="form-row">
-
-<div>
-
-<label for="minorChildren">
-MINOR CHILDREN
-</label>
-
-<select id="minorChildren">
-
-<option value="">
-Select
-</option>
-
-<option value="No">
-No
-</option>
-
-<option value="Yes">
-Yes
-</option>
-
-<option value="Prefer to Discuss">
-Prefer to Discuss
-</option>
-
-</select>
-
-</div>
-
-
-<div>
-
-<label for="propertyIssues">
-PROPERTY / DEBT TO ORGANIZE
-</label>
-
-<select id="propertyIssues">
-
-<option value="">
-Select
-</option>
-
-<option value="No">
-No
-</option>
-
-<option value="Yes">
-Yes
-</option>
-
-<option value="Not Sure">
-Not Sure
-</option>
-
-</select>
-
-</div>
-
-</div>
-
-
-<label for="assistanceNeeded">
-WHAT ADMINISTRATIVE HELP DO YOU NEED?
-</label>
-
-<textarea
-id="assistanceNeeded"
-placeholder="Example: I need help organizing the documents and information I already have."></textarea>
-
-
-<button
-type="button"
-class="btn primary"
-id="prepareRequest">
-PREPARE REQUEST
-</button>
-
-
-<div class="helper-result" id="helperResult">
-
-<h3>
-REQUEST ORGANIZED
-</h3>
-
-<p id="helperResultText"></p>
-
-<div class="hero-buttons">
-
-<a href="./form-helper.html" class="btn primary">
-📝 FORM HELP CENTER
-</a>
-
-<a href="../index.html#contact" class="btn outline">
-CONTACT
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<section class="checklist" id="checklist">
-
-<h2
-data-en="DOCUMENT CHECKLIST"
-data-fr="LISTE DES DOCUMENTS"
-data-ht="LIS DOKIMAN">
-DOCUMENT CHECKLIST
-</h2>
-
-<p
-data-en="Exact requirements vary by jurisdiction and case. This list is for general organization only."
-data-fr="Les exigences exactes varient selon la juridiction et le dossier. Cette liste sert uniquement à l'organisation générale."
-data-ht="Egzijans egzak yo varye selon jiridiksyon ak dosye a. Lis sa a se pou òganizasyon jeneral sèlman.">
-Exact requirements vary by jurisdiction and case. This list is for general organization only.
-</p>
-
-
-<div class="check-grid">
-
-<div class="check-item">
-<span>✓</span>
-IDENTIFICATION
-</div>
-
-<div class="check-item">
-<span>✓</span>
-MARRIAGE INFORMATION
-</div>
-
-<div class="check-item">
-<span>✓</span>
-CURRENT CONTACT INFORMATION
-</div>
-
-<div class="check-item">
-<span>✓</span>
-COURT DOCUMENTS
-</div>
-
-<div class="check-item">
-<span>✓</span>
-PROPERTY INFORMATION
-</div>
-
-<div class="check-item">
-<span>✓</span>
-DEBT INFORMATION
-</div>
-
-<div class="check-item">
-<span>✓</span>
-FINANCIAL RECORDS
-</div>
-
-<div class="check-item">
-<span>✓</span>
-SUPPORTING DOCUMENTS
-</div>
-
-</div>
-
-</section>
-
-
-<section class="pathway">
-
-<h2
-data-en="DOCUMENT PREPARATION PATHWAY"
-data-fr="PARCOURS DE PRÉPARATION"
-data-ht="CHEMEN PREPARASYON DOKIMAN">
-DOCUMENT PREPARATION PATHWAY
-</h2>
-
-
-<div class="pathway-grid">
-
-<div class="pathway-step">
-
-<div class="step-number">1</div>
-
-<strong
-data-en="IDENTIFY"
-data-fr="IDENTIFIER"
-data-ht="IDANTIFYE">
-IDENTIFY
-</strong>
-
-<p
-data-en="Identify the administrative document service you need."
-data-fr="Identifiez le service administratif dont vous avez besoin."
-data-ht="Idantifye sèvis administratif ou bezwen an.">
-Identify the administrative document service you need.
-</p>
-
-</div>
-
-
-<div class="pathway-step">
-
-<div class="step-number">2</div>
-
-<strong
-data-en="GATHER"
-data-fr="RÉUNIR"
-data-ht="RANMASE">
-GATHER
-</strong>
-
-<p
-data-en="Gather the documents and information relevant to your filing."
-data-fr="Rassemblez les documents et informations pertinents."
-data-ht="Ranmase dokiman ak enfòmasyon ki gen rapò ak dosye a.">
-Gather the documents and information relevant to your filing.
-</p>
-
-</div>
-
-
-<div class="pathway-step">
-
-<div class="step-number">3</div>
-
-<strong
-data-en="ORGANIZE"
-data-fr="ORGANISER"
-data-ht="ÒGANIZE">
-ORGANIZE
-</strong>
-
-<p
-data-en="Organize customer-provided information for supported documents."
-data-fr="Organisez les informations fournies pour les documents pris en charge."
-data-ht="Òganize enfòmasyon kliyan bay pou dokiman sistèm nan sipòte.">
-Organize customer-provided information for supported documents.
-</p>
-
-</div>
-
-
-<div class="pathway-step">
-
-<div class="step-number">4</div>
-
-<strong
-data-en="REVIEW"
-data-fr="VÉRIFIER"
-data-ht="REVIZE">
-REVIEW
-</strong>
-
-<p
-data-en="Review documents and follow the applicable official filing requirements."
-data-fr="Vérifiez les documents et suivez les exigences officielles applicables."
-data-ht="Revize dokiman yo epi swiv egzijans ofisyèl ki aplikab yo.">
-Review documents and follow the applicable official filing requirements.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<section class="resource-center">
-
-<h2
-data-en="MAXIMAX DOCUMENT RESOURCES"
-data-fr="RESSOURCES DOCUMENTAIRES MAXIMAX"
-data-ht="RESOUS DOKIMAN MAXIMAX">
-MAXIMAX DOCUMENT RESOURCES
-</h2>
-
-
-<div class="resource-grid">
-
-<div class="resource-box">
-
-<strong>📝 FORM HELP CENTER</strong>
-
-<p>
-Administrative form organization and document-preparation support.
-</p>
-
-<a href="./form-helper.html" class="card-link">
-OPEN →
-</a>
-
-</div>
-
-
-<div class="resource-box">
-
-<strong>✍️ NOTARY CENTER</strong>
-
-<p>
-Connect to available notarial document services.
-</p>
-
-<a href="./notary.html" class="card-link">
-OPEN →
-</a>
-
-</div>
-
-
-<div class="resource-box">
-
-<strong>🌎 AI TRANSLATION</strong>
-
-<p>
-General multilingual translation workspace.
-</p>
-
-<a href="./translation-ai.html" class="card-link">
-OPEN →
-</a>
-
-</div>
-
-
-<div class="resource-box">
-
-<strong>🤖 AI CENTER</strong>
-
-<p>
-General document writing and organization assistance.
-</p>
-
-<a href="./ai-center.html" class="card-link">
-OPEN →
-</a>
-
-</div>
-
-
-<div class="resource-box">
-
-<strong>💬 CHAT 24/7</strong>
-
-<p>
-Digital service navigation for Maximax services.
-</p>
-
-<a href="./chat.html" class="card-link">
-OPEN →
-</a>
-
-</div>
-
-
-<div class="resource-box">
-
-<strong>🌐 ALL SERVICES</strong>
-
-<p>
-Return to the Maximax Multi Services service center.
-</p>
-
-<a href="../index.html#services" class="card-link">
-OPEN →
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-<section class="action-box">
-
-<div class="eyebrow">
-MAXIMAX DOCUMENT CENTER
-</div>
-
-<h2
-data-en="NEED DOCUMENT ASSISTANCE?"
-data-fr="BESOIN D'AIDE POUR VOS DOCUMENTS ?"
-data-ht="OU BEZWEN ASISTANS DOKIMAN?">
-NEED DOCUMENT ASSISTANCE?
-</h2>
-
-<p
-data-en="Contact Maximax Multi Services for available administrative document-preparation and organization services."
-data-fr="Contactez Maximax Multi Services pour les services disponibles de préparation et d'organisation administrative de documents."
-data-ht="Kontakte Maximax Multi Services pou sèvis preparasyon ak òganizasyon administratif dokiman ki disponib.">
-Contact Maximax Multi Services for available administrative document-preparation and organization services.
-</p>
-
-<div class="hero-buttons">
-
-<a href="tel:+14076405166" class="btn primary">
-📞 (407) 640-5166
-</a>
-
-<a href="./form-helper.html" class="btn outline">
-📝 FORM CENTER
-</a>
-
-<a href="../index.html#contact" class="btn outline">
-CONTACT
-</a>
-
-</div>
-
-</section>
-
-
-<div class="notice">
-
-<strong>IMPORTANT:</strong>
-Maximax Multi Services is not a law firm and does not provide legal advice, legal strategy or legal representation. Non-contested divorce procedures, forms, filing requirements, fees and eligibility vary by jurisdiction and individual circumstances. Maximax provides administrative document preparation, typing, organization and general information only within the scope permitted by law. If you need advice about your legal rights, property division, debts, children, support, contested issues or what you should file, consult a licensed attorney or an authorized legal-services provider.
-
-</div>
-
-
-<div class="back-home">
-
-<a href="../index.html#services" class="btn outline"
-data-en="← BACK TO ALL SERVICES"
-data-fr="← RETOUR AUX SERVICES"
-data-ht="← RETOUNEN NAN TOUT SÈVIS YO">
-← BACK TO ALL SERVICES
-</a>
-
-</div>
-
-</div>
-
-</main>
-
-
-<footer>
-
-<div class="container">
-
-<div class="footer-logo">
-M
-</div>
-
-<h3>
-MAXIMAX MULTI SERVICES
-</h3>
-
-<p>
-PROFESSIONAL SERVICES • DIGITAL SOLUTIONS • AI ASSISTANCE
-</p>
-
-<p class="hub-link">
-Part of BSS1815 PRO-MAX DMP
-</p>
-
-<p>
-© <span id="currentYear"></span> Maximax Multi Services
-</p>
-
-</div>
-
-</footer>
-
-
-<script src="../javascript.js"></script>
-
-<script>
-(() => {
-  "use strict";
-
-  const state =
-    document.getElementById("state");
-
-  const caseStage =
-    document.getElementById("caseStage");
-
-  const minorChildren =
-    document.getElementById("minorChildren");
-
-  const propertyIssues =
-    document.getElementById("propertyIssues");
-
-  const assistance =
-    document.getElementById("assistanceNeeded");
-
-  const prepareButton =
-    document.getElementById("prepareRequest");
-
-  const result =
-    document.getElementById("helperResult");
-
-  const resultText =
-    document.getElementById("helperResultText");
-
-  const STORAGE_KEY =
-    "maximaxNonContestedDivorceRequest";
-
-
-  if (prepareButton) {
-
-    prepareButton.addEventListener(
-      "click",
-      () => {
-
-        const stateValue =
-          state.value.trim();
-
-        const stageValue =
-          caseStage.value;
-
-        const childrenValue =
-          minorChildren.value;
-
-        const propertyValue =
-          propertyIssues.value;
-
-        const assistanceValue =
-          assistance.value.trim();
-
-
-        if (
-          !stateValue &&
-          !stageValue &&
-          !childrenValue &&
-          !propertyValue &&
-          !assistanceValue
-        ) {
-
-          result.classList.add("show");
-
-          resultText.textContent =
-            "Please enter some information about the administrative document assistance you need.";
-
-          return;
-
-        }
-
-
-        const request = {
-          jurisdiction:stateValue,
-          stage:stageValue,
-          minorChildren:childrenValue,
-          propertyOrDebt:propertyValue,
-          assistance:assistanceValue,
-          savedAt:new Date().toISOString()
-        };
-
-
-        try {
-
-          localStorage.setItem(
-            STORAGE_KEY,
-            JSON.stringify(request)
-          );
-
-        } catch (error) {
-
-          console.warn(
-            "Document request could not be saved.",
-            error
-          );
-
-        }
-
-
-        const details = [];
-
-
-        if (stateValue) {
-          details.push(
-            "Jurisdiction: " +
-            stateValue +
-            "."
-          );
-        }
-
-
-        if (stageValue) {
-          details.push(
-            "Current stage: " +
-            stageValue +
-            "."
-          );
-        }
-
-
-        if (childrenValue) {
-          details.push(
-            "Minor children: " +
-            childrenValue +
-            "."
-          );
-        }
-
-
-        if (propertyValue) {
-          details.push(
-            "Property/debt organization: " +
-            propertyValue +
-            "."
-          );
-        }
-
-
-        if (assistanceValue) {
-          details.push(
-            "Requested administrative assistance: " +
-            assistanceValue
-          );
-        }
-
-
-        result.classList.add("show");
-
-        resultText.textContent =
-          details.join(" ") +
-          " Your request has been organized. Exact documents and filing requirements must be verified for the applicable jurisdiction before filing.";
-
-        result.scrollIntoView({
-          behavior:"smooth",
-          block:"nearest"
-        });
-
-      }
-    );
-
-  }
-
-})();
-</script>
-
-</body>
-</html>
