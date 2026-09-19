@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Federal Register Center | Maximax Multi Services</title>
+
+<meta name="description"
+content="Federal Register Center — official federal rules, proposed rules, notices, presidential documents and public inspection resources.">
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --orange:#ff7900;
+  --apricot:#ffad4d;
+  --black:#000000;
+  --deep:#050200;
+  --soft:#120600;
+  --text:#ffd2a3;
+  --muted:#c98248;
+  --border:rgba(255,121,0,.55);
+}
+
+html{
+  scroll-behavior:smooth;
+  background:#000;
+}
+
+body{
+  min-height:100vh;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 15% 10%,rgba(255,121,0,.16),transparent 30%),
+    radial-gradient(circle at 90% 30%,rgba(255,173,77,.08),transparent 28%),
+    linear-gradient(180deg,#000,#050200 55%,#120600);
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,
+input{
+  font:inherit;
+}
+
+.container{
+  width:min(1180px,92%);
+  margin:auto;
+}
+
+/* HEADER */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(0,0,0,.96);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(15px);
+}
+
+.header-inner{
+  min-height:90px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+
+.logo{
+  width:68px;
+  height:68px;
+  object-fit:contain;
+  padding:4px;
+  border:2px solid var(--orange);
+  border-radius:16px;
+  background:#000;
+  box-shadow:0 0 20px rgba(255,121,0,.4);
+}
+
+.brand h1{
+  color:var(--orange);
+  font-size:18px;
+}
+
+.brand p{
+  margin-top:4px;
+  color:var(--apricot);
+  font-size:10px;
+  font-weight:900;
+}
+
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.languages{
+  display:flex;
+  gap:5px;
+  padding:5px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:#080300;
+}
+
+.lang{
+  padding:8px 11px;
+  border:0;
+  border-radius:999px;
+  color:var(--apricot);
+  background:#000;
+  font-size:10px;
+  font-weight:1000;
+  cursor:pointer;
+}
+
+.lang.active{
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+}
+
+.home-btn{
+  padding:11px 16px;
+  border:2px solid var(--orange);
+  border-radius:999px;
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+  font-size:10px;
+  font-weight:1000;
+}
+
+/* HERO */
+
+.hero{
+  padding:90px 0 65px;
+  text-align:center;
+}
+
+.badge{
+  display:inline-block;
+  margin-bottom:20px;
+  padding:9px 15px;
+  border:1px solid var(--orange);
+  border-radius:999px;
+  color:var(--orange);
+  background:rgba(255,121,0,.07);
+  font-size:11px;
+  font-weight:1000;
+}
+
+.hero h2{
+  color:var(--orange);
+  font-size:clamp(38px,7vw,74px);
+  line-height:1;
+  font-weight:1000;
+}
+
+.hero p{
+  max-width:800px;
+  margin:24px auto 0;
+  color:var(--text);
+  font-size:17px;
+  line-height:1.7;
+}
+
+.official-notice{
+  max-width:900px;
+  margin:30px auto 0;
+  padding:17px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:#080300;
+  color:var(--apricot);
+  font-size:12px;
+  line-height:1.6;
+}
+
+/* SEARCH */
+
+.search-section{
+  padding-bottom:35px;
+}
+
+.search-box{
+  max-width:900px;
+  margin:auto;
+  padding:22px;
+  border:1px solid var(--border);
+  border-radius:23px;
+  background:#080300;
+}
+
+.search-title{
+  margin-bottom:13px;
+  color:var(--orange);
+  font-weight:1000;
+}
+
+.search-row{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:10px;
+}
+
+.search-input{
+  min-height:53px;
+  padding:14px 17px;
+  outline:none;
+  border:1px solid var(--border);
+  border-radius:14px;
+  color:var(--text);
+  background:#000;
+}
+
+.search-input:focus{
+  border-color:var(--orange);
+  box-shadow:0 0 15px rgba(255,121,0,.2);
+}
+
+.search-input::placeholder{
+  color:#a96536;
+}
+
+.search-btn{
+  min-width:150px;
+  border:2px solid var(--orange);
+  border-radius:14px;
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+  font-size:11px;
+  font-weight:1000;
+  cursor:pointer;
+}
+
+/* MAIN */
+
+.main{
+  padding:45px 0 80px;
+}
+
+.section-title{
+  margin-bottom:12px;
+  color:var(--orange);
+  text-align:center;
+  font-size:clamp(27px,5vw,45px);
+}
+
+.section-subtitle{
+  max-width:780px;
+  margin:0 auto 35px;
+  text-align:center;
+  line-height:1.7;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:17px;
+}
+
+.card{
+  min-height:250px;
+  display:flex;
+  flex-direction:column;
+  padding:25px;
+  border:1px solid var(--border);
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 90% 0%,rgba(255,121,0,.12),transparent 35%),
+    linear-gradient(145deg,#100500,#000);
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  border-color:var(--orange);
+  box-shadow:0 0 25px rgba(255,121,0,.22);
+}
+
+.icon{
+  margin-bottom:15px;
+  font-size:35px;
+}
+
+.card h3{
+  margin-bottom:10px;
+  color:var(--orange);
+  font-size:18px;
+}
+
+.card p{
+  color:var(--text);
+  font-size:12px;
+  line-height:1.65;
+}
+
+.open{
+  margin-top:auto;
+  padding-top:20px;
+  color:var(--apricot);
+  font-size:11px;
+  font-weight:1000;
+}
+
+/* UPDATE CENTER */
+
+.update-center{
+  margin-top:65px;
+  padding:30px;
+  border:2px solid var(--orange);
+  border-radius:27px;
+  background:linear-gradient(145deg,#100500,#000);
+}
+
+.update-center h2{
+  margin-bottom:10px;
+  color:var(--orange);
+  text-align:center;
+}
+
+.update-center > p{
+  max-width:760px;
+  margin:0 auto 25px;
+  text-align:center;
+  line-height:1.6;
+}
+
+.update-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+.update-btn{
+  min-height:90px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  color:var(--apricot);
+  background:#050200;
+  text-align:center;
+  font-size:11px;
+  font-weight:1000;
+}
+
+.update-btn:hover{
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+}
+
+/* WARNING */
+
+.disclaimer{
+  margin-top:45px;
+  padding:20px;
+  border-left:4px solid var(--orange);
+  border-radius:14px;
+  background:#080300;
+  color:var(--text);
+  font-size:12px;
+  line-height:1.7;
+}
+
+/* FOOTER */
+
+footer{
+  padding:40px 0;
+  border-top:1px solid var(--border);
+  background:#000;
+  text-align:center;
+}
+
+.footer-logo{
+  width:72px;
+  height:72px;
+  object-fit:contain;
+  padding:4px;
+  border:2px solid var(--orange);
+  border-radius:16px;
+}
+
+footer h3{
+  margin-top:12px;
+  color:var(--orange);
+}
+
+footer p{
+  margin-top:7px;
+  color:var(--apricot);
+  font-size:11px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .update-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:650px){
+
+  .header-inner{
+    min-height:80px;
+  }
+
+  .logo{
+    width:55px;
+    height:55px;
+  }
+
+  .brand h1{
+    font-size:13px;
+  }
+
+  .brand p{
+    display:none;
+  }
+
+  .home-btn{
+    display:none;
+  }
+
+  .languages{
+    position:fixed;
+    left:50%;
+    bottom:12px;
+    z-index:1500;
+    transform:translateX(-50%);
+    box-shadow:0 0 25px rgba(255,121,0,.3);
+  }
+
+  .hero{
+    padding:65px 0 45px;
+  }
+
+  .grid,
+  .update-grid{
+    grid-template-columns:1fr;
+  }
+
+  .search-row{
+    grid-template-columns:1fr;
+  }
+
+  .search-btn{
+    min-height:50px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="container header-inner">
+
+  <a class="brand" href="../index.html">
+
+    <img
+      class="logo"
+      src="../maximax-logo.jpg"
+      alt="Maximax Multi Services"
+    >
+
+    <div>
+
+      <h1>
+        MAXIMAX MULTI SERVICES
+      </h1>
+
+      <p>
+        FEDERAL REGISTER CENTER
+      </p>
+
+    </div>
+
+  </a>
+
+  <div class="header-right">
+
+    <div class="languages">
+
+      <button
+        class="lang active"
+        data-lang="en"
+        type="button"
+      >
+        🇺🇸 ENG
+      </button>
+
+      <button
+        class="lang"
+        data-lang="es"
+        type="button"
+      >
+        🇪🇸 ESP
+      </button>
+
+      <button
+        class="lang"
+        data-lang="ht"
+        type="button"
+      >
+        🇭🇹 KRE
+      </button>
+
+    </div>
+
+    <a
+      class="home-btn"
+      href="../index.html"
+      data-en="← HOME"
+      data-es="← INICIO"
+      data-ht="← AKÈY"
+    >
+      ← HOME
+    </a>
+
+  </div>
+
+</div>
+
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="container">
+
+  <div
+    class="badge"
+    data-en="FEDERAL INFORMATION CENTER"
+    data-es="CENTRO DE INFORMACIÓN FEDERAL"
+    data-ht="SANT ENFÒMASYON FEDERAL"
+  >
+    FEDERAL INFORMATION CENTER
+  </div>
+
+  <h2>
+    FEDERAL REGISTER
+  </h2>
+
+  <p
+    data-en="Access current federal rules, proposed rules, notices, presidential documents and public inspection information directly from official Federal Register resources."
+    data-es="Acceda a reglas federales actuales, reglas propuestas, avisos, documentos presidenciales e información de inspección pública."
+    data-ht="Jwenn règleman federal aktyèl, règleman pwopoze, avi, dokiman prezidansyèl ak enfòmasyon enspeksyon piblik dirèkteman nan sous Federal Register ofisyèl yo."
+  >
+    Access current federal rules, proposed rules, notices,
+    presidential documents and public inspection information
+    directly from official Federal Register resources.
+  </p>
+
+  <div
+    class="official-notice"
+    data-en="MAXIMAX provides organized access to public government information. Federal Register documents remain on the official federal source."
+    data-es="MAXIMAX proporciona acceso organizado a información pública del gobierno. Los documentos permanecen en la fuente federal oficial."
+    data-ht="MAXIMAX òganize aksè nan enfòmasyon piblik gouvènman an. Dokiman Federal Register yo rete sou sous federal ofisyèl la."
+  >
+    MAXIMAX provides organized access to public government information.
+    Federal Register documents remain on the official federal source.
+  </div>
+
+</div>
+
+</section>
+
+<!-- SEARCH -->
+
+<section class="search-section">
+
+<div class="container">
+
+  <div class="search-box">
+
+    <div
+      class="search-title"
+      data-en="SEARCH FEDERAL REGISTER"
+      data-es="BUSCAR EN FEDERAL REGISTER"
+      data-ht="CHÈCHE NAN FEDERAL REGISTER"
+    >
+      SEARCH FEDERAL REGISTER
+    </div>
+
+    <div class="search-row">
+
+      <input
+        id="federalSearch"
+        class="search-input"
+        type="search"
+        placeholder="Example: immigration, Social Security, unemployment..."
+      >
+
+      <button
+        id="searchButton"
+        class="search-btn"
+        type="button"
+        data-en="SEARCH OFFICIAL SITE"
+        data-es="BUSCAR SITIO OFICIAL"
+        data-ht="CHÈCHE SOU SIT OFISYÈL"
+      >
+        SEARCH OFFICIAL SITE
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+<!-- DOCUMENT CENTERS -->
+
+<section class="main">
+
+<div class="container">
+
+  <h2
+    class="section-title"
+    data-en="FEDERAL REGISTER CENTER"
+    data-es="CENTRO FEDERAL REGISTER"
+    data-ht="SANT FEDERAL REGISTER"
+  >
+    FEDERAL REGISTER CENTER
+  </h2>
+
+  <p
+    class="section-subtitle"
+    data-en="Choose the federal information category you want to review."
+    data-es="Seleccione la categoría de información federal que desea revisar."
+    data-ht="Chwazi kategori enfòmasyon federal ou vle verifye a."
+  >
+    Choose the federal information category you want to review.
+  </p>
+
+  <div class="grid">
+
+    <!-- CURRENT -->
+
+    <a
+      class="card"
+      href="https://www.federalregister.gov/documents/current"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+
+      <div class="icon">
+        🔔
+      </div>
+
+      <h3
+        data-en="Current Updates"
+        data-es="Actualizaciones"
+        data-ht="Mizajou Aktyèl"
+      >
+        Current Updates
+      </h3>
+
+      <p
+        data-en="Review documents in the current Federal Register issue."
+        data-es="Revise los documentos de la edición actual del Federal Register."
+        data-ht="Verifye dokiman ki nan edisyon Federal Register aktyèl la."
+      >
+        Review documents in the current Federal Register issue.
+      </p>
+
+      <span class="open">
+        OPEN OFFICIAL SOURCE →
+      </span>
+
+    </a>
+
+    <!-- RULES -->
+
+    <a
+      class="card"
+      href="https://www.federalregister.gov/documents/search?conditions%5Btype%5D%5B%5D=RULE"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+
+      <div class="icon">
+        ⚖️
+      </div>
+
+      <h3
+        data-en="Rules & Regulations"
+        data-es="Reglas y Regulaciones"
+        data-ht="Règ ak Règleman"
+      >
+        Rules & Regulations
+      </h3>
+
+      <p
+        data-en="Review federal rules and regulations published by government agencies."
+        data-es="Revise reglas y regulaciones publicadas por agencias federales."
+        data-ht="Verifye règ ak règleman ajans federal yo pibliye."
+      >
+        Review federal rules and regulations published by government agencies.
+      </p>
+
+      <span class="open">
+        OPEN RULES →
+      </span>
+
+    </a>
+
+    <!-- PROPOSED -->
+
+    <a
+      class="card"
+      href="https://www.federalregister.gov/documents/search?conditions%5Btype%5D%5B%5D=PRORULE"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+
+      <div class="icon">
+        📋
+      </div>
+
+      <h3
+        data-en="Proposed Rules"
+        data-es="Reglas Propuestas"
+        data-ht="Règ Pwopoze"
+      >
+        Proposed Rules
+      </h3>
+
+      <p
+        data-en="Review proposed federal regulations before final agency action."
+        data-es="Revise regulaciones federales propuestas antes de la acción final."
+        data-ht="Verifye règleman federal ki pwopoze anvan desizyon final ajans lan."
+      >
+        Review proposed federal regulations before final agency action.
+      </p>
+
+      <span class="open">
+        OPEN PROPOSED RULES →
+      </span>
+
+    </a>
+
+    <!-- NOTICES -->
+
+    <a
+      class="card"
+      href="https://www.federalregister.gov/documents/search?conditions%5Btype%5D%5B%5D=NOTICE"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+
+      <div class="icon">
+        📢
+      </div>
+
+      <h3
+        data-en="Federal Notices"
+        data-es="Avisos Federales"
+        data-ht="Avi Federal"
+      >
+        Federal Notices
+      </h3>
+
+      <p
+        data-en="Review federal agency notices, hearings and public information."
+        data-es="Revise avisos de agencias, audiencias e información pública."
+        data-ht="Verifye avi ajans federal, odyans ak enfòmasyon piblik."
+      >
+        Review federal agency notices, hearings and public information.
+      </p>
+
+      <span class="open">
+        OPEN NOTICES →
+      </span>
+
+    </a>
+
+    <!-- PRESIDENTIAL -->
+
+    <a
+      class="card"
+      href="https://www.federalregister.gov/presidential-documents"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+
+      <div class="icon">
+        🇺🇸
+      </div>
+
+      <h3
+        data-en="Presidential Documents"
+        data-es="Documentos Presidenciales"
+        data-ht="Dokiman Prezidansyèl"
+      >
+        Presidential Documents
+      </h3>
+
+      <p
+        data-en="Executive orders, proclamations and other presidential documents."
+        data-es="Órdenes ejecutivas, proclamaciones y otros documentos presidenciales."
+        data-ht="Dekrè egzekitif, pwoklamasyon ak lòt dokiman prezidansyèl."
+      >
+        Executive orders, proclamations and other presidential documents.
+      </p>
+
+      <span class="open">
+        OPEN DOCUMENTS →
+      </span>
+
+    </a>
+
+    <!-- PUBLIC INSPECTION -->
+
+    <a
+      class="card"
+      href="https://www.federalregister.gov/public-inspection/current"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+
+      <div class="icon">
+        🔎
+      </div>
+
+      <h3
+        data-en="Public Inspection"
+        data-es="Inspección Pública"
+        data-ht="Enspeksyon Piblik"
+      >
+        Public Inspection
+      </h3>
+
+      <p
+        data-en="Review documents made available for public inspection before publication."
+        data-es="Revise documentos disponibles para inspección pública."
+        data-ht="Verifye dokiman ki disponib pou enspeksyon piblik."
+      >
+        Review documents made available for public inspection before publication.
+      </p>
+
+      <span class="open">
+        OPEN PUBLIC INSPECTION →
+      </span>
+
+    </a>
+
+  </div>
+
+  <!-- QUICK UPDATE CENTER -->
+
+  <div class="update-center">
+
+    <h2
+      data-en="QUICK UPDATE CENTER"
+      data-es="CENTRO DE ACTUALIZACIONES"
+      data-ht="SANT MIZAJOU RAPID"
+    >
+      QUICK UPDATE CENTER
+    </h2>
+
+    <p
+      data-en="Direct searches for topics important to Maximax clients."
+      data-es="Búsquedas directas de temas importantes para clientes de Maximax."
+      data-ht="Rechèch dirèk pou sijè ki enpòtan pou kliyan Maximax."
+    >
+      Direct searches for topics important to Maximax clients.
+    </p>
+
+    <div class="update-grid">
+
+      <a
+        class="update-btn"
+        href="https://www.federalregister.gov/documents/search?conditions%5Bterm%5D=immigration"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        🗽 IMMIGRATION UPDATES
+      </a>
+
+      <a
+        class="update-btn"
+        href="https://www.federalregister.gov/documents/search?conditions%5Bterm%5D=Social%20Security"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        🏛️ SOCIAL SECURITY UPDATES
+      </a>
+
+      <a
+        class="update-btn"
+        href="https://www.federalregister.gov/documents/search?conditions%5Bterm%5D=unemployment"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        💼 UNEMPLOYMENT UPDATES
+      </a>
+
+      <a
+        class="update-btn"
+        href="https://www.federalregister.gov/documents/search?conditions%5Bterm%5D=Department%20of%20Homeland%20Security"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        🛡️ DHS UPDATES
+      </a>
+
+      <a
+        class="update-btn"
+        href="https://www.federalregister.gov/documents/search?conditions%5Bterm%5D=USCIS"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        📄 USCIS UPDATES
+      </a>
+
+      <a
+        class="update-btn"
+        href="https://www.federalregister.gov/documents/search?conditions%5Bterm%5D=TPS"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        📢 TPS UPDATES
+      </a>
+
+      <a
+        class="update-btn"
+        href="https://www.federalregister.gov/documents/search?conditions%5Bterm%5D=employment"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        👷 EMPLOYMENT UPDATES
+      </a>
+
+      <a
+        class="update-btn"
+        href="https://www.federalregister.gov/documents/current"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        🔔 TODAY'S FEDERAL REGISTER
+      </a>
+
+    </div>
+
+  </div>
+
+  <div
+    class="disclaimer"
+    data-en="IMPORTANT: Maximax Multi Services is not the Federal Register and does not replace an official government agency. This center organizes direct access to official public information."
+    data-es="IMPORTANTE: Maximax Multi Services no es el Federal Register y no reemplaza una agencia gubernamental oficial. Este centro organiza acceso directo a información pública oficial."
+    data-ht="ENPÒTAN: Maximax Multi Services pa Federal Register epi li pa ranplase okenn ajans gouvènman ofisyèl. Sant sa a òganize aksè dirèk nan enfòmasyon piblik ofisyèl."
+  >
+    IMPORTANT: Maximax Multi Services is not the Federal Register and does
+    not replace an official government agency. This center organizes direct
+    access to official public information.
+  </div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<div class="container">
+
+  <img
+    class="footer-logo"
+    src="../maximax-logo.jpg"
+    alt="Maximax Multi Services"
+  >
+
+  <h3>
+    MAXIMAX MULTI SERVICES
+  </h3>
+
+  <p>
+    BSS1815 PRO-MAX DMP
+  </p>
+
+  <p>
+    bss1815promaxdmp@gmail.com
+  </p>
+
+  <p>
+    (407) 640-5166 • (317) 538-1150 • (516) 216-8494
+  </p>
+
+</div>
+
+</footer>
+
+<script>
+
+(function(){
+
+"use strict";
+
+/* LANGUAGE */
+
+const buttons =
+  document.querySelectorAll(".lang");
+
+const elements =
+  document.querySelectorAll(
+    "[data-en],[data-es],[data-ht]"
+  );
+
+const storageKey =
+  "maximaxLanguage";
+
+function changeLanguage(lang){
+
+  elements.forEach(function(el){
+
+    const value =
+      el.getAttribute(
+        "data-" + lang
+      );
+
+    if(value){
+      el.textContent = value;
+    }
+
+  });
+
+  buttons.forEach(function(btn){
+
+    btn.classList.toggle(
+      "active",
+      btn.dataset.lang === lang
+    );
+
+  });
+
+  const search =
+    document.getElementById(
+      "federalSearch"
+    );
+
+  if(search){
+
+    if(lang === "es"){
+      search.placeholder =
+        "Ejemplo: inmigración, Seguro Social, desempleo...";
+    }
+
+    else if(lang === "ht"){
+      search.placeholder =
+        "Egzanp: imigrasyon, Social Security, chomaj...";
+    }
+
+    else{
+      search.placeholder =
+        "Example: immigration, Social Security, unemployment...";
+    }
+
+  }
+
+  try{
+    localStorage.setItem(
+      storageKey,
+      lang
+    );
+  }catch(e){}
+
+}
+
+buttons.forEach(function(btn){
+
+  btn.addEventListener(
+    "click",
+    function(){
+
+      changeLanguage(
+        btn.dataset.lang
+      );
+
+    }
+  );
+
+});
+
+let language = "en";
+
+try{
+
+  const saved =
+    localStorage.getItem(
+      storageKey
+    );
+
+  if(
+    saved === "en" ||
+    saved === "es" ||
+    saved === "ht"
+  ){
+    language = saved;
+  }
+
+}catch(e){}
+
+changeLanguage(language);
+
+/* FEDERAL REGISTER SEARCH */
+
+const searchInput =
+  document.getElementById(
+    "federalSearch"
+  );
+
+const searchButton =
+  document.getElementById(
+    "searchButton"
+  );
+
+function runSearch(){
+
+  const query =
+    searchInput.value.trim();
+
+  if(!query){
+
+    searchInput.focus();
+    return;
+
+  }
+
+  const url =
+    "https://www.federalregister.gov/documents/search?conditions%5Bterm%5D=" +
+    encodeURIComponent(query);
+
+  window.open(
+    url,
+    "_blank",
+    "noopener,noreferrer"
+  );
+
+}
+
+searchButton.addEventListener(
+  "click",
+  runSearch
+);
+
+searchInput.addEventListener(
+  "keydown",
+  function(event){
+
+    if(event.key === "Enter"){
+
+      event.preventDefault();
+      runSearch();
+
+    }
+
+  }
+);
+
+})();
+
+</script>
+
+</body>
+</html>
