@@ -6,9 +6,18 @@
 
 <title>Maximax Multi Services | Professional Services</title>
 
-<meta name="description" content="Maximax Multi Services — Professional Services, Digital Solutions and AI Assistance. Part of BSS1815 PRO-MAX DMP.">
+<meta
+  name="description"
+  content="Maximax Multi Services — Professional Services, Digital Solutions and AI Assistance. Part of BSS1815 PRO-MAX DMP."
+>
 
 <style>
+/* =========================================================
+   MAXIMAX MULTI SERVICES
+   COMPLETE HOMEPAGE
+   ORANGE APRICOT + BLACK — NO WHITE
+========================================================= */
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -25,7 +34,6 @@
   --text:#ffd2a3;
   --muted:#d89558;
   --border:rgba(255,121,0,.48);
-  --glow:rgba(255,121,0,.30);
 }
 
 html{
@@ -35,7 +43,6 @@ html{
 
 body{
   min-height:100vh;
-  margin:0;
   font-family:Arial,Helvetica,sans-serif;
   color:var(--text);
   background:
@@ -73,33 +80,45 @@ img{
   font-size:clamp(28px,5vw,48px);
   font-weight:1000;
   text-transform:uppercase;
-  letter-spacing:1px;
 }
 
 .section-subtitle{
-  max-width:760px;
+  max-width:780px;
   margin:0 auto 38px;
   color:var(--text);
   text-align:center;
   line-height:1.7;
 }
 
+/* =========================================================
+   TOP BAR
+========================================================= */
+
 .top-bar{
   padding:9px 15px;
   text-align:center;
   color:#000;
-  background:linear-gradient(90deg,var(--orange),var(--apricot),var(--orange));
+  background:linear-gradient(
+    90deg,
+    var(--orange),
+    var(--apricot),
+    var(--orange)
+  );
   font-size:12px;
   font-weight:1000;
   letter-spacing:1.5px;
 }
 
+/* =========================================================
+   HEADER
+========================================================= */
+
 .site-header{
   position:sticky;
   top:0;
   z-index:999;
-  border-bottom:1px solid var(--border);
   background:rgba(0,0,0,.96);
+  border-bottom:1px solid var(--border);
   backdrop-filter:blur(15px);
 }
 
@@ -115,19 +134,17 @@ img{
   display:flex;
   align-items:center;
   gap:13px;
-  min-width:0;
 }
 
 .brand-logo{
-  display:block;
   width:74px;
   height:74px;
   min-width:74px;
   object-fit:contain;
   padding:4px;
-  background:#000;
   border:2px solid var(--orange);
   border-radius:17px;
+  background:#000;
   box-shadow:0 0 20px rgba(255,121,0,.48);
 }
 
@@ -135,7 +152,6 @@ img{
   color:var(--orange);
   font-size:18px;
   font-weight:1000;
-  letter-spacing:.7px;
 }
 
 .brand-subtitle{
@@ -154,7 +170,6 @@ img{
 
 .language-switcher{
   display:flex;
-  align-items:center;
   gap:5px;
   padding:5px;
   border:1px solid var(--border);
@@ -177,7 +192,11 @@ img{
 .lang-btn.active{
   color:#000;
   border-color:var(--orange);
-  background:linear-gradient(135deg,var(--orange),var(--apricot));
+  background:linear-gradient(
+    135deg,
+    var(--orange),
+    var(--apricot)
+  );
 }
 
 .menu-toggle{
@@ -191,6 +210,10 @@ img{
   cursor:pointer;
   font-size:22px;
 }
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
 .main-nav{
   border-top:1px solid rgba(255,121,0,.16);
@@ -208,12 +231,15 @@ img{
   color:var(--apricot);
   font-size:12px;
   font-weight:1000;
-  letter-spacing:.8px;
 }
 
 .nav-link:hover{
   color:var(--orange);
 }
+
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero{
   position:relative;
@@ -251,7 +277,6 @@ img{
   background:rgba(255,121,0,.07);
   font-size:12px;
   font-weight:1000;
-  letter-spacing:1px;
 }
 
 .hero h1{
@@ -291,20 +316,27 @@ img{
   background:#000;
   font-size:12px;
   font-weight:1000;
-  letter-spacing:.7px;
   cursor:pointer;
   transition:.2s ease;
 }
 
 .btn-primary{
   color:#000;
-  background:linear-gradient(135deg,var(--orange),var(--apricot));
+  background:linear-gradient(
+    135deg,
+    var(--orange),
+    var(--apricot)
+  );
 }
 
 .btn:hover{
   transform:translateY(-2px);
   box-shadow:0 0 25px rgba(255,121,0,.35);
 }
+
+/* =========================================================
+   HERO STATS
+========================================================= */
 
 .hero-stats{
   display:grid;
@@ -323,12 +355,11 @@ img{
   border:1px solid var(--border);
   border-radius:20px;
   background:linear-gradient(145deg,#100500,#000);
-  box-shadow:0 12px 40px rgba(0,0,0,.45);
 }
 
 .stat-card:hover{
   border-color:var(--orange);
-  transform:translateY(-3px);
+  box-shadow:0 0 25px rgba(255,121,0,.20);
 }
 
 .stat-number{
@@ -343,8 +374,11 @@ img{
   text-align:center;
   font-size:10px;
   font-weight:1000;
-  letter-spacing:1px;
 }
+
+/* =========================================================
+   VIDEO
+========================================================= */
 
 .video-wrap{
   position:relative;
@@ -354,7 +388,9 @@ img{
   background:#000;
   border:3px solid var(--orange);
   border-radius:26px;
-  box-shadow:0 0 25px rgba(255,121,0,.45),0 0 65px rgba(255,121,0,.15);
+  box-shadow:
+    0 0 25px rgba(255,121,0,.45),
+    0 0 65px rgba(255,121,0,.15);
 }
 
 .main-video{
@@ -401,12 +437,19 @@ img{
   border:2px solid var(--orange);
   border-radius:999px;
   color:#000;
-  background:linear-gradient(135deg,var(--orange),var(--apricot));
+  background:linear-gradient(
+    135deg,
+    var(--orange),
+    var(--apricot)
+  );
   cursor:pointer;
   font-size:12px;
   font-weight:1000;
-  box-shadow:0 0 18px rgba(255,121,0,.55);
 }
+
+/* =========================================================
+   SERVICES
+========================================================= */
 
 .services-grid{
   display:grid;
@@ -415,16 +458,18 @@ img{
 }
 
 .service-card{
-  position:relative;
   min-height:220px;
   display:flex;
   flex-direction:column;
   padding:25px;
-  overflow:hidden;
   border:1px solid var(--border);
   border-radius:23px;
   background:
-    radial-gradient(circle at 90% 0%,rgba(255,121,0,.12),transparent 32%),
+    radial-gradient(
+      circle at 90% 0%,
+      rgba(255,121,0,.12),
+      transparent 32%
+    ),
     linear-gradient(145deg,#100500,#000);
   transition:.25s ease;
 }
@@ -465,12 +510,19 @@ img{
   color:var(--apricot);
   font-size:10px;
   font-weight:1000;
-  letter-spacing:.8px;
 }
+
+/* =========================================================
+   DIGITAL CENTERS
+========================================================= */
 
 .centers{
   background:
-    linear-gradient(180deg,rgba(255,121,0,.035),transparent),
+    linear-gradient(
+      180deg,
+      rgba(255,121,0,.035),
+      transparent
+    ),
     #020100;
   border-top:1px solid rgba(255,121,0,.15);
   border-bottom:1px solid rgba(255,121,0,.15);
@@ -491,7 +543,7 @@ img{
   border:1px solid var(--border);
   border-radius:19px;
   background:#080300;
-  transition:.2s ease;
+  transition:.2s;
 }
 
 .center-card:hover{
@@ -515,6 +567,10 @@ img{
   line-height:1.5;
 }
 
+/* =========================================================
+   AI
+========================================================= */
+
 .ai-box{
   display:grid;
   grid-template-columns:1.2fr .8fr;
@@ -524,15 +580,17 @@ img{
   border:2px solid var(--orange);
   border-radius:30px;
   background:
-    radial-gradient(circle at 80% 20%,rgba(255,173,77,.13),transparent 30%),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255,173,77,.13),
+      transparent 30%
+    ),
     linear-gradient(135deg,#100500,#000);
-  box-shadow:0 0 50px rgba(255,121,0,.12);
 }
 
 .ai-box h2{
   color:var(--orange);
   font-size:clamp(29px,5vw,53px);
-  line-height:1;
   text-transform:uppercase;
 }
 
@@ -557,8 +615,74 @@ img{
   background:#000;
   color:var(--orange);
   font-size:100px;
-  box-shadow:inset 0 0 50px rgba(255,121,0,.09);
 }
+
+/* =========================================================
+   SOCIAL NETWORKS
+========================================================= */
+
+.social-network-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:15px;
+}
+
+.social-network-card{
+  min-height:125px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:18px 10px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  color:var(--apricot);
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(255,121,0,.16),
+      transparent 45%
+    ),
+    linear-gradient(145deg,#120600,#000);
+  text-align:center;
+  transition:.25s ease;
+}
+
+.social-network-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--orange);
+  box-shadow:
+    0 0 20px rgba(255,121,0,.35),
+    0 0 45px rgba(255,121,0,.12);
+}
+
+.social-icon{
+  width:52px;
+  height:52px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:2px solid var(--orange);
+  border-radius:50%;
+  color:#000;
+  background:linear-gradient(
+    135deg,
+    var(--orange),
+    var(--apricot)
+  );
+  font-size:23px;
+  font-weight:1000;
+}
+
+.social-network-card strong{
+  color:var(--apricot);
+  font-size:11px;
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
 
 .contact-grid{
   display:grid;
@@ -592,6 +716,10 @@ img{
 .contact-card a:hover{
   color:var(--orange);
 }
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 .site-footer{
   padding:45px 0 25px;
@@ -627,7 +755,12 @@ img{
   font-size:10px;
 }
 
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
 @media(max-width:1000px){
+
   .services-grid{
     grid-template-columns:repeat(2,1fr);
   }
@@ -639,12 +772,14 @@ img{
   .centers-grid{
     grid-template-columns:repeat(2,1fr);
   }
+
+  .social-network-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
 }
 
 @media(max-width:850px){
-  .header-inner{
-    min-height:82px;
-  }
 
   .brand-logo{
     width:60px;
@@ -692,12 +827,10 @@ img{
     grid-template-columns:1fr;
   }
 
-  .ai-symbol{
-    min-height:180px;
-  }
 }
 
 @media(max-width:700px){
+
   .section{
     padding:60px 0;
   }
@@ -713,16 +846,16 @@ img{
     grid-template-columns:1fr;
   }
 
+  .social-network-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
   .hero-buttons{
     flex-direction:column;
   }
 
   .btn{
     width:100%;
-  }
-
-  .service-card{
-    min-height:190px;
   }
 
   .video-wrap{
@@ -747,46 +880,84 @@ img{
   .ai-box{
     padding:25px;
   }
+
 }
 </style>
 </head>
 
 <body>
 
+<!-- =======================================================
+     TOP BAR
+======================================================= -->
+
 <div class="top-bar">
   MAXIMAX MULTI SERVICES • PROFESSIONAL SERVICES • DIGITAL SOLUTIONS
 </div>
 
+<!-- =======================================================
+     HEADER
+======================================================= -->
+
 <header class="site-header">
+
   <div class="container header-inner">
 
     <a class="brand" href="#home">
+
       <img
         class="brand-logo"
-        src="./maximax-multi-services.jpg?v=20260918"
+        src="./maximax-logo.jpg?v=20260918"
         alt="Maximax Multi Services Logo"
       >
 
-      <div class="brand-text">
-        <div class="brand-title">MAXIMAX MULTI SERVICES</div>
-        <div class="brand-subtitle">PART OF BSS1815 PRO-MAX DMP</div>
+      <div>
+        <div class="brand-title">
+          MAXIMAX MULTI SERVICES
+        </div>
+
+        <div class="brand-subtitle">
+          PART OF BSS1815 PRO-MAX DMP
+        </div>
       </div>
+
     </a>
 
     <div class="header-actions">
 
       <div class="language-switcher">
-        <button class="lang-btn active" data-lang="en" type="button">🇺🇸 ENG</button>
-        <button class="lang-btn" data-lang="es" type="button">🇪🇸 ESP</button>
-        <button class="lang-btn" data-lang="ht" type="button">🇭🇹 KRE</button>
+
+        <button
+          class="lang-btn active"
+          data-lang="en"
+          type="button"
+        >
+          🇺🇸 ENG
+        </button>
+
+        <button
+          class="lang-btn"
+          data-lang="es"
+          type="button"
+        >
+          🇪🇸 ESP
+        </button>
+
+        <button
+          class="lang-btn"
+          data-lang="ht"
+          type="button"
+        >
+          🇭🇹 KRE
+        </button>
+
       </div>
 
       <button
         class="menu-toggle"
         id="menuToggle"
-        aria-label="Open menu"
-        aria-expanded="false"
         type="button"
+        aria-expanded="false"
       >
         ☰
       </button>
@@ -796,6 +967,7 @@ img{
   </div>
 
   <nav class="main-nav" id="mainNav">
+
     <div class="container nav-inner">
 
       <a
@@ -840,6 +1012,16 @@ img{
 
       <a
         class="nav-link"
+        href="#social-networks"
+        data-en="SOCIAL"
+        data-es="REDES"
+        data-ht="REZO SOSYAL"
+      >
+        SOCIAL
+      </a>
+
+      <a
+        class="nav-link"
         href="#contact"
         data-en="CONTACT"
         data-es="CONTACTO"
@@ -849,16 +1031,19 @@ img{
       </a>
 
     </div>
+
   </nav>
+
 </header>
 
 <main>
 
-<!-- ======================================================
+<!-- =======================================================
      HERO
-====================================================== -->
+======================================================= -->
 
 <section class="hero" id="home">
+
   <div class="container">
 
     <div class="hero-content">
@@ -974,11 +1159,12 @@ img{
     </div>
 
   </div>
+
 </section>
 
-<!-- ======================================================
+<!-- =======================================================
      VIDEO
-====================================================== -->
+======================================================= -->
 
 <section class="video-wrap">
 
@@ -991,18 +1177,25 @@ img{
     playsinline
     preload="auto"
   >
+
     <source
       src="./maximax-multi-services.mp4?v=20260918"
       type="video/mp4"
     >
+
   </video>
 
   <div class="video-brand">
+
     <img
-      src="./maximax-multi-services.jpg?v=20260918"
-      alt="Maximax"
+      src="./maximax-logo.jpg?v=20260918"
+      alt="Maximax Logo"
     >
-    <span>MAXIMAX MULTI SERVICES</span>
+
+    <span>
+      MAXIMAX MULTI SERVICES
+    </span>
+
   </div>
 
   <button
@@ -1015,1031 +1208,998 @@ img{
 
 </section>
 
-<!-- ======================================================
+<!-- =======================================================
      16 CORE SERVICES
-====================================================== -->
+======================================================= -->
 
 <section class="section" id="services">
-  <div class="container">
-
-    <h2
-      class="section-title"
-      data-en="16 CORE SERVICES"
-      data-es="16 SERVICIOS PRINCIPALES"
-      data-ht="16 SÈVIS PRENSIPAL"
-    >
-      16 CORE SERVICES
-    </h2>
 
-    <p
-      class="section-subtitle"
-      data-en="Choose the service you need. Every service opens its dedicated center."
-      data-es="Seleccione el servicio que necesita. Cada servicio abre su centro dedicado."
-      data-ht="Chwazi sèvis ou bezwen an. Chak sèvis ouvri sant pa li."
-    >
-      Choose the service you need. Every service opens its dedicated center.
-    </p>
-
-    <div class="services-grid">
-
-      <!-- 01 NOTARY -->
-
-      <a class="service-card" href="./pages/notary.html">
-
-        <span class="service-number">01</span>
-
-        <div class="service-icon">✍🏽</div>
-
-        <h3
-          data-en="Notary Services"
-          data-es="Servicios Notariales"
-          data-ht="Sèvis Notè"
-        >
-          Notary Services
-        </h3>
-
-        <p
-          data-en="Professional notary assistance and document services."
-          data-es="Asistencia notarial profesional y servicios de documentos."
-          data-ht="Asistans notè pwofesyonèl ak sèvis dokiman."
-        >
-          Professional notary assistance and document services.
-        </p>
-
-        <span class="service-open">OPEN CENTER →</span>
-
-      </a>
-
-      <!-- 02 TAXES -->
-
-      <a class="service-card" href="./pages/taxes.html">
-
-        <span class="service-number">02</span>
-
-        <div class="service-icon">🧾</div>
-
-        <h3
-          data-en="Tax Services"
-          data-es="Servicios de Impuestos"
-          data-ht="Sèvis Taks"
-        >
-          Tax Services
-        </h3>
-
-        <p
-          data-en="Tax preparation and professional tax support."
-          data-es="Preparación de impuestos y apoyo profesional."
-          data-ht="Preparasyon taks ak asistans pwofesyonèl."
-        >
-          Tax preparation and professional tax support.
-        </p>
-
-        <span class="service-open">OPEN CENTER →</span>
-
-      </a>
-
-      <!-- 03 IMMIGRATION -->
-
-      <a
-        class="service-card"
-        href="./pages/immigration-services.html#immigrationForms"
-      >
-
-        <span class="service-number">03</span>
-
-        <div class="service-icon">🗽</div>
-
-        <h3
-          data-en="Immigration Services"
-          data-es="Servicios de Inmigración"
-          data-ht="Sèvis Imigrasyon"
-        >
-          Immigration Services
-        </h3>
-
-        <p
-          data-en="USCIS immigration forms and service assistance."
-          data-es="Formularios USCIS y asistencia de inmigración."
-          data-ht="Fòm USCIS ak asistans sèvis imigrasyon."
-        >
-          USCIS immigration forms and service assistance.
-        </p>
-
-        <span class="service-open">OPEN FORMS →</span>
-
-      </a>
-
-      <!-- 04 EOIR + BIA -->
-
-      <a
-        class="service-card"
-        href="./pages/immigration-services.html#eoirForms"
-      >
-
-        <span class="service-number">04</span>
-
-        <div class="service-icon">⚖️</div>
-
-        <h3>
-          EOIR + BIA
-        </h3>
-
-        <p
-          data-en="EOIR and BIA immigration court forms and document support."
-          data-es="Formularios EOIR y BIA y apoyo documental."
-          data-ht="Fòm EOIR ak BIA ansanm ak sipò dokiman."
-        >
-          EOIR and BIA immigration court forms and document support.
-        </p>
-
-        <span class="service-open">OPEN FORMS →</span>
-
-      </a>
-
-      <!-- 05 INSURANCE -->
-
-      <a class="service-card" href="./pages/insurance.html">
-
-        <span class="service-number">05</span>
-
-        <div class="service-icon">🛡️</div>
-
-        <h3
-          data-en="Insurance"
-          data-es="Seguros"
-          data-ht="Asirans"
-        >
-          Insurance
-        </h3>
-
-        <p
-          data-en="Insurance service information and assistance."
-          data-es="Información y asistencia de seguros."
-          data-ht="Enfòmasyon ak asistans pou sèvis asirans."
-        >
-          Insurance service information and assistance.
-        </p>
-
-        <span class="service-open">OPEN CENTER →</span>
-
-      </a>
-
-      <!-- 06 REAL ESTATE -->
-
-      <a class="service-card" href="./pages/real-estate.html">
-
-        <span class="service-number">06</span>
-
-        <div class="service-icon">🏠</div>
-
-        <h3
-          data-en="Real Estate"
-          data-es="Bienes Raíces"
-          data-ht="Imobilye"
-        >
-          Real Estate
-        </h3>
-
-        <p
-          data-en="Real estate resources and professional assistance."
-          data-es="Recursos inmobiliarios y asistencia profesional."
-          data-ht="Resous imobilye ak asistans pwofesyonèl."
-        >
-          Real estate resources and professional assistance.
-        </p>
-
-        <span class="service-open">OPEN CENTER →</span>
-
-      </a>
-
-      <!-- 07 BUSINESS -->
-
-      <a class="service-card" href="./pages/business.html">
-
-        <span class="service-number">07</span>
-
-        <div class="service-icon">💼</div>
-
-        <h3
-          data-en="Business Services"
-          data-es="Servicios Empresariales"
-          data-ht="Sèvis Biznis"
-        >
-          Business Services
-        </h3>
-
-        <p
-          data-en="Business setup, documents and professional support."
-          data-es="Creación de empresas, documentos y apoyo profesional."
-          data-ht="Kreyasyon biznis, dokiman ak sipò pwofesyonèl."
-        >
-          Business setup, documents and professional support.
-        </p>
-
-        <span class="service-open">OPEN CENTER →</span>
-
-      </a>
-
-      <!-- 08 APOSTILLE -->
-
-      <a class="service-card" href="./pages/apostille.html">
-
-        <span class="service-number">08</span>
-
-        <div class="service-icon">📜</div>
-
-        <h3>
-          Apostille
-        </h3>
-
-        <p
-          data-en="Apostille document service and preparation assistance."
-          data-es="Servicio y preparación de documentos de apostilla."
-          data-ht="Sèvis apostille ak asistans preparasyon dokiman."
-        >
-          Apostille document service and preparation assistance.
-        </p>
-
-        <span class="service-open">OPEN CENTER →</span>
-
-      </a>
-
-      <!-- 09 TRAVEL + DMV -->
-
-      <a class="service-card" href="./pages/travel-dmv.html">
-
-        <span class="service-number">09</span>
-
-        <div class="service-icon">✈️</div>
-
-        <h3>
-          Travel + DMV
-        </h3>
-
-        <p
-          data-en="Travel resources and DMV service assistance."
-          data-es="Recursos de viaje y asistencia con servicios del DMV."
-          data-ht="Resous vwayaj ak asistans sèvis DMV."
-        >
-          Travel resources and DMV service assistance.
-        </p>
-
-        <span class="service-open">OPEN CENTER →</span>
-
-      </a>
-
-      <!-- 10 AI CENTER -->
-
-      <a class="service-card" href="./pages/ai-center.html">
-
-        <span class="service-number">10</span>
-
-        <div class="service-icon">🤖</div>
-
-        <h3>
-          AI Center
-        </h3>
-
-        <p
-          data-en="Smart digital assistance powered by artificial intelligence."
-          data-es="Asistencia digital inteligente con inteligencia artificial."
-          data-ht="Asistans dijital entèlijan avèk entèlijans atifisyèl."
-        >
-          Smart digital assistance powered by artificial intelligence.
-        </p>
-
-        <span class="service-open">OPEN CENTER →</span>
-
-      </a>
-
-      <!-- 11 FORM HELPER -->
-
-      <a class="service-card" href="./pages/form-helper.html">
-
-        <span class="service-number">11</span>
-
-        <div class="service-icon">📝</div>
-
-        <h3
-          data-en="Form Help Center"
-          data-es="Centro de Formularios"
-          data-ht="Sant Èd Fòm"
-        >
-          Form Help Center
-        </h3>
-
-        <p
-          data-en="Guided help for forms and document preparation."
-          data-es="Ayuda guiada para formularios y preparación de documentos."
-          data-ht="Èd gide pou fòm ak preparasyon dokiman."
-        >
-          Guided help for forms and document preparation.
-        </p>
-
-        <span class="service-open">OPEN CENTER →</span>
-
-      </a>
-
-      <!-- 12 CAREER TRACKER -->
-
-      <a class="service-card" href="./pages/career-tracker.html">
-
-        <span class="service-number">12</span>
-
-        <div class="service-icon">📈</div>
-
-        <h3
-          data-en="Career Tracker"
-          data-es="Seguimiento Profesional"
-          data-ht="Career Tracker"
-        >
-          Career Tracker
-        </h3>
-
-        <p
-          data-en="Career organization, progress and opportunity tracking."
-          data-es="Organización profesional y seguimiento de oportunidades."
-          data-ht="Òganizasyon karyè ak swivi opòtinite."
-        >
-          Career organization, progress and opportunity tracking.
-        </p>
-
-        <span class="service-open">OPEN CENTER →</span>
-
-      </a>
-
-      <!-- 13 TRANSLATION -->
-
-      <a class="service-card" href="./pages/translation-ai.html">
-
-        <span class="service-number">13</span>
-
-        <div class="service-icon">🌐</div>
-
-        <h3
-          data-en="AI Translation"
-          data-es="Traducción IA"
-          data-ht="Tradiksyon AI"
-        >
-          AI Translation
-        </h3>
-
-        <p
-          data-en="Multilingual digital translation assistance."
-          data-es="Asistencia de traducción digital multilingüe."
-          data-ht="Asistans tradiksyon dijital nan plizyè lang."
-        >
-          Multilingual digital translation assistance.
-        </p>
-
-        <span class="service-open">OPEN CENTER →</span>
-
-      </a>
-
-      <!-- 14 CHAT -->
-
-      <a class="service-card" href="./pages/chat.html">
-
-        <span class="service-number">14</span>
-
-        <div class="service-icon">💬</div>
-
-        <h3>
-          Chat 24/7
-        </h3>
-
-        <p
-          data-en="Digital access to assistance around the clock."
-          data-es="Acceso digital a asistencia las 24 horas."
-          data-ht="Aksè dijital pou asistans lajounen kou lannuit."
-        >
-          Digital access to assistance around the clock.
-        </p>
-
-        <span class="service-open">OPEN CENTER →</span>
-
-      </a>
-
-      <!-- 15 TRY AI -->
-
-      <a class="service-card" href="./pages/try-ai.html">
-
-        <span class="service-number">15</span>
-
-        <div class="service-icon">✨</div>
-
-        <h3>
-          Try AI
-        </h3>
-
-        <p
-          data-en="Experience Maximax intelligent digital tools."
-          data-es="Pruebe las herramientas digitales inteligentes de Maximax."
-          data-ht="Eseye zouti dijital entèlijan Maximax yo."
-        >
-          Experience Maximax intelligent digital tools.
-        </p>
-
-        <span class="service-open">OPEN CENTER →</span>
-
-      </a>
-
-      <!-- 16 CREDIT REPAIR -->
-
-      <a class="service-card" href="./pages/credit-repair.html">
-
-        <span class="service-number">16</span>
-
-        <div class="service-icon">💳</div>
-
-        <h3
-          data-en="Credit Repair"
-          data-es="Reparación de Crédito"
-          data-ht="Reparasyon Kredi"
-        >
-          Credit Repair
-        </h3>
-
-        <p
-          data-en="Credit education, organization and service assistance."
-          data-es="Educación, organización y asistencia de crédito."
-          data-ht="Edikasyon, òganizasyon ak asistans pou kredi."
-        >
-          Credit education, organization and service assistance.
-        </p>
-
-        <span class="service-open">OPEN CENTER →</span>
-
-      </a>
-
-    </div>
-
-  </div>
+<div class="container">
+
+<h2
+  class="section-title"
+  data-en="16 CORE SERVICES"
+  data-es="16 SERVICIOS PRINCIPALES"
+  data-ht="16 SÈVIS PRENSIPAL"
+>
+16 CORE SERVICES
+</h2>
+
+<p
+  class="section-subtitle"
+  data-en="Choose the service you need. Every service opens its dedicated center."
+  data-es="Seleccione el servicio que necesita. Cada servicio abre su centro dedicado."
+  data-ht="Chwazi sèvis ou bezwen an. Chak sèvis ouvri sant pa li."
+>
+Choose the service you need. Every service opens its dedicated center.
+</p>
+
+<div class="services-grid">
+
+<!-- 01 -->
+<a class="service-card" href="./pages/notary.html">
+<span class="service-number">01</span>
+<div class="service-icon">✍🏽</div>
+<h3 data-en="Notary Services" data-es="Servicios Notariales" data-ht="Sèvis Notè">
+Notary Services
+</h3>
+<p data-en="Professional notary assistance and document services."
+   data-es="Asistencia notarial profesional y servicios de documentos."
+   data-ht="Asistans notè pwofesyonèl ak sèvis dokiman.">
+Professional notary assistance and document services.
+</p>
+<span class="service-open">OPEN CENTER →</span>
+</a>
+
+<!-- 02 -->
+<a class="service-card" href="./pages/taxes.html">
+<span class="service-number">02</span>
+<div class="service-icon">🧾</div>
+<h3 data-en="Tax Services" data-es="Servicios de Impuestos" data-ht="Sèvis Taks">
+Tax Services
+</h3>
+<p data-en="Tax preparation and professional tax support."
+   data-es="Preparación de impuestos y apoyo profesional."
+   data-ht="Preparasyon taks ak asistans pwofesyonèl.">
+Tax preparation and professional tax support.
+</p>
+<span class="service-open">OPEN CENTER →</span>
+</a>
+
+<!-- 03 -->
+<a
+  class="service-card"
+  href="./pages/immigration-services.html#immigrationForms"
+>
+<span class="service-number">03</span>
+<div class="service-icon">🗽</div>
+<h3
+  data-en="Immigration Services"
+  data-es="Servicios de Inmigración"
+  data-ht="Sèvis Imigrasyon"
+>
+Immigration Services
+</h3>
+<p
+  data-en="USCIS immigration forms and service assistance."
+  data-es="Formularios USCIS y asistencia de inmigración."
+  data-ht="Fòm USCIS ak asistans sèvis imigrasyon."
+>
+USCIS immigration forms and service assistance.
+</p>
+<span class="service-open">OPEN FORMS →</span>
+</a>
+
+<!-- 04 -->
+<a
+  class="service-card"
+  href="./pages/immigration-services.html#eoirForms"
+>
+<span class="service-number">04</span>
+<div class="service-icon">⚖️</div>
+<h3>EOIR + BIA</h3>
+<p
+  data-en="EOIR and BIA immigration court forms and document support."
+  data-es="Formularios EOIR y BIA y apoyo documental."
+  data-ht="Fòm EOIR ak BIA ansanm ak sipò dokiman."
+>
+EOIR and BIA immigration court forms and document support.
+</p>
+<span class="service-open">OPEN FORMS →</span>
+</a>
+
+<!-- 05 -->
+<a class="service-card" href="./pages/insurance.html">
+<span class="service-number">05</span>
+<div class="service-icon">🛡️</div>
+<h3 data-en="Insurance" data-es="Seguros" data-ht="Asirans">
+Insurance
+</h3>
+<p
+  data-en="Insurance service information and assistance."
+  data-es="Información y asistencia de seguros."
+  data-ht="Enfòmasyon ak asistans pou sèvis asirans."
+>
+Insurance service information and assistance.
+</p>
+<span class="service-open">OPEN CENTER →</span>
+</a>
+
+<!-- 06 -->
+<a class="service-card" href="./pages/real-estate.html">
+<span class="service-number">06</span>
+<div class="service-icon">🏠</div>
+<h3 data-en="Real Estate" data-es="Bienes Raíces" data-ht="Imobilye">
+Real Estate
+</h3>
+<p
+  data-en="Real estate resources and professional assistance."
+  data-es="Recursos inmobiliarios y asistencia profesional."
+  data-ht="Resous imobilye ak asistans pwofesyonèl."
+>
+Real estate resources and professional assistance.
+</p>
+<span class="service-open">OPEN CENTER →</span>
+</a>
+
+<!-- 07 -->
+<a class="service-card" href="./pages/business.html">
+<span class="service-number">07</span>
+<div class="service-icon">💼</div>
+<h3
+  data-en="Business Services"
+  data-es="Servicios Empresariales"
+  data-ht="Sèvis Biznis"
+>
+Business Services
+</h3>
+<p
+  data-en="Business setup, documents and professional support."
+  data-es="Creación de empresas, documentos y apoyo profesional."
+  data-ht="Kreyasyon biznis, dokiman ak sipò pwofesyonèl."
+>
+Business setup, documents and professional support.
+</p>
+<span class="service-open">OPEN CENTER →</span>
+</a>
+
+<!-- 08 -->
+<a class="service-card" href="./pages/apostille.html">
+<span class="service-number">08</span>
+<div class="service-icon">📜</div>
+<h3>Apostille</h3>
+<p
+  data-en="Apostille document service and preparation assistance."
+  data-es="Servicio y preparación de documentos de apostilla."
+  data-ht="Sèvis apostille ak asistans preparasyon dokiman."
+>
+Apostille document service and preparation assistance.
+</p>
+<span class="service-open">OPEN CENTER →</span>
+</a>
+
+<!-- 09 -->
+<a class="service-card" href="./pages/travel-dmv.html">
+<span class="service-number">09</span>
+<div class="service-icon">✈️</div>
+<h3>Travel + DMV</h3>
+<p
+  data-en="Travel resources and DMV service assistance."
+  data-es="Recursos de viaje y asistencia con servicios del DMV."
+  data-ht="Resous vwayaj ak asistans sèvis DMV."
+>
+Travel resources and DMV service assistance.
+</p>
+<span class="service-open">OPEN CENTER →</span>
+</a>
+
+<!-- 10 -->
+<a class="service-card" href="./pages/ai-center.html">
+<span class="service-number">10</span>
+<div class="service-icon">🤖</div>
+<h3>AI Center</h3>
+<p
+  data-en="Smart digital assistance powered by artificial intelligence."
+  data-es="Asistencia digital inteligente con inteligencia artificial."
+  data-ht="Asistans dijital entèlijan avèk entèlijans atifisyèl."
+>
+Smart digital assistance powered by artificial intelligence.
+</p>
+<span class="service-open">OPEN CENTER →</span>
+</a>
+
+<!-- 11 -->
+<a class="service-card" href="./pages/form-helper.html">
+<span class="service-number">11</span>
+<div class="service-icon">📝</div>
+<h3
+  data-en="Form Help Center"
+  data-es="Centro de Formularios"
+  data-ht="Sant Èd Fòm"
+>
+Form Help Center
+</h3>
+<p
+  data-en="Guided help for forms and document preparation."
+  data-es="Ayuda guiada para formularios y preparación de documentos."
+  data-ht="Èd gide pou fòm ak preparasyon dokiman."
+>
+Guided help for forms and document preparation.
+</p>
+<span class="service-open">OPEN CENTER →</span>
+</a>
+
+<!-- 12 -->
+<a class="service-card" href="./pages/career-tracker.html">
+<span class="service-number">12</span>
+<div class="service-icon">📈</div>
+<h3
+  data-en="Career Tracker"
+  data-es="Seguimiento Profesional"
+  data-ht="Career Tracker"
+>
+Career Tracker
+</h3>
+<p
+  data-en="Career organization, progress and opportunity tracking."
+  data-es="Organización profesional y seguimiento de oportunidades."
+  data-ht="Òganizasyon karyè ak swivi opòtinite."
+>
+Career organization, progress and opportunity tracking.
+</p>
+<span class="service-open">OPEN CENTER →</span>
+</a>
+
+<!-- 13 -->
+<a class="service-card" href="./pages/translation-ai.html">
+<span class="service-number">13</span>
+<div class="service-icon">🌐</div>
+<h3
+  data-en="AI Translation"
+  data-es="Traducción IA"
+  data-ht="Tradiksyon AI"
+>
+AI Translation
+</h3>
+<p
+  data-en="Multilingual digital translation assistance."
+  data-es="Asistencia de traducción digital multilingüe."
+  data-ht="Asistans tradiksyon dijital nan plizyè lang."
+>
+Multilingual digital translation assistance.
+</p>
+<span class="service-open">OPEN CENTER →</span>
+</a>
+
+<!-- 14 -->
+<a class="service-card" href="./pages/chat.html">
+<span class="service-number">14</span>
+<div class="service-icon">💬</div>
+<h3>Chat 24/7</h3>
+<p
+  data-en="Digital access to assistance around the clock."
+  data-es="Acceso digital a asistencia las 24 horas."
+  data-ht="Aksè dijital pou asistans lajounen kou lannuit."
+>
+Digital access to assistance around the clock.
+</p>
+<span class="service-open">OPEN CENTER →</span>
+</a>
+
+<!-- 15 -->
+<a class="service-card" href="./pages/try-ai.html">
+<span class="service-number">15</span>
+<div class="service-icon">✨</div>
+<h3>Try AI</h3>
+<p
+  data-en="Experience Maximax intelligent digital tools."
+  data-es="Pruebe las herramientas digitales inteligentes de Maximax."
+  data-ht="Eseye zouti dijital entèlijan Maximax yo."
+>
+Experience Maximax intelligent digital tools.
+</p>
+<span class="service-open">OPEN CENTER →</span>
+</a>
+
+<!-- 16 -->
+<a class="service-card" href="./pages/credit-repair.html">
+<span class="service-number">16</span>
+<div class="service-icon">💳</div>
+<h3
+  data-en="Credit Repair"
+  data-es="Reparación de Crédito"
+  data-ht="Reparasyon Kredi"
+>
+Credit Repair
+</h3>
+<p
+  data-en="Credit education, organization and service assistance."
+  data-es="Educación, organización y asistencia de crédito."
+  data-ht="Edikasyon, òganizasyon ak asistans pou kredi."
+>
+Credit education, organization and service assistance.
+</p>
+<span class="service-open">OPEN CENTER →</span>
+</a>
+
+</div>
+</div>
 </section>
 
-<!-- ======================================================
-     DIGITAL CENTERS
-====================================================== -->
+<!-- =======================================================
+     DIGITAL & SPECIALIZED CENTERS
+======================================================= -->
 
 <section class="section centers" id="centers">
-  <div class="container">
 
-    <h2
-      class="section-title"
-      data-en="DIGITAL & SPECIALIZED CENTERS"
-      data-es="CENTROS DIGITALES Y ESPECIALIZADOS"
-      data-ht="SANT DIJITAL AK ESPESYALIZE"
-    >
-      DIGITAL & SPECIALIZED CENTERS
-    </h2>
+<div class="container">
 
-    <p
-      class="section-subtitle"
-      data-en="Direct access to the operational centers of Maximax Multi Services."
-      data-es="Acceso directo a los centros operativos de Maximax Multi Services."
-      data-ht="Aksè dirèk nan sant operasyon Maximax Multi Services yo."
-    >
-      Direct access to the operational centers of Maximax Multi Services.
-    </p>
+<h2
+  class="section-title"
+  data-en="DIGITAL & SPECIALIZED CENTERS"
+  data-es="CENTROS DIGITALES Y ESPECIALIZADOS"
+  data-ht="SANT DIJITAL AK ESPESYALIZE"
+>
+DIGITAL & SPECIALIZED CENTERS
+</h2>
 
-    <div class="centers-grid">
+<p
+  class="section-subtitle"
+  data-en="Direct access to Maximax Multi Services digital centers."
+  data-es="Acceso directo a los centros digitales de Maximax Multi Services."
+  data-ht="Aksè dirèk nan sant dijital Maximax Multi Services yo."
+>
+Direct access to Maximax Multi Services digital centers.
+</p>
 
-      <a class="center-card" href="./pages/government-forms.html">
-        <div class="center-icon">🏛️</div>
-        <div>
-          <h3
-            data-en="Government Forms Center"
-            data-es="Centro de Formularios Gubernamentales"
-            data-ht="Sant Fòm Gouvènman"
-          >
-            Government Forms Center
-          </h3>
-          <p
-            data-en="USCIS, EOIR, IRS and official government forms."
-            data-es="Formularios oficiales de USCIS, EOIR, IRS y gobierno."
-            data-ht="Fòm ofisyèl USCIS, EOIR, IRS ak gouvènman."
-          >
-            USCIS, EOIR, IRS and official government forms.
-          </p>
-        </div>
-      </a>
+<div class="centers-grid">
 
-      <a class="center-card" href="./pages/non-contested-divorce.html">
-        <div class="center-icon">📄</div>
-        <div>
-          <h3
-            data-en="Non-Contested Divorce"
-            data-es="Divorcio No Contestado"
-            data-ht="Divòs San Kontestasyon"
-          >
-            Non-Contested Divorce
-          </h3>
-          <p
-            data-en="Document preparation center."
-            data-es="Centro de preparación de documentos."
-            data-ht="Sant preparasyon dokiman."
-          >
-            Document preparation center.
-          </p>
-        </div>
-      </a>
+<a class="center-card" href="./pages/government-forms.html">
+<div class="center-icon">🏛️</div>
+<div>
+<h3
+  data-en="Government Forms Center"
+  data-es="Centro de Formularios Gubernamentales"
+  data-ht="Sant Fòm Gouvènman"
+>
+Government Forms Center
+</h3>
+<p>USCIS • EOIR • IRS</p>
+</div>
+</a>
 
-      <a class="center-card" href="./pages/document-checklist.html">
-        <div class="center-icon">✅</div>
-        <div>
-          <h3
-            data-en="Document Checklist"
-            data-es="Lista de Documentos"
-            data-ht="Lis Dokiman"
-          >
-            Document Checklist
-          </h3>
-          <p
-            data-en="Prepare required documents before service."
-            data-es="Prepare los documentos requeridos."
-            data-ht="Prepare dokiman ki nesesè yo."
-          >
-            Prepare required documents before service.
-          </p>
-        </div>
-      </a>
+<a class="center-card" href="./pages/non-contested-divorce.html">
+<div class="center-icon">📄</div>
+<div>
+<h3
+  data-en="Non-Contested Divorce"
+  data-es="Divorcio No Contestado"
+  data-ht="Divòs San Kontestasyon"
+>
+Non-Contested Divorce
+</h3>
+<p
+  data-en="Document preparation center."
+  data-es="Centro de preparación de documentos."
+  data-ht="Sant preparasyon dokiman."
+>
+Document preparation center.
+</p>
+</div>
+</a>
 
-      <a class="center-card" href="./pages/document-center.html">
-        <div class="center-icon">🗂️</div>
-        <div>
-          <h3
-            data-en="Document Center"
-            data-es="Centro de Documentos"
-            data-ht="Sant Dokiman"
-          >
-            Document Center
-          </h3>
-          <p
-            data-en="Manage service documents."
-            data-es="Administre documentos de servicio."
-            data-ht="Jere dokiman sèvis yo."
-          >
-            Manage service documents.
-          </p>
-        </div>
-      </a>
+<a class="center-card" href="./pages/document-checklist.html">
+<div class="center-icon">✅</div>
+<div>
+<h3
+  data-en="Document Checklist"
+  data-es="Lista de Documentos"
+  data-ht="Lis Dokiman"
+>
+Document Checklist
+</h3>
+<p
+  data-en="Prepare required documents."
+  data-es="Prepare los documentos requeridos."
+  data-ht="Prepare dokiman ki nesesè yo."
+>
+Prepare required documents.
+</p>
+</div>
+</a>
 
-      <a class="center-card" href="./pages/appointment-center.html">
-        <div class="center-icon">📅</div>
-        <div>
-          <h3
-            data-en="Appointment Center"
-            data-es="Centro de Citas"
-            data-ht="Sant Randevou"
-          >
-            Appointment Center
-          </h3>
-          <p
-            data-en="Book and manage appointments."
-            data-es="Reserve y administre citas."
-            data-ht="Rezève epi jere randevou."
-          >
-            Book and manage appointments.
-          </p>
-        </div>
-      </a>
+<a class="center-card" href="./pages/document-center.html">
+<div class="center-icon">🗂️</div>
+<div>
+<h3
+  data-en="Document Center"
+  data-es="Centro de Documentos"
+  data-ht="Sant Dokiman"
+>
+Document Center
+</h3>
+<p
+  data-en="Manage service documents."
+  data-es="Administre documentos."
+  data-ht="Jere dokiman sèvis yo."
+>
+Manage service documents.
+</p>
+</div>
+</a>
 
-      <a class="center-card" href="./pages/client-portal.html">
-        <div class="center-icon">👤</div>
-        <div>
-          <h3
-            data-en="Client Portal"
-            data-es="Portal del Cliente"
-            data-ht="Pòtal Kliyan"
-          >
-            Client Portal
-          </h3>
-          <p
-            data-en="Client access and service tracking."
-            data-es="Acceso del cliente y seguimiento."
-            data-ht="Aksè kliyan ak swivi sèvis."
-          >
-            Client access and service tracking.
-          </p>
-        </div>
-      </a>
+<a class="center-card" href="./pages/appointment-center.html">
+<div class="center-icon">📅</div>
+<div>
+<h3
+  data-en="Appointment Center"
+  data-es="Centro de Citas"
+  data-ht="Sant Randevou"
+>
+Appointment Center
+</h3>
+<p
+  data-en="Book and manage appointments."
+  data-es="Reserve y administre citas."
+  data-ht="Rezève epi jere randevou."
+>
+Book and manage appointments.
+</p>
+</div>
+</a>
 
-      <a class="center-card" href="./pages/contact-center.html">
-        <div class="center-icon">☎️</div>
-        <div>
-          <h3
-            data-en="Contact Center"
-            data-es="Centro de Contacto"
-            data-ht="Sant Kontak"
-          >
-            Contact Center
-          </h3>
-          <p
-            data-en="Reach Maximax support."
-            data-es="Contacte el soporte de Maximax."
-            data-ht="Kontakte sipò Maximax."
-          >
-            Reach Maximax support.
-          </p>
-        </div>
-      </a>
+<a class="center-card" href="./pages/client-portal.html">
+<div class="center-icon">👤</div>
+<div>
+<h3
+  data-en="Client Portal"
+  data-es="Portal del Cliente"
+  data-ht="Pòtal Kliyan"
+>
+Client Portal
+</h3>
+<p
+  data-en="Client access and service tracking."
+  data-es="Acceso y seguimiento del cliente."
+  data-ht="Aksè kliyan ak swivi sèvis."
+>
+Client access and service tracking.
+</p>
+</div>
+</a>
 
-      <a class="center-card" href="./pages/payment-center.html">
-        <div class="center-icon">💳</div>
-        <div>
-          <h3
-            data-en="Payment Center"
-            data-es="Centro de Pagos"
-            data-ht="Sant Peman"
-          >
-            Payment Center
-          </h3>
-          <p
-            data-en="Payment tools and service payments."
-            data-es="Herramientas y pagos de servicios."
-            data-ht="Zouti peman ak peman sèvis."
-          >
-            Payment tools and service payments.
-          </p>
-        </div>
-      </a>
+<a class="center-card" href="./pages/contact-center.html">
+<div class="center-icon">☎️</div>
+<div>
+<h3
+  data-en="Contact Center"
+  data-es="Centro de Contacto"
+  data-ht="Sant Kontak"
+>
+Contact Center
+</h3>
+<p
+  data-en="Reach Maximax support."
+  data-es="Contacte soporte Maximax."
+  data-ht="Kontakte sipò Maximax."
+>
+Reach Maximax support.
+</p>
+</div>
+</a>
 
-      <a class="center-card" href="./pages/receipt-center.html">
-        <div class="center-icon">🧾</div>
-        <div>
-          <h3
-            data-en="Receipt Center"
-            data-es="Centro de Recibos"
-            data-ht="Sant Resi"
-          >
-            Receipt Center
-          </h3>
-          <p
-            data-en="Create and review receipts."
-            data-es="Cree y revise recibos."
-            data-ht="Kreye epi verifye resi."
-          >
-            Create and review receipts.
-          </p>
-        </div>
-      </a>
+<a class="center-card" href="./pages/payment-center.html">
+<div class="center-icon">💳</div>
+<div>
+<h3
+  data-en="Payment Center"
+  data-es="Centro de Pagos"
+  data-ht="Sant Peman"
+>
+Payment Center
+</h3>
+<p
+  data-en="Payments and service transactions."
+  data-es="Pagos y transacciones de servicios."
+  data-ht="Peman ak tranzaksyon sèvis."
+>
+Payments and service transactions.
+</p>
+</div>
+</a>
 
-      <a class="center-card" href="./pages/invoice-center.html">
-        <div class="center-icon">📑</div>
-        <div>
-          <h3
-            data-en="Invoice Center"
-            data-es="Centro de Facturas"
-            data-ht="Sant Fakti"
-          >
-            Invoice Center
-          </h3>
-          <p
-            data-en="Create and manage invoices."
-            data-es="Cree y administre facturas."
-            data-ht="Kreye epi jere fakti."
-          >
-            Create and manage invoices.
-          </p>
-        </div>
-      </a>
+<a class="center-card" href="./pages/receipt-center.html">
+<div class="center-icon">🧾</div>
+<div>
+<h3
+  data-en="Receipt Center"
+  data-es="Centro de Recibos"
+  data-ht="Sant Resi"
+>
+Receipt Center
+</h3>
+<p
+  data-en="Create and review receipts."
+  data-es="Cree y revise recibos."
+  data-ht="Kreye epi verifye resi."
+>
+Create and review receipts.
+</p>
+</div>
+</a>
 
-      <a class="center-card" href="./pages/service-request-center.html">
-        <div class="center-icon">📬</div>
-        <div>
-          <h3
-            data-en="Service Request Center"
-            data-es="Centro de Solicitudes"
-            data-ht="Sant Demann Sèvis"
-          >
-            Service Request Center
-          </h3>
-          <p
-            data-en="Submit a new service request."
-            data-es="Envíe una nueva solicitud."
-            data-ht="Voye yon nouvo demann sèvis."
-          >
-            Submit a new service request.
-          </p>
-        </div>
-      </a>
+<a class="center-card" href="./pages/invoice-center.html">
+<div class="center-icon">📑</div>
+<div>
+<h3
+  data-en="Invoice Center"
+  data-es="Centro de Facturas"
+  data-ht="Sant Fakti"
+>
+Invoice Center
+</h3>
+<p
+  data-en="Create and manage invoices."
+  data-es="Cree y administre facturas."
+  data-ht="Kreye epi jere fakti."
+>
+Create and manage invoices.
+</p>
+</div>
+</a>
 
-    </div>
+<a class="center-card" href="./pages/service-request-center.html">
+<div class="center-icon">📬</div>
+<div>
+<h3
+  data-en="Service Request Center"
+  data-es="Centro de Solicitudes"
+  data-ht="Sant Demann Sèvis"
+>
+Service Request Center
+</h3>
+<p
+  data-en="Submit a new service request."
+  data-es="Envíe una nueva solicitud."
+  data-ht="Voye yon nouvo demann sèvis."
+>
+Submit a new service request.
+</p>
+</div>
+</a>
 
-  </div>
+</div>
+</div>
 </section>
 
-<!-- ======================================================
+<!-- =======================================================
      AI CENTER
-====================================================== -->
+======================================================= -->
 
 <section class="section" id="ai">
-  <div class="container">
 
-    <div class="ai-box">
+<div class="container">
 
-      <div>
+<div class="ai-box">
 
-        <h2>
-          MAXIMAX AI CENTER
-        </h2>
+<div>
 
-        <p
-          data-en="Use Maximax digital tools for guided assistance, forms, translation and intelligent support."
-          data-es="Use las herramientas digitales de Maximax para asistencia guiada, formularios, traducción y soporte inteligente."
-          data-ht="Sèvi ak zouti dijital Maximax pou asistans gide, fòm, tradiksyon ak sipò entèlijan."
-        >
-          Use Maximax digital tools for guided assistance, forms, translation and intelligent support.
-        </p>
+<h2>
+MAXIMAX AI CENTER
+</h2>
 
-        <div class="ai-actions">
+<p
+  data-en="Use Maximax digital tools for guided assistance, forms, translation and intelligent support."
+  data-es="Use las herramientas digitales de Maximax para asistencia guiada, formularios, traducción y soporte inteligente."
+  data-ht="Sèvi ak zouti dijital Maximax pou asistans gide, fòm, tradiksyon ak sipò entèlijan."
+>
+Use Maximax digital tools for guided assistance, forms, translation and intelligent support.
+</p>
 
-          <a
-            class="btn btn-primary"
-            href="./pages/ai-center.html"
-          >
-            OPEN AI CENTER
-          </a>
+<div class="ai-actions">
 
-          <a
-            class="btn"
-            href="./pages/form-helper.html"
-          >
-            FORM HELPER
-          </a>
+<a
+  class="btn btn-primary"
+  href="./pages/ai-center.html"
+>
+OPEN AI CENTER
+</a>
 
-          <a
-            class="btn"
-            href="./pages/try-ai.html"
-          >
-            TRY AI
-          </a>
+<a
+  class="btn"
+  href="./pages/form-helper.html"
+>
+FORM HELPER
+</a>
 
-        </div>
+<a
+  class="btn"
+  href="./pages/try-ai.html"
+>
+TRY AI
+</a>
 
-      </div>
+</div>
 
-      <div class="ai-symbol">
-        🤖
-      </div>
+</div>
 
-    </div>
+<div class="ai-symbol">
+🤖
+</div>
 
-  </div>
+</div>
+</div>
 </section>
 
-<!-- ======================================================
+<!-- =======================================================
+     SOCIAL NETWORKS
+======================================================= -->
+
+<section class="section" id="social-networks">
+
+<div class="container">
+
+<h2
+  class="section-title"
+  data-en="SOCIAL NETWORKS"
+  data-es="REDES SOCIALES"
+  data-ht="REZO SOSYAL"
+>
+SOCIAL NETWORKS
+</h2>
+
+<p
+  class="section-subtitle"
+  data-en="Connect with Maximax Multi Services across our social networks."
+  data-es="Conéctese con Maximax Multi Services en nuestras redes sociales."
+  data-ht="Konekte ak Maximax Multi Services sou rezo sosyal nou yo."
+>
+Connect with Maximax Multi Services across our social networks.
+</p>
+
+<div class="social-network-grid">
+
+<div class="social-network-card">
+<span class="social-icon">f</span>
+<strong>FACEBOOK</strong>
+</div>
+
+<div class="social-network-card">
+<span class="social-icon">☎</span>
+<strong>WHATSAPP</strong>
+</div>
+
+<div class="social-network-card">
+<span class="social-icon">♪</span>
+<strong>TIKTOK</strong>
+</div>
+
+<div class="social-network-card">
+<span class="social-icon">▶</span>
+<strong>YOUTUBE</strong>
+</div>
+
+<div class="social-network-card">
+<span class="social-icon">◉</span>
+<strong>SPOTIFY</strong>
+</div>
+
+<div class="social-network-card">
+<span class="social-icon">◎</span>
+<strong>INSTAGRAM</strong>
+</div>
+
+<div class="social-network-card">
+<span class="social-icon">in</span>
+<strong>LINKEDIN</strong>
+</div>
+
+<div class="social-network-card">
+<span class="social-icon">T</span>
+<strong>TRUTH SOCIAL</strong>
+</div>
+
+<div class="social-network-card">
+<span class="social-icon">➤</span>
+<strong>TELEGRAM</strong>
+</div>
+
+<div class="social-network-card">
+<span class="social-icon">𝕏</span>
+<strong>X / TWITTER</strong>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- =======================================================
      CONTACT
-====================================================== -->
+======================================================= -->
 
 <section class="section" id="contact">
-  <div class="container">
 
-    <h2
-      class="section-title"
-      data-en="CONTACT MAXIMAX"
-      data-es="CONTACTE MAXIMAX"
-      data-ht="KONTAKTE MAXIMAX"
-    >
-      CONTACT MAXIMAX
-    </h2>
+<div class="container">
 
-    <p
-      class="section-subtitle"
-      data-en="Professional service assistance is available through our contact center."
-      data-es="La asistencia de servicios profesionales está disponible a través de nuestro centro de contacto."
-      data-ht="Asistans sèvis pwofesyonèl disponib atravè sant kontak nou an."
-    >
-      Professional service assistance is available through our contact center.
-    </p>
+<h2
+  class="section-title"
+  data-en="CONTACT MAXIMAX"
+  data-es="CONTACTE MAXIMAX"
+  data-ht="KONTAKTE MAXIMAX"
+>
+CONTACT MAXIMAX
+</h2>
 
-    <div class="contact-grid">
+<div class="contact-grid">
 
-      <div class="contact-card">
+<div class="contact-card">
 
-        <h3
-          data-en="PHONE"
-          data-es="TELÉFONO"
-          data-ht="TELEFÒN"
-        >
-          PHONE
-        </h3>
+<h3
+  data-en="PHONE"
+  data-es="TELÉFONO"
+  data-ht="TELEFÒN"
+>
+PHONE
+</h3>
 
-        <a href="tel:+14076405166">
-          (407) 640-5166
-        </a>
+<a href="tel:+14076405166">
+(407) 640-5166
+</a>
 
-        <a href="tel:+13175381150">
-          (317) 538-1150
-        </a>
+<a href="tel:+13175381150">
+(317) 538-1150
+</a>
 
-        <a href="tel:+15162168494">
-          (516) 216-8494
-        </a>
+<a href="tel:+15162168494">
+(516) 216-8494
+</a>
 
-      </div>
+</div>
 
-      <div class="contact-card">
+<div class="contact-card">
 
-        <h3
-          data-en="EMAIL"
-          data-es="CORREO"
-          data-ht="IMÈL"
-        >
-          EMAIL
-        </h3>
+<h3
+  data-en="EMAIL"
+  data-es="CORREO"
+  data-ht="IMÈL"
+>
+EMAIL
+</h3>
 
-        <a href="mailto:bss1815promaxdmp@gmail.com">
-          bss1815promaxdmp@gmail.com
-        </a>
+<a href="mailto:bss1815promaxdmp@gmail.com">
+bss1815promaxdmp@gmail.com
+</a>
 
-      </div>
+</div>
 
-      <div class="contact-card">
+<div class="contact-card">
 
-        <h3
-          data-en="WEBSITE"
-          data-es="SITIO WEB"
-          data-ht="SIT ENTÈNÈT"
-        >
-          WEBSITE
-        </h3>
+<h3
+  data-en="WEBSITE"
+  data-es="SITIO WEB"
+  data-ht="SIT ENTÈNÈT"
+>
+WEBSITE
+</h3>
 
-        <p>
-          bss1815pro-maxdmp.com
-        </p>
+<p>
+bss1815pro-maxdmp.com
+</p>
 
-        <a
-          href="./pages/contact-center.html"
-          data-en="OPEN CONTACT CENTER →"
-          data-es="ABRIR CENTRO DE CONTACTO →"
-          data-ht="OUVRI SANT KONTAK →"
-        >
-          OPEN CONTACT CENTER →
-        </a>
+<a
+  href="./pages/contact-center.html"
+  data-en="OPEN CONTACT CENTER →"
+  data-es="ABRIR CENTRO DE CONTACTO →"
+  data-ht="OUVRI SANT KONTAK →"
+>
+OPEN CONTACT CENTER →
+</a>
 
-      </div>
+</div>
 
-    </div>
-
-  </div>
+</div>
+</div>
 </section>
 
 </main>
 
-<!-- ======================================================
+<!-- =======================================================
      FOOTER
-====================================================== -->
+======================================================= -->
 
 <footer class="site-footer">
 
-  <div class="container">
+<div class="container">
 
-    <img
-      class="footer-logo"
-      src="./maximax-multi-services.jpg?v=20260918"
-      alt="Maximax Multi Services"
-    >
+<img
+  class="footer-logo"
+  src="./maximax-logo.jpg?v=20260918"
+  alt="Maximax Multi Services Logo"
+>
 
-    <div class="footer-title">
-      MAXIMAX MULTI SERVICES
-    </div>
+<div class="footer-title">
+MAXIMAX MULTI SERVICES
+</div>
 
-    <div class="footer-platform">
-      PART OF BSS1815 PRO-MAX DMP
-    </div>
+<div class="footer-platform">
+PART OF BSS1815 PRO-MAX DMP
+</div>
 
-    <div class="copyright">
-      © <span id="currentYear"></span> MAXIMAX MULTI SERVICES. ALL RIGHTS RESERVED.
-    </div>
+<div class="copyright">
+© <span id="currentYear"></span>
+MAXIMAX MULTI SERVICES.
+ALL RIGHTS RESERVED.
+</div>
 
-  </div>
+</div>
 
 </footer>
 
 <script>
 (function(){
-  "use strict";
 
-  /* =====================================================
-     CURRENT YEAR
-  ===================================================== */
+"use strict";
 
-  var year = document.getElementById("currentYear");
+/* =========================================================
+   CURRENT YEAR
+========================================================= */
 
-  if(year){
-    year.textContent = new Date().getFullYear();
-  }
+var year =
+document.getElementById(
+  "currentYear"
+);
+
+if(year){
+  year.textContent =
+  new Date().getFullYear();
+}
 
 
-  /* =====================================================
-     MOBILE MENU
-  ===================================================== */
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
-  var menuToggle = document.getElementById("menuToggle");
-  var mainNav = document.getElementById("mainNav");
+var menuToggle =
+document.getElementById(
+  "menuToggle"
+);
 
-  if(menuToggle && mainNav){
+var mainNav =
+document.getElementById(
+  "mainNav"
+);
 
-    menuToggle.addEventListener("click",function(){
+if(
+  menuToggle &&
+  mainNav
+){
 
-      var open = mainNav.classList.toggle("open");
+  menuToggle.addEventListener(
+    "click",
+    function(){
+
+      var open =
+      mainNav.classList.toggle(
+        "open"
+      );
 
       menuToggle.setAttribute(
         "aria-expanded",
-        open ? "true" : "false"
+        open
+          ? "true"
+          : "false"
       );
 
-      menuToggle.textContent = open ? "✕" : "☰";
+      menuToggle.textContent =
+      open
+        ? "✕"
+        : "☰";
 
-    });
-
-
-    mainNav.querySelectorAll("a").forEach(function(link){
-
-      link.addEventListener("click",function(){
-
-        mainNav.classList.remove("open");
-
-        menuToggle.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-
-        menuToggle.textContent = "☰";
-
-      });
-
-    });
-
-  }
-
-
-  /* =====================================================
-     LANGUAGE SYSTEM
-     ENG / ESP / KRE
-  ===================================================== */
-
-  var langButtons = document.querySelectorAll(".lang-btn");
-
-  var translatables = document.querySelectorAll(
-    "[data-en],[data-es],[data-ht]"
+    }
   );
 
-  var supportedLanguages = [
-    "en",
-    "es",
-    "ht"
-  ];
+  mainNav
+  .querySelectorAll("a")
+  .forEach(
+    function(link){
 
-  var languageStorageKey = "maximaxLanguage";
+      link.addEventListener(
+        "click",
+        function(){
 
+          mainNav.classList.remove(
+            "open"
+          );
 
-  function applyLanguage(lang){
+          menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+          );
 
-    if(
-      supportedLanguages.indexOf(lang) === -1
-    ){
-      lang = "en";
+          menuToggle.textContent =
+          "☰";
+
+        }
+      );
+
     }
+  );
+
+}
 
 
-    document.documentElement.lang =
-      lang === "ht"
-        ? "ht"
-        : lang;
+/* =========================================================
+   LANGUAGE
+========================================================= */
+
+var langButtons =
+document.querySelectorAll(
+  ".lang-btn"
+);
+
+var translatedItems =
+document.querySelectorAll(
+  "[data-en],[data-es],[data-ht]"
+);
+
+var supportedLanguages = [
+  "en",
+  "es",
+  "ht"
+];
+
+var languageStorageKey =
+"maximaxLanguage";
 
 
-    translatables.forEach(function(element){
+function applyLanguage(lang){
+
+  if(
+    supportedLanguages.indexOf(
+      lang
+    ) === -1
+  ){
+    lang = "en";
+  }
+
+  document.documentElement.lang =
+  lang === "ht"
+    ? "ht"
+    : lang;
+
+  translatedItems.forEach(
+    function(element){
 
       var translatedText =
-        element.getAttribute(
-          "data-" + lang
-        );
-
+      element.getAttribute(
+        "data-" + lang
+      );
 
       if(
         translatedText !== null &&
         translatedText !== ""
       ){
+
         element.textContent =
-          translatedText;
+        translatedText;
+
       }
 
-    });
+    }
+  );
 
-
-    langButtons.forEach(function(button){
+  langButtons.forEach(
+    function(button){
 
       var active =
-        button.getAttribute("data-lang") === lang;
-
+      button.getAttribute(
+        "data-lang"
+      ) === lang;
 
       button.classList.toggle(
         "active",
         active
       );
-
 
       button.setAttribute(
         "aria-pressed",
@@ -2048,175 +2208,155 @@ img{
           : "false"
       );
 
-    });
+    }
+  );
+
+  try{
+
+    localStorage.setItem(
+      languageStorageKey,
+      lang
+    );
+
+  }catch(error){}
+
+}
 
 
-    try{
-
-      localStorage.setItem(
-        languageStorageKey,
-        lang
-      );
-
-    }catch(error){}
-
-  }
-
-
-  langButtons.forEach(function(button){
+langButtons.forEach(
+  function(button){
 
     button.addEventListener(
       "click",
       function(){
 
         applyLanguage(
-          button.getAttribute("data-lang")
+          button.getAttribute(
+            "data-lang"
+          )
         );
 
       }
     );
 
-  });
+  }
+);
 
 
-  var savedLanguage = "en";
+var savedLanguage =
+"en";
 
+try{
 
-  try{
-
-    var storedLanguage =
-      localStorage.getItem(
-        languageStorageKey
-      );
-
-
-    if(
-      supportedLanguages.indexOf(
-        storedLanguage
-      ) !== -1
-    ){
-      savedLanguage =
-        storedLanguage;
-    }
-
-  }catch(error){}
-
-
-  applyLanguage(
-    savedLanguage
+  var storedLanguage =
+  localStorage.getItem(
+    languageStorageKey
   );
 
+  if(
+    supportedLanguages.indexOf(
+      storedLanguage
+    ) !== -1
+  ){
 
-  /* =====================================================
-     VIDEO SOUND
-  ===================================================== */
+    savedLanguage =
+    storedLanguage;
 
-  var video =
-    document.getElementById(
-      "maximaxMainVideo"
-    );
+  }
 
-  var soundButton =
-    document.getElementById(
-      "maximaxSoundButton"
-    );
+}catch(error){}
 
-
-  if(video && soundButton){
-
-    video.muted = true;
+applyLanguage(
+  savedLanguage
+);
 
 
-    var initialPlay =
-      video.play();
+/* =========================================================
+   VIDEO SOUND
+========================================================= */
 
+var video =
+document.getElementById(
+  "maximaxMainVideo"
+);
 
-    if(
-      initialPlay &&
-      typeof initialPlay.catch === "function"
-    ){
+var soundButton =
+document.getElementById(
+  "maximaxSoundButton"
+);
 
-      initialPlay.catch(
-        function(){}
-      );
+if(
+  video &&
+  soundButton
+){
 
-    }
+  video.muted = true;
 
+  var firstPlay =
+  video.play();
 
-    soundButton.addEventListener(
-      "click",
-      function(){
+  if(
+    firstPlay &&
+    typeof firstPlay.catch === "function"
+  ){
 
-        video.muted =
-          !video.muted;
-
-
-        if(
-          !video.paused
-        ){
-
-          soundButton.textContent =
-            video.muted
-              ? "🔊 TURN SOUND ON"
-              : "🔇 MUTE SOUND";
-
-          return;
-
-        }
-
-
-        var playAttempt =
-          video.play();
-
-
-        if(
-          playAttempt &&
-          typeof playAttempt.then === "function"
-        ){
-
-          playAttempt
-          .then(function(){
-
-            soundButton.textContent =
-              video.muted
-                ? "🔊 TURN SOUND ON"
-                : "🔇 MUTE SOUND";
-
-          })
-          .catch(function(){
-
-            video.muted = true;
-
-            soundButton.textContent =
-              "🔊 TURN SOUND ON";
-
-          });
-
-        }
-
-      }
+    firstPlay.catch(
+      function(){}
     );
 
   }
 
+  soundButton.addEventListener(
+    "click",
+    function(){
 
-  /* =====================================================
-     SAME-PAGE SMOOTH SCROLL
-  ===================================================== */
+      video.muted =
+      !video.muted;
 
-  document
-  .querySelectorAll('a[href^="#"]')
-  .forEach(function(anchor){
+      var playAttempt =
+      video.play();
+
+      if(
+        playAttempt &&
+        typeof playAttempt.catch === "function"
+      ){
+
+        playAttempt.catch(
+          function(){}
+        );
+
+      }
+
+      soundButton.textContent =
+      video.muted
+        ? "🔊 TURN SOUND ON"
+        : "🔇 MUTE SOUND";
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   INTERNAL SMOOTH SCROLL
+========================================================= */
+
+document
+.querySelectorAll(
+  'a[href^="#"]'
+)
+.forEach(
+  function(anchor){
 
     anchor.addEventListener(
       "click",
       function(event){
 
         var href =
-          anchor.getAttribute(
-            "href"
-          );
-
+        anchor.getAttribute(
+          "href"
+        );
 
         if(
           !href ||
@@ -2225,38 +2365,35 @@ img{
           return;
         }
 
-
         var target =
-          document.querySelector(
-            href
-          );
-
+        document.querySelector(
+          href
+        );
 
         if(!target){
           return;
         }
 
-
         event.preventDefault();
 
-
         var header =
-          document.querySelector(
-            ".site-header"
-          );
-
+        document.querySelector(
+          ".site-header"
+        );
 
         var offset =
-          header
-            ? header.offsetHeight + 10
-            : 10;
-
+        header
+          ? header.offsetHeight + 10
+          : 10;
 
         var top =
-          target.getBoundingClientRect().top +
-          window.pageYOffset -
-          offset;
-
+        target
+        .getBoundingClientRect()
+        .top
+        +
+        window.pageYOffset
+        -
+        offset;
 
         window.scrollTo({
           top:top,
@@ -2266,50 +2403,40 @@ img{
       }
     );
 
-  });
+  }
+);
 
 
-  /* =====================================================
-     RESPONSIVE RESET
-  ===================================================== */
+/* =========================================================
+   RESPONSIVE MENU RESET
+========================================================= */
 
-  window.addEventListener(
-    "resize",
-    function(){
+window.addEventListener(
+  "resize",
+  function(){
 
-      if(
-        window.innerWidth > 850 &&
-        mainNav &&
-        menuToggle
-      ){
+    if(
+      window.innerWidth > 850 &&
+      mainNav &&
+      menuToggle
+    ){
 
-        mainNav.classList.remove(
-          "open"
-        );
+      mainNav.classList.remove(
+        "open"
+      );
 
+      menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
 
-        menuToggle.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-
-
-        menuToggle.textContent =
-          "☰";
-
-      }
+      menuToggle.textContent =
+      "☰";
 
     }
-  );
 
-
-  /* =====================================================
-     PAGE READY
-  ===================================================== */
-
-  document.body.classList.add(
-    "page-ready"
-  );
+  }
+);
 
 })();
 </script>
