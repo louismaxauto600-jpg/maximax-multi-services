@@ -234,11 +234,21 @@
 }
 
 .report-box{
+  min-height:285px;
+  display:flex;
+  flex-direction:column;
   padding:23px;
   border:1px solid var(--border);
   border-radius:18px;
   text-align:center;
   background:#000;
+  transition:.25s;
+}
+
+.report-box:hover{
+  transform:translateY(-4px);
+  border-color:var(--orange);
+  box-shadow:0 0 24px rgba(255,121,0,.16);
 }
 
 .report-box span{
@@ -255,8 +265,43 @@
 
 .report-box p{
   margin-top:8px;
+  margin-bottom:18px;
   font-size:.70rem;
   line-height:1.55;
+}
+
+.report-actions{
+  display:grid;
+  gap:9px;
+  margin-top:auto;
+}
+
+.report-actions .btn{
+  width:100%;
+  min-height:46px;
+}
+
+.free-report-box{
+  margin-top:18px;
+  padding:24px;
+  border:1px solid var(--border-strong);
+  border-radius:20px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.12),transparent 55%),
+    #000;
+}
+
+.free-report-box h3{
+  color:var(--orange);
+  text-transform:uppercase;
+}
+
+.free-report-box p{
+  max-width:760px;
+  margin:10px auto 18px;
+  font-size:.74rem;
+  line-height:1.65;
 }
 
 .checklist-section{
@@ -553,7 +598,6 @@ CREDIT EDUCATION
 
 <section class="credit-grid">
 
-
 <div class="credit-card">
 
 <div class="credit-card-icon">📊</div>
@@ -597,7 +641,7 @@ data-ht="Òganize enfòmasyon sipò pou konteste enfòmasyon kredi ou kwè ki pa
 Organize supporting information for disputes involving credit-report information you believe may be inaccurate or incomplete.
 </p>
 
-<a href="./form-helper.html" class="btn outline">
+<a href="../index.html#form-help-center" class="btn outline">
 FORM CENTER
 </a>
 
@@ -876,7 +920,7 @@ CREDIT REVIEW READY
 
 <div class="hero-buttons">
 
-<a href="./form-helper.html" class="btn primary">
+<a href="../index.html#form-help-center" class="btn primary">
 📝 FORM HELP CENTER
 </a>
 
@@ -893,7 +937,7 @@ CREDIT REVIEW READY
 </section>
 
 
-<section class="report-section">
+<section class="report-section" id="credit-report-center">
 
 <h2
 data-en="CREDIT REPORT CENTER"
@@ -903,10 +947,10 @@ CREDIT REPORT CENTER
 </h2>
 
 <p
-data-en="The three nationwide consumer reporting companies commonly associated with consumer credit reports are Experian, Equifax and TransUnion."
-data-fr="Les trois principales sociétés nationales de rapports de crédit à la consommation sont Experian, Equifax et TransUnion."
-data-ht="Twa gwo konpayi nasyonal ki asosye ak rapò kredi konsomatè yo se Experian, Equifax ak TransUnion.">
-The three nationwide consumer reporting companies commonly associated with consumer credit reports are Experian, Equifax and TransUnion.
+data-en="Access official consumer credit-report and dispute resources for Experian, Equifax and TransUnion."
+data-fr="Accédez aux ressources officielles de rapport de crédit et de contestation pour Experian, Equifax et TransUnion."
+data-ht="Antre dirèkteman nan resous ofisyèl rapò kredi ak kontestasyon Experian, Equifax ak TransUnion.">
+Access official consumer credit-report and dispute resources for Experian, Equifax and TransUnion.
 </p>
 
 
@@ -919,8 +963,20 @@ The three nationwide consumer reporting companies commonly associated with consu
 <strong>EXPERIAN</strong>
 
 <p>
-Organize items appearing on an Experian credit report.
+Review Experian credit information or open the official Experian dispute center.
 </p>
+
+<div class="report-actions">
+
+<a
+href="https://www.experian.com/help/dispute-credit/"
+target="_blank"
+rel="noopener noreferrer"
+class="btn primary">
+OPEN EXPERIAN
+</a>
+
+</div>
 
 </div>
 
@@ -932,8 +988,20 @@ Organize items appearing on an Experian credit report.
 <strong>EQUIFAX</strong>
 
 <p>
-Organize items appearing on an Equifax credit report.
+Access myEquifax to review Equifax consumer credit services and dispute information.
 </p>
+
+<div class="report-actions">
+
+<a
+href="https://my.equifax.com/"
+target="_blank"
+rel="noopener noreferrer"
+class="btn primary">
+OPEN EQUIFAX
+</a>
+
+</div>
 
 </div>
 
@@ -945,10 +1013,43 @@ Organize items appearing on an Equifax credit report.
 <strong>TRANSUNION</strong>
 
 <p>
-Organize items appearing on a TransUnion credit report.
+Review TransUnion credit information or open the official TransUnion dispute center.
 </p>
 
+<div class="report-actions">
+
+<a
+href="https://www.transunion.com/credit-disputes/dispute-your-credit"
+target="_blank"
+rel="noopener noreferrer"
+class="btn primary">
+OPEN TRANSUNION
+</a>
+
 </div>
+
+</div>
+
+</div>
+
+
+<div class="free-report-box">
+
+<h3>
+📄 FREE CREDIT REPORTS
+</h3>
+
+<p>
+Use the federally authorized source to request your free credit reports from Experian, Equifax and TransUnion.
+</p>
+
+<a
+href="https://www.annualcreditreport.com/"
+target="_blank"
+rel="noopener noreferrer"
+class="btn primary">
+GET FREE CREDIT REPORTS
+</a>
 
 </div>
 
@@ -1221,7 +1322,7 @@ Use the Maximax Credit Center to organize credit-report information, supporting 
 📞 (407) 640-5166
 </a>
 
-<a href="./form-helper.html" class="btn outline">
+<a href="../index.html#form-help-center" class="btn outline">
 📝 FORM CENTER
 </a>
 
