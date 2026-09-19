@@ -28,6 +28,7 @@
 html{
   scroll-behavior:smooth;
   background:#000;
+  scroll-padding-top:100px;
 }
 
 body{
@@ -55,8 +56,6 @@ input{
   margin:auto;
 }
 
-/* TOP BAR */
-
 .topbar{
   padding:10px 12px;
   text-align:center;
@@ -71,8 +70,6 @@ input{
   font-weight:1000;
   letter-spacing:1px;
 }
-
-/* HEADER */
 
 header{
   position:sticky;
@@ -169,8 +166,6 @@ header{
   font-weight:1000;
 }
 
-/* HERO */
-
 .hero{
   padding:70px 0 45px;
   text-align:center;
@@ -203,12 +198,9 @@ header{
   font-size:15px;
 }
 
-/* SEARCH */
-
 .search-box{
   max-width:760px;
   margin:32px auto 0;
-  position:relative;
 }
 
 .search-box input{
@@ -226,8 +218,6 @@ header{
 .search-box input::placeholder{
   color:#a46a39;
 }
-
-/* AGENCY NAV */
 
 .agency-nav{
   display:flex;
@@ -252,8 +242,6 @@ header{
   background:linear-gradient(135deg,var(--orange),var(--apricot));
 }
 
-/* SECTION */
-
 .forms-section{
   padding:35px 0 65px;
 }
@@ -274,8 +262,6 @@ header{
   font-size:30px;
   font-weight:1000;
 }
-
-/* GRID */
 
 .forms-grid{
   display:grid;
@@ -340,6 +326,10 @@ header{
   padding-top:20px;
 }
 
+.form-actions.single{
+  grid-template-columns:1fr;
+}
+
 .form-btn{
   display:flex;
   align-items:center;
@@ -360,8 +350,6 @@ header{
   background:linear-gradient(135deg,var(--orange),var(--apricot));
 }
 
-/* NOTICE */
-
 .notice{
   margin:20px 0 65px;
   padding:22px;
@@ -376,8 +364,6 @@ header{
 .notice strong{
   color:var(--orange);
 }
-
-/* FOOTER */
 
 footer{
   padding:40px 15px;
@@ -395,8 +381,6 @@ footer p{
   color:var(--apricot);
   font-size:10px;
 }
-
-/* MOBILE */
 
 @media(max-width:900px){
   .forms-grid{
@@ -514,32 +498,34 @@ GOVERNMENT FORMS CENTER
 </h2>
 
 <p
-  data-en="Find government forms faster. Select the form you need and open the official government form or agency page directly."
-  data-es="Encuentre formularios gubernamentales más rápido. Seleccione el formulario y abra directamente el formulario oficial o la página de la agencia."
-  data-ht="Jwenn fòm gouvènman yo pi vit. Chwazi fòm ou bezwen an epi ouvri fòm ofisyèl la oswa paj ajans lan dirèkteman.">
-Find government forms faster. Select the form you need and open the official government form or agency page directly.
+  data-en="Find government forms faster. Select the resource you need and open the official government form or agency page directly."
+  data-es="Encuentre formularios gubernamentales más rápido. Seleccione el recurso y abra directamente el formulario oficial o la página de la agencia."
+  data-ht="Jwenn fòm ak resous gouvènman yo pi vit. Chwazi sa ou bezwen an epi ouvri fòm ofisyèl la oswa paj ajans lan dirèkteman.">
+Find government forms faster. Select the resource you need and open the official government form or agency page directly.
 </p>
 
 <div class="search-box">
 <input
   id="formSearch"
   type="search"
-  placeholder="Search I-130, I-485, I-765, N-400...">
+  placeholder="Search I-130, DMV, SSA, unemployment, Federal Register...">
 </div>
 
 <div class="agency-nav">
 <a href="#uscis">USCIS</a>
 <a href="#eoir">EOIR / BIA</a>
 <a href="#irs">IRS</a>
+<a href="#federal-register">FEDERAL REGISTER</a>
+<a href="#dmv">DMV FLA</a>
+<a href="#ssa">SSA.GOV</a>
+<a href="#unemployment">UNEMPLOYMENT</a>
 </div>
 
 </div>
 </section>
 
 
-<!-- ===================================================
-     USCIS
-=================================================== -->
+<!-- USCIS -->
 
 <section class="forms-section" id="uscis">
 <div class="container">
@@ -551,336 +537,93 @@ Find government forms faster. Select the form you need and open the official gov
 
 <div class="forms-grid">
 
-
-<!-- I-130 -->
-
-<article
-  class="form-card"
-  data-search="i-130 petition alien relative family immigration uscis">
-
+<article class="form-card" data-search="i-130 petition alien relative family immigration uscis">
 <span class="form-number">I-130</span>
-
 <h4>Petition for Alien Relative</h4>
-
-<p>
-Family-based petition used to establish a qualifying relationship
-between a petitioner and certain relatives.
-</p>
-
+<p>Family-based petition used to establish a qualifying relationship between a petitioner and certain relatives.</p>
 <div class="form-actions">
-
-<a
-  class="form-btn primary"
-  href="https://www.uscis.gov/i-130"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN OFFICIAL PAGE
-</a>
-
-<a
-  class="form-btn"
-  href="https://www.uscis.gov/sites/default/files/document/forms/i-130.pdf"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN PDF
-</a>
-
+<a class="form-btn primary" href="https://www.uscis.gov/i-130" target="_blank">OPEN OFFICIAL PAGE</a>
+<a class="form-btn" href="https://www.uscis.gov/sites/default/files/document/forms/i-130.pdf" target="_blank">OPEN PDF</a>
 </div>
 </article>
 
-
-<!-- I-485 -->
-
-<article
-  class="form-card"
-  data-search="i-485 green card permanent residence adjustment status uscis">
-
+<article class="form-card" data-search="i-485 green card permanent residence adjustment status uscis">
 <span class="form-number">I-485</span>
-
 <h4>Application to Register Permanent Residence or Adjust Status</h4>
-
-<p>
-USCIS application used by eligible applicants seeking adjustment
-to lawful permanent resident status.
-</p>
-
+<p>USCIS application used by eligible applicants seeking adjustment to lawful permanent resident status.</p>
 <div class="form-actions">
-
-<a
-  class="form-btn primary"
-  href="https://www.uscis.gov/i-485"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN OFFICIAL PAGE
-</a>
-
-<a
-  class="form-btn"
-  href="https://www.uscis.gov/sites/default/files/document/forms/i-485.pdf"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN PDF
-</a>
-
+<a class="form-btn primary" href="https://www.uscis.gov/i-485" target="_blank">OPEN OFFICIAL PAGE</a>
+<a class="form-btn" href="https://www.uscis.gov/sites/default/files/document/forms/i-485.pdf" target="_blank">OPEN PDF</a>
 </div>
 </article>
 
-
-<!-- I-765 -->
-
-<article
-  class="form-card"
-  data-search="i-765 employment authorization work permit ead uscis">
-
+<article class="form-card" data-search="i-765 employment authorization work permit ead uscis">
 <span class="form-number">I-765</span>
-
 <h4>Application for Employment Authorization</h4>
-
-<p>
-Application used by eligible applicants requesting employment
-authorization from USCIS.
-</p>
-
+<p>Application used by eligible applicants requesting employment authorization from USCIS.</p>
 <div class="form-actions">
-
-<a
-  class="form-btn primary"
-  href="https://www.uscis.gov/i-765"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN OFFICIAL PAGE
-</a>
-
-<a
-  class="form-btn"
-  href="https://www.uscis.gov/sites/default/files/document/forms/i-765.pdf"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN PDF
-</a>
-
+<a class="form-btn primary" href="https://www.uscis.gov/i-765" target="_blank">OPEN OFFICIAL PAGE</a>
+<a class="form-btn" href="https://www.uscis.gov/sites/default/files/document/forms/i-765.pdf" target="_blank">OPEN PDF</a>
 </div>
 </article>
 
-
-<!-- I-131 -->
-
-<article
-  class="form-card"
-  data-search="i-131 travel document advance parole uscis">
-
+<article class="form-card" data-search="i-131 travel document advance parole uscis">
 <span class="form-number">I-131</span>
-
 <h4>Application for Travel Documents</h4>
-
-<p>
-USCIS travel-document application. Eligibility and filing
-requirements depend on the requested travel-document category.
-</p>
-
+<p>USCIS travel-document application. Eligibility and filing requirements depend on the requested category.</p>
 <div class="form-actions">
-
-<a
-  class="form-btn primary"
-  href="https://www.uscis.gov/i-131"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN OFFICIAL PAGE
-</a>
-
-<a
-  class="form-btn"
-  href="https://www.uscis.gov/sites/default/files/document/forms/i-131.pdf"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN PDF
-</a>
-
+<a class="form-btn primary" href="https://www.uscis.gov/i-131" target="_blank">OPEN OFFICIAL PAGE</a>
+<a class="form-btn" href="https://www.uscis.gov/sites/default/files/document/forms/i-131.pdf" target="_blank">OPEN PDF</a>
 </div>
 </article>
 
-
-<!-- I-864 -->
-
-<article
-  class="form-card"
-  data-search="i-864 affidavit support sponsor immigration uscis">
-
+<article class="form-card" data-search="i-864 affidavit support sponsor immigration uscis">
 <span class="form-number">I-864</span>
-
 <h4>Affidavit of Support Under Section 213A</h4>
-
-<p>
-Affidavit of support required in many family-based immigration
-cases and certain employment-based cases.
-</p>
-
+<p>Affidavit of support required in many family-based immigration cases and certain employment-based cases.</p>
 <div class="form-actions">
-
-<a
-  class="form-btn primary"
-  href="https://www.uscis.gov/i-864"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN OFFICIAL PAGE
-</a>
-
-<a
-  class="form-btn"
-  href="https://www.uscis.gov/sites/default/files/document/forms/i-864.pdf"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN PDF
-</a>
-
+<a class="form-btn primary" href="https://www.uscis.gov/i-864" target="_blank">OPEN OFFICIAL PAGE</a>
+<a class="form-btn" href="https://www.uscis.gov/sites/default/files/document/forms/i-864.pdf" target="_blank">OPEN PDF</a>
 </div>
 </article>
 
-
-<!-- I-90 -->
-
-<article
-  class="form-card"
-  data-search="i-90 replace permanent resident green card renewal uscis">
-
+<article class="form-card" data-search="i-90 replace permanent resident green card renewal uscis">
 <span class="form-number">I-90</span>
-
 <h4>Application to Replace Permanent Resident Card</h4>
-
-<p>
-Application used for qualifying Green Card replacement or renewal
-requests.
-</p>
-
+<p>Application used for qualifying Green Card replacement or renewal requests.</p>
 <div class="form-actions">
-
-<a
-  class="form-btn primary"
-  href="https://www.uscis.gov/i-90"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN OFFICIAL PAGE
-</a>
-
-<a
-  class="form-btn"
-  href="https://www.uscis.gov/sites/default/files/document/forms/i-90.pdf"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN PDF
-</a>
-
+<a class="form-btn primary" href="https://www.uscis.gov/i-90" target="_blank">OPEN OFFICIAL PAGE</a>
+<a class="form-btn" href="https://www.uscis.gov/sites/default/files/document/forms/i-90.pdf" target="_blank">OPEN PDF</a>
 </div>
 </article>
 
-
-<!-- I-589 -->
-
-<article
-  class="form-card"
-  data-search="i-589 asylum withholding removal uscis">
-
+<article class="form-card" data-search="i-589 asylum withholding removal uscis">
 <span class="form-number">I-589</span>
-
 <h4>Application for Asylum and for Withholding of Removal</h4>
-
-<p>
-Government form for qualifying asylum and withholding-of-removal
-applications.
-</p>
-
+<p>Government form for qualifying asylum and withholding-of-removal applications.</p>
 <div class="form-actions">
-
-<a
-  class="form-btn primary"
-  href="https://www.uscis.gov/i-589"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN OFFICIAL PAGE
-</a>
-
-<a
-  class="form-btn"
-  href="https://www.uscis.gov/sites/default/files/document/forms/i-589.pdf"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN PDF
-</a>
-
+<a class="form-btn primary" href="https://www.uscis.gov/i-589" target="_blank">OPEN OFFICIAL PAGE</a>
+<a class="form-btn" href="https://www.uscis.gov/sites/default/files/document/forms/i-589.pdf" target="_blank">OPEN PDF</a>
 </div>
 </article>
 
-
-<!-- N-400 -->
-
-<article
-  class="form-card"
-  data-search="n-400 naturalization citizenship application uscis">
-
+<article class="form-card" data-search="n-400 naturalization citizenship application uscis">
 <span class="form-number">N-400</span>
-
 <h4>Application for Naturalization</h4>
-
-<p>
-USCIS application for eligible lawful permanent residents seeking
-U.S. naturalization.
-</p>
-
+<p>USCIS application for eligible lawful permanent residents seeking U.S. naturalization.</p>
 <div class="form-actions">
-
-<a
-  class="form-btn primary"
-  href="https://www.uscis.gov/n-400"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN OFFICIAL PAGE
-</a>
-
-<a
-  class="form-btn"
-  href="https://www.uscis.gov/sites/default/files/document/forms/n-400.pdf"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN PDF
-</a>
-
+<a class="form-btn primary" href="https://www.uscis.gov/n-400" target="_blank">OPEN OFFICIAL PAGE</a>
+<a class="form-btn" href="https://www.uscis.gov/sites/default/files/document/forms/n-400.pdf" target="_blank">OPEN PDF</a>
 </div>
 </article>
 
-
-<!-- I-751 -->
-
-<article
-  class="form-card"
-  data-search="i-751 remove conditions residence green card uscis">
-
+<article class="form-card" data-search="i-751 remove conditions residence green card uscis">
 <span class="form-number">I-751</span>
-
 <h4>Petition to Remove Conditions on Residence</h4>
-
-<p>
-Petition used by qualifying conditional permanent residents to
-request removal of conditions on residence.
-</p>
-
+<p>Petition used by qualifying conditional permanent residents to request removal of conditions on residence.</p>
 <div class="form-actions">
-
-<a
-  class="form-btn primary"
-  href="https://www.uscis.gov/i-751"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN OFFICIAL PAGE
-</a>
-
-<a
-  class="form-btn"
-  href="https://www.uscis.gov/sites/default/files/document/forms/i-751.pdf"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN PDF
-</a>
-
+<a class="form-btn primary" href="https://www.uscis.gov/i-751" target="_blank">OPEN OFFICIAL PAGE</a>
+<a class="form-btn" href="https://www.uscis.gov/sites/default/files/document/forms/i-751.pdf" target="_blank">OPEN PDF</a>
 </div>
 </article>
 
@@ -889,9 +632,7 @@ OPEN PDF
 </section>
 
 
-<!-- ===================================================
-     EOIR / BIA
-=================================================== -->
+<!-- EOIR -->
 
 <section class="forms-section" id="eoir">
 <div class="container">
@@ -906,118 +647,54 @@ OPEN PDF
 <article class="form-card" data-search="eoir immigration court forms">
 <span class="form-number">EOIR</span>
 <h4>Immigration Court Forms</h4>
-<p>
-Official Executive Office for Immigration Review forms center.
-</p>
-
-<div class="form-actions">
-<a
-  class="form-btn primary"
-  href="https://www.justice.gov/eoir/eoir-forms"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN EOIR FORMS
-</a>
+<p>Official Executive Office for Immigration Review forms center.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://www.justice.gov/eoir/eoir-forms" target="_blank">OPEN EOIR FORMS</a>
 </div>
 </article>
-
 
 <article class="form-card" data-search="eoir-26 appeal immigration judge bia">
 <span class="form-number">EOIR-26</span>
 <h4>Notice of Appeal</h4>
-<p>
-Access the current EOIR forms directory for the official
-EOIR-26 and filing information.
-</p>
-
-<div class="form-actions">
-<a
-  class="form-btn primary"
-  href="https://www.justice.gov/eoir/eoir-forms"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN OFFICIAL SOURCE
-</a>
+<p>Access the current EOIR forms directory for the official EOIR-26 and filing information.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://www.justice.gov/eoir/eoir-forms" target="_blank">OPEN OFFICIAL SOURCE</a>
 </div>
 </article>
-
 
 <article class="form-card" data-search="eoir-28 attorney representative">
 <span class="form-number">EOIR-28</span>
 <h4>Attorney / Representative Appearance</h4>
-<p>
-Access the official EOIR source for the current form and
-applicable filing requirements.
-</p>
-
-<div class="form-actions">
-<a
-  class="form-btn primary"
-  href="https://www.justice.gov/eoir/eoir-forms"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN OFFICIAL SOURCE
-</a>
+<p>Access the official EOIR source for the current form and filing requirements.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://www.justice.gov/eoir/eoir-forms" target="_blank">OPEN OFFICIAL SOURCE</a>
 </div>
 </article>
-
 
 <article class="form-card" data-search="eoir-33 change address immigration court">
 <span class="form-number">EOIR-33</span>
 <h4>Change of Address / Contact Information</h4>
-<p>
-Use the official EOIR forms center to select the appropriate
-change-of-address form.
-</p>
-
-<div class="form-actions">
-<a
-  class="form-btn primary"
-  href="https://www.justice.gov/eoir/eoir-forms"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN OFFICIAL SOURCE
-</a>
+<p>Use the official EOIR forms center to select the appropriate change-of-address form.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://www.justice.gov/eoir/eoir-forms" target="_blank">OPEN OFFICIAL SOURCE</a>
 </div>
 </article>
-
 
 <article class="form-card" data-search="eoir-42a cancellation removal permanent resident">
 <span class="form-number">EOIR-42A</span>
 <h4>Cancellation of Removal — Permanent Residents</h4>
-<p>
-Official EOIR source for Form EOIR-42A and current filing
-information.
-</p>
-
-<div class="form-actions">
-<a
-  class="form-btn primary"
-  href="https://www.justice.gov/eoir/eoir-forms"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN OFFICIAL SOURCE
-</a>
+<p>Official EOIR source for Form EOIR-42A and current filing information.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://www.justice.gov/eoir/eoir-forms" target="_blank">OPEN OFFICIAL SOURCE</a>
 </div>
 </article>
-
 
 <article class="form-card" data-search="eoir-42b cancellation removal nonpermanent resident">
 <span class="form-number">EOIR-42B</span>
 <h4>Cancellation of Removal — Certain Nonpermanent Residents</h4>
-<p>
-Official EOIR source for Form EOIR-42B and current filing
-information.
-</p>
-
-<div class="form-actions">
-<a
-  class="form-btn primary"
-  href="https://www.justice.gov/eoir/eoir-forms"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN OFFICIAL SOURCE
-</a>
+<p>Official EOIR source for Form EOIR-42B and current filing information.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://www.justice.gov/eoir/eoir-forms" target="_blank">OPEN OFFICIAL SOURCE</a>
 </div>
 </article>
 
@@ -1026,9 +703,7 @@ OPEN OFFICIAL SOURCE
 </section>
 
 
-<!-- ===================================================
-     IRS
-=================================================== -->
+<!-- IRS -->
 
 <section class="forms-section" id="irs">
 <div class="container">
@@ -1043,155 +718,346 @@ OPEN OFFICIAL SOURCE
 <article class="form-card" data-search="1040 individual income tax return irs">
 <span class="form-number">1040</span>
 <h4>U.S. Individual Income Tax Return</h4>
-<p>
-Access Form 1040 and current IRS filing information.
-</p>
-
+<p>Access Form 1040 and current IRS filing information.</p>
 <div class="form-actions">
-
-<a
-  class="form-btn primary"
-  href="https://www.irs.gov/forms-pubs/about-form-1040"
-  target="_blank"
-  rel="noopener noreferrer">
-OFFICIAL PAGE
-</a>
-
-<a
-  class="form-btn"
-  href="https://www.irs.gov/pub/irs-pdf/f1040.pdf"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN PDF
-</a>
-
+<a class="form-btn primary" href="https://www.irs.gov/forms-pubs/about-form-1040" target="_blank">OFFICIAL PAGE</a>
+<a class="form-btn" href="https://www.irs.gov/pub/irs-pdf/f1040.pdf" target="_blank">OPEN PDF</a>
 </div>
 </article>
-
 
 <article class="form-card" data-search="w-2 wage tax statement irs">
 <span class="form-number">W-2</span>
 <h4>Wage and Tax Statement</h4>
-<p>
-Official IRS information and current Form W-2 resources.
-</p>
-
-<div class="form-actions">
-<a
-  class="form-btn primary"
-  href="https://www.irs.gov/forms-pubs/about-form-w-2"
-  target="_blank"
-  rel="noopener noreferrer">
-OFFICIAL PAGE
-</a>
+<p>Official IRS information and current Form W-2 resources.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://www.irs.gov/forms-pubs/about-form-w-2" target="_blank">OFFICIAL PAGE</a>
 </div>
 </article>
-
 
 <article class="form-card" data-search="w-4 withholding employee irs">
 <span class="form-number">W-4</span>
 <h4>Employee's Withholding Certificate</h4>
-<p>
-Official IRS Form W-4 resources for federal income-tax withholding.
-</p>
-
+<p>Official IRS Form W-4 resources for federal income-tax withholding.</p>
 <div class="form-actions">
-
-<a
-  class="form-btn primary"
-  href="https://www.irs.gov/forms-pubs/about-form-w-4"
-  target="_blank"
-  rel="noopener noreferrer">
-OFFICIAL PAGE
-</a>
-
-<a
-  class="form-btn"
-  href="https://www.irs.gov/pub/irs-pdf/fw4.pdf"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN PDF
-</a>
-
+<a class="form-btn primary" href="https://www.irs.gov/forms-pubs/about-form-w-4" target="_blank">OFFICIAL PAGE</a>
+<a class="form-btn" href="https://www.irs.gov/pub/irs-pdf/fw4.pdf" target="_blank">OPEN PDF</a>
 </div>
 </article>
-
 
 <article class="form-card" data-search="w-9 taxpayer identification number irs">
 <span class="form-number">W-9</span>
 <h4>Request for Taxpayer Identification Number</h4>
-<p>
-Official IRS Form W-9 resources.
-</p>
-
+<p>Official IRS Form W-9 resources.</p>
 <div class="form-actions">
-
-<a
-  class="form-btn primary"
-  href="https://www.irs.gov/forms-pubs/about-form-w-9"
-  target="_blank"
-  rel="noopener noreferrer">
-OFFICIAL PAGE
-</a>
-
-<a
-  class="form-btn"
-  href="https://www.irs.gov/pub/irs-pdf/fw9.pdf"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN PDF
-</a>
-
+<a class="form-btn primary" href="https://www.irs.gov/forms-pubs/about-form-w-9" target="_blank">OFFICIAL PAGE</a>
+<a class="form-btn" href="https://www.irs.gov/pub/irs-pdf/fw9.pdf" target="_blank">OPEN PDF</a>
 </div>
 </article>
-
 
 <article class="form-card" data-search="4506-t transcript tax return irs">
 <span class="form-number">4506-T</span>
 <h4>Request for Transcript of Tax Return</h4>
-<p>
-Access current IRS Form 4506-T resources.
-</p>
-
+<p>Access current IRS Form 4506-T resources.</p>
 <div class="form-actions">
-
-<a
-  class="form-btn primary"
-  href="https://www.irs.gov/forms-pubs/about-form-4506-t"
-  target="_blank"
-  rel="noopener noreferrer">
-OFFICIAL PAGE
-</a>
-
-<a
-  class="form-btn"
-  href="https://www.irs.gov/pub/irs-pdf/f4506t.pdf"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN PDF
-</a>
-
+<a class="form-btn primary" href="https://www.irs.gov/forms-pubs/about-form-4506-t" target="_blank">OFFICIAL PAGE</a>
+<a class="form-btn" href="https://www.irs.gov/pub/irs-pdf/f4506t.pdf" target="_blank">OPEN PDF</a>
 </div>
 </article>
-
 
 <article class="form-card" data-search="irs forms instructions all tax forms">
 <span class="form-number">IRS</span>
 <h4>All IRS Forms & Instructions</h4>
-<p>
-Search the official IRS forms and instructions directory.
-</p>
+<p>Search the official IRS forms and instructions directory.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://www.irs.gov/forms-instructions" target="_blank">OPEN IRS CENTER</a>
+</div>
+</article>
 
-<div class="form-actions">
+</div>
+</div>
+</section>
 
-<a
-  class="form-btn primary"
-  href="https://www.irs.gov/forms-instructions"
-  target="_blank"
-  rel="noopener noreferrer">
-OPEN IRS CENTER
+
+<!-- FEDERAL REGISTER -->
+
+<section class="forms-section" id="federal-register">
+<div class="container">
+
+<div class="section-head">
+<span>FEDERAL GOVERNMENT PUBLICATIONS</span>
+<h3>FEDERAL REGISTER</h3>
+</div>
+
+<div class="forms-grid">
+
+<article class="form-card" data-search="federal register current updates today notices rules">
+<span class="form-number">UPDATE</span>
+<h4>Current Federal Register</h4>
+<p>Review documents published in the current Federal Register issue.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://www.federalregister.gov/documents/current" target="_blank">
+OPEN CURRENT ISSUE
 </a>
+</div>
+</article>
 
+<article class="form-card" data-search="federal register notices federal notices">
+<span class="form-number">NOTICE</span>
+<h4>Federal Notices</h4>
+<p>Search official notices published by federal agencies.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://www.federalregister.gov/documents/search?conditions%5Btype%5D%5B%5D=NOTICE" target="_blank">
+OPEN NOTICES
+</a>
+</div>
+</article>
+
+<article class="form-card" data-search="federal register rules regulations">
+<span class="form-number">RULES</span>
+<h4>Rules & Regulations</h4>
+<p>Review federal rules published in the Federal Register.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://www.federalregister.gov/documents/search?conditions%5Btype%5D%5B%5D=RULE" target="_blank">
+OPEN RULES
+</a>
+</div>
+</article>
+
+<article class="form-card" data-search="federal register proposed rules">
+<span class="form-number">PROPOSED</span>
+<h4>Proposed Rules</h4>
+<p>Review proposed federal rules before final agency action.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://www.federalregister.gov/documents/search?conditions%5Btype%5D%5B%5D=PRORULE" target="_blank">
+OPEN PROPOSED RULES
+</a>
+</div>
+</article>
+
+<article class="form-card" data-search="federal register public inspection">
+<span class="form-number">PUBLIC</span>
+<h4>Public Inspection</h4>
+<p>Review documents available for public inspection before publication.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://www.federalregister.gov/public-inspection/current" target="_blank">
+OPEN PUBLIC INSPECTION
+</a>
+</div>
+</article>
+
+<article class="form-card" data-search="federal register search federal government">
+<span class="form-number">SEARCH</span>
+<h4>Search Federal Register</h4>
+<p>Search the official Federal Register database.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://www.federalregister.gov/documents/search" target="_blank">
+SEARCH FEDERAL REGISTER
+</a>
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
+
+<!-- FLORIDA DMV -->
+
+<section class="forms-section" id="dmv">
+<div class="container">
+
+<div class="section-head">
+<span>FLORIDA • FLHSMV</span>
+<h3>DMV FLORIDA</h3>
+</div>
+
+<div class="forms-grid">
+
+<article class="form-card" data-search="dmv florida flhsmv driver license id">
+<span class="form-number">LICENSE</span>
+<h4>Driver License & ID Cards</h4>
+<p>Florida driver license and identification-card services.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://www.flhsmv.gov/driver-licenses-id-cards/" target="_blank">
+OPEN DRIVER LICENSE CENTER
+</a>
+</div>
+</article>
+
+<article class="form-card" data-search="dmv florida vehicle title registration tags">
+<span class="form-number">VEHICLE</span>
+<h4>Motor Vehicles, Tags & Titles</h4>
+<p>Florida titles, registrations, tags, transfers and vehicle services.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://www.flhsmv.gov/motor-vehicles-tags-titles/" target="_blank">
+OPEN VEHICLE CENTER
+</a>
+</div>
+</article>
+
+<article class="form-card" data-search="dmv florida forms flhsmv official forms">
+<span class="form-number">FORMS</span>
+<h4>Official FLHSMV Forms</h4>
+<p>Access Florida Highway Safety and Motor Vehicles forms.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://www.flhsmv.gov/resources/forms/" target="_blank">
+OPEN DMV FORMS
+</a>
+</div>
+</article>
+
+<article class="form-card" data-search="dmv florida license plates registration">
+<span class="form-number">PLATES</span>
+<h4>License Plates & Registration</h4>
+<p>Official Florida license plate and registration resources.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://www.flhsmv.gov/motor-vehicles-tags-titles/license-plates-registration/" target="_blank">
+OPEN REGISTRATION
+</a>
+</div>
+</article>
+
+<article class="form-card" data-search="dmv florida official flhsmv">
+<span class="form-number">FLHSMV</span>
+<h4>Florida DMV Home</h4>
+<p>Official Florida Department of Highway Safety and Motor Vehicles website.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://www.flhsmv.gov/" target="_blank">
+OPEN FLHSMV
+</a>
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
+
+<!-- SSA -->
+
+<section class="forms-section" id="ssa">
+<div class="container">
+
+<div class="section-head">
+<span>SOCIAL SECURITY ADMINISTRATION</span>
+<h3>SSA.GOV — SOCIAL SECURITY</h3>
+</div>
+
+<div class="forms-grid">
+
+<article class="form-card" data-search="ssa social security card number ss5">
+<span class="form-number">SS CARD</span>
+<h4>Social Security Number & Card</h4>
+<p>Apply for, replace or update Social Security number and card information.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://www.ssa.gov/number-card" target="_blank">
+OPEN CARD CENTER
+</a>
+</div>
+</article>
+
+<article class="form-card" data-search="ssa my social security account login">
+<span class="form-number">ACCOUNT</span>
+<h4>my Social Security</h4>
+<p>Create or access your official online Social Security account.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://www.ssa.gov/myaccount/" target="_blank">
+OPEN MY SOCIAL SECURITY
+</a>
+</div>
+</article>
+
+<article class="form-card" data-search="ssa benefits retirement disability survivor medicare">
+<span class="form-number">BENEFITS</span>
+<h4>Social Security Benefits</h4>
+<p>Access official information about retirement, disability and survivor benefits.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://www.ssa.gov/benefits/" target="_blank">
+OPEN BENEFITS
+</a>
+</div>
+</article>
+
+<article class="form-card" data-search="ssa office locator social security office">
+<span class="form-number">OFFICE</span>
+<h4>Find a Social Security Office</h4>
+<p>Search for a Social Security office or card center.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://www.ssa.gov/locator/" target="_blank">
+FIND OFFICE
+</a>
+</div>
+</article>
+
+<article class="form-card" data-search="ssa social security official website">
+<span class="form-number">SSA</span>
+<h4>SSA.gov Home</h4>
+<p>Official Social Security Administration website.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://www.ssa.gov/" target="_blank">
+OPEN SSA.GOV
+</a>
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
+
+<!-- UNEMPLOYMENT -->
+
+<section class="forms-section" id="unemployment">
+<div class="container">
+
+<div class="section-head">
+<span>FLORIDA • REEMPLOYMENT ASSISTANCE</span>
+<h3>UNEMPLOYMENT / REEMPLOYMENT ASSISTANCE</h3>
+</div>
+
+<div class="forms-grid">
+
+<article class="form-card" data-search="florida unemployment reemployment assistance apply benefits">
+<span class="form-number">APPLY</span>
+<h4>Apply for Reemployment Assistance</h4>
+<p>Official Florida information for applying for unemployment compensation benefits.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://floridajobs.org/workforce-resources/reemployment-assistance/claimants/apply-for-benefits" target="_blank">
+APPLY / GET INSTRUCTIONS
+</a>
+</div>
+</article>
+
+<article class="form-card" data-search="florida unemployment account login reemployment assistance">
+<span class="form-number">LOGIN</span>
+<h4>Reemployment Assistance Account</h4>
+<p>Create or access your Florida Reemployment Assistance account.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://floridajobs.org/workforce-resources/reemployment-assistance/claimants/account-login-and-idme" target="_blank">
+OPEN ACCOUNT ACCESS
+</a>
+</div>
+</article>
+
+<article class="form-card" data-search="florida unemployment claimant faq help">
+<span class="form-number">HELP</span>
+<h4>Claimant FAQ</h4>
+<p>Official Florida answers about claims, account access and eligibility procedures.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://floridajobs.org/workforce-resources/reemployment-assistance/claimants/claimant-faq" target="_blank">
+OPEN CLAIMANT FAQ
+</a>
+</div>
+</article>
+
+<article class="form-card" data-search="employ florida jobs job search unemployment">
+<span class="form-number">JOBS</span>
+<h4>Employ Florida</h4>
+<p>Search jobs, employment resources and workforce services.</p>
+<div class="form-actions single">
+<a class="form-btn primary" href="https://www.employflorida.com/" target="_blank">
+OPEN EMPLOY FLORIDA
+</a>
 </div>
 </article>
 
@@ -1242,15 +1108,8 @@ IMPORTANT:
 (function(){
 "use strict";
 
-/* YEAR */
-
 document.getElementById("year").textContent =
   new Date().getFullYear();
-
-
-/* ===================================================
-   LANGUAGE
-=================================================== */
 
 const langButtons =
   document.querySelectorAll(".lang-btn");
@@ -1304,7 +1163,6 @@ function setLanguage(lang){
   }catch(error){}
 }
 
-
 langButtons.forEach(button=>{
 
   button.addEventListener(
@@ -1313,7 +1171,6 @@ langButtons.forEach(button=>{
   );
 
 });
-
 
 let savedLanguage="en";
 
@@ -1328,17 +1185,11 @@ try{
 
 setLanguage(savedLanguage);
 
-
-/* ===================================================
-   SEARCH
-=================================================== */
-
 const search =
   document.getElementById("formSearch");
 
 const cards =
   document.querySelectorAll(".form-card");
-
 
 search.addEventListener("input",()=>{
 
@@ -1351,7 +1202,7 @@ search.addEventListener("input",()=>{
 
     const searchable =
       (
-        card.dataset.search +
+        (card.dataset.search || "") +
         " " +
         card.textContent
       ).toLowerCase();
@@ -1364,11 +1215,6 @@ search.addEventListener("input",()=>{
   });
 
 });
-
-
-/* ===================================================
-   SAFE EXTERNAL LINKS
-=================================================== */
 
 document
   .querySelectorAll('a[target="_blank"]')
