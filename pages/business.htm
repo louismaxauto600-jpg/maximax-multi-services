@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Business Services | Maximax Multi Services</title>
+
+<meta name="description" content="Maximax Multi Services Business Center — business formation support, EIN assistance, document organization, startup resources and business service navigation.">
+<meta name="theme-color" content="#000000">
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+:root{
+  --orange:#ff7900;
+  --apricot:#ffad4d;
+  --black:#000000;
+  --deep:#050200;
+  --soft:#120600;
+  --text:#ffd2a3;
+  --text-soft:#d7a77a;
+  --border:rgba(255,121,0,.32);
+  --border-strong:rgba(255,121,0,.72);
+  --glow:0 0 28px rgba(255,121,0,.18);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 50% 0%,rgba(255,121,0,.12),transparent 34%),
+    linear-gradient(180deg,#000,#080300,#000);
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,
+input,
+select,
+textarea{
+  font:inherit;
+}
+
+.container{
+  width:min(1180px,calc(100% - 36px));
+  margin:0 auto;
+}
+
+.top-bar{
+  padding:12px 20px;
+  text-align:center;
+  color:#000;
+  background:linear-gradient(90deg,#ff7900,#ffad4d,#ff7900);
+  font-size:.76rem;
+  font-weight:1000;
+  letter-spacing:1.4px;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  border-bottom:1px solid rgba(255,121,0,.25);
+  background:rgba(0,0,0,.96);
+  backdrop-filter:blur(12px);
+}
+
+.header-inner{
+  min-height:84px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  margin-right:auto;
+}
+
+.brand-mark{
+  width:58px;
+  height:58px;
+  display:grid;
+  place-items:center;
+  flex:0 0 58px;
+  border:2px solid var(--orange);
+  border-radius:17px;
+  color:#000;
+  background:linear-gradient(145deg,var(--apricot),var(--orange));
+  box-shadow:0 0 22px rgba(255,121,0,.28);
+  font-size:2rem;
+  font-weight:1000;
+}
+
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.05;
+}
+
+.brand-text strong{
+  color:var(--orange);
+  font-size:.95rem;
+  letter-spacing:.5px;
+}
+
+.brand-text span{
+  margin-top:5px;
+  color:var(--apricot);
+  font-size:.58rem;
+  font-weight:900;
+  letter-spacing:1.2px;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:17px;
+}
+
+nav a{
+  color:var(--text);
+  font-size:.70rem;
+  font-weight:900;
+}
+
+nav a:hover{
+  color:var(--orange);
+}
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.language-switch{
+  display:flex;
+  padding:5px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:#050200;
+}
+
+.lang-btn{
+  min-width:52px;
+  padding:10px 12px;
+  border:0;
+  border-radius:999px;
+  color:var(--apricot);
+  background:transparent;
+  cursor:pointer;
+  font-size:.68rem;
+  font-weight:1000;
+}
+
+.lang-btn.active{
+  color:#000;
+  background:linear-gradient(135deg,var(--apricot),var(--orange));
+  box-shadow:0 0 18px rgba(255,121,0,.22);
+}
+
+.menu-toggle{
+  display:none;
+  width:50px;
+  height:50px;
+  border:1px solid var(--orange);
+  border-radius:15px;
+  color:var(--orange);
+  background:#000;
+  cursor:pointer;
+  font-size:1.5rem;
+}
+
+.service-page{
+  min-height:calc(100vh - 84px);
+  padding:70px 0 90px;
+}
+
+.service-hero{
+  padding:45px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:28px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.20),transparent 45%),
+    linear-gradient(145deg,#000,#120600,#000);
+  box-shadow:var(--glow);
+}
+
+.service-big-icon{
+  font-size:4rem;
+}
+
+.eyebrow{
+  margin-top:10px;
+  color:var(--apricot);
+  font-size:.70rem;
+  font-weight:1000;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.service-hero h1{
+  margin:18px 0 0;
+  color:var(--orange);
+  font-size:clamp(2.5rem,8vw,5.5rem);
+  line-height:.9;
+  text-transform:uppercase;
+}
+
+.service-hero p{
+  max-width:900px;
+  margin:20px auto 0;
+  line-height:1.75;
+}
+
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
+  margin-top:25px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:13px 22px;
+  border:1px solid var(--orange);
+  border-radius:999px;
+  cursor:pointer;
+  font-size:.70rem;
+  font-weight:1000;
+  text-align:center;
+  transition:.22s ease;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 22px rgba(255,121,0,.25);
+}
+
+.btn.primary{
+  color:#000;
+  background:linear-gradient(135deg,var(--apricot),var(--orange));
+}
+
+.btn.outline{
+  color:var(--orange);
+  background:#000;
+}
+
+.page-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:35px;
+}
+
+.page-card{
+  min-height:260px;
+  display:flex;
+  flex-direction:column;
+  padding:24px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:
+    radial-gradient(circle at top right,rgba(255,121,0,.12),transparent 40%),
+    #050200;
+  transition:.25s;
+}
+
+.page-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--orange);
+  box-shadow:var(--glow);
+}
+
+.page-card .card-icon{
+  font-size:2.2rem;
+}
+
+.page-card h2{
+  margin:15px 0 0;
+  color:var(--orange);
+  font-size:1rem;
+  text-transform:uppercase;
+}
+
+.page-card p{
+  margin:11px 0 20px;
+  font-size:.80rem;
+  line-height:1.65;
+}
+
+.page-card .card-action{
+  margin-top:auto;
+}
+
+.business-launch{
+  margin-top:40px;
+  padding:38px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:26px;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.15),transparent 48%),
+    #050200;
+}
+
+.business-launch h2{
+  margin:0;
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.business-launch > p{
+  max-width:850px;
+  margin:14px auto 30px;
+  text-align:center;
+  line-height:1.7;
+}
+
+.launch-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.launch-step{
+  padding:22px 16px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:#000;
+  text-align:center;
+}
+
+.step-number{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  margin:0 auto 12px;
+  border-radius:50%;
+  background:var(--orange);
+  color:#000;
+  font-weight:1000;
+}
+
+.launch-step strong{
+  display:block;
+  color:var(--orange);
+  font-size:.78rem;
+}
+
+.launch-step p{
+  margin-top:8px;
+  font-size:.70rem;
+  line-height:1.55;
+}
+
+.business-tools{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.business-tools h2{
+  margin:0;
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.business-tools > p{
+  max-width:800px;
+  margin:14px auto 25px;
+  text-align:center;
+  line-height:1.7;
+}
+
+.tool-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.tool-box{
+  display:flex;
+  flex-direction:column;
+  padding:20px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:#000;
+}
+
+.tool-box strong{
+  display:block;
+  color:var(--orange);
+  margin-bottom:7px;
+}
+
+.tool-box p{
+  margin:0 0 18px;
+  font-size:.78rem;
+  line-height:1.6;
+}
+
+.tool-box .btn{
+  margin-top:auto;
+}
+
+.official-resources{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border-strong);
+  border-radius:24px;
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.12),transparent 50%),
+    #050200;
+}
+
+.official-resources h2{
+  margin:0;
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.official-resources > p{
+  max-width:850px;
+  margin:14px auto 25px;
+  text-align:center;
+  line-height:1.7;
+}
+
+.resource-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+
+.resource-box{
+  display:flex;
+  flex-direction:column;
+  min-height:220px;
+  padding:22px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:#000;
+}
+
+.resource-box .resource-icon{
+  font-size:2rem;
+}
+
+.resource-box h3{
+  margin:12px 0 0;
+  color:var(--orange);
+  font-size:.90rem;
+}
+
+.resource-box p{
+  margin:10px 0 18px;
+  font-size:.74rem;
+  line-height:1.6;
+}
+
+.resource-box .btn{
+  margin-top:auto;
+}
+
+.business-checklist{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#050200;
+}
+
+.business-checklist h2{
+  margin:0;
+  color:var(--orange);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.check-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:25px;
+}
+
+.check-item{
+  padding:18px 12px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:#000;
+  text-align:center;
+  font-size:.70rem;
+  font-weight:900;
+}
+
+.check-item span{
+  display:block;
+  margin-bottom:7px;
+  color:var(--orange);
+  font-size:1.35rem;
+}
+
+.action-box{
+  margin-top:35px;
+  padding:35px 25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  text-align:center;
+  background:#050200;
+}
+
+.action-box h2{
+  margin-top:10px;
+  color:var(--orange);
+  text-transform:uppercase;
+}
+
+.action-box p{
+  max-width:780px;
+  margin:14px auto 0;
+  line-height:1.7;
+}
+
+.notice{
+  margin-top:30px;
+  padding:18px;
+  border-left:4px solid var(--orange);
+  border-radius:10px;
+  background:#0b0400;
+  font-size:.75rem;
+  line-height:1.65;
+}
+
+.back-home{
+  margin-top:30px;
+  text-align:center;
+}
+
+footer{
+  padding:45px 20px;
+  border-top:1px solid var(--border);
+  text-align:center;
+  background:#000;
+}
+
+.footer-logo{
+  width:54px;
+  height:54px;
+  display:grid;
+  place-items:center;
+  margin:0 auto 12px;
+  border-radius:16px;
+  color:#000;
+  background:linear-gradient(135deg,var(--apricot),var(--orange));
+  font-size:1.8rem;
+  font-weight:1000;
+}
+
+footer h3{
+  margin:0;
+  color:var(--orange);
+}
+
+footer p{
+  color:var(--text-soft);
+  font-size:.72rem;
+}
+
+.hub-link{
+  color:var(--apricot);
+}
+
+@media(max-width:1050px){
+  nav{
+    position:absolute;
+    top:84px;
+    left:18px;
+    right:18px;
+    display:none;
+    flex-direction:column;
+    align-items:stretch;
+    padding:18px;
+    border:1px solid var(--border-strong);
+    border-radius:18px;
+    background:#000;
+    box-shadow:var(--glow);
+  }
+
+  nav.open{
+    display:flex;
+  }
+
+  nav a{
+    padding:12px;
+    border-bottom:1px solid rgba(255,121,0,.14);
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .page-grid,
+  .resource-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .launch-grid,
+  .check-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:700px){
+  .service-page{
+    padding-top:35px;
+  }
+
+  .header-inner{
+    gap:9px;
+  }
+
+  .brand-text{
+    display:none;
+  }
+
+  .brand-mark{
+    width:50px;
+    height:50px;
+    flex-basis:50px;
+  }
+
+  .language-switch{
+    margin-left:auto;
+  }
+
+  .lang-btn{
+    min-width:43px;
+    padding:9px 8px;
+  }
+
+  .page-grid,
+  .launch-grid,
+  .tool-grid,
+  .resource-grid,
+  .check-grid{
+    grid-template-columns:1fr;
+  }
+
+  .service-hero{
+    padding:38px 18px;
+  }
+
+  .service-hero h1{
+    font-size:clamp(2.4rem,13vw,4rem);
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+  }
+
+  .hero-buttons .btn{
+    width:100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+MAXIMAX MULTI SERVICES • BUSINESS CENTER
+</div>
+
+<header>
+<div class="container header-inner">
+
+<a href="../index.html" class="brand">
+<div class="brand-mark">M</div>
+<div class="brand-text">
+<strong>MAXIMAX</strong>
+<span>MULTI SERVICES</span>
+</div>
+</a>
+
+<nav id="mainNav">
+<a href="../index.html">HOME</a>
+<a href="../index.html#services">SERVICES</a>
+<a href="#business-services">BUSINESS</a>
+<a href="./taxes.html">TAX CENTER</a>
+<a href="#official-resources">RESOURCES</a>
+<a href="../index.html#contact">CONTACT</a>
+</nav>
+
+<div class="header-actions">
+
+<div class="language-switch">
+<button class="lang-btn active" data-lang="en">🇺🇸 ENG</button>
+<button class="lang-btn" data-lang="es">🇪🇸 ESP</button>
+<button class="lang-btn" data-lang="ht">🇭🇹 KRE</button>
+</div>
+
+<button id="menuToggle" class="menu-toggle" type="button" aria-label="Open menu">
+☰
+</button>
+
+</div>
+</div>
+</header>
+
+
+<main class="service-page">
+<div class="container">
+
+
+<section class="service-hero">
+
+<div class="service-big-icon">💼</div>
+
+<div class="eyebrow">MAXIMAX MULTI SERVICES</div>
+
+<h1
+data-en="BUSINESS CENTER"
+data-es="CENTRO DE NEGOCIOS"
+data-ht="SANT BIZNIS">
+BUSINESS CENTER
+</h1>
+
+<p
+data-en="Business formation support, startup document organization, EIN assistance, administrative resources and digital tools for entrepreneurs and small businesses."
+data-es="Asistencia para la formación de empresas, organización de documentos, ayuda con EIN, recursos administrativos y herramientas digitales para emprendedores y pequeñas empresas."
+data-ht="Asistans pou kreye biznis, òganize dokiman startup, asistans EIN, resous administratif ak zouti dijital pou antreprenè ak ti biznis.">
+Business formation support, startup document organization, EIN assistance, administrative resources and digital tools for entrepreneurs and small businesses.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#business-services" class="btn primary"
+data-en="EXPLORE BUSINESS SERVICES"
+data-es="EXPLORAR SERVICIOS"
+data-ht="GADE SÈVIS BIZNIS">
+EXPLORE BUSINESS SERVICES
+</a>
+
+<a href="#start-business" class="btn outline"
+data-en="START A BUSINESS"
+data-es="INICIAR UN NEGOCIO"
+data-ht="KÒMANSE YON BIZNIS">
+START A BUSINESS
+</a>
+
+</div>
+</section>
+
+
+<section id="business-services" class="page-grid">
+
+<div class="page-card">
+<div class="card-icon">🏢</div>
+<h2
+data-en="BUSINESS FORMATION"
+data-es="FORMACIÓN DE EMPRESA"
+data-ht="KREYASYON BIZNIS">
+BUSINESS FORMATION
+</h2>
+<p
+data-en="Administrative document preparation and service navigation for eligible business formation filings."
+data-es="Preparación administrativa de documentos y orientación para trámites de formación de empresas."
+data-ht="Preparasyon administratif dokiman ak asistans pou pwosesis kreye biznis ki aplikab.">
+Administrative document preparation and service navigation for eligible business formation filings.
+</p>
+<div class="card-action">
+<a href="#start-business" class="btn outline">START HERE</a>
+</div>
+</div>
+
+
+<div class="page-card">
+<div class="card-icon">📑</div>
+<h2
+data-en="LLC DOCUMENT SUPPORT"
+data-es="ASISTENCIA PARA LLC"
+data-ht="ASISTANS LLC">
+LLC DOCUMENT SUPPORT
+</h2>
+<p
+data-en="Administrative assistance organizing information and documents commonly needed for eligible LLC formation filings."
+data-es="Asistencia administrativa para organizar información y documentos comúnmente necesarios para formar una LLC."
+data-ht="Asistans administratif pou òganize enfòmasyon ak dokiman ki konn nesesè pou kreye yon LLC.">
+Administrative assistance organizing information and documents commonly needed for eligible LLC formation filings.
+</p>
+<div class="card-action">
+<a href="#official-resources" class="btn outline">LLC RESOURCES</a>
+</div>
+</div>
+
+
+<div class="page-card">
+<div class="card-icon">🔢</div>
+<h2
+data-en="EIN ASSISTANCE"
+data-es="ASISTENCIA EIN"
+data-ht="ASISTANS EIN">
+EIN ASSISTANCE
+</h2>
+<p
+data-en="Document preparation assistance for eligible Employer Identification Number applications."
+data-es="Asistencia para preparar información para solicitudes elegibles de Número de Identificación del Empleador."
+data-ht="Asistans preparasyon enfòmasyon pou aplikasyon Employer Identification Number ki aplikab.">
+Document preparation assistance for eligible Employer Identification Number applications.
+</p>
+<div class="card-action">
+<a href="#official-resources" class="btn outline">EIN RESOURCES</a>
+</div>
+</div>
+
+
+<div class="page-card">
+<div class="card-icon">📝</div>
+<h2
+data-en="BUSINESS DOCUMENTS"
+data-es="DOCUMENTOS COMERCIALES"
+data-ht="DOKIMAN BIZNIS">
+BUSINESS DOCUMENTS
+</h2>
+<p
+data-en="Administrative organization of common business records, forms and supporting documentation."
+data-es="Organización administrativa de registros, formularios y documentos de respaldo del negocio."
+data-ht="Òganizasyon administratif dosye, fòm ak dokiman sipò komen pou biznis.">
+Administrative organization of common business records, forms and supporting documentation.
+</p>
+<div class="card-action">
+<a href="../index.html#digital-centers" class="btn outline">DOCUMENT CENTERS</a>
+</div>
+</div>
+
+
+<div class="page-card">
+<div class="card-icon">🏷️</div>
+<h2
+data-en="BUSINESS NAME SUPPORT"
+data-es="NOMBRE COMERCIAL"
+data-ht="NON BIZNIS">
+BUSINESS NAME SUPPORT
+</h2>
+<p
+data-en="General administrative assistance with business-name information and applicable registration resources."
+data-es="Asistencia administrativa general con información sobre nombres comerciales y recursos de registro."
+data-ht="Asistans administratif jeneral sou non biznis ak resous enskripsyon ki aplikab.">
+General administrative assistance with business-name information and applicable registration resources.
+</p>
+<div class="card-action">
+<a href="#official-resources" class="btn outline">NAME RESOURCES</a>
+</div>
+</div>
+
+
+<div class="page-card">
+<div class="card-icon">📂</div>
+<h2
+data-en="BUSINESS RECORD ORGANIZATION"
+data-es="ORGANIZACIÓN DE REGISTROS"
+data-ht="ÒGANIZASYON DOSYE BIZNIS">
+BUSINESS RECORD ORGANIZATION
+</h2>
+<p
+data-en="Help organizing important company records, receipts, registration documents and administrative information."
+data-es="Ayuda para organizar registros importantes, recibos, documentos de registro e información administrativa."
+data-ht="Èd pou òganize dosye konpayi, resi, dokiman enskripsyon ak enfòmasyon administratif.">
+Help organizing important company records, receipts, registration documents and administrative information.
+</p>
+<div class="card-action">
+<a href="../index.html#digital-centers" class="btn outline">ORGANIZE RECORDS</a>
+</div>
+</div>
+
+
+<div class="page-card">
+<div class="card-icon">💰</div>
+<h2
+data-en="BUSINESS TAX CENTER"
+data-es="CENTRO DE IMPUESTOS"
+data-ht="SANT TAKS BIZNIS">
+BUSINESS TAX CENTER
+</h2>
+<p
+data-en="Connect with Maximax Tax Center for eligible business tax document organization and preparation services."
+data-es="Conéctese con Maximax Tax Center para organización y preparación de documentos fiscales comerciales."
+data-ht="Konekte ak Maximax Tax Center pou òganizasyon ak preparasyon dokiman taks biznis ki aplikab.">
+Connect with Maximax Tax Center for eligible business tax document organization and preparation services.
+</p>
+<div class="card-action">
+<a href="./taxes.html" class="btn outline">OPEN TAX CENTER</a>
+</div>
+</div>
+
+
+<div class="page-card">
+<div class="card-icon">🤖</div>
+<h2
+data-en="AI BUSINESS TOOLS"
+data-es="HERRAMIENTAS IA"
+data-ht="ZOUTI AI POU BIZNIS">
+AI BUSINESS TOOLS
+</h2>
+<p
+data-en="Use Maximax AI tools for general business writing, organization, document assistance and productivity."
+data-es="Use las herramientas de IA de Maximax para redacción, organización, documentos y productividad."
+data-ht="Sèvi ak zouti AI Maximax pou ekriti biznis, òganizasyon, asistans dokiman ak pwodiktivite.">
+Use Maximax AI tools for general business writing, organization, document assistance and productivity.
+</p>
+<div class="card-action">
+<a href="./ai-center.html" class="btn outline">OPEN AI CENTER</a>
+</div>
+</div>
+
+
+<div class="page-card">
+<div class="card-icon">🌎</div>
+<h2
+data-en="MULTILINGUAL BUSINESS SUPPORT"
+data-es="ASISTENCIA MULTILINGÜE"
+data-ht="ASISTANS NAN 3 LANG">
+MULTILINGUAL BUSINESS SUPPORT
+</h2>
+<p
+data-en="Business service navigation available in English, Spanish and Haitian Creole."
+data-es="Orientación de servicios comerciales disponible en inglés, español y criollo haitiano."
+data-ht="Asistans sèvis biznis disponib an Anglè, Panyòl ak Kreyòl Ayisyen.">
+Business service navigation available in English, Spanish and Haitian Creole.
+</p>
+<div class="card-action">
+<a href="./translation-ai.html" class="btn outline">AI TRANSLATION</a>
+</div>
+</div>
+
+</section>
+
+
+<section class="business-launch" id="start-business">
+
+<h2
+data-en="START YOUR BUSINESS"
+data-es="INICIE SU NEGOCIO"
+data-ht="KÒMANSE BIZNIS OU">
+START YOUR BUSINESS
+</h2>
+
+<p
+data-en="A simple pathway for organizing the administrative steps involved in starting a new business."
+data-es="Un proceso sencillo para organizar los pasos administrativos relacionados con el inicio de un nuevo negocio."
+data-ht="Yon chemen senp pou òganize etap administratif ki gen rapò ak kòmanse yon nouvo biznis.">
+A simple pathway for organizing the administrative steps involved in starting a new business.
+</p>
+
+<div class="launch-grid">
+
+<div class="launch-step">
+<div class="step-number">1</div>
+<strong
+data-en="BUSINESS IDEA"
+data-es="IDEA DE NEGOCIO"
+data-ht="LIDE BIZNIS">
+BUSINESS IDEA
+</strong>
+<p
+data-en="Identify the service, product and purpose of your business."
+data-es="Identifique el servicio, producto y propósito de su negocio."
+data-ht="Idantifye sèvis, pwodwi ak objektif biznis ou.">
+Identify the service, product and purpose of your business.
+</p>
+</div>
+
+
+<div class="launch-step">
+<div class="step-number">2</div>
+<strong
+data-en="BUSINESS STRUCTURE"
+data-es="ESTRUCTURA"
+data-ht="ESTRIKTI">
+BUSINESS STRUCTURE
+</strong>
+<p
+data-en="Review general information about common business structures."
+data-es="Revise información general sobre estructuras comerciales comunes."
+data-ht="Revize enfòmasyon jeneral sou estrikti biznis ki pi komen yo.">
+Review general information about common business structures.
+</p>
+</div>
+
+
+<div class="launch-step">
+<div class="step-number">3</div>
+<strong
+data-en="DOCUMENTS"
+data-es="DOCUMENTOS"
+data-ht="DOKIMAN">
+DOCUMENTS
+</strong>
+<p
+data-en="Organize the information and records required for applicable filings."
+data-es="Organice la información y los registros necesarios para los trámites aplicables."
+data-ht="Òganize enfòmasyon ak dosye ki nesesè pou pwosesis ki aplikab yo.">
+Organize the information and records required for applicable filings.
+</p>
+</div>
+
+
+<div class="launch-step">
+<div class="step-number">4</div>
+<strong
+data-en="LAUNCH"
+data-es="LANZAMIENTO"
+data-ht="LANSE">
+LAUNCH
+</strong>
+<p
+data-en="Complete applicable administrative steps and begin operating your business."
+data-es="Complete los pasos administrativos aplicables y comience a operar su negocio."
+data-ht="Fini etap administratif ki aplikab yo epi kòmanse opere biznis ou.">
+Complete applicable administrative steps and begin operating your business.
+</p>
+</div>
+
+</div>
+</section>
+
+
+<section class="official-resources" id="official-resources">
+
+<h2
+data-en="OFFICIAL BUSINESS RESOURCES"
+data-es="RECURSOS OFICIALES DE NEGOCIOS"
+data-ht="RESOUS OFISYÈL POU BIZNIS">
+OFFICIAL BUSINESS RESOURCES
+</h2>
+
+<p
+data-en="Use official government resources for business registration, EIN information and federal small-business guidance."
+data-es="Use recursos oficiales del gobierno para registro comercial, información EIN y orientación federal para pequeñas empresas."
+data-ht="Sèvi ak resous ofisyèl gouvènman pou enskripsyon biznis, enfòmasyon EIN ak gid federal pou ti biznis.">
+Use official government resources for business registration, EIN information and federal small-business guidance.
+</p>
+
+<div class="resource-grid">
+
+<div class="resource-box">
+<div class="resource-icon">🏛️</div>
+<h3>FLORIDA SUNBIZ</h3>
+<p
+data-en="Florida Division of Corporations resource for corporations, LLCs, fictitious names, records and annual reports."
+data-es="Recurso de la División de Corporaciones de Florida para corporaciones, LLC, nombres ficticios, registros e informes anuales."
+data-ht="Resous Florida Division of Corporations pou corporation, LLC, non fictif, dosye ak annual report.">
+Florida Division of Corporations resource for corporations, LLCs, fictitious names, records and annual reports.
+</p>
+<a
+href="https://dos.fl.gov/sunbiz/"
+target="_blank"
+rel="noopener noreferrer"
+class="btn primary">
+OPEN SUNBIZ
+</a>
+</div>
+
+
+<div class="resource-box">
+<div class="resource-icon">🔢</div>
+<h3>IRS EIN</h3>
+<p
+data-en="Official IRS information about Employer Identification Numbers and how eligible applicants can apply."
+data-es="Información oficial del IRS sobre los números de identificación del empleador y cómo pueden solicitarlos los solicitantes elegibles."
+data-ht="Enfòmasyon ofisyèl IRS sou Employer Identification Number ak fason aplikan ki kalifye kapab aplike.">
+Official IRS information about Employer Identification Numbers and how eligible applicants can apply.
+</p>
+<a
+href="https://www.irs.gov/businesses/small-businesses-self-employed/employer-id-numbers"
+target="_blank"
+rel="noopener noreferrer"
+class="btn primary">
+OPEN IRS EIN
+</a>
+</div>
+
+
+<div class="resource-box">
+<div class="resource-icon">📚</div>
+<h3>U.S. SMALL BUSINESS ADMINISTRATION</h3>
+<p
+data-en="Federal information and resources for planning, launching, managing and growing a small business."
+data-es="Información y recursos federales para planificar, iniciar, administrar y hacer crecer una pequeña empresa."
+data-ht="Enfòmasyon ak resous federal pou planifye, lanse, jere epi devlope yon ti biznis.">
+Federal information and resources for planning, launching, managing and growing a small business.
+</p>
+<a
+href="https://www.sba.gov/"
+target="_blank"
+rel="noopener noreferrer"
+class="btn primary">
+OPEN SBA
+</a>
+</div>
+
+</div>
+</section>
+
+
+<section class="business-checklist">
+
+<h2
+data-en="BUSINESS STARTUP CHECKLIST"
+data-es="LISTA DE INICIO DE NEGOCIO"
+data-ht="LIS POU KÒMANSE BIZNIS">
+BUSINESS STARTUP CHECKLIST
+</h2>
+
+<div class="check-grid">
+
+<div class="check-item">
+<span>✓</span>
+<span data-en="BUSINESS NAME" data-es="NOMBRE COMERCIAL" data-ht="NON BIZNIS">BUSINESS NAME</span>
+</div>
+
+<div class="check-item">
+<span>✓</span>
+<span data-en="BUSINESS STRUCTURE" data-es="ESTRUCTURA" data-ht="ESTRIKTI BIZNIS">BUSINESS STRUCTURE</span>
+</div>
+
+<div class="check-item">
+<span>✓</span>
+<span data-en="STATE REGISTRATION" data-es="REGISTRO ESTATAL" data-ht="ENSKRIPSYON ETA">STATE REGISTRATION</span>
+</div>
+
+<div class="check-item">
+<span>✓</span>
+<span data-en="EIN / TAX ID" data-es="EIN / ID FISCAL" data-ht="EIN / TAX ID">EIN / TAX ID</span>
+</div>
+
+<div class="check-item">
+<span>✓</span>
+<span data-en="BUSINESS RECORDS" data-es="REGISTROS" data-ht="DOSYE BIZNIS">BUSINESS RECORDS</span>
+</div>
+
+<div class="check-item">
+<span>✓</span>
+<span data-en="LICENSE REVIEW" data-es="REVISIÓN DE LICENCIAS" data-ht="REVIZYON LISANS">LICENSE REVIEW</span>
+</div>
+
+<div class="check-item">
+<span>✓</span>
+<span data-en="TAX ORGANIZATION" data-es="ORGANIZACIÓN FISCAL" data-ht="ÒGANIZASYON TAKS">TAX ORGANIZATION</span>
+</div>
+
+<div class="check-item">
+<span>✓</span>
+<span data-en="ANNUAL COMPLIANCE" data-es="CUMPLIMIENTO ANUAL" data-ht="KONFÒMITE ANYÈL">ANNUAL COMPLIANCE</span>
+</div>
+
+</div>
+</section>
+
+
+<section class="business-tools">
+
+<h2
+data-en="BUSINESS DIGITAL CENTER"
+data-es="CENTRO DIGITAL DE NEGOCIOS"
+data-ht="SANT DIJITAL BIZNIS">
+BUSINESS DIGITAL CENTER
+</h2>
+
+<p
+data-en="Connect your business services with Maximax digital tools."
+data-es="Conecte sus servicios comerciales con las herramientas digitales de Maximax."
+data-ht="Konekte sèvis biznis ou ak zouti dijital Maximax yo.">
+Connect your business services with Maximax digital tools.
+</p>
+
+<div class="tool-grid">
+
+<div class="tool-box">
+<strong>🤖 AI CENTER</strong>
+<p
+data-en="General AI assistance for business writing, organization and productivity."
+data-es="Asistencia general de IA para redacción comercial, organización y productividad."
+data-ht="Asistans AI jeneral pou ekriti biznis, òganizasyon ak pwodiktivite.">
+General AI assistance for business writing, organization and productivity.
+</p>
+<a href="./ai-center.html" class="btn outline">OPEN AI CENTER</a>
+</div>
+
+
+<div class="tool-box">
+<strong>📝 FORM HELP CENTER</strong>
+<p
+data-en="Guided administrative assistance for eligible business and government forms."
+data-es="Asistencia administrativa guiada para formularios comerciales y gubernamentales elegibles."
+data-ht="Asistans administratif gide pou fòm biznis ak fòm gouvènman ki aplikab.">
+Guided administrative assistance for eligible business and government forms.
+</p>
+<a href="../index.html#digital-centers" class="btn outline">FORM HELP CENTER</a>
+</div>
+
+
+<div class="tool-box">
+<strong>💰 TAX CENTER</strong>
+<p
+data-en="Business tax document organization and eligible preparation assistance."
+data-es="Organización de documentos fiscales comerciales y asistencia de preparación elegible."
+data-ht="Òganizasyon dokiman taks biznis ak asistans preparasyon ki aplikab.">
+Business tax document organization and eligible preparation assistance.
+</p>
+<a href="./taxes.html" class="btn outline">OPEN TAX CENTER</a>
+</div>
+
+
+<div class="tool-box">
+<strong>🌎 AI TRANSLATION</strong>
+<p
+data-en="Multilingual document and communication assistance for business needs."
+data-es="Asistencia multilingüe para documentos y comunicaciones comerciales."
+data-ht="Asistans plizyè lang pou dokiman ak kominikasyon biznis.">
+Multilingual document and communication assistance for business needs.
+</p>
+<a href="./translation-ai.html" class="btn outline">OPEN TRANSLATION</a>
+</div>
+
+</div>
+</section>
+
+
+<section class="action-box">
+
+<div class="eyebrow">
+MAXIMAX BUSINESS CENTER
+</div>
+
+<h2
+data-en="READY TO START YOUR BUSINESS?"
+data-es="¿LISTO PARA INICIAR SU NEGOCIO?"
+data-ht="OU PARE POU KÒMANSE BIZNIS OU?">
+READY TO START YOUR BUSINESS?
+</h2>
+
+<p
+data-en="Contact Maximax Multi Services for administrative business formation support, document organization and service navigation."
+data-es="Comuníquese con Maximax Multi Services para asistencia administrativa de formación empresarial, organización de documentos y orientación de servicios."
+data-ht="Kontakte Maximax Multi Services pou asistans administratif pou kreye biznis, òganize dokiman ak navige sèvis yo.">
+Contact Maximax Multi Services for administrative business formation support, document organization and service navigation.
+</p>
+
+<div class="hero-buttons">
+
+<a href="tel:+14076405166" class="btn primary">
+📞 (407) 640-5166
+</a>
+
+<a href="../index.html#contact" class="btn outline"
+data-en="CONTACT CENTER"
+data-es="CENTRO DE CONTACTO"
+data-ht="SANT KONTAK">
+CONTACT CENTER
+</a>
+
+</div>
+</section>
+
+
+<div class="notice">
+
+<strong>IMPORTANT:</strong>
+<span
+data-en="Maximax Multi Services provides administrative business-support and document-preparation services within the scope permitted by law. Business structure, licensing, tax and legal requirements vary by jurisdiction and circumstances. Services requiring an attorney, CPA, licensed financial professional or other licensed professional must be handled by an appropriately qualified provider."
+data-es="Maximax Multi Services ofrece servicios administrativos de apoyo empresarial y preparación de documentos dentro de lo permitido por la ley. Los requisitos de estructura comercial, licencias, impuestos y asuntos legales varían según la jurisdicción y las circunstancias."
+data-ht="Maximax Multi Services bay sèvis administratif pou sipò biznis ak preparasyon dokiman nan limit lalwa pèmèt. Kondisyon sou estrikti biznis, lisans, taks ak kestyon legal varye selon jiridiksyon ak sikonstans.">
+Maximax Multi Services provides administrative business-support and document-preparation services within the scope permitted by law. Business structure, licensing, tax and legal requirements vary by jurisdiction and circumstances.
+</span>
+
+</div>
+
+
+<div class="back-home">
+
+<a href="../index.html#services" class="btn outline"
+data-en="← BACK TO ALL SERVICES"
+data-es="← VOLVER A TODOS LOS SERVICIOS"
+data-ht="← RETOUNEN NAN TOUT SÈVIS YO">
+← BACK TO ALL SERVICES
+</a>
+
+</div>
+
+</div>
+</main>
+
+
+<footer>
+<div class="container">
+
+<div class="footer-logo">M</div>
+
+<h3>MAXIMAX MULTI SERVICES</h3>
+
+<p>
+PROFESSIONAL SERVICES • DIGITAL SOLUTIONS • AI ASSISTANCE
+</p>
+
+<p class="hub-link">
+Part of BSS1815 PRO-MAX DMP
+</p>
+
+<p>
+© <span id="currentYear"></span> Maximax Multi Services
+</p>
+
+</div>
+</footer>
+
+
+<script>
+(() => {
+  "use strict";
+
+  const menuToggle = document.getElementById("menuToggle");
+  const mainNav = document.getElementById("mainNav");
+  const langButtons = document.querySelectorAll(".lang-btn");
+  const translatedElements = document.querySelectorAll("[data-en]");
+  const year = document.getElementById("currentYear");
+
+  if(year){
+    year.textContent = new Date().getFullYear();
+  }
+
+  if(menuToggle && mainNav){
+    menuToggle.addEventListener("click", () => {
+      mainNav.classList.toggle("open");
+      menuToggle.textContent = mainNav.classList.contains("open") ? "✕" : "☰";
+    });
+
+    mainNav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mainNav.classList.remove("open");
+        menuToggle.textContent = "☰";
+      });
+    });
+  }
+
+  function setLanguage(lang){
+    const allowed = ["en","es","ht"];
+
+    if(!allowed.includes(lang)){
+      lang = "en";
+    }
+
+    document.documentElement.lang =
+      lang === "ht" ? "ht" :
+      lang === "es" ? "es" :
+      "en";
+
+    translatedElements.forEach(el => {
+      const value = el.getAttribute("data-" + lang);
+
+      if(value !== null && value !== ""){
+        el.textContent = value;
+      }
+    });
+
+    langButtons.forEach(button => {
+      button.classList.toggle(
+        "active",
+        button.dataset.lang === lang
+      );
+    });
+
+    try{
+      localStorage.setItem("maximaxLanguage",lang);
+    }catch(error){}
+  }
+
+  langButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      setLanguage(button.dataset.lang);
+    });
+  });
+
+  let savedLanguage = "en";
+
+  try{
+    const stored = localStorage.getItem("maximaxLanguage");
+
+    if(["en","es","ht"].includes(stored)){
+      savedLanguage = stored;
+    }
+  }catch(error){}
+
+  setLanguage(savedLanguage);
+
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener("click", event => {
+      const targetId = link.getAttribute("href");
+
+      if(!targetId || targetId === "#"){
+        return;
+      }
+
+      const target = document.querySelector(targetId);
+
+      if(target){
+        event.preventDefault();
+
+        target.scrollIntoView({
+          behavior:"smooth",
+          block:"start"
+        });
+      }
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>
