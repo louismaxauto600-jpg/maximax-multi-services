@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
+<meta name="google" content="notranslate">
+<title>About Us | Maximax Multi Services</title>
+<meta name="description" content="About Maximax Multi Services — multi-service support in English, Spanish and Haitian Creole. We are not attorneys and do not give legal advice.">
+<style>
+:root {
+  --orange:#ff7900;
+  --apricot:#ffad4d;
+  --black:#000;
+  --deep:#050200;
+  --soft:#120600;
+  --text:#ffd2a3;
+  --muted:#d89558;
+  --border:rgba(255,121,0,.48);
+  --glow:rgba(255,121,0,.30);
+}
+
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html {
+  scroll-behavior:smooth;
+  background:#000;
+  scroll-padding-top:100px;
+}
+
+body {
+  min-height:100vh;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:radial-gradient(circle at 15% 5%,rgba(255,121,0,.12),transparent 25%),radial-gradient(circle at 90% 30%,rgba(255,173,77,.07),transparent 25%),linear-gradient(180deg,#000,#050200 55%,#000);
+}
+
+a {
+  text-decoration:none;
+  color:inherit;
+}
+
+button,input {
+  font:inherit;
+}
+
+.container {
+  width:min(1180px,94%);
+  margin:auto;
+}
+
+.topbar {
+  padding:9px 12px;
+  text-align:center;
+  color:#000;
+  background:linear-gradient(90deg,var(--orange),var(--apricot),var(--orange));
+  font-size:10px;
+  font-weight:1000;
+  letter-spacing:1px;
+}
+
+header {
+  position:sticky;
+  top:0;
+  z-index:1000;
+  border-bottom:1px solid rgba(255,121,0,.30);
+  background:rgba(0,0,0,.96);
+  backdrop-filter:blur(15px);
+}
+
+.header-inner {
+  min-height:86px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+
+.brand {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex:1 1 auto;
+  min-width:0;
+}
+
+.brand-logo {
+  width:64px;
+  height:64px;
+  object-fit:cover;
+  border:2px solid var(--orange);
+  border-radius:18px;
+  box-shadow:0 0 20px var(--glow);
+}
+
+.brand-copy {
+  min-width:0;
+  overflow:hidden;
+}
+
+.brand-copy h1 {
+  color:var(--orange);
+  font-size:15px;
+  font-weight:1000;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.brand-copy p {
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  margin-top:4px;
+  color:var(--apricot);
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.8px;
+}
+
+.header-actions {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex:0 0 auto;
+}
+
+.languages {
+  display:flex;
+  gap:4px;
+  padding:4px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:#080300;
+}
+
+.lang-btn {
+  min-height:36px;
+  padding:6px 11px;
+  border:1px solid transparent;
+  border-radius:999px;
+  color:var(--apricot);
+  background:#000;
+  cursor:pointer;
+  font-size:10px;
+  font-weight:1000;
+}
+
+.lang-btn.active {
+  color:#000;
+  border-color:var(--orange);
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+}
+
+.menu-btn {
+  width:52px;
+  height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:2px solid var(--orange);
+  border-radius:14px;
+  color:var(--orange);
+  background:#000;
+  font-size:27px;
+  cursor:pointer;
+}
+
+.mobile-menu {
+  display:none;
+  padding:0 0 15px;
+}
+
+.mobile-menu.open {
+  display:block;
+}
+
+.mobile-menu a {
+  display:block;
+  margin-top:7px;
+  padding:13px 15px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  color:var(--apricot);
+  background:#080300;
+  font-size:11px;
+  font-weight:900;
+}
+
+.hero {
+  padding:62px 0 42px;
+  text-align:center;
+}
+
+.hero-badge {
+  display:inline-block;
+  padding:8px 15px;
+  border:1px solid var(--orange);
+  border-radius:999px;
+  color:var(--orange);
+  background:rgba(255,121,0,.06);
+  font-size:10px;
+  font-weight:1000;
+}
+
+.hero h2 {
+  margin-top:20px;
+  color:var(--orange);
+  font-size:clamp(38px,7vw,64px);
+  line-height:1.05;
+  font-weight:1000;
+}
+
+.hero p {
+  max-width:820px;
+  margin:22px auto 0;
+  color:var(--text);
+  font-size:16px;
+  line-height:1.8;
+}
+
+.search-wrap {
+  max-width:760px;
+  margin:30px auto 0;
+}
+
+.search-wrap input {
+  width:100%;
+  min-height:56px;
+  padding:15px 20px;
+  border:2px solid var(--orange);
+  border-radius:999px;
+  outline:none;
+  color:var(--text);
+  background:#050200;
+}
+
+.search-wrap input::placeholder {
+  color:#a66b39;
+}
+
+.no-results {
+  display:none;
+  max-width:760px;
+  margin:18px auto 0;
+  padding:14px 18px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  color:var(--apricot);
+  font-size:12px;
+  text-align:center;
+}
+
+.no-results.show {
+  display:block;
+}
+
+.section {
+  padding:25px 0 60px;
+}
+
+.section-title {
+  margin-bottom:22px;
+}
+
+.section-title small {
+  color:var(--apricot);
+  font-size:10px;
+  font-weight:1000;
+}
+
+.section-title h3 {
+  margin-top:6px;
+  color:var(--orange);
+  font-size:30px;
+  font-weight:1000;
+}
+
+.service-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.service-card {
+  padding:28px;
+  border:1px solid var(--border);
+  border-radius:28px;
+  background:radial-gradient(circle at 100% 0%,rgba(255,121,0,.09),transparent 35%),linear-gradient(145deg,#0c0400,#000);
+  box-shadow:0 8px 28px rgba(255,121,0,.05);
+}
+
+.service-code {
+  color:var(--orange);
+  font-size:11px;
+  font-weight:1000;
+}
+
+.service-icon {
+  margin-top:24px;
+  font-size:35px;
+}
+
+.service-card h4 {
+  margin-top:22px;
+  color:var(--orange);
+  font-size:21px;
+  font-weight:1000;
+}
+
+.service-card>p {
+  margin-top:16px;
+  color:var(--text);
+  font-size:13px;
+  line-height:1.7;
+}
+
+.forms-box {
+  margin-top:22px;
+  padding-top:18px;
+  border-top:1px solid rgba(255,121,0,.25);
+}
+
+.forms-label {
+  margin-bottom:12px;
+  color:var(--apricot);
+  font-size:10px;
+  font-weight:1000;
+  letter-spacing:.8px;
+}
+
+.form-row {
+  margin-top:10px;
+  padding:14px;
+  border:1px solid rgba(255,121,0,.30);
+  border-radius:16px;
+  background:#050200;
+}
+
+.form-number {
+  color:var(--orange);
+  font-size:15px;
+  font-weight:1000;
+}
+
+.form-name {
+  margin-top:4px;
+  color:var(--text);
+  font-size:10px;
+  line-height:1.4;
+}
+
+.form-actions {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:12px;
+}
+
+.form-actions.single {
+  grid-template-columns:1fr;
+}
+
+.form-btn {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:8px 10px;
+  border:2px solid var(--orange);
+  border-radius:999px;
+  color:var(--orange);
+  background:#000;
+  text-align:center;
+  font-size:9px;
+  font-weight:1000;
+  cursor:pointer;
+}
+
+.form-btn:hover,.form-btn:focus {
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+}
+
+.form-btn.primary {
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+}
+
+.eoir-center {
+  margin-top:20px;
+  padding:25px;
+  border:2px solid var(--orange);
+  border-radius:24px;
+  background:radial-gradient(circle at 50% 0%,rgba(255,121,0,.15),transparent 40%),#000;
+}
+
+.eoir-center h4 {
+  color:var(--orange);
+  font-size:22px;
+}
+
+.eoir-center>p {
+  margin-top:10px;
+  line-height:1.7;
+  font-size:12px;
+}
+
+.eoir-list {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-top:20px;
+}
+
+.eoir-list .form-row {
+  margin-top:0;
+}
+
+.eoir-all {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-top:16px;
+}
+
+.notice {
+  margin:0 0 60px;
+  padding:22px;
+  border:1px solid var(--orange);
+  border-radius:20px;
+  background:linear-gradient(145deg,rgba(255,121,0,.08),#000);
+  font-size:11px;
+  line-height:1.7;
+}
+
+.notice strong {
+  color:var(--orange);
+}
+
+footer {
+  padding:40px 15px;
+  border-top:1px solid var(--border);
+  text-align:center;
+  background:#000;
+}
+
+footer strong {
+  color:var(--orange);
+}
+
+footer p {
+  margin-top:7px;
+  color:var(--apricot);
+  font-size:10px;
+}
+
+@media(max-width:800px) {
+  .service-grid,.eoir-list,.eoir-all {
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:600px) {
+  .header-inner {
+    min-height:78px;
+  }
+  .brand-logo {
+    width:52px;
+    height:52px;
+  }
+  .brand-copy h1 {
+    max-width:180px;
+    font-size:11px;
+  }
+  .brand-copy p {
+    font-size:7px;
+  }
+  .lang-btn {
+    min-height:33px;
+    padding:5px 8px;
+    font-size:8px;
+  }
+  .menu-btn {
+    width:48px;
+    height:44px;
+  }
+  .hero {
+    padding-top:52px;
+  }
+  .hero p {
+    font-size:14px;
+  }
+  .service-card {
+    padding:22px;
+  }
+  .form-actions {
+    grid-template-columns:1fr;
+  }
+}
+
+.wrap{max-width:1000px;margin:0 auto}
+.banner{margin:0 0 34px;padding:16px 20px;border:2px solid var(--orange);border-radius:18px;background:linear-gradient(145deg,rgba(255,121,0,.14),#000);color:var(--apricot);font-size:13px;font-weight:1000;line-height:1.6;text-align:center}
+.block2{margin-bottom:46px}
+.h3{color:var(--orange);font-size:26px;font-weight:1000;margin-bottom:14px}
+.p{color:var(--text);font-size:14px;line-height:1.85;margin-bottom:12px}
+.mission{margin:22px 0 0;padding:22px;border-left:4px solid var(--orange);border-radius:14px;background:rgba(255,121,0,.07)}
+.mission b{display:block;color:var(--orange);font-size:12px;letter-spacing:1px;margin-bottom:8px}
+.vals{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+.val{padding:20px;border:1px solid var(--border);border-radius:20px;background:linear-gradient(145deg,#100500,#000)}
+.val b{display:block;color:var(--orange);font-size:13px;letter-spacing:.8px;margin-bottom:8px}
+.val span{color:var(--text);font-size:12px;line-height:1.6}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.list-card{padding:24px;border:1px solid var(--border);border-radius:22px;background:linear-gradient(145deg,#0d0400,#000)}
+.list-card h3{color:var(--orange);font-size:16px;margin-bottom:14px}
+.list-card ul{list-style:none}
+.list-card li{position:relative;padding:8px 0 8px 26px;color:var(--text);font-size:13px;line-height:1.6;border-bottom:1px solid rgba(255,121,0,.12)}
+.list-card li:last-child{border-bottom:none}
+.list-card.yes li::before{content:"✓";position:absolute;left:0;color:var(--orange);font-weight:1000}
+.list-card.no{border-color:rgba(255,121,0,.7)}
+.list-card.no li::before{content:"✕";position:absolute;left:0;color:var(--apricot);font-weight:1000}
+.notice-big{padding:28px;border:2px solid var(--orange);border-radius:24px;background:radial-gradient(circle at 50% 0%,rgba(255,121,0,.15),transparent 45%),#000}
+.notice-big h3{color:var(--orange);font-size:20px;margin-bottom:14px}
+.notice-big p{color:var(--text);font-size:13px;line-height:1.85;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:9px}
+.chip{min-height:42px;padding:10px 16px;border:1px solid var(--border);border-radius:999px;color:var(--apricot);background:#050200;font-size:11px;font-weight:1000}
+.chip:hover{border-color:var(--orange);color:#000;background:linear-gradient(135deg,var(--orange),var(--apricot))}
+.cta{text-align:center;padding:34px 22px;border:1px solid var(--border);border-radius:26px;background:linear-gradient(145deg,#100500,#000)}
+.cta .form-actions{grid-template-columns:repeat(4,1fr);max-width:900px;margin:18px auto 0}
+@media(max-width:800px){.vals{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}.cta .form-actions{grid-template-columns:1fr}}
+@media(max-width:480px){.vals{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+<div class="topbar" data-i18n="top">MAXIMAX MULTI SERVICES • ABOUT US</div>
+<header>
+<div class="container header-inner">
+<a class="brand" href="../index.html">
+<img class="brand-logo" src="../maximax-logo.jpg?v=20260918" alt="Maximax Multi Services" onerror="this.onerror=null;this.style.display='none'">
+<div class="brand-copy"><h1>MAXIMAX MULTI SERVICES</h1><p data-i18n="part_of">PART OF BSS1815 PRO-MAX DMP</p></div>
+</a>
+<div class="header-actions">
+<div class="languages notranslate" translate="no">
+<button type="button" class="lang-btn active" data-lang="en">🇺🇸 ENG</button>
+<button type="button" class="lang-btn" data-lang="es">🇪🇸 ESP</button>
+<button type="button" class="lang-btn" data-lang="ht">🇭🇹 KRE</button>
+</div>
+<button type="button" class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">☰</button>
+</div>
+</div>
+<div class="container mobile-menu" id="mobileMenu">
+<a href="../index.html" data-i18n="home">HOME</a>
+<a href="#who" data-i18n="m_who">WHO WE ARE</a>
+<a href="#do" data-i18n="m_do">WHAT WE DO</a>
+<a href="#notice" data-i18n="m_notice">IMPORTANT NOTICE</a>
+<a href="#services" data-i18n="m_serv">SERVICES</a>
+<a href="./contact-center.html" data-i18n="contact">CONTACT CENTER</a>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="container">
+<div class="hero-badge" data-i18n="badge">ABOUT MAXIMAX</div>
+<h2 data-i18n="title">ABOUT US</h2>
+<p data-i18n="sub">Professional services, digital solutions and guided document support — in English, Spanish and Haitian Creole.</p>
+</div>
+</section>
+
+<div class="container wrap">
+<div class="banner" data-i18n="banner">We are NOT attorneys. We only help with the preparation of documents and administrative support for the services we offer. We do not give legal advice.</div>
+
+<section class="block2" id="who">
+<div class="h3" data-i18n="who_h">WHO WE ARE</div>
+<p class="p" data-i18n="who_p1">Maximax Multi Services is a multi-service business that helps individuals, families and small businesses with everyday paperwork and administrative needs. We are part of the BSS1815 PRO-MAX DMP platform.</p>
+<p class="p" data-i18n="who_p2">From notary services and tax support to immigration forms, passports, DMV information, insurance, real estate paperwork and business setup, our goal is to make important processes clearer, faster and less stressful.</p>
+<div class="mission"><b data-i18n="mis_h">OUR MISSION</b><span class="p" data-i18n="mis_p">To give every client clear, respectful and reliable help with their documents and services — in the language they are most comfortable with.</span></div>
+<div class="vals"><div class="val"><b data-i18n="v1_t">CLARITY</b><span data-i18n="v1_d">Plain-language guidance so you understand each step.</span></div><div class="val"><b data-i18n="v2_t">RESPECT</b><span data-i18n="v2_d">Every client is treated with dignity and patience.</span></div><div class="val"><b data-i18n="v3_t">3 LANGUAGES</b><span data-i18n="v3_d">English, Spanish and Haitian Creole.</span></div><div class="val"><b data-i18n="v4_t">PRIVACY</b><span data-i18n="v4_d">We handle your information with care.</span></div></div>
+</section>
+
+<section class="block2" id="do">
+<div class="two">
+<div class="list-card yes"><h3 data-i18n="do_h">WHAT WE DO</h3><ul><li data-i18n="do1">Guided document preparation and form assistance</li><li data-i18n="do2">Direct access to official government forms and links</li><li data-i18n="do3">Notary services within what the law permits</li><li data-i18n="do4">Administrative and clerical support</li><li data-i18n="do5">Appointment scheduling and service requests</li><li data-i18n="do6">Translation assistance and digital tools</li></ul></div>
+<div class="list-card no"><h3 data-i18n="dont_h">WHAT WE DO NOT DO</h3><ul><li data-i18n="dont1">We are not attorneys and we are not a law firm</li><li data-i18n="dont2">We do not give legal advice or legal opinions</li><li data-i18n="dont3">We do not act as your legal representative</li><li data-i18n="dont4">We do not decide which form or option is right for your case</li><li data-i18n="dont5">We do not guarantee approvals, results or processing times</li></ul></div>
+</div>
+</section>
+
+<section class="block2" id="notice">
+<div class="notice-big">
+<h3 data-i18n="n_h">⚖️ IMPORTANT NOTICE</h3>
+<p data-i18n="n_p1">Maximax Multi Services is NOT a law firm, and our staff are NOT attorneys. We only help with the preparation of documents, forms and administrative support for the services we offer.</p>
+<p data-i18n="n_p2">Nothing on this website or provided by our staff is legal advice or creates an attorney–client relationship. For legal advice about your specific situation — including immigration, court, family law or contract matters — please consult a licensed attorney.</p>
+<p data-i18n="n_p3">Government agencies can change forms, fees and rules at any time. Always verify the current information on the official agency website before filing.</p>
+</div>
+</section>
+
+<section class="block2" id="services">
+<div class="h3" data-i18n="sv_h">OUR SERVICES</div>
+<div class="chips"><a class="chip" href="./notary.html" data-i18n="sv0">Notary Services</a><a class="chip" href="./taxes.html" data-i18n="sv1">Tax Services</a><a class="chip" href="./immigration-services.html" data-i18n="sv2">Immigration Services</a><a class="chip" href="./immigration-services.html#eoirForms" data-i18n="sv3">EOIR + BIA</a><a class="chip" href="./insurance.html" data-i18n="sv4">Insurance</a><a class="chip" href="./real-estate.html" data-i18n="sv5">Real Estate</a><a class="chip" href="./business.html" data-i18n="sv6">Business Services</a><a class="chip" href="./apostille.html" data-i18n="sv7">Apostille</a><a class="chip" href="./travel-dmv.html" data-i18n="sv8">Travel + DMV</a><a class="chip" href="./government-forms.html" data-i18n="sv9">Government Forms</a><a class="chip" href="./form-helper.html" data-i18n="sv10">Form Help Center</a><a class="chip" href="./translation-ai.html" data-i18n="sv11">AI Translation</a><a class="chip" href="./credit-repair.html" data-i18n="sv12">Credit Repair</a><a class="chip" href="./ai-center.html" data-i18n="sv13">AI Center</a></div>
+</section>
+
+<section class="block2">
+<div class="cta">
+<div class="h3" data-i18n="cta_h">READY TO GET STARTED?</div>
+<p class="p" data-i18n="cta_p">Book an appointment or send us a service request. Our team will contact you.</p>
+<div class="form-actions">
+<a class="form-btn primary" href="./appointment-center.html" data-i18n="b_appt">📅 BOOK APPOINTMENT</a>
+<a class="form-btn" href="./service-request-center.html" data-i18n="b_req">📬 SERVICE REQUEST</a>
+<a class="form-btn" href="./contact-center.html" data-i18n="b_contact">☎️ CONTACT CENTER</a>
+<a class="form-btn" href="tel:+14076405166" data-i18n="b_call">📞 (407) 640-5166</a>
+</div>
+</div>
+</section>
+</div>
+</main>
+<footer>
+<strong>MAXIMAX MULTI SERVICES</strong>
+<p data-i18n="part_of">PART OF BSS1815 PRO-MAX DMP</p>
+<p data-i18n="foot_n">Maximax Multi Services is not a law firm and does not provide legal advice.</p>
+<p>bss1815promaxdmp@gmail.com</p>
+<p>(407) 640-5166 • (317) 538-1150 • (516) 216-8494</p>
+<p>© <span id="year"></span> MAXIMAX MULTI SERVICES</p>
+<p style="opacity:.55">ABOUT US VERSION 2026.09.19-A</p>
+</footer>
+<script>
+(function(){
+"use strict";
+var I18N = {"en": {"part_of": "PART OF BSS1815 PRO-MAX DMP", "home": "HOME", "contact": "CONTACT CENTER", "m_who": "WHO WE ARE", "m_do": "WHAT WE DO", "m_notice": "IMPORTANT NOTICE", "m_serv": "SERVICES", "top": "MAXIMAX MULTI SERVICES • ABOUT US", "badge": "ABOUT MAXIMAX", "title": "ABOUT US", "sub": "Professional services, digital solutions and guided document support — in English, Spanish and Haitian Creole.", "banner": "We are NOT attorneys. We only help with the preparation of documents and administrative support for the services we offer. We do not give legal advice.", "who_h": "WHO WE ARE", "who_p1": "Maximax Multi Services is a multi-service business that helps individuals, families and small businesses with everyday paperwork and administrative needs. We are part of the BSS1815 PRO-MAX DMP platform.", "who_p2": "From notary services and tax support to immigration forms, passports, DMV information, insurance, real estate paperwork and business setup, our goal is to make important processes clearer, faster and less stressful.", "mis_h": "OUR MISSION", "mis_p": "To give every client clear, respectful and reliable help with their documents and services — in the language they are most comfortable with.", "v1_t": "CLARITY", "v1_d": "Plain-language guidance so you understand each step.", "v2_t": "RESPECT", "v2_d": "Every client is treated with dignity and patience.", "v3_t": "3 LANGUAGES", "v3_d": "English, Spanish and Haitian Creole.", "v4_t": "PRIVACY", "v4_d": "We handle your information with care.", "do_h": "WHAT WE DO", "do1": "Guided document preparation and form assistance", "do2": "Direct access to official government forms and links", "do3": "Notary services within what the law permits", "do4": "Administrative and clerical support", "do5": "Appointment scheduling and service requests", "do6": "Translation assistance and digital tools", "dont_h": "WHAT WE DO NOT DO", "dont1": "We are not attorneys and we are not a law firm", "dont2": "We do not give legal advice or legal opinions", "dont3": "We do not act as your legal representative", "dont4": "We do not decide which form or option is right for your case", "dont5": "We do not guarantee approvals, results or processing times", "n_h": "IMPORTANT NOTICE", "n_p1": "Maximax Multi Services is NOT a law firm, and our staff are NOT attorneys. We only help with the preparation of documents, forms and administrative support for the services we offer.", "n_p2": "Nothing on this website or provided by our staff is legal advice or creates an attorney–client relationship. For legal advice about your specific situation — including immigration, court, family law or contract matters — please consult a licensed attorney.", "n_p3": "Government agencies can change forms, fees and rules at any time. Always verify the current information on the official agency website before filing.", "sv_h": "OUR SERVICES", "sv0": "Notary Services", "sv1": "Tax Services", "sv2": "Immigration Services", "sv3": "EOIR + BIA", "sv4": "Insurance", "sv5": "Real Estate", "sv6": "Business Services", "sv7": "Apostille", "sv8": "Travel + DMV", "sv9": "Government Forms", "sv10": "Form Help Center", "sv11": "AI Translation", "sv12": "Credit Repair", "sv13": "AI Center", "cta_h": "READY TO GET STARTED?", "cta_p": "Book an appointment or send us a service request. Our team will contact you.", "b_appt": "📅 BOOK APPOINTMENT", "b_req": "📬 SERVICE REQUEST", "b_contact": "☎️ CONTACT CENTER", "b_call": "📞 (407) 640-5166", "foot_n": "Maximax Multi Services is not a law firm and does not provide legal advice."}, "es": {"part_of": "PARTE DE BSS1815 PRO-MAX DMP", "home": "INICIO", "contact": "CENTRO DE CONTACTO", "m_who": "QUIÉNES SOMOS", "m_do": "QUÉ HACEMOS", "m_notice": "AVISO IMPORTANTE", "m_serv": "SERVICIOS", "top": "MAXIMAX MULTI SERVICES • SOBRE NOSOTROS", "badge": "ACERCA DE MAXIMAX", "title": "SOBRE NOSOTROS", "sub": "Servicios profesionales, soluciones digitales y apoyo guiado con documentos — en inglés, español y criollo haitiano.", "banner": "NO somos abogados. Solo ayudamos con la preparación de documentos y el apoyo administrativo de los servicios que ofrecemos. No damos asesoría legal.", "who_h": "QUIÉNES SOMOS", "who_p1": "Maximax Multi Services es un negocio de servicios múltiples que ayuda a individuos, familias y pequeños negocios con trámites y necesidades administrativas del día a día. Somos parte de la plataforma BSS1815 PRO-MAX DMP.", "who_p2": "Desde servicios notariales y apoyo con impuestos hasta formularios de inmigración, pasaportes, información del DMV, seguros, trámites de bienes raíces y creación de negocios, nuestro objetivo es hacer los procesos importantes más claros, rápidos y menos estresantes.", "mis_h": "NUESTRA MISIÓN", "mis_p": "Brindar a cada cliente ayuda clara, respetuosa y confiable con sus documentos y servicios — en el idioma con el que se sienta más cómodo.", "v1_t": "CLARIDAD", "v1_d": "Orientación en lenguaje sencillo para que entienda cada paso.", "v2_t": "RESPETO", "v2_d": "Cada cliente es tratado con dignidad y paciencia.", "v3_t": "3 IDIOMAS", "v3_d": "Inglés, español y criollo haitiano.", "v4_t": "PRIVACIDAD", "v4_d": "Manejamos su información con cuidado.", "do_h": "QUÉ HACEMOS", "do1": "Preparación guiada de documentos y ayuda con formularios", "do2": "Acceso directo a formularios y enlaces oficiales del gobierno", "do3": "Servicios notariales dentro de lo que permite la ley", "do4": "Apoyo administrativo y de oficina", "do5": "Programación de citas y solicitudes de servicio", "do6": "Asistencia de traducción y herramientas digitales", "dont_h": "QUÉ NO HACEMOS", "dont1": "No somos abogados ni un bufete de abogados", "dont2": "No damos asesoría legal ni opiniones legales", "dont3": "No actuamos como su representante legal", "dont4": "No decidimos qué formulario u opción es correcta para su caso", "dont5": "No garantizamos aprobaciones, resultados ni tiempos de trámite", "n_h": "AVISO IMPORTANTE", "n_p1": "Maximax Multi Services NO es un bufete de abogados y nuestro personal NO son abogados. Solo ayudamos con la preparación de documentos, formularios y el apoyo administrativo de los servicios que ofrecemos.", "n_p2": "Nada en este sitio web ni lo que proporcione nuestro personal es asesoría legal ni crea una relación abogado-cliente. Para asesoría legal sobre su situación específica — incluyendo inmigración, tribunales, derecho de familia o contratos — consulte a un abogado con licencia.", "n_p3": "Las agencias gubernamentales pueden cambiar formularios, tarifas y reglas en cualquier momento. Siempre verifique la información vigente en el sitio web oficial de la agencia antes de presentar.", "sv_h": "NUESTROS SERVICIOS", "sv0": "Servicios Notariales", "sv1": "Servicios de Impuestos", "sv2": "Servicios de Inmigración", "sv3": "EOIR + BIA", "sv4": "Seguros", "sv5": "Bienes Raíces", "sv6": "Servicios Empresariales", "sv7": "Apostilla", "sv8": "Viaje + DMV", "sv9": "Formularios del Gobierno", "sv10": "Centro de Formularios", "sv11": "Traducción IA", "sv12": "Reparación de Crédito", "sv13": "Centro IA", "cta_h": "¿LISTO PARA COMENZAR?", "cta_p": "Reserve una cita o envíenos una solicitud de servicio. Nuestro equipo se pondrá en contacto.", "b_appt": "📅 RESERVAR CITA", "b_req": "📬 SOLICITUD DE SERVICIO", "b_contact": "☎️ CENTRO DE CONTACTO", "b_call": "📞 (407) 640-5166", "foot_n": "Maximax Multi Services no es un bufete de abogados y no ofrece asesoría legal."}, "ht": {"part_of": "PATI NAN BSS1815 PRO-MAX DMP", "home": "AKÈY", "contact": "SANT KONTAK", "m_who": "KI MOUN NOU YE", "m_do": "SA NOU FÈ", "m_notice": "AVI ENPÒTAN", "m_serv": "SÈVIS", "top": "MAXIMAX MULTI SERVICES • DEPI NOU", "badge": "DEPI MAXIMAX", "title": "DEPI NOU", "sub": "Sèvis pwofesyonèl, solisyon dijital ak sipò gide pou dokiman — an anglè, panyòl ak kreyòl ayisyen.", "banner": "NOU PA AVOKA. Nou sèlman ede ak preparasyon dokiman ak sipò administratif pou sèvis nou ofri yo. Nou pa bay konsèy legal.", "who_h": "KI MOUN NOU YE", "who_p1": "Maximax Multi Services se yon biznis plizyè sèvis ki ede moun, fanmi ak ti biznis ak papye ak bezwen administratif chak jou. Nou fè pati platfòm BSS1815 PRO-MAX DMP.", "who_p2": "Depi sèvis notè ak sipò taks rive nan fòm imigrasyon, paspò, enfòmasyon DMV, asirans, papye imobilye ak kreyasyon biznis, objektif nou se fè pwosesis enpòtan yo pi klè, pi rapid epi mwens estresan.", "mis_h": "MISYON NOU", "mis_p": "Bay chak kliyan yon èd klè, ki gen respè epi ki serye ak dokiman ak sèvis yo — nan lang yo pi alèz ak li a.", "v1_t": "KLARTE", "v1_d": "Gid nan lang senp pou ou konprann chak etap.", "v2_t": "RESPÈ", "v2_d": "Chak kliyan resevwa dignite ak pasyans.", "v3_t": "3 LANG", "v3_d": "Anglè, panyòl ak kreyòl ayisyen.", "v4_t": "PRIVASI", "v4_d": "Nou jere enfòmasyon ou ak prekosyon.", "do_h": "SA NOU FÈ", "do1": "Preparasyon dokiman gide ak èd ak fòm", "do2": "Aksè dirèk sou fòm ak lyen ofisyèl gouvènman", "do3": "Sèvis notè nan sa lalwa pèmèt", "do4": "Sipò administratif ak biwo", "do5": "Pwogramasyon randevou ak demann sèvis", "do6": "Èd tradiksyon ak zouti dijital", "dont_h": "SA NOU PA FÈ", "dont1": "Nou pa avoka e nou pa yon kabinè avoka", "dont2": "Nou pa bay konsèy legal ni opinyon legal", "dont3": "Nou pa aji kòm reprezantan legal ou", "dont4": "Nou pa deside ki fòm oswa ki opsyon ki bon pou ka ou", "dont5": "Nou pa garanti apwobasyon, rezilta ni tan tretman", "n_h": "AVI ENPÒTAN", "n_p1": "Maximax Multi Services PA yon kabinè avoka, e anplwaye nou yo PA avoka. Nou sèlman ede ak preparasyon dokiman, fòm ak sipò administratif pou sèvis nou ofri yo.", "n_p2": "Anyen sou sit entènèt sa a ni sa anplwaye nou yo bay pa yon konsèy legal ni kreye yon relasyon avoka-kliyan. Pou konsèy legal sou sitiyasyon espesifik ou — ki gen ladan imigrasyon, tribinal, dwa fanmi oswa kontra — tanpri konsilte yon avoka ki gen lisans.", "n_p3": "Ajans gouvènman yo ka chanje fòm, frè ak règ nenpòt ki lè. Toujou verifye enfòmasyon aktyèl la sou sit ofisyèl ajans lan anvan ou depoze.", "sv_h": "SÈVIS NOU YO", "sv0": "Sèvis Notè", "sv1": "Sèvis Taks", "sv2": "Sèvis Imigrasyon", "sv3": "EOIR + BIA", "sv4": "Asirans", "sv5": "Imobilye", "sv6": "Sèvis Biznis", "sv7": "Apostille", "sv8": "Vwayaj + DMV", "sv9": "Fòm Gouvènman", "sv10": "Sant Èd Fòm", "sv11": "Tradiksyon AI", "sv12": "Reparasyon Kredi", "sv13": "AI Center", "cta_h": "PARE POU KÒMANSE?", "cta_p": "Rezève yon randevou oswa voye yon demann sèvis ban nou. Ekip nou an ap kontakte ou.", "b_appt": "📅 REZÈVE RANDEVOU", "b_req": "📬 DEMANN SÈVIS", "b_contact": "☎️ SANT KONTAK", "b_call": "📞 (407) 640-5166", "foot_n": "Maximax Multi Services pa yon kabinè avoka e li pa bay konsèy legal."}};
+document.getElementById("year").textContent = new Date().getFullYear();
+var menuBtn = document.getElementById("menuBtn"), mobileMenu = document.getElementById("mobileMenu");
+function closeMenu(){ mobileMenu.classList.remove("open"); menuBtn.textContent="☰"; menuBtn.setAttribute("aria-expanded","false"); }
+menuBtn.addEventListener("click", function(){ var o = mobileMenu.classList.toggle("open"); menuBtn.textContent = o ? "✕" : "☰"; menuBtn.setAttribute("aria-expanded", o ? "true" : "false"); });
+mobileMenu.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", closeMenu); });
+var keyed = document.querySelectorAll("[data-i18n]"), langButtons = document.querySelectorAll(".lang-btn");
+function setLanguage(lang){
+  if(["en","es","ht"].indexOf(lang) === -1) lang = "en";
+  document.documentElement.lang = lang;
+  keyed.forEach(function(el){ var v = (I18N[lang] || I18N.en)[el.dataset.i18n]; if(v === undefined) v = I18N.en[el.dataset.i18n]; if(v === undefined) return; el.textContent = (el.dataset.i18n === "n_h" ? "⚖️ " : "") + v; });
+  langButtons.forEach(function(b){ var a = b.dataset.lang === lang; b.classList.toggle("active", a); b.setAttribute("aria-pressed", a ? "true" : "false"); });
+  try{ localStorage.setItem("maximaxLanguage", lang); }catch(e){}
+}
+langButtons.forEach(function(b){ b.addEventListener("click", function(){ setLanguage(b.dataset.lang); }); });
+var saved = "en"; try{ saved = localStorage.getItem("maximaxLanguage") || "en"; }catch(e){}
+setLanguage(saved);
+})();
+</script>
+</body>
+</html>
