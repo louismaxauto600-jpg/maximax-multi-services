@@ -8,35 +8,11 @@
 
 <meta name="description" content="Maximax Multi Services — Professional Services, Digital Solutions and AI Assistance. Part of BSS1815 PRO-MAX DMP.">
 
-<link rel="stylesheet" href="./style.css?v=20260917">
-
 <style>
-/* =========================================================
-   MAXIMAX MULTI SERVICES
-   HOMEPAGE EMERGENCY RESTORE
-   ORANGE APRICOT + BLACK — NO WHITE
-========================================================= */
-
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-  background:#000;
-}
-
-body{
-  min-height:100vh;
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  color:#ffd2a3;
-  background:
-    radial-gradient(circle at 15% 5%,rgba(255,121,0,.18),transparent 30%),
-    radial-gradient(circle at 85% 20%,rgba(255,173,77,.10),transparent 28%),
-    linear-gradient(180deg,#000,#050200 48%,#120600 100%);
 }
 
 :root{
@@ -50,6 +26,22 @@ body{
   --muted:#d89558;
   --border:rgba(255,121,0,.48);
   --glow:rgba(255,121,0,.30);
+}
+
+html{
+  scroll-behavior:smooth;
+  background:#000;
+}
+
+body{
+  min-height:100vh;
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 15% 5%,rgba(255,121,0,.18),transparent 30%),
+    radial-gradient(circle at 85% 20%,rgba(255,173,77,.10),transparent 28%),
+    linear-gradient(180deg,#000,#050200 48%,#120600 100%);
 }
 
 a{
@@ -71,7 +63,7 @@ img{
 }
 
 .section{
-  padding:80px 0;
+  padding:78px 0;
 }
 
 .section-title{
@@ -92,19 +84,15 @@ img{
   line-height:1.7;
 }
 
-/* TOP BAR */
-
 .top-bar{
   padding:9px 15px;
   text-align:center;
   color:#000;
-  background:linear-gradient(90deg,#ff7900,#ffad4d,#ff7900);
+  background:linear-gradient(90deg,var(--orange),var(--apricot),var(--orange));
   font-size:12px;
   font-weight:1000;
   letter-spacing:1.5px;
 }
-
-/* HEADER */
 
 .site-header{
   position:sticky;
@@ -116,7 +104,7 @@ img{
 }
 
 .header-inner{
-  min-height:92px;
+  min-height:90px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -143,10 +131,6 @@ img{
   box-shadow:0 0 20px rgba(255,121,0,.48);
 }
 
-.brand-text{
-  min-width:0;
-}
-
 .brand-title{
   color:var(--orange);
   font-size:18px;
@@ -165,7 +149,7 @@ img{
 .header-actions{
   display:flex;
   align-items:center;
-  gap:13px;
+  gap:12px;
 }
 
 .language-switcher{
@@ -208,8 +192,6 @@ img{
   font-size:22px;
 }
 
-/* NAV */
-
 .main-nav{
   border-top:1px solid rgba(255,121,0,.16);
 }
@@ -227,14 +209,11 @@ img{
   font-size:12px;
   font-weight:1000;
   letter-spacing:.8px;
-  transition:.2s ease;
 }
 
 .nav-link:hover{
   color:var(--orange);
 }
-
-/* HERO */
 
 .hero{
   position:relative;
@@ -327,8 +306,6 @@ img{
   box-shadow:0 0 25px rgba(255,121,0,.35);
 }
 
-/* STATS */
-
 .hero-stats{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -349,6 +326,11 @@ img{
   box-shadow:0 12px 40px rgba(0,0,0,.45);
 }
 
+.stat-card:hover{
+  border-color:var(--orange);
+  transform:translateY(-3px);
+}
+
 .stat-number{
   color:var(--orange);
   font-size:31px;
@@ -364,27 +346,21 @@ img{
   letter-spacing:1px;
 }
 
-/* VIDEO */
-
-.maximax-video-wrapper{
+.video-wrap{
   position:relative;
-  width:100%;
-  max-width:1180px;
+  width:min(1180px,92%);
   margin:15px auto 65px;
   overflow:hidden;
   background:#000;
   border:3px solid var(--orange);
   border-radius:26px;
-  box-shadow:
-    0 0 25px rgba(255,121,0,.45),
-    0 0 65px rgba(255,121,0,.15);
+  box-shadow:0 0 25px rgba(255,121,0,.45),0 0 65px rgba(255,121,0,.15);
 }
 
-.maximax-main-video{
+.main-video{
   display:block;
   width:100%;
   height:auto;
-  margin:0;
   background:#000;
   object-fit:contain;
 }
@@ -414,7 +390,7 @@ img{
   border-radius:8px;
 }
 
-.maximax-sound-button{
+.sound-btn{
   position:absolute;
   right:18px;
   bottom:18px;
@@ -431,8 +407,6 @@ img{
   font-weight:1000;
   box-shadow:0 0 18px rgba(255,121,0,.55);
 }
-
-/* SERVICE GRID */
 
 .services-grid{
   display:grid;
@@ -494,8 +468,6 @@ img{
   letter-spacing:.8px;
 }
 
-/* SPECIAL CENTERS */
-
 .centers{
   background:
     linear-gradient(180deg,rgba(255,121,0,.035),transparent),
@@ -543,8 +515,6 @@ img{
   line-height:1.5;
 }
 
-/* AI */
-
 .ai-box{
   display:grid;
   grid-template-columns:1.2fr .8fr;
@@ -590,8 +560,6 @@ img{
   box-shadow:inset 0 0 50px rgba(255,121,0,.09);
 }
 
-/* CONTACT */
-
 .contact-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -624,51 +592,6 @@ img{
 .contact-card a:hover{
   color:var(--orange);
 }
-
-/* SOCIAL */
-
-.social-row{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:32px;
-}
-
-.social-chip{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:10px 16px 10px 12px;
-  border:1px solid var(--orange);
-  border-radius:999px;
-  color:var(--apricot);
-  background:#000;
-  font-size:11px;
-  font-weight:900;
-  transition:.2s ease;
-}
-
-.social-chip svg{
-  width:16px;
-  height:16px;
-  flex:none;
-  fill:var(--orange);
-  transition:.2s ease;
-}
-
-.social-chip:hover{
-  color:#000;
-  background:linear-gradient(135deg,var(--orange),var(--apricot));
-  transform:translateY(-2px);
-  box-shadow:0 0 18px rgba(255,121,0,.35);
-}
-
-.social-chip:hover svg{
-  fill:#000;
-}
-
-/* FOOTER */
 
 .site-footer{
   padding:45px 0 25px;
@@ -703,8 +626,6 @@ img{
   color:var(--muted);
   font-size:10px;
 }
-
-/* MOBILE */
 
 @media(max-width:1000px){
   .services-grid{
@@ -804,11 +725,11 @@ img{
     min-height:190px;
   }
 
-  .maximax-video-wrapper{
+  .video-wrap{
     border-radius:18px;
   }
 
-  .maximax-sound-button{
+  .sound-btn{
     right:10px;
     bottom:10px;
     min-width:125px;
@@ -827,181 +748,6 @@ img{
     padding:25px;
   }
 }
-
-/* NOTARY DETAIL SECTION */
-
-.notary-section{
-  background:
-    linear-gradient(180deg,rgba(255,121,0,.035),transparent),
-    #020100;
-  border-top:1px solid rgba(255,121,0,.15);
-  border-bottom:1px solid rgba(255,121,0,.15);
-}
-
-/* NOTARY REQUEST FORM */
-
-.notary-form-box{
-  max-width:820px;
-  margin:45px auto 0;
-  padding:32px;
-  border:1px solid var(--border);
-  border-radius:25px;
-  background:linear-gradient(145deg,#100500,#000);
-  box-shadow:0 0 40px rgba(255,121,0,.10);
-}
-
-.notary-form-box h3{
-  margin-bottom:8px;
-  color:var(--orange);
-  font-size:20px;
-  text-transform:uppercase;
-  text-align:center;
-}
-
-.notary-form-box .form-intro{
-  margin-bottom:26px;
-  color:var(--text);
-  font-size:13px;
-  text-align:center;
-  line-height:1.6;
-}
-
-.notary-form-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:16px;
-}
-
-.form-field{
-  display:flex;
-  flex-direction:column;
-  gap:7px;
-}
-
-.form-field.full{
-  grid-column:1 / -1;
-}
-
-.form-field label{
-  color:var(--apricot);
-  font-size:11px;
-  font-weight:1000;
-  letter-spacing:.6px;
-  text-transform:uppercase;
-}
-
-.form-field input,
-.form-field select,
-.form-field textarea{
-  padding:13px 15px;
-  border:1px solid var(--border);
-  border-radius:12px;
-  color:var(--text);
-  background:#0a0400;
-  font-family:inherit;
-  font-size:13px;
-  outline:none;
-  transition:.2s ease;
-}
-
-.form-field input:focus,
-.form-field select:focus,
-.form-field textarea:focus{
-  border-color:var(--orange);
-  box-shadow:0 0 0 3px rgba(255,121,0,.15);
-}
-
-.form-field select{
-  cursor:pointer;
-}
-
-.form-field textarea{
-  resize:vertical;
-  min-height:90px;
-}
-
-.form-radio-group{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-.form-radio-option{
-  display:flex;
-  align-items:center;
-  gap:7px;
-  padding:10px 14px;
-  border:1px solid var(--border);
-  border-radius:999px;
-  cursor:pointer;
-  font-size:12px;
-  color:var(--text);
-  transition:.2s ease;
-}
-
-.form-radio-option:has(input:checked){
-  border-color:var(--orange);
-  background:rgba(255,121,0,.1);
-  color:var(--orange);
-}
-
-.form-radio-option input{
-  accent-color:var(--orange);
-}
-
-.notary-form-submit{
-  margin-top:22px;
-  width:100%;
-  min-height:52px;
-  border:none;
-  border-radius:999px;
-  color:#000;
-  background:linear-gradient(135deg,var(--orange),var(--apricot));
-  font-size:13px;
-  font-weight:1000;
-  letter-spacing:.8px;
-  text-transform:uppercase;
-  cursor:pointer;
-  transition:.2s ease;
-}
-
-.notary-form-submit:hover{
-  transform:translateY(-2px);
-  box-shadow:0 0 25px rgba(255,121,0,.4);
-}
-
-.notary-form-note{
-  margin-top:14px;
-  color:var(--muted);
-  font-size:11px;
-  text-align:center;
-  line-height:1.6;
-}
-
-.form-success{
-  display:none;
-  margin-top:20px;
-  padding:16px;
-  border:1px solid var(--orange);
-  border-radius:14px;
-  background:rgba(255,121,0,.08);
-  color:var(--apricot);
-  font-size:13px;
-  text-align:center;
-}
-
-.form-success.show{
-  display:block;
-}
-
-@media(max-width:700px){
-  .notary-form-grid{
-    grid-template-columns:1fr;
-  }
-  .notary-form-box{
-    padding:22px;
-  }
-}
 </style>
 </head>
 
@@ -1017,7 +763,7 @@ img{
     <a class="brand" href="#home">
       <img
         class="brand-logo"
-        src="./maximax-logo.jpg?v=20260917"
+        src="./maximax-multi-services.jpg?v=20260918"
         alt="Maximax Multi Services Logo"
       >
 
@@ -1030,9 +776,9 @@ img{
     <div class="header-actions">
 
       <div class="language-switcher">
-        <button class="lang-btn active" data-lang="en">🇺🇸 ENG</button>
-        <button class="lang-btn" data-lang="es">🇪🇸 ESP</button>
-        <button class="lang-btn" data-lang="ht">🇭🇹 KRE</button>
+        <button class="lang-btn active" data-lang="en" type="button">🇺🇸 ENG</button>
+        <button class="lang-btn" data-lang="es" type="button">🇪🇸 ESP</button>
+        <button class="lang-btn" data-lang="ht" type="button">🇭🇹 KRE</button>
       </div>
 
       <button
@@ -1040,87 +786,137 @@ img{
         id="menuToggle"
         aria-label="Open menu"
         aria-expanded="false"
-      >☰</button>
+        type="button"
+      >
+        ☰
+      </button>
 
     </div>
+
   </div>
 
   <nav class="main-nav" id="mainNav">
     <div class="container nav-inner">
-      <a class="nav-link" href="#home"
-         data-en="HOME"
-         data-es="INICIO"
-         data-ht="AKÈY">HOME</a>
 
-      <a class="nav-link" href="#services"
-         data-en="SERVICES"
-         data-es="SERVICIOS"
-         data-ht="SÈVIS">SERVICES</a>
+      <a
+        class="nav-link"
+        href="#home"
+        data-en="HOME"
+        data-es="INICIO"
+        data-ht="AKÈY"
+      >
+        HOME
+      </a>
 
-      <a class="nav-link" href="#ai-center-service"
-         data-en="AI CENTER"
-         data-es="CENTRO IA"
-         data-ht="AI CENTER">AI CENTER</a>
+      <a
+        class="nav-link"
+        href="#services"
+        data-en="SERVICES"
+        data-es="SERVICIOS"
+        data-ht="SÈVIS"
+      >
+        SERVICES
+      </a>
 
-      <a class="nav-link" href="#centers"
-         data-en="DIGITAL CENTERS"
-         data-es="CENTROS DIGITALES"
-         data-ht="SANT DIJITAL">DIGITAL CENTERS</a>
+      <a
+        class="nav-link"
+        href="#centers"
+        data-en="DIGITAL CENTERS"
+        data-es="CENTROS DIGITALES"
+        data-ht="SANT DIJITAL"
+      >
+        DIGITAL CENTERS
+      </a>
 
-      <a class="nav-link" href="#contact"
-         data-en="CONTACT"
-         data-es="CONTACTO"
-         data-ht="KONTAK">CONTACT</a>
+      <a
+        class="nav-link"
+        href="#ai"
+        data-en="AI CENTER"
+        data-es="CENTRO IA"
+        data-ht="AI CENTER"
+      >
+        AI CENTER
+      </a>
+
+      <a
+        class="nav-link"
+        href="#contact"
+        data-en="CONTACT"
+        data-es="CONTACTO"
+        data-ht="KONTAK"
+      >
+        CONTACT
+      </a>
+
     </div>
   </nav>
 </header>
 
 <main>
 
-<!-- HERO -->
+<!-- ======================================================
+     HERO
+====================================================== -->
 
 <section class="hero" id="home">
   <div class="container">
 
     <div class="hero-content">
 
-      <div class="hero-badge"
-           data-en="PROFESSIONAL SERVICES • DIGITAL SOLUTIONS • AI ASSISTANCE"
-           data-es="SERVICIOS PROFESIONALES • SOLUCIONES DIGITALES • ASISTENCIA IA"
-           data-ht="SÈVIS PWOFESYONÈL • SOLISYON DIJITAL • ASISTANS AI">
+      <div
+        class="hero-badge"
+        data-en="PROFESSIONAL SERVICES • DIGITAL SOLUTIONS • AI ASSISTANCE"
+        data-es="SERVICIOS PROFESIONALES • SOLUCIONES DIGITALES • ASISTENCIA IA"
+        data-ht="SÈVIS PWOFESYONÈL • SOLISYON DIJITAL • ASISTANS AI"
+      >
         PROFESSIONAL SERVICES • DIGITAL SOLUTIONS • AI ASSISTANCE
       </div>
 
-      <h1>MAXIMAX<br>MULTI SERVICES</h1>
+      <h1>
+        MAXIMAX<br>
+        MULTI SERVICES
+      </h1>
 
       <p
         data-en="Professional services, digital solutions and intelligent assistance — all in one powerful service platform."
         data-es="Servicios profesionales, soluciones digitales y asistencia inteligente — todo en una sola plataforma."
-        data-ht="Sèvis pwofesyonèl, solisyon dijital ak asistans entèlijan — tout nan yon sèl platfòm sèvis.">
+        data-ht="Sèvis pwofesyonèl, solisyon dijital ak asistans entèlijan — tout nan yon sèl platfòm sèvis."
+      >
         Professional services, digital solutions and intelligent assistance — all in one powerful service platform.
       </p>
 
       <div class="hero-buttons">
-        <a class="btn btn-primary" href="#services"
-           data-en="EXPLORE SERVICES"
-           data-es="VER SERVICIOS"
-           data-ht="GADE SÈVIS YO">
+
+        <a
+          class="btn btn-primary"
+          href="#services"
+          data-en="EXPLORE SERVICES"
+          data-es="VER SERVICIOS"
+          data-ht="GADE SÈVIS YO"
+        >
           EXPLORE SERVICES
         </a>
 
-        <a class="btn" href="#client-portal"
-           data-en="CLIENT PORTAL"
-           data-es="PORTAL DEL CLIENTE"
-           data-ht="PÒTAL KLIYAN">
+        <a
+          class="btn"
+          href="./pages/client-portal.html"
+          data-en="CLIENT PORTAL"
+          data-es="PORTAL DEL CLIENTE"
+          data-ht="PÒTAL KLIYAN"
+        >
           CLIENT PORTAL
         </a>
 
-        <a class="btn" href="#appointment-center"
-           data-en="APPOINTMENT"
-           data-es="CITA"
-           data-ht="RANDEVOU">
+        <a
+          class="btn"
+          href="./pages/appointment-center.html"
+          data-en="APPOINTMENT"
+          data-es="CITA"
+          data-ht="RANDEVOU"
+        >
           APPOINTMENT
         </a>
+
       </div>
 
     </div>
@@ -1129,40 +925,48 @@ img{
 
       <a class="stat-card" href="#services">
         <div class="stat-number">16</div>
-        <div class="stat-label"
-             data-en="CORE SERVICES"
-             data-es="SERVICIOS PRINCIPALES"
-             data-ht="SÈVIS PRENSIPAL">
+        <div
+          class="stat-label"
+          data-en="CORE SERVICES"
+          data-es="SERVICIOS PRINCIPALES"
+          data-ht="SÈVIS PRENSIPAL"
+        >
           CORE SERVICES
         </div>
       </a>
 
       <div class="stat-card">
         <div class="stat-number">3</div>
-        <div class="stat-label"
-             data-en="LANGUAGES"
-             data-es="IDIOMAS"
-             data-ht="LANG">
+        <div
+          class="stat-label"
+          data-en="LANGUAGES"
+          data-es="IDIOMAS"
+          data-ht="LANG"
+        >
           LANGUAGES
         </div>
       </div>
 
-      <a class="stat-card" href="#ai-center-service">
+      <a class="stat-card" href="./pages/ai-center.html">
         <div class="stat-number">AI</div>
-        <div class="stat-label"
-             data-en="AI ASSISTANCE"
-             data-es="ASISTENCIA IA"
-             data-ht="ASISTANS AI">
+        <div
+          class="stat-label"
+          data-en="AI ASSISTANCE"
+          data-es="ASISTENCIA IA"
+          data-ht="ASISTANS AI"
+        >
           AI ASSISTANCE
         </div>
       </a>
 
-      <a class="stat-card" href="#chat-service">
+      <a class="stat-card" href="./pages/chat.html">
         <div class="stat-number">24/7</div>
-        <div class="stat-label"
-             data-en="DIGITAL ACCESS"
-             data-es="ACCESO DIGITAL"
-             data-ht="AKSÈ DIJITAL">
+        <div
+          class="stat-label"
+          data-en="DIGITAL ACCESS"
+          data-es="ACCESO DIGITAL"
+          data-ht="AKSÈ DIJITAL"
+        >
           DIGITAL ACCESS
         </div>
       </a>
@@ -1172,1527 +976,1343 @@ img{
   </div>
 </section>
 
-<!-- VIDEO -->
+<!-- ======================================================
+     VIDEO
+====================================================== -->
 
-<section class="container">
+<section class="video-wrap">
 
-  <div class="maximax-video-wrapper">
-
-    <video
-      class="maximax-main-video"
-      id="maximaxMainVideo"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="auto"
+  <video
+    class="main-video"
+    id="maximaxMainVideo"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+  >
+    <source
+      src="./maximax-multi-services.mp4?v=20260918"
+      type="video/mp4"
     >
-      <source
-        src="./maximax-multi-services.mp4?v=20260917"
-        type="video/mp4"
-      >
-    </video>
+  </video>
 
-    <div class="video-brand">
-      <img
-        src="./maximax-logo.jpg?v=20260917"
-        alt="Maximax"
-      >
-      <span>MAXIMAX MULTI SERVICES</span>
-    </div>
-
-    <button
-      class="maximax-sound-button"
-      id="maximaxSoundButton"
-      type="button"
+  <div class="video-brand">
+    <img
+      src="./maximax-multi-services.jpg?v=20260918"
+      alt="Maximax"
     >
-      🔊 TURN SOUND ON
-    </button>
-
+    <span>MAXIMAX MULTI SERVICES</span>
   </div>
+
+  <button
+    class="sound-btn"
+    id="maximaxSoundButton"
+    type="button"
+  >
+    🔊 TURN SOUND ON
+  </button>
 
 </section>
 
-<!-- 16 CORE SERVICES -->
+<!-- ======================================================
+     16 CORE SERVICES
+====================================================== -->
 
 <section class="section" id="services">
   <div class="container">
 
-    <h2 class="section-title"
-        data-en="16 CORE SERVICES"
-        data-es="16 SERVICIOS PRINCIPALES"
-        data-ht="16 SÈVIS PRENSIPAL">
+    <h2
+      class="section-title"
+      data-en="16 CORE SERVICES"
+      data-es="16 SERVICIOS PRINCIPALES"
+      data-ht="16 SÈVIS PRENSIPAL"
+    >
       16 CORE SERVICES
     </h2>
 
-    <p class="section-subtitle"
-       data-en="Choose the service you need. Every service opens its dedicated center."
-       data-es="Seleccione el servicio que necesita. Cada servicio abre su centro dedicado."
-       data-ht="Chwazi sèvis ou bezwen an. Chak sèvis ouvri sant pa li.">
+    <p
+      class="section-subtitle"
+      data-en="Choose the service you need. Every service opens its dedicated center."
+      data-es="Seleccione el servicio que necesita. Cada servicio abre su centro dedicado."
+      data-ht="Chwazi sèvis ou bezwen an. Chak sèvis ouvri sant pa li."
+    >
       Choose the service you need. Every service opens its dedicated center.
     </p>
 
     <div class="services-grid">
 
-      <a class="service-card" href="#notary">
+      <!-- 01 NOTARY -->
+
+      <a class="service-card" href="./pages/notary.html">
+
         <span class="service-number">01</span>
+
         <div class="service-icon">✍🏽</div>
-        <h3 data-en="Notary Services" data-es="Servicios Notariales" data-ht="Sèvis Notè">Notary Services</h3>
-        <p data-en="Professional notary assistance and document services."
-           data-es="Asistencia notarial profesional y servicios de documentos."
-           data-ht="Asistans notè pwofesyonèl ak sèvis dokiman.">
+
+        <h3
+          data-en="Notary Services"
+          data-es="Servicios Notariales"
+          data-ht="Sèvis Notè"
+        >
+          Notary Services
+        </h3>
+
+        <p
+          data-en="Professional notary assistance and document services."
+          data-es="Asistencia notarial profesional y servicios de documentos."
+          data-ht="Asistans notè pwofesyonèl ak sèvis dokiman."
+        >
           Professional notary assistance and document services.
         </p>
+
         <span class="service-open">OPEN CENTER →</span>
+
       </a>
 
-      <a class="service-card" href="#taxes">
+      <!-- 02 TAXES -->
+
+      <a class="service-card" href="./pages/taxes.html">
+
         <span class="service-number">02</span>
+
         <div class="service-icon">🧾</div>
-        <h3 data-en="Tax Services" data-es="Servicios de Impuestos" data-ht="Sèvis Taks">Tax Services</h3>
-        <p data-en="Tax preparation and professional tax support."
-           data-es="Preparación de impuestos y apoyo profesional."
-           data-ht="Preparasyon taks ak asistans pwofesyonèl.">
+
+        <h3
+          data-en="Tax Services"
+          data-es="Servicios de Impuestos"
+          data-ht="Sèvis Taks"
+        >
+          Tax Services
+        </h3>
+
+        <p
+          data-en="Tax preparation and professional tax support."
+          data-es="Preparación de impuestos y apoyo profesional."
+          data-ht="Preparasyon taks ak asistans pwofesyonèl."
+        >
           Tax preparation and professional tax support.
         </p>
+
         <span class="service-open">OPEN CENTER →</span>
+
       </a>
 
-      <a class="service-card" href="#immigration">
+      <!-- 03 IMMIGRATION -->
+
+      <a
+        class="service-card"
+        href="./pages/immigration-services.html#immigrationForms"
+      >
+
         <span class="service-number">03</span>
+
         <div class="service-icon">🗽</div>
-        <h3 data-en="Immigration Services" data-es="Servicios de Inmigración" data-ht="Sèvis Imigrasyon">Immigration Services</h3>
-        <p data-en="Immigration document preparation and service assistance."
-           data-es="Preparación de documentos de inmigración y asistencia."
-           data-ht="Preparasyon dokiman imigrasyon ak asistans sèvis.">
-          Immigration document preparation and service assistance.
+
+        <h3
+          data-en="Immigration Services"
+          data-es="Servicios de Inmigración"
+          data-ht="Sèvis Imigrasyon"
+        >
+          Immigration Services
+        </h3>
+
+        <p
+          data-en="USCIS immigration forms and service assistance."
+          data-es="Formularios USCIS y asistencia de inmigración."
+          data-ht="Fòm USCIS ak asistans sèvis imigrasyon."
+        >
+          USCIS immigration forms and service assistance.
         </p>
-        <span class="service-open">OPEN CENTER →</span>
+
+        <span class="service-open">OPEN FORMS →</span>
+
       </a>
 
-      <a class="service-card" href="#eoir-bia">
+      <!-- 04 EOIR + BIA -->
+
+      <a
+        class="service-card"
+        href="./pages/immigration-services.html#eoirForms"
+      >
+
         <span class="service-number">04</span>
+
         <div class="service-icon">⚖️</div>
-        <h3>EOIR + BIA</h3>
-        <p data-en="Dedicated EOIR and BIA document support center."
-           data-es="Centro dedicado de apoyo documental EOIR y BIA."
-           data-ht="Sant espesyal pou sipò dokiman EOIR ak BIA.">
-          Dedicated EOIR and BIA document support center.
+
+        <h3>
+          EOIR + BIA
+        </h3>
+
+        <p
+          data-en="EOIR and BIA immigration court forms and document support."
+          data-es="Formularios EOIR y BIA y apoyo documental."
+          data-ht="Fòm EOIR ak BIA ansanm ak sipò dokiman."
+        >
+          EOIR and BIA immigration court forms and document support.
         </p>
-        <span class="service-open">OPEN CENTER →</span>
+
+        <span class="service-open">OPEN FORMS →</span>
+
       </a>
 
-      <a class="service-card" href="#insurance">
+      <!-- 05 INSURANCE -->
+
+      <a class="service-card" href="./pages/insurance.html">
+
         <span class="service-number">05</span>
+
         <div class="service-icon">🛡️</div>
-        <h3 data-en="Insurance" data-es="Seguros" data-ht="Asirans">Insurance</h3>
-        <p data-en="Insurance service information and assistance."
-           data-es="Información y asistencia de seguros."
-           data-ht="Enfòmasyon ak asistans pou sèvis asirans.">
+
+        <h3
+          data-en="Insurance"
+          data-es="Seguros"
+          data-ht="Asirans"
+        >
+          Insurance
+        </h3>
+
+        <p
+          data-en="Insurance service information and assistance."
+          data-es="Información y asistencia de seguros."
+          data-ht="Enfòmasyon ak asistans pou sèvis asirans."
+        >
           Insurance service information and assistance.
         </p>
+
         <span class="service-open">OPEN CENTER →</span>
+
       </a>
 
-      <a class="service-card" href="#real-estate">
+      <!-- 06 REAL ESTATE -->
+
+      <a class="service-card" href="./pages/real-estate.html">
+
         <span class="service-number">06</span>
+
         <div class="service-icon">🏠</div>
-        <h3 data-en="Real Estate" data-es="Bienes Raíces" data-ht="Imobilye">Real Estate</h3>
-        <p data-en="Real estate resources and professional service assistance."
-           data-es="Recursos inmobiliarios y asistencia profesional."
-           data-ht="Resous imobilye ak asistans sèvis pwofesyonèl.">
-          Real estate resources and professional service assistance.
+
+        <h3
+          data-en="Real Estate"
+          data-es="Bienes Raíces"
+          data-ht="Imobilye"
+        >
+          Real Estate
+        </h3>
+
+        <p
+          data-en="Real estate resources and professional assistance."
+          data-es="Recursos inmobiliarios y asistencia profesional."
+          data-ht="Resous imobilye ak asistans pwofesyonèl."
+        >
+          Real estate resources and professional assistance.
         </p>
+
         <span class="service-open">OPEN CENTER →</span>
+
       </a>
 
-      <a class="service-card" href="#business">
+      <!-- 07 BUSINESS -->
+
+      <a class="service-card" href="./pages/business.html">
+
         <span class="service-number">07</span>
+
         <div class="service-icon">💼</div>
-        <h3 data-en="Business Services" data-es="Servicios Empresariales" data-ht="Sèvis Biznis">Business Services</h3>
-        <p data-en="Business setup, documents and professional support."
-           data-es="Creación de empresas, documentos y apoyo profesional."
-           data-ht="Kreyasyon biznis, dokiman ak sipò pwofesyonèl.">
+
+        <h3
+          data-en="Business Services"
+          data-es="Servicios Empresariales"
+          data-ht="Sèvis Biznis"
+        >
+          Business Services
+        </h3>
+
+        <p
+          data-en="Business setup, documents and professional support."
+          data-es="Creación de empresas, documentos y apoyo profesional."
+          data-ht="Kreyasyon biznis, dokiman ak sipò pwofesyonèl."
+        >
           Business setup, documents and professional support.
         </p>
+
         <span class="service-open">OPEN CENTER →</span>
+
       </a>
 
-      <a class="service-card" href="#apostille">
+      <!-- 08 APOSTILLE -->
+
+      <a class="service-card" href="./pages/apostille.html">
+
         <span class="service-number">08</span>
+
         <div class="service-icon">📜</div>
-        <h3>Apostille</h3>
-        <p data-en="Apostille document service and preparation assistance."
-           data-es="Servicio y preparación de documentos de apostilla."
-           data-ht="Sèvis apostille ak asistans preparasyon dokiman.">
+
+        <h3>
+          Apostille
+        </h3>
+
+        <p
+          data-en="Apostille document service and preparation assistance."
+          data-es="Servicio y preparación de documentos de apostilla."
+          data-ht="Sèvis apostille ak asistans preparasyon dokiman."
+        >
           Apostille document service and preparation assistance.
         </p>
+
         <span class="service-open">OPEN CENTER →</span>
+
       </a>
 
-      <a class="service-card" href="#travel-dmv">
+      <!-- 09 TRAVEL + DMV -->
+
+      <a class="service-card" href="./pages/travel-dmv.html">
+
         <span class="service-number">09</span>
+
         <div class="service-icon">✈️</div>
-        <h3>Travel + DMV</h3>
-        <p data-en="Travel resources and DMV service assistance."
-           data-es="Recursos de viaje y asistencia con servicios del DMV."
-           data-ht="Resous vwayaj ak asistans sèvis DMV.">
+
+        <h3>
+          Travel + DMV
+        </h3>
+
+        <p
+          data-en="Travel resources and DMV service assistance."
+          data-es="Recursos de viaje y asistencia con servicios del DMV."
+          data-ht="Resous vwayaj ak asistans sèvis DMV."
+        >
           Travel resources and DMV service assistance.
         </p>
+
         <span class="service-open">OPEN CENTER →</span>
+
       </a>
 
-      <a class="service-card" href="#ai-center-service">
+      <!-- 10 AI CENTER -->
+
+      <a class="service-card" href="./pages/ai-center.html">
+
         <span class="service-number">10</span>
+
         <div class="service-icon">🤖</div>
-        <h3>AI Center</h3>
-        <p data-en="Smart digital assistance powered by artificial intelligence."
-           data-es="Asistencia digital inteligente con inteligencia artificial."
-           data-ht="Asistans dijital entèlijan avèk entèlijans atifisyèl.">
+
+        <h3>
+          AI Center
+        </h3>
+
+        <p
+          data-en="Smart digital assistance powered by artificial intelligence."
+          data-es="Asistencia digital inteligente con inteligencia artificial."
+          data-ht="Asistans dijital entèlijan avèk entèlijans atifisyèl."
+        >
           Smart digital assistance powered by artificial intelligence.
         </p>
+
         <span class="service-open">OPEN CENTER →</span>
+
       </a>
 
-      <a class="service-card" href="#form-helper">
+      <!-- 11 FORM HELPER -->
+
+      <a class="service-card" href="./pages/form-helper.html">
+
         <span class="service-number">11</span>
+
         <div class="service-icon">📝</div>
-        <h3 data-en="Form Help Center" data-es="Centro de Formularios" data-ht="Sant Èd Fòm">Form Help Center</h3>
-        <p data-en="Guided help for forms and document preparation."
-           data-es="Ayuda guiada para formularios y preparación de documentos."
-           data-ht="Èd gide pou fòm ak preparasyon dokiman.">
+
+        <h3
+          data-en="Form Help Center"
+          data-es="Centro de Formularios"
+          data-ht="Sant Èd Fòm"
+        >
+          Form Help Center
+        </h3>
+
+        <p
+          data-en="Guided help for forms and document preparation."
+          data-es="Ayuda guiada para formularios y preparación de documentos."
+          data-ht="Èd gide pou fòm ak preparasyon dokiman."
+        >
           Guided help for forms and document preparation.
         </p>
+
         <span class="service-open">OPEN CENTER →</span>
+
       </a>
 
-      <a class="service-card" href="#career-tracker">
+      <!-- 12 CAREER TRACKER -->
+
+      <a class="service-card" href="./pages/career-tracker.html">
+
         <span class="service-number">12</span>
+
         <div class="service-icon">📈</div>
-        <h3 data-en="Career Tracker" data-es="Seguimiento Profesional" data-ht="Career Tracker">Career Tracker</h3>
-        <p data-en="Career organization, progress and opportunity tracking."
-           data-es="Organización profesional y seguimiento de oportunidades."
-           data-ht="Òganizasyon karyè ak swivi opòtinite.">
+
+        <h3
+          data-en="Career Tracker"
+          data-es="Seguimiento Profesional"
+          data-ht="Career Tracker"
+        >
+          Career Tracker
+        </h3>
+
+        <p
+          data-en="Career organization, progress and opportunity tracking."
+          data-es="Organización profesional y seguimiento de oportunidades."
+          data-ht="Òganizasyon karyè ak swivi opòtinite."
+        >
           Career organization, progress and opportunity tracking.
         </p>
+
         <span class="service-open">OPEN CENTER →</span>
+
       </a>
 
-      <a class="service-card" href="#translation-ai">
+      <!-- 13 TRANSLATION -->
+
+      <a class="service-card" href="./pages/translation-ai.html">
+
         <span class="service-number">13</span>
+
         <div class="service-icon">🌐</div>
-        <h3 data-en="AI Translation" data-es="Traducción IA" data-ht="Tradiksyon AI">AI Translation</h3>
-        <p data-en="Multilingual digital translation assistance."
-           data-es="Asistencia de traducción digital multilingüe."
-           data-ht="Asistans tradiksyon dijital nan plizyè lang.">
+
+        <h3
+          data-en="AI Translation"
+          data-es="Traducción IA"
+          data-ht="Tradiksyon AI"
+        >
+          AI Translation
+        </h3>
+
+        <p
+          data-en="Multilingual digital translation assistance."
+          data-es="Asistencia de traducción digital multilingüe."
+          data-ht="Asistans tradiksyon dijital nan plizyè lang."
+        >
           Multilingual digital translation assistance.
         </p>
+
         <span class="service-open">OPEN CENTER →</span>
+
       </a>
 
-      <a class="service-card" href="#chat-service">
+      <!-- 14 CHAT -->
+
+      <a class="service-card" href="./pages/chat.html">
+
         <span class="service-number">14</span>
+
         <div class="service-icon">💬</div>
-        <h3 data-en="Chat 24/7" data-es="Chat 24/7" data-ht="Chat 24/7">Chat 24/7</h3>
-        <p data-en="Digital access to assistance around the clock."
-           data-es="Acceso digital a asistencia las 24 horas."
-           data-ht="Aksè dijital pou asistans lajounen kou lannuit.">
+
+        <h3>
+          Chat 24/7
+        </h3>
+
+        <p
+          data-en="Digital access to assistance around the clock."
+          data-es="Acceso digital a asistencia las 24 horas."
+          data-ht="Aksè dijital pou asistans lajounen kou lannuit."
+        >
           Digital access to assistance around the clock.
         </p>
+
         <span class="service-open">OPEN CENTER →</span>
+
       </a>
 
-      <a class="service-card" href="#try-ai">
+      <!-- 15 TRY AI -->
+
+      <a class="service-card" href="./pages/try-ai.html">
+
         <span class="service-number">15</span>
+
         <div class="service-icon">✨</div>
-        <h3>Try AI</h3>
-        <p data-en="Experience Maximax intelligent digital tools."
-           data-es="Pruebe las herramientas digitales inteligentes de Maximax."
-           data-ht="Eseye zouti dijital entèlijan Maximax yo.">
+
+        <h3>
+          Try AI
+        </h3>
+
+        <p
+          data-en="Experience Maximax intelligent digital tools."
+          data-es="Pruebe las herramientas digitales inteligentes de Maximax."
+          data-ht="Eseye zouti dijital entèlijan Maximax yo."
+        >
           Experience Maximax intelligent digital tools.
         </p>
+
         <span class="service-open">OPEN CENTER →</span>
+
       </a>
 
-      <a class="service-card" href="#credit-repair">
+      <!-- 16 CREDIT REPAIR -->
+
+      <a class="service-card" href="./pages/credit-repair.html">
+
         <span class="service-number">16</span>
+
         <div class="service-icon">💳</div>
-        <h3 data-en="Credit Repair" data-es="Reparación de Crédito" data-ht="Reparasyon Kredi">Credit Repair</h3>
-        <p data-en="Credit education, organization and service assistance."
-           data-es="Educación, organización y asistencia de crédito."
-           data-ht="Edikasyon, òganizasyon ak asistans pou kredi.">
+
+        <h3
+          data-en="Credit Repair"
+          data-es="Reparación de Crédito"
+          data-ht="Reparasyon Kredi"
+        >
+          Credit Repair
+        </h3>
+
+        <p
+          data-en="Credit education, organization and service assistance."
+          data-es="Educación, organización y asistencia de crédito."
+          data-ht="Edikasyon, òganizasyon ak asistans pou kredi."
+        >
           Credit education, organization and service assistance.
         </p>
+
         <span class="service-open">OPEN CENTER →</span>
+
       </a>
 
     </div>
+
   </div>
 </section>
 
-<!-- NOTARY SERVICES DETAIL -->
+<!-- ======================================================
+     DIGITAL CENTERS
+====================================================== -->
 
-<section class="section notary-section" id="notary">
+<section class="section centers" id="centers">
   <div class="container">
 
-    <h2 class="section-title"
-        data-en="NOTARY SERVICES"
-        data-es="SERVICIOS NOTARIALES"
-        data-ht="SÈVIS NOTÈ">
-      NOTARY SERVICES
+    <h2
+      class="section-title"
+      data-en="DIGITAL & SPECIALIZED CENTERS"
+      data-es="CENTROS DIGITALES Y ESPECIALIZADOS"
+      data-ht="SANT DIJITAL AK ESPESYALIZE"
+    >
+      DIGITAL & SPECIALIZED CENTERS
     </h2>
 
-    <p class="section-subtitle"
-       data-en="Professional notary assistance and document services — fast, reliable and secure notarization for all your important documents."
-       data-es="Asistencia notarial profesional y servicios de documentos — notarización rápida, confiable y segura para todos sus documentos importantes."
-       data-ht="Asistans notè pwofesyonèl ak sèvis dokiman — notarye rapid, serye epi an sekirite pou tout dokiman enpòtan ou yo.">
-      Professional notary assistance and document services — fast, reliable and secure notarization for all your important documents.
+    <p
+      class="section-subtitle"
+      data-en="Direct access to the operational centers of Maximax Multi Services."
+      data-es="Acceso directo a los centros operativos de Maximax Multi Services."
+      data-ht="Aksè dirèk nan sant operasyon Maximax Multi Services yo."
+    >
+      Direct access to the operational centers of Maximax Multi Services.
     </p>
 
-    <div class="services-grid">
+    <div class="centers-grid">
 
-      <div class="service-card">
-        <span class="service-number">N-01</span>
-        <div class="service-icon">✍🏽</div>
-        <h3 data-en="Acknowledgments" data-es="Reconocimientos" data-ht="Rekonèsans">Acknowledgments</h3>
-        <p data-en="Notarization of signatures on deeds, contracts, powers of attorney and other legal documents."
-           data-es="Notarización de firmas en escrituras, contratos, poderes notariales y otros documentos legales."
-           data-ht="Notarye siyati sou papye kay, kontra, pouvwa ak lòt dokiman legal.">
-          Notarization of signatures on deeds, contracts, powers of attorney and other legal documents.
-        </p>
-        <span class="service-open">BOOK NOW →</span>
-      </div>
-
-      <div class="service-card">
-        <span class="service-number">N-02</span>
-        <div class="service-icon">⚖️</div>
-        <h3>Jurats</h3>
-        <p data-en="Oaths and affirmations for affidavits, sworn statements and legal declarations."
-           data-es="Juramentos y afirmaciones para declaraciones juradas y declaraciones legales."
-           data-ht="Sèman ak afimasyon pou afidavi, deklarasyon sou sèman ak deklarasyon legal.">
-          Oaths and affirmations for affidavits, sworn statements and legal declarations.
-        </p>
-        <span class="service-open">BOOK NOW →</span>
-      </div>
-
-      <div class="service-card">
-        <span class="service-number">N-03</span>
-        <div class="service-icon">📜</div>
-        <h3 data-en="Oaths & Affirmations" data-es="Juramentos y Afirmaciones" data-ht="Sèman & Afimasyon">Oaths & Affirmations</h3>
-        <p data-en="Administration of oaths for witnesses, affidavits and official statements."
-           data-es="Administración de juramentos para testigos, declaraciones juradas y declaraciones oficiales."
-           data-ht="Administre sèman pou temwen, afidavi ak deklarasyon ofisyèl.">
-          Administration of oaths for witnesses, affidavits and official statements.
-        </p>
-        <span class="service-open">BOOK NOW →</span>
-      </div>
-
-      <div class="service-card">
-        <span class="service-number">N-04</span>
-        <div class="service-icon">📝</div>
-        <h3 data-en="Copy Certification" data-es="Certificación de Copias" data-ht="Sètifikasyon Kopi">Copy Certification</h3>
-        <p data-en="Certified true copies of original documents where permitted by law."
-           data-es="Copias certificadas de documentos originales donde la ley lo permite."
-           data-ht="Kopi sètifye dokiman orijinal kote lalwa pèmèt li.">
-          Certified true copies of original documents where permitted by law.
-        </p>
-        <span class="service-open">BOOK NOW →</span>
-      </div>
-
-      <div class="service-card">
-        <span class="service-number">N-05</span>
-        <div class="service-icon">🏠</div>
-        <h3 data-en="Loan Signings" data-es="Firma de Préstamos" data-ht="Siyati Prè">Loan Signings</h3>
-        <p data-en="Professional signing agent services for real estate closings and loan documents."
-           data-es="Servicios profesionales de firma para cierres inmobiliarios y documentos de préstamos."
-           data-ht="Sèvis ajan siyati pwofesyonèl pou fèmen kay ak dokiman prè.">
-          Professional signing agent services for real estate closings and loan documents.
-        </p>
-        <span class="service-open">BOOK NOW →</span>
-      </div>
-
-      <div class="service-card">
-        <span class="service-number">N-06</span>
-        <div class="service-icon">🚗</div>
-        <h3 data-en="Mobile Notary" data-es="Notario Móvil" data-ht="Notè Mobil">Mobile Notary</h3>
-        <p data-en="We come to you — home, office or any convenient location for your notarization."
-           data-es="Vamos a usted — hogar, oficina o cualquier lugar conveniente para su notarización."
-           data-ht="Nou vin jwenn ou — lakay, biwo oswa nenpòt kote ki bon pou notarye ou.">
-          We come to you — home, office or any convenient location for your notarization.
-        </p>
-        <span class="service-open">BOOK NOW →</span>
-      </div>
-
-    </div>
-
-    <div style="text-align:center;margin-top:35px;display:flex;justify-content:center;flex-wrap:wrap;gap:13px;">
-      <a class="btn btn-primary" href="#notary-form"
-         data-en="BOOK NOTARY APPOINTMENT"
-         data-es="RESERVAR CITA NOTARIAL"
-         data-ht="REZÈVE RANDEVOU NOTÈ">
-        BOOK NOTARY APPOINTMENT
-      </a>
-      <a class="btn" href="tel:+14076405166">
-        📞 (407) 640-5166
-      </a>
-    </div>
-
-    <!-- NOTARY REQUEST FORM -->
-
-    <div class="notary-form-box" id="notary-form">
-
-      <h3 data-en="REQUEST A NOTARY" data-es="SOLICITAR UN NOTARIO" data-ht="MANDE YON NOTÈ">REQUEST A NOTARY</h3>
-      <p class="form-intro"
-         data-en="Fill out the form below and our team will contact you to confirm your notary appointment."
-         data-es="Complete el siguiente formulario y nuestro equipo se pondrá en contacto con usted para confirmar su cita notarial."
-         data-ht="Ranpli fòm anba a epi ekip nou an ap kontakte ou pou konfime randevou notè ou a.">
-        Fill out the form below and our team will contact you to confirm your notary appointment.
-      </p>
-
-      <form id="notaryRequestForm">
-
-        <div class="notary-form-grid">
-
-          <div class="form-field">
-            <label for="notaryName" data-en="Full Name" data-es="Nombre Completo" data-ht="Non Konplè">Full Name</label>
-            <input type="text" id="notaryName" name="notaryName" required placeholder="John Doe">
-          </div>
-
-          <div class="form-field">
-            <label for="notaryPhone" data-en="Phone Number" data-es="Número de Teléfono" data-ht="Nimewo Telefòn">Phone Number</label>
-            <input type="tel" id="notaryPhone" name="notaryPhone" required placeholder="(407) 000-0000">
-          </div>
-
-          <div class="form-field">
-            <label for="notaryEmail" data-en="Email Address" data-es="Correo Electrónico" data-ht="Imèl">Email Address</label>
-            <input type="email" id="notaryEmail" name="notaryEmail" required placeholder="you@email.com">
-          </div>
-
-          <div class="form-field">
-            <label for="notaryDocType" data-en="Document Type" data-es="Tipo de Documento" data-ht="Tip Dokiman">Document Type</label>
-            <select id="notaryDocType" name="notaryDocType" required>
-              <option value="" data-en="Select a document type" data-es="Seleccione un tipo de documento" data-ht="Chwazi yon tip dokiman">Select a document type</option>
-              <option value="Power of Attorney" data-en="Power of Attorney" data-es="Poder Notarial" data-ht="Pouvwa Avoka">Power of Attorney</option>
-              <option value="Affidavit / Jurat" data-en="Affidavit / Jurat" data-es="Declaración Jurada" data-ht="Afidavi / Sèman">Affidavit / Jurat</option>
-              <option value="Real Estate / Loan Signing" data-en="Real Estate / Loan Signing" data-es="Bienes Raíces / Firma de Préstamo" data-ht="Imobilye / Siyati Prè">Real Estate / Loan Signing</option>
-              <option value="Parental / Travel Consent" data-en="Parental / Travel Consent" data-es="Consentimiento Parental / Viaje" data-ht="Konsantman Paran / Vwayaj">Parental / Travel Consent</option>
-              <option value="Business Document" data-en="Business Document" data-es="Documento Empresarial" data-ht="Dokiman Biznis">Business Document</option>
-              <option value="Copy Certification" data-en="Copy Certification" data-es="Certificación de Copia" data-ht="Sètifikasyon Kopi">Copy Certification</option>
-              <option value="Vehicle Title Transfer" data-en="Vehicle Title Transfer" data-es="Transferencia de Título de Vehículo" data-ht="Transfè Tit Machin">Vehicle Title Transfer</option>
-              <option value="Other" data-en="Other" data-es="Otro" data-ht="Lòt">Other</option>
-            </select>
-          </div>
-
-          <div class="form-field full">
-            <label data-en="Appointment Type" data-es="Tipo de Cita" data-ht="Tip Randevou">Appointment Type</label>
-            <div class="form-radio-group">
-              <label class="form-radio-option">
-                <input type="radio" name="notaryApptType" value="In-Office" checked>
-                <span data-en="In-Office" data-es="En Oficina" data-ht="Nan Biwo">In-Office</span>
-              </label>
-              <label class="form-radio-option">
-                <input type="radio" name="notaryApptType" value="Mobile / We Come To You">
-                <span data-en="Mobile — We Come to You" data-es="Móvil — Vamos a Usted" data-ht="Mobil — Nou Vin Jwenn Ou">Mobile — We Come to You</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="form-field">
-            <label for="notaryDate" data-en="Preferred Date" data-es="Fecha Preferida" data-ht="Dat Ou Pi Pito">Preferred Date</label>
-            <input type="date" id="notaryDate" name="notaryDate" required>
-          </div>
-
-          <div class="form-field">
-            <label for="notaryTime" data-en="Preferred Time" data-es="Hora Preferida" data-ht="Lè Ou Pi Pito">Preferred Time</label>
-            <input type="time" id="notaryTime" name="notaryTime" required>
-          </div>
-
-          <div class="form-field full">
-            <label for="notaryNotes" data-en="Additional Notes" data-es="Notas Adicionales" data-ht="Lòt Nòt">Additional Notes</label>
-            <textarea id="notaryNotes" name="notaryNotes" placeholder="Tell us anything else we should know..."></textarea>
-          </div>
-
+      <a class="center-card" href="./pages/government-forms.html">
+        <div class="center-icon">🏛️</div>
+        <div>
+          <h3
+            data-en="Government Forms Center"
+            data-es="Centro de Formularios Gubernamentales"
+            data-ht="Sant Fòm Gouvènman"
+          >
+            Government Forms Center
+          </h3>
+          <p
+            data-en="USCIS, EOIR, IRS and official government forms."
+            data-es="Formularios oficiales de USCIS, EOIR, IRS y gobierno."
+            data-ht="Fòm ofisyèl USCIS, EOIR, IRS ak gouvènman."
+          >
+            USCIS, EOIR, IRS and official government forms.
+          </p>
         </div>
+      </a>
 
-        <button type="submit" class="notary-form-submit"
-                data-en="SUBMIT NOTARY REQUEST"
-                data-es="ENVIAR SOLICITUD NOTARIAL"
-                data-ht="VOYE DEMANN NOTÈ">
-          SUBMIT NOTARY REQUEST
-        </button>
-
-        <p class="notary-form-note"
-           data-en="We typically respond within 1 business hour. For urgent same-day requests, please call us directly."
-           data-es="Normalmente respondemos dentro de 1 hora hábil. Para solicitudes urgentes el mismo día, llámenos directamente."
-           data-ht="Nou reponn anjeneral nan 1 èdtan travay. Pou demann ijan menm jou a, tanpri rele nou dirèkteman.">
-          We typically respond within 1 business hour. For urgent same-day requests, please call us directly.
-        </p>
-
-        <div class="form-success" id="notaryFormSuccess"
-             data-en="Thank you! Your notary request has been prepared. Your email app should now open — please hit send to complete your request."
-             data-es="¡Gracias! Su solicitud notarial ha sido preparada. Su aplicación de correo debería abrirse ahora — presione enviar para completar su solicitud."
-             data-ht="Mèsi! Demann notè ou a prepare. Aplikasyon imèl ou dwe louvri kounye a — tanpri klike voye pou fini demann ou an.">
-          Thank you! Your notary request has been prepared. Your email app should now open — please hit send to complete your request.
+      <a class="center-card" href="./pages/non-contested-divorce.html">
+        <div class="center-icon">📄</div>
+        <div>
+          <h3
+            data-en="Non-Contested Divorce"
+            data-es="Divorcio No Contestado"
+            data-ht="Divòs San Kontestasyon"
+          >
+            Non-Contested Divorce
+          </h3>
+          <p
+            data-en="Document preparation center."
+            data-es="Centro de preparación de documentos."
+            data-ht="Sant preparasyon dokiman."
+          >
+            Document preparation center.
+          </p>
         </div>
+      </a>
 
-      </form>
+      <a class="center-card" href="./pages/document-checklist.html">
+        <div class="center-icon">✅</div>
+        <div>
+          <h3
+            data-en="Document Checklist"
+            data-es="Lista de Documentos"
+            data-ht="Lis Dokiman"
+          >
+            Document Checklist
+          </h3>
+          <p
+            data-en="Prepare required documents before service."
+            data-es="Prepare los documentos requeridos."
+            data-ht="Prepare dokiman ki nesesè yo."
+          >
+            Prepare required documents before service.
+          </p>
+        </div>
+      </a>
+
+      <a class="center-card" href="./pages/document-center.html">
+        <div class="center-icon">🗂️</div>
+        <div>
+          <h3
+            data-en="Document Center"
+            data-es="Centro de Documentos"
+            data-ht="Sant Dokiman"
+          >
+            Document Center
+          </h3>
+          <p
+            data-en="Manage service documents."
+            data-es="Administre documentos de servicio."
+            data-ht="Jere dokiman sèvis yo."
+          >
+            Manage service documents.
+          </p>
+        </div>
+      </a>
+
+      <a class="center-card" href="./pages/appointment-center.html">
+        <div class="center-icon">📅</div>
+        <div>
+          <h3
+            data-en="Appointment Center"
+            data-es="Centro de Citas"
+            data-ht="Sant Randevou"
+          >
+            Appointment Center
+          </h3>
+          <p
+            data-en="Book and manage appointments."
+            data-es="Reserve y administre citas."
+            data-ht="Rezève epi jere randevou."
+          >
+            Book and manage appointments.
+          </p>
+        </div>
+      </a>
+
+      <a class="center-card" href="./pages/client-portal.html">
+        <div class="center-icon">👤</div>
+        <div>
+          <h3
+            data-en="Client Portal"
+            data-es="Portal del Cliente"
+            data-ht="Pòtal Kliyan"
+          >
+            Client Portal
+          </h3>
+          <p
+            data-en="Client access and service tracking."
+            data-es="Acceso del cliente y seguimiento."
+            data-ht="Aksè kliyan ak swivi sèvis."
+          >
+            Client access and service tracking.
+          </p>
+        </div>
+      </a>
+
+      <a class="center-card" href="./pages/contact-center.html">
+        <div class="center-icon">☎️</div>
+        <div>
+          <h3
+            data-en="Contact Center"
+            data-es="Centro de Contacto"
+            data-ht="Sant Kontak"
+          >
+            Contact Center
+          </h3>
+          <p
+            data-en="Reach Maximax support."
+            data-es="Contacte el soporte de Maximax."
+            data-ht="Kontakte sipò Maximax."
+          >
+            Reach Maximax support.
+          </p>
+        </div>
+      </a>
+
+      <a class="center-card" href="./pages/payment-center.html">
+        <div class="center-icon">💳</div>
+        <div>
+          <h3
+            data-en="Payment Center"
+            data-es="Centro de Pagos"
+            data-ht="Sant Peman"
+          >
+            Payment Center
+          </h3>
+          <p
+            data-en="Payment tools and service payments."
+            data-es="Herramientas y pagos de servicios."
+            data-ht="Zouti peman ak peman sèvis."
+          >
+            Payment tools and service payments.
+          </p>
+        </div>
+      </a>
+
+      <a class="center-card" href="./pages/receipt-center.html">
+        <div class="center-icon">🧾</div>
+        <div>
+          <h3
+            data-en="Receipt Center"
+            data-es="Centro de Recibos"
+            data-ht="Sant Resi"
+          >
+            Receipt Center
+          </h3>
+          <p
+            data-en="Create and review receipts."
+            data-es="Cree y revise recibos."
+            data-ht="Kreye epi verifye resi."
+          >
+            Create and review receipts.
+          </p>
+        </div>
+      </a>
+
+      <a class="center-card" href="./pages/invoice-center.html">
+        <div class="center-icon">📑</div>
+        <div>
+          <h3
+            data-en="Invoice Center"
+            data-es="Centro de Facturas"
+            data-ht="Sant Fakti"
+          >
+            Invoice Center
+          </h3>
+          <p
+            data-en="Create and manage invoices."
+            data-es="Cree y administre facturas."
+            data-ht="Kreye epi jere fakti."
+          >
+            Create and manage invoices.
+          </p>
+        </div>
+      </a>
+
+      <a class="center-card" href="./pages/service-request-center.html">
+        <div class="center-icon">📬</div>
+        <div>
+          <h3
+            data-en="Service Request Center"
+            data-es="Centro de Solicitudes"
+            data-ht="Sant Demann Sèvis"
+          >
+            Service Request Center
+          </h3>
+          <p
+            data-en="Submit a new service request."
+            data-es="Envíe una nueva solicitud."
+            data-ht="Voye yon nouvo demann sèvis."
+          >
+            Submit a new service request.
+          </p>
+        </div>
+      </a>
 
     </div>
 
   </div>
 </section>
 
+<!-- ======================================================
+     AI CENTER
+====================================================== -->
 
-<!-- TAX SERVICES DETAIL -->
-
-<section class="section notary-section" id="taxes">
+<section class="section" id="ai">
   <div class="container">
 
-    <h2 class="section-title"
-        data-en="TAX SERVICES"
-        data-es="SERVICIOS DE IMPUESTOS"
-        data-ht="SÈVIS TAKS">
-      TAX SERVICES
+    <div class="ai-box">
+
+      <div>
+
+        <h2>
+          MAXIMAX AI CENTER
+        </h2>
+
+        <p
+          data-en="Use Maximax digital tools for guided assistance, forms, translation and intelligent support."
+          data-es="Use las herramientas digitales de Maximax para asistencia guiada, formularios, traducción y soporte inteligente."
+          data-ht="Sèvi ak zouti dijital Maximax pou asistans gide, fòm, tradiksyon ak sipò entèlijan."
+        >
+          Use Maximax digital tools for guided assistance, forms, translation and intelligent support.
+        </p>
+
+        <div class="ai-actions">
+
+          <a
+            class="btn btn-primary"
+            href="./pages/ai-center.html"
+          >
+            OPEN AI CENTER
+          </a>
+
+          <a
+            class="btn"
+            href="./pages/form-helper.html"
+          >
+            FORM HELPER
+          </a>
+
+          <a
+            class="btn"
+            href="./pages/try-ai.html"
+          >
+            TRY AI
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="ai-symbol">
+        🤖
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ======================================================
+     CONTACT
+====================================================== -->
+
+<section class="section" id="contact">
+  <div class="container">
+
+    <h2
+      class="section-title"
+      data-en="CONTACT MAXIMAX"
+      data-es="CONTACTE MAXIMAX"
+      data-ht="KONTAKTE MAXIMAX"
+    >
+      CONTACT MAXIMAX
     </h2>
 
-    <p class="section-subtitle"
-       data-en="Accurate, professional tax preparation for individuals and businesses — filed right, filed on time."
-       data-es="Preparación de impuestos profesional y precisa para individuos y empresas — presentado correctamente y a tiempo."
-       data-ht="Preparasyon taks pwofesyonèl ak egzak pou moun ak biznis — ranpli kòrèkteman, alè.">
-      Accurate, professional tax preparation for individuals and businesses — filed right, filed on time.
+    <p
+      class="section-subtitle"
+      data-en="Professional service assistance is available through our contact center."
+      data-es="La asistencia de servicios profesionales está disponible a través de nuestro centro de contacto."
+      data-ht="Asistans sèvis pwofesyonèl disponib atravè sant kontak nou an."
+    >
+      Professional service assistance is available through our contact center.
     </p>
 
-    <div class="services-grid">
-      <div class="service-card">
-        <span class="service-number">T-01</span>
-        <div class="service-icon">🧾</div>
-        <h3 data-en="Individual Tax Filing" data-es="Declaración de Impuestos Individual" data-ht="Deklarasyon Taks Endividyèl">Individual Tax Filing</h3>
-        <p data-en="Federal and state tax return preparation for individuals and families."
-           data-es="Preparación de declaraciones de impuestos federales y estatales para individuos y familias."
-           data-ht="Preparasyon deklarasyon taks federal ak eta pou moun ak fanmi.">
-          Federal and state tax return preparation for individuals and families.
-        </p>
+    <div class="contact-grid">
+
+      <div class="contact-card">
+
+        <h3
+          data-en="PHONE"
+          data-es="TELÉFONO"
+          data-ht="TELEFÒN"
+        >
+          PHONE
+        </h3>
+
+        <a href="tel:+14076405166">
+          (407) 640-5166
+        </a>
+
+        <a href="tel:+13175381150">
+          (317) 538-1150
+        </a>
+
+        <a href="tel:+15162168494">
+          (516) 216-8494
+        </a>
+
       </div>
-      <div class="service-card">
-        <span class="service-number">T-02</span>
-        <div class="service-icon">🏢</div>
-        <h3 data-en="Business Tax Filing" data-es="Declaración de Impuestos Empresarial" data-ht="Deklarasyon Taks Biznis">Business Tax Filing</h3>
-        <p data-en="Tax preparation for small businesses, LLCs and corporations."
-           data-es="Preparación de impuestos para pequeñas empresas, LLC y corporaciones."
-           data-ht="Preparasyon taks pou ti biznis, LLC ak konpayi.">
-          Tax preparation for small businesses, LLCs and corporations.
-        </p>
+
+      <div class="contact-card">
+
+        <h3
+          data-en="EMAIL"
+          data-es="CORREO"
+          data-ht="IMÈL"
+        >
+          EMAIL
+        </h3>
+
+        <a href="mailto:bss1815promaxdmp@gmail.com">
+          bss1815promaxdmp@gmail.com
+        </a>
+
       </div>
-      <div class="service-card">
-        <span class="service-number">T-03</span>
-        <div class="service-icon">🪪</div>
-        <h3 data-en="ITIN Applications" data-es="Solicitudes de ITIN" data-ht="Aplikasyon ITIN">ITIN Applications</h3>
-        <p data-en="Application assistance for Individual Taxpayer Identification Numbers."
-           data-es="Asistencia para solicitar el Número de Identificación Personal del Contribuyente."
-           data-ht="Asistans pou aplike pou Nimewo Idantifikasyon Kontribyab Endividyèl.">
-          Application assistance for Individual Taxpayer Identification Numbers.
+
+      <div class="contact-card">
+
+        <h3
+          data-en="WEBSITE"
+          data-es="SITIO WEB"
+          data-ht="SIT ENTÈNÈT"
+        >
+          WEBSITE
+        </h3>
+
+        <p>
+          bss1815pro-maxdmp.com
         </p>
+
+        <a
+          href="./pages/contact-center.html"
+          data-en="OPEN CONTACT CENTER →"
+          data-es="ABRIR CENTRO DE CONTACTO →"
+          data-ht="OUVRI SANT KONTAK →"
+        >
+          OPEN CONTACT CENTER →
+        </a>
+
       </div>
-    </div>
-
-    <div style="text-align:center;margin-top:35px;display:flex;justify-content:center;flex-wrap:wrap;gap:13px;">
-      <a class="btn btn-primary" href="#taxes-form"
-         data-en="BOOK TAX SERVICES APPOINTMENT" data-es="RESERVAR CITA" data-ht="REZÈVE RANDEVOU">
-        BOOK TAX SERVICES APPOINTMENT
-      </a>
-      <a class="btn" href="tel:+14076405166">
-        📞 (407) 640-5166
-      </a>
-    </div>
-
-    <div class="notary-form-box" id="taxes-form">
-
-      <h3 data-en="REQUEST TAX SERVICES" data-es="SOLICITAR SERVICIO" data-ht="MANDE SÈVIS">REQUEST TAX SERVICES</h3>
-      <p class="form-intro"
-         data-en="Fill out the form below and our team will contact you to confirm your appointment."
-         data-es="Complete el siguiente formulario y nuestro equipo se pondrá en contacto con usted."
-         data-ht="Ranpli fòm anba a epi ekip nou an ap kontakte ou pou konfime randevou ou.">
-        Fill out the form below and our team will contact you to confirm your appointment.
-      </p>
-
-      <form class="generic-request-form" data-service-name="TAX SERVICES" data-success-id="taxesFormSuccess">
-
-        <div class="notary-form-grid">
-
-          <div class="form-field">
-            <label data-en="Full Name" data-es="Nombre Completo" data-ht="Non Konplè">Full Name</label>
-            <input type="text" name="Full Name" required placeholder="John Doe">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Phone Number" data-es="Número de Teléfono" data-ht="Nimewo Telefòn">Phone Number</label>
-            <input type="tel" name="Phone" required placeholder="(407) 000-0000">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Email Address" data-es="Correo Electrónico" data-ht="Imèl">Email Address</label>
-            <input type="email" name="Email" required placeholder="you@email.com">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Service Needed" data-es="Servicio Necesitado" data-ht="Sèvis Bezwen">Service Needed</label>
-            <select name="Service Needed" required>
-              <option value="" data-en="Select a service" data-es="Seleccione un servicio" data-ht="Chwazi yon sèvis">Select a service</option>
-              <option value="Individual Tax Return" data-en="Individual Tax Return" data-es="Declaración Individual" data-ht="Deklarasyon Endividyèl">Individual Tax Return</option>
-              <option value="Business Tax Return" data-en="Business Tax Return" data-es="Declaración Empresarial" data-ht="Deklarasyon Biznis">Business Tax Return</option>
-              <option value="ITIN Application" data-en="ITIN Application" data-es="Solicitud de ITIN" data-ht="Aplikasyon ITIN">ITIN Application</option>
-              <option value="Amended / Prior Year Return" data-en="Amended / Prior Year Return" data-es="Declaración Enmendada / Año Anterior" data-ht="Deklarasyon Modifye / Ane Pase">Amended / Prior Year Return</option>
-              <option value="Tax Planning" data-en="Tax Planning" data-es="Planificación Fiscal" data-ht="Planifikasyon Taks">Tax Planning</option>
-              <option value="Other" data-en="Other" data-es="Otro" data-ht="Lòt">Other</option>
-            </select>
-          </div>
-
-          <div class="form-field">
-            <label data-en="Preferred Date" data-es="Fecha Preferida" data-ht="Dat Ou Pi Pito">Preferred Date</label>
-            <input type="date" name="Preferred Date">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Preferred Time" data-es="Hora Preferida" data-ht="Lè Ou Pi Pito">Preferred Time</label>
-            <input type="time" name="Preferred Time">
-          </div>
-
-          <div class="form-field full">
-            <label data-en="Additional Notes" data-es="Notas Adicionales" data-ht="Lòt Nòt">Additional Notes</label>
-            <textarea name="Notes" placeholder="Tell us anything else we should know..."></textarea>
-          </div>
-
-        </div>
-
-        <button type="submit" class="notary-form-submit"
-                data-en="SUBMIT REQUEST" data-es="ENVIAR SOLICITUD" data-ht="VOYE DEMANN">
-          SUBMIT REQUEST
-        </button>
-
-        <p class="notary-form-note"
-           data-en="We typically respond within 1 business hour. For urgent same-day requests, please call us directly."
-           data-es="Normalmente respondemos dentro de 1 hora hábil. Para solicitudes urgentes, llámenos directamente."
-           data-ht="Nou reponn anjeneral nan 1 èdtan travay. Pou demann ijan, tanpri rele nou dirèkteman.">
-          We typically respond within 1 business hour. For urgent same-day requests, please call us directly.
-        </p>
-
-        <div class="form-success" id="taxesFormSuccess"
-             data-en="Thank you! Your request has been prepared. Your email app should now open — please hit send to complete your request."
-             data-es="¡Gracias! Su solicitud ha sido preparada. Su aplicación de correo debería abrirse — presione enviar para completar."
-             data-ht="Mèsi! Demann ou an prepare. Aplikasyon imèl ou dwe louvri — tanpri klike voye pou fini.">
-          Thank you! Your request has been prepared. Your email app should now open — please hit send to complete your request.
-        </div>
-
-      </form>
 
     </div>
 
   </div>
 </section>
 
-<!-- IMMIGRATION SERVICES DETAIL -->
+</main>
 
-<section class="section notary-section" id="immigration">
+<!-- ======================================================
+     FOOTER
+====================================================== -->
+
+<footer class="site-footer">
+
   <div class="container">
 
-    <h2 class="section-title"
-        data-en="IMMIGRATION SERVICES"
-        data-es="SERVICIOS DE INMIGRACIÓN"
-        data-ht="SÈVIS IMIGRASYON">
-      IMMIGRATION SERVICES
-    </h2>
+    <img
+      class="footer-logo"
+      src="./maximax-multi-services.jpg?v=20260918"
+      alt="Maximax Multi Services"
+    >
 
-    <p class="section-subtitle"
-       data-en="Guided document preparation and support for your immigration process — every step of the way."
-       data-es="Preparación de documentos guiada y apoyo para su proceso de inmigración — en cada paso."
-       data-ht="Preparasyon dokiman gide ak sipò pou pwosesis imigrasyon ou — nan chak etap.">
-      Guided document preparation and support for your immigration process — every step of the way.
-    </p>
-
-    <div class="services-grid">
-      <div class="service-card">
-        <span class="service-number">I-01</span>
-        <div class="service-icon">🪪</div>
-        <h3 data-en="Green Card Applications" data-es="Solicitudes de Residencia" data-ht="Aplikasyon Green Card">Green Card Applications</h3>
-        <p data-en="Family and employment-based permanent residency petitions."
-           data-es="Peticiones de residencia permanente basadas en familia y empleo."
-           data-ht="Petisyon rezidans pèmanan ki baze sou fanmi ak travay.">
-          Family and employment-based permanent residency petitions.
-        </p>
-      </div>
-      <div class="service-card">
-        <span class="service-number">I-02</span>
-        <div class="service-icon">🎖️</div>
-        <h3 data-en="Citizenship & Naturalization" data-es="Ciudadanía y Naturalización" data-ht="Sitwayènte & Natiralizasyon">Citizenship & Naturalization</h3>
-        <p data-en="N-400 application preparation and interview readiness."
-           data-es="Preparación de la solicitud N-400 y preparación para la entrevista."
-           data-ht="Preparasyon aplikasyon N-400 ak preparasyon pou entèvyou.">
-          N-400 application preparation and interview readiness.
-        </p>
-      </div>
-      <div class="service-card">
-        <span class="service-number">I-03</span>
-        <div class="service-icon">📋</div>
-        <h3 data-en="Work Permits & Family Petitions" data-es="Permisos de Trabajo y Peticiones Familiares" data-ht="Pèmi Travay & Petisyon Fanmi">Work Permits & Family Petitions</h3>
-        <p data-en="Employment authorization and family sponsorship document support."
-           data-es="Autorización de empleo y apoyo documental para patrocinio familiar."
-           data-ht="Otorizasyon travay ak sipò dokiman pou peze fanmi.">
-          Employment authorization and family sponsorship document support.
-        </p>
-      </div>
+    <div class="footer-title">
+      MAXIMAX MULTI SERVICES
     </div>
 
-    <div style="text-align:center;margin-top:35px;display:flex;justify-content:center;flex-wrap:wrap;gap:13px;">
-      <a class="btn btn-primary" href="#immigration-form"
-         data-en="BOOK IMMIGRATION SERVICES APPOINTMENT" data-es="RESERVAR CITA" data-ht="REZÈVE RANDEVOU">
-        BOOK IMMIGRATION SERVICES APPOINTMENT
-      </a>
-      <a class="btn" href="tel:+14076405166">
-        📞 (407) 640-5166
-      </a>
+    <div class="footer-platform">
+      PART OF BSS1815 PRO-MAX DMP
     </div>
 
-    <div class="notary-form-box" id="immigration-form">
-
-      <h3 data-en="REQUEST IMMIGRATION SERVICES" data-es="SOLICITAR SERVICIO" data-ht="MANDE SÈVIS">REQUEST IMMIGRATION SERVICES</h3>
-      <p class="form-intro"
-         data-en="Fill out the form below and our team will contact you to confirm your appointment."
-         data-es="Complete el siguiente formulario y nuestro equipo se pondrá en contacto con usted."
-         data-ht="Ranpli fòm anba a epi ekip nou an ap kontakte ou pou konfime randevou ou.">
-        Fill out the form below and our team will contact you to confirm your appointment.
-      </p>
-
-      <form class="generic-request-form" data-service-name="IMMIGRATION SERVICES" data-success-id="immigrationFormSuccess">
-
-        <div class="notary-form-grid">
-
-          <div class="form-field">
-            <label data-en="Full Name" data-es="Nombre Completo" data-ht="Non Konplè">Full Name</label>
-            <input type="text" name="Full Name" required placeholder="John Doe">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Phone Number" data-es="Número de Teléfono" data-ht="Nimewo Telefòn">Phone Number</label>
-            <input type="tel" name="Phone" required placeholder="(407) 000-0000">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Email Address" data-es="Correo Electrónico" data-ht="Imèl">Email Address</label>
-            <input type="email" name="Email" required placeholder="you@email.com">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Service Needed" data-es="Servicio Necesitado" data-ht="Sèvis Bezwen">Service Needed</label>
-            <select name="Service Needed" required>
-              <option value="" data-en="Select a service" data-es="Seleccione un servicio" data-ht="Chwazi yon sèvis">Select a service</option>
-              <option value="Green Card Application" data-en="Green Card Application" data-es="Solicitud de Residencia" data-ht="Aplikasyon Green Card">Green Card Application</option>
-              <option value="Citizenship / Naturalization" data-en="Citizenship / Naturalization" data-es="Ciudadanía / Naturalización" data-ht="Sitwayènte / Natiralizasyon">Citizenship / Naturalization</option>
-              <option value="Work Permit" data-en="Work Permit" data-es="Permiso de Trabajo" data-ht="Pèmi Travay">Work Permit</option>
-              <option value="Family Petition" data-en="Family Petition" data-es="Petición Familiar" data-ht="Petisyon Fanmi">Family Petition</option>
-              <option value="Visa Application" data-en="Visa Application" data-es="Solicitud de Visa" data-ht="Aplikasyon Visa">Visa Application</option>
-              <option value="Other" data-en="Other" data-es="Otro" data-ht="Lòt">Other</option>
-            </select>
-          </div>
-
-          <div class="form-field">
-            <label data-en="Preferred Date" data-es="Fecha Preferida" data-ht="Dat Ou Pi Pito">Preferred Date</label>
-            <input type="date" name="Preferred Date">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Preferred Time" data-es="Hora Preferida" data-ht="Lè Ou Pi Pito">Preferred Time</label>
-            <input type="time" name="Preferred Time">
-          </div>
-
-          <div class="form-field full">
-            <label data-en="Additional Notes" data-es="Notas Adicionales" data-ht="Lòt Nòt">Additional Notes</label>
-            <textarea name="Notes" placeholder="Tell us anything else we should know..."></textarea>
-          </div>
-
-        </div>
-
-        <button type="submit" class="notary-form-submit"
-                data-en="SUBMIT REQUEST" data-es="ENVIAR SOLICITUD" data-ht="VOYE DEMANN">
-          SUBMIT REQUEST
-        </button>
-
-        <p class="notary-form-note"
-           data-en="We typically respond within 1 business hour. For urgent same-day requests, please call us directly."
-           data-es="Normalmente respondemos dentro de 1 hora hábil. Para solicitudes urgentes, llámenos directamente."
-           data-ht="Nou reponn anjeneral nan 1 èdtan travay. Pou demann ijan, tanpri rele nou dirèkteman.">
-          We typically respond within 1 business hour. For urgent same-day requests, please call us directly.
-        </p>
-
-        <div class="form-success" id="immigrationFormSuccess"
-             data-en="Thank you! Your request has been prepared. Your email app should now open — please hit send to complete your request."
-             data-es="¡Gracias! Su solicitud ha sido preparada. Su aplicación de correo debería abrirse — presione enviar para completar."
-             data-ht="Mèsi! Demann ou an prepare. Aplikasyon imèl ou dwe louvri — tanpri klike voye pou fini.">
-          Thank you! Your request has been prepared. Your email app should now open — please hit send to complete your request.
-        </div>
-
-      </form>
-
+    <div class="copyright">
+      © <span id="currentYear"></span> MAXIMAX MULTI SERVICES. ALL RIGHTS RESERVED.
     </div>
 
   </div>
-</section>
-
-<!-- EOIR + BIA DETAIL -->
-
-<section class="section notary-section" id="eoir-bia">
-  <div class="container">
-
-    <h2 class="section-title"
-        data-en="EOIR + BIA"
-        data-es="EOIR + BIA"
-        data-ht="EOIR + BIA">
-      EOIR + BIA
-    </h2>
-
-    <p class="section-subtitle"
-       data-en="Dedicated document support for Immigration Court (EOIR) and Board of Immigration Appeals (BIA) matters."
-       data-es="Apoyo documental dedicado para asuntos del Tribunal de Inmigración (EOIR) y la Junta de Apelaciones (BIA)."
-       data-ht="Sipò dokiman espesyal pou zafè Tribinal Imigrasyon (EOIR) ak Komisyon Apèl Imigrasyon (BIA).">
-      Dedicated document support for Immigration Court (EOIR) and Board of Immigration Appeals (BIA) matters.
-    </p>
-
-    <div class="services-grid">
-      <div class="service-card">
-        <span class="service-number">EB-01</span>
-        <div class="service-icon">⚖️</div>
-        <h3 data-en="Immigration Court Filings" data-es="Presentaciones ante el Tribunal" data-ht="Depo nan Tribinal Imigrasyon">Immigration Court Filings</h3>
-        <p data-en="Document preparation for hearings and filings before Immigration Court."
-           data-es="Preparación de documentos para audiencias y presentaciones ante el Tribunal."
-           data-ht="Preparasyon dokiman pou odyans ak depo devan Tribinal Imigrasyon.">
-          Document preparation for hearings and filings before Immigration Court.
-        </p>
-      </div>
-      <div class="service-card">
-        <span class="service-number">EB-02</span>
-        <div class="service-icon">📑</div>
-        <h3 data-en="BIA Appeals" data-es="Apelaciones ante la BIA" data-ht="Apèl BIA">BIA Appeals</h3>
-        <p data-en="Assistance preparing appeal documents for the Board of Immigration Appeals."
-           data-es="Asistencia preparando documentos de apelación para la BIA."
-           data-ht="Asistans pou prepare dokiman apèl pou BIA.">
-          Assistance preparing appeal documents for the Board of Immigration Appeals.
-        </p>
-      </div>
-      <div class="service-card">
-        <span class="service-number">EB-03</span>
-        <div class="service-icon">📄</div>
-        <h3 data-en="Motions & Court Translations" data-es="Mociones y Traducciones" data-ht="Mosyon & Tradiksyon Tribinal">Motions & Court Translations</h3>
-        <p data-en="Motions to reopen/reconsider and certified translations for court use."
-           data-es="Mociones para reabrir/reconsiderar y traducciones certificadas para el tribunal."
-           data-ht="Mosyon pou re-ouvri/rekonsidere ak tradiksyon sètifye pou tribinal.">
-          Motions to reopen/reconsider and certified translations for court use.
-        </p>
-      </div>
-    </div>
-
-    <div style="text-align:center;margin-top:35px;display:flex;justify-content:center;flex-wrap:wrap;gap:13px;">
-      <a class="btn btn-primary" href="#eoir-bia-form"
-         data-en="BOOK EOIR + BIA APPOINTMENT" data-es="RESERVAR CITA" data-ht="REZÈVE RANDEVOU">
-        BOOK EOIR + BIA APPOINTMENT
-      </a>
-      <a class="btn" href="tel:+14076405166">
-        📞 (407) 640-5166
-      </a>
-    </div>
-
-    <div class="notary-form-box" id="eoir-bia-form">
-
-      <h3 data-en="REQUEST EOIR + BIA" data-es="SOLICITAR SERVICIO" data-ht="MANDE SÈVIS">REQUEST EOIR + BIA</h3>
-      <p class="form-intro"
-         data-en="Fill out the form below and our team will contact you to confirm your appointment."
-         data-es="Complete el siguiente formulario y nuestro equipo se pondrá en contacto con usted."
-         data-ht="Ranpli fòm anba a epi ekip nou an ap kontakte ou pou konfime randevou ou.">
-        Fill out the form below and our team will contact you to confirm your appointment.
-      </p>
-
-      <form class="generic-request-form" data-service-name="EOIR + BIA" data-success-id="eoirbiaFormSuccess">
-
-        <div class="notary-form-grid">
-
-          <div class="form-field">
-            <label data-en="Full Name" data-es="Nombre Completo" data-ht="Non Konplè">Full Name</label>
-            <input type="text" name="Full Name" required placeholder="John Doe">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Phone Number" data-es="Número de Teléfono" data-ht="Nimewo Telefòn">Phone Number</label>
-            <input type="tel" name="Phone" required placeholder="(407) 000-0000">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Email Address" data-es="Correo Electrónico" data-ht="Imèl">Email Address</label>
-            <input type="email" name="Email" required placeholder="you@email.com">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Service Needed" data-es="Servicio Necesitado" data-ht="Sèvis Bezwen">Service Needed</label>
-            <select name="Service Needed" required>
-              <option value="" data-en="Select a service" data-es="Seleccione un servicio" data-ht="Chwazi yon sèvis">Select a service</option>
-              <option value="Immigration Court Filing" data-en="Immigration Court Filing" data-es="Presentación ante el Tribunal" data-ht="Depo Tribinal Imigrasyon">Immigration Court Filing</option>
-              <option value="BIA Appeal" data-en="BIA Appeal" data-es="Apelación BIA" data-ht="Apèl BIA">BIA Appeal</option>
-              <option value="Motion to Reopen/Reconsider" data-en="Motion to Reopen/Reconsider" data-es="Moción para Reabrir/Reconsiderar" data-ht="Mosyon pou Re-ouvri/Rekonsidere">Motion to Reopen/Reconsider</option>
-              <option value="Court Document Translation" data-en="Court Document Translation" data-es="Traducción de Documentos" data-ht="Tradiksyon Dokiman Tribinal">Court Document Translation</option>
-              <option value="Other" data-en="Other" data-es="Otro" data-ht="Lòt">Other</option>
-            </select>
-          </div>
-
-          <div class="form-field full">
-            <label data-en="Case / Alien Number" data-es="Número de Caso / Extranjero" data-ht="Nimewo Ka / Etranje">Case / Alien Number</label>
-            <input type="text" name="Case / Alien Number" placeholder="">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Preferred Date" data-es="Fecha Preferida" data-ht="Dat Ou Pi Pito">Preferred Date</label>
-            <input type="date" name="Preferred Date">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Preferred Time" data-es="Hora Preferida" data-ht="Lè Ou Pi Pito">Preferred Time</label>
-            <input type="time" name="Preferred Time">
-          </div>
-
-          <div class="form-field full">
-            <label data-en="Additional Notes" data-es="Notas Adicionales" data-ht="Lòt Nòt">Additional Notes</label>
-            <textarea name="Notes" placeholder="Tell us anything else we should know..."></textarea>
-          </div>
-
-        </div>
-
-        <button type="submit" class="notary-form-submit"
-                data-en="SUBMIT REQUEST" data-es="ENVIAR SOLICITUD" data-ht="VOYE DEMANN">
-          SUBMIT REQUEST
-        </button>
-
-        <p class="notary-form-note"
-           data-en="We typically respond within 1 business hour. For urgent same-day requests, please call us directly."
-           data-es="Normalmente respondemos dentro de 1 hora hábil. Para solicitudes urgentes, llámenos directamente."
-           data-ht="Nou reponn anjeneral nan 1 èdtan travay. Pou demann ijan, tanpri rele nou dirèkteman.">
-          We typically respond within 1 business hour. For urgent same-day requests, please call us directly.
-        </p>
-
-        <div class="form-success" id="eoirbiaFormSuccess"
-             data-en="Thank you! Your request has been prepared. Your email app should now open — please hit send to complete your request."
-             data-es="¡Gracias! Su solicitud ha sido preparada. Su aplicación de correo debería abrirse — presione enviar para completar."
-             data-ht="Mèsi! Demann ou an prepare. Aplikasyon imèl ou dwe louvri — tanpri klike voye pou fini.">
-          Thank you! Your request has been prepared. Your email app should now open — please hit send to complete your request.
-        </div>
-
-      </form>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- INSURANCE DETAIL -->
-
-<section class="section notary-section" id="insurance">
-  <div class="container">
-
-    <h2 class="section-title"
-        data-en="INSURANCE"
-        data-es="SEGUROS"
-        data-ht="ASIRANS">
-      INSURANCE
-    </h2>
-
-    <p class="section-subtitle"
-       data-en="Information and assistance finding the right insurance coverage for you and your family."
-       data-es="Información y asistencia para encontrar la cobertura de seguro adecuada para usted y su familia."
-       data-ht="Enfòmasyon ak asistans pou jwenn bon kouvèti asirans pou ou ak fanmi ou.">
-      Information and assistance finding the right insurance coverage for you and your family.
-    </p>
-
-    <div class="services-grid">
-      <div class="service-card">
-        <span class="service-number">I-01</span>
-        <div class="service-icon">🚗</div>
-        <h3 data-en="Auto Insurance" data-es="Seguro de Auto" data-ht="Asirans Machin">Auto Insurance</h3>
-        <p data-en="Coverage options and quotes for your vehicle."
-           data-es="Opciones de cobertura y cotizaciones para su vehículo."
-           data-ht="Opsyon kouvèti ak pri pou machin ou.">
-          Coverage options and quotes for your vehicle.
-        </p>
-      </div>
-      <div class="service-card">
-        <span class="service-number">I-02</span>
-        <div class="service-icon">🩺</div>
-        <h3 data-en="Health Insurance" data-es="Seguro de Salud" data-ht="Asirans Sante">Health Insurance</h3>
-        <p data-en="Guidance on marketplace and private health insurance plans."
-           data-es="Orientación sobre planes de seguro de salud del mercado y privados."
-           data-ht="Gid sou plan asirans sante mache ak prive.">
-          Guidance on marketplace and private health insurance plans.
-        </p>
-      </div>
-      <div class="service-card">
-        <span class="service-number">I-03</span>
-        <div class="service-icon">🏠</div>
-        <h3 data-en="Home & Life Insurance" data-es="Seguro de Hogar y Vida" data-ht="Asirans Kay & Lavi">Home & Life Insurance</h3>
-        <p data-en="Homeowner, renters and life insurance policy assistance."
-           data-es="Asistencia con pólizas de seguro de vivienda, inquilinos y vida."
-           data-ht="Asistans ak polis asirans kay, lokatè ak lavi.">
-          Homeowner, renters and life insurance policy assistance.
-        </p>
-      </div>
-    </div>
-
-    <div style="text-align:center;margin-top:35px;display:flex;justify-content:center;flex-wrap:wrap;gap:13px;">
-      <a class="btn btn-primary" href="#insurance-form"
-         data-en="BOOK INSURANCE APPOINTMENT" data-es="RESERVAR CITA" data-ht="REZÈVE RANDEVOU">
-        BOOK INSURANCE APPOINTMENT
-      </a>
-      <a class="btn" href="tel:+14076405166">
-        📞 (407) 640-5166
-      </a>
-    </div>
-
-    <div class="notary-form-box" id="insurance-form">
-
-      <h3 data-en="REQUEST INSURANCE" data-es="SOLICITAR SERVICIO" data-ht="MANDE SÈVIS">REQUEST INSURANCE</h3>
-      <p class="form-intro"
-         data-en="Fill out the form below and our team will contact you to confirm your appointment."
-         data-es="Complete el siguiente formulario y nuestro equipo se pondrá en contacto con usted."
-         data-ht="Ranpli fòm anba a epi ekip nou an ap kontakte ou pou konfime randevou ou.">
-        Fill out the form below and our team will contact you to confirm your appointment.
-      </p>
-
-      <form class="generic-request-form" data-service-name="INSURANCE" data-success-id="insuranceFormSuccess">
-
-        <div class="notary-form-grid">
-
-          <div class="form-field">
-            <label data-en="Full Name" data-es="Nombre Completo" data-ht="Non Konplè">Full Name</label>
-            <input type="text" name="Full Name" required placeholder="John Doe">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Phone Number" data-es="Número de Teléfono" data-ht="Nimewo Telefòn">Phone Number</label>
-            <input type="tel" name="Phone" required placeholder="(407) 000-0000">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Email Address" data-es="Correo Electrónico" data-ht="Imèl">Email Address</label>
-            <input type="email" name="Email" required placeholder="you@email.com">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Service Needed" data-es="Servicio Necesitado" data-ht="Sèvis Bezwen">Service Needed</label>
-            <select name="Service Needed" required>
-              <option value="" data-en="Select a service" data-es="Seleccione un servicio" data-ht="Chwazi yon sèvis">Select a service</option>
-              <option value="Auto Insurance" data-en="Auto Insurance" data-es="Seguro de Auto" data-ht="Asirans Machin">Auto Insurance</option>
-              <option value="Health Insurance" data-en="Health Insurance" data-es="Seguro de Salud" data-ht="Asirans Sante">Health Insurance</option>
-              <option value="Life Insurance" data-en="Life Insurance" data-es="Seguro de Vida" data-ht="Asirans Lavi">Life Insurance</option>
-              <option value="Home / Renters Insurance" data-en="Home / Renters Insurance" data-es="Seguro de Hogar / Inquilinos" data-ht="Asirans Kay / Lokatè">Home / Renters Insurance</option>
-              <option value="Other" data-en="Other" data-es="Otro" data-ht="Lòt">Other</option>
-            </select>
-          </div>
-
-          <div class="form-field">
-            <label data-en="Preferred Date" data-es="Fecha Preferida" data-ht="Dat Ou Pi Pito">Preferred Date</label>
-            <input type="date" name="Preferred Date">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Preferred Time" data-es="Hora Preferida" data-ht="Lè Ou Pi Pito">Preferred Time</label>
-            <input type="time" name="Preferred Time">
-          </div>
-
-          <div class="form-field full">
-            <label data-en="Additional Notes" data-es="Notas Adicionales" data-ht="Lòt Nòt">Additional Notes</label>
-            <textarea name="Notes" placeholder="Tell us anything else we should know..."></textarea>
-          </div>
-
-        </div>
-
-        <button type="submit" class="notary-form-submit"
-                data-en="SUBMIT REQUEST" data-es="ENVIAR SOLICITUD" data-ht="VOYE DEMANN">
-          SUBMIT REQUEST
-        </button>
-
-        <p class="notary-form-note"
-           data-en="We typically respond within 1 business hour. For urgent same-day requests, please call us directly."
-           data-es="Normalmente respondemos dentro de 1 hora hábil. Para solicitudes urgentes, llámenos directamente."
-           data-ht="Nou reponn anjeneral nan 1 èdtan travay. Pou demann ijan, tanpri rele nou dirèkteman.">
-          We typically respond within 1 business hour. For urgent same-day requests, please call us directly.
-        </p>
-
-        <div class="form-success" id="insuranceFormSuccess"
-             data-en="Thank you! Your request has been prepared. Your email app should now open — please hit send to complete your request."
-             data-es="¡Gracias! Su solicitud ha sido preparada. Su aplicación de correo debería abrirse — presione enviar para completar."
-             data-ht="Mèsi! Demann ou an prepare. Aplikasyon imèl ou dwe louvri — tanpri klike voye pou fini.">
-          Thank you! Your request has been prepared. Your email app should now open — please hit send to complete your request.
-        </div>
-
-      </form>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- REAL ESTATE DETAIL -->
-
-<section class="section notary-section" id="real-estate">
-  <div class="container">
-
-    <h2 class="section-title"
-        data-en="REAL ESTATE"
-        data-es="BIENES RAÍCES"
-        data-ht="IMOBILYE">
-      REAL ESTATE
-    </h2>
-
-    <p class="section-subtitle"
-       data-en="Resources and professional assistance for buying, selling and preparing property documents."
-       data-es="Recursos y asistencia profesional para comprar, vender y preparar documentos de propiedad."
-       data-ht="Resous ak asistans pwofesyonèl pou achte, vann ak prepare dokiman pwopriyete.">
-      Resources and professional assistance for buying, selling and preparing property documents.
-    </p>
-
-    <div class="services-grid">
-      <div class="service-card">
-        <span class="service-number">RE-01</span>
-        <div class="service-icon">🏡</div>
-        <h3 data-en="Buying a Home" data-es="Comprar una Casa" data-ht="Achte yon Kay">Buying a Home</h3>
-        <p data-en="Guidance and document support through the home buying process."
-           data-es="Orientación y apoyo documental durante el proceso de compra de vivienda."
-           data-ht="Gid ak sipò dokiman nan pwosesis achte kay.">
-          Guidance and document support through the home buying process.
-        </p>
-      </div>
-      <div class="service-card">
-        <span class="service-number">RE-02</span>
-        <div class="service-icon">🔑</div>
-        <h3 data-en="Selling a Home" data-es="Vender una Casa" data-ht="Vann yon Kay">Selling a Home</h3>
-        <p data-en="Document preparation and support for listing and closing a sale."
-           data-es="Preparación de documentos y apoyo para listar y cerrar una venta."
-           data-ht="Preparasyon dokiman ak sipò pou lis ak fèmen yon vant.">
-          Document preparation and support for listing and closing a sale.
-        </p>
-      </div>
-      <div class="service-card">
-        <span class="service-number">RE-03</span>
-        <div class="service-icon">📃</div>
-        <h3 data-en="Property Document Prep" data-es="Preparación de Documentos" data-ht="Preparasyon Dokiman Pwopriyete">Property Document Prep</h3>
-        <p data-en="Deeds, leases and other property-related document preparation."
-           data-es="Preparación de escrituras, contratos de arrendamiento y otros documentos."
-           data-ht="Preparasyon papye kay, kontra lokasyon ak lòt dokiman.">
-          Deeds, leases and other property-related document preparation.
-        </p>
-      </div>
-    </div>
-
-    <div style="text-align:center;margin-top:35px;display:flex;justify-content:center;flex-wrap:wrap;gap:13px;">
-      <a class="btn btn-primary" href="#real-estate-form"
-         data-en="BOOK REAL ESTATE APPOINTMENT" data-es="RESERVAR CITA" data-ht="REZÈVE RANDEVOU">
-        BOOK REAL ESTATE APPOINTMENT
-      </a>
-      <a class="btn" href="tel:+14076405166">
-        📞 (407) 640-5166
-      </a>
-    </div>
-
-    <div class="notary-form-box" id="real-estate-form">
-
-      <h3 data-en="REQUEST REAL ESTATE" data-es="SOLICITAR SERVICIO" data-ht="MANDE SÈVIS">REQUEST REAL ESTATE</h3>
-      <p class="form-intro"
-         data-en="Fill out the form below and our team will contact you to confirm your appointment."
-         data-es="Complete el siguiente formulario y nuestro equipo se pondrá en contacto con usted."
-         data-ht="Ranpli fòm anba a epi ekip nou an ap kontakte ou pou konfime randevou ou.">
-        Fill out the form below and our team will contact you to confirm your appointment.
-      </p>
-
-      <form class="generic-request-form" data-service-name="REAL ESTATE" data-success-id="realestateFormSuccess">
-
-        <div class="notary-form-grid">
-
-          <div class="form-field">
-            <label data-en="Full Name" data-es="Nombre Completo" data-ht="Non Konplè">Full Name</label>
-            <input type="text" name="Full Name" required placeholder="John Doe">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Phone Number" data-es="Número de Teléfono" data-ht="Nimewo Telefòn">Phone Number</label>
-            <input type="tel" name="Phone" required placeholder="(407) 000-0000">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Email Address" data-es="Correo Electrónico" data-ht="Imèl">Email Address</label>
-            <input type="email" name="Email" required placeholder="you@email.com">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Service Needed" data-es="Servicio Necesitado" data-ht="Sèvis Bezwen">Service Needed</label>
-            <select name="Service Needed" required>
-              <option value="" data-en="Select a service" data-es="Seleccione un servicio" data-ht="Chwazi yon sèvis">Select a service</option>
-              <option value="Buying a Home" data-en="Buying a Home" data-es="Comprar una Casa" data-ht="Achte yon Kay">Buying a Home</option>
-              <option value="Selling a Home" data-en="Selling a Home" data-es="Vender una Casa" data-ht="Vann yon Kay">Selling a Home</option>
-              <option value="Property Document Prep" data-en="Property Document Prep" data-es="Preparación de Documentos" data-ht="Preparasyon Dokiman">Property Document Prep</option>
-              <option value="Rental Assistance" data-en="Rental Assistance" data-es="Asistencia de Alquiler" data-ht="Asistans Lokasyon">Rental Assistance</option>
-              <option value="Other" data-en="Other" data-es="Otro" data-ht="Lòt">Other</option>
-            </select>
-          </div>
-
-          <div class="form-field full">
-            <label data-en="Property Address (if applicable)" data-es="Dirección de la Propiedad (si aplica)" data-ht="Adrès Pwopriyete (si sa aplikab)">Property Address (if applicable)</label>
-            <input type="text" name="Property Address" placeholder="">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Preferred Date" data-es="Fecha Preferida" data-ht="Dat Ou Pi Pito">Preferred Date</label>
-            <input type="date" name="Preferred Date">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Preferred Time" data-es="Hora Preferida" data-ht="Lè Ou Pi Pito">Preferred Time</label>
-            <input type="time" name="Preferred Time">
-          </div>
-
-          <div class="form-field full">
-            <label data-en="Additional Notes" data-es="Notas Adicionales" data-ht="Lòt Nòt">Additional Notes</label>
-            <textarea name="Notes" placeholder="Tell us anything else we should know..."></textarea>
-          </div>
-
-        </div>
-
-        <button type="submit" class="notary-form-submit"
-                data-en="SUBMIT REQUEST" data-es="ENVIAR SOLICITUD" data-ht="VOYE DEMANN">
-          SUBMIT REQUEST
-        </button>
-
-        <p class="notary-form-note"
-           data-en="We typically respond within 1 business hour. For urgent same-day requests, please call us directly."
-           data-es="Normalmente respondemos dentro de 1 hora hábil. Para solicitudes urgentes, llámenos directamente."
-           data-ht="Nou reponn anjeneral nan 1 èdtan travay. Pou demann ijan, tanpri rele nou dirèkteman.">
-          We typically respond within 1 business hour. For urgent same-day requests, please call us directly.
-        </p>
-
-        <div class="form-success" id="realestateFormSuccess"
-             data-en="Thank you! Your request has been prepared. Your email app should now open — please hit send to complete your request."
-             data-es="¡Gracias! Su solicitud ha sido preparada. Su aplicación de correo debería abrirse — presione enviar para completar."
-             data-ht="Mèsi! Demann ou an prepare. Aplikasyon imèl ou dwe louvri — tanpri klike voye pou fini.">
-          Thank you! Your request has been prepared. Your email app should now open — please hit send to complete your request.
-        </div>
-
-      </form>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- BUSINESS SERVICES DETAIL -->
-
-<section class="section notary-section" id="business">
-  <div class="container">
-
-    <h2 class="section-title"
-        data-en="BUSINESS SERVICES"
-        data-es="SERVICIOS EMPRESARIALES"
-        data-ht="SÈVIS BIZNIS">
-      BUSINESS SERVICES
-    </h2>
-
-    <p class="section-subtitle"
-       data-en="From formation to contracts — professional support to start and grow your business."
-       data-es="Desde la formación hasta los contratos — apoyo profesional para iniciar y hacer crecer su negocio."
-       data-ht="Depi kreyasyon rive nan kontra — sipò pwofesyonèl pou kòmanse ak fè biznis ou grandi.">
-      From formation to contracts — professional support to start and grow your business.
-    </p>
-
-    <div class="services-grid">
-      <div class="service-card">
-        <span class="service-number">B-01</span>
-        <div class="service-icon">🏢</div>
-        <h3 data-en="LLC & Corporation Formation" data-es="Formación de LLC y Corporación" data-ht="Kreyasyon LLC & Konpayi">LLC & Corporation Formation</h3>
-        <p data-en="Business entity formation and registration assistance."
-           data-es="Asistencia con la formación y registro de entidades comerciales."
-           data-ht="Asistans pou kreye ak enrejistre antite biznis.">
-          Business entity formation and registration assistance.
-        </p>
-      </div>
-      <div class="service-card">
-        <span class="service-number">B-02</span>
-        <div class="service-icon">🆔</div>
-        <h3 data-en="EIN Registration" data-es="Registro de EIN" data-ht="Enrejistreman EIN">EIN Registration</h3>
-        <p data-en="Employer Identification Number application support."
-           data-es="Apoyo para solicitar el Número de Identificación de Empleador."
-           data-ht="Sipò pou aplike pou Nimewo Idantifikasyon Anplwayè.">
-          Employer Identification Number application support.
-        </p>
-      </div>
-      <div class="service-card">
-        <span class="service-number">B-03</span>
-        <div class="service-icon">📝</div>
-        <h3 data-en="Licensing & Contracts" data-es="Licencias y Contratos" data-ht="Lisans & Kontra">Licensing & Contracts</h3>
-        <p data-en="Business licensing guidance and contract/agreement preparation."
-           data-es="Orientación sobre licencias comerciales y preparación de contratos."
-           data-ht="Gid sou lisans biznis ak preparasyon kontra.">
-          Business licensing guidance and contract/agreement preparation.
-        </p>
-      </div>
-    </div>
-
-    <div style="text-align:center;margin-top:35px;display:flex;justify-content:center;flex-wrap:wrap;gap:13px;">
-      <a class="btn btn-primary" href="#business-form"
-         data-en="BOOK BUSINESS SERVICES APPOINTMENT" data-es="RESERVAR CITA" data-ht="REZÈVE RANDEVOU">
-        BOOK BUSINESS SERVICES APPOINTMENT
-      </a>
-      <a class="btn" href="tel:+14076405166">
-        📞 (407) 640-5166
-      </a>
-    </div>
-
-    <div class="notary-form-box" id="business-form">
-
-      <h3 data-en="REQUEST BUSINESS SERVICES" data-es="SOLICITAR SERVICIO" data-ht="MANDE SÈVIS">REQUEST BUSINESS SERVICES</h3>
-      <p class="form-intro"
-         data-en="Fill out the form below and our team will contact you to confirm your appointment."
-         data-es="Complete el siguiente formulario y nuestro equipo se pondrá en contacto con usted."
-         data-ht="Ranpli fòm anba a epi ekip nou an ap kontakte ou pou konfime randevou ou.">
-        Fill out the form below and our team will contact you to confirm your appointment.
-      </p>
-
-      <form class="generic-request-form" data-service-name="BUSINESS SERVICES" data-success-id="businessFormSuccess">
-
-        <div class="notary-form-grid">
-
-          <div class="form-field">
-            <label data-en="Full Name" data-es="Nombre Completo" data-ht="Non Konplè">Full Name</label>
-            <input type="text" name="Full Name" required placeholder="John Doe">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Phone Number" data-es="Número de Teléfono" data-ht="Nimewo Telefòn">Phone Number</label>
-            <input type="tel" name="Phone" required placeholder="(407) 000-0000">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Email Address" data-es="Correo Electrónico" data-ht="Imèl">Email Address</label>
-            <input type="email" name="Email" required placeholder="you@email.com">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Service Needed" data-es="Servicio Necesitado" data-ht="Sèvis Bezwen">Service Needed</label>
-            <select name="Service Needed" required>
-              <option value="" data-en="Select a service" data-es="Seleccione un servicio" data-ht="Chwazi yon sèvis">Select a service</option>
-              <option value="LLC / Corporation Formation" data-en="LLC / Corporation Formation" data-es="Formación de LLC / Corporación" data-ht="Kreyasyon LLC / Konpayi">LLC / Corporation Formation</option>
-              <option value="EIN Registration" data-en="EIN Registration" data-es="Registro de EIN" data-ht="Enrejistreman EIN">EIN Registration</option>
-              <option value="Business Licensing" data-en="Business Licensing" data-es="Licencias Comerciales" data-ht="Lisans Biznis">Business Licensing</option>
-              <option value="Contracts & Agreements" data-en="Contracts & Agreements" data-es="Contratos y Acuerdos" data-ht="Kontra & Akò">Contracts & Agreements</option>
-              <option value="Other" data-en="Other" data-es="Otro" data-ht="Lòt">Other</option>
-            </select>
-          </div>
-
-          <div class="form-field full">
-            <label data-en="Business Name (if applicable)" data-es="Nombre del Negocio (si aplica)" data-ht="Non Biznis (si sa aplikab)">Business Name (if applicable)</label>
-            <input type="text" name="Business Name" placeholder="">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Preferred Date" data-es="Fecha Preferida" data-ht="Dat Ou Pi Pito">Preferred Date</label>
-            <input type="date" name="Preferred Date">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Preferred Time" data-es="Hora Preferida" data-ht="Lè Ou Pi Pito">Preferred Time</label>
-            <input type="time" name="Preferred Time">
-          </div>
-
-          <div class="form-field full">
-            <label data-en="Additional Notes" data-es="Notas Adicionales" data-ht="Lòt Nòt">Additional Notes</label>
-            <textarea name="Notes" placeholder="Tell us anything else we should know..."></textarea>
-          </div>
-
-        </div>
-
-        <button type="submit" class="notary-form-submit"
-                data-en="SUBMIT REQUEST" data-es="ENVIAR SOLICITUD" data-ht="VOYE DEMANN">
-          SUBMIT REQUEST
-        </button>
-
-        <p class="notary-form-note"
-           data-en="We typically respond within 1 business hour. For urgent same-day requests, please call us directly."
-           data-es="Normalmente respondemos dentro de 1 hora hábil. Para solicitudes urgentes, llámenos directamente."
-           data-ht="Nou reponn anjeneral nan 1 èdtan travay. Pou demann ijan, tanpri rele nou dirèkteman.">
-          We typically respond within 1 business hour. For urgent same-day requests, please call us directly.
-        </p>
-
-        <div class="form-success" id="businessFormSuccess"
-             data-en="Thank you! Your request has been prepared. Your email app should now open — please hit send to complete your request."
-             data-es="¡Gracias! Su solicitud ha sido preparada. Su aplicación de correo debería abrirse — presione enviar para completar."
-             data-ht="Mèsi! Demann ou an prepare. Aplikasyon imèl ou dwe louvri — tanpri klike voye pou fini.">
-          Thank you! Your request has been prepared. Your email app should now open — please hit send to complete your request.
-        </div>
-
-      </form>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- APOSTILLE DETAIL -->
-
-<section class="section notary-section" id="apostille">
-  <div class="container">
-
-    <h2 class="section-title"
-        data-en="APOSTILLE"
-        data-es="APOSTILLA"
-        data-ht="APOSTILLE">
-      APOSTILLE
-    </h2>
-
-    <p class="section-subtitle"
-       data-en="Document authentication service and preparation assistance for documents used abroad."
-       data-es="Servicio de autenticación de documentos y asistencia de preparación para documentos usados en el extranjero."
-       data-ht="Sèvis otantifikasyon dokiman ak asistans preparasyon pou dokiman ki pral itilize aletranje.">
-      Document authentication service and preparation assistance for documents used abroad.
-    </p>
-
-    <div class="services-grid">
-      <div class="service-card">
-        <span class="service-number">A-01</span>
-        <div class="service-icon">📜</div>
-        <h3 data-en="Document Authentication" data-es="Autenticación de Documentos" data-ht="Otantifikasyon Dokiman">Document Authentication</h3>
-        <p data-en="Preparation of documents for state or federal apostille certification."
-           data-es="Preparación de documentos para certificación de apostilla estatal o federal."
-           data-ht="Preparasyon dokiman pou sètifikasyon apostille eta oswa federal.">
-          Preparation of documents for state or federal apostille certification.
-        </p>
-      </div>
-      <div class="service-card">
-        <span class="service-number">A-02</span>
-        <div class="service-icon">🏛️</div>
-        <h3 data-en="State Apostille Filing" data-es="Presentación de Apostilla Estatal" data-ht="Depo Apostille Eta">State Apostille Filing</h3>
-        <p data-en="Filing assistance with the Secretary of State's office."
-           data-es="Asistencia para presentar ante la oficina del Secretario de Estado."
-           data-ht="Asistans pou depoze nan biwo Sekretè Eta a.">
-          Filing assistance with the Secretary of State's office.
-        </p>
-      </div>
-      <div class="service-card">
-        <span class="service-number">A-03</span>
-        <div class="service-icon">🌍</div>
-        <h3 data-en="International Use Documents" data-es="Documentos para Uso Internacional" data-ht="Dokiman pou Itilizasyon Entènasyonal">International Use Documents</h3>
-        <p data-en="Guidance for documents required by foreign governments and institutions."
-           data-es="Orientación para documentos requeridos por gobiernos e instituciones extranjeras."
-           data-ht="Gid pou dokiman gouvènman ak enstitisyon etranje mande.">
-          Guidance for documents required by foreign governments and institutions.
-        </p>
-      </div>
-    </div>
-
-    <div style="text-align:center;margin-top:35px;display:flex;justify-content:center;flex-wrap:wrap;gap:13px;">
-      <a class="btn btn-primary" href="#apostille-form"
-         data-en="BOOK APOSTILLE APPOINTMENT" data-es="RESERVAR CITA" data-ht="REZÈVE RANDEVOU">
-        BOOK APOSTILLE APPOINTMENT
-      </a>
-      <a class="btn" href="tel:+14076405166">
-        📞 (407) 640-5166
-      </a>
-    </div>
-
-    <div class="notary-form-box" id="apostille-form">
-
-      <h3 data-en="REQUEST APOSTILLE" data-es="SOLICITAR SERVICIO" data-ht="MANDE SÈVIS">REQUEST APOSTILLE</h3>
-      <p class="form-intro"
-         data-en="Fill out the form below and our team will contact you to confirm your appointment."
-         data-es="Complete el siguiente formulario y nuestro equipo se pondrá en contacto con usted."
-         data-ht="Ranpli fòm anba a epi ekip nou an ap kontakte ou pou konfime randevou ou.">
-        Fill out the form below and our team will contact you to confirm your appointment.
-      </p>
-
-      <form class="generic-request-form" data-service-name="APOSTILLE" data-success-id="apostilleFormSuccess">
-
-        <div class="notary-form-grid">
-
-          <div class="form-field">
-            <label data-en="Full Name" data-es="Nombre Completo" data-ht="Non Konplè">Full Name</label>
-            <input type="text" name="Full Name" required placeholder="John Doe">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Phone Number" data-es="Número de Teléfono" data-ht="Nimewo Telefòn">Phone Number</label>
-            <input type="tel" name="Phone" required placeholder="(407) 000-0000">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Email Address" data-es="Correo Electrónico" data-ht="Imèl">Email Address</label>
-            <input type="email" name="Email" required placeholder="you@email.com">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Service Needed" data-es="Servicio Necesitado" data-ht="Sèvis Bezwen">Service Needed</label>
-            <select name="Service Needed" required>
-              <option value="" data-en="Select a service" data-es="Seleccione un servicio" data-ht="Chwazi yon sèvis">Select a service</option>
-              <option value="Birth/Marriage/Death Certificate" data-en="Birth / Marriage / Death Certificate" data-es="Certificado de Nacimiento / Matrimonio / Defunción" data-ht="Sètifika Nesans / Maryaj / Dekè">Birth / Marriage / Death Certificate</option>
-              <option value="Power of Attorney" data-en="Power of Attorney" data-es="Poder Notarial" data-ht="Pouvwa Avoka">Power of Attorney</option>
-              <option value="Diploma / Academic Record" data-en="Diploma / Academic Record" data-es="Diploma / Registro Académico" data-ht="Diplòm / Dosye Akademik">Diploma / Academic Record</option>
-              <option value="Business Document" data-en="Business Document" data-es="Documento Empresarial" data-ht="Dokiman Biznis">Business Document</option>
-              <option value="Other" data-en="Other" data-es="Otro" data-ht="Lòt">Other</option>
-            </select>
-          </div>
-
-          <div class="form-field full">
-            <label data-en="Destination Country" data-es="País de Destino" data-ht="Peyi Destinasyon">Destination Country</label>
-            <input type="text" name="Destination Country" placeholder="">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Preferred Date" data-es="Fecha Preferida" data-ht="Dat Ou Pi Pito">Preferred Date</label>
-            <input type="date" name="Preferred Date">
-          </div>
-
-          <div class="form-field">
-            <label data-en="Preferred Time" data-es="Hora Preferida" data-ht="Lè Ou Pi Pito">Preferred Time</label>
-            <input type="time" name="Preferred Time">
-          </div>
-
-          <div class="form-field full">
-            <label data-en="Additional Notes" data-es="Notas Adicionales" data-ht="Lòt Nòt">Additional Notes</label>
-            <textarea name="Notes" placeholder="Tell us anything else we should know..."></textarea>
-          </div>
-
-        </div>
-
-        <button type="submit" class="notary-form-submit"
-                data-en="SUBMIT REQUEST" data-es="ENVIAR SOLICITUD" data-ht="VOYE DEMANN">
-          SUBMIT REQUEST
-        </button>
-
-        <p class="notary-form-note"
-           data-en="We typically respond within 1 business hour. For urgent same-day requests, please call us directly."
-           data-es="Normalmente respondemos dentro de 1 hora hábil. Para solicitudes urgentes, llámenos directamente."
-           data-ht="Nou reponn anjeneral nan 1 èdtan travay. Pou demann ijan, tanpri rele nou dirèkteman.">
-          We typically respond within 1 business hour. For urgent same-day requests, please call us directly.
-        </p>
-
-        <div class="form-success" id="apostilleFormSuccess"
-             data-en="Thank you! Your request has been prepared. Your email app should now open — please hit send to complete your request."
-             data-es="¡Gracias! Su solicitud ha sido preparada. Su aplicación de correo debería abrirse — presione enviar para completar."
-             data-ht="Mèsi! Demann ou an prepare. Aplikasyon imèl ou dwe louvri — tanpri klike voye pou fini.">
-          Thank you! Your request has been prepared. Your email app should now open — please hit send to complete your request.
-        </div>
-
-      </form>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- TRAVEL + DMV DETAIL -->
-
-<section class="section notary-section" id="travel-dmv">
-  <div class="container">
-
-    <h2 class="section-title"
-        data-en="TRAVEL + DMV"
-        data-es="VIAJE + DMV"
-        data-ht="VWAY
+
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* =====================================================
+     CURRENT YEAR
+  ===================================================== */
+
+  var year = document.getElementById("currentYear");
+
+  if(year){
+    year.textContent = new Date().getFullYear();
+  }
+
+
+  /* =====================================================
+     MOBILE MENU
+  ===================================================== */
+
+  var menuToggle = document.getElementById("menuToggle");
+  var mainNav = document.getElementById("mainNav");
+
+  if(menuToggle && mainNav){
+
+    menuToggle.addEventListener("click",function(){
+
+      var open = mainNav.classList.toggle("open");
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        open ? "true" : "false"
+      );
+
+      menuToggle.textContent = open ? "✕" : "☰";
+
+    });
+
+
+    mainNav.querySelectorAll("a").forEach(function(link){
+
+      link.addEventListener("click",function(){
+
+        mainNav.classList.remove("open");
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        menuToggle.textContent = "☰";
+
+      });
+
+    });
+
+  }
+
+
+  /* =====================================================
+     LANGUAGE SYSTEM
+     ENG / ESP / KRE
+  ===================================================== */
+
+  var langButtons = document.querySelectorAll(".lang-btn");
+
+  var translatables = document.querySelectorAll(
+    "[data-en],[data-es],[data-ht]"
+  );
+
+  var supportedLanguages = [
+    "en",
+    "es",
+    "ht"
+  ];
+
+  var languageStorageKey = "maximaxLanguage";
+
+
+  function applyLanguage(lang){
+
+    if(
+      supportedLanguages.indexOf(lang) === -1
+    ){
+      lang = "en";
+    }
+
+
+    document.documentElement.lang =
+      lang === "ht"
+        ? "ht"
+        : lang;
+
+
+    translatables.forEach(function(element){
+
+      var translatedText =
+        element.getAttribute(
+          "data-" + lang
+        );
+
+
+      if(
+        translatedText !== null &&
+        translatedText !== ""
+      ){
+        element.textContent =
+          translatedText;
+      }
+
+    });
+
+
+    langButtons.forEach(function(button){
+
+      var active =
+        button.getAttribute("data-lang") === lang;
+
+
+      button.classList.toggle(
+        "active",
+        active
+      );
+
+
+      button.setAttribute(
+        "aria-pressed",
+        active
+          ? "true"
+          : "false"
+      );
+
+    });
+
+
+    try{
+
+      localStorage.setItem(
+        languageStorageKey,
+        lang
+      );
+
+    }catch(error){}
+
+  }
+
+
+  langButtons.forEach(function(button){
+
+    button.addEventListener(
+      "click",
+      function(){
+
+        applyLanguage(
+          button.getAttribute("data-lang")
+        );
+
+      }
+    );
+
+  });
+
+
+  var savedLanguage = "en";
+
+
+  try{
+
+    var storedLanguage =
+      localStorage.getItem(
+        languageStorageKey
+      );
+
+
+    if(
+      supportedLanguages.indexOf(
+        storedLanguage
+      ) !== -1
+    ){
+      savedLanguage =
+        storedLanguage;
+    }
+
+  }catch(error){}
+
+
+  applyLanguage(
+    savedLanguage
+  );
+
+
+  /* =====================================================
+     VIDEO SOUND
+  ===================================================== */
+
+  var video =
+    document.getElementById(
+      "maximaxMainVideo"
+    );
+
+  var soundButton =
+    document.getElementById(
+      "maximaxSoundButton"
+    );
+
+
+  if(video && soundButton){
+
+    video.muted = true;
+
+
+    var initialPlay =
+      video.play();
+
+
+    if(
+      initialPlay &&
+      typeof initialPlay.catch === "function"
+    ){
+
+      initialPlay.catch(
+        function(){}
+      );
+
+    }
+
+
+    soundButton.addEventListener(
+      "click",
+      function(){
+
+        video.muted =
+          !video.muted;
+
+
+        if(
+          !video.paused
+        ){
+
+          soundButton.textContent =
+            video.muted
+              ? "🔊 TURN SOUND ON"
+              : "🔇 MUTE SOUND";
+
+          return;
+
+        }
+
+
+        var playAttempt =
+          video.play();
+
+
+        if(
+          playAttempt &&
+          typeof playAttempt.then === "function"
+        ){
+
+          playAttempt
+          .then(function(){
+
+            soundButton.textContent =
+              video.muted
+                ? "🔊 TURN SOUND ON"
+                : "🔇 MUTE SOUND";
+
+          })
+          .catch(function(){
+
+            video.muted = true;
+
+            soundButton.textContent =
+              "🔊 TURN SOUND ON";
+
+          });
+
+        }
+
+      }
+    );
+
+  }
+
+
+  /* =====================================================
+     SAME-PAGE SMOOTH SCROLL
+  ===================================================== */
+
+  document
+  .querySelectorAll('a[href^="#"]')
+  .forEach(function(anchor){
+
+    anchor.addEventListener(
+      "click",
+      function(event){
+
+        var href =
+          anchor.getAttribute(
+            "href"
+          );
+
+
+        if(
+          !href ||
+          href === "#"
+        ){
+          return;
+        }
+
+
+        var target =
+          document.querySelector(
+            href
+          );
+
+
+        if(!target){
+          return;
+        }
+
+
+        event.preventDefault();
+
+
+        var header =
+          document.querySelector(
+            ".site-header"
+          );
+
+
+        var offset =
+          header
+            ? header.offsetHeight + 10
+            : 10;
+
+
+        var top =
+          target.getBoundingClientRect().top +
+          window.pageYOffset -
+          offset;
+
+
+        window.scrollTo({
+          top:top,
+          behavior:"smooth"
+        });
+
+      }
+    );
+
+  });
+
+
+  /* =====================================================
+     RESPONSIVE RESET
+  ===================================================== */
+
+  window.addEventListener(
+    "resize",
+    function(){
+
+      if(
+        window.innerWidth > 850 &&
+        mainNav &&
+        menuToggle
+      ){
+
+        mainNav.classList.remove(
+          "open"
+        );
+
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+
+        menuToggle.textContent =
+          "☰";
+
+      }
+
+    }
+  );
+
+
+  /* =====================================================
+     PAGE READY
+  ===================================================== */
+
+  document.body.classList.add(
+    "page-ready"
+  );
+
+})();
+</script>
+
+</body>
+</html>
