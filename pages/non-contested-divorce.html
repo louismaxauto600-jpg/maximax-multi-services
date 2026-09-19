@@ -1,205 +1,3001 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
+<meta name="google" content="notranslate">
+
+<title>Non-Contested Divorce Center | Maximax Multi Services</title>
+
+<style>
+:root{
+  --orange:#ff7900;
+  --apricot:#ffad4d;
+  --black:#000000;
+  --deep:#050200;
+  --soft:#120600;
+  --soft2:#1b0900;
+  --text:#ffd2a3;
+  --muted:#d89558;
+  --border:rgba(255,121,0,.52);
+  --border2:rgba(255,173,77,.30);
+  --glow:rgba(255,121,0,.28);
+  --danger:#ff7900;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:105px;
+  background:#000;
+}
+
+body{
+  min-height:100vh;
+  overflow-x:hidden;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 10% 4%,rgba(255,121,0,.17),transparent 25%),
+    radial-gradient(circle at 92% 18%,rgba(255,173,77,.08),transparent 28%),
+    linear-gradient(180deg,#000 0%,#050200 52%,#000 100%);
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,
+input,
+select,
+textarea{
+  font:inherit;
+}
+
+button,
+a{
+  -webkit-tap-highlight-color:transparent;
+}
+
+.container{
+  width:min(1180px,94%);
+  margin:auto;
+}
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar{
+  padding:10px 12px;
+  text-align:center;
+  color:#000;
+  background:linear-gradient(90deg,var(--orange),var(--apricot),var(--orange));
+  font-size:10px;
+  font-weight:1000;
+  letter-spacing:1px;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  border-bottom:1px solid rgba(255,121,0,.35);
+  background:rgba(0,0,0,.96);
+  backdrop-filter:blur(15px);
+}
+
+.header-inner{
+  min-height:88px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+
+.brand{
+  min-width:0;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.brand-logo{
+  width:64px;
+  height:64px;
+  flex:0 0 64px;
+  object-fit:cover;
+  border:2px solid var(--orange);
+  border-radius:18px;
+  background:#000;
+  box-shadow:0 0 22px var(--glow);
+}
+
+.brand-copy{
+  min-width:0;
+}
+
+.brand-copy h1{
+  overflow:hidden;
+  color:var(--orange);
+  font-size:15px;
+  font-weight:1000;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+
+.brand-copy p{
+  overflow:hidden;
+  margin-top:4px;
+  color:var(--apricot);
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.8px;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+
+.languages{
+  display:flex;
+  gap:4px;
+  padding:4px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:#080300;
+}
+
+.lang-btn{
+  min-height:36px;
+  padding:6px 10px;
+  border:1px solid transparent;
+  border-radius:999px;
+  color:var(--apricot);
+  background:#000;
+  cursor:pointer;
+  font-size:9px;
+  font-weight:1000;
+}
+
+.lang-btn.active{
+  color:#000;
+  border-color:var(--orange);
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+}
+
+.menu-btn{
+  width:50px;
+  height:46px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:2px solid var(--orange);
+  border-radius:14px;
+  color:var(--orange);
+  background:#000;
+  cursor:pointer;
+  font-size:25px;
+}
+
+.mobile-menu{
+  display:none;
+  padding-bottom:15px;
+}
+
+.mobile-menu.open{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+}
+
+.mobile-menu a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  padding:10px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  color:var(--apricot);
+  background:#080300;
+  text-align:center;
+  font-size:9px;
+  font-weight:1000;
+}
+
+.mobile-menu a:hover{
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+  padding:68px 0 42px;
+  text-align:center;
+}
+
+.hero-badge{
+  display:inline-block;
+  padding:9px 16px;
+  border:1px solid var(--orange);
+  border-radius:999px;
+  color:var(--orange);
+  background:rgba(255,121,0,.06);
+  font-size:10px;
+  font-weight:1000;
+  letter-spacing:.5px;
+}
+
+.hero h2{
+  margin-top:20px;
+  color:var(--orange);
+  font-size:clamp(38px,7vw,67px);
+  line-height:1.02;
+  font-weight:1000;
+  text-shadow:0 0 30px rgba(255,121,0,.24);
+}
+
+.hero p{
+  max-width:840px;
+  margin:22px auto 0;
+  color:var(--text);
+  font-size:15px;
+  line-height:1.8;
+}
+
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  margin-top:28px;
+}
+
+.btn{
+  min-height:46px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  padding:10px 18px;
+  border:2px solid var(--orange);
+  border-radius:999px;
+  color:var(--orange);
+  background:#000;
+  cursor:pointer;
+  text-align:center;
+  font-size:10px;
+  font-weight:1000;
+}
+
+.btn:hover,
+.btn:focus{
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+}
+
+.btn.primary{
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+}
+
+.btn.block-btn{
+  width:100%;
+}
+
+.quick-nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  margin-top:24px;
+}
+
+.quick-nav a{
+  padding:9px 13px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  color:var(--apricot);
+  background:#050200;
+  font-size:9px;
+  font-weight:1000;
+}
+
+.quick-nav a:hover{
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+}
+
+/* =========================================================
+   GENERAL SECTION
+========================================================= */
+
+.section{
+  padding:28px 0 60px;
+}
+
+.section-head{
+  margin-bottom:23px;
+}
+
+.section-head small{
+  color:var(--apricot);
+  font-size:10px;
+  font-weight:1000;
+  letter-spacing:.8px;
+}
+
+.section-head h3{
+  margin-top:7px;
+  color:var(--orange);
+  font-size:clamp(27px,5vw,38px);
+  font-weight:1000;
+}
+
+.section-head p{
+  max-width:860px;
+  margin-top:12px;
+  color:var(--text);
+  font-size:12px;
+  line-height:1.75;
+}
+
+/* =========================================================
+   INFO CARDS
+========================================================= */
+
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.info-card{
+  min-height:210px;
+  padding:23px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(255,121,0,.10),transparent 36%),
+    linear-gradient(145deg,#0c0400,#000);
+}
+
+.info-icon{
+  font-size:32px;
+}
+
+.info-card h4{
+  margin-top:16px;
+  color:var(--orange);
+  font-size:18px;
+}
+
+.info-card p{
+  margin-top:11px;
+  font-size:11px;
+  line-height:1.7;
+}
+
+.info-card ul{
+  margin:13px 0 0 18px;
+  color:var(--text);
+  font-size:11px;
+  line-height:1.8;
+}
+
+/* =========================================================
+   ELIGIBILITY
+========================================================= */
+
+.check-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.check-item{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  padding:17px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:#050200;
+}
+
+.check-icon{
+  width:32px;
+  height:32px;
+  flex:0 0 32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--orange);
+  border-radius:50%;
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+  font-weight:1000;
+}
+
+.check-item h4{
+  color:var(--orange);
+  font-size:13px;
+}
+
+.check-item p{
+  margin-top:5px;
+  font-size:10px;
+  line-height:1.6;
+}
+
+/* =========================================================
+   FORM CARDS
+========================================================= */
+
+.forms-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+
+.form-card{
+  display:flex;
+  flex-direction:column;
+  min-height:300px;
+  padding:24px;
+  border:1px solid var(--border);
+  border-radius:25px;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(255,173,77,.10),transparent 35%),
+    linear-gradient(145deg,#120600,#000);
+  box-shadow:0 10px 30px rgba(255,121,0,.04);
+}
+
+.form-card:hover{
+  border-color:var(--orange);
+  box-shadow:0 10px 32px rgba(255,121,0,.12);
+}
+
+.form-code{
+  align-self:flex-start;
+  padding:7px 12px;
+  border:1px solid var(--orange);
+  border-radius:999px;
+  color:var(--orange);
+  background:#000;
+  font-size:10px;
+  font-weight:1000;
+}
+
+.form-card h4{
+  margin-top:17px;
+  color:var(--orange);
+  font-size:19px;
+  line-height:1.3;
+}
+
+.form-card p{
+  margin-top:11px;
+  color:var(--text);
+  font-size:11px;
+  line-height:1.7;
+}
+
+.form-meta{
+  margin-top:13px;
+  padding:11px 12px;
+  border-left:3px solid var(--orange);
+  border-radius:8px;
+  color:var(--apricot);
+  background:rgba(255,121,0,.06);
+  font-size:9px;
+  line-height:1.6;
+}
+
+.form-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:auto;
+  padding-top:20px;
+}
+
+.form-btn{
+  min-height:43px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 10px;
+  border:2px solid var(--orange);
+  border-radius:999px;
+  color:var(--orange);
+  background:#000;
+  cursor:pointer;
+  text-align:center;
+  font-size:9px;
+  font-weight:1000;
+}
+
+.form-btn:hover{
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+}
+
+.form-btn.primary{
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+}
+
+/* =========================================================
+   FORM HELP CENTER - BUILT DIRECTLY INTO THIS PAGE
+========================================================= */
+
+.help-center{
+  padding:26px;
+  border:2px solid var(--orange);
+  border-radius:28px;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(255,121,0,.16),transparent 38%),
+    linear-gradient(145deg,#0d0400,#000);
+  box-shadow:0 0 35px rgba(255,121,0,.09);
+}
+
+.help-center-head{
+  text-align:center;
+}
+
+.help-center-head .icon{
+  font-size:42px;
+}
+
+.help-center-head h3{
+  margin-top:12px;
+  color:var(--orange);
+  font-size:30px;
+}
+
+.help-center-head p{
+  max-width:780px;
+  margin:12px auto 0;
+  font-size:12px;
+  line-height:1.7;
+}
+
+.helper-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+  margin-top:25px;
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+
+.field.full{
+  grid-column:1/-1;
+}
+
+.field label{
+  color:var(--apricot);
+  font-size:9px;
+  font-weight:1000;
+  letter-spacing:.4px;
+}
+
+.field input,
+.field select,
+.field textarea{
+  width:100%;
+  min-height:48px;
+  padding:12px 14px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  outline:none;
+  color:var(--text);
+  background:#050200;
+}
+
+.field textarea{
+  min-height:105px;
+  resize:vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+  border-color:var(--orange);
+  box-shadow:0 0 0 2px rgba(255,121,0,.08);
+}
+
+.field option{
+  color:var(--text);
+  background:#000;
+}
+
+.helper-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:18px;
+}
+
+.result-box{
+  display:none;
+  margin-top:22px;
+  padding:20px;
+  border:1px solid var(--orange);
+  border-radius:20px;
+  background:#000;
+}
+
+.result-box.show{
+  display:block;
+}
+
+.result-box h4{
+  color:var(--orange);
+  font-size:18px;
+}
+
+.result-box p{
+  margin-top:9px;
+  font-size:11px;
+  line-height:1.7;
+}
+
+.result-list{
+  margin-top:13px;
+  display:grid;
+  gap:8px;
+}
+
+.result-item{
+  padding:12px;
+  border:1px solid var(--border2);
+  border-radius:12px;
+  background:#080300;
+  font-size:10px;
+  line-height:1.6;
+}
+
+/* =========================================================
+   DOCUMENT CHECKLIST
+========================================================= */
+
+.checklist{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.checklist-row{
+  position:relative;
+  padding:17px 17px 17px 50px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:#050200;
+  cursor:pointer;
+  user-select:none;
+}
+
+.checklist-row input{
+  position:absolute;
+  left:17px;
+  top:18px;
+  width:20px;
+  height:20px;
+  accent-color:var(--orange);
+}
+
+.checklist-row strong{
+  display:block;
+  color:var(--orange);
+  font-size:12px;
+}
+
+.checklist-row span{
+  display:block;
+  margin-top:5px;
+  font-size:10px;
+  line-height:1.55;
+}
+
+/* =========================================================
+   REQUEST ORGANIZER
+========================================================= */
+
+.organizer{
+  padding:25px;
+  border:1px solid var(--border);
+  border-radius:26px;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(255,121,0,.10),transparent 35%),
+    #050200;
+}
+
+.organizer-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.organizer-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:18px;
+}
+
+/* =========================================================
+   PRINT DOCUMENT
+========================================================= */
+
+.print-document{
+  display:none;
+  margin-top:25px;
+  padding:28px;
+  border:3px solid var(--orange);
+  border-radius:24px;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 100% 0%,rgba(255,121,0,.13),transparent 35%),
+    linear-gradient(145deg,#120600,#000);
+}
+
+.print-document.show{
+  display:block;
+}
+
+.print-head{
+  padding-bottom:18px;
+  border-bottom:2px solid var(--orange);
+}
+
+.print-head h3{
+  color:var(--orange);
+  font-size:25px;
+}
+
+.print-head p{
+  margin-top:6px;
+  color:var(--apricot);
+  font-size:10px;
+}
+
+.print-section{
+  margin-top:20px;
+}
+
+.print-section h4{
+  margin-bottom:10px;
+  color:var(--orange);
+  font-size:15px;
+}
+
+.print-line{
+  margin-top:7px;
+  padding:9px 11px;
+  border:1px solid var(--border2);
+  border-radius:10px;
+  font-size:10px;
+  line-height:1.5;
+}
+
+.print-checks{
+  display:grid;
+  gap:7px;
+}
+
+.print-footer{
+  margin-top:25px;
+  padding-top:15px;
+  border-top:1px solid var(--orange);
+  color:var(--apricot);
+  font-size:9px;
+  line-height:1.6;
+}
+
+/* =========================================================
+   STEPS
+========================================================= */
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:13px;
+}
+
+.step{
+  padding:20px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:#050200;
+}
+
+.step-num{
+  width:38px;
+  height:38px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+  font-size:14px;
+  font-weight:1000;
+}
+
+.step h4{
+  margin-top:14px;
+  color:var(--orange);
+  font-size:14px;
+}
+
+.step p{
+  margin-top:7px;
+  font-size:10px;
+  line-height:1.6;
+}
+
+/* =========================================================
+   NOTICE
+========================================================= */
+
+.notice{
+  margin:0 0 60px;
+  padding:22px;
+  border:1px solid var(--orange);
+  border-radius:20px;
+  background:linear-gradient(145deg,rgba(255,121,0,.09),#000);
+  font-size:10px;
+  line-height:1.75;
+}
+
+.notice strong{
+  color:var(--orange);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+  padding:42px 15px;
+  border-top:1px solid var(--border);
+  text-align:center;
+  background:#000;
+}
+
+footer strong{
+  color:var(--orange);
+}
+
+footer p{
+  margin-top:7px;
+  color:var(--apricot);
+  font-size:10px;
+}
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print{
+  @page{
+    margin:.35in;
+  }
+
+  *{
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+  }
+
+  body{
+    color:#ffd2a3 !important;
+    background:#000 !important;
+  }
+
+  .topbar,
+  header,
+  .hero,
+  #overview,
+  #forms,
+  #form-help,
+  #checklist,
+  #steps,
+  .notice,
+  footer,
+  .organizer > .section-head,
+  .organizer-grid,
+  .organizer-actions{
+    display:none !important;
+  }
+
+  #organizer{
+    display:block !important;
+    padding:0 !important;
+  }
+
+  .organizer{
+    padding:0 !important;
+    border:0 !important;
+    background:#000 !important;
+  }
+
+  .print-document{
+    display:block !important;
+    margin:0 !important;
+    page-break-inside:avoid;
+    color:#ffd2a3 !important;
+    border:3px solid #ff7900 !important;
+    background:linear-gradient(145deg,#120600,#000) !important;
+  }
+
+  .print-line{
+    border-color:rgba(255,121,0,.75) !important;
+    background:#050200 !important;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:900px){
+  .info-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .steps{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .mobile-menu.open{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:760px){
+  .forms-grid,
+  .helper-grid,
+  .organizer-grid,
+  .check-grid,
+  .checklist{
+    grid-template-columns:1fr;
+  }
+
+  .field.full{
+    grid-column:auto;
+  }
+}
+
+@media(max-width:620px){
+  .header-inner{
+    min-height:78px;
+  }
+
+  .brand-logo{
+    width:52px;
+    height:52px;
+    flex-basis:52px;
+  }
+
+  .brand-copy h1{
+    max-width:145px;
+    font-size:10px;
+  }
+
+  .brand-copy p{
+    max-width:145px;
+    font-size:6px;
+  }
+
+  .lang-btn{
+    min-height:32px;
+    padding:5px 7px;
+    font-size:8px;
+  }
+
+  .menu-btn{
+    width:45px;
+    height:42px;
+    font-size:22px;
+  }
+
+  .hero{
+    padding-top:52px;
+  }
+
+  .hero p{
+    font-size:13px;
+  }
+
+  .info-grid,
+  .steps{
+    grid-template-columns:1fr;
+  }
+
+  .form-actions{
+    grid-template-columns:1fr;
+  }
+
+  .mobile-menu.open{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar" data-i18n="topbar">
+MAXIMAX MULTI SERVICES • NON-CONTESTED DIVORCE CENTER
+</div>
+
+<header>
+<div class="container header-inner">
+
+<a class="brand" href="../index.html">
+<img
+  class="brand-logo"
+  src="../maximax-logo.jpg?v=20260919"
+  alt="Maximax Multi Services"
+  onerror="this.onerror=null;this.style.display='none'">
+
+<div class="brand-copy">
+<h1>MAXIMAX MULTI SERVICES</h1>
+<p data-i18n="part">PART OF BSS1815 PRO-MAX DMP</p>
+</div>
+</a>
+
+<div class="header-actions">
+
+<div class="languages notranslate" translate="no">
+<button type="button" class="lang-btn active" data-lang="en">🇺🇸 ENG</button>
+<button type="button" class="lang-btn" data-lang="es">🇪🇸 ESP</button>
+<button type="button" class="lang-btn" data-lang="ht">🇭🇹 KRE</button>
+</div>
+
+<button
+  type="button"
+  class="menu-btn"
+  id="menuBtn"
+  aria-label="Menu"
+  aria-expanded="false">☰</button>
+
+</div>
+</div>
+
+<nav class="container mobile-menu" id="mobileMenu">
+<a href="../index.html" data-i18n="nav_home">HOME</a>
+<a href="#overview" data-i18n="nav_overview">OVERVIEW</a>
+<a href="#forms" data-i18n="nav_forms">DIVORCE FORMS</a>
+<a href="#form-help" data-i18n="nav_help">FORM HELP CENTER</a>
+<a href="#checklist" data-i18n="nav_check">CHECKLIST</a>
+<a href="#organizer" data-i18n="nav_org">REQUEST ORGANIZER</a>
+<a href="./document-center.html" data-i18n="nav_docs">DOCUMENT CENTER</a>
+<a href="./appointment-center.html" data-i18n="nav_appt">APPOINTMENT</a>
+</nav>
+</header>
+
+<main>
+
 <!-- =====================================================
-     OFFICIAL FLORIDA NON-CONTESTED DIVORCE FORMS
+     HERO
 ===================================================== -->
-<section id="divorce-forms" class="divorce-forms-section">
 
-  <div class="section-head">
-    <span>FLORIDA FAMILY LAW</span>
-    <h2>OFFICIAL DIVORCE FORMS</h2>
+<section class="hero">
+<div class="container">
 
-    <p>
-      Open the Florida family-law forms needed for an uncontested
-      or simplified dissolution of marriage. Always verify the
-      current form edition before filing.
-    </p>
-  </div>
+<div class="hero-badge" data-i18n="hero_badge">
+FLORIDA • SELF-HELP DOCUMENT CENTER
+</div>
 
-  <div class="divorce-forms-grid">
+<h2 data-i18n="hero_title">
+NON-CONTESTED DIVORCE
+</h2>
 
-    <!-- 12.901(a) -->
-    <article class="divorce-form-card">
-      <span class="divorce-form-number">12.901(a)</span>
+<p data-i18n="hero_text">
+Organize commonly used Florida family-law divorce forms, prepare your document checklist, and create a divorce document-preparation request without leaving this page.
+</p>
 
-      <h3>Joint Petition for Simplified Dissolution of Marriage</h3>
+<div class="hero-actions">
 
-      <p>
-        For spouses who qualify to file a simplified dissolution
-        of marriage together.
-      </p>
+<a class="btn primary" href="#forms" data-i18n="hero_forms">
+📄 OPEN DIVORCE FORMS
+</a>
 
-      <a
-        class="divorce-form-btn primary"
-        href="https://www.flcourts.gov/content/download/685807/file_pdf/901a.pdf"
-        target="_blank"
-        rel="noopener noreferrer">
-        📄 OPEN FORM 12.901(a)
-      </a>
-    </article>
+<a class="btn" href="#form-help" data-i18n="hero_help">
+🧾 FORM HELP CENTER
+</a>
 
+<a class="btn" href="#organizer" data-i18n="hero_request">
+📋 CREATE REQUEST
+</a>
 
-    <!-- 12.901(b)(1) -->
-    <article class="divorce-form-card">
-      <span class="divorce-form-number">12.901(b)(1)</span>
+</div>
 
-      <h3>Petition for Dissolution of Marriage — No Children or Property</h3>
+<div class="quick-nav">
+<a href="#overview" data-i18n="q1">ELIGIBILITY</a>
+<a href="#forms" data-i18n="q2">FORMS</a>
+<a href="#form-help" data-i18n="q3">FORM HELP</a>
+<a href="#checklist" data-i18n="q4">DOCUMENT CHECKLIST</a>
+<a href="#steps" data-i18n="q5">STEPS</a>
+</div>
 
-      <p>
-        Petition generally used when there are no dependent or
-        minor children and no property or debts to divide.
-      </p>
-
-      <a
-        class="divorce-form-btn"
-        href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
-        target="_blank"
-        rel="noopener noreferrer">
-        🌐 OPEN OFFICIAL FLORIDA FORMS
-      </a>
-    </article>
-
-
-    <!-- 12.901(b)(2) -->
-    <article class="divorce-form-card">
-      <span class="divorce-form-number">12.901(b)(2)</span>
-
-      <h3>Petition for Dissolution of Marriage — Property but No Children</h3>
-
-      <p>
-        For qualifying dissolution cases involving property or
-        debts but no dependent or minor children.
-      </p>
-
-      <a
-        class="divorce-form-btn"
-        href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
-        target="_blank"
-        rel="noopener noreferrer">
-        🌐 OPEN OFFICIAL FLORIDA FORMS
-      </a>
-    </article>
-
-
-    <!-- 12.901(b)(3) -->
-    <article class="divorce-form-card">
-      <span class="divorce-form-number">12.901(b)(3)</span>
-
-      <h3>Petition for Dissolution of Marriage — Dependent or Minor Children</h3>
-
-      <p>
-        For dissolution cases involving dependent or minor
-        children.
-      </p>
-
-      <a
-        class="divorce-form-btn"
-        href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
-        target="_blank"
-        rel="noopener noreferrer">
-        🌐 OPEN OFFICIAL FLORIDA FORMS
-      </a>
-    </article>
-
-
-    <!-- 12.902(b) -->
-    <article class="divorce-form-card">
-      <span class="divorce-form-number">12.902(b)</span>
-
-      <h3>Family Law Financial Affidavit — Short Form</h3>
-
-      <p>
-        Financial affidavit used when the applicable income
-        requirements for the short form are met.
-      </p>
-
-      <a
-        class="divorce-form-btn"
-        href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
-        target="_blank"
-        rel="noopener noreferrer">
-        🌐 OPEN OFFICIAL FORM
-      </a>
-    </article>
-
-
-    <!-- 12.902(c) -->
-    <article class="divorce-form-card">
-      <span class="divorce-form-number">12.902(c)</span>
-
-      <h3>Family Law Financial Affidavit — Long Form</h3>
-
-      <p>
-        Financial affidavit for cases requiring the Florida
-        Family Law long-form financial disclosure.
-      </p>
-
-      <a
-        class="divorce-form-btn"
-        href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
-        target="_blank"
-        rel="noopener noreferrer">
-        🌐 OPEN OFFICIAL FORM
-      </a>
-    </article>
-
-
-    <!-- 12.902(f)(3) -->
-    <article class="divorce-form-card">
-      <span class="divorce-form-number">12.902(f)(3)</span>
-
-      <h3>Marital Settlement Agreement</h3>
-
-      <p>
-        Florida family-law settlement agreement resource for
-        spouses resolving applicable issues by agreement.
-      </p>
-
-      <a
-        class="divorce-form-btn"
-        href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
-        target="_blank"
-        rel="noopener noreferrer">
-        🌐 OPEN OFFICIAL FORM
-      </a>
-    </article>
-
-
-    <!-- 12.900(h) -->
-    <article class="divorce-form-card">
-      <span class="divorce-form-number">12.900(h)</span>
-
-      <h3>Notice of Related Cases</h3>
-
-      <p>
-        Florida family-law form used to identify related cases
-        when applicable.
-      </p>
-
-      <a
-        class="divorce-form-btn"
-        href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
-        target="_blank"
-        rel="noopener noreferrer">
-        🌐 OPEN OFFICIAL FORM
-      </a>
-    </article>
-
-  </div>
-
-  <div class="divorce-official-center">
-    <strong>FLORIDA COURTS — FAMILY LAW FORMS</strong>
-
-    <p>
-      Form editions and filing requirements can change.
-      Verify every form with Florida Courts before filing.
-    </p>
-
-    <a
-      class="divorce-form-btn primary"
-      href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
-      target="_blank"
-      rel="noopener noreferrer">
-      ⚖️ OPEN ALL OFFICIAL FLORIDA FAMILY LAW FORMS
-    </a>
-  </div>
-
+</div>
 </section>
+
+<!-- =====================================================
+     OVERVIEW
+===================================================== -->
+
+<section class="section" id="overview">
+<div class="container">
+
+<div class="section-head">
+<small data-i18n="overview_small">DIVORCE DOCUMENT PREPARATION</small>
+<h3 data-i18n="overview_title">START HERE</h3>
+<p data-i18n="overview_text">
+A non-contested divorce generally means the spouses are not asking the court to resolve disputed issues. The exact forms needed depend on the facts of the case.
+</p>
+</div>
+
+<div class="info-grid">
+
+<div class="info-card">
+<div class="info-icon">🤝</div>
+<h4 data-i18n="info1_title">Agreement</h4>
+<p data-i18n="info1_text">
+Both spouses should understand what is being requested and whether issues such as property, debts, support, and parenting are resolved.
+</p>
+</div>
+
+<div class="info-card">
+<div class="info-icon">📄</div>
+<h4 data-i18n="info2_title">Correct Forms</h4>
+<p data-i18n="info2_text">
+Florida family-law forms differ depending on whether there are minor children, dependent children, property, debts, or other issues.
+</p>
+</div>
+
+<div class="info-card">
+<div class="info-icon">🏛️</div>
+<h4 data-i18n="info3_title">Court Filing</h4>
+<p data-i18n="info3_text">
+The court and clerk control filing requirements, fees, scheduling, and final approval. Verify requirements with the appropriate Florida court or clerk.
+</p>
+</div>
+
+</div>
+
+<div class="section-head" style="margin-top:35px">
+<small data-i18n="elig_small">QUICK SCREEN</small>
+<h3 data-i18n="elig_title">DOCUMENT-PREPARATION CHECK</h3>
+</div>
+
+<div class="check-grid">
+
+<div class="check-item">
+<div class="check-icon">✓</div>
+<div>
+<h4 data-i18n="elig1_title">Florida Case</h4>
+<p data-i18n="elig1_text">Confirm that Florida is the appropriate jurisdiction and county for the filing.</p>
+</div>
+</div>
+
+<div class="check-item">
+<div class="check-icon">✓</div>
+<div>
+<h4 data-i18n="elig2_title">No Disputed Issues</h4>
+<p data-i18n="elig2_text">Identify whether both spouses agree or whether any issue still requires a judge to decide.</p>
+</div>
+</div>
+
+<div class="check-item">
+<div class="check-icon">✓</div>
+<div>
+<h4 data-i18n="elig3_title">Children</h4>
+<p data-i18n="elig3_text">Determine whether the marriage involves minor or dependent children because the required forms may differ.</p>
+</div>
+</div>
+
+<div class="check-item">
+<div class="check-icon">✓</div>
+<div>
+<h4 data-i18n="elig4_title">Property & Debts</h4>
+<p data-i18n="elig4_text">Identify marital assets and liabilities and whether the parties have reached an agreement about them.</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- =====================================================
+     DIVORCE FORMS
+===================================================== -->
+
+<section class="section" id="forms">
+<div class="container">
+
+<div class="section-head">
+<small data-i18n="forms_small">FLORIDA FAMILY LAW</small>
+<h3 data-i18n="forms_title">NON-CONTESTED DIVORCE FORMS</h3>
+<p data-i18n="forms_text">
+Use the official Florida Courts Family Law Forms source to obtain the current edition. These buttons open real government resources instead of sending you to a missing Maximax page.
+</p>
+</div>
+
+<div class="forms-grid">
+
+<!-- FORM 12.901(a) -->
+<article class="form-card">
+<span class="form-code">12.901(a)</span>
+<h4 data-i18n="f1_title">Petition for Simplified Dissolution of Marriage</h4>
+<p data-i18n="f1_text">
+A simplified dissolution procedure may be available only when the legal requirements for that procedure are satisfied.
+</p>
+<div class="form-meta" data-i18n="f1_meta">
+Verify eligibility and the current form edition before using this procedure.
+</div>
+<div class="form-actions">
+<a
+ class="form-btn primary"
+ href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
+ target="_blank"
+ rel="noopener noreferrer"
+ data-i18n="official_forms">
+🌐 OFFICIAL FORMS
+</a>
+<a
+ class="form-btn"
+ href="#form-help"
+ data-form="12.901(a)"
+ data-i18n="prepare_form">
+🧾 PREPARE
+</a>
+</div>
+</article>
+
+<!-- FORM 12.901(b)(1) -->
+<article class="form-card">
+<span class="form-code">12.901(b)(1)</span>
+<h4 data-i18n="f2_title">Petition for Dissolution of Marriage with Dependent or Minor Child(ren) and Property</h4>
+<p data-i18n="f2_text">
+A petition category for qualifying dissolution cases involving dependent or minor children and property.
+</p>
+<div class="form-meta" data-i18n="f2_meta">
+The facts of the case determine which petition and supporting forms are appropriate.
+</div>
+<div class="form-actions">
+<a
+ class="form-btn primary"
+ href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
+ target="_blank"
+ rel="noopener noreferrer"
+ data-i18n="official_forms">
+🌐 OFFICIAL FORMS
+</a>
+<a class="form-btn" href="#form-help" data-form="12.901(b)(1)" data-i18n="prepare_form">🧾 PREPARE</a>
+</div>
+</article>
+
+<!-- FORM 12.901(b)(2) -->
+<article class="form-card">
+<span class="form-code">12.901(b)(2)</span>
+<h4 data-i18n="f3_title">Petition for Dissolution of Marriage with Property but No Dependent or Minor Child(ren)</h4>
+<p data-i18n="f3_text">
+A petition category for qualifying cases involving property but no dependent or minor children.
+</p>
+<div class="form-meta" data-i18n="verify_current">
+Always verify the current official form and instructions before filing.
+</div>
+<div class="form-actions">
+<a
+ class="form-btn primary"
+ href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
+ target="_blank"
+ rel="noopener noreferrer"
+ data-i18n="official_forms">
+🌐 OFFICIAL FORMS
+</a>
+<a class="form-btn" href="#form-help" data-form="12.901(b)(2)" data-i18n="prepare_form">🧾 PREPARE</a>
+</div>
+</article>
+
+<!-- FORM 12.901(b)(3) -->
+<article class="form-card">
+<span class="form-code">12.901(b)(3)</span>
+<h4 data-i18n="f4_title">Petition for Dissolution of Marriage with No Dependent or Minor Child(ren) or Property</h4>
+<p data-i18n="f4_text">
+A petition category for qualifying dissolution cases without dependent or minor children or property issues.
+</p>
+<div class="form-meta" data-i18n="verify_current">
+Always verify the current official form and instructions before filing.
+</div>
+<div class="form-actions">
+<a
+ class="form-btn primary"
+ href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
+ target="_blank"
+ rel="noopener noreferrer"
+ data-i18n="official_forms">
+🌐 OFFICIAL FORMS
+</a>
+<a class="form-btn" href="#form-help" data-form="12.901(b)(3)" data-i18n="prepare_form">🧾 PREPARE</a>
+</div>
+</article>
+
+<!-- FINANCIAL AFFIDAVIT SHORT -->
+<article class="form-card">
+<span class="form-code">12.902(b)</span>
+<h4 data-i18n="f5_title">Family Law Financial Affidavit — Short Form</h4>
+<p data-i18n="f5_text">
+Financial disclosure form used in qualifying family-law matters. Confirm whether the short or long version applies.
+</p>
+<div class="form-meta" data-i18n="verify_current">
+Always verify the current official form and instructions before filing.
+</div>
+<div class="form-actions">
+<a
+ class="form-btn primary"
+ href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
+ target="_blank"
+ rel="noopener noreferrer"
+ data-i18n="official_forms">
+🌐 OFFICIAL FORMS
+</a>
+<a class="form-btn" href="#form-help" data-form="12.902(b)" data-i18n="prepare_form">🧾 PREPARE</a>
+</div>
+</article>
+
+<!-- FINANCIAL AFFIDAVIT LONG -->
+<article class="form-card">
+<span class="form-code">12.902(c)</span>
+<h4 data-i18n="f6_title">Family Law Financial Affidavit — Long Form</h4>
+<p data-i18n="f6_text">
+Long-form financial affidavit for cases where the applicable Florida family-law rules require it.
+</p>
+<div class="form-meta" data-i18n="verify_current">
+Always verify the current official form and instructions before filing.
+</div>
+<div class="form-actions">
+<a
+ class="form-btn primary"
+ href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
+ target="_blank"
+ rel="noopener noreferrer"
+ data-i18n="official_forms">
+🌐 OFFICIAL FORMS
+</a>
+<a class="form-btn" href="#form-help" data-form="12.902(c)" data-i18n="prepare_form">🧾 PREPARE</a>
+</div>
+</article>
+
+<!-- NOTICE SSN -->
+<article class="form-card">
+<span class="form-code">12.902(j)</span>
+<h4 data-i18n="f7_title">Notice of Social Security Number</h4>
+<p data-i18n="f7_text">
+A Florida family-law form used for required Social Security number information where applicable.
+</p>
+<div class="form-meta" data-i18n="privacy_note">
+Sensitive personal information should be handled carefully and according to court filing requirements.
+</div>
+<div class="form-actions">
+<a
+ class="form-btn primary"
+ href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
+ target="_blank"
+ rel="noopener noreferrer"
+ data-i18n="official_forms">
+🌐 OFFICIAL FORMS
+</a>
+<a class="form-btn" href="#form-help" data-form="12.902(j)" data-i18n="prepare_form">🧾 PREPARE</a>
+</div>
+</article>
+
+<!-- CERTIFICATE COMPLIANCE -->
+<article class="form-card">
+<span class="form-code">12.932</span>
+<h4 data-i18n="f8_title">Certificate of Compliance with Mandatory Disclosure</h4>
+<p data-i18n="f8_text">
+Used in applicable family-law cases to address compliance with mandatory financial disclosure requirements.
+</p>
+<div class="form-meta" data-i18n="verify_current">
+Always verify the current official form and instructions before filing.
+</div>
+<div class="form-actions">
+<a
+ class="form-btn primary"
+ href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
+ target="_blank"
+ rel="noopener noreferrer"
+ data-i18n="official_forms">
+🌐 OFFICIAL FORMS
+</a>
+<a class="form-btn" href="#form-help" data-form="12.932" data-i18n="prepare_form">🧾 PREPARE</a>
+</div>
+</article>
+
+<!-- MARITAL SETTLEMENT -->
+<article class="form-card">
+<span class="form-code">SETTLEMENT</span>
+<h4 data-i18n="f9_title">Marital Settlement Agreement</h4>
+<p data-i18n="f9_text">
+An agreement may document how spouses have resolved applicable financial, property, debt, support, and other issues.
+</p>
+<div class="form-meta" data-i18n="f9_meta">
+Different Florida family-law agreement forms may apply depending on children and property.
+</div>
+<div class="form-actions">
+<a
+ class="form-btn primary"
+ href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
+ target="_blank"
+ rel="noopener noreferrer"
+ data-i18n="official_forms">
+🌐 OFFICIAL FORMS
+</a>
+<a class="form-btn" href="#form-help" data-form="Marital Settlement Agreement" data-i18n="prepare_form">🧾 PREPARE</a>
+</div>
+</article>
+
+<!-- PARENTING -->
+<article class="form-card">
+<span class="form-code">PARENTING</span>
+<h4 data-i18n="f10_title">Parenting Plan</h4>
+<p data-i18n="f10_text">
+Cases involving minor children may require parenting-related documents, depending on the circumstances and court requirements.
+</p>
+<div class="form-meta" data-i18n="verify_current">
+Always verify the current official form and instructions before filing.
+</div>
+<div class="form-actions">
+<a
+ class="form-btn primary"
+ href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
+ target="_blank"
+ rel="noopener noreferrer"
+ data-i18n="official_forms">
+🌐 OFFICIAL FORMS
+</a>
+<a class="form-btn" href="#form-help" data-form="Parenting Plan" data-i18n="prepare_form">🧾 PREPARE</a>
+</div>
+</article>
+
+<!-- CHILD SUPPORT -->
+<article class="form-card">
+<span class="form-code">CHILD SUPPORT</span>
+<h4 data-i18n="f11_title">Child Support Guidelines Worksheet</h4>
+<p data-i18n="f11_text">
+Cases involving child support may require the current Florida child-support guidelines worksheet and supporting financial information.
+</p>
+<div class="form-meta" data-i18n="verify_current">
+Always verify the current official form and instructions before filing.
+</div>
+<div class="form-actions">
+<a
+ class="form-btn primary"
+ href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
+ target="_blank"
+ rel="noopener noreferrer"
+ data-i18n="official_forms">
+🌐 OFFICIAL FORMS
+</a>
+<a class="form-btn" href="#form-help" data-form="Child Support Guidelines Worksheet" data-i18n="prepare_form">🧾 PREPARE</a>
+</div>
+</article>
+
+<!-- ALL FORMS -->
+<article class="form-card">
+<span class="form-code">FLORIDA COURTS</span>
+<h4 data-i18n="f12_title">All Florida Family Law Forms</h4>
+<p data-i18n="f12_text">
+Open the Florida Courts family-law forms center to verify current forms, instructions, and available self-help resources.
+</p>
+<div class="form-meta" data-i18n="f12_meta">
+Use this official source whenever you need to confirm a form edition.
+</div>
+<div class="form-actions">
+<a
+ class="form-btn primary"
+ href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
+ target="_blank"
+ rel="noopener noreferrer"
+ data-i18n="open_center">
+🌐 OPEN FORMS CENTER
+</a>
+<a
+ class="form-btn"
+ href="#form-help"
+ data-form="Florida Family Law Forms"
+ data-i18n="prepare_form">
+🧾 FORM HELP
+</a>
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
+<!-- =====================================================
+     BUILT-IN FORM HELP CENTER
+===================================================== -->
+
+<section class="section" id="form-help">
+<div class="container">
+
+<div class="help-center">
+
+<div class="help-center-head">
+<div class="icon">🧾</div>
+<h3 data-i18n="help_title">FORM HELP CENTER</h3>
+<p data-i18n="help_text">
+This Form Help Center is built directly into the Non-Contested Divorce page. It does not depend on a separate Form Helper page, so it will not produce a 404.
+</p>
+</div>
+
+<div class="helper-grid">
+
+<div class="field">
+<label for="helpForm" data-i18n="help_form_label">FORM / DOCUMENT</label>
+<select id="helpForm">
+<option value="" data-i18n="choose_form">Choose a form</option>
+<option value="12.901(a)">12.901(a) — Simplified Dissolution</option>
+<option value="12.901(b)(1)">12.901(b)(1) — Children + Property</option>
+<option value="12.901(b)(2)">12.901(b)(2) — Property / No Minor Children</option>
+<option value="12.901(b)(3)">12.901(b)(3) — No Minor Children / No Property</option>
+<option value="12.902(b)">12.902(b) — Financial Affidavit Short</option>
+<option value="12.902(c)">12.902(c) — Financial Affidavit Long</option>
+<option value="12.902(j)">12.902(j) — Notice of Social Security Number</option>
+<option value="12.932">12.932 — Mandatory Disclosure</option>
+<option value="Marital Settlement Agreement">Marital Settlement Agreement</option>
+<option value="Parenting Plan">Parenting Plan</option>
+<option value="Child Support Guidelines Worksheet">Child Support Guidelines Worksheet</option>
+</select>
+</div>
+
+<div class="field">
+<label for="helpChildren" data-i18n="children_label">MINOR / DEPENDENT CHILDREN?</label>
+<select id="helpChildren">
+<option value="" data-i18n="choose">Choose</option>
+<option value="No" data-i18n="no">No</option>
+<option value="Yes" data-i18n="yes">Yes</option>
+</select>
+</div>
+
+<div class="field">
+<label for="helpProperty" data-i18n="property_label">PROPERTY OR DEBTS TO ADDRESS?</label>
+<select id="helpProperty">
+<option value="" data-i18n="choose">Choose</option>
+<option value="No" data-i18n="no">No</option>
+<option value="Yes" data-i18n="yes">Yes</option>
+</select>
+</div>
+
+<div class="field">
+<label for="helpAgreement" data-i18n="agreement_label">DO BOTH PARTIES AGREE?</label>
+<select id="helpAgreement">
+<option value="" data-i18n="choose">Choose</option>
+<option value="Yes" data-i18n="yes">Yes</option>
+<option value="No" data-i18n="no">No</option>
+<option value="Unsure" data-i18n="unsure">Unsure</option>
+</select>
+</div>
+
+<div class="field full">
+<label for="helpQuestion" data-i18n="question_label">WHAT DO YOU NEED HELP ORGANIZING?</label>
+<textarea
+ id="helpQuestion"
+ data-i18n-placeholder="question_ph"
+ placeholder="Example: I need help organizing the petition, financial affidavit and settlement documents."></textarea>
+</div>
+
+</div>
+
+<div class="helper-actions">
+<button type="button" class="btn primary" id="analyzeBtn" data-i18n="analyze_btn">
+BUILD MY FORM CHECKLIST
+</button>
+
+<a
+ class="btn"
+ href="https://www.flcourts.gov/Resources-Services/Court-Improvement/Self-Help-Information/Family-Law-Forms"
+ target="_blank"
+ rel="noopener noreferrer"
+ data-i18n="official_forms">
+🌐 OFFICIAL FORMS
+</a>
+
+<a class="btn" href="./appointment-center.html" data-i18n="book_help">
+📅 BOOK HELP
+</a>
+</div>
+
+<div class="result-box" id="helpResult" aria-live="polite">
+<h4 data-i18n="result_title">YOUR DOCUMENT-PREPARATION SUMMARY</h4>
+<p id="resultIntro"></p>
+<div class="result-list" id="resultList"></div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- =====================================================
+     DOCUMENT CHECKLIST
+===================================================== -->
+
+<section class="section" id="checklist">
+<div class="container">
+
+<div class="section-head">
+<small data-i18n="check_small">DOCUMENT ORGANIZER</small>
+<h3 data-i18n="check_title">DIVORCE DOCUMENT CHECKLIST</h3>
+<p data-i18n="check_text">
+Use this checklist to organize documents before preparing your request. The exact documents required depend on your case.
+</p>
+</div>
+
+<div class="checklist">
+
+<label class="checklist-row">
+<input type="checkbox" class="doc-check" value="Government-issued photo identification">
+<strong data-i18n="c1_title">Photo Identification</strong>
+<span data-i18n="c1_text">Driver license, state ID, passport, or other available identification.</span>
+</label>
+
+<label class="checklist-row">
+<input type="checkbox" class="doc-check" value="Marriage information">
+<strong data-i18n="c2_title">Marriage Information</strong>
+<span data-i18n="c2_text">Marriage date, location, and other basic marriage information.</span>
+</label>
+
+<label class="checklist-row">
+<input type="checkbox" class="doc-check" value="Current addresses">
+<strong data-i18n="c3_title">Current Addresses</strong>
+<span data-i18n="c3_text">Current contact and address information for the parties.</span>
+</label>
+
+<label class="checklist-row">
+<input type="checkbox" class="doc-check" value="Income information">
+<strong data-i18n="c4_title">Income Information</strong>
+<span data-i18n="c4_text">Pay information and other documents needed to organize financial disclosures.</span>
+</label>
+
+<label class="checklist-row">
+<input type="checkbox" class="doc-check" value="Bank and financial information">
+<strong data-i18n="c5_title">Bank / Financial Information</strong>
+<span data-i18n="c5_text">Available account and financial records relevant to the case.</span>
+</label>
+
+<label class="checklist-row">
+<input type="checkbox" class="doc-check" value="Assets and property information">
+<strong data-i18n="c6_title">Assets & Property</strong>
+<span data-i18n="c6_text">Information about real estate, vehicles, personal property, and other assets.</span>
+</label>
+
+<label class="checklist-row">
+<input type="checkbox" class="doc-check" value="Debt information">
+<strong data-i18n="c7_title">Debts & Liabilities</strong>
+<span data-i18n="c7_text">Credit cards, loans, mortgages, and other relevant liabilities.</span>
+</label>
+
+<label class="checklist-row">
+<input type="checkbox" class="doc-check" value="Children information">
+<strong data-i18n="c8_title">Children Information</strong>
+<span data-i18n="c8_text">If applicable, organize information concerning minor or dependent children.</span>
+</label>
+
+<label class="checklist-row">
+<input type="checkbox" class="doc-check" value="Existing agreements">
+<strong data-i18n="c9_title">Existing Agreements</strong>
+<span data-i18n="c9_text">Any written agreements already made between the spouses.</span>
+</label>
+
+<label class="checklist-row">
+<input type="checkbox" class="doc-check" value="Existing court orders">
+<strong data-i18n="c10_title">Existing Court Orders</strong>
+<span data-i18n="c10_text">Copies of relevant existing orders or case documents, if any.</span>
+</label>
+
+</div>
+
+<div style="margin-top:18px">
+<button type="button" class="btn primary" id="selectAllBtn" data-i18n="select_all">
+✓ SELECT ALL
+</button>
+<button type="button" class="btn" id="clearChecksBtn" data-i18n="clear_all">
+CLEAR
+</button>
+</div>
+
+</div>
+</section>
+
+<!-- =====================================================
+     REQUEST ORGANIZER
+===================================================== -->
+
+<section class="section" id="organizer">
+<div class="container">
+
+<div class="organizer">
+
+<div class="section-head">
+<small data-i18n="org_small">MAXIMAX DOCUMENT PREPARATION</small>
+<h3 data-i18n="org_title">DIVORCE REQUEST ORGANIZER</h3>
+<p data-i18n="org_text">
+Enter the basic information you want included in your Maximax preparation summary. This does not submit anything to a court.
+</p>
+</div>
+
+<div class="organizer-grid">
+
+<div class="field">
+<label for="clientName" data-i18n="client_name">CLIENT NAME</label>
+<input id="clientName" type="text" autocomplete="name">
+</div>
+
+<div class="field">
+<label for="clientPhone" data-i18n="client_phone">PHONE</label>
+<input id="clientPhone" type="tel" autocomplete="tel">
+</div>
+
+<div class="field">
+<label for="clientEmail" data-i18n="client_email">EMAIL</label>
+<input id="clientEmail" type="email" autocomplete="email">
+</div>
+
+<div class="field">
+<label for="county" data-i18n="county">FLORIDA COUNTY</label>
+<input id="county" type="text" placeholder="Example: Orange County">
+</div>
+
+<div class="field">
+<label for="spouseName" data-i18n="spouse_name">SPOUSE NAME</label>
+<input id="spouseName" type="text">
+</div>
+
+<div class="field">
+<label for="marriageDate" data-i18n="marriage_date">DATE OF MARRIAGE</label>
+<input id="marriageDate" type="date">
+</div>
+
+<div class="field">
+<label for="separationDate" data-i18n="separation_date">DATE OF SEPARATION, IF USED</label>
+<input id="separationDate" type="date">
+</div>
+
+<div class="field">
+<label for="caseNumber" data-i18n="case_number">COURT CASE NUMBER, IF ALREADY FILED</label>
+<input id="caseNumber" type="text">
+</div>
+
+<div class="field">
+<label for="orgChildren" data-i18n="children_label">MINOR / DEPENDENT CHILDREN?</label>
+<select id="orgChildren">
+<option value="" data-i18n="choose">Choose</option>
+<option value="No" data-i18n="no">No</option>
+<option value="Yes" data-i18n="yes">Yes</option>
+</select>
+</div>
+
+<div class="field">
+<label for="orgProperty" data-i18n="property_label">PROPERTY OR DEBTS?</label>
+<select id="orgProperty">
+<option value="" data-i18n="choose">Choose</option>
+<option value="No" data-i18n="no">No</option>
+<option value="Yes" data-i18n="yes">Yes</option>
+</select>
+</div>
+
+<div class="field full">
+<label for="requestNotes" data-i18n="notes">NOTES / DOCUMENT-PREPARATION REQUEST</label>
+<textarea id="requestNotes"></textarea>
+</div>
+
+</div>
+
+<div class="organizer-actions">
+<button type="button" class="btn primary" id="generateBtn" data-i18n="generate">
+GENERATE SUMMARY
+</button>
+
+<button type="button" class="btn" id="printBtn" data-i18n="print">
+PRINT / SAVE PDF
+</button>
+
+<button type="button" class="btn" id="resetBtn" data-i18n="reset">
+RESET
+</button>
+
+<a class="btn" href="./appointment-center.html" data-i18n="appointment">
+📅 APPOINTMENT
+</a>
+</div>
+
+<div class="print-document" id="printDocument">
+
+<div class="print-head">
+<h3>MAXIMAX MULTI SERVICES</h3>
+<p data-i18n="print_subtitle">NON-CONTESTED DIVORCE — DOCUMENT PREPARATION SUMMARY</p>
+</div>
+
+<div class="print-section">
+<h4 data-i18n="client_info">CLIENT INFORMATION</h4>
+<div id="printClient"></div>
+</div>
+
+<div class="print-section">
+<h4 data-i18n="case_info">CASE INFORMATION</h4>
+<div id="printCase"></div>
+</div>
+
+<div class="print-section">
+<h4 data-i18n="selected_docs">DOCUMENT CHECKLIST</h4>
+<div class="print-checks" id="printChecks"></div>
+</div>
+
+<div class="print-section">
+<h4 data-i18n="request_notes">REQUEST NOTES</h4>
+<div class="print-line" id="printNotes">—</div>
+</div>
+
+<div class="print-footer" data-i18n="print_disclaimer">
+This document is an organizational summary created by Maximax Multi Services. It is not a court filing, court order, or legal advice. Verify all filing requirements and current forms with the appropriate official source.
+</div>
+
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- =====================================================
+     STEPS
+===================================================== -->
+
+<section class="section" id="steps">
+<div class="container">
+
+<div class="section-head">
+<small data-i18n="steps_small">WORKFLOW</small>
+<h3 data-i18n="steps_title">HOW THIS CENTER WORKS</h3>
+</div>
+
+<div class="steps">
+
+<div class="step">
+<div class="step-num">1</div>
+<h4 data-i18n="step1_title">Identify Your Case</h4>
+<p data-i18n="step1_text">Determine whether children, property, debts, support, or other issues are involved.</p>
+</div>
+
+<div class="step">
+<div class="step-num">2</div>
+<h4 data-i18n="step2_title">Open Official Forms</h4>
+<p data-i18n="step2_text">Use the Florida Courts source to confirm the current form and instructions.</p>
+</div>
+
+<div class="step">
+<div class="step-num">3</div>
+<h4 data-i18n="step3_title">Organize Documents</h4>
+<p data-i18n="step3_text">Use the built-in checklist and Form Help Center to organize the preparation request.</p>
+</div>
+
+<div class="step">
+<div class="step-num">4</div>
+<h4 data-i18n="step4_title">Prepare for Filing</h4>
+<p data-i18n="step4_text">Confirm filing requirements, fees, signatures, notarization, service, and hearing requirements with the appropriate official source.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<div class="container">
+<div class="notice">
+<strong data-i18n="important">IMPORTANT:</strong>
+<span data-i18n="disclaimer">
+Maximax Multi Services provides document-preparation and government-resource access. This page does not determine legal eligibility, provide legal representation, or replace advice from a licensed attorney. Florida court forms, filing procedures, fees, and requirements may change. Always verify the current form and instructions with the Florida Courts system and the appropriate Clerk of Court before filing.
+</span>
+</div>
+</div>
+
+</main>
+
+<footer>
+<strong>MAXIMAX MULTI SERVICES</strong>
+<p data-i18n="part">PART OF BSS1815 PRO-MAX DMP</p>
+<p>bss1815promaxdmp@gmail.com</p>
+<p>(407) 640-5166 • (317) 538-1150 • (516) 216-8494</p>
+<p>BSS1815PRO-MAXDMP.COM</p>
+<p>© <span id="year"></span> MAXIMAX MULTI SERVICES</p>
+<p style="opacity:.55">NON-CONTESTED DIVORCE CENTER • 2026.09.19</p>
+</footer>
+
+<script>
+(function(){
+"use strict";
+
+/* =========================================================
+   TRANSLATIONS
+========================================================= */
+
+var I18N = {
+
+en:{
+topbar:"MAXIMAX MULTI SERVICES • NON-CONTESTED DIVORCE CENTER",
+part:"PART OF BSS1815 PRO-MAX DMP",
+
+nav_home:"HOME",
+nav_overview:"OVERVIEW",
+nav_forms:"DIVORCE FORMS",
+nav_help:"FORM HELP CENTER",
+nav_check:"CHECKLIST",
+nav_org:"REQUEST ORGANIZER",
+nav_docs:"DOCUMENT CENTER",
+nav_appt:"APPOINTMENT",
+
+hero_badge:"FLORIDA • SELF-HELP DOCUMENT CENTER",
+hero_title:"NON-CONTESTED DIVORCE",
+hero_text:"Organize commonly used Florida family-law divorce forms, prepare your document checklist, and create a divorce document-preparation request without leaving this page.",
+hero_forms:"📄 OPEN DIVORCE FORMS",
+hero_help:"🧾 FORM HELP CENTER",
+hero_request:"📋 CREATE REQUEST",
+
+q1:"ELIGIBILITY",
+q2:"FORMS",
+q3:"FORM HELP",
+q4:"DOCUMENT CHECKLIST",
+q5:"STEPS",
+
+overview_small:"DIVORCE DOCUMENT PREPARATION",
+overview_title:"START HERE",
+overview_text:"A non-contested divorce generally means the spouses are not asking the court to resolve disputed issues. The exact forms needed depend on the facts of the case.",
+
+info1_title:"Agreement",
+info1_text:"Both spouses should understand what is being requested and whether issues such as property, debts, support, and parenting are resolved.",
+info2_title:"Correct Forms",
+info2_text:"Florida family-law forms differ depending on whether there are minor children, dependent children, property, debts, or other issues.",
+info3_title:"Court Filing",
+info3_text:"The court and clerk control filing requirements, fees, scheduling, and final approval. Verify requirements with the appropriate Florida court or clerk.",
+
+elig_small:"QUICK SCREEN",
+elig_title:"DOCUMENT-PREPARATION CHECK",
+elig1_title:"Florida Case",
+elig1_text:"Confirm that Florida is the appropriate jurisdiction and county for the filing.",
+elig2_title:"No Disputed Issues",
+elig2_text:"Identify whether both spouses agree or whether any issue still requires a judge to decide.",
+elig3_title:"Children",
+elig3_text:"Determine whether the marriage involves minor or dependent children because the required forms may differ.",
+elig4_title:"Property & Debts",
+elig4_text:"Identify marital assets and liabilities and whether the parties have reached an agreement about them.",
+
+forms_small:"FLORIDA FAMILY LAW",
+forms_title:"NON-CONTESTED DIVORCE FORMS",
+forms_text:"Use the official Florida Courts Family Law Forms source to obtain the current edition. These buttons open real government resources instead of sending you to a missing Maximax page.",
+
+official_forms:"🌐 OFFICIAL FORMS",
+prepare_form:"🧾 PREPARE",
+open_center:"🌐 OPEN FORMS CENTER",
+verify_current:"Always verify the current official form and instructions before filing.",
+privacy_note:"Sensitive personal information should be handled carefully and according to court filing requirements.",
+
+f1_title:"Petition for Simplified Dissolution of Marriage",
+f1_text:"A simplified dissolution procedure may be available only when the legal requirements for that procedure are satisfied.",
+f1_meta:"Verify eligibility and the current form edition before using this procedure.",
+
+f2_title:"Petition for Dissolution of Marriage with Dependent or Minor Child(ren) and Property",
+f2_text:"A petition category for qualifying dissolution cases involving dependent or minor children and property.",
+f2_meta:"The facts of the case determine which petition and supporting forms are appropriate.",
+
+f3_title:"Petition for Dissolution of Marriage with Property but No Dependent or Minor Child(ren)",
+f3_text:"A petition category for qualifying cases involving property but no dependent or minor children.",
+
+f4_title:"Petition for Dissolution of Marriage with No Dependent or Minor Child(ren) or Property",
+f4_text:"A petition category for qualifying dissolution cases without dependent or minor children or property issues.",
+
+f5_title:"Family Law Financial Affidavit — Short Form",
+f5_text:"Financial disclosure form used in qualifying family-law matters. Confirm whether the short or long version applies.",
+
+f6_title:"Family Law Financial Affidavit — Long Form",
+f6_text:"Long-form financial affidavit for cases where the applicable Florida family-law rules require it.",
+
+f7_title:"Notice of Social Security Number",
+f7_text:"A Florida family-law form used for required Social Security number information where applicable.",
+
+f8_title:"Certificate of Compliance with Mandatory Disclosure",
+f8_text:"Used in applicable family-law cases to address compliance with mandatory financial disclosure requirements.",
+
+f9_title:"Marital Settlement Agreement",
+f9_text:"An agreement may document how spouses have resolved applicable financial, property, debt, support, and other issues.",
+f9_meta:"Different Florida family-law agreement forms may apply depending on children and property.",
+
+f10_title:"Parenting Plan",
+f10_text:"Cases involving minor children may require parenting-related documents, depending on the circumstances and court requirements.",
+
+f11_title:"Child Support Guidelines Worksheet",
+f11_text:"Cases involving child support may require the current Florida child-support guidelines worksheet and supporting financial information.",
+
+f12_title:"All Florida Family Law Forms",
+f12_text:"Open the Florida Courts family-law forms center to verify current forms, instructions, and available self-help resources.",
+f12_meta:"Use this official source whenever you need to confirm a form edition.",
+
+help_title:"FORM HELP CENTER",
+help_text:"This Form Help Center is built directly into the Non-Contested Divorce page. It does not depend on a separate Form Helper page, so it will not produce a 404.",
+help_form_label:"FORM / DOCUMENT",
+choose_form:"Choose a form",
+children_label:"MINOR / DEPENDENT CHILDREN?",
+property_label:"PROPERTY OR DEBTS TO ADDRESS?",
+agreement_label:"DO BOTH PARTIES AGREE?",
+choose:"Choose",
+yes:"Yes",
+no:"No",
+unsure:"Unsure",
+question_label:"WHAT DO YOU NEED HELP ORGANIZING?",
+question_ph:"Example: I need help organizing the petition, financial affidavit and settlement documents.",
+analyze_btn:"BUILD MY FORM CHECKLIST",
+book_help:"📅 BOOK HELP",
+result_title:"YOUR DOCUMENT-PREPARATION SUMMARY",
+
+check_small:"DOCUMENT ORGANIZER",
+check_title:"DIVORCE DOCUMENT CHECKLIST",
+check_text:"Use this checklist to organize documents before preparing your request. The exact documents required depend on your case.",
+
+c1_title:"Photo Identification",
+c1_text:"Driver license, state ID, passport, or other available identification.",
+c2_title:"Marriage Information",
+c2_text:"Marriage date, location, and other basic marriage information.",
+c3_title:"Current Addresses",
+c3_text:"Current contact and address information for the parties.",
+c4_title:"Income Information",
+c4_text:"Pay information and other documents needed to organize financial disclosures.",
+c5_title:"Bank / Financial Information",
+c5_text:"Available account and financial records relevant to the case.",
+c6_title:"Assets & Property",
+c6_text:"Information about real estate, vehicles, personal property, and other assets.",
+c7_title:"Debts & Liabilities",
+c7_text:"Credit cards, loans, mortgages, and other relevant liabilities.",
+c8_title:"Children Information",
+c8_text:"If applicable, organize information concerning minor or dependent children.",
+c9_title:"Existing Agreements",
+c9_text:"Any written agreements already made between the spouses.",
+c10_title:"Existing Court Orders",
+c10_text:"Copies of relevant existing orders or case documents, if any.",
+
+select_all:"✓ SELECT ALL",
+clear_all:"CLEAR",
+
+org_small:"MAXIMAX DOCUMENT PREPARATION",
+org_title:"DIVORCE REQUEST ORGANIZER",
+org_text:"Enter the basic information you want included in your Maximax preparation summary. This does not submit anything to a court.",
+
+client_name:"CLIENT NAME",
+client_phone:"PHONE",
+client_email:"EMAIL",
+county:"FLORIDA COUNTY",
+spouse_name:"SPOUSE NAME",
+marriage_date:"DATE OF MARRIAGE",
+separation_date:"DATE OF SEPARATION, IF USED",
+case_number:"COURT CASE NUMBER, IF ALREADY FILED",
+notes:"NOTES / DOCUMENT-PREPARATION REQUEST",
+
+generate:"GENERATE SUMMARY",
+print:"PRINT / SAVE PDF",
+reset:"RESET",
+appointment:"📅 APPOINTMENT",
+
+print_subtitle:"NON-CONTESTED DIVORCE — DOCUMENT PREPARATION SUMMARY",
+client_info:"CLIENT INFORMATION",
+case_info:"CASE INFORMATION",
+selected_docs:"DOCUMENT CHECKLIST",
+request_notes:"REQUEST NOTES",
+print_disclaimer:"This document is an organizational summary created by Maximax Multi Services. It is not a court filing, court order, or legal advice. Verify all filing requirements and current forms with the appropriate official source.",
+
+steps_small:"WORKFLOW",
+steps_title:"HOW THIS CENTER WORKS",
+step1_title:"Identify Your Case",
+step1_text:"Determine whether children, property, debts, support, or other issues are involved.",
+step2_title:"Open Official Forms",
+step2_text:"Use the Florida Courts source to confirm the current form and instructions.",
+step3_title:"Organize Documents",
+step3_text:"Use the built-in checklist and Form Help Center to organize the preparation request.",
+step4_title:"Prepare for Filing",
+step4_text:"Confirm filing requirements, fees, signatures, notarization, service, and hearing requirements with the appropriate official source.",
+
+important:"IMPORTANT:",
+disclaimer:"Maximax Multi Services provides document-preparation and government-resource access. This page does not determine legal eligibility, provide legal representation, or replace advice from a licensed attorney. Florida court forms, filing procedures, fees, and requirements may change. Always verify the current form and instructions with the Florida Courts system and the appropriate Clerk of Court before filing."
+},
+
+es:{
+topbar:"MAXIMAX MULTI SERVICES • CENTRO DE DIVORCIO NO CONTESTADO",
+part:"PARTE DE BSS1815 PRO-MAX DMP",
+
+nav_home:"INICIO",
+nav_overview:"RESUMEN",
+nav_forms:"FORMULARIOS DE DIVORCIO",
+nav_help:"CENTRO DE AYUDA DE FORMULARIOS",
+nav_check:"LISTA",
+nav_org:"ORGANIZADOR",
+nav_docs:"CENTRO DE DOCUMENTOS",
+nav_appt:"CITA",
+
+hero_badge:"FLORIDA • CENTRO DE AUTOAYUDA DOCUMENTAL",
+hero_title:"DIVORCIO NO CONTESTADO",
+hero_text:"Organice formularios de divorcio de derecho familiar de Florida, prepare su lista de documentos y cree una solicitud de preparación sin salir de esta página.",
+hero_forms:"📄 ABRIR FORMULARIOS",
+hero_help:"🧾 AYUDA DE FORMULARIOS",
+hero_request:"📋 CREAR SOLICITUD",
+
+q1:"ELEGIBILIDAD",
+q2:"FORMULARIOS",
+q3:"AYUDA",
+q4:"LISTA DE DOCUMENTOS",
+q5:"PASOS",
+
+overview_small:"PREPARACIÓN DE DOCUMENTOS DE DIVORCIO",
+overview_title:"COMIENCE AQUÍ",
+overview_text:"Un divorcio no contestado generalmente significa que los cónyuges no están pidiendo al tribunal resolver asuntos disputados. Los formularios exactos dependen de los hechos del caso.",
+
+info1_title:"Acuerdo",
+info1_text:"Ambos cónyuges deben entender lo solicitado y si los asuntos de propiedad, deudas, manutención y crianza están resueltos.",
+info2_title:"Formularios Correctos",
+info2_text:"Los formularios de derecho familiar de Florida cambian según haya hijos menores o dependientes, bienes, deudas u otros asuntos.",
+info3_title:"Presentación Judicial",
+info3_text:"El tribunal y el secretario controlan requisitos, tarifas, programación y aprobación final. Verifique con el tribunal o secretario correspondiente.",
+
+elig_small:"REVISIÓN RÁPIDA",
+elig_title:"REVISIÓN PARA PREPARACIÓN",
+elig1_title:"Caso de Florida",
+elig1_text:"Confirme que Florida y el condado correspondiente sean apropiados para la presentación.",
+elig2_title:"Sin Asuntos Disputados",
+elig2_text:"Determine si ambos cónyuges están de acuerdo o si algún asunto todavía requiere decisión judicial.",
+elig3_title:"Hijos",
+elig3_text:"Determine si hay hijos menores o dependientes porque los formularios requeridos pueden cambiar.",
+elig4_title:"Bienes y Deudas",
+elig4_text:"Identifique bienes y obligaciones matrimoniales y si las partes llegaron a un acuerdo.",
+
+forms_small:"DERECHO FAMILIAR DE FLORIDA",
+forms_title:"FORMULARIOS DE DIVORCIO NO CONTESTADO",
+forms_text:"Use la fuente oficial de Formularios de Derecho Familiar de los Tribunales de Florida para obtener la edición actual.",
+
+official_forms:"🌐 FORMULARIOS OFICIALES",
+prepare_form:"🧾 PREPARAR",
+open_center:"🌐 ABRIR CENTRO",
+verify_current:"Siempre verifique el formulario oficial vigente y sus instrucciones antes de presentar.",
+privacy_note:"La información personal sensible debe manejarse cuidadosamente según los requisitos del tribunal.",
+
+help_title:"CENTRO DE AYUDA DE FORMULARIOS",
+help_text:"Este centro está integrado directamente en la página de Divorcio No Contestado y no depende de otra página.",
+help_form_label:"FORMULARIO / DOCUMENTO",
+choose_form:"Seleccione un formulario",
+children_label:"¿HIJOS MENORES / DEPENDIENTES?",
+property_label:"¿BIENES O DEUDAS?",
+agreement_label:"¿AMBAS PARTES ESTÁN DE ACUERDO?",
+choose:"Seleccione",
+yes:"Sí",
+no:"No",
+unsure:"No estoy seguro",
+question_label:"¿QUÉ NECESITA ORGANIZAR?",
+question_ph:"Ejemplo: Necesito organizar la petición, declaración financiera y documentos del acuerdo.",
+analyze_btn:"CREAR MI LISTA",
+book_help:"📅 RESERVAR AYUDA",
+result_title:"RESUMEN DE PREPARACIÓN",
+
+check_small:"ORGANIZADOR DE DOCUMENTOS",
+check_title:"LISTA DE DOCUMENTOS DE DIVORCIO",
+check_text:"Use esta lista para organizar documentos antes de preparar su solicitud.",
+
+select_all:"✓ SELECCIONAR TODO",
+clear_all:"BORRAR",
+
+org_small:"PREPARACIÓN DE DOCUMENTOS MAXIMAX",
+org_title:"ORGANIZADOR DE SOLICITUD DE DIVORCIO",
+org_text:"Ingrese la información básica que desea incluir en su resumen. Esto no presenta documentos ante un tribunal.",
+
+client_name:"NOMBRE DEL CLIENTE",
+client_phone:"TELÉFONO",
+client_email:"CORREO ELECTRÓNICO",
+county:"CONDADO DE FLORIDA",
+spouse_name:"NOMBRE DEL CÓNYUGE",
+marriage_date:"FECHA DE MATRIMONIO",
+separation_date:"FECHA DE SEPARACIÓN, SI SE USA",
+case_number:"NÚMERO DEL CASO, SI YA EXISTE",
+notes:"NOTAS / SOLICITUD",
+
+generate:"GENERAR RESUMEN",
+print:"IMPRIMIR / GUARDAR PDF",
+reset:"REINICIAR",
+appointment:"📅 CITA",
+
+print_subtitle:"DIVORCIO NO CONTESTADO — RESUMEN DE PREPARACIÓN",
+client_info:"INFORMACIÓN DEL CLIENTE",
+case_info:"INFORMACIÓN DEL CASO",
+selected_docs:"LISTA DE DOCUMENTOS",
+request_notes:"NOTAS",
+print_disclaimer:"Este documento es un resumen organizativo creado por Maximax Multi Services. No es una presentación judicial, orden judicial ni asesoría legal.",
+
+steps_small:"PROCESO",
+steps_title:"CÓMO FUNCIONA ESTE CENTRO",
+step1_title:"Identifique su Caso",
+step1_text:"Determine si hay hijos, bienes, deudas, manutención u otros asuntos.",
+step2_title:"Abra Formularios Oficiales",
+step2_text:"Use la fuente de los Tribunales de Florida para confirmar el formulario vigente.",
+step3_title:"Organice Documentos",
+step3_text:"Use la lista y el centro de ayuda integrado para organizar su solicitud.",
+step4_title:"Prepárese para Presentar",
+step4_text:"Confirme requisitos, tarifas, firmas, notarización, servicio y audiencias con la fuente oficial.",
+
+important:"IMPORTANTE:",
+disclaimer:"Maximax Multi Services proporciona preparación de documentos y acceso a recursos gubernamentales. Esta página no determina elegibilidad legal ni reemplaza asesoría de un abogado. Verifique siempre los formularios y requisitos vigentes."
+},
+
+ht:{
+topbar:"MAXIMAX MULTI SERVICES • SANT DIVÒS SAN KONTESTASYON",
+part:"PATI NAN BSS1815 PRO-MAX DMP",
+
+nav_home:"AKÈY",
+nav_overview:"APÈSI",
+nav_forms:"FÒM DIVÒS",
+nav_help:"SANT ÈD FÒM",
+nav_check:"LIS DOKIMAN",
+nav_org:"ÒGANIZATÈ DEMANN",
+nav_docs:"SANT DOKIMAN",
+nav_appt:"RANDEVOU",
+
+hero_badge:"FLORIDA • SANT DOKIMAN SELF-HELP",
+hero_title:"DIVÒS SAN KONTESTASYON",
+hero_text:"Òganize fòm divòs family law Florid yo, prepare lis dokiman ou epi kreye demann preparasyon dokiman divòs la san ou pa kite paj sa a.",
+hero_forms:"📄 OUVRI FÒM DIVÒS YO",
+hero_help:"🧾 SANT ÈD FÒM",
+hero_request:"📋 KREYE DEMANN",
+
+q1:"ELIJIBILITE",
+q2:"FÒM",
+q3:"ÈD FÒM",
+q4:"LIS DOKIMAN",
+q5:"ETAP",
+
+overview_small:"PREPARASYON DOKIMAN DIVÒS",
+overview_title:"KÒMANSE ISIT LA",
+overview_text:"Yon divòs san kontestasyon anjeneral vle di mari ak madanm nan pa mande tribinal la rezoud pwoblèm yo pa dakò sou yo. Fòm egzak yo depann de sitiyasyon dosye a.",
+
+info1_title:"Akò",
+info1_text:"Tou de moun yo dwe konprann sa y ap mande epi si kestyon byen, dèt, sipò ak timoun yo rezoud.",
+info2_title:"Bon Fòm Yo",
+info2_text:"Fòm family law Florid yo diferan selon si gen timoun minè oswa depandan, byen, dèt oswa lòt kestyon.",
+info3_title:"Depoze nan Tribinal",
+info3_text:"Tribinal la ak Clerk la kontwole kondisyon depo, frè, dat ak apwobasyon final. Verifye kondisyon yo ak tribinal oswa Clerk ki konsène a.",
+
+elig_small:"VERIFIKASYON RAPID",
+elig_title:"VERIFIKASYON PREPARASYON DOKIMAN",
+elig1_title:"Dosye Florid",
+elig1_text:"Konfime Florid ak county ki apwopriye pou depoze dosye a.",
+elig2_title:"Pa Gen K kestyon an Diskisyon",
+elig2_text:"Idantifye si tou de moun dakò oswa si gen yon kestyon jij la toujou bezwen deside.",
+elig3_title:"Timoun",
+elig3_text:"Detèmine si maryaj la gen timoun minè oswa depandan paske fòm yo ka diferan.",
+elig4_title:"Byen ak Dèt",
+elig4_text:"Idantifye byen ak dèt maryaj la epi si tou de moun deja dakò sou yo.",
+
+forms_small:"FLORIDA FAMILY LAW",
+forms_title:"FÒM DIVÒS SAN KONTESTASYON",
+forms_text:"Sèvi ak sous ofisyèl Florida Courts Family Law Forms pou jwenn dènye edisyon fòm yo. Bouton yo ouvri resous ofisyèl yo olye yo voye w sou yon paj Maximax ki pa egziste.",
+
+official_forms:"🌐 FÒM OFISYÈL",
+prepare_form:"🧾 PREPARE",
+open_center:"🌐 OUVRI SANT FÒM",
+verify_current:"Toujou verifye fòm ofisyèl aktyèl la ak enstriksyon yo anvan ou depoze.",
+privacy_note:"Enfòmasyon pèsonèl sansib dwe trete avèk prekosyon selon kondisyon tribinal la.",
+
+f1_title:"Petisyon pou Simplified Dissolution of Marriage",
+f1_text:"Pwosedi simplified dissolution lan disponib sèlman lè kondisyon legal pou pwosedi sa a satisfè.",
+f1_meta:"Verifye elijibilite ak dènye edisyon fòm lan anvan ou itilize pwosedi sa a.",
+
+f2_title:"Petisyon Divòs ak Timoun Depandan oswa Minè ak Byen",
+f2_text:"Kategori petisyon pou kèk dosye divòs ki gen timoun depandan oswa minè ansanm ak byen.",
+f2_meta:"Sitiyasyon dosye a detèmine ki petisyon ak dokiman sipò ki apwopriye.",
+
+f3_title:"Petisyon Divòs ak Byen men San Timoun Depandan oswa Minè",
+f3_text:"Kategori petisyon pou kèk dosye ki gen byen men ki pa gen timoun depandan oswa minè.",
+
+f4_title:"Petisyon Divòs San Timoun Depandan oswa Minè ni Byen",
+f4_text:"Kategori petisyon pou kèk dosye divòs san timoun depandan oswa minè ni kestyon byen.",
+
+f5_title:"Family Law Financial Affidavit — Short Form",
+f5_text:"Fòm deklarasyon finansye pou kèk dosye family law. Verifye si short form oswa long form lan aplikab.",
+
+f6_title:"Family Law Financial Affidavit — Long Form",
+f6_text:"Deklarasyon finansye long pou dosye kote règ family law Florid yo mande li.",
+
+f7_title:"Notice of Social Security Number",
+f7_text:"Fòm family law Florid pou enfòmasyon Social Security Number kote li aplikab.",
+
+f8_title:"Certificate of Compliance with Mandatory Disclosure",
+f8_text:"Itilize nan dosye family law ki aplikab pou kestyon mandatory financial disclosure.",
+
+f9_title:"Marital Settlement Agreement",
+f9_text:"Yon akò ka dokimante fason mari ak madanm nan rezoud kestyon finans, byen, dèt, sipò ak lòt kestyon.",
+f9_meta:"Diferan fòm akò family law Florid ka aplike selon timoun ak byen.",
+
+f10_title:"Parenting Plan",
+f10_text:"Dosye ki gen timoun minè ka bezwen dokiman parenting selon sikonstans ak kondisyon tribinal la.",
+
+f11_title:"Child Support Guidelines Worksheet",
+f11_text:"Dosye ki gen child support ka bezwen worksheet aktyèl Florid la ansanm ak enfòmasyon finansye.",
+
+f12_title:"Tout Florida Family Law Forms",
+f12_text:"Ouvri sant Florida Courts Family Law Forms pou verifye fòm aktyèl, enstriksyon ak resous self-help.",
+f12_meta:"Sèvi ak sous ofisyèl sa a chak fwa ou bezwen konfime yon edisyon fòm.",
+
+help_title:"SANT ÈD FÒM",
+help_text:"Sant Èd Fòm sa a bati dirèkteman anndan paj Non-Contested Divorce la. Li pa depann de yon lòt paj Form Helper, kidonk li pap bay 404.",
+help_form_label:"FÒM / DOKIMAN",
+choose_form:"Chwazi yon fòm",
+children_label:"GEN TIMOUN MINÈ / DEPANDAN?",
+property_label:"GEN BYEN OSWA DÈT?",
+agreement_label:"TOU DE MOUN YO DAKÒ?",
+choose:"Chwazi",
+yes:"Wi",
+no:"Non",
+unsure:"Mwen pa sèten",
+question_label:"KISA OU BEZWEN ÈD POU ÒGANIZE?",
+question_ph:"Egzanp: Mwen bezwen èd pou òganize petisyon, financial affidavit ak dokiman akò yo.",
+analyze_btn:"KREYE LIS FÒM MWEN",
+book_help:"📅 REZÈVE ÈD",
+result_title:"REZIME PREPARASYON DOKIMAN OU",
+
+check_small:"ÒGANIZATÈ DOKIMAN",
+check_title:"LIS DOKIMAN DIVÒS",
+check_text:"Sèvi ak lis sa a pou òganize dokiman anvan ou prepare demann ou. Dokiman egzak yo depann de dosye a.",
+
+c1_title:"Pyès Idantifikasyon",
+c1_text:"Lisans, state ID, paspò oswa lòt pyès idantifikasyon ki disponib.",
+c2_title:"Enfòmasyon Maryaj",
+c2_text:"Dat maryaj, kote maryaj la fèt ak lòt enfòmasyon debaz.",
+c3_title:"Adrès Aktyèl",
+c3_text:"Enfòmasyon kontak ak adrès aktyèl tou de moun yo.",
+c4_title:"Enfòmasyon Revni",
+c4_text:"Enfòmasyon sou salè ak lòt dokiman pou òganize financial disclosure.",
+c5_title:"Bank / Finans",
+c5_text:"Enfòmasyon kont ak dosye finansye ki gen rapò ak dosye a.",
+c6_title:"Byen ak Pwopriyete",
+c6_text:"Enfòmasyon sou kay, machin, byen pèsonèl ak lòt byen.",
+c7_title:"Dèt ak Obligasyon",
+c7_text:"Kat kredi, prè, mortgage ak lòt dèt ki konsène dosye a.",
+c8_title:"Enfòmasyon Timoun",
+c8_text:"Si li aplikab, òganize enfòmasyon sou timoun minè oswa depandan.",
+c9_title:"Akò ki Deja Egziste",
+c9_text:"Nenpòt akò ekri mari ak madanm nan deja fè.",
+c10_title:"Lòd Tribinal ki Deja Egziste",
+c10_text:"Kopi lòd oswa dokiman tribinal ki gen rapò ak dosye a, si genyen.",
+
+select_all:"✓ CHWAZI TOUT",
+clear_all:"NETWAYE",
+
+org_small:"PREPARASYON DOKIMAN MAXIMAX",
+org_title:"ÒGANIZATÈ DEMANN DIVÒS",
+org_text:"Antre enfòmasyon debaz ou vle mete nan rezime preparasyon Maximax la. Sa pa depoze anyen nan tribinal.",
+
+client_name:"NON KLIYAN",
+client_phone:"TELEFÒN",
+client_email:"EMAIL",
+county:"COUNTY NAN FLORIDA",
+spouse_name:"NON MARI / MADANM",
+marriage_date:"DAT MARYAJ",
+separation_date:"DAT SEPARASYON, SI YO ITILIZE LI",
+case_number:"NIMEWO DOSYE TRIBINAL, SI LI DEJA DEPOZE",
+notes:"NÒT / DEMANN PREPARASYON DOKIMAN",
+
+generate:"KREYE REZIME",
+print:"ENPRIME / SAVE PDF",
+reset:"RESET",
+appointment:"📅 RANDEVOU",
+
+print_subtitle:"DIVÒS SAN KONTESTASYON — REZIME PREPARASYON DOKIMAN",
+client_info:"ENFÒMASYON KLIYAN",
+case_info:"ENFÒMASYON DOSYE",
+selected_docs:"LIS DOKIMAN",
+request_notes:"NÒT DEMANN",
+print_disclaimer:"Dokiman sa a se yon rezime òganizasyon Maximax Multi Services kreye. Li pa yon dokiman tribinal, lòd tribinal oswa konsèy legal. Verifye tout kondisyon ak fòm aktyèl yo ak sous ofisyèl ki apwopriye.",
+
+steps_small:"PWOSÈS",
+steps_title:"KÒMAN SANT SA A TRAVAY",
+step1_title:"Idantifye Dosye Ou",
+step1_text:"Detèmine si gen timoun, byen, dèt, sipò oswa lòt kestyon.",
+step2_title:"Ouvri Fòm Ofisyèl Yo",
+step2_text:"Sèvi ak sous Florida Courts la pou konfime fòm ak enstriksyon aktyèl yo.",
+step3_title:"Òganize Dokiman Yo",
+step3_text:"Sèvi ak checklist ak Sant Èd Fòm ki bati nan paj la pou òganize demann preparasyon an.",
+step4_title:"Prepare pou Depoze",
+step4_text:"Konfime kondisyon depo, frè, siyati, notarizasyon, service ak hearing ak sous ofisyèl la.",
+
+important:"ENPÒTAN:",
+disclaimer:"Maximax Multi Services bay sèvis preparasyon dokiman ak aksè nan resous gouvènman. Paj sa a pa detèmine elijibilite legal, li pa bay reprezantasyon legal, epi li pa ranplase konsèy yon avoka ki gen lisans. Fòm, pwosedi, frè ak kondisyon tribinal Florid ka chanje. Toujou verifye fòm ak enstriksyon aktyèl yo ak Florida Courts ak Clerk of Court ki konsène a."
+}
+
+};
+
+/* =========================================================
+   YEAR
+========================================================= */
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+/* =========================================================
+   MENU
+========================================================= */
+
+var menuBtn = document.getElementById("menuBtn");
+var mobileMenu = document.getElementById("mobileMenu");
+
+function closeMenu(){
+  mobileMenu.classList.remove("open");
+  menuBtn.textContent = "☰";
+  menuBtn.setAttribute("aria-expanded","false");
+}
+
+menuBtn.addEventListener("click",function(){
+  var open = mobileMenu.classList.toggle("open");
+
+  menuBtn.textContent = open ? "✕" : "☰";
+  menuBtn.setAttribute(
+    "aria-expanded",
+    open ? "true" : "false"
+  );
+});
+
+mobileMenu
+  .querySelectorAll("a")
+  .forEach(function(link){
+    link.addEventListener("click",closeMenu);
+  });
+
+/* =========================================================
+   LANGUAGE
+========================================================= */
+
+var langButtons =
+  document.querySelectorAll(".lang-btn");
+
+function translateDynamicAttributes(lang){
+
+  var question =
+    document.getElementById("helpQuestion");
+
+  if(question){
+    question.placeholder =
+      (I18N[lang] || I18N.en).question_ph;
+  }
+}
+
+function setLanguage(lang){
+
+  if(["en","es","ht"].indexOf(lang) === -1){
+    lang = "en";
+  }
+
+  document.documentElement.lang = lang;
+
+  document
+    .querySelectorAll("[data-i18n]")
+    .forEach(function(el){
+
+      var key = el.dataset.i18n;
+
+      var value =
+        (I18N[lang] || I18N.en)[key];
+
+      if(value === undefined){
+        value = I18N.en[key];
+      }
+
+      if(value !== undefined){
+        el.textContent = value;
+      }
+
+    });
+
+  langButtons.forEach(function(btn){
+
+    var active =
+      btn.dataset.lang === lang;
+
+    btn.classList.toggle(
+      "active",
+      active
+    );
+
+    btn.setAttribute(
+      "aria-pressed",
+      active ? "true" : "false"
+    );
+
+  });
+
+  translateDynamicAttributes(lang);
+
+  try{
+    localStorage.setItem(
+      "maximaxLanguage",
+      lang
+    );
+  }catch(e){}
+}
+
+langButtons.forEach(function(btn){
+
+  btn.addEventListener(
+    "click",
+    function(){
+      setLanguage(btn.dataset.lang);
+    }
+  );
+
+});
+
+var savedLanguage = "en";
+
+try{
+  savedLanguage =
+    localStorage.getItem("maximaxLanguage")
+    || "en";
+}catch(e){}
+
+setLanguage(savedLanguage);
+
+/* =========================================================
+   PREPARE BUTTONS
+========================================================= */
+
+document
+  .querySelectorAll("[data-form]")
+  .forEach(function(button){
+
+    button.addEventListener(
+      "click",
+      function(){
+
+        var form =
+          button.getAttribute("data-form");
+
+        var select =
+          document.getElementById("helpForm");
+
+        var found = false;
+
+        Array.from(select.options)
+          .forEach(function(option){
+
+            if(option.value === form){
+              select.value = form;
+              found = true;
+            }
+
+          });
+
+        if(!found){
+          select.value = "";
+        }
+
+      }
+    );
+
+  });
+
+/* =========================================================
+   FORM HELP CENTER
+========================================================= */
+
+var analyzeBtn =
+  document.getElementById("analyzeBtn");
+
+var helpResult =
+  document.getElementById("helpResult");
+
+var resultIntro =
+  document.getElementById("resultIntro");
+
+var resultList =
+  document.getElementById("resultList");
+
+function addResult(text){
+
+  var div =
+    document.createElement("div");
+
+  div.className =
+    "result-item";
+
+  div.textContent =
+    "✓ " + text;
+
+  resultList.appendChild(div);
+}
+
+analyzeBtn.addEventListener(
+  "click",
+  function(){
+
+    var form =
+      document.getElementById("helpForm").value;
+
+    var children =
+      document.getElementById("helpChildren").value;
+
+    var property =
+      document.getElementById("helpProperty").value;
+
+    var agreement =
+      document.getElementById("helpAgreement").value;
+
+    var question =
+      document.getElementById("helpQuestion").value.trim();
+
+    resultList.textContent = "";
+
+    resultIntro.textContent =
+      "Maximax preparation organizer — review these items and confirm all final requirements with the official Florida court source.";
+
+    if(form){
+      addResult(
+        "Selected form/document: " + form
+      );
+    }
+
+    if(children === "Yes"){
+      addResult(
+        "Case indicates minor/dependent children. Review child-related petition, parenting, financial and support forms that may apply."
+      );
+    }
+
+    if(children === "No"){
+      addResult(
+        "Case indicates no minor/dependent children. Review the appropriate no-minor-children petition category."
+      );
+    }
+
+    if(property === "Yes"){
+      addResult(
+        "Property/debts are involved. Organize asset, liability, financial disclosure and settlement information."
+      );
+    }
+
+    if(property === "No"){
+      addResult(
+        "No property/debt issue was selected. Confirm that this accurately describes the case before choosing a petition."
+      );
+    }
+
+    if(agreement === "Yes"){
+      addResult(
+        "Both parties are marked as agreeing. Organize any written settlement terms and required signatures."
+      );
+    }
+
+    if(agreement === "No"){
+      addResult(
+        "The parties are marked as not fully agreeing. A disputed matter may require procedures beyond a simple non-contested document-preparation workflow."
+      );
+    }
+
+    if(agreement === "Unsure"){
+      addResult(
+        "Agreement status is uncertain. Clarify unresolved issues before relying on a non-contested workflow."
+      );
+    }
+
+    if(question){
+      addResult(
+        "Client note: " + question
+      );
+    }
+
+    addResult(
+      "Open the official Florida Courts Family Law Forms center and verify the current form edition and instructions."
+    );
+
+    helpResult.classList.add("show");
+
+    helpResult.scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    });
+
+  }
+);
+
+/* =========================================================
+   CHECKLIST
+========================================================= */
+
+var docChecks =
+  document.querySelectorAll(".doc-check");
+
+document
+  .getElementById("selectAllBtn")
+  .addEventListener(
+    "click",
+    function(){
+
+      docChecks.forEach(function(box){
+        box.checked = true;
+      });
+
+    }
+  );
+
+document
+  .getElementById("clearChecksBtn")
+  .addEventListener(
+    "click",
+    function(){
+
+      docChecks.forEach(function(box){
+        box.checked = false;
+      });
+
+    }
+  );
+
+/* =========================================================
+   REQUEST ORGANIZER
+========================================================= */
+
+var printDocument =
+  document.getElementById("printDocument");
+
+var printClient =
+  document.getElementById("printClient");
+
+var printCase =
+  document.getElementById("printCase");
+
+var printChecks =
+  document.getElementById("printChecks");
+
+var printNotes =
+  document.getElementById("printNotes");
+
+function safeValue(id){
+
+  var el =
+    document.getElementById(id);
+
+  if(!el){
+    return "—";
+  }
+
+  var value =
+    (el.value || "").trim();
+
+  return value || "—";
+}
+
+function line(label,value){
+
+  var div =
+    document.createElement("div");
+
+  div.className =
+    "print-line";
+
+  div.textContent =
+    label + ": " + value;
+
+  return div;
+}
+
+function generateSummary(){
+
+  printClient.textContent = "";
+  printCase.textContent = "";
+  printChecks.textContent = "";
+
+  printClient.appendChild(
+    line("Name",safeValue("clientName"))
+  );
+
+  printClient.appendChild(
+    line("Phone",safeValue("clientPhone"))
+  );
+
+  printClient.appendChild(
+    line("Email",safeValue("clientEmail"))
+  );
+
+  printCase.appendChild(
+    line("Florida County",safeValue("county"))
+  );
+
+  printCase.appendChild(
+    line("Spouse",safeValue("spouseName"))
+  );
+
+  printCase.appendChild(
+    line("Marriage Date",safeValue("marriageDate"))
+  );
+
+  printCase.appendChild(
+    line("Separation Date",safeValue("separationDate"))
+  );
+
+  printCase.appendChild(
+    line("Case Number",safeValue("caseNumber"))
+  );
+
+  printCase.appendChild(
+    line("Minor / Dependent Children",safeValue("orgChildren"))
+  );
+
+  printCase.appendChild(
+    line("Property / Debts",safeValue("orgProperty"))
+  );
+
+  var selected = [];
+
+  docChecks.forEach(function(box){
+
+    if(box.checked){
+      selected.push(box.value);
+    }
+
+  });
+
+  if(selected.length === 0){
+
+    var empty =
+      document.createElement("div");
+
+    empty.className =
+      "print-line";
+
+    empty.textContent =
+      "No checklist items selected.";
+
+    printChecks.appendChild(empty);
+
+  }else{
+
+    selected.forEach(function(item){
+
+      var row =
+        document.createElement("div");
+
+      row.className =
+        "print-line";
+
+      row.textContent =
+        "✓ " + item;
+
+      printChecks.appendChild(row);
+
+    });
+
+  }
+
+  printNotes.textContent =
+    safeValue("requestNotes");
+
+  printDocument.classList.add("show");
+
+  return true;
+}
+
+document
+  .getElementById("generateBtn")
+  .addEventListener(
+    "click",
+    function(){
+
+      generateSummary();
+
+      printDocument.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+      });
+
+    }
+  );
+
+document
+  .getElementById("printBtn")
+  .addEventListener(
+    "click",
+    function(){
+
+      generateSummary();
+
+      setTimeout(function(){
+        window.print();
+      },100);
+
+    }
+  );
+
+document
+  .getElementById("resetBtn")
+  .addEventListener(
+    "click",
+    function(){
+
+      [
+        "clientName",
+        "clientPhone",
+        "clientEmail",
+        "county",
+        "spouseName",
+        "marriageDate",
+        "separationDate",
+        "caseNumber",
+        "orgChildren",
+        "orgProperty",
+        "requestNotes"
+      ].forEach(function(id){
+
+        var el =
+          document.getElementById(id);
+
+        if(el){
+          el.value = "";
+        }
+
+      });
+
+      docChecks.forEach(function(box){
+        box.checked = false;
+      });
+
+      printDocument.classList.remove("show");
+
+    }
+  );
+
+/* =========================================================
+   SAFE EXTERNAL LINKS
+========================================================= */
+
+document
+  .querySelectorAll('a[target="_blank"]')
+  .forEach(function(link){
+
+    link.setAttribute(
+      "rel",
+      "noopener noreferrer"
+    );
+
+  });
+
+})();
+</script>
+
+</body>
+</html>
