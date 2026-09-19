@@ -13,6 +13,174 @@
 <link rel="stylesheet" href="../style.css">
 
 <style>
+:root{
+  --orange:#ff7900;
+  --apricot:#ffad4d;
+  --black:#000000;
+  --deep:#050200;
+  --soft:#120600;
+  --text:#ffd2a3;
+  --text-soft:#d8a77a;
+  --border:rgba(255,121,0,.35);
+  --border-strong:rgba(255,121,0,.75);
+  --glow:0 0 28px rgba(255,121,0,.18);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  color:var(--text);
+  background:
+    radial-gradient(circle at top,rgba(255,121,0,.08),transparent 30%),
+    #000;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,
+input,
+select,
+textarea{
+  font:inherit;
+}
+
+.container{
+  width:min(1180px,92%);
+  margin:auto;
+}
+
+.top-bar{
+  padding:10px 15px;
+  text-align:center;
+  color:#000;
+  background:linear-gradient(90deg,var(--orange),var(--apricot),var(--orange));
+  font-size:.72rem;
+  font-weight:1000;
+  letter-spacing:.08em;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  border-bottom:1px solid var(--border);
+  background:rgba(0,0,0,.96);
+  backdrop-filter:blur(12px);
+}
+
+.header-inner{
+  min-height:84px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.brand-logo{
+  width:58px;
+  height:58px;
+  object-fit:cover;
+  border:2px solid var(--orange);
+  border-radius:16px;
+  box-shadow:0 0 20px rgba(255,121,0,.35);
+}
+
+.brand-text{
+  display:flex;
+  flex-direction:column;
+}
+
+.brand-text strong{
+  color:var(--orange);
+  font-size:1rem;
+  letter-spacing:.04em;
+}
+
+.brand-text span{
+  margin-top:3px;
+  color:var(--apricot);
+  font-size:.62rem;
+  font-weight:900;
+  letter-spacing:.08em;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+nav a{
+  color:var(--text);
+  font-size:.70rem;
+  font-weight:900;
+}
+
+nav a:hover{
+  color:var(--orange);
+}
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.language-switch{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  padding:5px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:#050200;
+}
+
+.lang-btn{
+  padding:10px 13px;
+  border:0;
+  border-radius:999px;
+  color:var(--apricot);
+  background:transparent;
+  cursor:pointer;
+  font-size:.68rem;
+  font-weight:1000;
+}
+
+.lang-btn.active{
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+}
+
+.menu-toggle{
+  display:none;
+  width:48px;
+  height:48px;
+  border:1px solid var(--orange);
+  border-radius:14px;
+  color:var(--orange);
+  background:#050200;
+  cursor:pointer;
+  font-size:1.4rem;
+}
+
 .form-page{
   min-height:calc(100vh - 84px);
   padding:70px 0 90px;
@@ -33,8 +201,17 @@
   font-size:4.3rem;
 }
 
+.eyebrow{
+  margin-top:12px;
+  color:var(--apricot);
+  font-size:.72rem;
+  font-weight:1000;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
 .form-hero h1{
-  margin-top:18px;
+  margin:18px 0 0;
   color:var(--orange);
   font-size:clamp(2.8rem,8vw,5.8rem);
   line-height:.9;
@@ -45,6 +222,44 @@
   max-width:900px;
   margin:20px auto 0;
   line-height:1.75;
+}
+
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
+  margin-top:25px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:46px;
+  padding:12px 18px;
+  border:1px solid var(--orange);
+  border-radius:13px;
+  cursor:pointer;
+  font-weight:1000;
+  font-size:.72rem;
+  text-transform:uppercase;
+  transition:.2s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 18px rgba(255,121,0,.22);
+}
+
+.btn.primary{
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+}
+
+.btn.outline{
+  color:var(--orange);
+  background:#050200;
 }
 
 .form-grid{
@@ -78,14 +293,14 @@
 }
 
 .form-card h2{
-  margin-top:15px;
+  margin:15px 0 0;
   color:var(--orange);
   font-size:1rem;
   text-transform:uppercase;
 }
 
 .form-card p{
-  margin-top:10px;
+  margin:10px 0 18px;
   font-size:.78rem;
   line-height:1.65;
 }
@@ -110,7 +325,7 @@
 }
 
 .helper-header h2{
-  margin-top:10px;
+  margin:10px 0 0;
   color:var(--orange);
   font-size:clamp(2rem,6vw,4rem);
   text-transform:uppercase;
@@ -195,6 +410,7 @@
 }
 
 .helper-result h3{
+  margin:0;
   color:var(--orange);
   text-transform:uppercase;
 }
@@ -205,7 +421,10 @@
   font-size:.78rem;
 }
 
-.government-center{
+.government-center,
+.document-services,
+.pathway,
+.action-box{
   margin-top:35px;
   padding:35px 25px;
   border:1px solid var(--border);
@@ -213,7 +432,11 @@
   background:#050200;
 }
 
-.government-center h2{
+.government-center h2,
+.document-services h2,
+.pathway h2,
+.action-box h2{
+  margin-top:0;
   color:var(--orange);
   text-align:center;
   text-transform:uppercase;
@@ -234,7 +457,7 @@
 }
 
 .gov-item{
-  min-height:115px;
+  min-height:135px;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -257,18 +480,11 @@
   line-height:1.4;
 }
 
-.document-services{
-  margin-top:35px;
-  padding:35px 25px;
-  border:1px solid var(--border);
-  border-radius:24px;
-  background:#050200;
-}
-
-.document-services h2{
-  color:var(--orange);
-  text-align:center;
-  text-transform:uppercase;
+.gov-item a{
+  margin-top:10px;
+  color:var(--apricot);
+  font-size:.62rem;
+  font-weight:1000;
 }
 
 .document-grid{
@@ -294,20 +510,6 @@
 .document-box p{
   font-size:.76rem;
   line-height:1.6;
-}
-
-.pathway{
-  margin-top:35px;
-  padding:35px 25px;
-  border:1px solid var(--border);
-  border-radius:24px;
-  background:#050200;
-}
-
-.pathway h2{
-  color:var(--orange);
-  text-align:center;
-  text-transform:uppercase;
 }
 
 .pathway-grid{
@@ -350,18 +552,11 @@
 }
 
 .action-box{
-  margin-top:35px;
-  padding:35px 25px;
-  border:1px solid var(--border);
-  border-radius:24px;
   text-align:center;
-  background:#050200;
 }
 
 .action-box h2{
   margin-top:10px;
-  color:var(--orange);
-  text-transform:uppercase;
 }
 
 .action-box p{
@@ -385,6 +580,39 @@
   text-align:center;
 }
 
+footer{
+  padding:45px 20px;
+  border-top:1px solid var(--border);
+  text-align:center;
+  background:#000;
+}
+
+.footer-logo{
+  width:58px;
+  height:58px;
+  display:grid;
+  place-items:center;
+  margin:auto;
+  border-radius:16px;
+  color:#000;
+  background:linear-gradient(135deg,var(--orange),var(--apricot));
+  font-size:1.8rem;
+  font-weight:1000;
+}
+
+footer h3{
+  color:var(--orange);
+}
+
+footer p{
+  font-size:.72rem;
+  line-height:1.6;
+}
+
+.hub-link{
+  color:var(--apricot);
+}
+
 @media(max-width:1000px){
   .form-grid,
   .document-grid{
@@ -395,6 +623,28 @@
   .pathway-grid{
     grid-template-columns:repeat(2,1fr);
   }
+
+  nav{
+    display:none;
+    position:absolute;
+    top:84px;
+    left:4%;
+    right:4%;
+    padding:18px;
+    border:1px solid var(--border);
+    border-radius:18px;
+    background:#000;
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  nav.open{
+    display:flex;
+  }
+
+  .menu-toggle{
+    display:block;
+  }
 }
 
 @media(max-width:700px){
@@ -404,6 +654,24 @@
   .pathway-grid,
   .form-row{
     grid-template-columns:1fr;
+  }
+
+  .brand-text{
+    display:none;
+  }
+
+  .brand-logo{
+    width:54px;
+    height:54px;
+  }
+
+  .lang-btn{
+    padding:9px 10px;
+    font-size:.62rem;
+  }
+
+  .form-page{
+    padding-top:35px;
   }
 }
 </style>
@@ -416,65 +684,59 @@ MAXIMAX MULTI SERVICES • FORM HELP CENTER
 </div>
 
 <header>
-
 <div class="container header-inner">
 
 <a href="../index.html" class="brand">
+<img
+  src="../maximax-logo.jpg"
+  alt="Maximax Multi Services"
+  class="brand-logo"
+  onerror="this.style.display='none';document.getElementById('logoFallback').style.display='grid';"
+>
 
-<div class="brand-mark">M</div>
+<div
+  id="logoFallback"
+  class="footer-logo"
+  style="display:none;margin:0;width:54px;height:54px;"
+>
+M
+</div>
 
 <div class="brand-text">
 <strong>MAXIMAX</strong>
 <span>MULTI SERVICES</span>
 </div>
-
 </a>
 
 <nav id="mainNav">
-
 <a href="../index.html">HOME</a>
-
 <a href="../index.html#services">SERVICES</a>
-
 <a href="#form-categories">FORMS</a>
-
+<a href="./government-forms.html">GOVERNMENT</a>
 <a href="./ai-center.html">AI CENTER</a>
-
 <a href="../index.html#contact">CONTACT</a>
-
 </nav>
 
 <div class="header-actions">
 
 <div class="language-switch">
-
-<button class="lang-btn active" data-lang="en">ENG</button>
-
-<button class="lang-btn" data-lang="fr">FRA</button>
-
-<button class="lang-btn" data-lang="ht">KRE</button>
-
+<button class="lang-btn active" data-lang="en">🇺🇸 ENG</button>
+<button class="lang-btn" data-lang="es">🇪🇸 ESP</button>
+<button class="lang-btn" data-lang="ht">🇭🇹 KRE</button>
 </div>
 
-<button id="menuToggle" class="menu-toggle">☰</button>
+<button id="menuToggle" class="menu-toggle" type="button">☰</button>
 
 </div>
-
 </div>
-
 </header>
 
-
 <main class="form-page">
-
 <div class="container">
-
 
 <section class="form-hero">
 
-<div class="form-icon">
-📝
-</div>
+<div class="form-icon">📝</div>
 
 <div class="eyebrow">
 MAXIMAX DOCUMENT CENTER
@@ -482,14 +744,14 @@ MAXIMAX DOCUMENT CENTER
 
 <h1
 data-en="FORM HELP CENTER"
-data-fr="CENTRE D'AIDE AUX FORMULAIRES"
+data-es="CENTRO DE AYUDA DE FORMULARIOS"
 data-ht="SANT ÈD FÒM">
 FORM HELP CENTER
 </h1>
 
 <p
 data-en="One organized center for supported immigration, government, business, tax, travel, DMV and general administrative forms."
-data-fr="Un centre organisé pour les formulaires d'immigration, gouvernementaux, commerciaux, fiscaux, de voyage, DMV et administratifs pris en charge."
+data-es="Un centro organizado para formularios de inmigración, gobierno, negocios, impuestos, viajes, DMV y otros formularios administrativos compatibles."
 data-ht="Yon sèl sant òganize pou fòm imigrasyon, gouvènman, biznis, taks, vwayaj, DMV ak lòt fòm administratif sistèm nan sipòte.">
 One organized center for supported immigration, government, business, tax, travel, DMV and general administrative forms.
 </p>
@@ -498,254 +760,222 @@ One organized center for supported immigration, government, business, tax, trave
 
 <a href="#form-categories" class="btn primary"
 data-en="BROWSE FORM CENTER"
-data-fr="VOIR LES FORMULAIRES"
+data-es="VER CENTRO DE FORMULARIOS"
 data-ht="GADE SANT FÒM NAN">
 BROWSE FORM CENTER
 </a>
 
 <a href="#form-helper-tool" class="btn outline"
 data-en="OPEN FORM HELPER"
-data-fr="OUVRIR L'ASSISTANT"
+data-es="ABRIR ASISTENTE"
 data-ht="LOUVRI FORM HELPER">
 OPEN FORM HELPER
 </a>
 
 </div>
-
 </section>
-
 
 <section class="form-grid" id="form-categories">
 
-
 <div class="form-card">
-
 <div class="form-card-icon">🗽</div>
 
 <h2
 data-en="IMMIGRATION FORMS"
-data-fr="FORMULAIRES D'IMMIGRATION"
+data-es="FORMULARIOS DE INMIGRACIÓN"
 data-ht="FÒM IMIGRASYON">
 IMMIGRATION FORMS
 </h2>
 
 <p
-data-en="Administrative document-preparation assistance for supported immigration forms and related records."
-data-fr="Assistance administrative à la préparation des formulaires d'immigration pris en charge et des documents associés."
-data-ht="Asistans administratif pou prepare fòm imigrasyon sistèm nan sipòte ak dokiman ki gen rapò.">
-Administrative document-preparation assistance for supported immigration forms and related records.
+data-en="Open supported immigration forms including family, green card, work authorization, travel, asylum, citizenship and replacement documents."
+data-es="Abra formularios de inmigración compatibles para familia, residencia, autorización de trabajo, viajes, asilo, ciudadanía y documentos de reemplazo."
+data-ht="Louvri fòm imigrasyon sistèm nan sipòte pou fanmi, green card, pèmi travay, vwayaj, azil, sitwayènte ak dokiman ranplasman.">
+Open supported immigration forms including family, green card, work authorization, travel, asylum, citizenship and replacement documents.
 </p>
 
-<a href="./immigration.html" class="btn outline">
+<a href="./immigration-services.html#immigrationForms" class="btn outline">
 IMMIGRATION CENTER
 </a>
-
 </div>
 
-
 <div class="form-card">
-
 <div class="form-card-icon">⚖️</div>
 
 <h2
 data-en="EOIR + BIA DOCUMENTS"
-data-fr="DOCUMENTS EOIR + BIA"
+data-es="DOCUMENTOS EOIR + BIA"
 data-ht="DOKIMAN EOIR + BIA">
 EOIR + BIA DOCUMENTS
 </h2>
 
 <p
-data-en="Administrative organization of supported immigration-court and BIA-related documents."
-data-fr="Organisation administrative des documents pris en charge liés aux tribunaux d'immigration et au BIA."
-data-ht="Òganizasyon administratif dokiman sistèm nan sipòte ki gen rapò ak tribinal imigrasyon ak BIA.">
-Administrative organization of supported immigration-court and BIA-related documents.
+data-en="Open supported immigration-court and BIA document resources."
+data-es="Abra recursos compatibles de documentos del tribunal de inmigración y BIA."
+data-ht="Louvri resous dokiman sistèm nan sipòte pou tribinal imigrasyon ak BIA.">
+Open supported immigration-court and BIA document resources.
 </p>
 
-<a href="./eoir-bia.html" class="btn outline">
+<a href="./immigration-services.html#eoirForms" class="btn outline">
 EOIR + BIA CENTER
 </a>
-
 </div>
 
-
 <div class="form-card">
-
 <div class="form-card-icon">🏛️</div>
 
 <h2
 data-en="GOVERNMENT FORMS"
-data-fr="FORMULAIRES GOUVERNEMENTAUX"
+data-es="FORMULARIOS DEL GOBIERNO"
 data-ht="FÒM GOUVÈNMAN">
 GOVERNMENT FORMS
 </h2>
 
 <p
-data-en="General administrative assistance organizing information for supported public-agency forms."
-data-fr="Assistance administrative générale pour organiser les informations destinées aux formulaires d'organismes publics pris en charge."
-data-ht="Asistans administratif jeneral pou òganize enfòmasyon pou fòm ajans piblik sistèm nan sipòte.">
-General administrative assistance organizing information for supported public-agency forms.
+data-en="Open the Maximax Government Forms Center for supported public-agency forms and resources."
+data-es="Abra el Centro de Formularios del Gobierno de Maximax para formularios y recursos de agencias públicas."
+data-ht="Louvri Sant Fòm Gouvènman Maximax pou fòm ak resous ajans piblik sistèm nan sipòte.">
+Open the Maximax Government Forms Center for supported public-agency forms and resources.
 </p>
 
-<button class="btn outline form-preset"
-data-category="Government Form">
+<a href="./government-forms.html" class="btn outline">
 OPEN CENTER
-</button>
-
+</a>
 </div>
 
-
 <div class="form-card">
-
 <div class="form-card-icon">💼</div>
 
 <h2
 data-en="BUSINESS FORMS"
-data-fr="FORMULAIRES D'ENTREPRISE"
+data-es="FORMULARIOS DE NEGOCIOS"
 data-ht="FÒM BIZNIS">
 BUSINESS FORMS
 </h2>
 
 <p
-data-en="Business document organization and administrative form-preparation assistance."
-data-fr="Organisation des documents d'entreprise et assistance administrative à la préparation des formulaires."
-data-ht="Òganizasyon dokiman biznis ak asistans administratif pou prepare fòm.">
-Business document organization and administrative form-preparation assistance.
+data-en="Business document organization, formation support and administrative form assistance."
+data-es="Organización de documentos comerciales, apoyo para formación y asistencia administrativa."
+data-ht="Òganizasyon dokiman biznis, asistans pou fòmasyon biznis ak fòm administratif.">
+Business document organization, formation support and administrative form assistance.
 </p>
 
 <a href="./business.html" class="btn outline">
 BUSINESS CENTER
 </a>
-
 </div>
 
-
 <div class="form-card">
-
 <div class="form-card-icon">💰</div>
 
 <h2
 data-en="TAX DOCUMENTS"
-data-fr="DOCUMENTS FISCAUX"
+data-es="DOCUMENTOS DE IMPUESTOS"
 data-ht="DOKIMAN TAKS">
 TAX DOCUMENTS
 </h2>
 
 <p
 data-en="Organize common tax documents and information for eligible tax-preparation services."
-data-fr="Organisez les documents et informations fiscaux courants pour les services admissibles de préparation fiscale."
-data-ht="Òganize dokiman ak enfòmasyon taks komen pou sèvis preparasyon taks ki aplikab.">
+data-es="Organice documentos e información fiscal para servicios de preparación de impuestos elegibles."
+data-ht="Òganize dokiman ak enfòmasyon taks pou sèvis preparasyon taks ki aplikab.">
 Organize common tax documents and information for eligible tax-preparation services.
 </p>
 
 <a href="./taxes.html" class="btn outline">
 TAX CENTER
 </a>
-
 </div>
 
-
 <div class="form-card">
-
 <div class="form-card-icon">🚗</div>
 
 <h2
 data-en="TRAVEL + DMV FORMS"
-data-fr="FORMULAIRES VOYAGE + DMV"
+data-es="FORMULARIOS VIAJES + DMV"
 data-ht="FÒM VWAYAJ + DMV">
 TRAVEL + DMV FORMS
 </h2>
 
 <p
-data-en="Document organization and general form assistance for supported travel and motor-vehicle service needs."
-data-fr="Organisation des documents et assistance générale pour les besoins pris en charge liés au voyage et aux véhicules."
-data-ht="Òganizasyon dokiman ak asistans fòm jeneral pou bezwen vwayaj ak machin sistèm nan sipòte.">
-Document organization and general form assistance for supported travel and motor-vehicle service needs.
+data-en="Document organization and general form assistance for supported travel and motor-vehicle services."
+data-es="Organización de documentos y asistencia general para servicios de viajes y vehículos."
+data-ht="Òganizasyon dokiman ak asistans fòm pou sèvis vwayaj ak machin sistèm nan sipòte.">
+Document organization and general form assistance for supported travel and motor-vehicle services.
 </p>
 
 <a href="./travel-dmv.html" class="btn outline">
 TRAVEL + DMV
 </a>
-
 </div>
 
-
 <div class="form-card">
-
 <div class="form-card-icon">🌎</div>
 
 <h2
 data-en="APOSTILLE DOCUMENTS"
-data-fr="DOCUMENTS APOSTILLE"
+data-es="DOCUMENTOS DE APOSTILLA"
 data-ht="DOKIMAN APOSTILLE">
 APOSTILLE DOCUMENTS
 </h2>
 
 <p
 data-en="Organize documents and information related to supported apostille and authentication processes."
-data-fr="Organisez les documents et informations liés aux procédures d'apostille et d'authentification prises en charge."
-data-ht="Òganize dokiman ak enfòmasyon ki gen rapò ak pwosesis apostille ak otantifikasyon sistèm nan sipòte.">
+data-es="Organice documentos e información relacionados con procesos de apostilla y autenticación."
+data-ht="Òganize dokiman ak enfòmasyon ki gen rapò ak apostille ak pwosesis otantifikasyon.">
 Organize documents and information related to supported apostille and authentication processes.
 </p>
 
 <a href="./apostille.html" class="btn outline">
 APOSTILLE CENTER
 </a>
-
 </div>
 
-
 <div class="form-card">
-
 <div class="form-card-icon">📜</div>
 
 <h2
 data-en="NON-CONTESTED DIVORCE"
-data-fr="DIVORCE NON CONTESTÉ"
+data-es="DIVORCIO NO CONTESTADO"
 data-ht="DIVÒS SAN KONTESTASYON">
 NON-CONTESTED DIVORCE
 </h2>
 
 <p
-data-en="Administrative document-preparation and organization support for eligible uncontested divorce paperwork where permitted."
-data-fr="Assistance administrative à la préparation et à l'organisation des documents admissibles de divorce non contesté lorsque cela est permis."
-data-ht="Asistans administratif pou prepare ak òganize dokiman divòs san kontestasyon ki aplikab kote lalwa pèmèt sa.">
-Administrative document-preparation and organization support for eligible uncontested divorce paperwork where permitted.
+data-en="Open the dedicated administrative document center for supported non-contested divorce paperwork."
+data-es="Abra el centro administrativo dedicado a documentos de divorcio no contestado compatibles."
+data-ht="Louvri sant administratif espesyal pou dokiman divòs san kontestasyon sistèm nan sipòte.">
+Open the dedicated administrative document center for supported non-contested divorce paperwork.
 </p>
 
-<button class="btn outline form-preset"
-data-category="Non-Contested Divorce">
-OPEN DOCUMENT CENTER
-</button>
-
+<a href="./non-contested-divorce.html" class="btn outline">
+DIVORCE FORMS
+</a>
 </div>
 
-
 <div class="form-card">
-
 <div class="form-card-icon">🤖</div>
 
 <h2
 data-en="AI FORM ASSISTANT"
-data-fr="ASSISTANT IA FORMULAIRES"
+data-es="ASISTENTE DE FORMULARIOS IA"
 data-ht="AI FORM ASSISTANT">
 AI FORM ASSISTANT
 </h2>
 
 <p
 data-en="Use Maximax AI to help organize general information before working on a supported form."
-data-fr="Utilisez Maximax AI pour organiser les informations générales avant de travailler sur un formulaire pris en charge."
-data-ht="Sèvi ak Maximax AI pou ede òganize enfòmasyon jeneral anvan ou travay sou yon fòm sistèm nan sipòte.">
+data-es="Use Maximax AI para organizar información general antes de trabajar con un formulario compatible."
+data-ht="Sèvi ak Maximax AI pou òganize enfòmasyon jeneral anvan ou travay sou yon fòm sistèm nan sipòte.">
 Use Maximax AI to help organize general information before working on a supported form.
 </p>
 
 <a href="./ai-center.html" class="btn outline">
 AI CENTER
 </a>
-
 </div>
 
 </section>
-
 
 <section class="helper-center" id="form-helper-tool">
 
@@ -757,93 +987,52 @@ MAXIMAX FORM ASSISTANT
 
 <h2
 data-en="START FORM ASSISTANCE"
-data-fr="COMMENCER L'ASSISTANCE"
+data-es="COMENZAR ASISTENCIA"
 data-ht="KÒMANSE ASISTANS FÒM">
 START FORM ASSISTANCE
 </h2>
 
 <p
 data-en="Choose a category and describe the administrative form or document you need help organizing."
-data-fr="Choisissez une catégorie et décrivez le formulaire ou document administratif que vous souhaitez organiser."
+data-es="Seleccione una categoría y describa el formulario o documento administrativo que necesita organizar."
 data-ht="Chwazi yon kategori epi eksplike ki fòm oswa dokiman administratif ou bezwen èd pou òganize.">
 Choose a category and describe the administrative form or document you need help organizing.
 </p>
 
 </div>
 
-
 <div class="helper-console">
 
 <div class="form-row">
 
 <div>
-
-<label for="formCategory">
-FORM CATEGORY
-</label>
+<label for="formCategory">FORM CATEGORY</label>
 
 <select id="formCategory">
-
-<option value="">
-Select a category
-</option>
-
-<option value="Immigration">
-Immigration
-</option>
-
-<option value="EOIR / BIA">
-EOIR / BIA
-</option>
-
-<option value="Government Form">
-Government Form
-</option>
-
-<option value="Business">
-Business
-</option>
-
-<option value="Taxes">
-Taxes
-</option>
-
-<option value="Travel / DMV">
-Travel / DMV
-</option>
-
-<option value="Apostille">
-Apostille
-</option>
-
-<option value="Non-Contested Divorce">
-Non-Contested Divorce
-</option>
-
-<option value="Other">
-Other
-</option>
-
+<option value="">Select a category</option>
+<option value="Immigration">Immigration</option>
+<option value="EOIR / BIA">EOIR / BIA</option>
+<option value="Government Form">Government Form</option>
+<option value="Business">Business</option>
+<option value="Taxes">Taxes</option>
+<option value="Travel / DMV">Travel / DMV</option>
+<option value="Apostille">Apostille</option>
+<option value="Non-Contested Divorce">Non-Contested Divorce</option>
+<option value="Credit">Credit</option>
+<option value="Other">Other</option>
 </select>
-
 </div>
 
-
 <div>
-
-<label for="formName">
-FORM / DOCUMENT NAME
-</label>
+<label for="formName">FORM / DOCUMENT NAME</label>
 
 <input
 type="text"
 id="formName"
-placeholder="Example: I-765, business form, DMV document...">
-
+placeholder="Example: I-765, N-400, business form, DMV document...">
 </div>
 
 </div>
-
 
 <label for="formRequest">
 WHAT DO YOU NEED HELP WITH?
@@ -851,8 +1040,7 @@ WHAT DO YOU NEED HELP WITH?
 
 <textarea
 id="formRequest"
-placeholder="Describe the form, document, or administrative assistance you need..."></textarea>
-
+placeholder="Describe the form, document, or administrative assistance you need. Do not enter passwords, Social Security numbers or complete financial-account numbers."></textarea>
 
 <button
 type="button"
@@ -861,279 +1049,245 @@ id="startFormHelp">
 START FORM HELP
 </button>
 
-
 <div class="helper-result" id="helperResult">
 
-<h3>
-FORM REQUEST READY
-</h3>
+<h3>FORM REQUEST READY</h3>
 
 <p id="helperResultText"></p>
 
 <div class="hero-buttons">
-
 <a href="./ai-center.html" class="btn primary">
-CONTINUE TO AI CENTER
+🤖 CONTINUE TO AI CENTER
+</a>
+
+<a href="./document-checklist.html" class="btn outline">
+📋 DOCUMENT CHECKLIST
 </a>
 
 <a href="../index.html#contact" class="btn outline">
-CONTACT MAXIMAX
+☎ CONTACT MAXIMAX
 </a>
-
 </div>
 
 </div>
-
 </div>
-
 </section>
-
 
 <section class="government-center">
 
 <h2
 data-en="GOVERNMENT FORM CENTER"
-data-fr="CENTRE DE FORMULAIRES GOUVERNEMENTAUX"
+data-es="CENTRO DE FORMULARIOS DEL GOBIERNO"
 data-ht="SANT FÒM GOUVÈNMAN">
 GOVERNMENT FORM CENTER
 </h2>
 
 <p
-data-en="Organize information for supported forms from public agencies and administrative service categories."
-data-fr="Organisez les informations pour les formulaires pris en charge provenant d'organismes publics et de services administratifs."
-data-ht="Òganize enfòmasyon pou fòm sistèm nan sipòte ki soti nan ajans piblik ak sèvis administratif.">
-Organize information for supported forms from public agencies and administrative service categories.
+data-en="Open the appropriate Maximax center for supported government and administrative documents."
+data-es="Abra el centro Maximax correspondiente para documentos gubernamentales y administrativos compatibles."
+data-ht="Louvri sant Maximax ki koresponn ak dokiman gouvènman ak administratif sistèm nan sipòte.">
+Open the appropriate Maximax center for supported government and administrative documents.
 </p>
-
 
 <div class="gov-grid">
 
 <div class="gov-item">
 <span>🗽</span>
 <strong>USCIS</strong>
+<a href="./immigration-services.html#immigrationForms">OPEN →</a>
 </div>
 
 <div class="gov-item">
 <span>⚖️</span>
-<strong>EOIR</strong>
+<strong>EOIR + BIA</strong>
+<a href="./immigration-services.html#eoirForms">OPEN →</a>
 </div>
 
 <div class="gov-item">
 <span>🏛️</span>
-<strong>BIA</strong>
+<strong>GOVERNMENT FORMS</strong>
+<a href="./government-forms.html">OPEN →</a>
 </div>
 
 <div class="gov-item">
 <span>💰</span>
 <strong>TAX DOCUMENTS</strong>
+<a href="./taxes.html">OPEN →</a>
 </div>
 
 <div class="gov-item">
 <span>🚗</span>
 <strong>DMV DOCUMENTS</strong>
+<a href="./travel-dmv.html">OPEN →</a>
 </div>
 
 <div class="gov-item">
 <span>📘</span>
 <strong>TRAVEL DOCUMENTS</strong>
+<a href="./travel-dmv.html">OPEN →</a>
 </div>
 
 <div class="gov-item">
 <span>🏢</span>
 <strong>BUSINESS FILINGS</strong>
+<a href="./business.html">OPEN →</a>
 </div>
 
 <div class="gov-item">
 <span>🌎</span>
 <strong>APOSTILLE</strong>
+<a href="./apostille.html">OPEN →</a>
 </div>
 
 </div>
-
 </section>
-
 
 <section class="document-services">
 
 <h2
 data-en="DOCUMENT SERVICES"
-data-fr="SERVICES DOCUMENTAIRES"
+data-es="SERVICIOS DE DOCUMENTOS"
 data-ht="SÈVIS DOKIMAN">
 DOCUMENT SERVICES
 </h2>
 
-
 <div class="document-grid">
 
 <div class="document-box">
-
 <strong>📂 DOCUMENT ORGANIZATION</strong>
-
-<p>
-Organize supporting records into a clear administrative file.
-</p>
-
+<p>Organize supporting records into a clear administrative file.</p>
 </div>
 
-
 <div class="document-box">
-
 <strong>📝 FORM PREPARATION</strong>
-
-<p>
-Administrative assistance entering information into supported forms based on information provided by the customer.
-</p>
-
+<p>Administrative assistance entering customer-provided information into supported forms.</p>
 </div>
 
-
 <div class="document-box">
-
 <strong>🔍 DOCUMENT REVIEW</strong>
-
-<p>
-Check administrative completeness and identify potentially missing information before submission.
-</p>
-
+<p>Review administrative completeness and identify potentially missing information before submission.</p>
 </div>
 
-
 <div class="document-box">
-
 <strong>🌎 TRANSLATION CONNECTION</strong>
-
-<p>
-Connect to Maximax AI Translation for general multilingual text assistance.
-</p>
-
+<p>Connect to Maximax AI Translation for multilingual text assistance.</p>
 </div>
 
-
 <div class="document-box">
-
 <strong>🤖 AI ASSISTANCE</strong>
-
-<p>
-Use AI tools to organize questions, summaries and general document information.
-</p>
-
+<p>Use Maximax AI tools to organize questions, summaries and general document information.</p>
 </div>
-
 
 <div class="document-box">
-
 <strong>📋 CHECKLIST SUPPORT</strong>
-
-<p>
-Create an organized checklist for documents related to a supported administrative process.
-</p>
+<p>Create an organized checklist for documents related to a supported administrative process.</p>
+</div>
 
 </div>
+
+<div class="hero-buttons">
+
+<a href="./document-center.html" class="btn outline">
+📂 DOCUMENT CENTER
+</a>
+
+<a href="./document-checklist.html" class="btn outline">
+📋 CHECKLIST
+</a>
+
+<a href="./translation-ai.html" class="btn outline">
+🌎 AI TRANSLATION
+</a>
 
 </div>
 
 </section>
 
-
 <section class="pathway">
 
 <h2
 data-en="FORM HELP PATHWAY"
-data-fr="PARCOURS D'ASSISTANCE"
+data-es="RUTA DE AYUDA DE FORMULARIOS"
 data-ht="CHEMEN ASISTANS FÒM">
 FORM HELP PATHWAY
 </h2>
 
-
 <div class="pathway-grid">
 
 <div class="pathway-step">
-
 <div class="step-number">1</div>
 
 <strong
 data-en="SELECT FORM"
-data-fr="CHOISIR"
+data-es="SELECCIONAR"
 data-ht="CHWAZI FÒM">
 SELECT FORM
 </strong>
 
 <p
 data-en="Identify the form or document."
-data-fr="Identifiez le formulaire ou document."
+data-es="Identifique el formulario o documento."
 data-ht="Idantifye fòm oswa dokiman an.">
 Identify the form or document.
 </p>
-
 </div>
 
-
 <div class="pathway-step">
-
 <div class="step-number">2</div>
 
 <strong
 data-en="GATHER INFORMATION"
-data-fr="RASSEMBLER"
+data-es="REUNIR INFORMACIÓN"
 data-ht="RASANBLE">
 GATHER INFORMATION
 </strong>
 
 <p
 data-en="Collect the relevant information and records."
-data-fr="Rassemblez les informations et documents pertinents."
+data-es="Reúna la información y documentos pertinentes."
 data-ht="Rasanble enfòmasyon ak dokiman ki gen rapò.">
 Collect the relevant information and records.
 </p>
-
 </div>
 
-
 <div class="pathway-step">
-
 <div class="step-number">3</div>
 
 <strong
 data-en="PREPARE"
-data-fr="PRÉPARER"
+data-es="PREPARAR"
 data-ht="PREPARE">
 PREPARE
 </strong>
 
 <p
-data-en="Organize the information for the supported form."
-data-fr="Organisez les informations pour le formulaire pris en charge."
+data-en="Organize information for the supported form."
+data-es="Organice la información para el formulario compatible."
 data-ht="Òganize enfòmasyon pou fòm sistèm nan sipòte.">
-Organize the information for the supported form.
+Organize information for the supported form.
 </p>
-
 </div>
 
-
 <div class="pathway-step">
-
 <div class="step-number">4</div>
 
 <strong
 data-en="REVIEW"
-data-fr="VÉRIFIER"
+data-es="REVISAR"
 data-ht="VERIFYE">
 REVIEW
 </strong>
 
 <p
-data-en="Review the information before any official submission."
-data-fr="Vérifiez les informations avant toute soumission officielle."
+data-en="Review information before official submission."
+data-es="Revise la información antes de una presentación oficial."
 data-ht="Verifye enfòmasyon yo anvan nenpòt soumèt ofisyèl.">
-Review the information before any official submission.
+Review information before official submission.
 </p>
-
 </div>
 
 </div>
-
 </section>
-
 
 <section class="action-box">
 
@@ -1143,23 +1297,26 @@ MAXIMAX FORM HELP CENTER
 
 <h2
 data-en="NEED HELP WITH A FORM?"
-data-fr="BESOIN D'AIDE AVEC UN FORMULAIRE ?"
+data-es="¿NECESITA AYUDA CON UN FORMULARIO?"
 data-ht="OU BEZWEN ÈD AK YON FÒM?">
 NEED HELP WITH A FORM?
 </h2>
 
 <p
 data-en="Contact Maximax Multi Services for administrative document preparation, organization and supported form assistance."
-data-fr="Contactez Maximax Multi Services pour la préparation administrative, l'organisation des documents et l'assistance aux formulaires pris en charge."
+data-es="Contacte a Maximax Multi Services para preparación administrativa, organización de documentos y asistencia con formularios compatibles."
 data-ht="Kontakte Maximax Multi Services pou preparasyon administratif, òganizasyon dokiman ak asistans pou fòm sistèm nan sipòte.">
 Contact Maximax Multi Services for administrative document preparation, organization and supported form assistance.
 </p>
-
 
 <div class="hero-buttons">
 
 <a href="tel:+14076405166" class="btn primary">
 📞 (407) 640-5166
+</a>
+
+<a href="./appointment-center.html" class="btn outline">
+📅 APPOINTMENT CENTER
 </a>
 
 <a href="./ai-center.html" class="btn outline">
@@ -1168,51 +1325,37 @@ Contact Maximax Multi Services for administrative document preparation, organiza
 
 <a href="../index.html#contact" class="btn outline"
 data-en="CONTACT CENTER"
-data-fr="CENTRE DE CONTACT"
+data-es="CENTRO DE CONTACTO"
 data-ht="SANT KONTAK">
 CONTACT CENTER
 </a>
 
 </div>
-
 </section>
 
-
 <div class="notice">
-
 <strong>IMPORTANT:</strong>
 Maximax Multi Services provides administrative document preparation, organization, typing and general information services within the scope permitted by law. Government agencies determine official form requirements, fees, eligibility, processing and approval. Maximax Multi Services is not a law firm and does not provide legal advice or legal representation. For legal advice or representation, consult an appropriately licensed attorney or accredited representative where applicable.
-
 </div>
 
-
 <div class="back-home">
-
 <a href="../index.html#services" class="btn outline"
 data-en="← BACK TO ALL SERVICES"
-data-fr="← RETOUR AUX SERVICES"
+data-es="← VOLVER A TODOS LOS SERVICIOS"
 data-ht="← RETOUNEN NAN TOUT SÈVIS YO">
 ← BACK TO ALL SERVICES
 </a>
-
 </div>
 
 </div>
-
 </main>
 
-
 <footer>
-
 <div class="container">
 
-<div class="footer-logo">
-M
-</div>
+<div class="footer-logo">M</div>
 
-<h3>
-MAXIMAX MULTI SERVICES
-</h3>
+<h3>MAXIMAX MULTI SERVICES</h3>
 
 <p>
 PROFESSIONAL SERVICES • DIGITAL SOLUTIONS • AI ASSISTANCE
@@ -1227,127 +1370,414 @@ Part of BSS1815 PRO-MAX DMP
 </p>
 
 </div>
-
 </footer>
-
 
 <script src="../javascript.js"></script>
 
 <script>
 (() => {
-  "use strict";
+"use strict";
 
-  const category = document.getElementById("formCategory");
-  const formName = document.getElementById("formName");
-  const request = document.getElementById("formRequest");
-  const startButton = document.getElementById("startFormHelp");
-  const result = document.getElementById("helperResult");
-  const resultText = document.getElementById("helperResultText");
-  const presets = document.querySelectorAll(".form-preset");
+/* =========================================================
+   MAXIMAX FORM HELP CENTER
+   ========================================================= */
 
-  function openHelper() {
-    const helper = document.getElementById("form-helper-tool");
+const STORAGE_LANGUAGE = "maximaxLanguage";
+const STORAGE_FORM = "maximaxFormRequest";
 
-    if (helper) {
-      helper.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    }
-  }
+const menuToggle = document.getElementById("menuToggle");
+const mainNav = document.getElementById("mainNav");
 
-  presets.forEach((button) => {
-    button.addEventListener("click", () => {
-      const selectedCategory = button.dataset.category || "";
+const languageButtons =
+  document.querySelectorAll(".lang-btn");
 
-      if (category) {
-        category.value = selectedCategory;
-      }
+const category =
+  document.getElementById("formCategory");
 
-      openHelper();
+const formName =
+  document.getElementById("formName");
 
-      setTimeout(() => {
-        if (formName) {
-          formName.focus();
-        }
-      }, 450);
-    });
+const request =
+  document.getElementById("formRequest");
+
+const startButton =
+  document.getElementById("startFormHelp");
+
+const result =
+  document.getElementById("helperResult");
+
+const resultText =
+  document.getElementById("helperResultText");
+
+const currentYear =
+  document.getElementById("currentYear");
+
+
+/* =========================================================
+   YEAR
+   ========================================================= */
+
+if(currentYear){
+  currentYear.textContent =
+    new Date().getFullYear();
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+if(menuToggle && mainNav){
+
+  menuToggle.addEventListener("click", () => {
+
+    mainNav.classList.toggle("open");
+
+    menuToggle.textContent =
+      mainNav.classList.contains("open")
+        ? "✕"
+        : "☰";
+
   });
 
-  if (startButton) {
-    startButton.addEventListener("click", () => {
 
-      const selectedCategory =
-        category ? category.value.trim() : "";
+  mainNav.querySelectorAll("a").forEach(link => {
 
-      const selectedForm =
-        formName ? formName.value.trim() : "";
+    link.addEventListener("click", () => {
 
-      const description =
-        request ? request.value.trim() : "";
+      mainNav.classList.remove("open");
 
-      if (
-        !selectedCategory &&
-        !selectedForm &&
-        !description
-      ) {
-        if (result && resultText) {
-          result.classList.add("show");
+      menuToggle.textContent = "☰";
 
-          resultText.textContent =
-            "Please select a form category or describe the document you need help with.";
-        }
+    });
 
+  });
+
+}
+
+
+/* =========================================================
+   LANGUAGE
+   ========================================================= */
+
+function setLanguage(lang){
+
+  if(!["en","es","ht"].includes(lang)){
+    lang = "en";
+  }
+
+  document.documentElement.lang =
+    lang === "ht" ? "ht" : lang;
+
+
+  document.querySelectorAll(
+    "[data-en]"
+  ).forEach(element => {
+
+    const translation =
+      element.getAttribute(
+        "data-" + lang
+      );
+
+    if(translation){
+      element.textContent =
+        translation;
+    }
+
+  });
+
+
+  languageButtons.forEach(button => {
+
+    button.classList.toggle(
+      "active",
+      button.dataset.lang === lang
+    );
+
+  });
+
+
+  try{
+
+    localStorage.setItem(
+      STORAGE_LANGUAGE,
+      lang
+    );
+
+  }catch(error){
+    console.warn(
+      "Language preference could not be saved.",
+      error
+    );
+  }
+
+}
+
+
+languageButtons.forEach(button => {
+
+  button.addEventListener(
+    "click",
+    () => {
+
+      setLanguage(
+        button.dataset.lang
+      );
+
+    }
+  );
+
+});
+
+
+let savedLanguage = "en";
+
+try{
+
+  const stored =
+    localStorage.getItem(
+      STORAGE_LANGUAGE
+    );
+
+  if(
+    stored === "en" ||
+    stored === "es" ||
+    stored === "ht"
+  ){
+    savedLanguage = stored;
+  }
+
+}catch(error){}
+
+setLanguage(savedLanguage);
+
+
+/* =========================================================
+   LOAD SAVED FORM REQUEST
+   ========================================================= */
+
+function loadSavedRequest(){
+
+  try{
+
+    const saved =
+      JSON.parse(
+        localStorage.getItem(
+          STORAGE_FORM
+        )
+      );
+
+    if(!saved){
+      return;
+    }
+
+    if(
+      category &&
+      saved.category
+    ){
+      category.value =
+        saved.category;
+    }
+
+    if(
+      formName &&
+      saved.form
+    ){
+      formName.value =
+        saved.form;
+    }
+
+    if(
+      request &&
+      saved.request
+    ){
+      request.value =
+        saved.request;
+    }
+
+  }catch(error){
+    console.warn(
+      "Saved form request could not be loaded.",
+      error
+    );
+  }
+
+}
+
+loadSavedRequest();
+
+
+/* =========================================================
+   FORM HELPER
+   ========================================================= */
+
+function showResult(message){
+
+  if(!result || !resultText){
+    return;
+  }
+
+  resultText.textContent =
+    message;
+
+  result.classList.add("show");
+
+  result.scrollIntoView({
+    behavior:"smooth",
+    block:"nearest"
+  });
+
+}
+
+
+function startFormAssistance(){
+
+  const selectedCategory =
+    category
+      ? category.value.trim()
+      : "";
+
+  const selectedForm =
+    formName
+      ? formName.value.trim()
+      : "";
+
+  const description =
+    request
+      ? request.value.trim()
+      : "";
+
+
+  if(
+    !selectedCategory &&
+    !selectedForm &&
+    !description
+  ){
+
+    showResult(
+      "Please select a form category or describe the document you need help with."
+    );
+
+    return;
+  }
+
+
+  const parts = [];
+
+
+  if(selectedCategory){
+
+    parts.push(
+      "Category: " +
+      selectedCategory +
+      "."
+    );
+
+  }
+
+
+  if(selectedForm){
+
+    parts.push(
+      "Form / Document: " +
+      selectedForm +
+      "."
+    );
+
+  }
+
+
+  if(description){
+
+    parts.push(
+      "Request: " +
+      description
+    );
+
+  }
+
+
+  showResult(
+    parts.join(" ") +
+    " Your request has been organized and saved on this device. Verify official requirements before submitting any government or legal document."
+  );
+
+
+  try{
+
+    localStorage.setItem(
+      STORAGE_FORM,
+      JSON.stringify({
+        category:selectedCategory,
+        form:selectedForm,
+        request:description,
+        savedAt:
+          new Date().toISOString()
+      })
+    );
+
+  }catch(error){
+
+    console.warn(
+      "Form request could not be saved.",
+      error
+    );
+
+  }
+
+}
+
+
+if(startButton){
+
+  startButton.addEventListener(
+    "click",
+    startFormAssistance
+  );
+
+}
+
+
+/* =========================================================
+   SMOOTH INTERNAL LINKS
+   ========================================================= */
+
+document.querySelectorAll(
+  'a[href^="#"]'
+).forEach(link => {
+
+  link.addEventListener(
+    "click",
+    event => {
+
+      const href =
+        link.getAttribute("href");
+
+      if(
+        !href ||
+        href === "#"
+      ){
         return;
       }
 
-      const parts = [];
+      const target =
+        document.querySelector(href);
 
-      if (selectedCategory) {
-        parts.push(
-          "Category: " + selectedCategory + "."
-        );
+      if(!target){
+        return;
       }
 
-      if (selectedForm) {
-        parts.push(
-          "Form / Document: " + selectedForm + "."
-        );
-      }
+      event.preventDefault();
 
-      if (description) {
-        parts.push(
-          "Request: " + description
-        );
-      }
+      target.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+      });
 
-      if (result && resultText) {
-        result.classList.add("show");
+    }
+  );
 
-        resultText.textContent =
-          parts.join(" ") +
-          " Your request is organized and ready for the next step.";
-      }
-
-      try {
-        localStorage.setItem(
-          "maximaxFormRequest",
-          JSON.stringify({
-            category:selectedCategory,
-            form:selectedForm,
-            request:description,
-            savedAt:new Date().toISOString()
-          })
-        );
-      } catch (error) {
-        console.warn(
-          "Form request could not be saved.",
-          error
-        );
-      }
-
-    });
-  }
+});
 
 })();
 </script>
