@@ -1,292 +1,793 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Travel & DMV Services | Maximax Multi Services</title>
-
-<meta name="description" content="Maximax Multi Services Travel & DMV Center — travel document support, DMV information, vehicle document organization and administrative assistance.">
-
 <meta name="theme-color" content="#000000">
+<meta name="google" content="notranslate">
 
-<link rel="stylesheet" href="../style.css">
+<title>Travel + DMV Center | Maximax Multi Services</title>
 
 <style>
-.service-page{
-  min-height:calc(100vh - 84px);
-  padding:70px 0 90px;
+:root{
+  --orange:#ff7900;
+  --apricot:#ffad4d;
+  --black:#000000;
+  --deep:#050200;
+  --soft:#120600;
+  --text:#ffd2a3;
+  --muted:#d89558;
+  --border:rgba(255,121,0,.55);
+  --glow:rgba(255,121,0,.30);
 }
 
-.service-hero{
-  padding:45px 25px;
-  border:1px solid var(--border-strong);
-  border-radius:28px;
-  text-align:center;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:100px;
+  background:#000;
+}
+
+body{
+  min-height:100vh;
+  overflow-x:hidden;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
   background:
-    radial-gradient(circle at top,rgba(255,121,0,.20),transparent 45%),
-    linear-gradient(145deg,#000,#120600,#000);
-  box-shadow:var(--glow);
+    radial-gradient(circle at 12% 4%,rgba(255,121,0,.15),transparent 25%),
+    radial-gradient(circle at 90% 22%,rgba(255,173,77,.08),transparent 28%),
+    linear-gradient(180deg,#000,#070200 55%,#000);
 }
 
-.service-big-icon{
-  font-size:4rem;
+a{
+  color:inherit;
+  text-decoration:none;
 }
 
-.service-hero h1{
-  margin-top:18px;
-  color:var(--orange);
-  font-size:clamp(2.5rem,8vw,5.5rem);
-  line-height:.9;
-  text-transform:uppercase;
+button,input,select,textarea{
+  font:inherit;
 }
 
-.service-hero p{
-  max-width:900px;
-  margin:20px auto 0;
-  line-height:1.75;
+button,a{
+  -webkit-tap-highlight-color:transparent;
 }
 
-.page-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
-  margin-top:35px;
+.container{
+  width:min(1180px,94%);
+  margin:auto;
 }
 
-.page-card{
-  min-height:235px;
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar{
+  padding:10px 12px;
+  text-align:center;
+  color:#000;
+  background:linear-gradient(
+    90deg,
+    var(--orange),
+    var(--apricot),
+    var(--orange)
+  );
+  font-size:10px;
+  font-weight:1000;
+  letter-spacing:1px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  border-bottom:1px solid rgba(255,121,0,.35);
+  background:rgba(0,0,0,.97);
+  backdrop-filter:blur(14px);
+}
+
+.header-inner{
+  min-height:88px;
   display:flex;
-  flex-direction:column;
-  padding:24px;
-  border:1px solid var(--border);
-  border-radius:20px;
-  background:
-    radial-gradient(circle at top right,rgba(255,121,0,.12),transparent 40%),
-    #050200;
-  transition:.25s;
-}
-
-.page-card:hover{
-  transform:translateY(-4px);
-  border-color:var(--orange);
-  box-shadow:var(--glow);
-}
-
-.page-icon{
-  font-size:2.3rem;
-}
-
-.page-card h2{
-  margin-top:15px;
-  color:var(--orange);
-  font-size:1rem;
-  text-transform:uppercase;
-}
-
-.page-card p{
-  margin-top:11px;
-  font-size:.80rem;
-  line-height:1.65;
-}
-
-.travel-dmv-center{
-  margin-top:40px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-}
-
-.center-panel{
-  padding:32px 25px;
-  border:1px solid var(--border-strong);
-  border-radius:24px;
-  background:
-    radial-gradient(circle at top,rgba(255,121,0,.14),transparent 45%),
-    #050200;
-}
-
-.center-panel .panel-icon{
-  font-size:2.8rem;
-}
-
-.center-panel h2{
-  margin-top:12px;
-  color:var(--orange);
-  text-transform:uppercase;
-}
-
-.center-panel p{
-  margin-top:12px;
-  line-height:1.7;
-  font-size:.82rem;
-}
-
-.center-panel ul{
-  margin:20px 0 0 20px;
-  line-height:1.9;
-  font-size:.76rem;
-}
-
-.center-panel li::marker{
-  color:var(--orange);
-}
-
-.process-center{
-  margin-top:35px;
-  padding:38px 25px;
-  border:1px solid var(--border);
-  border-radius:24px;
-  background:#050200;
-}
-
-.process-center h2{
-  color:var(--orange);
-  text-align:center;
-  text-transform:uppercase;
-}
-
-.process-center > p{
-  max-width:830px;
-  margin:14px auto 28px;
-  text-align:center;
-  line-height:1.7;
-}
-
-.steps{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
+  align-items:center;
+  justify-content:space-between;
   gap:14px;
 }
 
-.step{
-  padding:22px 15px;
-  border:1px solid var(--border);
-  border-radius:18px;
-  background:#000;
-  text-align:center;
+.brand{
+  min-width:0;
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
 
-.step-number{
-  width:44px;
-  height:44px;
-  display:grid;
-  place-items:center;
-  margin:0 auto 12px;
-  border-radius:50%;
-  color:#000;
-  background:var(--orange);
+.brand-logo{
+  width:64px;
+  height:64px;
+  flex:0 0 64px;
+  object-fit:cover;
+  border:2px solid var(--orange);
+  border-radius:18px;
+  background:#000;
+  box-shadow:0 0 24px var(--glow);
+}
+
+.brand-copy h1{
+  color:var(--orange);
+  font-size:15px;
   font-weight:1000;
 }
 
-.step strong{
-  display:block;
-  color:var(--orange);
-  font-size:.76rem;
+.brand-copy p{
+  margin-top:4px;
+  color:var(--apricot);
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.8px;
 }
 
-.step p{
-  margin-top:8px;
-  font-size:.70rem;
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+
+.languages{
+  display:flex;
+  gap:4px;
+  padding:4px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:#080300;
+}
+
+.lang-btn{
+  min-height:36px;
+  padding:6px 10px;
+  border:1px solid transparent;
+  border-radius:999px;
+  color:var(--apricot);
+  background:#000;
+  cursor:pointer;
+  font-size:9px;
+  font-weight:1000;
+}
+
+.lang-btn.active{
+  color:#000;
+  border-color:var(--orange);
+  background:linear-gradient(
+    135deg,
+    var(--orange),
+    var(--apricot)
+  );
+}
+
+.menu-btn{
+  width:50px;
+  height:46px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:2px solid var(--orange);
+  border-radius:14px;
+  color:var(--orange);
+  background:#000;
+  cursor:pointer;
+  font-size:25px;
+}
+
+.mobile-menu{
+  display:none;
+  padding-bottom:15px;
+}
+
+.mobile-menu.open{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+}
+
+.mobile-menu a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  padding:10px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  color:var(--apricot);
+  background:#080300;
+  text-align:center;
+  font-size:9px;
+  font-weight:1000;
+}
+
+.mobile-menu a:hover{
+  color:#000;
+  background:linear-gradient(
+    135deg,
+    var(--orange),
+    var(--apricot)
+  );
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  padding:70px 0 45px;
+}
+
+.hero-box{
+  position:relative;
+  overflow:hidden;
+  padding:65px 25px;
+  border:1px solid var(--orange);
+  border-radius:36px;
+  text-align:center;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(255,121,0,.16),transparent 35%),
+    linear-gradient(145deg,#100500,#000);
+  box-shadow:
+    0 0 35px rgba(255,121,0,.10),
+    inset 0 0 50px rgba(255,121,0,.025);
+}
+
+.hero-icons{
+  font-size:58px;
+}
+
+.hero-small{
+  margin-top:12px;
+  color:var(--orange);
+  font-size:11px;
+  font-weight:1000;
+  letter-spacing:3px;
+}
+
+.hero h2{
+  margin-top:22px;
+  color:var(--orange);
+  font-size:clamp(42px,7vw,68px);
+  line-height:1.05;
+  font-weight:1000;
+  text-shadow:0 0 30px rgba(255,121,0,.25);
+}
+
+.hero p{
+  max-width:850px;
+  margin:25px auto 0;
+  font-size:15px;
+  line-height:1.8;
+}
+
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  margin-top:30px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn{
+  min-height:48px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  padding:10px 19px;
+  border:2px solid var(--orange);
+  border-radius:999px;
+  color:var(--orange);
+  background:#000;
+  cursor:pointer;
+  text-align:center;
+  font-size:10px;
+  font-weight:1000;
+  transition:.2s ease;
+}
+
+.btn:hover,
+.btn:focus{
+  color:#000;
+  background:linear-gradient(
+    135deg,
+    var(--orange),
+    var(--apricot)
+  );
+  transform:translateY(-2px);
+}
+
+.btn.primary{
+  color:#000;
+  background:linear-gradient(
+    135deg,
+    var(--orange),
+    var(--apricot)
+  );
+}
+
+.btn.full{
+  width:100%;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section{
+  padding:35px 0 65px;
+}
+
+.section-head{
+  margin-bottom:25px;
+}
+
+.section-head small{
+  color:var(--apricot);
+  font-size:10px;
+  font-weight:1000;
+  letter-spacing:1px;
+}
+
+.section-head h3{
+  margin-top:7px;
+  color:var(--orange);
+  font-size:clamp(28px,5vw,40px);
+  font-weight:1000;
+}
+
+.section-head p{
+  max-width:880px;
+  margin-top:12px;
+  font-size:12px;
+  line-height:1.75;
+}
+
+/* =========================
+   CATEGORY NAV
+========================= */
+
+.category-nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:30px;
+}
+
+.category-nav a{
+  padding:10px 14px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  color:var(--apricot);
+  background:#050200;
+  font-size:9px;
+  font-weight:1000;
+}
+
+.category-nav a:hover{
+  color:#000;
+  background:linear-gradient(
+    135deg,
+    var(--orange),
+    var(--apricot)
+  );
+}
+
+/* =========================
+   SERVICE GRID
+========================= */
+
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.service-card{
+  display:flex;
+  flex-direction:column;
+  min-height:300px;
+  padding:24px;
+  border:1px solid var(--border);
+  border-radius:25px;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(255,121,0,.11),transparent 36%),
+    linear-gradient(145deg,#100500,#000);
+  transition:.2s ease;
+}
+
+.service-card:hover{
+  border-color:var(--orange);
+  transform:translateY(-3px);
+  box-shadow:0 12px 32px rgba(255,121,0,.11);
+}
+
+.service-icon{
+  font-size:39px;
+}
+
+.service-tag{
+  align-self:flex-start;
+  margin-top:15px;
+  padding:6px 10px;
+  border:1px solid var(--orange);
+  border-radius:999px;
+  color:var(--orange);
+  font-size:8px;
+  font-weight:1000;
+}
+
+.service-card h4{
+  margin-top:15px;
+  color:var(--orange);
+  font-size:18px;
+  line-height:1.3;
+}
+
+.service-card p{
+  margin-top:10px;
+  font-size:11px;
+  line-height:1.7;
+}
+
+.service-actions{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:8px;
+  margin-top:auto;
+  padding-top:20px;
+}
+
+.service-btn{
+  min-height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:9px 12px;
+  border:2px solid var(--orange);
+  border-radius:999px;
+  color:var(--orange);
+  background:#000;
+  text-align:center;
+  font-size:9px;
+  font-weight:1000;
+}
+
+.service-btn:hover{
+  color:#000;
+  background:linear-gradient(
+    135deg,
+    var(--orange),
+    var(--apricot)
+  );
+}
+
+.service-btn.primary{
+  color:#000;
+  background:linear-gradient(
+    135deg,
+    var(--orange),
+    var(--apricot)
+  );
+}
+
+/* =========================
+   INFO BOX
+========================= */
+
+.info-box{
+  padding:25px;
+  border:1px solid var(--orange);
+  border-radius:25px;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(255,121,0,.11),transparent 35%),
+    #050200;
+}
+
+.info-box h4{
+  color:var(--orange);
+  font-size:22px;
+}
+
+.info-box p{
+  margin-top:10px;
+  font-size:11px;
+  line-height:1.75;
+}
+
+/* =========================
+   TRAVEL CHECKLIST
+========================= */
+
+.checklist{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.check-row{
+  position:relative;
+  padding:17px 17px 17px 50px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:#050200;
+  cursor:pointer;
+}
+
+.check-row input{
+  position:absolute;
+  left:17px;
+  top:18px;
+  width:20px;
+  height:20px;
+  accent-color:var(--orange);
+}
+
+.check-row strong{
+  display:block;
+  color:var(--orange);
+  font-size:12px;
+}
+
+.check-row span{
+  display:block;
+  margin-top:5px;
+  font-size:10px;
   line-height:1.55;
 }
 
-.checklist{
-  margin-top:35px;
-  padding:35px 25px;
-  border:1px solid var(--border);
-  border-radius:24px;
-  background:#050200;
+/* =========================
+   REQUEST ORGANIZER
+========================= */
+
+.request-box{
+  padding:27px;
+  border:2px solid var(--orange);
+  border-radius:28px;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(255,121,0,.13),transparent 38%),
+    linear-gradient(145deg,#100500,#000);
 }
 
-.checklist h2{
-  color:var(--orange);
-  text-align:center;
-  text-transform:uppercase;
-}
-
-.checklist > p{
-  max-width:800px;
-  margin:12px auto 0;
-  text-align:center;
-  line-height:1.7;
-}
-
-.checklist-grid{
+.form-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
   margin-top:25px;
 }
 
-.check-item{
-  padding:17px 12px;
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+
+.field.full{
+  grid-column:1/-1;
+}
+
+.field label{
+  color:var(--apricot);
+  font-size:9px;
+  font-weight:1000;
+}
+
+.field input,
+.field select,
+.field textarea{
+  width:100%;
+  min-height:48px;
+  padding:12px 14px;
   border:1px solid var(--border);
   border-radius:14px;
-  background:#000;
-  text-align:center;
-  font-size:.70rem;
-  font-weight:900;
-}
-
-.check-item span{
-  display:block;
-  margin-bottom:7px;
-  font-size:1.5rem;
-}
-
-.action-box{
-  margin-top:35px;
-  padding:35px 25px;
-  border:1px solid var(--border);
-  border-radius:24px;
-  text-align:center;
+  outline:none;
+  color:var(--text);
   background:#050200;
 }
 
-.action-box h2{
-  margin-top:10px;
-  color:var(--orange);
-  text-transform:uppercase;
+.field textarea{
+  min-height:115px;
+  resize:vertical;
 }
 
-.action-box p{
-  max-width:780px;
-  margin:14px auto 0;
+.field option{
+  color:var(--text);
+  background:#000;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+  border-color:var(--orange);
+  box-shadow:0 0 0 2px rgba(255,121,0,.08);
+}
+
+.request-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:20px;
+}
+
+/* =========================
+   RESULT
+========================= */
+
+.result{
+  display:none;
+  margin-top:22px;
+  padding:22px;
+  border:1px solid var(--orange);
+  border-radius:20px;
+  background:#000;
+}
+
+.result.show{
+  display:block;
+}
+
+.result h4{
+  color:var(--orange);
+  font-size:19px;
+}
+
+.result p{
+  margin-top:10px;
+  font-size:11px;
   line-height:1.7;
 }
 
+.result-items{
+  display:grid;
+  gap:8px;
+  margin-top:15px;
+}
+
+.result-item{
+  padding:12px;
+  border:1px solid rgba(255,121,0,.35);
+  border-radius:12px;
+  background:#080300;
+  font-size:10px;
+  line-height:1.6;
+}
+
+/* =========================
+   NOTICE
+========================= */
+
 .notice{
-  margin-top:30px;
-  padding:18px;
-  border-left:4px solid var(--orange);
-  border-radius:10px;
-  background:#0b0400;
-  font-size:.75rem;
-  line-height:1.65;
+  margin-bottom:60px;
+  padding:22px;
+  border:1px solid var(--orange);
+  border-radius:20px;
+  background:linear-gradient(
+    145deg,
+    rgba(255,121,0,.08),
+    #000
+  );
+  font-size:10px;
+  line-height:1.75;
 }
 
-.back-home{
-  margin-top:30px;
+.notice strong{
+  color:var(--orange);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  padding:42px 15px;
+  border-top:1px solid var(--border);
   text-align:center;
+  background:#000;
 }
 
-@media(max-width:950px){
-  .page-grid{
+footer strong{
+  color:var(--orange);
+}
+
+footer p{
+  margin-top:7px;
+  color:var(--apricot);
+  font-size:10px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+  .service-grid{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .steps,
-  .checklist-grid{
+  .mobile-menu.open{
     grid-template-columns:repeat(2,1fr);
   }
 }
 
-@media(max-width:700px){
-  .page-grid,
-  .travel-dmv-center,
-  .steps,
-  .checklist-grid{
+@media(max-width:720px){
+
+  .service-grid,
+  .checklist,
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .field.full{
+    grid-column:auto;
+  }
+}
+
+@media(max-width:620px){
+
+  .header-inner{
+    min-height:78px;
+  }
+
+  .brand-logo{
+    width:52px;
+    height:52px;
+    flex-basis:52px;
+  }
+
+  .brand-copy h1{
+    max-width:135px;
+    font-size:10px;
+  }
+
+  .brand-copy p{
+    max-width:135px;
+    font-size:6px;
+  }
+
+  .lang-btn{
+    min-height:32px;
+    padding:5px 7px;
+    font-size:8px;
+  }
+
+  .menu-btn{
+    width:44px;
+    height:42px;
+  }
+
+  .hero{
+    padding-top:50px;
+  }
+
+  .hero-box{
+    padding:48px 18px;
+  }
+
+  .hero-icons{
+    font-size:47px;
+  }
+
+  .hero p{
+    font-size:13px;
+  }
+
+  .mobile-menu.open{
     grid-template-columns:1fr;
   }
 }
@@ -295,7 +796,7 @@
 
 <body>
 
-<div class="top-bar">
+<div class="topbar" data-i18n="topbar">
 MAXIMAX MULTI SERVICES • TRAVEL + DMV CENTER
 </div>
 
@@ -303,97 +804,2255 @@ MAXIMAX MULTI SERVICES • TRAVEL + DMV CENTER
 
 <div class="container header-inner">
 
-<a href="../index.html" class="brand">
+<a class="brand" href="../index.html">
 
-<div class="brand-mark">M</div>
+<img
+class="brand-logo"
+src="../maximax-logo.jpg?v=20260919"
+alt="Maximax Multi Services">
 
-<div class="brand-text">
-<strong>MAXIMAX</strong>
-<span>MULTI SERVICES</span>
+<div class="brand-copy">
+<h1>MAXIMAX MULTI SERVICES</h1>
+<p data-i18n="part">PART OF BSS1815 PRO-MAX DMP</p>
 </div>
 
 </a>
 
-<nav id="mainNav">
-
-<a href="../index.html">HOME</a>
-
-<a href="../index.html#services">SERVICES</a>
-
-<a href="#travel-dmv-services">TRAVEL + DMV</a>
-
-<a href="./form-helper.html">FORM CENTER</a>
-
-<a href="../index.html#contact">CONTACT</a>
-
-</nav>
-
 <div class="header-actions">
 
-<div class="language-switch">
+<div class="languages notranslate" translate="no">
 
-<button class="lang-btn active" data-lang="en">
+<button
+type="button"
+class="lang-btn active"
+data-lang="en">
 ENG
 </button>
 
-<button class="lang-btn" data-lang="fr">
-FRA
+<button
+type="button"
+class="lang-btn"
+data-lang="es">
+ESP
 </button>
 
-<button class="lang-btn" data-lang="ht">
+<button
+type="button"
+class="lang-btn"
+data-lang="ht">
 KRE
 </button>
 
 </div>
 
-<button id="menuToggle" class="menu-toggle">
+<button
+type="button"
+class="menu-btn"
+id="menuBtn"
+aria-label="Menu"
+aria-expanded="false">
 ☰
+</button>
+
+</div>
+</div>
+
+<nav class="container mobile-menu" id="mobileMenu">
+
+<a href="../index.html" data-i18n="home">HOME</a>
+
+<a href="#services" data-i18n="services">
+SERVICES
+</a>
+
+<a href="#dmv" data-i18n="dmv">
+FLORIDA DMV
+</a>
+
+<a href="#travel" data-i18n="travel">
+TRAVEL
+</a>
+
+<a href="#passport" data-i18n="passport">
+PASSPORT
+</a>
+
+<a href="#checklist" data-i18n="checklist">
+CHECKLIST
+</a>
+
+<a href="#request" data-i18n="request">
+SERVICE REQUEST
+</a>
+
+<a href="./appointment-center.html" data-i18n="appointment">
+APPOINTMENT
+</a>
+
+</nav>
+
+</header>
+
+<main>
+
+<!-- ==========================================
+     HERO
+========================================== -->
+
+<section class="hero">
+
+<div class="container">
+
+<div class="hero-box">
+
+<div class="hero-icons">
+✈️ 🚗
+</div>
+
+<div class="hero-small">
+MAXIMAX MULTI SERVICES
+</div>
+
+<h2 data-i18n="heroTitle">
+TRAVEL + DMV CENTER
+</h2>
+
+<p data-i18n="heroText">
+Administrative assistance for travel-related documents,
+Florida driver and motor vehicle resources, passports,
+vehicle documents, and common transportation service needs.
+</p>
+
+<div class="hero-actions">
+
+<a
+class="btn primary"
+href="#services"
+data-i18n="explore">
+EXPLORE SERVICES
+</a>
+
+<a
+class="btn"
+href="#request"
+data-i18n="startRequest">
+START REQUEST
+</a>
+
+</div>
+
+</div>
+</div>
+
+</section>
+
+<!-- ==========================================
+     SERVICES
+========================================== -->
+
+<section class="section" id="services">
+
+<div class="container">
+
+<div class="section-head">
+
+<small data-i18n="serviceSmall">
+TRAVEL + TRANSPORTATION SERVICES
+</small>
+
+<h3 data-i18n="serviceTitle">
+CHOOSE A SERVICE
+</h3>
+
+<p data-i18n="serviceText">
+Use this center to reach official Florida motor vehicle
+and U.S. passport resources or organize a Maximax
+administrative service request.
+</p>
+
+</div>
+
+<div class="category-nav">
+
+<a href="#dmv" data-i18n="dmv">
+FLORIDA DMV
+</a>
+
+<a href="#travel" data-i18n="travel">
+TRAVEL
+</a>
+
+<a href="#passport" data-i18n="passport">
+PASSPORT
+</a>
+
+<a href="#checklist" data-i18n="checklist">
+CHECKLIST
+</a>
+
+<a href="#request" data-i18n="request">
+SERVICE REQUEST
+</a>
+
+</div>
+
+<!-- ==========================================
+     DMV
+========================================== -->
+
+<div id="dmv">
+
+<div class="section-head">
+
+<small>
+FLHSMV
+</small>
+
+<h3 data-i18n="dmvTitle">
+FLORIDA DRIVER + MOTOR VEHICLE
+</h3>
+
+<p data-i18n="dmvText">
+Official Florida Highway Safety and Motor Vehicles
+resources for driver licenses, ID cards, vehicles,
+titles, registration and related services.
+</p>
+
+</div>
+
+<div class="service-grid">
+
+<!-- DRIVER LICENSE -->
+
+<article class="service-card">
+
+<div class="service-icon">🪪</div>
+
+<span class="service-tag">
+FLHSMV
+</span>
+
+<h4 data-i18n="licenseTitle">
+Driver License
+</h4>
+
+<p data-i18n="licenseText">
+Access official Florida driver license information,
+requirements and services.
+</p>
+
+<div class="service-actions">
+
+<a
+class="service-btn primary"
+href="https://www.flhsmv.gov/driver-licenses-id-cards/"
+target="_blank"
+rel="noopener noreferrer"
+data-i18n="openOfficial">
+OPEN OFFICIAL SERVICE
+</a>
+
+</div>
+
+</article>
+
+<!-- ID CARD -->
+
+<article class="service-card">
+
+<div class="service-icon">🪪</div>
+
+<span class="service-tag">
+FLORIDA ID
+</span>
+
+<h4 data-i18n="idTitle">
+Florida ID Card
+</h4>
+
+<p data-i18n="idText">
+Review Florida identification card information,
+documents and requirements.
+</p>
+
+<div class="service-actions">
+
+<a
+class="service-btn primary"
+href="https://www.flhsmv.gov/driver-licenses-id-cards/"
+target="_blank"
+rel="noopener noreferrer"
+data-i18n="openOfficial">
+OPEN OFFICIAL SERVICE
+</a>
+
+</div>
+
+</article>
+
+<!-- MYDMV -->
+
+<article class="service-card">
+
+<div class="service-icon">📱</div>
+
+<span class="service-tag">
+MYDMV PORTAL
+</span>
+
+<h4 data-i18n="mydmvTitle">
+MyDMV Portal
+</h4>
+
+<p data-i18n="mydmvText">
+Access Florida's online motor vehicle and driver
+service portal.
+</p>
+
+<div class="service-actions">
+
+<a
+class="service-btn primary"
+href="https://mydmvportal.flhsmv.gov/"
+target="_blank"
+rel="noopener noreferrer"
+data-i18n="openPortal">
+OPEN PORTAL
+</a>
+
+</div>
+
+</article>
+
+<!-- VEHICLE REGISTRATION -->
+
+<article class="service-card">
+
+<div class="service-icon">🚗</div>
+
+<span class="service-tag">
+VEHICLE
+</span>
+
+<h4 data-i18n="registrationTitle">
+Vehicle Registration
+</h4>
+
+<p data-i18n="registrationText">
+Official Florida information for vehicle
+registration and registration-related services.
+</p>
+
+<div class="service-actions">
+
+<a
+class="service-btn primary"
+href="https://www.flhsmv.gov/motor-vehicles-tags-titles/"
+target="_blank"
+rel="noopener noreferrer"
+data-i18n="openOfficial">
+OPEN OFFICIAL SERVICE
+</a>
+
+</div>
+
+</article>
+
+<!-- TITLE -->
+
+<article class="service-card">
+
+<div class="service-icon">📄</div>
+
+<span class="service-tag">
+TITLE
+</span>
+
+<h4 data-i18n="titleTitle">
+Vehicle Title
+</h4>
+
+<p data-i18n="titleText">
+Access Florida title information for motor
+vehicles, transfers and ownership documentation.
+</p>
+
+<div class="service-actions">
+
+<a
+class="service-btn primary"
+href="https://www.flhsmv.gov/motor-vehicles-tags-titles/"
+target="_blank"
+rel="noopener noreferrer"
+data-i18n="openOfficial">
+OPEN OFFICIAL SERVICE
+</a>
+
+</div>
+
+</article>
+
+<!-- TAG -->
+
+<article class="service-card">
+
+<div class="service-icon">🔖</div>
+
+<span class="service-tag">
+TAG + PLATE
+</span>
+
+<h4 data-i18n="tagTitle">
+Tag + License Plate
+</h4>
+
+<p data-i18n="tagText">
+Find Florida tag, plate and motor vehicle
+registration resources.
+</p>
+
+<div class="service-actions">
+
+<a
+class="service-btn primary"
+href="https://www.flhsmv.gov/motor-vehicles-tags-titles/"
+target="_blank"
+rel="noopener noreferrer"
+data-i18n="openOfficial">
+OPEN OFFICIAL SERVICE
+</a>
+
+</div>
+
+</article>
+
+<!-- ADDRESS -->
+
+<article class="service-card">
+
+<div class="service-icon">🏠</div>
+
+<span class="service-tag">
+ADDRESS
+</span>
+
+<h4 data-i18n="addressTitle">
+Address Change
+</h4>
+
+<p data-i18n="addressText">
+Access Florida information for changing an address
+on driver and motor vehicle records.
+</p>
+
+<div class="service-actions">
+
+<a
+class="service-btn primary"
+href="https://www.flhsmv.gov/name-and-address-changes/"
+target="_blank"
+rel="noopener noreferrer"
+data-i18n="openOfficial">
+OPEN OFFICIAL SERVICE
+</a>
+
+</div>
+
+</article>
+
+<!-- RECORD -->
+
+<article class="service-card">
+
+<div class="service-icon">📑</div>
+
+<span class="service-tag">
+DRIVING RECORD
+</span>
+
+<h4 data-i18n="recordTitle">
+Driving Record
+</h4>
+
+<p data-i18n="recordText">
+Find official Florida information about driver
+records and motor vehicle records.
+</p>
+
+<div class="service-actions">
+
+<a
+class="service-btn primary"
+href="https://www.flhsmv.gov/driver-licenses-id-cards/general-information/driver-license-records/"
+target="_blank"
+rel="noopener noreferrer"
+data-i18n="openOfficial">
+OPEN OFFICIAL SERVICE
+</a>
+
+</div>
+
+</article>
+
+<!-- LOCATIONS -->
+
+<article class="service-card">
+
+<div class="service-icon">📍</div>
+
+<span class="service-tag">
+LOCATION
+</span>
+
+<h4 data-i18n="locationTitle">
+Driver License Office
+</h4>
+
+<p data-i18n="locationText">
+Find an official Florida driver license or motor
+vehicle service location.
+</p>
+
+<div class="service-actions">
+
+<a
+class="service-btn primary"
+href="https://www.flhsmv.gov/locations/"
+target="_blank"
+rel="noopener noreferrer"
+data-i18n="findLocation">
+FIND LOCATION
+</a>
+
+</div>
+
+</article>
+
+</div>
+</div>
+
+<!-- ==========================================
+     TRAVEL
+========================================== -->
+
+<div
+id="travel"
+style="padding-top:65px">
+
+<div class="section-head">
+
+<small data-i18n="travelSmall">
+TRAVEL DOCUMENT SERVICES
+</small>
+
+<h3 data-i18n="travelTitle">
+TRAVEL CENTER
+</h3>
+
+<p data-i18n="travelText">
+Access official travel resources and organize
+documents needed before an international trip.
+</p>
+
+</div>
+
+<div class="service-grid">
+
+<!-- TRAVEL ADVISORIES -->
+
+<article class="service-card">
+
+<div class="service-icon">🌎</div>
+
+<span class="service-tag">
+TRAVEL
+</span>
+
+<h4 data-i18n="advisoryTitle">
+Travel Advisories
+</h4>
+
+<p data-i18n="advisoryText">
+Review official U.S. Department of State
+international travel information.
+</p>
+
+<div class="service-actions">
+
+<a
+class="service-btn primary"
+href="https://travel.state.gov/en/international-travel/travel-advisories.html"
+target="_blank"
+rel="noopener noreferrer"
+data-i18n="openOfficial">
+OPEN OFFICIAL SERVICE
+</a>
+
+</div>
+
+</article>
+
+<!-- DESTINATION -->
+
+<article class="service-card">
+
+<div class="service-icon">🗺️</div>
+
+<span class="service-tag">
+DESTINATION
+</span>
+
+<h4 data-i18n="destinationTitle">
+Destination Information
+</h4>
+
+<p data-i18n="destinationText">
+Review destination-specific travel information
+before traveling abroad.
+</p>
+
+<div class="service-actions">
+
+<a
+class="service-btn primary"
+href="https://travel.state.gov/en/international-travel.html"
+target="_blank"
+rel="noopener noreferrer"
+data-i18n="openOfficial">
+OPEN OFFICIAL SERVICE
+</a>
+
+</div>
+
+</article>
+
+<!-- TSA -->
+
+<article class="service-card">
+
+<div class="service-icon">🧳</div>
+
+<span class="service-tag">
+TSA
+</span>
+
+<h4 data-i18n="tsaTitle">
+TSA Travel Information
+</h4>
+
+<p data-i18n="tsaText">
+Access official Transportation Security
+Administration travel and security information.
+</p>
+
+<div class="service-actions">
+
+<a
+class="service-btn primary"
+href="https://www.tsa.gov/travel"
+target="_blank"
+rel="noopener noreferrer"
+data-i18n="openOfficial">
+OPEN OFFICIAL SERVICE
+</a>
+
+</div>
+
+</article>
+
+</div>
+</div>
+
+<!-- ==========================================
+     PASSPORT
+========================================== -->
+
+<div
+id="passport"
+style="padding-top:65px">
+
+<div class="section-head">
+
+<small>
+U.S. DEPARTMENT OF STATE
+</small>
+
+<h3 data-i18n="passportTitle">
+U.S. PASSPORT CENTER
+</h3>
+
+<p data-i18n="passportText">
+Apply, renew, locate passport services, or check
+an existing passport application's status using
+official U.S. Department of State resources.
+</p>
+
+</div>
+
+<div class="service-grid">
+
+<!-- NEW PASSPORT -->
+
+<article class="service-card">
+
+<div class="service-icon">🛂</div>
+
+<span class="service-tag">
+NEW PASSPORT
+</span>
+
+<h4 data-i18n="newPassportTitle">
+Apply for Passport
+</h4>
+
+<p data-i18n="newPassportText">
+Official information for first-time adult
+passport applications and other new applications.
+</p>
+
+<div class="service-actions">
+
+<a
+class="service-btn primary"
+href="https://travel.state.gov/en/passports/apply.html"
+target="_blank"
+rel="noopener noreferrer"
+data-i18n="openOfficial">
+OPEN OFFICIAL SERVICE
+</a>
+
+</div>
+
+</article>
+
+<!-- RENEW -->
+
+<article class="service-card">
+
+<div class="service-icon">🔄</div>
+
+<span class="service-tag">
+RENEWAL
+</span>
+
+<h4 data-i18n="renewTitle">
+Renew Passport
+</h4>
+
+<p data-i18n="renewText">
+Review official eligibility and options for
+renewing a U.S. passport.
+</p>
+
+<div class="service-actions">
+
+<a
+class="service-btn primary"
+href="https://travel.state.gov/en/passports/renew-replace.html"
+target="_blank"
+rel="noopener noreferrer"
+data-i18n="openOfficial">
+OPEN OFFICIAL SERVICE
+</a>
+
+</div>
+
+</article>
+
+<!-- ONLINE RENEWAL -->
+
+<article class="service-card">
+
+<div class="service-icon">💻</div>
+
+<span class="service-tag">
+ONLINE
+</span>
+
+<h4 data-i18n="onlineRenewTitle">
+Online Passport Renewal
+</h4>
+
+<p data-i18n="onlineRenewText">
+Eligible U.S. citizens may use the official online
+passport renewal process.
+</p>
+
+<div class="service-actions">
+
+<a
+class="service-btn primary"
+href="https://travel.state.gov/en/passports/renew-replace/online.html"
+target="_blank"
+rel="noopener noreferrer"
+data-i18n="checkEligibility">
+CHECK ELIGIBILITY
+</a>
+
+</div>
+
+</article>
+
+<!-- STATUS -->
+
+<article class="service-card">
+
+<div class="service-icon">🔎</div>
+
+<span class="service-tag">
+STATUS
+</span>
+
+<h4 data-i18n="statusTitle">
+Passport Application Status
+</h4>
+
+<p data-i18n="statusText">
+Check the status of a passport application after
+it has been submitted.
+</p>
+
+<div class="service-actions">
+
+<a
+class="service-btn primary"
+href="https://travel.state.gov/en/passports/after-you-apply/application-status.html"
+target="_blank"
+rel="noopener noreferrer"
+data-i18n="checkStatus">
+CHECK STATUS
+</a>
+
+</div>
+
+</article>
+
+<!-- WHERE TO APPLY -->
+
+<article class="service-card">
+
+<div class="service-icon">📍</div>
+
+<span class="service-tag">
+LOCATION
+</span>
+
+<h4 data-i18n="whereTitle">
+Where to Apply
+</h4>
+
+<p data-i18n="whereText">
+Find passport acceptance facilities and learn
+which application location fits your situation.
+</p>
+
+<div class="service-actions">
+
+<a
+class="service-btn primary"
+href="https://travel.state.gov/en/passports/apply/help/where-to-apply.html"
+target="_blank"
+rel="noopener noreferrer"
+data-i18n="findLocation">
+FIND LOCATION
+</a>
+
+</div>
+
+</article>
+
+<!-- PASSPORT FEES -->
+
+<article class="service-card">
+
+<div class="service-icon">💳</div>
+
+<span class="service-tag">
+FEES
+</span>
+
+<h4 data-i18n="feesTitle">
+Passport Fees
+</h4>
+
+<p data-i18n="feesText">
+Review current official passport fees and
+available service options.
+</p>
+
+<div class="service-actions">
+
+<a
+class="service-btn primary"
+href="https://travel.state.gov/en/passports/apply/help/fees.html"
+target="_blank"
+rel="noopener noreferrer"
+data-i18n="viewFees">
+VIEW FEES
+</a>
+
+</div>
+
+</article>
+
+</div>
+
+<div class="info-box" style="margin-top:22px">
+
+<h4 data-i18n="passportNoticeTitle">
+Passport Safety Notice
+</h4>
+
+<p data-i18n="passportNoticeText">
+Use official U.S. Department of State resources
+for passport applications and renewals. Maximax
+can help organize administrative documents, but
+passport approval and issuance are handled by the
+U.S. government.
+</p>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- ==========================================
+     CHECKLIST
+========================================== -->
+
+<section class="section" id="checklist">
+
+<div class="container">
+
+<div class="section-head">
+
+<small data-i18n="checkSmall">
+DOCUMENT ORGANIZER
+</small>
+
+<h3 data-i18n="checkTitle">
+TRAVEL + DMV CHECKLIST
+</h3>
+
+<p data-i18n="checkText">
+Select the documents or information you want to
+organize for your service request.
+</p>
+
+</div>
+
+<div class="checklist">
+
+<label class="check-row">
+
+<input
+type="checkbox"
+class="docCheck"
+value="Photo identification">
+
+<strong data-i18n="check1">
+Photo Identification
+</strong>
+
+<span data-i18n="check1Text">
+Driver license, ID card or passport.
+</span>
+
+</label>
+
+<label class="check-row">
+
+<input
+type="checkbox"
+class="docCheck"
+value="Proof of address">
+
+<strong data-i18n="check2">
+Proof of Address
+</strong>
+
+<span data-i18n="check2Text">
+Available documents showing current residential
+address.
+</span>
+
+</label>
+
+<label class="check-row">
+
+<input
+type="checkbox"
+class="docCheck"
+value="Vehicle title">
+
+<strong data-i18n="check3">
+Vehicle Title
+</strong>
+
+<span data-i18n="check3Text">
+Title or ownership documents if the request
+involves a vehicle.
+</span>
+
+</label>
+
+<label class="check-row">
+
+<input
+type="checkbox"
+class="docCheck"
+value="Vehicle registration">
+
+<strong data-i18n="check4">
+Vehicle Registration
+</strong>
+
+<span data-i18n="check4Text">
+Current registration information if applicable.
+</span>
+
+</label>
+
+<label class="check-row">
+
+<input
+type="checkbox"
+class="docCheck"
+value="Vehicle insurance">
+
+<strong data-i18n="check5">
+Vehicle Insurance
+</strong>
+
+<span data-i18n="check5Text">
+Available insurance information for vehicle-related
+requests.
+</span>
+
+</label>
+
+<label class="check-row">
+
+<input
+type="checkbox"
+class="docCheck"
+value="Passport">
+
+<strong data-i18n="check6">
+Passport
+</strong>
+
+<span data-i18n="check6Text">
+Current or previous passport when relevant.
+</span>
+
+</label>
+
+<label class="check-row">
+
+<input
+type="checkbox"
+class="docCheck"
+value="Travel itinerary">
+
+<strong data-i18n="check7">
+Travel Itinerary
+</strong>
+
+<span data-i18n="check7Text">
+Travel dates and destination information.
+</span>
+
+</label>
+
+<label class="check-row">
+
+<input
+type="checkbox"
+class="docCheck"
+value="Supporting documents">
+
+<strong data-i18n="check8">
+Supporting Documents
+</strong>
+
+<span data-i18n="check8Text">
+Other records related to the service you need.
+</span>
+
+</label>
+
+</div>
+
+<div style="margin-top:18px">
+
+<button
+type="button"
+class="btn primary"
+id="selectAllBtn"
+data-i18n="selectAll">
+SELECT ALL
+</button>
+
+<button
+type="button"
+class="btn"
+id="clearBtn"
+data-i18n="clear">
+CLEAR
 </button>
 
 </div>
 
 </div>
+</section>
 
-</header>
+<!-- ==========================================
+     SERVICE REQUEST
+========================================== -->
 
-
-<main class="service-page">
+<section class="section" id="request">
 
 <div class="container">
 
+<div class="request-box">
 
-<section class="service-hero">
+<div class="section-head">
 
-<div class="service-big-icon">
-✈️ 🚗
-</div>
-
-<div class="eyebrow">
+<small>
 MAXIMAX MULTI SERVICES
-</div>
+</small>
 
-<h1
-data-en="TRAVEL + DMV CENTER"
-data-fr="CENTRE VOYAGE + DMV"
-data-ht="SANT VWAYAJ + DMV">
-TRAVEL + DMV CENTER
-</h1>
+<h3 data-i18n="requestTitle">
+TRAVEL + DMV SERVICE REQUEST
+</h3>
 
-<p
-data-en="Administrative assistance for travel-related documents, DMV information, vehicle documents and common transportation service needs."
-data-fr="Assistance administrative pour les documents de voyage, les informations DMV, les documents de véhicule et les besoins courants liés au transport."
-data-ht="Asistans administratif pou dokiman vwayaj, enfòmasyon DMV, dokiman machin ak bezwen sèvis transpò ki pi komen yo.">
-Administrative assistance for travel-related documents, DMV information, vehicle documents and common transportation service needs.
+<p data-i18n="requestText">
+Organize the administrative service you need.
+This request does not submit information to
+FLHSMV, TSA, or the U.S. Department of State.
 </p>
 
-<div class="hero-buttons">
+</div>
 
-<a href="#travel-dmv-services" class="btn primary"
-data-en="EXPLORE SERVICES"
-data-fr="VOIR LES SERVICES"
-data-ht="GADE SÈVIS YO">
-EXPLORE SERVICES
+<div class="form-grid">
+
+<div class="field">
+
+<label
+for="clientName"
+data-i18n="name">
+CLIENT NAME
+</label>
+
+<input
+id="clientName"
+type="text"
+autocomplete="name">
+
+</div>
+
+<div class="field">
+
+<label
+for="phone"
+data-i18n="phone">
+PHONE
+</label>
+
+<input
+id="phone"
+type="tel"
+autocomplete="tel">
+
+</div>
+
+<div class="field">
+
+<label
+for="email"
+data-i18n="email">
+EMAIL
+</label>
+
+<input
+id="email"
+type="email"
+autocomplete="email">
+
+</div>
+
+<div class="field">
+
+<label
+for="serviceType"
+data-i18n="serviceNeeded">
+SERVICE NEEDED
+</label>
+
+<select id="serviceType">
+
+<option value="">
+Choose service
+</option>
+
+<option value="Driver License">
+Driver License
+</option>
+
+<option value="Florida ID Card">
+Florida ID Card
+</option>
+
+<option value="Vehicle Registration">
+Vehicle Registration
+</option>
+
+<option value="Vehicle Title">
+Vehicle Title / Transfer
+</option>
+
+<option value="Tag / Plate">
+Tag / License Plate
+</option>
+
+<option value="Address Change">
+Address Change
+</option>
+
+<option value="Driving Record">
+Driving Record
+</option>
+
+<option value="Passport">
+Passport
+</option>
+
+<option value="Passport Renewal">
+Passport Renewal
+</option>
+
+<option value="Travel Documents">
+Travel Documents
+</option>
+
+<option value="Other">
+Other
+</option>
+
+</select>
+
+</div>
+
+<div class="field">
+
+<label
+for="state"
+data-i18n="state">
+STATE
+</label>
+
+<input
+id="state"
+type="text"
+value="Florida">
+
+</div>
+
+<div class="field">
+
+<label
+for="county"
+data-i18n="county">
+COUNTY
+</label>
+
+<input
+id="county"
+type="text"
+placeholder="Example: Orange County">
+
+</div>
+
+<div class="field full">
+
+<label
+for="notes"
+data-i18n="notes">
+WHAT ADMINISTRATIVE HELP DO YOU NEED?
+</label>
+
+<textarea
+id="notes"
+placeholder="Describe the service or documents you need help organizing."></textarea>
+
+</div>
+
+</div>
+
+<div class="request-actions">
+
+<button
+type="button"
+class="btn primary"
+id="prepareBtn"
+data-i18n="prepare">
+PREPARE REQUEST
+</button>
+
+<button
+type="button"
+class="btn"
+id="resetBtn"
+data-i18n="reset">
+RESET
+</button>
+
+<a
+class="btn"
+href="./appointment-center.html"
+data-i18n="appointment">
+APPOINTMENT
 </a>
 
-<a href="#travel-dmv-contact" class="btn outline"
-data-en
+<a
+class="btn"
+href="./document-center.html"
+data-i18n="documentCenter">
+DOCUMENT CENTER
+</a>
+
+</div>
+
+<div
+class="result"
+id="result"
+aria-live="polite">
+
+<h4 data-i18n="resultTitle">
+REQUEST ORGANIZED
+</h4>
+
+<p id="resultIntro"></p>
+
+<div
+class="result-items"
+id="resultItems">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</section>
+
+<div class="container">
+
+<div class="notice">
+
+<strong data-i18n="important">
+IMPORTANT:
+</strong>
+
+<span data-i18n="noticeText">
+Maximax Multi Services provides administrative
+document assistance and links to official
+government resources. Maximax does not issue
+driver licenses, vehicle titles, registrations,
+passports or government approvals. Requirements
+and procedures must be verified with the
+appropriate government agency.
+</span>
+
+</div>
+
+</div>
+
+</main>
+
+<footer>
+
+<strong>
+MAXIMAX MULTI SERVICES
+</strong>
+
+<p data-i18n="part">
+PART OF BSS1815 PRO-MAX DMP
+</p>
+
+<p>
+bss1815promaxdmp@gmail.com
+</p>
+
+<p>
+(407) 640-5166 •
+(317) 538-1150 •
+(516) 216-8494
+</p>
+
+<p>
+BSS1815PRO-MAXDMP.COM
+</p>
+
+<p>
+© <span id="year"></span>
+MAXIMAX MULTI SERVICES
+</p>
+
+</footer>
+
+<script>
+(function(){
+"use strict";
+
+/* ==========================================
+   LANGUAGE
+========================================== */
+
+const translations={
+
+en:{
+topbar:"MAXIMAX MULTI SERVICES • TRAVEL + DMV CENTER",
+part:"PART OF BSS1815 PRO-MAX DMP",
+
+home:"HOME",
+services:"SERVICES",
+dmv:"FLORIDA DMV",
+travel:"TRAVEL",
+passport:"PASSPORT",
+checklist:"CHECKLIST",
+request:"SERVICE REQUEST",
+appointment:"APPOINTMENT",
+
+heroTitle:"TRAVEL + DMV CENTER",
+
+heroText:
+"Administrative assistance for travel-related documents, Florida driver and motor vehicle resources, passports, vehicle documents, and common transportation service needs.",
+
+explore:"EXPLORE SERVICES",
+startRequest:"START REQUEST",
+
+serviceSmall:"TRAVEL + TRANSPORTATION SERVICES",
+serviceTitle:"CHOOSE A SERVICE",
+
+serviceText:
+"Use this center to reach official Florida motor vehicle and U.S. passport resources or organize a Maximax administrative service request.",
+
+dmvTitle:"FLORIDA DRIVER + MOTOR VEHICLE",
+
+dmvText:
+"Official Florida Highway Safety and Motor Vehicles resources for driver licenses, ID cards, vehicles, titles, registration and related services.",
+
+licenseTitle:"Driver License",
+licenseText:"Access official Florida driver license information, requirements and services.",
+
+idTitle:"Florida ID Card",
+idText:"Review Florida identification card information, documents and requirements.",
+
+mydmvTitle:"MyDMV Portal",
+mydmvText:"Access Florida's online motor vehicle and driver service portal.",
+
+registrationTitle:"Vehicle Registration",
+registrationText:"Official Florida information for vehicle registration and registration-related services.",
+
+titleTitle:"Vehicle Title",
+titleText:"Access Florida title information for motor vehicles, transfers and ownership documentation.",
+
+tagTitle:"Tag + License Plate",
+tagText:"Find Florida tag, plate and motor vehicle registration resources.",
+
+addressTitle:"Address Change",
+addressText:"Access Florida information for changing an address on driver and motor vehicle records.",
+
+recordTitle:"Driving Record",
+recordText:"Find official Florida information about driver records and motor vehicle records.",
+
+locationTitle:"Driver License Office",
+locationText:"Find an official Florida driver license or motor vehicle service location.",
+
+travelSmall:"TRAVEL DOCUMENT SERVICES",
+travelTitle:"TRAVEL CENTER",
+
+travelText:
+"Access official travel resources and organize documents needed before an international trip.",
+
+advisoryTitle:"Travel Advisories",
+advisoryText:"Review official U.S. Department of State international travel information.",
+
+destinationTitle:"Destination Information",
+destinationText:"Review destination-specific travel information before traveling abroad.",
+
+tsaTitle:"TSA Travel Information",
+tsaText:"Access official Transportation Security Administration travel and security information.",
+
+passportTitle:"U.S. PASSPORT CENTER",
+
+passportText:
+"Apply, renew, locate passport services, or check an existing passport application's status using official U.S. Department of State resources.",
+
+newPassportTitle:"Apply for Passport",
+newPassportText:"Official information for first-time adult passport applications and other new applications.",
+
+renewTitle:"Renew Passport",
+renewText:"Review official eligibility and options for renewing a U.S. passport.",
+
+onlineRenewTitle:"Online Passport Renewal",
+onlineRenewText:"Eligible U.S. citizens may use the official online passport renewal process.",
+
+statusTitle:"Passport Application Status",
+statusText:"Check the status of a passport application after it has been submitted.",
+
+whereTitle:"Where to Apply",
+whereText:"Find passport acceptance facilities and learn which application location fits your situation.",
+
+feesTitle:"Passport Fees",
+feesText:"Review current official passport fees and available service options.",
+
+passportNoticeTitle:"Passport Safety Notice",
+
+passportNoticeText:
+"Use official U.S. Department of State resources for passport applications and renewals. Maximax can help organize administrative documents, but passport approval and issuance are handled by the U.S. government.",
+
+openOfficial:"OPEN OFFICIAL SERVICE",
+openPortal:"OPEN PORTAL",
+findLocation:"FIND LOCATION",
+checkEligibility:"CHECK ELIGIBILITY",
+checkStatus:"CHECK STATUS",
+viewFees:"VIEW FEES",
+
+checkSmall:"DOCUMENT ORGANIZER",
+checkTitle:"TRAVEL + DMV CHECKLIST",
+
+checkText:
+"Select the documents or information you want to organize for your service request.",
+
+check1:"Photo Identification",
+check1Text:"Driver license, ID card or passport.",
+
+check2:"Proof of Address",
+check2Text:"Available documents showing current residential address.",
+
+check3:"Vehicle Title",
+check3Text:"Title or ownership documents if the request involves a vehicle.",
+
+check4:"Vehicle Registration",
+check4Text:"Current registration information if applicable.",
+
+check5:"Vehicle Insurance",
+check5Text:"Available insurance information for vehicle-related requests.",
+
+check6:"Passport",
+check6Text:"Current or previous passport when relevant.",
+
+check7:"Travel Itinerary",
+check7Text:"Travel dates and destination information.",
+
+check8:"Supporting Documents",
+check8Text:"Other records related to the service you need.",
+
+selectAll:"SELECT ALL",
+clear:"CLEAR",
+
+requestTitle:"TRAVEL + DMV SERVICE REQUEST",
+
+requestText:
+"Organize the administrative service you need. This request does not submit information to FLHSMV, TSA, or the U.S. Department of State.",
+
+name:"CLIENT NAME",
+phone:"PHONE",
+email:"EMAIL",
+serviceNeeded:"SERVICE NEEDED",
+state:"STATE",
+county:"COUNTY",
+
+notes:"WHAT ADMINISTRATIVE HELP DO YOU NEED?",
+
+prepare:"PREPARE REQUEST",
+reset:"RESET",
+documentCenter:"DOCUMENT CENTER",
+
+resultTitle:"REQUEST ORGANIZED",
+
+important:"IMPORTANT:",
+
+noticeText:
+"Maximax Multi Services provides administrative document assistance and links to official government resources. Maximax does not issue driver licenses, vehicle titles, registrations, passports or government approvals. Requirements and procedures must be verified with the appropriate government agency."
+},
+
+es:{
+topbar:"MAXIMAX MULTI SERVICES • CENTRO DE VIAJES + DMV",
+part:"PARTE DE BSS1815 PRO-MAX DMP",
+
+home:"INICIO",
+services:"SERVICIOS",
+dmv:"DMV DE FLORIDA",
+travel:"VIAJES",
+passport:"PASAPORTE",
+checklist:"LISTA",
+request:"SOLICITUD",
+appointment:"CITA",
+
+heroTitle:"CENTRO DE VIAJES + DMV",
+
+heroText:
+"Asistencia administrativa para documentos de viaje, recursos de licencias y vehículos de Florida, pasaportes y necesidades comunes de transporte.",
+
+explore:"EXPLORAR SERVICIOS",
+startRequest:"INICIAR SOLICITUD",
+
+serviceSmall:"SERVICIOS DE VIAJE + TRANSPORTE",
+serviceTitle:"ELIJA UN SERVICIO",
+
+serviceText:
+"Use este centro para acceder a recursos oficiales de vehículos de Florida y pasaportes de Estados Unidos.",
+
+dmvTitle:"CONDUCTOR + VEHÍCULO DE FLORIDA",
+
+dmvText:
+"Recursos oficiales de Florida para licencias, tarjetas de identificación, vehículos, títulos y registros.",
+
+licenseTitle:"Licencia de Conducir",
+licenseText:"Acceda a información oficial de licencias de conducir de Florida.",
+
+idTitle:"Tarjeta de Identificación",
+idText:"Revise información y requisitos oficiales de identificación de Florida.",
+
+mydmvTitle:"Portal MyDMV",
+mydmvText:"Acceda al portal en línea de servicios de vehículos y conductores.",
+
+registrationTitle:"Registro del Vehículo",
+registrationText:"Información oficial sobre registro de vehículos en Florida.",
+
+titleTitle:"Título del Vehículo",
+titleText:"Información sobre títulos, transferencias y propiedad de vehículos.",
+
+tagTitle:"Matrícula + Placa",
+tagText:"Recursos de placas y registro de vehículos de Florida.",
+
+addressTitle:"Cambio de Dirección",
+addressText:"Información oficial para cambiar una dirección.",
+
+recordTitle:"Registro de Conducción",
+recordText:"Información oficial sobre registros de conducción.",
+
+locationTitle:"Oficina de Licencias",
+locationText:"Encuentre una oficina oficial de licencias o vehículos.",
+
+travelSmall:"SERVICIOS DE DOCUMENTOS DE VIAJE",
+travelTitle:"CENTRO DE VIAJES",
+
+travelText:
+"Acceda a recursos oficiales y organice documentos antes de un viaje internacional.",
+
+advisoryTitle:"Avisos de Viaje",
+advisoryText:"Revise información internacional oficial del Departamento de Estado.",
+
+destinationTitle:"Información del Destino",
+destinationText:"Revise información del destino antes de viajar.",
+
+tsaTitle:"Información TSA",
+tsaText:"Acceda a información oficial de seguridad de viajes de TSA.",
+
+passportTitle:"CENTRO DE PASAPORTES",
+
+passportText:
+"Solicite, renueve, encuentre servicios o revise el estado de una solicitud de pasaporte.",
+
+newPassportTitle:"Solicitar Pasaporte",
+newPassportText:"Información oficial para nuevas solicitudes de pasaporte.",
+
+renewTitle:"Renovar Pasaporte",
+renewText:"Revise las opciones oficiales para renovar un pasaporte.",
+
+onlineRenewTitle:"Renovación en Línea",
+onlineRenewText:"Ciudadanos elegibles pueden usar el proceso oficial de renovación en línea.",
+
+statusTitle:"Estado del Pasaporte",
+statusText:"Revise el estado de una solicitud de pasaporte.",
+
+whereTitle:"Dónde Solicitar",
+whereText:"Encuentre centros de aceptación de pasaportes.",
+
+feesTitle:"Tarifas de Pasaporte",
+feesText:"Revise las tarifas oficiales actuales.",
+
+passportNoticeTitle:"Aviso de Seguridad",
+
+passportNoticeText:
+"Use recursos oficiales del Departamento de Estado para solicitudes y renovaciones de pasaportes.",
+
+openOfficial:"ABRIR SERVICIO OFICIAL",
+openPortal:"ABRIR PORTAL",
+findLocation:"BUSCAR UBICACIÓN",
+checkEligibility:"VERIFICAR ELEGIBILIDAD",
+checkStatus:"VERIFICAR ESTADO",
+viewFees:"VER TARIFAS",
+
+checkSmall:"ORGANIZADOR DE DOCUMENTOS",
+checkTitle:"LISTA DE VIAJE + DMV",
+
+checkText:
+"Seleccione documentos o información que desea organizar.",
+
+check1:"Identificación con Foto",
+check1Text:"Licencia, tarjeta de identificación o pasaporte.",
+
+check2:"Prueba de Dirección",
+check2Text:"Documentos disponibles con su dirección actual.",
+
+check3:"Título del Vehículo",
+check3Text:"Título o documentos de propiedad.",
+
+check4:"Registro del Vehículo",
+check4Text:"Información actual de registro.",
+
+check5:"Seguro del Vehículo",
+check5Text:"Información disponible del seguro.",
+
+check6:"Pasaporte",
+check6Text:"Pasaporte actual o anterior.",
+
+check7:"Itinerario de Viaje",
+check7Text:"Fechas y destino del viaje.",
+
+check8:"Documentos de Apoyo",
+check8Text:"Otros documentos relacionados con el servicio.",
+
+selectAll:"SELECCIONAR TODO",
+clear:"BORRAR",
+
+requestTitle:"SOLICITUD DE VIAJE + DMV",
+
+requestText:
+"Organice el servicio administrativo que necesita. Esto no envía información a ninguna agencia gubernamental.",
+
+name:"NOMBRE DEL CLIENTE",
+phone:"TELÉFONO",
+email:"CORREO ELECTRÓNICO",
+serviceNeeded:"SERVICIO NECESARIO",
+state:"ESTADO",
+county:"CONDADO",
+notes:"¿QUÉ AYUDA ADMINISTRATIVA NECESITA?",
+
+prepare:"PREPARAR SOLICITUD",
+reset:"REINICIAR",
+documentCenter:"CENTRO DE DOCUMENTOS",
+
+resultTitle:"SOLICITUD ORGANIZADA",
+
+important:"IMPORTANTE:",
+
+noticeText:
+"Maximax Multi Services ofrece asistencia administrativa y acceso a recursos oficiales. Maximax no emite licencias, títulos, registros ni pasaportes."
+},
+
+ht:{
+topbar:"MAXIMAX MULTI SERVICES • SANT VWAYAJ + DMV",
+part:"PATI NAN BSS1815 PRO-MAX DMP",
+
+home:"AKÈY",
+services:"SÈVIS",
+dmv:"DMV FLORIDA",
+travel:"VWAYAJ",
+passport:"PASPÒ",
+checklist:"LIS DOKIMAN",
+request:"DEMANN SÈVIS",
+appointment:"RANDEVOU",
+
+heroTitle:"SANT VWAYAJ + DMV",
+
+heroText:
+"Asistans administratif pou dokiman vwayaj, sèvis lisans ak machin Florida, paspò, dokiman machin ak bezwen transpò.",
+
+explore:"GADE SÈVIS YO",
+startRequest:"KÒMANSE DEMANN",
+
+serviceSmall:"SÈVIS VWAYAJ + TRANSPÒ",
+serviceTitle:"CHWAZI YON SÈVIS",
+
+serviceText:
+"Sèvi ak sant sa a pou jwenn resous ofisyèl machin Florida, paspò ameriken oswa òganize yon demann Maximax.",
+
+dmvTitle:"LISANS + MACHIN FLORIDA",
+
+dmvText:
+"Resous ofisyèl Florida pou lisans, ID, machin, tit, registration ak lòt sèvis.",
+
+licenseTitle:"Lisans Kondwi",
+licenseText:"Jwenn enfòmasyon ofisyèl Florida pou lisans kondwi.",
+
+idTitle:"Florida ID Card",
+idText:"Verifye enfòmasyon ak kondisyon pou Florida ID.",
+
+mydmvTitle:"MyDMV Portal",
+mydmvText:"Antre nan pòtal sèvis machin ak lisans Florida.",
+
+registrationTitle:"Registration Machin",
+registrationText:"Jwenn enfòmasyon ofisyèl sou registration machin.",
+
+titleTitle:"Tit Machin",
+titleText:"Jwenn enfòmasyon sou tit, transfer ak pwopriyete machin.",
+
+tagTitle:"Tag + Plak",
+tagText:"Jwenn resous Florida pou tag ak plak machin.",
+
+addressTitle:"Chanje Adrès",
+addressText:"Jwenn enfòmasyon ofisyèl pou chanje adrès.",
+
+recordTitle:"Driving Record",
+recordText:"Jwenn enfòmasyon ofisyèl sou dosye kondwi.",
+
+locationTitle:"Biwo Lisans",
+locationText:"Jwenn yon biwo ofisyèl lisans oswa sèvis machin.",
+
+travelSmall:"SÈVIS DOKIMAN VWAYAJ",
+travelTitle:"SANT VWAYAJ",
+
+travelText:
+"Jwenn resous ofisyèl epi òganize dokiman ou bezwen anvan yon vwayaj entènasyonal.",
+
+advisoryTitle:"Travel Advisories",
+advisoryText:"Verifye enfòmasyon ofisyèl sou vwayaj entènasyonal.",
+
+destinationTitle:"Enfòmasyon Destinasyon",
+destinationText:"Verifye enfòmasyon sou destinasyon an anvan ou vwayaje.",
+
+tsaTitle:"Enfòmasyon TSA",
+tsaText:"Jwenn enfòmasyon ofisyèl TSA pou sekirite vwayaj.",
+
+passportTitle:"SANT PASPÒ AMERIKEN",
+
+passportText:
+"Aplike, renouvle, jwenn sèvis paspò oswa verifye estati aplikasyon ou.",
+
+newPassportTitle:"Aplike pou Paspò",
+newPassportText:"Enfòmasyon ofisyèl pou nouvo aplikasyon paspò.",
+
+renewTitle:"Renouvle Paspò",
+renewText:"Verifye opsyon ofisyèl pou renouvle yon paspò.",
+
+onlineRenewTitle:"Renouvèlman Online",
+onlineRenewText:"Sitwayen ki kalifye ka itilize sistèm ofisyèl renouvèlman online lan.",
+
+statusTitle:"Estati Aplikasyon Paspò",
+statusText:"Verifye estati aplikasyon paspò ou apre ou fin aplike.",
+
+whereTitle:"Kote pou Aplike",
+whereText:"Jwenn sant ki aksepte aplikasyon paspò.",
+
+feesTitle:"Frè Paspò",
+feesText:"Verifye frè paspò ofisyèl aktyèl yo.",
+
+passportNoticeTitle:"Avètisman Paspò",
+
+passportNoticeText:
+"Sèvi ak resous ofisyèl U.S. Department of State pou aplikasyon ak renouvèlman paspò.",
+
+openOfficial:"OUVRI SÈVIS OFISYÈL",
+openPortal:"OUVRI PORTAL",
+findLocation:"JWENN BIWO",
+checkEligibility:"VERIFYE ELIJIBILITE",
+checkStatus:"VERIFYE ESTATI",
+viewFees:"GADE FRÈ YO",
+
+checkSmall:"ÒGANIZATÈ DOKIMAN",
+checkTitle:"LIS VWAYAJ + DMV",
+
+checkText:
+"Chwazi dokiman oswa enfòmasyon ou vle òganize pou demann ou.",
+
+check1:"Pyès Idantifikasyon",
+check1Text:"Lisans, ID oswa paspò.",
+
+check2:"Prèv Adrès",
+check2Text:"Dokiman ki montre adrès aktyèl ou.",
+
+check3:"Tit Machin",
+check3Text:"Tit oswa dokiman pwopriyete machin.",
+
+check4:"Registration Machin",
+check4Text:"Enfòmasyon registration aktyèl.",
+
+check5:"Asirans Machin",
+check5Text:"Enfòmasyon asirans machin.",
+
+check6:"Paspò",
+check6Text:"Paspò aktyèl oswa ansyen paspò.",
+
+check7:"Itinerè Vwayaj",
+check7Text:"Dat ak destinasyon vwayaj.",
+
+check8:"Dokiman Sipò",
+check8Text:"Lòt dokiman ki gen rapò ak sèvis la.",
+
+selectAll:"CHWAZI TOUT",
+clear:"NETWAYE",
+
+requestTitle:"DEMANN SÈVIS VWAYAJ + DMV",
+
+requestText:
+"Òganize sèvis administratif ou bezwen an. Demann sa a pa voye enfòmasyon bay okenn ajans gouvènman.",
+
+name:"NON KLIYAN",
+phone:"TELEFÒN",
+email:"EMAIL",
+serviceNeeded:"SÈVIS OU BEZWEN",
+state:"ETA",
+county:"COUNTY",
+
+notes:"KI ÈD ADMINISTRATIF OU BEZWEN?",
+
+prepare:"PREPARE DEMANN",
+reset:"RESET",
+documentCenter:"SANT DOKIMAN",
+
+resultTitle:"DEMANN ÒGANIZE",
+
+important:"ENPÒTAN:",
+
+noticeText:
+"Maximax Multi Services bay asistans administratif ak aksè nan resous ofisyèl. Maximax pa bay lisans, tit machin, registration, paspò oswa apwobasyon gouvènman."
+}
+
+};
+
+/* ==========================================
+   LANGUAGE ENGINE
+========================================== */
+
+const langButtons=
+document.querySelectorAll(".lang-btn");
+
+function setLanguage(lang){
+
+if(!translations[lang]){
+lang="en";
+}
+
+document.documentElement.lang=lang;
+
+document
+.querySelectorAll("[data-i18n]")
+.forEach(function(el){
+
+const key=el.dataset.i18n;
+
+if(translations[lang][key]!==undefined){
+el.textContent=translations[lang][key];
+}
+
+});
+
+langButtons.forEach(function(btn){
+
+btn.classList.toggle(
+"active",
+btn.dataset.lang===lang
+);
+
+});
+
+try{
+localStorage.setItem(
+"maximaxLanguage",
+lang
+);
+}catch(e){}
+
+}
+
+langButtons.forEach(function(btn){
+
+btn.addEventListener(
+"click",
+function(){
+
+setLanguage(
+btn.dataset.lang
+);
+
+}
+);
+
+});
+
+let savedLang="en";
+
+try{
+
+savedLang=
+localStorage.getItem(
+"maximaxLanguage"
+)||"en";
+
+}catch(e){}
+
+setLanguage(savedLang);
+
+/* ==========================================
+   MOBILE MENU
+========================================== */
+
+const menuBtn=
+document.getElementById("menuBtn");
+
+const mobileMenu=
+document.getElementById("mobileMenu");
+
+menuBtn.addEventListener(
+"click",
+function(){
+
+const open=
+mobileMenu.classList.toggle("open");
+
+menuBtn.textContent=
+open?"✕":"☰";
+
+menuBtn.setAttribute(
+"aria-expanded",
+open?"true":"false"
+);
+
+}
+);
+
+mobileMenu
+.querySelectorAll("a")
+.forEach(function(link){
+
+link.addEventListener(
+"click",
+function(){
+
+mobileMenu.classList.remove("open");
+
+menuBtn.textContent="☰";
+
+menuBtn.setAttribute(
+"aria-expanded",
+"false"
+);
+
+}
+);
+
+});
+
+/* ==========================================
+   CHECKLIST
+========================================== */
+
+const checks=
+document.querySelectorAll(".docCheck");
+
+document
+.getElementById("selectAllBtn")
+.addEventListener(
+"click",
+function(){
+
+checks.forEach(function(box){
+box.checked=true;
+});
+
+}
+);
+
+document
+.getElementById("clearBtn")
+.addEventListener(
+"click",
+function(){
+
+checks.forEach(function(box){
+box.checked=false;
+});
+
+}
+);
+
+/* ==========================================
+   REQUEST ORGANIZER
+========================================== */
+
+const prepareBtn=
+document.getElementById("prepareBtn");
+
+const result=
+document.getElementById("result");
+
+const resultIntro=
+document.getElementById("resultIntro");
+
+const resultItems=
+document.getElementById("resultItems");
+
+function addResult(text){
+
+const item=
+document.createElement("div");
+
+item.className="result-item";
+
+item.textContent="✓ "+text;
+
+resultItems.appendChild(item);
+
+}
+
+prepareBtn.addEventListener(
+"click",
+function(){
+
+const name=
+document.getElementById("clientName").value.trim();
+
+const phone=
+document.getElementById("phone").value.trim();
+
+const email=
+document.getElementById("email").value.trim();
+
+const service=
+document.getElementById("serviceType").value;
+
+const state=
+document.getElementById("state").value.trim();
+
+const county=
+document.getElementById("county").value.trim();
+
+const notes=
+document.getElementById("notes").value.trim();
+
+resultItems.textContent="";
+
+resultIntro.textContent=
+"Your Travel + DMV administrative request has been organized.";
+
+if(name){
+addResult("Client: "+name);
+}
+
+if(phone){
+addResult("Phone: "+phone);
+}
+
+if(email){
+addResult("Email: "+email);
+}
+
+if(service){
+addResult("Service requested: "+service);
+}
+
+if(state){
+addResult("State: "+state);
+}
+
+if(county){
+addResult("County: "+county);
+}
+
+const selected=[];
+
+checks.forEach(function(box){
+
+if(box.checked){
+selected.push(box.value);
+}
+
+});
+
+if(selected.length){
+
+addResult(
+"Documents selected: "+
+selected.join(", ")
+);
+
+}
+
+if(notes){
+
+addResult(
+"Administrative request: "+
+notes
+);
+
+}
+
+addResult(
+"Verify final government requirements with the official agency before submitting any application."
+);
+
+result.classList.add("show");
+
+result.scrollIntoView({
+behavior:"smooth",
+block:"center"
+});
+
+}
+);
+
+/* ==========================================
+   RESET
+========================================== */
+
+document
+.getElementById("resetBtn")
+.addEventListener(
+"click",
+function(){
+
+document.getElementById("clientName").value="";
+document.getElementById("phone").value="";
+document.getElementById("email").value="";
+document.getElementById("serviceType").value="";
+document.getElementById("state").value="Florida";
+document.getElementById("county").value="";
+document.getElementById("notes").value="";
+
+checks.forEach(function(box){
+box.checked=false;
+});
+
+result.classList.remove("show");
+
+resultItems.textContent="";
+
+}
+);
+
+/* ==========================================
+   SAFE EXTERNAL LINKS
+========================================== */
+
+document
+.querySelectorAll('a[target="_blank"]')
+.forEach(function(link){
+
+link.setAttribute(
+"rel",
+"noopener noreferrer"
+);
+
+});
+
+/* ==========================================
+   YEAR
+========================================== */
+
+document.getElementById("year").textContent=
+new Date().getFullYear();
+
+})();
+</script>
+
+</body>
+</html>
