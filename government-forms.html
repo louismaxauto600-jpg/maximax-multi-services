@@ -1,1200 +1,1147 @@
+
 <!DOCTYPE html>
-<html lang="en" translate="no">
+<html lang="en" id="htmlRoot">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#000000">
-<meta name="google" content="notranslate">
-<title>Government Forms Center | Maximax Multi Services</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#080401">
+<meta name="description" content="MAXIMAX MULTI SERVICES — Notary, Taxes, Immigration, EOIR and BIA, Insurance, Real Estate, Business Formation, Apostille, Travel and DMV services.">
+<title>MAXIMAX MULTI SERVICES | Your Trusted Partner</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 <style>
-:root {
-  --orange:#ff7900;
-  --apricot:#ffad4d;
-  --black:#000;
-  --deep:#050200;
-  --soft:#120600;
-  --text:#ffd2a3;
-  --muted:#d89558;
-  --border:rgba(255,121,0,.48);
-  --glow:rgba(255,121,0,.30);
+:root{
+ --orange:#ff7000;
+ --apricot:#ffb263;
+ --black:#050301;
+ --panel:#120902;
+ --line:rgba(255,157,56,.35);
+ --text:#ffdfba;
+ --muted:#d9a779;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:95px}
+body{
+ margin:0;
+ background:#050301;
+ color:var(--text);
+ font-family:"Public Sans",Arial,sans-serif;
+ overflow-x:hidden;
+}
+body::before{
+ content:"";
+ position:fixed;
+ inset:0;
+ z-index:-1;
+ background:
+ radial-gradient(ellipse at 85% 15%,rgba(255,106,0,.24),transparent 50%),
+ radial-gradient(ellipse at 15% 80%,rgba(255,106,0,.12),transparent 45%),
+ linear-gradient(140deg,#000 0%,#241003 50%,#000 100%);
+ pointer-events:none;
+}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+button{cursor:pointer}
+img,video{max-width:100%}
+h1,h2,h3,p{margin-top:0}
+h1,h2{font-family:Fraunces,Georgia,serif}
+.container{width:min(1180px,calc(100% - 36px));margin:auto}
+.orange{color:var(--orange)}
+.section-title{text-align:center;margin-bottom:32px}
+.section-title h2{font-size:clamp(29px,4vw,44px);margin:8px 0}
+.section-title p{color:var(--muted);line-height:1.6}
+.kicker{
+ color:var(--apricot);
+ font-size:11px;
+ font-weight:800;
+ letter-spacing:2px;
+ text-transform:uppercase;
+}
+.btn{
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ gap:10px;
+ min-height:47px;
+ padding:13px 21px;
+ border-radius:11px;
+ font-size:13px;
+ font-weight:800;
+ transition:.25s;
+ border:1px solid var(--line);
+}
+.btn-primary{
+ background:linear-gradient(120deg,#ff9a00,#ff6500);
+ color:#160700;
+ border-color:#ff9a00;
+ box-shadow:0 6px 22px rgba(255,106,0,.24);
+}
+.btn-outline{background:rgba(0,0,0,.55);color:var(--text)}
+.btn:hover{transform:translateY(-3px);filter:brightness(1.1)}
+:focus-visible{outline:3px solid var(--apricot);outline-offset:3px}
+
+/* HEADER */
+.site-header{
+ position:sticky;
+ top:0;
+ z-index:100;
+ background:rgba(5,3,1,.95);
+ border-bottom:1px solid var(--line);
+ backdrop-filter:blur(16px);
+}
+.header-inner{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ min-height:83px;
+ gap:16px;
+}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.brand img{
+ width:65px;height:65px;
+ object-fit:contain;
+ border-radius:50%;
+ border:1px solid var(--orange);
+ background:#000;
+}
+.brand-text strong{
+ display:block;
+ font-size:clamp(16px,2vw,25px);
+ color:var(--apricot);
+ letter-spacing:.6px;
+}
+.brand-text small{
+ display:block;
+ font-size:9px;
+ letter-spacing:2px;
+ font-weight:800;
+ color:var(--orange);
+ margin-top:3px;
+}
+.desktop-nav{display:flex;align-items:center;gap:20px}
+.desktop-nav a{font-size:12px;font-weight:700}
+.desktop-nav a:hover{color:var(--orange)}
+.header-actions{display:flex;align-items:center;gap:8px}
+.lang-switch{
+ display:flex;
+ border:1px solid var(--line);
+ border-radius:25px;
+ padding:3px;
+ background:#000;
+}
+.lang-switch button{
+ border:0;
+ background:transparent;
+ color:var(--apricot);
+ padding:7px 10px;
+ border-radius:20px;
+ font-size:11px;
+ font-weight:800;
+}
+.lang-switch button.active{background:var(--orange);color:#000}
+.menu-toggle{
+ display:none;
+ background:#130902;
+ border:1px solid var(--line);
+ border-radius:8px;
+ color:var(--orange);
+ width:42px;height:42px;
+}
+.mobile-menu{
+ display:none;
+ padding:12px 0 20px;
+ border-top:1px solid var(--line);
+}
+.mobile-menu.open{display:grid;gap:4px}
+.mobile-menu a{padding:12px;font-size:14px;border-bottom:1px solid var(--line)}
+
+/* HERO */
+.hero{
+ position:relative;
+ padding:60px 0 32px;
+ overflow:hidden;
+}
+.hero-grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ align-items:center;
+ gap:35px;
+}
+.hero h1{
+ font-size:clamp(38px,5.4vw,67px);
+ line-height:1.06;
+ margin:18px 0;
+}
+.hero h1 em{color:var(--orange)}
+.hero-description{
+ font-size:15px;
+ line-height:1.8;
+ max-width:560px;
+ color:#ffd5a5;
+}
+.hero-location{font-size:12px;color:var(--apricot);font-weight:700}
+.hero-checks{
+ display:flex;flex-wrap:wrap;gap:13px;
+ margin:23px 0;
+ font-size:12px;
+ font-weight:700;
+}
+.hero-checks i{color:var(--orange)}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.hero-media{
+ position:relative;
+ padding:12px;
+ background:linear-gradient(135deg,#ff8500,#160900 24%,#050301 75%,#ff6500);
+ border:1px solid var(--orange);
+ border-radius:24px;
+ box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 40px rgba(255,106,0,.13);
+}
+.hero-media::after{
+ content:"";
+ position:absolute;
+ inset:-8px;
+ border:1px solid rgba(255,106,0,.18);
+ border-radius:30px;
+ pointer-events:none;
+}
+.hero-media video{
+ display:block;
+ width:100%;
+ aspect-ratio:16/10;
+ object-fit:contain;
+ background:#000;
+ border-radius:15px;
+}
+.hero-media .media-fallback{
+ display:none;
+ min-height:270px;
+ align-items:center;
+ justify-content:center;
+ flex-direction:column;
+ gap:15px;
+ text-align:center;
+}
+.media-fallback img{
+ width:145px;height:145px;
+ object-fit:contain;
+ border-radius:50%;
+}
+.media-fallback strong{color:var(--apricot);letter-spacing:2px}
+.media-caption{
+ text-align:center;
+ font-size:11px;
+ letter-spacing:2px;
+ color:var(--apricot);
+ padding:13px 0 3px;
+ font-weight:800;
+}
+.hero-glow{
+ position:absolute;
+ width:320px;height:320px;
+ border-radius:50%;
+ background:rgba(255,106,0,.15);
+ filter:blur(90px);
+ right:0;bottom:0;
+ pointer-events:none;
+}
+
+/* TRUST STRIP */
+.trust-strip{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:1px;
+ margin-top:42px;
+ border:1px solid var(--orange);
+ border-radius:18px;
+ overflow:hidden;
+ background:var(--line);
+ box-shadow:0 0 30px rgba(255,106,0,.13);
+}
+.trust-item{
+ background:linear-gradient(140deg,#271102,#080401);
+ padding:21px 12px;
+ display:flex;align-items:center;justify-content:center;gap:12px;
+}
+.trust-item i{font-size:26px;color:var(--orange)}
+.trust-item strong{display:block;font-size:20px;color:var(--apricot)}
+.trust-item span{display:block;font-size:10px;color:var(--muted);margin-top:3px}
+
+/* SERVICES */
+.services-section{padding:75px 0 55px}
+.services-grid{
+ display:grid;
+ grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:16px;
+}
+.service-card{
+ background:linear-gradient(145deg,#291204,#080401 72%);
+ border:1px solid var(--line);
+ border-radius:17px;
+ padding:21px;
+ position:relative;
+ overflow:hidden;
+ transition:.3s;
+ min-height:200px;
+}
+.service-card::before{
+ content:"";
+ position:absolute;
+ width:120px;height:120px;
+ background:rgba(255,106,0,.08);
+ border-radius:50%;
+ right:-45px;top:-45px;
+}
+.service-card:hover{
+ transform:translateY(-5px);
+ border-color:var(--orange);
+ box-shadow:0 13px 30px rgba(0,0,0,.55),0 0 25px rgba(255,106,0,.12);
+}
+.service-top{display:flex;align-items:center;justify-content:space-between}
+.service-icon{
+ width:53px;height:53px;
+ display:grid;place-items:center;
+ border-radius:13px;
+ background:rgba(255,106,0,.14);
+ border:1px solid var(--line);
+ color:var(--orange);
+ font-size:23px;
+}
+.service-number{
+ color:var(--orange);
+ font-size:12px;
+ font-weight:800;
+}
+.service-card h3{
+ font-size:18px;
+ margin:18px 0 9px;
+ color:var(--apricot);
+}
+.service-card p{
+ font-size:12px;
+ color:var(--muted);
+ line-height:1.65;
+ min-height:42px;
+}
+.service-open{
+ display:inline-flex;
+ align-items:center;gap:9px;
+ color:var(--orange);
+ border:0;background:none;
+ padding:5px 0;
+ font-size:12px;font-weight:800;
+}
+.service-details{
+ display:none;
+ border-top:1px solid var(--line);
+ padding-top:13px;
+ margin-top:14px;
+}
+.service-card.expanded .service-details{display:block}
+.service-details ul{padding-left:18px;margin:0}
+.service-details li{
+ font-size:12px;
+ line-height:1.7;
+ margin:6px 0;
+ color:var(--text);
+}
+.service-details li::marker{color:var(--orange)}
+.service-contact{margin-top:15px}
+
+/* AI CENTER */
+.ai-section{padding:35px 0 70px}
+.ai-box{
+ border:1px solid var(--orange);
+ border-radius:24px;
+ background:
+ radial-gradient(circle at 75% 20%,rgba(255,106,0,.22),transparent 40%),
+ linear-gradient(135deg,#210d02,#050301);
+ box-shadow:0 0 35px rgba(255,106,0,.15);
+ padding:35px;
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:30px;
+ align-items:center;
+}
+.ai-box h2{font-size:clamp(29px,4vw,43px);margin:12px 0}
+.ai-box p{font-size:13px;line-height:1.8;color:var(--muted)}
+.ai-points{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:22px 0}
+.ai-point{
+ border:1px solid var(--line);
+ padding:12px;
+ border-radius:10px;
+ font-size:12px;
+ background:rgba(0,0,0,.4);
+}
+.ai-point i{color:var(--orange);margin-right:7px}
+.ai-preview{
+ background:#070401;
+ border:1px solid var(--line);
+ border-radius:18px;
+ padding:20px;
+}
+.ai-preview-head{
+ display:flex;justify-content:space-between;align-items:center;
+ color:var(--apricot);
+ font-weight:800;font-size:12px;
+ margin-bottom:18px;
+}
+.ai-bubble{
+ padding:13px;
+ border-radius:12px;
+ font-size:12px;
+ line-height:1.6;
+ margin-bottom:12px;
+}
+.ai-user{background:#291304;margin-left:35px}
+.ai-answer{background:#120902;border:1px solid var(--line);margin-right:25px}
+.ai-demo-note{font-size:10px;color:var(--muted);line-height:1.6}
+.ai-actions{display:flex;gap:8px;margin-top:13px;flex-wrap:wrap}
+.ai-actions a{font-size:11px}
+
+/* CONTACT */
+.contact-section{
+ padding:65px 0;
+ background:linear-gradient(160deg,rgba(255,106,0,.11),rgba(0,0,0,.85));
+ border-top:1px solid var(--line);
+}
+.contact-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:16px;
+}
+.contact-card{
+ background:rgba(0,0,0,.65);
+ border:1px solid var(--line);
+ border-radius:15px;
+ padding:22px;
+}
+.contact-card i{font-size:25px;color:var(--orange);margin-bottom:15px}
+.contact-card h3{font-size:16px;color:var(--apricot)}
+.contact-card p,.contact-card a{
+ font-size:13px;
+ line-height:1.9;
+ overflow-wrap:anywhere;
+}
+.contact-card a:hover{color:var(--orange)}
+.contact-buttons{
+ display:flex;
+ justify-content:center;
+ gap:12px;
+ flex-wrap:wrap;
+ margin:28px 0 0;
+}
+.social-section{padding:30px 0 60px}
+.social-grid{
+ display:flex;justify-content:center;flex-wrap:wrap;gap:13px;
+}
+.social-link{
+ display:flex;align-items:center;gap:9px;
+ padding:12px 15px;
+ border:1px solid var(--line);
+ border-radius:12px;
+ background:#100701;
+ font-size:12px;
+ font-weight:700;
+}
+.social-link i{font-size:19px}
+.social-link:hover{border-color:var(--orange)}
+.social-link.disabled{opacity:.5;cursor:default}
+footer{
+ text-align:center;
+ border-top:1px solid var(--line);
+ background:#000;
+ padding:30px 16px;
+ font-size:11px;
+ color:var(--muted);
+ line-height:1.9;
+}
+footer img{width:60px;height:60px;object-fit:contain;border-radius:50%}
+.footer-services{margin-top:10px;color:var(--apricot)}
+@media(max-width:1050px){
+ .desktop-nav{display:none}
+ .menu-toggle{display:block}
+}
+@media(max-width:800px){
+ .hero-grid,.ai-box{grid-template-columns:1fr}
+ .hero{padding-top:38px}
+ .hero-media{max-width:600px;width:100%;margin:auto}
+ .services-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .contact-grid{grid-template-columns:1fr}
+ .trust-strip{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:550px){
+ .container{width:min(100% - 26px,1180px)}
+ .header-inner{min-height:72px}
+ .brand img{width:45px;height:45px}
+ .brand-text strong{font-size:15px}
+ .brand-text small{font-size:7px;letter-spacing:1px}
+ .lang-switch button{padding:7px;font-size:9px}
+ .header-actions{gap:5px}
+ .menu-toggle{width:35px;height:35px}
+ .hero h1{font-size:39px}
+ .hero-checks{gap:9px}
+ .services-grid{grid-template-columns:1fr}
+ .service-card{min-height:unset}
+ .ai-box{padding:20px}
+ .ai-points{grid-template-columns:1fr 1fr}
+ .trust-item{padding:15px 7px;gap:8px}
+ .trust-item strong{font-size:16px}
+ .trust-item i{font-size:19px}
+ .trust-item span{font-size:9px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;transition:none!important}
 }
-
-* {
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html {
-  scroll-behavior:smooth;
-  background:#000;
-  scroll-padding-top:100px;
-}
-
-body {
-  min-height:100vh;
-  font-family:Arial,Helvetica,sans-serif;
-  color:var(--text);
-  background:radial-gradient(circle at 15% 5%,rgba(255,121,0,.12),transparent 25%),radial-gradient(circle at 90% 30%,rgba(255,173,77,.07),transparent 25%),linear-gradient(180deg,#000,#050200 55%,#000);
-}
-
-a {
-  text-decoration:none;
-  color:inherit;
-}
-
-button,input {
-  font:inherit;
-}
-
-.container {
-  width:min(1180px,94%);
-  margin:auto;
-}
-
-.topbar {
-  padding:9px 12px;
-  text-align:center;
-  color:#000;
-  background:linear-gradient(90deg,var(--orange),var(--apricot),var(--orange));
-  font-size:10px;
-  font-weight:1000;
-  letter-spacing:1px;
-}
-
-header {
-  position:sticky;
-  top:0;
-  z-index:1000;
-  border-bottom:1px solid rgba(255,121,0,.30);
-  background:rgba(0,0,0,.96);
-  backdrop-filter:blur(15px);
-}
-
-.header-inner {
-  min-height:86px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:14px;
-}
-
-.brand {
-  display:flex;
-  align-items:center;
-  gap:12px;
-  flex:1 1 auto;
-  min-width:0;
-}
-
-.brand-logo {
-  width:64px;
-  height:64px;
-  object-fit:cover;
-  border:2px solid var(--orange);
-  border-radius:18px;
-  box-shadow:0 0 20px var(--glow);
-}
-
-.brand-copy {
-  min-width:0;
-  overflow:hidden;
-}
-
-.brand-copy h1 {
-  color:var(--orange);
-  font-size:15px;
-  font-weight:1000;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-
-.brand-copy p {
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  margin-top:4px;
-  color:var(--apricot);
-  font-size:8px;
-  font-weight:900;
-  letter-spacing:.8px;
-}
-
-.header-actions {
-  display:flex;
-  align-items:center;
-  gap:10px;
-  flex:0 0 auto;
-}
-
-.languages {
-  display:flex;
-  gap:4px;
-  padding:4px;
-  border:1px solid var(--border);
-  border-radius:999px;
-  background:#080300;
-}
-
-.lang-btn {
-  min-height:36px;
-  padding:6px 11px;
-  border:1px solid transparent;
-  border-radius:999px;
-  color:var(--apricot);
-  background:#000;
-  cursor:pointer;
-  font-size:10px;
-  font-weight:1000;
-}
-
-.lang-btn.active {
-  color:#000;
-  border-color:var(--orange);
-  background:linear-gradient(135deg,var(--orange),var(--apricot));
-}
-
-.menu-btn {
-  width:52px;
-  height:48px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border:2px solid var(--orange);
-  border-radius:14px;
-  color:var(--orange);
-  background:#000;
-  font-size:27px;
-  cursor:pointer;
-}
-
-.mobile-menu {
-  display:none;
-  padding:0 0 15px;
-}
-
-.mobile-menu.open {
-  display:block;
-}
-
-.mobile-menu a {
-  display:block;
-  margin-top:7px;
-  padding:13px 15px;
-  border:1px solid var(--border);
-  border-radius:12px;
-  color:var(--apricot);
-  background:#080300;
-  font-size:11px;
-  font-weight:900;
-}
-
-.hero {
-  padding:62px 0 42px;
-  text-align:center;
-}
-
-.hero-badge {
-  display:inline-block;
-  padding:8px 15px;
-  border:1px solid var(--orange);
-  border-radius:999px;
-  color:var(--orange);
-  background:rgba(255,121,0,.06);
-  font-size:10px;
-  font-weight:1000;
-}
-
-.hero h2 {
-  margin-top:20px;
-  color:var(--orange);
-  font-size:clamp(38px,7vw,64px);
-  line-height:1.05;
-  font-weight:1000;
-}
-
-.hero p {
-  max-width:820px;
-  margin:22px auto 0;
-  color:var(--text);
-  font-size:16px;
-  line-height:1.8;
-}
-
-.search-wrap {
-  max-width:760px;
-  margin:30px auto 0;
-}
-
-.search-wrap input {
-  width:100%;
-  min-height:56px;
-  padding:15px 20px;
-  border:2px solid var(--orange);
-  border-radius:999px;
-  outline:none;
-  color:var(--text);
-  background:#050200;
-}
-
-.search-wrap input::placeholder {
-  color:#a66b39;
-}
-
-.no-results {
-  display:none;
-  max-width:760px;
-  margin:18px auto 0;
-  padding:14px 18px;
-  border:1px solid var(--border);
-  border-radius:14px;
-  color:var(--apricot);
-  font-size:12px;
-  text-align:center;
-}
-
-.no-results.show {
-  display:block;
-}
-
-.section {
-  padding:25px 0 60px;
-}
-
-.section-title {
-  margin-bottom:22px;
-}
-
-.section-title small {
-  color:var(--apricot);
-  font-size:10px;
-  font-weight:1000;
-}
-
-.section-title h3 {
-  margin-top:6px;
-  color:var(--orange);
-  font-size:30px;
-  font-weight:1000;
-}
-
-.service-grid {
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:18px;
-}
-
-.service-card {
-  padding:28px;
-  border:1px solid var(--border);
-  border-radius:28px;
-  background:radial-gradient(circle at 100% 0%,rgba(255,121,0,.09),transparent 35%),linear-gradient(145deg,#0c0400,#000);
-  box-shadow:0 8px 28px rgba(255,121,0,.05);
-}
-
-.service-code {
-  color:var(--orange);
-  font-size:11px;
-  font-weight:1000;
-}
-
-.service-icon {
-  margin-top:24px;
-  font-size:35px;
-}
-
-.service-card h4 {
-  margin-top:22px;
-  color:var(--orange);
-  font-size:21px;
-  font-weight:1000;
-}
-
-.service-card>p {
-  margin-top:16px;
-  color:var(--text);
-  font-size:13px;
-  line-height:1.7;
-}
-
-.forms-box {
-  margin-top:22px;
-  padding-top:18px;
-  border-top:1px solid rgba(255,121,0,.25);
-}
-
-.forms-label {
-  margin-bottom:12px;
-  color:var(--apricot);
-  font-size:10px;
-  font-weight:1000;
-  letter-spacing:.8px;
-}
-
-.form-row {
-  margin-top:10px;
-  padding:14px;
-  border:1px solid rgba(255,121,0,.30);
-  border-radius:16px;
-  background:#050200;
-}
-
-.form-number {
-  color:var(--orange);
-  font-size:15px;
-  font-weight:1000;
-}
-
-.form-name {
-  margin-top:4px;
-  color:var(--text);
-  font-size:10px;
-  line-height:1.4;
-}
-
-.form-actions {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
-  margin-top:12px;
-}
-
-.form-actions.single {
-  grid-template-columns:1fr;
-}
-
-.form-btn {
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-height:42px;
-  padding:8px 10px;
-  border:2px solid var(--orange);
-  border-radius:999px;
-  color:var(--orange);
-  background:#000;
-  text-align:center;
-  font-size:9px;
-  font-weight:1000;
-  cursor:pointer;
-}
-
-.form-btn:hover,.form-btn:focus {
-  color:#000;
-  background:linear-gradient(135deg,var(--orange),var(--apricot));
-}
-
-.form-btn.primary {
-  color:#000;
-  background:linear-gradient(135deg,var(--orange),var(--apricot));
-}
-
-.eoir-center {
-  margin-top:20px;
-  padding:25px;
-  border:2px solid var(--orange);
-  border-radius:24px;
-  background:radial-gradient(circle at 50% 0%,rgba(255,121,0,.15),transparent 40%),#000;
-}
-
-.eoir-center h4 {
-  color:var(--orange);
-  font-size:22px;
-}
-
-.eoir-center>p {
-  margin-top:10px;
-  line-height:1.7;
-  font-size:12px;
-}
-
-.eoir-list {
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
-  margin-top:20px;
-}
-
-.eoir-list .form-row {
-  margin-top:0;
-}
-
-.eoir-all {
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
-  margin-top:16px;
-}
-
-.notice {
-  margin:0 0 60px;
-  padding:22px;
-  border:1px solid var(--orange);
-  border-radius:20px;
-  background:linear-gradient(145deg,rgba(255,121,0,.08),#000);
-  font-size:11px;
-  line-height:1.7;
-}
-
-.notice strong {
-  color:var(--orange);
-}
-
-footer {
-  padding:40px 15px;
-  border-top:1px solid var(--border);
-  text-align:center;
-  background:#000;
-}
-
-footer strong {
-  color:var(--orange);
-}
-
-footer p {
-  margin-top:7px;
-  color:var(--apricot);
-  font-size:10px;
-}
-
-@media(max-width:800px) {
-  .service-grid,.eoir-list,.eoir-all {
-    grid-template-columns:1fr;
-  }
-}
-
-@media(max-width:600px) {
-  .header-inner {
-    min-height:78px;
-  }
-  .brand-logo {
-    width:52px;
-    height:52px;
-  }
-  .brand-copy h1 {
-    max-width:180px;
-    font-size:11px;
-  }
-  .brand-copy p {
-    font-size:7px;
-  }
-  .lang-btn {
-    min-height:33px;
-    padding:5px 8px;
-    font-size:8px;
-  }
-  .menu-btn {
-    width:48px;
-    height:44px;
-  }
-  .hero {
-    padding-top:52px;
-  }
-  .hero p {
-    font-size:14px;
-  }
-  .service-card {
-    padding:22px;
-  }
-  .form-actions {
-    grid-template-columns:1fr;
-  }
-}
-
-.forms-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.forms-grid .form-row{margin-top:0}
-.block{margin-bottom:46px}
-.sec-p{margin:-8px 0 20px;color:var(--text);font-size:13px;line-height:1.7}
-.fr-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
-.fr-tab{min-height:38px;padding:8px 16px;border:1px solid var(--border);border-radius:999px;color:var(--apricot);background:#000;font-size:11px;font-weight:1000;cursor:pointer}
-.fr-tab.active{color:#000;border-color:var(--orange);background:linear-gradient(135deg,var(--orange),var(--apricot))}
-.fr-box{margin-bottom:14px;padding:18px;border:1px solid var(--border);border-radius:20px;background:#050200}
-.fr-label{margin-bottom:12px;color:var(--apricot);font-size:10px;font-weight:1000;letter-spacing:.8px}
-.fr-list{display:grid;gap:10px}
-.fr-item{padding:12px 14px;border:1px solid rgba(255,121,0,.30);border-radius:14px;background:#000;font-size:12px;line-height:1.5}
-.fr-item small{display:block;margin-bottom:4px;color:var(--muted);font-size:10px;font-weight:1000;letter-spacing:.6px}
-.fr-item a{color:var(--text);text-decoration:underline}
-.fr-open{margin-top:14px}
-.fr-msg{font-size:12px;line-height:1.6}
-@media(max-width:800px){.forms-grid{grid-template-columns:1fr}}
-
 </style>
 </head>
+
 <body>
 
-<div class="topbar" data-i18n="g_topbar">MAXIMAX MULTI SERVICES • GOVERNMENT FORMS CENTER</div>
+<header class="site-header">
+ <div class="container header-inner">
+  <a class="brand" href="#home">
+   <img src="./maxmax-multiservice.jpg" alt="MAXIMAX Multi Services logo">
+   <div class="brand-text">
+    <strong>MAXIMAX</strong>
+    <small>MULTI SERVICES • EST 2020</small>
+   </div>
+  </a>
 
-<header>
-<div class="container header-inner">
-<a class="brand" href="../index.html">
-<img class="brand-logo" src="../maximax-logo.jpg?v=20260918" alt="Maximax Multi Services" onerror="this.onerror=null;this.style.display='none'">
-<div class="brand-copy">
-<h1>MAXIMAX MULTI SERVICES</h1>
-<p data-i18n="part_of">PART OF BSS1815 PRO-MAX DMP</p>
-</div>
-</a>
-<div class="header-actions">
-<div class="languages notranslate" translate="no">
-<button type="button" class="lang-btn active" data-lang="en">🇺🇸 ENG</button>
-<button type="button" class="lang-btn" data-lang="es">🇪🇸 ESP</button>
-<button type="button" class="lang-btn" data-lang="ht">🇭🇹 KRE</button>
-</div>
-<button type="button" class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">☰</button>
-</div>
-</div>
-<div class="container mobile-menu" id="mobileMenu">
-<a href="../index.html" data-i18n="g_home">HOME</a>
-<a href="#uscis" data-i18n="s_uscis_h">USCIS FORMS</a>
-<a href="#eoir" data-i18n="s_eoir_h">EOIR / BIA FORMS</a>
-<a href="#irs" data-i18n="s_irs_h">IRS TAX FORMS</a>
-<a href="#federal-register" data-i18n="nav_fr">FEDERAL REGISTER</a>
-<a href="#passports" data-i18n="nav_pass">PASSPORTS</a>
-<a href="#dmv" data-i18n="nav_dmv">DMV</a>
-<a href="#ssa" data-i18n="nav_ssa">SSA</a>
-<a href="#unemployment" data-i18n="nav_jobs">UNEMPLOYMENT</a>
-<a href="#resume" data-i18n="nav_resume">RESUME</a>
-<a href="./travel-dmv.html" data-i18n="nav_travel">TRAVEL</a>
-<a href="./contact-center.html" data-i18n="g_contact">CONTACT CENTER</a>
+  <nav class="desktop-nav" aria-label="Main navigation">
+   <a href="#home" data-i18n="navHome">Home</a>
+   <a href="#services" data-i18n="navServices">Services</a>
+   <a href="#ai-center">AI Center</a>
+   <a href="#contact" data-i18n="navContact">Contact</a>
+  </nav>
 
-</div>
+  <div class="header-actions">
+   <div class="lang-switch" aria-label="Language">
+    <button type="button" data-lang="en" class="active">ENG</button>
+    <button type="button" data-lang="fr">FRAN</button>
+    <button type="button" data-lang="ht">KRE</button>
+   </div>
+   <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false">
+    <i class="fa-solid fa-bars"></i>
+   </button>
+  </div>
+ </div>
+
+ <nav class="container mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+  <a href="#home" data-i18n="navHome">Home</a>
+  <a href="#services" data-i18n="navServices">Services</a>
+  <a href="#ai-center">AI Center</a>
+  <a href="#contact" data-i18n="navContact">Contact</a>
+ </nav>
 </header>
 
-<main>
+<section class="hero" id="home">
+ <div class="hero-glow"></div>
+ <div class="container hero-grid">
+  <div>
+   <div class="hero-location">
+    <i class="fa-solid fa-location-dot orange"></i>
+    Pine Hills, Orlando • Indianapolis • New York
+   </div>
 
-<section class="hero">
-<div class="container">
-<div class="hero-badge" data-i18n="g_badge">USCIS • EOIR • IRS</div>
-<h2 data-i18n="g_title">GOVERNMENT FORMS CENTER</h2>
-<p data-i18n="g_sub">Open official USCIS, EOIR and IRS forms directly from Maximax. Every form has its own PDF button.</p>
-<div class="search-wrap">
-<input id="formSearch" type="search" placeholder="Search I-130, N-400, EOIR-26, 1040, W-9..." data-i18n-placeholder="g_ph" aria-label="Search forms">
-</div>
-<div class="no-results" id="noResults" data-i18n="no_results">No forms found. Try a form number like I-130 or N-400.</div>
-</div>
-</section>
+   <h1 data-i18n="heroTitle">Your Trusted Partner for <em>Life in the USA</em></h1>
 
-<section class="section" id="uscis">
-<div class="container block">
-<div class="section-title">
-<small data-i18n="s_uscis_small">U.S. CITIZENSHIP AND IMMIGRATION SERVICES</small>
-<h3 data-i18n="s_uscis_h">USCIS FORMS</h3>
-</div>
-<div class="forms-grid">
-<div class="form-row" data-search="i-130 uscis immigration petition for alien relative">
-<div class="form-number">I-130</div>
-<div class="form-name" data-i18n="n_I-130">Petition for Alien Relative</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/i-130.pdf" data-fallback="https://www.uscis.gov/sites/default/files/document/forms/i-130.pdf" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf" data-n="I-130">📄 OPEN I-130 PDF</a>
-<a class="form-btn" href="https://www.uscis.gov/i-130" target="_blank" rel="noopener noreferrer" data-i18n="btn_page">🌐 OFFICIAL PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="i-485 uscis immigration application to register permanent residence or adjust status">
-<div class="form-number">I-485</div>
-<div class="form-name" data-i18n="n_I-485">Application to Register Permanent Residence or Adjust Status</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/i-485.pdf" data-fallback="https://www.uscis.gov/sites/default/files/document/forms/i-485.pdf" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf" data-n="I-485">📄 OPEN I-485 PDF</a>
-<a class="form-btn" href="https://www.uscis.gov/i-485" target="_blank" rel="noopener noreferrer" data-i18n="btn_page">🌐 OFFICIAL PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="i-864 uscis immigration affidavit of support under section 213a">
-<div class="form-number">I-864</div>
-<div class="form-name" data-i18n="n_I-864">Affidavit of Support Under Section 213A</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/i-864.pdf" data-fallback="https://www.uscis.gov/sites/default/files/document/forms/i-864.pdf" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf" data-n="I-864">📄 OPEN I-864 PDF</a>
-<a class="form-btn" href="https://www.uscis.gov/i-864" target="_blank" rel="noopener noreferrer" data-i18n="btn_page">🌐 OFFICIAL PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="n-400 uscis immigration application for naturalization">
-<div class="form-number">N-400</div>
-<div class="form-name" data-i18n="n_N-400">Application for Naturalization</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/n-400.pdf" data-fallback="https://www.uscis.gov/sites/default/files/document/forms/n-400.pdf" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf" data-n="N-400">📄 OPEN N-400 PDF</a>
-<a class="form-btn" href="https://www.uscis.gov/n-400" target="_blank" rel="noopener noreferrer" data-i18n="btn_page">🌐 OFFICIAL PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="i-765 uscis immigration application for employment authorization">
-<div class="form-number">I-765</div>
-<div class="form-name" data-i18n="n_I-765">Application for Employment Authorization</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/i-765.pdf" data-fallback="https://www.uscis.gov/sites/default/files/document/forms/i-765.pdf" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf" data-n="I-765">📄 OPEN I-765 PDF</a>
-<a class="form-btn" href="https://www.uscis.gov/i-765" target="_blank" rel="noopener noreferrer" data-i18n="btn_page">🌐 OFFICIAL PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="i-131 uscis immigration application for travel documents">
-<div class="form-number">I-131</div>
-<div class="form-name" data-i18n="n_I-131">Application for Travel Documents</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/i-131.pdf" data-fallback="https://www.uscis.gov/sites/default/files/document/forms/i-131.pdf" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf" data-n="I-131">📄 OPEN I-131 PDF</a>
-<a class="form-btn" href="https://www.uscis.gov/i-131" target="_blank" rel="noopener noreferrer" data-i18n="btn_page">🌐 OFFICIAL PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="i-589 uscis immigration application for asylum and for withholding of removal">
-<div class="form-number">I-589</div>
-<div class="form-name" data-i18n="n_I-589">Application for Asylum and for Withholding of Removal</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/i-589.pdf" data-fallback="https://www.uscis.gov/sites/default/files/document/forms/i-589.pdf" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf" data-n="I-589">📄 OPEN I-589 PDF</a>
-<a class="form-btn" href="https://www.uscis.gov/i-589" target="_blank" rel="noopener noreferrer" data-i18n="btn_page">🌐 OFFICIAL PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="i-90 uscis immigration application to replace permanent resident card">
-<div class="form-number">I-90</div>
-<div class="form-name" data-i18n="n_I-90">Application to Replace Permanent Resident Card</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/i-90.pdf" data-fallback="https://www.uscis.gov/sites/default/files/document/forms/i-90.pdf" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf" data-n="I-90">📄 OPEN I-90 PDF</a>
-<a class="form-btn" href="https://www.uscis.gov/i-90" target="_blank" rel="noopener noreferrer" data-i18n="btn_page">🌐 OFFICIAL PAGE</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="section" id="eoir">
-<div class="container block">
-<div class="section-title">
-<small data-i18n="s_eoir_small">IMMIGRATION COURT • BOARD OF IMMIGRATION APPEALS</small>
-<h3 data-i18n="s_eoir_h">EOIR / BIA FORMS</h3>
-</div>
-<div class="forms-grid">
-<div class="form-row" data-search="eoir-26 eoir bia immigration court notice of appeal from a decision of an immigration judge">
-<div class="form-number">EOIR-26</div>
-<div class="form-name" data-i18n="n_EOIR-26">Notice of Appeal from a Decision of an Immigration Judge</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/eoir-26.pdf" data-fallback="https://www.justice.gov/eoir/file/eoir26" target="_blank" rel="noopener noreferrer" data-i18n="btn_open" data-n="EOIR-26">📄 OPEN EOIR-26</a>
-<a class="form-btn" href="https://www.justice.gov/eoir/eoir-forms" target="_blank" rel="noopener noreferrer" data-i18n="btn_eoir_page">🌐 OFFICIAL EOIR PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="eoir-28 eoir bia immigration court notice of entry of appearance as attorney or representative before the immigration court">
-<div class="form-number">EOIR-28</div>
-<div class="form-name" data-i18n="n_EOIR-28">Notice of Entry of Appearance as Attorney or Representative Before the Immigration Court</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/eoir-28.pdf" data-fallback="https://www.justice.gov/eoir/eoir-forms" target="_blank" rel="noopener noreferrer" data-i18n="btn_open" data-n="EOIR-28">📄 OPEN EOIR-28</a>
-<a class="form-btn" href="https://www.justice.gov/eoir/eoir-forms" target="_blank" rel="noopener noreferrer" data-i18n="btn_eoir_page">🌐 OFFICIAL EOIR PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="eoir-33/ic eoir bia immigration court alien's change of address form — immigration court">
-<div class="form-number">EOIR-33/IC</div>
-<div class="form-name" data-i18n="n_EOIR-33/IC">Alien's Change of Address Form — Immigration Court</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/eoir-33-ic.pdf" data-fallback="https://www.justice.gov/eoir/eoir-forms" target="_blank" rel="noopener noreferrer" data-i18n="btn_open" data-n="EOIR-33/IC">📄 OPEN EOIR-33/IC</a>
-<a class="form-btn" href="https://www.justice.gov/eoir/eoir-forms" target="_blank" rel="noopener noreferrer" data-i18n="btn_eoir_page">🌐 OFFICIAL EOIR PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="eoir-33/bia eoir bia immigration court alien's change of address form — board of immigration appeals">
-<div class="form-number">EOIR-33/BIA</div>
-<div class="form-name" data-i18n="n_EOIR-33/BIA">Alien's Change of Address Form — Board of Immigration Appeals</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/eoir-33-bia.pdf" data-fallback="https://www.justice.gov/eoir/eoir-forms" target="_blank" rel="noopener noreferrer" data-i18n="btn_open" data-n="EOIR-33/BIA">📄 OPEN EOIR-33/BIA</a>
-<a class="form-btn" href="https://www.justice.gov/eoir/eoir-forms" target="_blank" rel="noopener noreferrer" data-i18n="btn_eoir_page">🌐 OFFICIAL EOIR PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="eoir-42a eoir bia immigration court application for cancellation of removal for certain permanent residents">
-<div class="form-number">EOIR-42A</div>
-<div class="form-name" data-i18n="n_EOIR-42A">Application for Cancellation of Removal for Certain Permanent Residents</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/eoir-42a.pdf" data-fallback="https://www.justice.gov/eoir/eoir-forms" target="_blank" rel="noopener noreferrer" data-i18n="btn_open" data-n="EOIR-42A">📄 OPEN EOIR-42A</a>
-<a class="form-btn" href="https://www.justice.gov/eoir/eoir-forms" target="_blank" rel="noopener noreferrer" data-i18n="btn_eoir_page">🌐 OFFICIAL EOIR PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="eoir-42b eoir bia immigration court application for cancellation of removal and adjustment of status for certain nonpermanent residents">
-<div class="form-number">EOIR-42B</div>
-<div class="form-name" data-i18n="n_EOIR-42B">Application for Cancellation of Removal and Adjustment of Status for Certain Nonpermanent Residents</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/eoir-42b.pdf" data-fallback="https://www.justice.gov/eoir/eoir-forms" target="_blank" rel="noopener noreferrer" data-i18n="btn_open" data-n="EOIR-42B">📄 OPEN EOIR-42B</a>
-<a class="form-btn" href="https://www.justice.gov/eoir/eoir-forms" target="_blank" rel="noopener noreferrer" data-i18n="btn_eoir_page">🌐 OFFICIAL EOIR PAGE</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="section" id="irs">
-<div class="container block">
-<div class="section-title">
-<small data-i18n="s_irs_small">INTERNAL REVENUE SERVICE</small>
-<h3 data-i18n="s_irs_h">IRS TAX FORMS</h3>
-</div>
-<div class="forms-grid">
-<div class="form-row" data-search="irs 1040 irs tax u.s. individual income tax return">
-<div class="form-number">IRS 1040</div>
-<div class="form-name" data-i18n="n_IRS 1040">U.S. Individual Income Tax Return</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/irs-1040.pdf" data-fallback="https://www.irs.gov/pub/irs-pdf/f1040.pdf" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf" data-n="IRS 1040">📄 OPEN IRS 1040 PDF</a>
-<a class="form-btn" href="https://www.irs.gov/forms-pubs/about-form-1040" target="_blank" rel="noopener noreferrer" data-i18n="btn_irs_page">🌐 OFFICIAL IRS PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="irs 1040-x irs tax amended u.s. individual income tax return">
-<div class="form-number">IRS 1040-X</div>
-<div class="form-name" data-i18n="n_IRS 1040-X">Amended U.S. Individual Income Tax Return</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/irs-1040-x.pdf" data-fallback="https://www.irs.gov/pub/irs-pdf/f1040x.pdf" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf" data-n="IRS 1040-X">📄 OPEN IRS 1040-X PDF</a>
-<a class="form-btn" href="https://www.irs.gov/forms-pubs/about-form-1040-x" target="_blank" rel="noopener noreferrer" data-i18n="btn_irs_page">🌐 OFFICIAL IRS PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="irs w-4 irs tax employee's withholding certificate">
-<div class="form-number">IRS W-4</div>
-<div class="form-name" data-i18n="n_IRS W-4">Employee's Withholding Certificate</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/irs-w-4.pdf" data-fallback="https://www.irs.gov/pub/irs-pdf/fw4.pdf" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf" data-n="IRS W-4">📄 OPEN IRS W-4 PDF</a>
-<a class="form-btn" href="https://www.irs.gov/forms-pubs/about-form-w4" target="_blank" rel="noopener noreferrer" data-i18n="btn_irs_page">🌐 OFFICIAL IRS PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="irs w-9 irs tax request for taxpayer identification number and certification">
-<div class="form-number">IRS W-9</div>
-<div class="form-name" data-i18n="n_IRS W-9">Request for Taxpayer Identification Number and Certification</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/irs-w-9.pdf" data-fallback="https://www.irs.gov/pub/irs-pdf/fw9.pdf" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf" data-n="IRS W-9">📄 OPEN IRS W-9 PDF</a>
-<a class="form-btn" href="https://www.irs.gov/forms-pubs/about-form-w9" target="_blank" rel="noopener noreferrer" data-i18n="btn_irs_page">🌐 OFFICIAL IRS PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="irs w-7 irs tax application for irs individual taxpayer identification number (itin)">
-<div class="form-number">IRS W-7</div>
-<div class="form-name" data-i18n="n_IRS W-7">Application for IRS Individual Taxpayer Identification Number (ITIN)</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/irs-w-7.pdf" data-fallback="https://www.irs.gov/pub/irs-pdf/fw7.pdf" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf" data-n="IRS W-7">📄 OPEN IRS W-7 PDF</a>
-<a class="form-btn" href="https://www.irs.gov/forms-pubs/about-form-w7" target="_blank" rel="noopener noreferrer" data-i18n="btn_irs_page">🌐 OFFICIAL IRS PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="irs ss-4 irs tax application for employer identification number (ein)">
-<div class="form-number">IRS SS-4</div>
-<div class="form-name" data-i18n="n_IRS SS-4">Application for Employer Identification Number (EIN)</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/irs-ss-4.pdf" data-fallback="https://www.irs.gov/pub/irs-pdf/fss4.pdf" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf" data-n="IRS SS-4">📄 OPEN IRS SS-4 PDF</a>
-<a class="form-btn" href="https://www.irs.gov/forms-pubs/about-form-ss4" target="_blank" rel="noopener noreferrer" data-i18n="btn_irs_page">🌐 OFFICIAL IRS PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="irs 2848 irs tax power of attorney and declaration of representative">
-<div class="form-number">IRS 2848</div>
-<div class="form-name" data-i18n="n_IRS 2848">Power of Attorney and Declaration of Representative</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/irs-2848.pdf" data-fallback="https://www.irs.gov/pub/irs-pdf/f2848.pdf" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf" data-n="IRS 2848">📄 OPEN IRS 2848 PDF</a>
-<a class="form-btn" href="https://www.irs.gov/forms-pubs/about-form-2848" target="_blank" rel="noopener noreferrer" data-i18n="btn_irs_page">🌐 OFFICIAL IRS PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="irs 8821 irs tax tax information authorization">
-<div class="form-number">IRS 8821</div>
-<div class="form-name" data-i18n="n_IRS 8821">Tax Information Authorization</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/irs-8821.pdf" data-fallback="https://www.irs.gov/pub/irs-pdf/f8821.pdf" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf" data-n="IRS 8821">📄 OPEN IRS 8821 PDF</a>
-<a class="form-btn" href="https://www.irs.gov/forms-pubs/about-form-8821" target="_blank" rel="noopener noreferrer" data-i18n="btn_irs_page">🌐 OFFICIAL IRS PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="irs 4506-t irs tax request for transcript of tax return">
-<div class="form-number">IRS 4506-T</div>
-<div class="form-name" data-i18n="n_IRS 4506-T">Request for Transcript of Tax Return</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/irs-4506-t.pdf" data-fallback="https://www.irs.gov/pub/irs-pdf/f4506t.pdf" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf" data-n="IRS 4506-T">📄 OPEN IRS 4506-T PDF</a>
-<a class="form-btn" href="https://www.irs.gov/forms-pubs/about-form-4506-t" target="_blank" rel="noopener noreferrer" data-i18n="btn_irs_page">🌐 OFFICIAL IRS PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="irs 4868 irs tax application for automatic extension of time to file">
-<div class="form-number">IRS 4868</div>
-<div class="form-name" data-i18n="n_IRS 4868">Application for Automatic Extension of Time To File</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/irs-4868.pdf" data-fallback="https://www.irs.gov/pub/irs-pdf/f4868.pdf" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf" data-n="IRS 4868">📄 OPEN IRS 4868 PDF</a>
-<a class="form-btn" href="https://www.irs.gov/forms-pubs/about-form-4868" target="_blank" rel="noopener noreferrer" data-i18n="btn_irs_page">🌐 OFFICIAL IRS PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="irs 8822 irs tax change of address">
-<div class="form-number">IRS 8822</div>
-<div class="form-name" data-i18n="n_IRS 8822">Change of Address</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/irs-8822.pdf" data-fallback="https://www.irs.gov/pub/irs-pdf/f8822.pdf" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf" data-n="IRS 8822">📄 OPEN IRS 8822 PDF</a>
-<a class="form-btn" href="https://www.irs.gov/forms-pubs/about-form-8822" target="_blank" rel="noopener noreferrer" data-i18n="btn_irs_page">🌐 OFFICIAL IRS PAGE</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="section" id="federal-register">
-<div class="container block">
-<div class="section-title">
-<small data-i18n="fr_small">NOTES • UPDATES</small>
-<h3 data-i18n="fr_h">FEDERAL REGISTER — NOTES & UPDATES</h3>
-</div>
-<p class="sec-p" data-i18n="fr_p">Latest official notices and rules from the Federal Register. Always confirm the current rules on the official source before filing.</p>
-<div class="fr-tabs notranslate" translate="no">
-<button type="button" class="fr-tab active" data-agency="uscis" data-i18n="fr_tab_uscis">USCIS</button>
-<button type="button" class="fr-tab" data-agency="eoir" data-i18n="fr_tab_eoir">EOIR</button>
-<button type="button" class="fr-tab" data-agency="irs" data-i18n="fr_tab_irs">IRS</button>
-<button type="button" class="fr-tab" data-agency="state" data-i18n="fr_tab_state">STATE DEPT</button>
-</div>
-<div class="fr-box">
-<div class="fr-label" data-i18n="fr_live">LATEST FROM THE FEDERAL REGISTER</div>
-<div id="frList" class="fr-list" aria-live="polite"></div>
-<a class="form-btn primary fr-open" id="frOpen" href="https://www.federalregister.gov/" target="_blank" rel="noopener noreferrer" data-i18n="fr_all">🌐 OPEN FEDERAL REGISTER</a>
-</div>
-<div class="fr-box">
-<div class="fr-label" data-i18n="fr_notes">MAXIMAX NOTES & UPDATES</div>
-<div id="frNotes" class="fr-list"></div>
-</div>
-</div>
-</section>
-<section class="section" id="passports">
-<div class="container block">
-<div class="section-title">
-<small data-i18n="p_small">U.S. PASSPORT • HAITI</small>
-<h3 data-i18n="p_h">PASSPORT SERVICES — US + HAITI</h3>
-</div>
-<p class="sec-p" data-i18n="p_p">Official U.S. passport forms with direct PDF access, plus support for Haitian passport documents.</p>
-<div class="forms-grid">
-<div class="form-row" data-search="ds-11 passport us application for a u.s. passport">
-<div class="form-number">DS-11</div>
-<div class="form-name" data-i18n="n_DS-11">Application for a U.S. Passport</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/ds-11.pdf" data-fallback="https://eforms.state.gov/Forms/ds11.pdf" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf" data-n="DS-11">📄 OPEN DS-11 PDF</a>
-<a class="form-btn" href="https://travel.state.gov/content/travel/en/passports.html" target="_blank" rel="noopener noreferrer" data-i18n="btn_page">🌐 OFFICIAL PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="ds-82 passport us u.s. passport renewal application for eligible individuals">
-<div class="form-number">DS-82</div>
-<div class="form-name" data-i18n="n_DS-82">U.S. Passport Renewal Application for Eligible Individuals</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/ds-82.pdf" data-fallback="https://eforms.state.gov/Forms/ds82.pdf" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf" data-n="DS-82">📄 OPEN DS-82 PDF</a>
-<a class="form-btn" href="https://travel.state.gov/content/travel/en/passports.html" target="_blank" rel="noopener noreferrer" data-i18n="btn_page">🌐 OFFICIAL PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="ds-5504 passport us application for a u.s. passport: name change, data correction and limited passport replacement">
-<div class="form-number">DS-5504</div>
-<div class="form-name" data-i18n="n_DS-5504">Application for a U.S. Passport: Name Change, Data Correction and Limited Passport Replacement</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/ds-5504.pdf" data-fallback="https://eforms.state.gov/Forms/ds5504.pdf" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf" data-n="DS-5504">📄 OPEN DS-5504 PDF</a>
-<a class="form-btn" href="https://travel.state.gov/content/travel/en/passports.html" target="_blank" rel="noopener noreferrer" data-i18n="btn_page">🌐 OFFICIAL PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="ds-64 passport us statement regarding a lost or stolen u.s. passport">
-<div class="form-number">DS-64</div>
-<div class="form-name" data-i18n="n_DS-64">Statement Regarding a Lost or Stolen U.S. Passport</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/ds-64.pdf" data-fallback="https://eforms.state.gov/Forms/ds64.pdf" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf" data-n="DS-64">📄 OPEN DS-64 PDF</a>
-<a class="form-btn" href="https://travel.state.gov/content/travel/en/passports.html" target="_blank" rel="noopener noreferrer" data-i18n="btn_page">🌐 OFFICIAL PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="ds-3053 passport us statement of consent: issuance of a passport to a minor under age 16">
-<div class="form-number">DS-3053</div>
-<div class="form-name" data-i18n="n_DS-3053">Statement of Consent: Issuance of a Passport to a Minor Under Age 16</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/ds-3053.pdf" data-fallback="https://eforms.state.gov/Forms/ds3053.pdf" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf" data-n="DS-3053">📄 OPEN DS-3053 PDF</a>
-<a class="form-btn" href="https://travel.state.gov/content/travel/en/passports.html" target="_blank" rel="noopener noreferrer" data-i18n="btn_page">🌐 OFFICIAL PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="haitian passport haiti passeport ayiti paspò ayisyen">
-<div class="form-number" data-i18n="p_ht_t">Haitian Passport</div>
-<div class="form-name" data-i18n="p_ht_d">Document preparation support for Haitian passport applications. Requirements and forms are issued by the Haitian consulate, so confirm them with the consulate before filing.</div>
-<div class="form-actions">
-<a class="form-btn primary" href="./appointment-center.html" data-i18n="p_ht_b1">📅 BOOK HELP</a>
-<a class="form-btn" href="./contact-center.html" data-i18n="p_ht_b2">☎️ CONTACT CENTER</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="section" id="dmv">
-<div class="container block">
-<div class="section-title">
-<small data-i18n="d_small">FLORIDA • FLHSMV</small>
-<h3 data-i18n="d_h">DMV SERVICES</h3>
-</div>
-<p class="sec-p" data-i18n="d_p">Quick access to the official Florida DMV (FLHSMV) for licenses, IDs, vehicle titles and forms.</p>
-<div class="forms-grid">
-<div class="form-row" data-search="dmv florida flhsmv driver license & id cards">
-<div class="form-number" data-i18n="d_dl_t">Driver License & ID Cards</div>
-<div class="form-name" data-i18n="d_dl_d">Apply for, renew or replace a driver license or ID card.</div>
-<div class="form-actions single">
-<a class="form-btn primary" href="https://www.flhsmv.gov/driver-licenses-id-cards/" target="_blank" rel="noopener noreferrer" data-i18n="btn_official">🌐 OPEN OFFICIAL SITE</a>
-</div>
-</div>
-<div class="form-row" data-search="dmv florida flhsmv vehicle title & registration">
-<div class="form-number" data-i18n="d_v_t">Vehicle Title & Registration</div>
-<div class="form-name" data-i18n="d_v_d">Titles, tags, registration and transfers.</div>
-<div class="form-actions single">
-<a class="form-btn primary" href="https://www.flhsmv.gov/motor-vehicles-tags-titles/" target="_blank" rel="noopener noreferrer" data-i18n="btn_official">🌐 OPEN OFFICIAL SITE</a>
-</div>
-</div>
-<div class="form-row" data-search="dmv florida flhsmv dmv official forms">
-<div class="form-number" data-i18n="d_f_t">DMV Official Forms</div>
-<div class="form-name" data-i18n="d_f_d">Download official FLHSMV forms.</div>
-<div class="form-actions single">
-<a class="form-btn primary" href="https://www.flhsmv.gov/resources/forms/" target="_blank" rel="noopener noreferrer" data-i18n="btn_official">🌐 OPEN OFFICIAL SITE</a>
-</div>
-</div>
-<div class="form-row" data-search="dmv florida flhsmv flhsmv home">
-<div class="form-number" data-i18n="d_h_t">FLHSMV Home</div>
-<div class="form-name" data-i18n="d_h_d">Official Florida DMV website.</div>
-<div class="form-actions single">
-<a class="form-btn primary" href="https://www.flhsmv.gov/" target="_blank" rel="noopener noreferrer" data-i18n="btn_official">🌐 OPEN OFFICIAL SITE</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="section" id="ssa">
-<div class="container block">
-<div class="section-title">
-<small data-i18n="ssa_small">SOCIAL SECURITY ADMINISTRATION</small>
-<h3 data-i18n="ssa_h">SSA.GOV — SOCIAL SECURITY</h3>
-</div>
-<p class="sec-p" data-i18n="ssa_p">Social Security card application, benefits and your online account — official SSA resources.</p>
-<div class="forms-grid">
-<div class="form-row" data-search="ss-5 ssa social security card application for a social security card">
-<div class="form-number">SS-5</div>
-<div class="form-name" data-i18n="n_SS-5">Application for a Social Security Card</div>
-<div class="form-actions">
-<a class="form-btn primary" href="../forms/ss-5.pdf" data-fallback="https://www.ssa.gov/forms/ss-5.pdf" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf" data-n="SS-5">📄 OPEN SS-5 PDF</a>
-<a class="form-btn" href="https://www.ssa.gov/number-card" target="_blank" rel="noopener noreferrer" data-i18n="btn_page">🌐 OFFICIAL PAGE</a>
-</div>
-</div>
-<div class="form-row" data-search="ssa social security my social security account">
-<div class="form-number" data-i18n="ssa_acct_t">my Social Security Account</div>
-<div class="form-name" data-i18n="ssa_acct_d">Create or sign in to your online SSA account.</div>
-<div class="form-actions single">
-<a class="form-btn primary" href="https://www.ssa.gov/myaccount/" target="_blank" rel="noopener noreferrer" data-i18n="btn_official">🌐 OPEN OFFICIAL SITE</a>
-</div>
-</div>
-<div class="form-row" data-search="ssa social security benefits">
-<div class="form-number" data-i18n="ssa_ben_t">Benefits</div>
-<div class="form-name" data-i18n="ssa_ben_d">Retirement, disability, survivor and Medicare information.</div>
-<div class="form-actions single">
-<a class="form-btn primary" href="https://www.ssa.gov/benefits/" target="_blank" rel="noopener noreferrer" data-i18n="btn_official">🌐 OPEN OFFICIAL SITE</a>
-</div>
-</div>
-<div class="form-row" data-search="ssa social security find a social security office">
-<div class="form-number" data-i18n="ssa_loc_t">Find a Social Security Office</div>
-<div class="form-name" data-i18n="ssa_loc_d">Locate your nearest office.</div>
-<div class="form-actions single">
-<a class="form-btn primary" href="https://www.ssa.gov/locator/" target="_blank" rel="noopener noreferrer" data-i18n="btn_official">🌐 OPEN OFFICIAL SITE</a>
-</div>
-</div>
-<div class="form-row" data-search="ssa social security ssa.gov home">
-<div class="form-number" data-i18n="ssa_home_t">SSA.gov Home</div>
-<div class="form-name" data-i18n="ssa_home_d">Official Social Security website.</div>
-<div class="form-actions single">
-<a class="form-btn primary" href="https://www.ssa.gov/" target="_blank" rel="noopener noreferrer" data-i18n="btn_official">🌐 OPEN OFFICIAL SITE</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="section" id="unemployment">
-<div class="container block">
-<div class="section-title">
-<small data-i18n="job_small">FLORIDA • FLORIDACOMMERCE</small>
-<h3 data-i18n="job_h">REEMPLOYMENT ASSISTANCE (UNEMPLOYMENT)</h3>
-</div>
-<p class="sec-p" data-i18n="job_p">Official Florida reemployment assistance resources. Eligibility and claim steps are set by the state.</p>
-<div class="forms-grid">
-<div class="form-row" data-search="unemployment reemployment florida reemployment assistance center">
-<div class="form-number" data-i18n="job_c_t">Reemployment Assistance Center</div>
-<div class="form-name" data-i18n="job_c_d">Eligibility, claim steps and FAQs.</div>
-<div class="form-actions single">
-<a class="form-btn primary" href="https://floridajobs.org/reemployment-assistance-center" target="_blank" rel="noopener noreferrer" data-i18n="btn_official">🌐 OPEN OFFICIAL SITE</a>
-</div>
-</div>
-<div class="form-row" data-search="unemployment reemployment florida claim file or manage a claim (connect)">
-<div class="form-number" data-i18n="job_k_t">File or Manage a Claim (CONNECT)</div>
-<div class="form-name" data-i18n="job_k_d">Florida's official claims system.</div>
-<div class="form-actions single">
-<a class="form-btn primary" href="https://connect.myflorida.com/" target="_blank" rel="noopener noreferrer" data-i18n="btn_official">🌐 OPEN OFFICIAL SITE</a>
-</div>
-</div>
-<div class="form-row" data-search="unemployment florida jobs employ florida — job search">
-<div class="form-number" data-i18n="job_e_t">Employ Florida — Job Search</div>
-<div class="form-name" data-i18n="job_e_d">Search jobs and register for work.</div>
-<div class="form-actions single">
-<a class="form-btn primary" href="https://www.employflorida.com/" target="_blank" rel="noopener noreferrer" data-i18n="btn_official">🌐 OPEN OFFICIAL SITE</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="section" id="resume">
-<div class="container block">
-<div class="section-title">
-<small data-i18n="res_small">CAREER • RESUME</small>
-<h3 data-i18n="res_h">RESUME HELP</h3>
-</div>
-<p class="sec-p" data-i18n="res_p">Build a strong resume and keep track of your job search.</p>
-<div class="forms-grid">
-<div class="form-row" data-search="resume florida jobs employ florida resume tools">
-<div class="form-number" data-i18n="res_e_t">Employ Florida Resume Tools</div>
-<div class="form-name" data-i18n="res_e_d">Build and post a resume for Florida employers.</div>
-<div class="form-actions single">
-<a class="form-btn primary" href="https://www.employflorida.com/" target="_blank" rel="noopener noreferrer" data-i18n="btn_official">🌐 OPEN OFFICIAL SITE</a>
-</div>
-</div>
-<div class="form-row" data-search="resume career careeronestop resume guide">
-<div class="form-number" data-i18n="res_o_t">CareerOneStop Resume Guide</div>
-<div class="form-name" data-i18n="res_o_d">Free resume guidance from the U.S. Department of Labor.</div>
-<div class="form-actions single">
-<a class="form-btn primary" href="https://www.careeronestop.org/JobSearch/Resumes/resumes.aspx" target="_blank" rel="noopener noreferrer" data-i18n="btn_official">🌐 OPEN OFFICIAL SITE</a>
-</div>
-</div>
-<div class="form-row" data-search="resume maximax maximax resume help">
-<div class="form-number" data-i18n="res_m_t">Maximax Resume Help</div>
-<div class="form-name" data-i18n="res_m_d">Book help preparing your resume.</div>
-<div class="form-actions single">
-<a class="form-btn primary" href="./appointment-center.html" data-i18n="btn_open_page">➜ OPEN</a>
-</div>
-</div>
-<div class="form-row" data-search="resume career tracker career tracker">
-<div class="form-number" data-i18n="res_c_t">Career Tracker</div>
-<div class="form-name" data-i18n="res_c_d">Organize your job applications.</div>
-<div class="form-actions single">
-<a class="form-btn primary" href="./career-tracker.html" data-i18n="btn_open_page">➜ OPEN</a>
-</div>
-</div>
-</div>
-</div>
+   <p class="hero-description" data-i18n="heroDescription">
+    Maximax Multi Services — Notary, Taxes, Immigration, EOIR + BIA,
+    Insurance, Real Estate, Business Formation and more.
+    All your essential services under one roof.
+   </p>
+
+   <div class="hero-checks">
+    <span><i class="fa-solid fa-circle-check"></i> <span data-i18n="professional">Professional</span></span>
+    <span><i class="fa-solid fa-circle-check"></i> <span data-i18n="responsive">Responsive</span></span>
+    <span><i class="fa-solid fa-circle-check"></i> <span data-i18n="confidential">Confidential</span></span>
+    <span><i class="fa-solid fa-circle-check"></i> <span data-i18n="multilingual">Multilingual</span></span>
+   </div>
+
+   <p style="font-size:13px;color:var(--apricot)" data-i18n="languages">
+    Nou pale Kreyòl, English, Español.
+   </p>
+
+   <div class="hero-buttons">
+    <a href="https://wa.me/14076405166?text=Hello%20MAXIMAX%2C%20I%20would%20like%20an%20appointment." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+     <i class="fa-solid fa-calendar-check"></i>
+     <span data-i18n="book">Book Appointment</span>
+    </a>
+    <a href="#services" class="btn btn-outline">
+     <i class="fa-solid fa-arrow-right"></i>
+     <span data-i18n="explore">Explore Services</span>
+    </a>
+   </div>
+  </div>
+
+  <div class="hero-media">
+   <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="./maxmax-multiservice.jpg">
+    <source src="./maxima-xbest.mp4" type="video/mp4">
+   </video>
+   <div class="media-fallback" id="heroFallback">
+    <img src="./maxmax-multiservice.jpg" alt="MAXIMAX logo">
+    <strong>MAXIMAX MULTI SERVICES</strong>
+   </div>
+   <div class="media-caption">MAXIMAX • PREMIUM BUSINESS SERVICES</div>
+  </div>
+ </div>
+
+ <div class="container">
+  <div class="trust-strip">
+   <div class="trust-item">
+    <i class="fa-solid fa-building"></i>
+    <div><strong>9</strong><span data-i18n="departments">Service Departments</span></div>
+   </div>
+   <div class="trust-item">
+    <i class="fa-solid fa-language"></i>
+    <div><strong>3</strong><span data-i18n="languageCount">Languages</span></div>
+   </div>
+   <div class="trust-item">
+    <i class="fa-solid fa-robot"></i>
+    <div><strong>AI</strong><span data-i18n="assistant">Assistant Center</span></div>
+   </div>
+   <div class="trust-item">
+    <i class="fa-solid fa-headset"></i>
+    <div><strong>USA</strong><span data-i18n="contactSupport">Contact & Support</span></div>
+   </div>
+  </div>
+ </div>
 </section>
 
-<div class="container">
-<div class="notice"><strong data-i18n="notice_label">IMPORTANT:</strong> <span data-i18n="notice_text">Maximax Multi Services provides access to government forms and document-preparation services. Government agencies can change form editions, filing instructions, fees and eligibility requirements. Always verify the current edition and instructions on the official USCIS or EOIR website before filing.</span></div>
-</div>
+<section class="services-section" id="services">
+ <div class="container">
+  <div class="section-title">
+   <span class="kicker">MAXIMAX MULTI SERVICES</span>
+   <h2 data-i18n="servicesTitle">Our <span class="orange">9</span> Service Departments</h2>
+   <p data-i18n="servicesSubtitle">Explore the services available through MAXIMAX.</p>
+  </div>
 
-</main>
+  <div class="services-grid" id="servicesGrid"></div>
+ </div>
+</section>
+
+<section class="ai-section" id="ai-center">
+ <div class="container">
+  <div class="ai-box">
+   <div>
+    <span class="kicker"><i class="fa-solid fa-robot"></i> MAXIMAX AI CENTER</span>
+    <h2 data-i18n="aiTitle">Maximax <span class="orange">AI Assistant Center</span></h2>
+    <p data-i18n="aiDescription">
+     Discover our digital assistance services for immigration forms,
+     case information, translations and general service questions.
+    </p>
+
+    <div class="ai-points">
+     <div class="ai-point"><i class="fa-solid fa-file-lines"></i> <span data-i18n="formHelper">Form Helper</span></div>
+     <div class="ai-point"><i class="fa-solid fa-magnifying-glass"></i> <span data-i18n="caseTracker">Case Information</span></div>
+     <div class="ai-point"><i class="fa-solid fa-language"></i> <span data-i18n="translation">Translation</span></div>
+     <div class="ai-point"><i class="fa-solid fa-comments"></i> <span data-i18n="chatHelp">Customer Support</span></div>
+    </div>
+
+    <a href="https://wa.me/14076405166?text=Hello%20MAXIMAX%2C%20I%20need%20help%20with%20AI%20Center." class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+     <i class="fa-brands fa-whatsapp"></i>
+     <span data-i18n="aiContact">Ask About AI Center</span>
+    </a>
+   </div>
+
+   <div class="ai-preview">
+    <div class="ai-preview-head">
+     <span><i class="fa-solid fa-robot orange"></i> MAXIMAX AI</span>
+     <span data-i18n="demoLabel">INFORMATION PREVIEW</span>
+    </div>
+
+    <div class="ai-bubble ai-user" data-i18n="sampleQuestion">
+     How can I check my immigration court date?
+    </div>
+
+    <div class="ai-bubble ai-answer" data-i18n="sampleAnswer">
+     You can check the official EOIR Automated Case Information system
+     or call 1-800-898-7180. Always confirm details with EOIR.
+    </div>
+
+    <p class="ai-demo-note" data-i18n="demoNotice">
+     This is an informational preview, not a connected live AI chatbot.
+    </p>
+
+    <div class="ai-actions">
+     <a class="btn btn-outline" href="https://acis.eoir.justice.gov/en/" target="_blank" rel="noopener noreferrer">
+      <i class="fa-solid fa-arrow-up-right-from-square"></i> EOIR
+     </a>
+     <a class="btn btn-outline" href="https://egov.uscis.gov/" target="_blank" rel="noopener noreferrer">
+      <i class="fa-solid fa-arrow-up-right-from-square"></i> USCIS
+     </a>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="contact-section" id="contact">
+ <div class="container">
+  <div class="section-title">
+   <span class="kicker">MAXIMAX CUSTOMER SERVICE</span>
+   <h2 data-i18n="contactTitle">Contact <span class="orange">Our Team</span></h2>
+   <p data-i18n="contactSubtitle">Get in touch with MAXIMAX MULTI SERVICES.</p>
+  </div>
+
+  <div class="contact-grid">
+   <div class="contact-card">
+    <i class="fa-solid fa-phone-volume"></i>
+    <h3 data-i18n="phone">Telephone</h3>
+    <a href="tel:+14076405166">(407) 640-5166</a>
+    <a href="tel:+15162168494">(516) 216-8494</a>
+    <a href="tel:+13175381150">(317) 538-1150</a>
+   </div>
+
+   <div class="contact-card">
+    <i class="fa-solid fa-envelope"></i>
+    <h3>Email</h3>
+    <a href="mailto:maximaxmultiservices@gmail.com">maximaxmultiservices@gmail.com</a>
+   </div>
+
+   <div class="contact-card">
+    <i class="fa-solid fa-location-dot"></i>
+    <h3 data-i18n="locations">Locations</h3>
+    <p>
+     Pine Hills, Orlando, FL<br>
+     Indianapolis, IN<br>
+     Hempstead, NY 11550
+    </p>
+   </div>
+  </div>
+
+  <div class="contact-buttons">
+   <a class="btn btn-primary" href="https://wa.me/14076405166" target="_blank" rel="noopener noreferrer">
+    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+   </a>
+   <a class="btn btn-outline" href="tel:+14076405166">
+    <i class="fa-solid fa-phone"></i>
+    <span data-i18n="callNow">Call Now</span>
+   </a>
+   <a class="btn btn-outline" href="mailto:maximaxmultiservices@gmail.com">
+    <i class="fa-solid fa-envelope"></i> Email
+   </a>
+  </div>
+ </div>
+</section>
+
+<section class="social-section">
+ <div class="container">
+  <div class="section-title">
+   <h2 data-i18n="socialTitle">Connect With <span class="orange">MAXIMAX</span></h2>
+  </div>
+  <div class="social-grid">
+   <a class="social-link" href="https://wa.me/14076405166" target="_blank" rel="noopener noreferrer">
+    <i class="fa-brands fa-whatsapp" style="color:#25d366"></i> WhatsApp
+   </a>
+   <span class="social-link disabled"><i class="fa-brands fa-facebook" style="color:#1877f2"></i> Facebook</span>
+   <span class="social-link disabled"><i class="fa-brands fa-instagram" style="color:#e4405f"></i> Instagram</span>
+   <span class="social-link disabled"><i class="fa-brands fa-tiktok"></i> TikTok</span>
+   <span class="social-link disabled"><i class="fa-brands fa-x-twitter"></i> X</span>
+   <span class="social-link disabled"><i class="fa-brands fa-youtube" style="color:#ff0000"></i> YouTube</span>
+   <span class="social-link disabled"><i class="fa-brands fa-linkedin" style="color:#0a66c2"></i> LinkedIn</span>
+   <span class="social-link disabled"><i class="fa-brands fa-spotify" style="color:#1db954"></i> Spotify</span>
+   <span class="social-link disabled"><i class="fa-solid fa-t"></i> Truth Social</span>
+  </div>
+ </div>
+</section>
 
 <footer>
-<strong>MAXIMAX MULTI SERVICES</strong>
-<p data-i18n="part_of">PART OF BSS1815 PRO-MAX DMP</p>
-<p>bss1815promaxdmp@gmail.com</p>
-<p>(407) 640-5166 • (317) 538-1150 • (516) 216-8494</p>
-<p>© <span id="year"></span> MAXIMAX MULTI SERVICES</p>
-<p style="opacity:.55">FORMS CENTER VERSION 2026.09.19-C</p>
+ <img src="./maxmax-multiservice.jpg" alt="MAXIMAX logo">
+ <div><strong>MAXIMAX MULTI SERVICES</strong></div>
+ <div>EST 2020 • <span id="copyrightYear"></span></div>
+ <div class="footer-services">
+  NOTARY • TAXES • IMMIGRATION • EOIR + BIA • INSURANCE • REAL ESTATE • BUSINESS • APOSTILLE • TRAVEL + DMV
+ </div>
+ <div data-i18n="footerLine">Your Trusted Partner for Life in the USA</div>
 </footer>
 
 <script>
-(function(){
 "use strict";
-var I18N = {"en": {"topbar": "MAXIMAX MULTI SERVICES • IMMIGRATION SERVICE CENTER", "part_of": "PART OF BSS1815 PRO-MAX DMP", "nav_home": "HOME", "nav_imm": "IMMIGRATION FORMS", "nav_eoir": "EOIR / BIA FORMS", "nav_gov": "GOVERNMENT FORMS CENTER", "nav_contact": "CONTACT CENTER", "ph_search": "Search I-130, I-485, I-765, N-400, I-589, EOIR...", "no_results": "No forms found. Try a form number like I-130 or N-400.", "uscis_small": "USCIS OFFICIAL FORMS", "lbl_forms": "OFFICIAL USCIS FORMS", "lbl_form": "OFFICIAL USCIS FORM", "btn_pdf": "📄 OPEN {n} PDF", "btn_page": "🌐 OFFICIAL PAGE", "btn_uscis_page": "🌐 USCIS PAGE", "btn_open": "📄 OPEN {n}", "btn_open_eoir": "📄 OPEN {n} (EOIR FORMS PAGE)", "btn_eoir_page": "🌐 OFFICIAL EOIR PAGE", "btn_all_eoir": "🌐 OPEN ALL EOIR FORMS", "btn_all_uscis": "🌐 OPEN ALL USCIS FORMS", "eoir_small": "U.S. DEPARTMENT OF JUSTICE", "eoir_h3": "EOIR / IMMIGRATION COURT FORMS", "eoir_h4": "⚖️ OFFICIAL EOIR FORMS", "eoir_p": "Immigration Court and Board of Immigration Appeals forms. Use the official EOIR source to obtain the current government-issued form.", "notice_label": "IMPORTANT:", "notice_text": "Maximax Multi Services provides access to government forms and document-preparation services. Government agencies can change form editions, filing instructions, fees and eligibility requirements. Always verify the current edition and instructions on the official USCIS or EOIR website before filing.", "n_I-130": "Petition for Alien Relative", "n_I-485": "Application to Register Permanent Residence or Adjust Status", "n_I-864": "Affidavit of Support Under Section 213A", "n_N-400": "Application for Naturalization", "n_I-765": "Application for Employment Authorization", "n_I-131": "Application for Travel Documents", "n_I-589": "Application for Asylum and for Withholding of Removal", "n_I-90": "Application to Replace Permanent Resident Card", "n_EOIR-26": "Notice of Appeal from a Decision of an Immigration Judge", "n_EOIR-28": "Notice of Entry of Appearance as Attorney or Representative Before the Immigration Court", "n_EOIR-33/IC": "Alien's Change of Address Form — Immigration Court", "n_EOIR-33/BIA": "Alien's Change of Address Form — Board of Immigration Appeals", "n_EOIR-42A": "Application for Cancellation of Removal for Certain Permanent Residents", "n_EOIR-42B": "Application for Cancellation of Removal and Adjustment of Status for Certain Nonpermanent Residents", "g_topbar": "MAXIMAX MULTI SERVICES • GOVERNMENT FORMS CENTER", "g_badge": "USCIS • EOIR • IRS", "g_title": "GOVERNMENT FORMS CENTER", "g_sub": "Open official USCIS, EOIR and IRS forms directly from Maximax. Every form has its own PDF button.", "g_ph": "Search I-130, N-400, EOIR-26, 1040, W-9...", "nav_imm_services": "IMMIGRATION SERVICES", "s_uscis_small": "U.S. CITIZENSHIP AND IMMIGRATION SERVICES", "s_uscis_h": "USCIS FORMS", "s_eoir_small": "IMMIGRATION COURT • BOARD OF IMMIGRATION APPEALS", "s_eoir_h": "EOIR / BIA FORMS", "s_irs_small": "INTERNAL REVENUE SERVICE", "s_irs_h": "IRS TAX FORMS", "btn_irs_page": "🌐 OFFICIAL IRS PAGE", "g_home": "HOME", "g_contact": "CONTACT CENTER", "n_IRS 1040": "U.S. Individual Income Tax Return", "n_IRS 1040-X": "Amended U.S. Individual Income Tax Return", "n_IRS W-4": "Employee's Withholding Certificate", "n_IRS W-9": "Request for Taxpayer Identification Number and Certification", "n_IRS W-7": "Application for IRS Individual Taxpayer Identification Number (ITIN)", "n_IRS SS-4": "Application for Employer Identification Number (EIN)", "n_IRS 2848": "Power of Attorney and Declaration of Representative", "n_IRS 8821": "Tax Information Authorization", "n_IRS 4506-T": "Request for Transcript of Tax Return", "n_IRS 4868": "Application for Automatic Extension of Time To File", "n_IRS 8822": "Change of Address", "nav_fr": "FEDERAL REGISTER", "nav_pass": "PASSPORTS", "nav_dmv": "DMV", "fr_small": "NOTES • UPDATES", "fr_h": "FEDERAL REGISTER — NOTES & UPDATES", "fr_p": "Latest official notices and rules from the Federal Register. Always confirm the current rules on the official source before filing.", "fr_live": "LATEST FROM THE FEDERAL REGISTER", "fr_loading": "Loading latest notices…", "fr_error": "Could not load the live feed right now. Open the Federal Register directly:", "fr_empty": "No recent documents found.", "fr_open": "OPEN FEDERAL REGISTER", "fr_all": "🌐 OPEN FEDERAL REGISTER", "fr_notes": "MAXIMAX NOTES & UPDATES", "fr_tab_uscis": "USCIS", "fr_tab_eoir": "EOIR", "fr_tab_irs": "IRS", "fr_tab_state": "STATE DEPT", "p_small": "U.S. PASSPORT • HAITI", "p_h": "PASSPORT SERVICES — US + HAITI", "p_p": "Official U.S. passport forms with direct PDF access, plus support for Haitian passport documents.", "n_DS-11": "Application for a U.S. Passport", "n_DS-82": "U.S. Passport Renewal Application for Eligible Individuals", "n_DS-5504": "Application for a U.S. Passport: Name Change, Data Correction and Limited Passport Replacement", "n_DS-64": "Statement Regarding a Lost or Stolen U.S. Passport", "n_DS-3053": "Statement of Consent: Issuance of a Passport to a Minor Under Age 16", "p_ht_t": "Haitian Passport", "p_ht_d": "Document preparation support for Haitian passport applications. Requirements and forms are issued by the Haitian consulate, so confirm them with the consulate before filing.", "p_ht_b1": "📅 BOOK HELP", "p_ht_b2": "☎️ CONTACT CENTER", "d_small": "FLORIDA • FLHSMV", "d_h": "DMV SERVICES", "d_p": "Quick access to the official Florida DMV (FLHSMV) for licenses, IDs, vehicle titles and forms.", "btn_official": "🌐 OPEN OFFICIAL SITE", "d_dl_t": "Driver License & ID Cards", "d_dl_d": "Apply for, renew or replace a driver license or ID card.", "d_v_t": "Vehicle Title & Registration", "d_v_d": "Titles, tags, registration and transfers.", "d_f_t": "DMV Official Forms", "d_f_d": "Download official FLHSMV forms.", "d_h_t": "FLHSMV Home", "d_h_d": "Official Florida DMV website.", "fr_note_1": "Forms Center updated: Federal Register feed, Passport (US + Haiti) and DMV sections added.", "fr_note_2": "Government agencies can change form editions, fees and instructions at any time. Verify before filing.", "nav_ssa": "SSA", "nav_jobs": "UNEMPLOYMENT", "nav_resume": "RESUME", "nav_travel": "TRAVEL", "nav_forms": "FORMS CENTER", "ssa_small": "SOCIAL SECURITY ADMINISTRATION", "ssa_h": "SSA.GOV — SOCIAL SECURITY", "ssa_p": "Social Security card application, benefits and your online account — official SSA resources.", "n_SS-5": "Application for a Social Security Card", "ssa_acct_t": "my Social Security Account", "ssa_acct_d": "Create or sign in to your online SSA account.", "ssa_ben_t": "Benefits", "ssa_ben_d": "Retirement, disability, survivor and Medicare information.", "ssa_loc_t": "Find a Social Security Office", "ssa_loc_d": "Locate your nearest office.", "ssa_home_t": "SSA.gov Home", "ssa_home_d": "Official Social Security website.", "job_small": "FLORIDA • FLORIDACOMMERCE", "job_h": "REEMPLOYMENT ASSISTANCE (UNEMPLOYMENT)", "job_p": "Official Florida reemployment assistance resources. Eligibility and claim steps are set by the state.", "job_c_t": "Reemployment Assistance Center", "job_c_d": "Eligibility, claim steps and FAQs.", "job_k_t": "File or Manage a Claim (CONNECT)", "job_k_d": "Florida's official claims system.", "job_e_t": "Employ Florida — Job Search", "job_e_d": "Search jobs and register for work.", "res_small": "CAREER • RESUME", "res_h": "RESUME HELP", "res_p": "Build a strong resume and keep track of your job search.", "res_e_t": "Employ Florida Resume Tools", "res_e_d": "Build and post a resume for Florida employers.", "res_o_t": "CareerOneStop Resume Guide", "res_o_d": "Free resume guidance from the U.S. Department of Labor.", "res_m_t": "Maximax Resume Help", "res_m_d": "Book help preparing your resume.", "res_c_t": "Career Tracker", "res_c_d": "Organize your job applications.", "btn_open_page": "➜ OPEN", "t_topbar": "MAXIMAX MULTI SERVICES • TRAVEL + DMV CENTER", "t_badge": "TRAVEL • PASSPORTS • DMV", "t_title": "TRAVEL + DMV CENTER", "t_sub": "Official Florida DMV, passport and travel resources in one place.", "tr_small": "TRAVEL DOCUMENTS", "tr_h": "TRAVEL RESOURCES", "tr_gl_t": "Global Entry / Trusted Traveler", "tr_gl_d": "Expedited screening programs from U.S. Customs and Border Protection.", "tr_pc_t": "TSA PreCheck", "tr_pc_d": "Official TSA PreCheck information and enrollment.", "tr_ri_t": "REAL ID (TSA)", "tr_ri_d": "What ID you need to fly within the U.S.", "tr_ts_t": "Travel.State.Gov", "tr_ts_d": "Passports, visas and travel advisories.", "tr_st_t": "STEP — Traveler Enrollment", "tr_st_d": "Enroll a trip to receive U.S. embassy alerts."}, "es": {"topbar": "MAXIMAX MULTI SERVICES • CENTRO DE SERVICIOS DE INMIGRACIÓN", "part_of": "PARTE DE BSS1815 PRO-MAX DMP", "nav_home": "INICIO", "nav_imm": "FORMULARIOS DE INMIGRACIÓN", "nav_eoir": "FORMULARIOS EOIR / BIA", "nav_gov": "CENTRO DE FORMULARIOS DEL GOBIERNO", "nav_contact": "CENTRO DE CONTACTO", "ph_search": "Buscar I-130, I-485, I-765, N-400, I-589, EOIR...", "no_results": "No se encontraron formularios. Pruebe con un número como I-130 o N-400.", "uscis_small": "FORMULARIOS OFICIALES DE USCIS", "lbl_forms": "FORMULARIOS OFICIALES DE USCIS", "lbl_form": "FORMULARIO OFICIAL DE USCIS", "btn_pdf": "📄 ABRIR PDF {n}", "btn_page": "🌐 PÁGINA OFICIAL", "btn_uscis_page": "🌐 PÁGINA DE USCIS", "btn_open": "📄 ABRIR {n}", "btn_open_eoir": "📄 ABRIR {n} (PÁGINA DE FORMULARIOS EOIR)", "btn_eoir_page": "🌐 PÁGINA OFICIAL DE EOIR", "btn_all_eoir": "🌐 ABRIR TODOS LOS FORMULARIOS EOIR", "btn_all_uscis": "🌐 ABRIR TODOS LOS FORMULARIOS USCIS", "eoir_small": "DEPARTAMENTO DE JUSTICIA DE EE. UU.", "eoir_h3": "FORMULARIOS EOIR / TRIBUNAL DE INMIGRACIÓN", "eoir_h4": "⚖️ FORMULARIOS OFICIALES DE EOIR", "eoir_p": "Formularios del Tribunal de Inmigración y de la Junta de Apelaciones de Inmigración. Use la fuente oficial de EOIR para obtener el formulario vigente emitido por el gobierno.", "notice_label": "IMPORTANTE:", "notice_text": "Maximax Multi Services ofrece acceso a formularios del gobierno y servicios de preparación de documentos. Las agencias gubernamentales pueden cambiar las ediciones de los formularios, las instrucciones, las tarifas y los requisitos de elegibilidad. Siempre verifique la edición y las instrucciones vigentes en el sitio web oficial de USCIS o EOIR antes de presentar.", "n_I-130": "Petición para familiar extranjero", "n_I-485": "Solicitud para registrar residencia permanente o ajustar estatus", "n_I-864": "Declaración jurada de patrocinio económico bajo la Sección 213A", "n_N-400": "Solicitud de naturalización", "n_I-765": "Solicitud de autorización de empleo", "n_I-131": "Solicitud de documentos de viaje", "n_I-589": "Solicitud de asilo y de suspensión de la deportación", "n_I-90": "Solicitud para reemplazar la tarjeta de residente permanente", "n_EOIR-26": "Notificación de apelación de una decisión de un juez de inmigración", "n_EOIR-28": "Notificación de comparecencia como abogado o representante ante el tribunal de inmigración", "n_EOIR-33/IC": "Formulario de cambio de dirección — Tribunal de inmigración", "n_EOIR-33/BIA": "Formulario de cambio de dirección — Junta de Apelaciones de Inmigración", "n_EOIR-42A": "Solicitud de cancelación de deportación para ciertos residentes permanentes", "n_EOIR-42B": "Solicitud de cancelación de deportación y ajuste de estatus para ciertos residentes no permanentes", "g_topbar": "MAXIMAX MULTI SERVICES • CENTRO DE FORMULARIOS GUBERNAMENTALES", "g_badge": "USCIS • EOIR • IRS", "g_title": "CENTRO DE FORMULARIOS GUBERNAMENTALES", "g_sub": "Abra formularios oficiales de USCIS, EOIR e IRS directamente desde Maximax. Cada formulario tiene su propio botón PDF.", "g_ph": "Buscar I-130, N-400, EOIR-26, 1040, W-9...", "nav_imm_services": "SERVICIOS DE INMIGRACIÓN", "s_uscis_small": "SERVICIOS DE CIUDADANÍA E INMIGRACIÓN DE EE. UU.", "s_uscis_h": "FORMULARIOS USCIS", "s_eoir_small": "TRIBUNAL DE INMIGRACIÓN • JUNTA DE APELACIONES", "s_eoir_h": "FORMULARIOS EOIR / BIA", "s_irs_small": "SERVICIO DE IMPUESTOS INTERNOS", "s_irs_h": "FORMULARIOS DE IMPUESTOS IRS", "btn_irs_page": "🌐 PÁGINA OFICIAL DEL IRS", "g_home": "INICIO", "g_contact": "CENTRO DE CONTACTO", "n_IRS 1040": "Declaración de impuestos individual de EE. UU.", "n_IRS 1040-X": "Declaración de impuestos individual enmendada", "n_IRS W-4": "Certificado de retención del empleado", "n_IRS W-9": "Solicitud de número de identificación del contribuyente y certificación", "n_IRS W-7": "Solicitud de Número de Identificación Personal del Contribuyente (ITIN)", "n_IRS SS-4": "Solicitud de Número de Identificación del Empleador (EIN)", "n_IRS 2848": "Poder notarial y declaración del representante", "n_IRS 8821": "Autorización de información tributaria", "n_IRS 4506-T": "Solicitud de transcripción de declaración de impuestos", "n_IRS 4868": "Solicitud de prórroga automática para presentar", "n_IRS 8822": "Cambio de dirección", "nav_fr": "REGISTRO FEDERAL", "nav_pass": "PASAPORTES", "nav_dmv": "DMV", "fr_small": "NOTAS • ACTUALIZACIONES", "fr_h": "REGISTRO FEDERAL — NOTAS Y ACTUALIZACIONES", "fr_p": "Últimos avisos y reglas oficiales del Registro Federal. Siempre confirme las reglas vigentes en la fuente oficial antes de presentar.", "fr_live": "DEL REGISTRO FEDERAL", "fr_loading": "Cargando avisos recientes…", "fr_error": "No se pudo cargar la fuente en vivo ahora. Abra el Registro Federal directamente:", "fr_empty": "No se encontraron documentos recientes.", "fr_open": "ABRIR REGISTRO FEDERAL", "fr_all": "🌐 ABRIR REGISTRO FEDERAL", "fr_notes": "NOTAS Y ACTUALIZACIONES DE MAXIMAX", "fr_tab_uscis": "USCIS", "fr_tab_eoir": "EOIR", "fr_tab_irs": "IRS", "fr_tab_state": "DEPTO. DE ESTADO", "p_small": "PASAPORTE DE EE. UU. • HAITÍ", "p_h": "SERVICIOS DE PASAPORTE — EE. UU. + HAITÍ", "p_p": "Formularios oficiales de pasaporte de EE. UU. con acceso directo al PDF, y apoyo con documentos del pasaporte haitiano.", "n_DS-11": "Solicitud de pasaporte de EE. UU.", "n_DS-82": "Solicitud de renovación de pasaporte de EE. UU. para personas elegibles", "n_DS-5504": "Solicitud de pasaporte: cambio de nombre, corrección de datos y reemplazo limitado", "n_DS-64": "Declaración sobre un pasaporte de EE. UU. perdido o robado", "n_DS-3053": "Declaración de consentimiento: pasaporte para un menor de 16 años", "p_ht_t": "Pasaporte Haitiano", "p_ht_d": "Apoyo para preparar documentos de solicitud de pasaporte haitiano. Los requisitos y formularios los emite el consulado de Haití; confírmelos con el consulado antes de presentar.", "p_ht_b1": "📅 RESERVAR AYUDA", "p_ht_b2": "☎️ CENTRO DE CONTACTO", "d_small": "FLORIDA • FLHSMV", "d_h": "SERVICIOS DEL DMV", "d_p": "Acceso rápido al DMV oficial de Florida (FLHSMV) para licencias, identificaciones, títulos de vehículos y formularios.", "btn_official": "🌐 ABRIR SITIO OFICIAL", "d_dl_t": "Licencia de Conducir e Identificación", "d_dl_d": "Solicite, renueve o reemplace una licencia de conducir o identificación.", "d_v_t": "Título y Registro de Vehículo", "d_v_d": "Títulos, placas, registro y transferencias.", "d_f_t": "Formularios Oficiales del DMV", "d_f_d": "Descargue formularios oficiales de FLHSMV.", "d_h_t": "Inicio de FLHSMV", "d_h_d": "Sitio web oficial del DMV de Florida.", "fr_note_1": "Centro de formularios actualizado: fuente del Registro Federal, secciones de Pasaporte (EE. UU. + Haití) y DMV agregadas.", "fr_note_2": "Las agencias gubernamentales pueden cambiar ediciones, tarifas e instrucciones en cualquier momento. Verifique antes de presentar.", "nav_ssa": "SSA", "nav_jobs": "DESEMPLEO", "nav_resume": "CURRÍCULUM", "nav_travel": "VIAJES", "nav_forms": "CENTRO DE FORMULARIOS", "ssa_small": "ADMINISTRACIÓN DEL SEGURO SOCIAL", "ssa_h": "SSA.GOV — SEGURO SOCIAL", "ssa_p": "Solicitud de tarjeta de Seguro Social, beneficios y su cuenta en línea — recursos oficiales de SSA.", "n_SS-5": "Solicitud de tarjeta de Seguro Social", "ssa_acct_t": "Mi cuenta de Seguro Social", "ssa_acct_d": "Cree o inicie sesión en su cuenta en línea de SSA.", "ssa_ben_t": "Beneficios", "ssa_ben_d": "Información de jubilación, discapacidad, sobrevivientes y Medicare.", "ssa_loc_t": "Encuentre una oficina del Seguro Social", "ssa_loc_d": "Ubique su oficina más cercana.", "ssa_home_t": "Inicio de SSA.gov", "ssa_home_d": "Sitio web oficial del Seguro Social.", "job_small": "FLORIDA • FLORIDACOMMERCE", "job_h": "ASISTENCIA DE REEMPLEO (DESEMPLEO)", "job_p": "Recursos oficiales de asistencia de reempleo de Florida. La elegibilidad y los pasos del reclamo los establece el estado.", "job_c_t": "Centro de Asistencia de Reempleo", "job_c_d": "Elegibilidad, pasos del reclamo y preguntas frecuentes.", "job_k_t": "Presentar o administrar un reclamo (CONNECT)", "job_k_d": "Sistema oficial de reclamos de Florida.", "job_e_t": "Employ Florida — Búsqueda de empleo", "job_e_d": "Busque empleos y regístrese para trabajar.", "res_small": "CARRERA • CURRÍCULUM", "res_h": "AYUDA CON EL CURRÍCULUM", "res_p": "Cree un currículum sólido y dé seguimiento a su búsqueda de empleo.", "res_e_t": "Herramientas de currículum de Employ Florida", "res_e_d": "Cree y publique un currículum para empleadores de Florida.", "res_o_t": "Guía de currículum de CareerOneStop", "res_o_d": "Guía gratuita de currículum del Departamento del Trabajo de EE. UU.", "res_m_t": "Ayuda de currículum de Maximax", "res_m_d": "Reserve ayuda para preparar su currículum.", "res_c_t": "Seguimiento Profesional", "res_c_d": "Organice sus solicitudes de empleo.", "btn_open_page": "➜ ABRIR", "t_topbar": "MAXIMAX MULTI SERVICES • CENTRO DE VIAJES + DMV", "t_badge": "VIAJES • PASAPORTES • DMV", "t_title": "CENTRO DE VIAJES + DMV", "t_sub": "Recursos oficiales del DMV de Florida, pasaportes y viajes en un solo lugar.", "tr_small": "DOCUMENTOS DE VIAJE", "tr_h": "RECURSOS DE VIAJE", "tr_gl_t": "Global Entry / Viajero Confiable", "tr_gl_d": "Programas de inspección rápida de la Oficina de Aduanas y Protección Fronteriza.", "tr_pc_t": "TSA PreCheck", "tr_pc_d": "Información y registro oficial de TSA PreCheck.", "tr_ri_t": "REAL ID (TSA)", "tr_ri_d": "Qué identificación necesita para volar dentro de EE. UU.", "tr_ts_t": "Travel.State.Gov", "tr_ts_d": "Pasaportes, visas y alertas de viaje.", "tr_st_t": "STEP — Registro de Viajeros", "tr_st_d": "Registre un viaje para recibir alertas de la embajada de EE. UU."}, "ht": {"topbar": "MAXIMAX MULTI SERVICES • SANT SÈVIS IMIGRASYON", "part_of": "PATI NAN BSS1815 PRO-MAX DMP", "nav_home": "AKÈY", "nav_imm": "FÒM IMIGRASYON", "nav_eoir": "FÒM EOIR / BIA", "nav_gov": "SANT FÒM GOUVÈNMAN", "nav_contact": "SANT KONTAK", "ph_search": "Chèche I-130, I-485, I-765, N-400, I-589, EOIR...", "no_results": "Pa jwenn okenn fòm. Eseye yon nimewo tankou I-130 oswa N-400.", "uscis_small": "FÒM OFISYÈL USCIS", "lbl_forms": "FÒM OFISYÈL USCIS", "lbl_form": "FÒM OFISYÈL USCIS", "btn_pdf": "📄 OUVRI PDF {n}", "btn_page": "🌐 PAJ OFISYÈL", "btn_uscis_page": "🌐 PAJ USCIS", "btn_open": "📄 OUVRI {n}", "btn_open_eoir": "📄 OUVRI {n} (PAJ FÒM EOIR)", "btn_eoir_page": "🌐 PAJ OFISYÈL EOIR", "btn_all_eoir": "🌐 OUVRI TOUT FÒM EOIR YO", "btn_all_uscis": "🌐 OUVRI TOUT FÒM USCIS YO", "eoir_small": "DEPANMAN JISTIS ETAZINI", "eoir_h3": "FÒM EOIR / TRIBINAL IMIGRASYON", "eoir_h4": "⚖️ FÒM OFISYÈL EOIR", "eoir_p": "Fòm Tribinal Imigrasyon ak Komisyon Apèl Imigrasyon. Itilize sous ofisyèl EOIR la pou jwenn fòm aktyèl gouvènman an bay.", "notice_label": "ENPÒTAN:", "notice_text": "Maximax Multi Services ofri aksè ak fòm gouvènman yo ak sèvis preparasyon dokiman. Ajans gouvènman yo ka chanje edisyon fòm yo, enstriksyon depo yo, frè yo ak kondisyon elijibilite yo. Toujou verifye edisyon ak enstriksyon aktyèl yo sou sit ofisyèl USCIS oswa EOIR anvan ou depoze.", "n_I-130": "Petisyon pou yon fanmi etranje", "n_I-485": "Aplikasyon pou anrejistre rezidans pèmanan oswa ajiste estati", "n_I-864": "Deklarasyon sou sèman sipò finansye anba Seksyon 213A", "n_N-400": "Aplikasyon pou natiralizasyon", "n_I-765": "Aplikasyon pou otorizasyon travay", "n_I-131": "Aplikasyon pou dokiman vwayaj", "n_I-589": "Aplikasyon pou azil ak pou sispansyon depòtasyon (withholding of removal)", "n_I-90": "Aplikasyon pou ranplase kat rezidan pèmanan", "n_EOIR-26": "Avi apèl kont yon desizyon yon jij imigrasyon", "n_EOIR-28": "Avi antre kòm avoka oswa reprezantan devan tribinal imigrasyon", "n_EOIR-33/IC": "Fòm chanjman adrès — Tribinal imigrasyon", "n_EOIR-33/BIA": "Fòm chanjman adrès — Komisyon Apèl Imigrasyon", "n_EOIR-42A": "Aplikasyon pou anilasyon depòtasyon pou kèk rezidan pèmanan", "n_EOIR-42B": "Aplikasyon pou anilasyon depòtasyon ak ajisteman estati pou kèk rezidan ki pa pèmanan", "g_topbar": "MAXIMAX MULTI SERVICES • SANT FÒM GOUVÈNMAN", "g_badge": "USCIS • EOIR • IRS", "g_title": "SANT FÒM GOUVÈNMAN", "g_sub": "Ouvri fòm ofisyèl USCIS, EOIR ak IRS dirèkteman nan Maximax. Chak fòm gen pwòp bouton PDF li.", "g_ph": "Chèche I-130, N-400, EOIR-26, 1040, W-9...", "nav_imm_services": "SÈVIS IMIGRASYON", "s_uscis_small": "SÈVIS SITWAYÈNTE AK IMIGRASYON ETAZINI", "s_uscis_h": "FÒM USCIS", "s_eoir_small": "TRIBINAL IMIGRASYON • KOMISYON APÈL", "s_eoir_h": "FÒM EOIR / BIA", "s_irs_small": "SÈVIS ENTÈN REVNI", "s_irs_h": "FÒM TAKS IRS", "btn_irs_page": "🌐 PAJ OFISYÈL IRS", "g_home": "AKÈY", "g_contact": "SANT KONTAK", "n_IRS 1040": "Deklarasyon taks sou revni endividyèl Etazini", "n_IRS 1040-X": "Deklarasyon taks endividyèl modifye", "n_IRS W-4": "Sètifika retni anplwaye", "n_IRS W-9": "Demann pou nimewo idantifikasyon kontribyab ak sètifikasyon", "n_IRS W-7": "Aplikasyon pou Nimewo Idantifikasyon Kontribyab Endividyèl (ITIN)", "n_IRS SS-4": "Aplikasyon pou Nimewo Idantifikasyon Anplwayè (EIN)", "n_IRS 2848": "Pouvwa avoka ak deklarasyon reprezantan", "n_IRS 8821": "Otorizasyon enfòmasyon taks", "n_IRS 4506-T": "Demann pou transkripsyon deklarasyon taks", "n_IRS 4868": "Aplikasyon pou pwolongasyon otomatik pou depoze", "n_IRS 8822": "Chanjman adrès", "nav_fr": "REJIS FEDERAL", "nav_pass": "PASPÒ", "nav_dmv": "DMV", "fr_small": "NÒT • MIZAJOU", "fr_h": "REJIS FEDERAL — NÒT AK MIZAJOU", "fr_p": "Dènye avi ak règ ofisyèl nan Rejis Federal la. Toujou konfime règ aktyèl yo sou sous ofisyèl la anvan ou depoze.", "fr_live": "DÈNYE NAN REJIS FEDERAL LA", "fr_loading": "Ap chaje dènye avi yo…", "fr_error": "Pa ka chaje fil an dirèk la kounye a. Ouvri Rejis Federal la dirèkteman:", "fr_empty": "Pa jwenn okenn dokiman resan.", "fr_open": "OUVRI REJIS FEDERAL", "fr_all": "🌐 OUVRI REJIS FEDERAL", "fr_notes": "NÒT AK MIZAJOU MAXIMAX", "fr_tab_uscis": "USCIS", "fr_tab_eoir": "EOIR", "fr_tab_irs": "IRS", "fr_tab_state": "DEPATMAN ETA", "p_small": "PASPÒ ETAZINI • AYITI", "p_h": "SÈVIS PASPÒ — ETAZINI + AYITI", "p_p": "Fòm ofisyèl paspò Ameriken ak aksè dirèk sou PDF, ak sipò pou dokiman paspò ayisyen.", "n_DS-11": "Aplikasyon pou paspò Ameriken", "n_DS-82": "Aplikasyon pou renouvèlman paspò Ameriken pou moun ki elijib", "n_DS-5504": "Aplikasyon paspò: chanjman non, korije done ak ranplasman limite", "n_DS-64": "Deklarasyon sou yon paspò Ameriken ki pèdi oswa ki vòlè", "n_DS-3053": "Deklarasyon konsantman: paspò pou yon minè anba 16 an", "p_ht_t": "Paspò Ayisyen", "p_ht_d": "Sipò pou prepare dokiman aplikasyon paspò ayisyen. Konsila Ayiti a bay kondisyon ak fòm yo, kidonk konfime yo ak konsila a anvan ou depoze.", "p_ht_b1": "📅 REZÈVE ÈD", "p_ht_b2": "☎️ SANT KONTAK", "d_small": "FLORIDA • FLHSMV", "d_h": "SÈVIS DMV", "d_p": "Aksè rapid nan DMV ofisyèl Florid la (FLHSMV) pou lisans, ID, tit machin ak fòm.", "btn_official": "🌐 OUVRI SIT OFISYÈL", "d_dl_t": "Lisans Chofè ak Kat ID", "d_dl_d": "Aplike, renouvle oswa ranplase yon lisans chofè oswa kat ID.", "d_v_t": "Tit ak Anrejistreman Machin", "d_v_d": "Tit, plak, anrejistreman ak transfè.", "d_f_t": "Fòm Ofisyèl DMV", "d_f_d": "Telechaje fòm ofisyèl FLHSMV yo.", "d_h_t": "Akèy FLHSMV", "d_h_d": "Sit entènèt ofisyèl DMV Florid la.", "fr_note_1": "Sant fòm mizajou: fil Rejis Federal, seksyon Paspò (Etazini + Ayiti) ak DMV ajoute.", "fr_note_2": "Ajans gouvènman yo ka chanje edisyon, frè ak enstriksyon nenpòt ki lè. Verifye anvan ou depoze.", "nav_ssa": "SSA", "nav_jobs": "CHÒMAJ", "nav_resume": "REZIME", "nav_travel": "VWAYAJ", "nav_forms": "SANT FÒM", "ssa_small": "ADMINISTRASYON SEKIRITE SOSYAL", "ssa_h": "SSA.GOV — SEKIRITE SOSYAL", "ssa_p": "Aplikasyon kat Sekirite Sosyal, benefis ak kont ou sou entènèt — resous ofisyèl SSA.", "n_SS-5": "Aplikasyon pou kat Sekirite Sosyal", "ssa_acct_t": "Kont Sekirite Sosyal mwen", "ssa_acct_d": "Kreye oswa konekte nan kont SSA ou sou entènèt.", "ssa_ben_t": "Benefis", "ssa_ben_d": "Enfòmasyon sou retrèt, andikap, siviv ak Medicare.", "ssa_loc_t": "Jwenn yon biwo Sekirite Sosyal", "ssa_loc_d": "Jwenn biwo ki pi pre ou a.", "ssa_home_t": "Akèy SSA.gov", "ssa_home_d": "Sit entènèt ofisyèl Sekirite Sosyal.", "job_small": "FLORIDA • FLORIDACOMMERCE", "job_h": "ASISTANS REYANPLWA (CHÒMAJ)", "job_p": "Resous ofisyèl asistans reyanplwa Florid. Eta a etabli elijibilite ak etap reklamasyon yo.", "job_c_t": "Sant Asistans Reyanplwa", "job_c_d": "Elijibilite, etap reklamasyon ak kesyon souvan poze.", "job_k_t": "Depoze oswa jere yon reklamasyon (CONNECT)", "job_k_d": "Sistèm ofisyèl reklamasyon Florid.", "job_e_t": "Employ Florida — Chèche travay", "job_e_d": "Chèche travay epi enskri pou travay.", "res_small": "KARYÈ • REZIME", "res_h": "ÈD POU REZIME", "res_p": "Bati yon bon rezime epi swiv rechèch travay ou.", "res_e_t": "Zouti rezime Employ Florida", "res_e_d": "Bati epi pibliye yon rezime pou anplwayè Florid.", "res_o_t": "Gid rezime CareerOneStop", "res_o_d": "Gid gratis pou rezime nan Depatman Travay Ameriken.", "res_m_t": "Èd rezime Maximax", "res_m_d": "Rezève èd pou prepare rezime ou.", "res_c_t": "Career Tracker", "res_c_d": "Òganize aplikasyon travay ou yo.", "btn_open_page": "➜ OUVRI", "t_topbar": "MAXIMAX MULTI SERVICES • SANT VWAYAJ + DMV", "t_badge": "VWAYAJ • PASPÒ • DMV", "t_title": "SANT VWAYAJ + DMV", "t_sub": "Resous ofisyèl DMV Florid, paspò ak vwayaj nan yon sèl kote.", "tr_small": "DOKIMAN VWAYAJ", "tr_h": "RESOUS VWAYAJ", "tr_gl_t": "Global Entry / Vwayajè Konfyans", "tr_gl_d": "Pwogram enspeksyon rapid Dwàn ak Pwoteksyon Fwontyè Ameriken.", "tr_pc_t": "TSA PreCheck", "tr_pc_d": "Enfòmasyon ak enskripsyon ofisyèl TSA PreCheck.", "tr_ri_t": "REAL ID (TSA)", "tr_ri_d": "Ki ID ou bezwen pou vwayaje an avyon andedan Etazini.", "tr_ts_t": "Travel.State.Gov", "tr_ts_d": "Paspò, viza ak avètisman vwayaj.", "tr_st_t": "STEP — Enskripsyon Vwayajè", "tr_st_d": "Enskri yon vwayaj pou resevwa alèt anbasad Ameriken."}};
 
-document.getElementById("year").textContent = new Date().getFullYear();
+/* ==========================================
+   MAXIMAX — SERVICE DATA
+========================================== */
 
-var menuBtn = document.getElementById("menuBtn"), mobileMenu = document.getElementById("mobileMenu");
-function closeMenu(){ mobileMenu.classList.remove("open"); menuBtn.textContent="☰"; menuBtn.setAttribute("aria-expanded","false"); }
-menuBtn.addEventListener("click", function(){
-  var open = mobileMenu.classList.toggle("open");
-  menuBtn.textContent = open ? "✕" : "☰";
-  menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
-});
-mobileMenu.querySelectorAll("a").forEach(function(l){ l.addEventListener("click", closeMenu); });
-
-var keyed = document.querySelectorAll("[data-i18n]"), keyedPh = document.querySelectorAll("[data-i18n-placeholder]"), langButtons = document.querySelectorAll(".lang-btn");
-function setLanguage(lang){
-  if(["en","es","ht"].indexOf(lang) === -1) lang = "en";
-  document.documentElement.lang = lang;
-  keyed.forEach(function(el){
-    var v = (I18N[lang] || I18N.en)[el.dataset.i18n];
-    if(v === undefined) v = I18N.en[el.dataset.i18n];
-    if(v === undefined) return;
-    if(el.dataset.n) v = v.replace("{n}", el.dataset.n);
-    el.textContent = v;
-  });
-  keyedPh.forEach(function(el){
-    var v = (I18N[lang] || I18N.en)[el.dataset.i18nPlaceholder];
-    if(v) el.setAttribute("placeholder", v);
-  });
-  langButtons.forEach(function(b){
-    var a = b.dataset.lang === lang;
-    b.classList.toggle("active", a);
-    b.setAttribute("aria-pressed", a ? "true" : "false");
-  });
-  try{ localStorage.setItem("maximaxLanguage", lang); }catch(e){}
-}
-langButtons.forEach(function(b){ b.addEventListener("click", function(){ setLanguage(b.dataset.lang); }); });
-var saved = "en";
-try{ saved = localStorage.getItem("maximaxLanguage") || "en"; }catch(e){}
-setLanguage(saved);
-
-/* SEARCH across USCIS + EOIR + IRS */
-var search = document.getElementById("formSearch"), noResults = document.getElementById("noResults");
-var rows = document.querySelectorAll(".form-row"), sections = document.querySelectorAll("main section.section");
-search.addEventListener("input", function(){
-  var term = search.value.toLowerCase().trim(), total = 0;
-  rows.forEach(function(r){
-    var text = ((r.dataset.search || "") + " " + r.textContent).toLowerCase();
-    var show = !term || text.indexOf(term) !== -1;
-    r.style.display = show ? "" : "none";
-    if(show) total++;
-  });
-  sections.forEach(function(s){
-    var any = false;
-    s.querySelectorAll(".form-row").forEach(function(r){ if(r.style.display !== "none") any = true; });
-    s.style.display = (!term || any) ? "" : "none";
-  });
-  noResults.classList.toggle("show", !!term && total === 0);
-});
-
-
-/* FEDERAL REGISTER LIVE FEED + MAXIMAX NOTES */
-var FR_SLUGS = { uscis:"u-s-citizenship-and-immigration-services", eoir:"executive-office-for-immigration-review", irs:"internal-revenue-service", state:"state-department" };
-var currentAgency = "uscis";
-var frList = document.getElementById("frList"), frOpen = document.getElementById("frOpen"), frNotes = document.getElementById("frNotes");
-function curLang(){ return document.documentElement.lang || "en"; }
-function t(key){ return (I18N[curLang()] || I18N.en)[key] || I18N.en[key] || ""; }
-function frMessage(text, link){
-  frList.textContent = "";
-  var d = document.createElement("div"); d.className = "fr-msg"; d.textContent = text; frList.appendChild(d);
-}
-function loadFR(agency){
-  currentAgency = agency;
-  var slug = FR_SLUGS[agency];
-  frOpen.href = "https://www.federalregister.gov/agencies/" + slug;
-  frMessage(t("fr_loading"));
-  if(!window.fetch){ frMessage(t("fr_error")); return; }
-  var url = "https://www.federalregister.gov/api/v1/documents.json?per_page=6&order=newest" +
-    "&conditions%5Bagencies%5D%5B%5D=" + encodeURIComponent(slug) +
-    "&fields%5B%5D=title&fields%5B%5D=publication_date&fields%5B%5D=type&fields%5B%5D=html_url";
-  fetch(url).then(function(r){ if(!r.ok) throw new Error("http"); return r.json(); }).then(function(data){
-    if(agency !== currentAgency) return;
-    var items = (data && data.results) || [];
-    frList.textContent = "";
-    if(!items.length){ frMessage(t("fr_empty")); return; }
-    items.forEach(function(it){
-      var box = document.createElement("div"); box.className = "fr-item";
-      var meta = document.createElement("small"); meta.textContent = (it.publication_date || "") + " • " + (it.type || "");
-      box.appendChild(meta);
-      var link = document.createElement("a");
-      link.textContent = it.title || "";
-      if(it.html_url && it.html_url.indexOf("https://www.federalregister.gov/") === 0){
-        link.href = it.html_url; link.target = "_blank"; link.rel = "noopener noreferrer";
-      }
-      box.appendChild(link);
-      frList.appendChild(box);
-    });
-  }).catch(function(){ if(agency === currentAgency) frMessage(t("fr_error")); });
-}
-document.querySelectorAll(".fr-tab").forEach(function(b){
-  b.addEventListener("click", function(){
-    document.querySelectorAll(".fr-tab").forEach(function(x){ x.classList.toggle("active", x === b); });
-    loadFR(b.dataset.agency);
-  });
-});
-
-/* MAXIMAX NOTES — to add an update, add a line here: {date:"YYYY-MM-DD", agency:"USCIS", key:"a_key_in_the_translations"} */
-var MAXIMAX_NOTES = [
-  { date:"2026-09-19", agency:"MAXIMAX", key:"fr_note_1" },
-  { date:"2026-09-19", agency:"MAXIMAX", key:"fr_note_2" }
+const services=[
+ {
+  icon:"fa-stamp",
+  title:"Notary & Translation",
+  summary:"Notary, Power of Attorney, Affidavits and document services.",
+  items:[
+   "Notary Public services where authorized",
+   "Mobile Notary — by appointment",
+   "Power of Attorney notarization",
+   "Affidavits and legal letters",
+   "Document Apostille assistance",
+   "Travel Consent for Minors"
+  ]
+ },
+ {
+  icon:"fa-calculator",
+  title:"Taxes & Accounting",
+  summary:"Personal taxes, business taxes, ITIN and bookkeeping.",
+  items:[
+   "Personal Tax Preparation — Form 1040",
+   "Business Taxes — LLC, S-Corp, C-Corp",
+   "ITIN Application and Renewal — W-7",
+   "Bookkeeping and Payroll",
+   "IRS Letter and Audit Support",
+   "Amended Tax Return — Form 1040-X"
+  ]
+ },
+ {
+  icon:"fa-passport",
+  title:"Immigration Services",
+  summary:"TPS, Asylum, Family Petitions, Green Card and Citizenship.",
+  items:[
+   "TPS Application and Renewal Assistance",
+   "Asylum Form Preparation and I-765",
+   "Family Petition — I-130",
+   "Green Card and Citizenship — N-400",
+   "USCIS Form Preparation",
+   "DACA Renewal Assistance"
+  ]
+ },
+ {
+  icon:"fa-scale-balanced",
+  title:"EOIR + BIA",
+  summary:"Immigration court information, case documents and appeals support.",
+  items:[
+   "EOIR — Executive Office for Immigration Review",
+   "BIA — Board of Immigration Appeals",
+   "Change of Venue Document Assistance",
+   "Immigration Court Date Information",
+   "Appeal and Motion Document Support",
+   "FOIA and Case Status Information"
+  ]
+ },
+ {
+  icon:"fa-shield-halved",
+  title:"Insurance",
+  summary:"Auto, Home, Life, Health and Business Insurance.",
+  items:[
+   "Auto Insurance",
+   "Homeowners and Renters Insurance",
+   "Life Insurance",
+   "Health Insurance — Marketplace",
+   "Business and Commercial Insurance",
+   "SR-22 Insurance Assistance"
+  ]
+ },
+ {
+  icon:"fa-house",
+  title:"Real Estate",
+  summary:"Buy, Sell, Rent, Property Management and referrals.",
+  items:[
+   "First-Time Home Buyer Assistance",
+   "Home Selling Services",
+   "Rental Assistance",
+   "Property Management",
+   "Home Inspection Referrals",
+   "Mortgage Referrals"
+  ]
+ },
+ {
+  icon:"fa-briefcase",
+  title:"Business Formation",
+  summary:"LLC, Corporation, EIN, Licenses and Business Planning.",
+  items:[
+   "LLC and Corporation Formation",
+   "EIN Application Assistance",
+   "Business Licenses and Permits",
+   "Business Plan and Logo Design",
+   "Business Taxes and Bookkeeping",
+   "Business Bank Account Setup Assistance"
+  ]
+ },
+ {
+  icon:"fa-certificate",
+  title:"Apostille & Legalization",
+  summary:"State and Federal Apostille, Authentication and Legalization.",
+  items:[
+   "State Document Apostille Assistance",
+   "FBI Background Check Apostille",
+   "Diploma and School Records Apostille",
+   "Power of Attorney for Haiti",
+   "Document Authentication and Legalization",
+   "Embassy Legalization Assistance"
+  ]
+ },
+ {
+  icon:"fa-plane-departure",
+  title:"Travel & DMV Services",
+  summary:"Air Tickets, Passport, DMV, Hotels and Travel Assistance.",
+  items:[
+   "Airline Ticket Booking Assistance",
+   "Passport Application and Renewal Assistance",
+   "DMV — License, Registration and Title Assistance",
+   "TSA PreCheck and TWIC Application Assistance",
+   "Hotel Booking and Car Rental",
+   "Travel Insurance"
+  ]
+ }
 ];
-function renderNotes(){
-  frNotes.textContent = "";
-  MAXIMAX_NOTES.forEach(function(n){
-    var box = document.createElement("div"); box.className = "fr-item";
-    var meta = document.createElement("small"); meta.textContent = n.date + " • " + n.agency; box.appendChild(meta);
-    var p = document.createElement("span"); p.textContent = t(n.key); box.appendChild(p);
-    frNotes.appendChild(box);
-  });
-}
-if(frList){ renderNotes(); loadFR("uscis"); }
-langButtons.forEach(function(b){ b.addEventListener("click", function(){ if(!frList) return; renderNotes(); if(frList.querySelector(".fr-msg")) loadFR(currentAgency); }); });
 
-/* PDFs hosted on this site (../forms/*.pdf) — fall back to the official link if a file is missing */
-document.querySelectorAll("a[data-fallback]").forEach(function(a){
-  var fb = a.getAttribute("data-fallback");
-  if(!window.fetch || location.protocol === "file:"){ a.href = fb; return; }
-  fetch(a.getAttribute("href"), {method:"HEAD"}).then(function(r){
-    var ct = (r.headers.get("content-type") || "").toLowerCase();
-    if(!r.ok || ct.indexOf("pdf") === -1) a.href = fb;
-  }).catch(function(){ a.href = fb; });
+/* ==========================================
+   LANGUAGE TRANSLATIONS
+========================================== */
+
+const translations={
+ en:{
+  navHome:"Home",navServices:"Services",navContact:"Contact",
+  heroTitle:"Your Trusted Partner for <em>Life in the USA</em>",
+  heroDescription:"Maximax Multi Services — Notary, Taxes, Immigration, EOIR + BIA, Insurance, Real Estate, Business Formation and more. All your essential services under one roof.",
+  professional:"Professional",responsive:"Responsive",confidential:"Confidential",multilingual:"Multilingual",
+  languages:"Nou pale Kreyòl, English, Español.",
+  book:"Book Appointment",explore:"Explore Services",
+  departments:"Service Departments",languageCount:"Languages",
+  assistant:"Assistant Center",contactSupport:"Contact & Support",
+  servicesTitle:"Our <span class='orange'>9</span> Service Departments",
+  servicesSubtitle:"Explore the services available through MAXIMAX.",
+  viewDetails:"View Services",hideDetails:"Hide Services",
+  serviceHelp:"Request Service",
+  aiTitle:"Maximax <span class='orange'>AI Assistant Center</span>",
+  aiDescription:"Discover our digital assistance services for immigration forms, case information, translations and general service questions.",
+  formHelper:"Form Helper",caseTracker:"Case Information",
+  translation:"Translation",chatHelp:"Customer Support",
+  aiContact:"Ask About AI Center",demoLabel:"INFORMATION PREVIEW",
+  sampleQuestion:"How can I check my immigration court date?",
+  sampleAnswer:"You can check the official EOIR Automated Case Information system or call 1-800-898-7180. Always confirm details with EOIR.",
+  demoNotice:"This is an informational preview, not a connected live AI chatbot.",
+  contactTitle:"Contact <span class='orange'>Our Team</span>",
+  contactSubtitle:"Get in touch with MAXIMAX MULTI SERVICES.",
+  phone:"Telephone",locations:"Locations",callNow:"Call Now",
+  socialTitle:"Connect With <span class='orange'>MAXIMAX</span>",
+  footerLine:"Your Trusted Partner for Life in the USA"
+ },
+ fr:{
+  navHome:"Accueil",navServices:"Services",navContact:"Contact",
+  heroTitle:"Votre partenaire de confiance pour <em>votre vie aux États-Unis</em>",
+  heroDescription:"Maximax Multi Services — Notariat, impôts, immigration, EOIR + BIA, assurances, immobilier, création d'entreprise et bien plus. Vos services essentiels au même endroit.",
+  professional:"Professionnel",responsive:"Réactif",confidential:"Confidentiel",multilingual:"Multilingue",
+  languages:"Nous parlons français, anglais et créole.",
+  book:"Prendre rendez-vous",explore:"Découvrir les services",
+  departments:"Départements",languageCount:"Langues",
+  assistant:"Centre d'assistance",contactSupport:"Contact et assistance",
+  servicesTitle:"Nos <span class='orange'>9</span> départements",
+  servicesSubtitle:"Découvrez les services proposés par MAXIMAX.",
+  viewDetails:"Voir les services",hideDetails:"Masquer les services",
+  serviceHelp:"Demander ce service",
+  aiTitle:"Centre d'assistance <span class='orange'>IA Maximax</span>",
+  aiDescription:"Découvrez nos services d'assistance numérique pour les formulaires d'immigration, les dossiers, les traductions et les questions générales.",
+  formHelper:"Aide aux formulaires",caseTracker:"Informations sur les dossiers",
+  translation:"Traduction",chatHelp:"Service client",
+  aiContact:"Contacter le centre IA",demoLabel:"APERÇU INFORMATIF",
+  sampleQuestion:"Comment vérifier ma date d'audience en immigration ?",
+  sampleAnswer:"Consultez le système officiel EOIR ou appelez le 1-800-898-7180. Confirmez toujours les détails auprès de l'EOIR.",
+  demoNotice:"Ceci est un aperçu informatif, pas un chatbot IA connecté.",
+  contactTitle:"Contactez <span class='orange'>notre équipe</span>",
+  contactSubtitle:"Contactez MAXIMAX MULTI SERVICES.",
+  phone:"Téléphone",locations:"Emplacements",callNow:"Appelez-nous",
+  socialTitle:"Suivez <span class='orange'>MAXIMAX</span>",
+  footerLine:"Votre partenaire de confiance aux États-Unis"
+ },
+ ht:{
+  navHome:"Akèy",navServices:"Sèvis",navContact:"Kontak",
+  heroTitle:"Patnè ou fè konfyans pou <em>lavi Ozetazini</em>",
+  heroDescription:"Maximax Multi Services — Notè, Taks, Imigrasyon, EOIR + BIA, Asirans, Imobilye, Kreyasyon Biznis ak plis ankò. Tout sèvis esansyèl ou yo anba yon sèl do kay.",
+  professional:"Pwofesyonèl",responsive:"Disponib",confidential:"Konfidansyèl",multilingual:"Plizyè lang",
+  languages:"Nou pale Kreyòl, English, Español.",
+  book:"Pran randevou",explore:"Dekouvri sèvis yo",
+  departments:"Depatman Sèvis",languageCount:"Lang",
+  assistant:"Sant Asistans",contactSupport:"Kontak ak Sipò",
+  servicesTitle:"<span class='orange'>9</span> Depatman Sèvis Nou Yo",
+  servicesSubtitle:"Dekouvri sèvis MAXIMAX mete disponib pou ou.",
+  viewDetails:"Gade Sèvis Yo",hideDetails:"Fèmen Lis La",
+  serviceHelp:"Mande Sèvis Sa A",
+  aiTitle:"Sant Asistans <span class='orange'>AI Maximax</span>",
+  aiDescription:"Dekouvri asistans dijital nou pou fòm imigrasyon, enfòmasyon sou dosye, tradiksyon ak kesyon sou sèvis yo.",
+  formHelper:"Èd pou Fòm",caseTracker:"Enfòmasyon sou Dosye",
+  translation:"Tradiksyon",chatHelp:"Sèvis Kliyan",
+  aiContact:"Kontakte AI Center",demoLabel:"EGZANP ENFÒMASYON",
+  sampleQuestion:"Kijan mwen ka verifye dat tribinal imigrasyon mwen?",
+  sampleAnswer:"Ou kapab itilize sistèm ofisyèl EOIR la oswa rele 1-800-898-7180. Toujou konfime enfòmasyon yo avèk EOIR.",
+  demoNotice:"Sa a se yon egzanp enfòmasyon, se pa yon chatbot AI ki konekte.",
+  contactTitle:"Kontakte <span class='orange'>Ekip Nou An</span>",
+  contactSubtitle:"Pran kontak avèk MAXIMAX MULTI SERVICES.",
+  phone:"Telefòn",locations:"Lokalizasyon",callNow:"Rele Kounye A",
+  socialTitle:"Konekte Ak <span class='orange'>MAXIMAX</span>",
+  footerLine:"Patnè ou fè konfyans pou lavi Ozetazini"
+ }
+};
+
+const serviceLanguages={
+ en:services.map(s=>({title:s.title,summary:s.summary,items:s.items})),
+ fr:[
+  ["Notariat et traduction","Notariat, procurations, déclarations et documents."],
+  ["Impôts et comptabilité","Impôts personnels et professionnels, ITIN et comptabilité."],
+  ["Services d'immigration","TPS, asile, regroupement familial et citoyenneté."],
+  ["EOIR + BIA","Informations sur les tribunaux et assistance documentaire."],
+  ["Assurances","Auto, habitation, vie, santé et entreprises."],
+  ["Immobilier","Achat, vente, location, gestion et recommandations."],
+  ["Création d'entreprise","LLC, société, EIN, licences et plan d'affaires."],
+  ["Apostille et légalisation","Apostille, authentification et légalisation."],
+  ["Voyage et DMV","Billets, passeports, DMV et assistance voyage."]
+ ].map((a,i)=>({title:a[0],summary:a[1],items:services[i].items})),
+ ht:[
+  ["Notè ak Tradiksyon","Notè, pwokirasyon, deklarasyon ak dokiman."],
+  ["Taks ak Kontablite","Taks pèsonèl, taks biznis, ITIN ak kontablite."],
+  ["Sèvis Imigrasyon","TPS, azil, petisyon fanmi, rezidans ak sitwayènte."],
+  ["EOIR + BIA","Enfòmasyon tribinal imigrasyon ak asistans dokiman."],
+  ["Asirans","Asirans machin, kay, lavi, sante ak biznis."],
+  ["Imobilye","Achte, vann, lwe, jere pwopriyete ak referans."],
+  ["Kreyasyon Biznis","LLC, kòporasyon, EIN, lisans ak plan biznis."],
+  ["Apostille ak Legalizasyon","Apostille, otantifikasyon ak legalizasyon."],
+  ["Vwayaj ak DMV","Tikè avyon, paspò, DMV ak asistans vwayaj."]
+ ].map((a,i)=>({title:a[0],summary:a[1],items:services[i].items}))
+};
+
+let currentLang="en";
+const serviceGrid=document.getElementById("servicesGrid");
+
+function renderServices(){
+ const t=translations[currentLang];
+ serviceGrid.innerHTML="";
+
+ services.forEach((service,index)=>{
+  const translated=serviceLanguages[currentLang][index];
+  const card=document.createElement("article");
+  card.className="service-card";
+  card.id="mod"+(index+1);
+
+  const top=document.createElement("div");
+  top.className="service-top";
+
+  const icon=document.createElement("div");
+  icon.className="service-icon";
+  icon.innerHTML='<i class="fa-solid '+service.icon+'"></i>';
+
+  const number=document.createElement("span");
+  number.className="service-number";
+  number.textContent=String(index+1).padStart(2,"0");
+
+  top.append(icon,number);
+
+  const title=document.createElement("h3");
+  title.textContent=translated.title;
+
+  const summary=document.createElement("p");
+  summary.textContent=translated.summary;
+
+  const button=document.createElement("button");
+  button.className="service-open";
+  button.type="button";
+  button.setAttribute("aria-expanded","false");
+  button.innerHTML='<span>'+t.viewDetails+'</span> <i class="fa-solid fa-arrow-right"></i>';
+
+  const details=document.createElement("div");
+  details.className="service-details";
+
+  const list=document.createElement("ul");
+  service.items.forEach(item=>{
+   const li=document.createElement("li");
+   li.textContent=item;
+   list.appendChild(li);
+  });
+
+  const contact=document.createElement("a");
+  contact.className="btn btn-primary service-contact";
+  contact.target="_blank";
+  contact.rel="noopener noreferrer";
+  contact.href="https://wa.me/14076405166?text="+encodeURIComponent(
+   "Hello MAXIMAX, I need information about "+service.title+"."
+  );
+  contact.innerHTML='<i class="fa-brands fa-whatsapp"></i> '+t.serviceHelp;
+
+  details.append(list,contact);
+  card.append(top,title,summary,button,details);
+
+  button.addEventListener("click",()=>{
+   const open=card.classList.toggle("expanded");
+   button.setAttribute("aria-expanded",String(open));
+   button.querySelector("span").textContent=open?t.hideDetails:t.viewDetails;
+   button.querySelector("i").className=open?
+    "fa-solid fa-arrow-up":"fa-solid fa-arrow-right";
+  });
+
+  serviceGrid.appendChild(card);
+ });
+}
+
+function setLanguage(lang){
+ if(!translations[lang])return;
+ currentLang=lang;
+ document.documentElement.lang=lang;
+ document.querySelectorAll("[data-i18n]").forEach(el=>{
+  const key=el.dataset.i18n;
+  if(translations[lang][key]!==undefined){
+   el.innerHTML=translations[lang][key];
+  }
+ });
+ document.querySelectorAll("[data-lang]").forEach(button=>{
+  const active=button.dataset.lang===lang;
+  button.classList.toggle("active",active);
+  button.setAttribute("aria-pressed",String(active));
+ });
+ renderServices();
+ try{localStorage.setItem("maximax-lang",lang)}catch(e){}
+}
+
+document.querySelectorAll("[data-lang]").forEach(button=>{
+ button.addEventListener("click",()=>setLanguage(button.dataset.lang));
 });
-})();
+
+/* MOBILE NAVIGATION */
+const menuToggle=document.getElementById("menuToggle");
+const mobileMenu=document.getElementById("mobileMenu");
+
+menuToggle.addEventListener("click",()=>{
+ const open=mobileMenu.classList.toggle("open");
+ menuToggle.setAttribute("aria-expanded",String(open));
+ menuToggle.setAttribute("aria-label",open?"Close menu":"Open menu");
+ menuToggle.querySelector("i").className=open?
+  "fa-solid fa-xmark":"fa-solid fa-bars";
+});
+
+mobileMenu.querySelectorAll("a").forEach(link=>{
+ link.addEventListener("click",()=>{
+  mobileMenu.classList.remove("open");
+  menuToggle.setAttribute("aria-expanded","false");
+  menuToggle.setAttribute("aria-label","Open menu");
+  menuToggle.querySelector("i").className="fa-solid fa-bars";
+ });
+});
+
+/* VIDEO FALLBACK */
+const heroVideo=document.getElementById("heroVideo");
+const heroFallback=document.getElementById("heroFallback");
+
+function showVideoFallback(){
+ heroVideo.style.display="none";
+ heroFallback.style.display="flex";
+}
+heroVideo.addEventListener("error",showVideoFallback);
+const videoSource=heroVideo.querySelector("source");
+videoSource.addEventListener("error",showVideoFallback);
+
+heroVideo.addEventListener("loadeddata",()=>{
+ heroVideo.style.display="block";
+ heroFallback.style.display="none";
+});
+
+/* START */
+let savedLang="en";
+try{
+ const stored=localStorage.getItem("maximax-lang");
+ if(translations[stored])savedLang=stored;
+}catch(e){}
+setLanguage(savedLang);
+document.getElementById("copyrightYear").textContent=new Date().getFullYear();
 </script>
 
 </body>
