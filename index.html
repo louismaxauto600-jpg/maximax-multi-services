@@ -1,222 +1,2538 @@
 <!DOCTYPE html>
-<html lang="en" translate="no">
+<html lang="en" id="htmlRoot">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#080402">
-<meta name="google" content="notranslate">
-<meta name="description" content="MAXIMAX MULTI SERVICES — APPOINTMENT CENTER">
-<title>MAXIMAX MULTI SERVICES • APPOINTMENT CENTER</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Maximax Multi Services - 9 Modules + EOIR+【entity-BIA¦canonical_name=BIA】 + AI Center</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Public+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+>
+
 <style>
-:root{ --orange:#ff8c00; --apricot:#ffc087; --black:#050200; --border:#a64c12; }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{ margin:0; font-family:Arial,Helvetica,sans-serif; color:var(--apricot); background:linear-gradient(135deg,#000,#210b01 55%,#000); }
-a{color:inherit;text-decoration:none}
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
-img{max-width:100%}
-.container{width:min(1100px,94%);margin:auto}
-.topbar{ background:var(--orange); color:#140700; text-align:center; font-size:12px; font-weight:800; letter-spacing:1px; padding:10px 8px; }
-header{ position:sticky;top:0;z-index:100; background:#080402f5; border-bottom:2px solid var(--orange); }
-.header-content{ display:flex;align-items:center;justify-content:space-between; gap:12px;padding:10px 0; }
-.logo-img{ width:56px;height:56px; object-fit:contain; background:#000; border:2px solid var(--orange); border-radius:16px; padding:3px; display:block; }
-.lang-switch{ display:flex;gap:5px; align-items:center; }
-.lang{ border:1px solid var(--orange); background:#1b0902;color:var(--apricot); padding:9px 12px;border-radius:20px;font-weight:bold;font-size:12px; }
-.lang.active{background:var(--orange);color:#000}
-.menu-btn{ border:1px solid var(--orange); background:transparent; color:var(--orange); font-size:22px; padding:8px 14px; border-radius:12px; }
-section{padding:30px 0}
-h1,h2,h3{color:var(--orange)}
-.card{ background:linear-gradient(145deg,#260e02,#090402); border:1px solid var(--border); border-radius:22px; padding:28px; }
-.hero{ text-align:center; }
-.hero-icon{ font-size:70px; line-height:1; }
-.hero h1{ font-size:clamp(36px,8vw,68px); line-height:1; margin:10px 0 18px; }
-.hero p{ line-height:1.7; max-width:750px; margin:0 auto; }
-.hero-actions{ display:flex;justify-content:center;flex-wrap:wrap; gap:12px;margin:24px 0 0; }
-.btn{ display:inline-flex; justify-content:center; align-items:center; padding:14px 22px; border-radius:30px; border:1px solid var(--orange); background:linear-gradient(130deg,#ff9c18,#bd5700); color:#140700; font-weight:800; font-size:13px; }
-.btn.outline{background:#170800;color:var(--apricot)}
-.service-list{ display:grid; gap:16px; margin-top:22px; }
-.service{ padding:28px; min-height:170px; }
-.service .icon{ font-size:42px; }
-.service h3{ margin:12px 0 8px; font-size:15px; }
-.service p{ margin:0; line-height:1.6; font-size:14px; }
-label{ display:block; color:var(--orange); font-weight:800; font-size:12px; letter-spacing:1px; margin:22px 0 8px; }
-input,select,textarea{ width:100%; background:#080402; color:var(--apricot); border:1px solid var(--border); border-radius:14px; padding:16px; }
-input::placeholder,textarea::placeholder{ color:#c99a72; }
-.form-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-top:24px; }
-.success{ display:none; margin-top:18px; padding:16px; border:1px solid var(--orange); border-radius:12px; background:#1b0902; line-height:1.6; }
-.social-title{ text-align:center; font-size:clamp(28px,6vw,44px); margin:0 0 8px; }
-.social-sub{ text-align:center; line-height:1.7; max-width:750px; margin:0 auto 22px; }
-.social-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:12px; }
-.social{ min-height:110px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; padding:16px 8px; border:1px solid var(--border); border-radius:18px; background:linear-gradient(145deg,#260e02,#090402); font-size:11px; font-weight:900; text-align:center; }
-.social svg{ width:36px; height:36px; }
-.social.facebook{ border-color:#1877F2; color:#1877F2; }
-.social.facebook svg{ fill:#1877F2; }
-.social.whatsapp{ border-color:#25D366; color:#25D366; }
-.social.whatsapp svg{ fill:#25D366; }
-.social.tiktok{ border-color:#ffffff; color:#ffffff; }
-.social.tiktok svg{ fill:#ffffff; }
-.social.youtube{ border-color:#FF0000; color:#FF0000; }
-.social.youtube svg{ fill:#FF0000; }
-.social.spotify{ border-color:#1DB954; color:#1DB954; }
-.social.spotify svg{ fill:#1DB954; }
-.social.instagram{ border-color:#E1306C; color:#E1306C; }
-.social.instagram svg{ fill:#E1306C; }
-.social.linkedin{ border-color:#0A66C2; color:#0A66C2; }
-.social.linkedin svg{ fill:#0A66C2; }
-.social.truthsocial{ border-color:#5448EE; color:#5448EE; }
-.social.truthsocial svg{ fill:#5448EE; }
-.social.telegram{ border-color:#229ED9; color:#229ED9; }
-.social.telegram svg{ fill:#229ED9; }
-.social.x-twitter{ border-color:#ffffff; color:#ffffff; }
-.social.x-twitter svg{ fill:#ffffff; }
-footer{ text-align:center;padding:30px 0; border-top:2px solid var(--orange); background:#050200; font-size:13px; line-height:1.8; }
-@media(max-width:700px){ .social-grid{ grid-template-columns:repeat(2,1fr); } }
-@media(max-width:600px){ .hero-actions .btn{width:100%} .card{padding:20px} }
+
+:root{
+  --black:#000000;
+  --black2:#000000;
+  --orange:#FF6A00;
+  --orange-light:#FFA347;
+  --white:#FFC98A;
+  --line:rgba(255,163,71,0.35);
+  --panel:rgba(0,0,0,0.72);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+  min-height:100%;
+  background:#000;
+  background:
+    linear-gradient(
+      150deg,
+      #000000 0%,
+      #000000 14%,
+      #7A2E00 46%,
+      #FF6A00 68%,
+      #000000 100%
+    );
+  background-attachment:fixed;
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+
+body{
+  margin:0;
+  color:var(--white);
+  font-family:'Public Sans',sans-serif;
+  background:transparent!important;
+  min-height:100vh;
+}
+
+h1,
+h2,
+h3{
+  font-family:'Fraunces',serif;
+  margin:0;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+video,
+img{
+  max-width:100%;
+}
+
+button{
+  font-family:inherit;
+}
+
+/* =====================================================
+   ORIGINAL LOGO
+===================================================== */
+
+.logo-mark{
+  position:relative;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  overflow:hidden;
+  border:2px solid var(--orange-light);
+  flex-shrink:0;
+  background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.logo-mark video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:2;
+  display:block;
+  opacity:1;
+  background:#000;
+  transition:.35s;
+}
+
+.logo-mark video.loaded{
+  opacity:1;
+}
+
+.logo-mark .fallback{
+  font-family:'Fraunces',serif;
+  font-weight:700;
+  color:var(--orange-light);
+  font-size:16px;
+  z-index:1;
+}
+
+/* LOGO AJOUTE: maximax-multi-services.jpg */
+.logo-mark img.logo-img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:3;
+  display:block;
+  background:#000;
+}
+
+/* =====================================================
+   HERO SEAL
+===================================================== */
+
+.seal{
+  position:relative;
+  width:112px;
+  height:112px;
+  border-radius:50%;
+  border:2px solid var(--orange-light);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  background:#000;
+  overflow:hidden;
+}
+
+.seal video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50%;
+  z-index:2;
+  display:block;
+  opacity:1;
+  background:#000;
+}
+
+.seal video.loaded{
+  opacity:1;
+}
+
+.seal .seal-fallback{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  letter-spacing:.14em;
+  color:var(--orange-light);
+  text-transform:uppercase;
+  z-index:1;
+  text-align:center;
+}
+
+.seal::before{
+  content:"";
+  position:absolute;
+  inset:8px;
+  border:1px dashed var(--orange-light);
+  border-radius:50%;
+  opacity:.6;
+  pointer-events:none;
+  z-index:3;
+}
+
+.seal.small{
+  width:46px;
+  height:46px;
+  border-width:1.5px;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(7,5,2,0.92);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(10px);
+}
+
+.nav-wrap{
+  max-width:1180px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 24px;
+  gap:16px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.brand-name{
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  font-size:16px;
+}
+
+.brand-name span{
+  display:block;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  letter-spacing:.16em;
+  color:var(--orange-light);
+  margin-top:2px;
+}
+
+nav.desktop-nav{
+  display:flex;
+  gap:14px;
+  font-size:12px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+nav.desktop-nav a{
+  opacity:.8;
+  padding:4px 0;
+  border-bottom:1px solid transparent;
+  transition:.2s;
+}
+
+nav.desktop-nav a:hover{
+  opacity:1;
+  border-color:var(--orange-light);
+  color:var(--orange-light);
+}
+
+.menu-btn{
+  display:none;
+  background:none;
+  border:1px solid var(--line);
+  color:var(--white);
+  width:38px;
+  height:38px;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:16px;
+}
+
+.mobile-nav{
+  display:none;
+  flex-direction:column;
+  padding:0 24px 18px;
+  gap:2px;
+}
+
+.mobile-nav a{
+  padding:9px 6px;
+  font-size:14px;
+  border-bottom:1px solid var(--line);
+}
+
+.mobile-nav.open{
+  display:flex;
+}
+
+@media(max-width:900px){
+
+  nav.desktop-nav{
+    display:none;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+  max-width:1180px;
+  margin:0 auto;
+  padding:72px 24px 60px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:40px;
+  align-items:center;
+}
+
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  letter-spacing:.2em;
+  color:var(--orange-light);
+  text-transform:uppercase;
+  margin-bottom:18px;
+  display:block;
+}
+
+.hero h1{
+  font-size:clamp(2.2rem,5.2vw,3.9rem);
+  font-weight:600;
+  line-height:1.06;
+}
+
+.hero h1 em{
+  font-style:italic;
+  color:var(--orange-light);
+}
+
+.hero p.lede{
+  margin-top:20px;
+  max-width:560px;
+  font-size:16px;
+  line-height:1.65;
+  opacity:.88;
+}
+
+.hero .creole{
+  margin-top:10px;
+  font-style:italic;
+  color:var(--orange-light);
+  font-size:14px;
+}
+
+.hero-cta{
+  margin-top:28px;
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  padding:13px 22px;
+  border-radius:3px;
+  display:inline-block;
+  border:1px solid transparent;
+  transition:.2s;
+}
+
+.btn-primary{
+  background:var(--orange);
+  color:#1A0E05;
+}
+
+.btn-primary:hover{
+  background:var(--orange-light);
+}
+
+.btn-ghost{
+  border:1px solid var(--line);
+  color:var(--white);
+}
+
+.btn-ghost:hover{
+  border-color:var(--orange-light);
+  color:var(--orange-light);
+}
+
+@media(max-width:860px){
+
+  .hero{
+    grid-template-columns:1fr;
+  }
+
+  .hero-seal{
+    display:none;
+  }
+
+}
+
+/* =====================================================
+   NEW MAXIMAX SHOWCASE LOGO
+   maxima-xbest.mp4
+===================================================== */
+
+.maximax-showcase{
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 24px 60px;
+}
+
+.maximax-showcase-box{
+  position:relative;
+  width:min(100%,820px);
+  margin:auto;
+  padding:18px;
+  overflow:hidden;
+
+  border:1px solid var(--orange-light);
+  border-radius:20px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255,106,0,.25),
+      rgba(0,0,0,.96) 65%
+    );
+
+  box-shadow:
+    0 0 35px rgba(255,106,0,.22),
+    0 25px 70px rgba(0,0,0,.65);
+}
+
+.maximax-showcase-box::before{
+  content:"";
+  position:absolute;
+  inset:8px;
+  border:1px solid rgba(255,163,71,.22);
+  border-radius:14px;
+  pointer-events:none;
+  z-index:3;
+}
+
+.maximax-showcase-title{
+  position:relative;
+  z-index:4;
+
+  text-align:center;
+  margin-bottom:14px;
+
+  color:var(--orange-light);
+
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.20em;
+  text-transform:uppercase;
+}
+
+.maximax-showcase-video{
+  position:relative;
+  z-index:2;
+
+  display:block;
+  width:100%;
+  max-height:480px;
+
+  object-fit:contain;
+
+  border-radius:13px;
+  background:#000;
+}
+
+.maximax-showcase-line{
+  position:relative;
+  z-index:4;
+
+  width:70%;
+  max-width:460px;
+  height:1px;
+
+  margin:16px auto 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--orange-light),
+      transparent
+    );
+}
+
+@media(max-width:600px){
+
+  .maximax-showcase{
+    padding:0 14px 44px;
+  }
+
+  .maximax-showcase-box{
+    padding:12px;
+    border-radius:15px;
+  }
+
+}
+
+/* =====================================================
+   CATEGORY MAP
+===================================================== */
+
+.catmap{
+  background:rgba(0,0,0,0.35);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:22px 24px;
+}
+
+.catmap-inner{
+  max-width:1180px;
+  margin:0 auto;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 18px;
+  justify-content:center;
+}
+
+.catmap-item{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;
+  color:var(--orange-light);
+  opacity:.9;
+}
+
+.catmap-item b{
+  color:var(--white);
+  opacity:.5;
+  margin-right:4px;
+}
+
+/* =====================================================
+   SERVICES
+===================================================== */
+
+main{
+  max-width:1180px;
+  margin:0 auto;
+  padding:40px 20px;
+}
+
+.file{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:8px;
+  margin-bottom:18px;
+  overflow:hidden;
+}
+
+.file-tab{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px 20px;
+  cursor:pointer;
+}
+
+.file-tab-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.file-num{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  border:1px solid var(--orange-light);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:11px;
+  color:var(--orange-light);
+  flex-shrink:0;
+}
+
+.file-tab h2{
+  font-size:1.2rem;
+}
+
+.file-tab .sub{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--orange-light);
+  margin-top:3px;
+  opacity:.7;
+}
+
+.chev{
+  width:20px;
+  height:20px;
+  flex-shrink:0;
+  transition:transform .3s;
+  opacity:.7;
+  color:var(--orange-light);
+}
+
+.file.open .chev{
+  transform:rotate(180deg);
+}
+
+.file-body{
+  display:none;
+  padding:0 20px 18px;
+}
+
+.file.open .file-body{
+  display:block;
+}
+
+.service-list{
+  columns:2;
+  column-gap:24px;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.service-list li{
+  break-inside:avoid;
+  display:flex;
+  gap:8px;
+  padding:6px 0;
+  border-bottom:1px dotted var(--line);
+  font-size:13px;
+}
+
+.service-list li::before{
+  content:"✓";
+  color:var(--orange-light);
+  font-weight:700;
+  flex-shrink:0;
+}
+
+@media(max-width:600px){
+
+  .service-list{
+    columns:1;
+  }
+
+}
+
+.myaccess-btn-wrap{
+  margin-top:22px;
+}
+
+.myaccess-btn{
+  display:inline-block;
+  padding:13px 22px;
+  border-radius:4px;
+  background:var(--orange);
+  color:#160900;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-weight:600;
+  border:1px solid var(--orange);
+  transition:.2s;
+}
+
+.myaccess-btn:hover{
+  background:var(--orange-light);
+}
+
+/* =====================================================
+   AI CENTER
+===================================================== */
+
+.ai-center{
+  background:rgba(0,0,0,0.55);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:50px 24px;
+  margin:40px 0;
+}
+
+.ai-inner{
+  max-width:1180px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  align-items:center;
+}
+
+.ai-badge{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;
+  letter-spacing:.2em;
+  color:var(--orange-light);
+  text-transform:uppercase;
+  margin-bottom:12px;
+  display:inline-block;
+  border:1px solid var(--line);
+  padding:6px 12px;
+  border-radius:20px;
+}
+
+.ai-center h2{
+  font-size:2rem;
+  line-height:1.1;
+  margin-bottom:14px;
+}
+
+.ai-center p{
+  font-size:14px;
+  line-height:1.6;
+  opacity:.85;
+}
+
+.ai-features{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:20px;
+}
+
+.ai-feat{
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:14px;
+  background:rgba(0,0,0,0.35);
+}
+
+.ai-feat b{
+  display:block;
+  font-size:13px;
+  margin-bottom:4px;
+  color:var(--orange-light);
+}
+
+.ai-feat span{
+  font-size:12px;
+  opacity:.8;
+}
+
+@media(max-width:800px){
+
+  .ai-inner{
+    grid-template-columns:1fr;
+  }
+
+}
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.band{
+  padding:40px 24px;
+}
+
+.band-inner{
+  max-width:1180px;
+  margin:0 auto;
+}
+
+.band-contact{
+  background:rgba(0,0,0,0.5);
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:14px;
+  margin:20px 0 30px;
+}
+
+.contact-card{
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:16px;
+  background:rgba(0,0,0,0.35);
+}
+
+.label{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--orange-light);
+  margin-bottom:6px;
+}
+
+.value{
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* =====================================================
+   PROFESSIONAL SOCIAL NETWORKS
+===================================================== */
+
+.social-row{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:14px;
+}
+
+.social-pill{
+  position:relative;
+
+  min-height:70px;
+
+  display:flex;
+  align-items:center;
+  gap:13px;
+
+  padding:13px 15px;
+
+  border:1px solid var(--line);
+  border-radius:14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,106,0,.08),
+      rgba(0,0,0,.96)
+    );
+
+  overflow:hidden;
+
+  box-shadow:
+    0 8px 25px rgba(0,0,0,.35);
+
+  transition:.25s;
+}
+
+.social-pill:hover{
+  transform:translateY(-4px);
+  border-color:var(--orange-light);
+
+  box-shadow:
+    0 14px 32px rgba(0,0,0,.55),
+    0 0 22px rgba(255,106,0,.13);
+}
+
+.social-icon{
+  width:44px;
+  height:44px;
+
+  flex:0 0 44px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  font-size:22px;
+
+  background:#000;
+
+  border:1px solid var(--orange-light);
+
+  transition:.25s;
+}
+
+.social-text{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+  min-width:0;
+}
+
+.social-name{
+  font-weight:700;
+  font-size:13px;
+}
+
+.social-action{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:8px;
+  letter-spacing:.07em;
+  color:var(--orange-light);
+  text-transform:uppercase;
+}
+
+.social-arrow{
+  margin-left:auto;
+  font-size:10px;
+  color:var(--orange-light);
+  opacity:.6;
+}
+
+/* OFFICIAL ICON COLORS */
+
+.whatsapp-icon{
+  color:#25D366;
+}
+
+.facebook-icon{
+  color:#1877F2;
+}
+
+.instagram-icon{
+  color:#E4405F;
+}
+
+.tiktok-icon{
+  color:#ffffff;
+}
+
+.x-icon{
+  color:#ffffff;
+}
+
+.youtube-icon{
+  color:#FF0000;
+}
+
+.linkedin-icon{
+  color:#0A66C2;
+}
+
+.【entity-spotify¦canonical_name=Spotify】-icon{
+  color:#1DB954;
+}
+
+.truth-icon{
+  color:#5448EE;
+}
+
+.social-pill:hover .social-icon{
+  border-color:currentColor;
+  transform:scale(1.06);
+}
+
+@media(max-width:540px){
+
+  .social-row{
+    grid-template-columns:1fr;
+  }
+
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+  background:rgba(0,0,0,0.7);
+  padding:30px 20px;
+  border-top:1px solid var(--line);
+  text-align:center;
+  font-size:11px;
+  opacity:.8;
+}
+
+.footer-cats{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 16px;
+  justify-content:center;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;
+  margin-top:12px;
+}
+
 </style>
 </head>
+
 <body>
-<div class="topbar" data-t="topbar">MAXIMAX MULTI SERVICES • APPOINTMENT CENTER</div>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header>
- <div class="container header-content">
-  <!-- LOGO: maximax-multi-services.jpg -->
-  <a href="index.html" aria-label="Maximax Multi Services"><img class="logo-img" src="maximax-multi-services.jpg" alt="Maximax Multi Services Logo"></a>
-  <div class="lang-switch">
-   <button class="lang active" data-lang="en" type="button">🇺🇸 ENG</button>
-   <button class="lang" data-lang="es" type="button">🇪🇸 ESP</button>
-   <button class="lang" data-lang="ht" type="button">🇭🇹 KRE</button>
-   <button class="menu-btn" type="button" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">☰</button>
+
+  <div class="nav-wrap">
+
+    <div class="brand">
+
+      <div class="logo-mark">
+
+        <span class="fallback">M</span>
+
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          onloadeddata="this.classList.add('loaded')"
+          onerror="this.style.display='none'"
+        >
+          <source
+            src="./maximax-best-multi.mp4"
+            type="video/mp4"
+          >
+        </video>
+
+        <!-- LOGO AJOUTE: maximax-multi-services.jpg -->
+        <img class="logo-img" src="maximax-multi-services.jpg" alt="Maximax Multi Services Logo">
+
+      </div>
+
+      <div class="brand-name">
+
+        MAXIMAX
+
+        <span>
+          MULTI SERVICES • EST 2020
+        </span>
+
+      </div>
+
+    </div>
+
+    <nav class="desktop-nav">
+
+      <a href="#hero">
+        Home
+      </a>
+
+      <a href="#services">
+        Services
+      </a>
+
+      <a href="#ai-center">
+        AI Center
+      </a>
+
+      <a href="#contact">
+        Contact
+      </a>
+
+    </nav>
+
+    <button
+      class="menu-btn"
+      id="menuBtn"
+      type="button"
+      aria-label="Open Menu"
+    >
+      ☰
+    </button>
+
   </div>
- </div>
+
+  <div
+    class="mobile-nav"
+    id="mobileNav"
+  >
+
+    <a href="#hero">
+      Home
+    </a>
+
+    <a href="#services">
+      Services
+    </a>
+
+    <a href="#ai-center">
+      AI Center
+    </a>
+
+    <a href="#contact">
+      Contact
+    </a>
+
+  </div>
+
 </header>
-<main class="container">
-<section class="hero">
- <div class="card">
-  <div class="hero-icon">📅</div>
-  <small data-t="center">MAXIMAX SERVICE CENTER</small>
-  <h1 data-t="title">APPOINTMENT CENTER</h1>
-  <p data-t="subtitle">Organize your Maximax service request, preferred appointment date, contact information and document-preparation needs in one place.</p>
-  <div class="hero-actions">
-   <a class="btn" href="#request" data-t="requestBtn">REQUEST APPOINTMENT</a>
-   <a class="btn outline" href="tel:+14076405166">📞 (407) 640-5166</a>
-   <a class="btn outline" href="index.html">← BACK TO HOMEPAGE</a>
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section
+  class="hero"
+  id="hero"
+>
+
+  <div>
+
+    <span class="eyebrow">
+      Pine Hills, Orlando • Indianapolis • New York
+    </span>
+
+    <h1>
+      Your Trusted Partner for
+      <em>
+        Life in the USA
+      </em>
+    </h1>
+
+    <p class="lede">
+      Maximax Multi Services — Notary, Taxes, Immigration,
+      EOIR+【entity-BIA¦canonical_name=BIA】, Insurance, Real Estate, Business Formation
+      & more. Tout sèvis ou bezwen anba yon sèl do-kay.
+    </p>
+
+    <p class="creole">
+      Nou pale Kreyòl, English, Español.
+    </p>
+
+    <div class="hero-cta">
+
+      <a
+        href="#contact"
+        class="btn btn-primary"
+      >
+        Book Appointment
+      </a>
+
+      <a
+        href="#services"
+        class="btn btn-ghost"
+      >
+        Explore Services
+      </a>
+
+    </div>
+
   </div>
- </div>
-</section>
 
-<section id="menu">
- <div class="service-list">
-  <div class="card service"><div class="icon">✍️</div><h3>NOTARY</h3><p data-t="notary">Notarial document service requests.</p></div>
-  <div class="card service"><div class="icon">💰</div><h3>TAXES</h3><p data-t="taxes">Tax-document preparation and organization.</p></div>
-  <div class="card service"><div class="icon">🗽</div><h3>IMMIGRATION</h3><p data-t="immigration">Immigration document-preparation services.</p></div>
-  <div class="card service"><div class="icon">⚖️</div><h3>EOIR + BIA</h3><p data-t="eoir">Administrative case-document organization.</p></div>
-  <div class="card service"><div class="icon">🛡️</div><h3>INSURANCE</h3><p data-t="insurance">Insurance service navigation and appointments.</p></div>
-  <div class="card service"><div class="icon">🏠</div><h3>REAL ESTATE</h3><p data-t="realestate">Property and real-estate service requests.</p></div>
-  <div class="card service"><div class="icon">💼</div><h3>BUSINESS</h3><p data-t="business">Business administrative service requests.</p></div>
-  <div class="card service"><div class="icon">🌎</div><h3>APOSTILLE</h3><p data-t="apostille">Apostille document-preparation requests.</p></div>
-  <div class="card service"><div class="icon">✈️</div><h3>TRAVEL + DMV</h3><p data-t="travel">Travel and DMV administrative support.</p></div>
-  <div class="card service"><div class="icon">📈</div><h3>CREDIT</h3><p data-t="credit">Credit-report organization and support.</p></div>
-  <div class="card service"><div class="icon">📄</div><h3>DIVORCE DOCUMENTS</h3><p data-t="divorce">Supported administrative document preparation.</p></div>
-  <div class="card service"><div class="icon">🤖</div><h3>AI SERVICES</h3><p data-t="ai">Digital AI assistance and service navigation.</p></div>
- </div>
-</section>
+  <div class="hero-seal">
 
-<section id="request">
- <div class="card">
-  <p style="text-align:center;letter-spacing:2px;font-weight:800;color:var(--orange);margin:0" data-t="formTop">MAXIMAX APPOINTMENT REQUEST</p>
-  <h2 style="text-align:center;font-size:clamp(30px,6vw,52px);margin:10px 0" data-t="formTitle">REQUEST AN APPOINTMENT</h2>
-  <p style="text-align:center;line-height:1.7" data-t="formSub">Enter your service request and preferred date. This form saves an appointment request on your device; it does not automatically confirm an appointment.</p>
-  <form id="apptForm">
-   <label data-t="name">FULL NAME</label>
-   <input id="fullName" type="text" placeholder="Your name" required autocomplete="name">
-   <label data-t="phone">PHONE</label>
-   <input id="phone" type="tel" placeholder="Phone number" required autocomplete="tel">
-   <label data-t="email">EMAIL</label>
-   <input id="email" type="email" placeholder="Email address" required autocomplete="email">
-   <label data-t="service">SERVICE</label>
-   <select id="service" required>
-    <option value="" data-t="selectService">Select Service</option>
-    <option>NOTARY</option>
-    <option>TAXES</option>
-    <option>IMMIGRATION</option>
-    <option>EOIR + BIA</option>
-    <option>INSURANCE</option>
-    <option>REAL ESTATE</option>
-    <option>BUSINESS</option>
-    <option>APOSTILLE</option>
-    <option>TRAVEL + DMV</option>
-    <option>CREDIT</option>
-    <option>DIVORCE DOCUMENTS</option>
-    <option>AI SERVICES</option>
-   </select>
-   <label data-t="date">PREFERRED DATE</label>
-   <input id="date" type="date" required>
-   <label data-t="notes">NOTES / DOCUMENTS NEEDED</label>
-   <textarea id="notes" rows="4" placeholder="Write your request here..."></textarea>
-   <div class="form-actions">
-    <button class="btn" type="submit" data-t="submit">SAVE APPOINTMENT REQUEST</button>
-    <a class="btn outline" href="tel:+14076405166">📞 (407) 640-5166</a>
-    <a class="btn outline" href="index.html">← BACK TO HOMEPAGE</a>
-   </div>
-   <div class="success" id="successBox"></div>
-  </form>
- </div>
-</section>
+    <div class="seal">
 
-<section id="social-networks">
- <div class="card">
-  <h2 class="social-title">SOCIAL NETWORKS</h2>
-  <p class="social-sub">Connect with Maximax Multi Services across our social networks.</p>
-  <div class="social-grid">
-   <a class="social facebook" href="https://www.facebook.com/share/1By3KvYRrM/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.025 1.792-4.697 4.533-4.697 1.313 0 2.686.236 2.686.236v2.973h-1.513c-1.49 0-1.956.931-1.956 1.887v2.261h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg><span>FACEBOOK</span></a>
-   <a class="social whatsapp" href="https://wa.me/50943437488" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.173.198-.297.298-.495.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.273.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.693.625.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 0C5.373 0 0 5.373 0 12c0 2.116.552 4.181 1.6 6L0 24l6.153-1.613A11.96 11.96 0 0012.004 24C18.63 24 24 18.627 24 12S18.63 0 12.004 0zm0 21.818a9.78 9.78 0 01-4.99-1.366l-.357-.212-3.65.957.974-3.557-.232-.366A9.77 9.77 0 012.182 12c0-5.414 4.407-9.818 9.822-9.818 5.414 0 9.814 4.404 9.814 9.818s-4.4 9.818-9.814 9.818z"/></svg><span>WHATSAPP</span></a>
-   <a class="social tiktok" href="https://www.tiktok.com/@maximax1960" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.321 5.562a5.124 5.124 0 01-3.005-.96A5.15 5.15 0 0114.323 1H10.5v14.4a3.2 3.2 0 11-2.2-3.038V8.45a7.03 7.03 0 00-1.2-.104A7.1 7.1 0 1014.2 15.4V8.096a8.94 8.94 0 005.121 1.64V5.562z"/></svg><span>TIKTOK</span></a>
-   <a class="social youtube" href="https://www.youtube.com/@BSS1815PROMAXDMP" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.016 3.016 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.121 2.136c1.872.505 9.377.505 9.377.505s7.505 0 9.376-.505a3.016 3.016 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg><span>YOUTUBE</span></a>
-   <a class="social spotify" href="https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.505 17.308a.75.75 0 01-1.032.249c-2.827-1.728-6.386-2.118-10.578-1.16a.75.75 0 11-.334-1.462c4.587-1.049 8.522-.6 11.695 1.34a.75.75 0 01.249 1.033zm1.475-3.282a.94.94 0 01-1.293.31c-3.237-1.988-8.171-2.564-11.998-1.403a.94.94 0 11-.546-1.799c4.376-1.328 9.813-.685 13.527 1.596a.94.94 0 01.31 1.296zm.126-3.417C15.224 8.304 8.819 8.091 5.11 9.212a1.128 1.128 0 11-.652-2.16c4.26-1.288 11.336-1.038 15.8 1.611a1.128 1.128 0 01-1.152 1.946z"/></svg><span>SPOTIFY</span></a>
-   <a class="social instagram" href="https://www.instagram.com/lebaron072/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 5.838A6.162 6.162 0 1012 18.162 6.162 6.162 0 0012 5.838zm0 10.162a4 4 0 110-8 4 4 0 010 8z"/></svg><span>INSTAGRAM</span></a>
-   <a class="social linkedin" href="https://www.linkedin.com/in/maximax-multi-services-075ba2314" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.047c.476-.9 1.637-1.85 3.37-1.85 3.602 0 4.267 2.371 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 110-4.124 2.062 2.062 0 010 4.124zM7.119 20.452H3.555V9H7.12v11.452z"/></svg><span>LINKEDIN</span></a>
-   <a class="social truthsocial" href="https://truthsocial.com/@briyant_soley_1815" target="_blank" rel="noopener noreferrer" aria-label="Truth Social"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h18v4H14v14h-4V7H3V3zm13 6h5v4h-5V9zm0 6h5v4h-5v-4z"/></svg><span>TRUTH SOCIAL</span></a>
-   <a class="social telegram" href="#contact" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.953 4.57a.74.74 0 00-1.017-.267L1.43 12.48c-1.47.59-1.462 1.41-.268 1.776l5.518 1.724 2.114 6.484c.257.71.13.992.878.992.577 0 .831-.264 1.153-.577l2.653-2.58 5.518 4.077c1.016.56 1.748.27 2.001-.943L24 5.585c.322-1.49-.57-2.166-.047-1.015z"/></svg><span>TELEGRAM</span></a>
-   <a class="social x-twitter" href="https://x.com/w05g2m" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.967 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg><span>X / TWITTER</span></a>
+      <span class="seal-fallback">
+        Maximax
+        <br>
+        Services
+      </span>
+
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        onloadeddata="this.classList.add('loaded')"
+        onerror="this.style.display='none'"
+      >
+        <source
+          src="./maximax-best-multi.mp4"
+          type="video/mp4"
+        >
+      </video>
+
+    </div>
+
   </div>
- </div>
+
 </section>
+
+<!-- =====================================================
+     NEW SECOND LOGO
+     maxima-xbest.mp4
+===================================================== -->
+
+<section class="maximax-showcase">
+
+  <div class="maximax-showcase-box">
+
+    <div class="maximax-showcase-title">
+      MAXIMAX MULTI SERVICES
+    </div>
+
+    <video
+      class="maximax-showcase-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+    >
+      <source
+        src="./maxima-xbest.mp4"
+        type="video/mp4"
+      >
+    </video>
+
+    <div class="maximax-showcase-line"></div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     CATEGORY MAP
+===================================================== -->
+
+<div class="catmap">
+
+  <div class="catmap-inner">
+
+    <a class="catmap-item" href="#mod1">
+      <b>01</b> NOTARY
+    </a>
+
+    <a class="catmap-item" href="#mod2">
+      <b>02</b> TAXES
+    </a>
+
+    <a class="catmap-item" href="#mod3">
+      <b>03</b> IMMIGRATION
+    </a>
+
+    <a class="catmap-item" href="#mod4">
+      <b>04</b> EOIR+【entity-BIA¦canonical_name=BIA】
+    </a>
+
+    <a class="catmap-item" href="#mod5">
+      <b>05</b> INSURANCE
+    </a>
+
+    <a class="catmap-item" href="#mod6">
+      <b>06</b> REAL ESTATE
+    </a>
+
+    <a class="catmap-item" href="#mod7">
+      <b>07</b> BUSINESS
+    </a>
+
+    <a class="catmap-item" href="#mod8">
+      <b>08</b> APOSTILLE
+    </a>
+
+    <a class="catmap-item" href="#mod9">
+      <b>09</b> TRAVEL+DMV
+    </a>
+
+  </div>
+
+</div>
+
+<!-- =====================================================
+     SERVICES
+===================================================== -->
+
+<main id="services">
+
+<!-- 01 -->
+
+<div class="file open" id="mod1">
+
+  <div
+    class="file-tab"
+    onclick="toggleFile('mod1')"
+  >
+
+    <div class="file-tab-left">
+
+      <div class="file-num">
+        01
+      </div>
+
+      <div>
+
+        <h2>
+          Notary & Translation
+        </h2>
+
+        <div class="sub">
+          Certified • Fast • All 50 States
+        </div>
+
+      </div>
+
+    </div>
+
+    <span class="chev">
+      ▼
+    </span>
+
+  </div>
+
+  <div class="file-body">
+
+    <ul class="service-list">
+
+      <li>
+        Notary Public - All 50 States
+      </li>
+
+      <li>
+        Mobile Notary - We come to you
+      </li>
+
+      <li>
+        Power of Attorney
+      </li>
+
+      <li>
+        Affidavit & Legal Letters
+      </li>
+
+      <li>
+        Document Apostille
+      </li>
+
+      <li>
+        Travel Consent for Minors
+      </li>
+
+    </ul>
+
+  </div>
+
+</div>
+
+<!-- 02 -->
+
+<div class="file open" id="mod2">
+
+  <div
+    class="file-tab"
+    onclick="toggleFile('mod2')"
+  >
+
+    <div class="file-tab-left">
+
+      <div class="file-num">
+        02
+      </div>
+
+      <div>
+
+        <h2>
+          Taxes & Accounting
+        </h2>
+
+        <div class="sub">
+          Maximize your refund - ITIN
+        </div>
+
+      </div>
+
+    </div>
+
+    <span class="chev">
+      ▼
+    </span>
+
+  </div>
+
+  <div class="file-body">
+
+    <ul class="service-list">
+
+      <li>
+        Personal Taxes - Form 1040
+      </li>
+
+      <li>
+        Business Taxes - LLC, S-Corp, C-Corp
+      </li>
+
+      <li>
+        ITIN Application & Renewal - W7
+      </li>
+
+      <li>
+        Bookkeeping & Payroll
+      </li>
+
+      <li>
+        IRS Letter & Audit Help
+      </li>
+
+      <li>
+        Tax Amendment - 1040X
+      </li>
+
+    </ul>
+
+    <div class="myaccess-btn-wrap">
+
+      <a
+        class="myaccess-btn"
+        href="#contact"
+      >
+        File My Taxes Now
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- 03 -->
+
+<div class="file open" id="mod3">
+
+  <div
+    class="file-tab"
+    onclick="toggleFile('mod3')"
+  >
+
+    <div class="file-tab-left">
+
+      <div class="file-num">
+        03
+      </div>
+
+      <div>
+
+        <h2>
+          Immigration Services
+        </h2>
+
+        <div class="sub">
+          TPS • Asylum • Family Petition
+        </div>
+
+      </div>
+
+    </div>
+
+    <span class="chev">
+      ▼
+    </span>
+
+  </div>
+
+  <div class="file-body">
+
+    <ul class="service-list">
+
+      <li>
+        TPS Application & Renewal
+      </li>
+
+      <li>
+        Asylum & Work Permit (I-765)
+      </li>
+
+      <li>
+        Family Petition (I-130)
+      </li>
+
+      <li>
+        Green Card & Citizenship (N-400)
+      </li>
+
+      <li>
+        【entity-USCIS¦canonical_name=USCIS】 Form Preparation - All Forms
+      </li>
+
+      <li>
+        DACA Renewal
+      </li>
+
+    </ul>
+
+  </div>
+
+</div>
+
+<!-- 04 -->
+
+<div class="file open" id="mod4">
+
+  <div
+    class="file-tab"
+    onclick="toggleFile('mod4')"
+  >
+
+    <div class="file-tab-left">
+
+      <div class="file-num">
+        04
+      </div>
+
+      <div>
+
+        <h2>
+          EOIR + 【entity-BIA¦canonical_name=BIA】 - Menm Bouton
+        </h2>
+
+        <div class="sub">
+          Immigration Court • Board of Appeals • Menm kote
+        </div>
+
+      </div>
+
+    </div>
+
+    <span class="chev">
+      ▼
+    </span>
+
+  </div>
+
+  <div class="file-body">
+
+    <ul class="service-list">
+
+      <li>
+        EOIR - Executive Office for Immigration Review
+      </li>
+
+      <li>
+        【entity-BIA - Board of Immigration Appeals¦canonical_name=BIA】
+      </li>
+
+      <li>
+        Change of Venue & Court Date Check
+      </li>
+
+      <li>
+        Master Calendar & Individual Hearing Prep
+      </li>
+
+      <li>
+        Appeal to 【entity-BIA¦canonical_name=BIA】 - Brief & Motion
+      </li>
+
+      <li>
+        FOIA & Case Status - EOIR Hotline
+      </li>
+
+    </ul>
+
+    <div class="myaccess-btn-wrap">
+
+      <a
+        class="myaccess-btn"
+        href="#contact"
+      >
+        EOIR + 【entity-BIA¦canonical_name=BIA】 Help - Rele Kounya
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- 05 -->
+
+<div class="file open" id="mod5">
+
+  <div
+    class="file-tab"
+    onclick="toggleFile('mod5')"
+  >
+
+    <div class="file-tab-left">
+
+      <div class="file-num">
+        05
+      </div>
+
+      <div>
+
+        <h2>
+          Insurance
+        </h2>
+
+        <div class="sub">
+          Auto • Home • Life • Health
+        </div>
+
+      </div>
+
+    </div>
+
+    <span class="chev">
+      ▼
+    </span>
+
+  </div>
+
+  <div class="file-body">
+
+    <ul class="service-list">
+
+      <li>
+        Auto Insurance - Best Rates
+      </li>
+
+      <li>
+        Homeowners & Renters Insurance
+      </li>
+
+      <li>
+        Life Insurance
+      </li>
+
+      <li>
+        Health Insurance - Marketplace
+      </li>
+
+      <li>
+        Business & Commercial Insurance
+      </li>
+
+      <li>
+        SR22 Insurance
+      </li>
+
+    </ul>
+
+  </div>
+
+</div>
+
+<!-- 06 -->
+
+<div class="file open" id="mod6">
+
+  <div
+    class="file-tab"
+    onclick="toggleFile('mod6')"
+  >
+
+    <div class="file-tab-left">
+
+      <div class="file-num">
+        06
+      </div>
+
+      <div>
+
+        <h2>
+          Real Estate
+        </h2>
+
+        <div class="sub">
+          Buy • Sell • Rent • Manage
+        </div>
+
+      </div>
+
+    </div>
+
+    <span class="chev">
+      ▼
+    </span>
+
+  </div>
+
+  <div class="file-body">
+
+    <ul class="service-list">
+
+      <li>
+        Buy Your First Home - First Time Buyer
+      </li>
+
+      <li>
+        Sell Your House - Fast Closing
+      </li>
+
+      <li>
+        Rental Assistance
+      </li>
+
+      <li>
+        Property Management
+      </li>
+
+      <li>
+        House Inspection Referral
+      </li>
+
+      <li>
+        Mortgage Referral
+      </li>
+
+    </ul>
+
+  </div>
+
+</div>
+
+<!-- 07 -->
+
+<div class="file open" id="mod7">
+
+  <div
+    class="file-tab"
+    onclick="toggleFile('mod7')"
+  >
+
+    <div class="file-tab-left">
+
+      <div class="file-num">
+        07
+      </div>
+
+      <div>
+
+        <h2>
+          Business Formation
+        </h2>
+
+        <div class="sub">
+          LLC • Corp • EIN • License
+        </div>
+
+      </div>
+
+    </div>
+
+    <span class="chev">
+      ▼
+    </span>
+
+  </div>
+
+  <div class="file-body">
+
+    <ul class="service-list">
+
+      <li>
+        LLC & Corporation Formation
+      </li>
+
+      <li>
+        EIN Number - Same Day
+      </li>
+
+      <li>
+        Business License & Permit
+      </li>
+
+      <li>
+        Business Plan & Logo Design
+      </li>
+
+      <li>
+        Business Taxes & Bookkeeping
+      </li>
+
+      <li>
+        Business Bank Account Setup
+      </li>
+
+    </ul>
+
+  </div>
+
+</div>
+
+<!-- 08 -->
+
+<div class="file open" id="mod8">
+
+  <div
+    class="file-tab"
+    onclick="toggleFile('mod8')"
+  >
+
+    <div class="file-tab-left">
+
+      <div class="file-num">
+        08
+      </div>
+
+      <div>
+
+        <h2>
+          Apostille & Legalization
+        </h2>
+
+        <div class="sub">
+          State & Federal • Fast Service
+        </div>
+
+      </div>
+
+    </div>
+
+    <span class="chev">
+      ▼
+    </span>
+
+  </div>
+
+  <div class="file-body">
+
+    <ul class="service-list">
+
+      <li>
+        Document Apostille - All States
+      </li>
+
+      <li>
+        FBI Background Check Apostille
+      </li>
+
+      <li>
+        Diploma & School Records Apostille
+      </li>
+
+      <li>
+        Power of Attorney for Haiti
+      </li>
+
+      <li>
+        Authentication & Legalization
+      </li>
+
+      <li>
+        Embassy Legalization
+      </li>
+
+    </ul>
+
+  </div>
+
+</div>
+
+<!-- 09 -->
+
+<div class="file open" id="mod9">
+
+  <div
+    class="file-tab"
+    onclick="toggleFile('mod9')"
+  >
+
+    <div class="file-tab-left">
+
+      <div class="file-num">
+        09
+      </div>
+
+      <div>
+
+        <h2>
+          Travel & DMV Services
+        </h2>
+
+        <div class="sub">
+          Plane Ticket • Passport • DMV
+        </div>
+
+      </div>
+
+    </div>
+
+    <span class="chev">
+      ▼
+    </span>
+
+  </div>
+
+  <div class="file-body">
+
+    <ul class="service-list">
+
+      <li>
+        Plane Ticket - Best Price Haiti / USA / International
+      </li>
+
+      <li>
+        Passport Application & Renewal
+      </li>
+
+      <li>
+        DMV Services - License, Registration, Title
+      </li>
+
+      <li>
+        TSA PreCheck & TWIC Card Help
+      </li>
+
+      <li>
+        Hotel Booking & Car Rental
+      </li>
+
+      <li>
+        Travel Insurance
+      </li>
+
+    </ul>
+
+  </div>
+
+</div>
+
 </main>
+
+<!-- =====================================================
+     AI CENTER
+===================================================== -->
+
+<section
+  class="ai-center"
+  id="ai-center"
+>
+
+  <div class="ai-inner">
+
+    <div>
+
+      <span class="ai-badge">
+        🤖 AI CENTER - NOUVO
+      </span>
+
+      <h2>
+        Maximax AI Assistant Center
+      </h2>
+
+      <p>
+        AI Center nou an ap chaje kounya — li ede w ranpli fòm,
+        tcheke ka w, tradui dokiman, epi reponn kesyon sou
+        Immigration, Taxes, ak tout sèvis nou yo.
+        Disponible 24/7 an Kreyòl, English, Español.
+      </p>
+
+      <div class="ai-features">
+
+        <div class="ai-feat">
+
+          <b>
+            📋 Form Helper
+          </b>
+
+          <span>
+            Ranpli I-130, I-765, N-400 otomatik
+          </span>
+
+        </div>
+
+        <div class="ai-feat">
+
+          <b>
+            🔍 Case Tracker
+          </b>
+
+          <span>
+            Tcheke TPS, Asylum, EOIR ka w
+          </span>
+
+        </div>
+
+        <div class="ai-feat">
+
+          <b>
+            🌐 Tradiksyon AI
+          </b>
+
+          <span>
+            Tradui dokiman enstantane
+          </span>
+
+        </div>
+
+        <div class="ai-feat">
+
+          <b>
+            💬 Chat 24/7
+          </b>
+
+          <span>
+            Reponn kesyon an Kreyòl
+          </span>
+
+        </div>
+
+      </div>
+
+      <div class="myaccess-btn-wrap">
+
+        <a
+          class="myaccess-btn"
+          href="#contact"
+        >
+          Try AI Center Now
+        </a>
+
+      </div>
+
+    </div>
+
+    <div>
+
+      <div
+        style="
+          border:1px solid var(--line);
+          border-radius:12px;
+          padding:20px;
+          background:rgba(0,0,0,0.6);
+        "
+      >
+
+        <div
+          style="
+            font-family:'IBM Plex Mono',monospace;
+            font-size:10px;
+            color:var(--orange-light);
+            margin-bottom:12px;
+          "
+        >
+          AI CHAT PREVIEW
+        </div>
+
+        <div
+          style="
+            background:rgba(255,106,0,0.1);
+            border-radius:8px;
+            padding:12px;
+            margin-bottom:10px;
+            font-size:13px;
+          "
+        >
+          👤 Ki jan pou m tcheke dat tribinal mwen?
+        </div>
+
+        <div
+          style="
+            background:rgba(0,0,0,0.5);
+            border:1px solid var(--line);
+            border-radius:8px;
+            padding:12px;
+            font-size:13px;
+          "
+        >
+          🤖 Ale sou EOIR hotline 1-800-898-7180
+          oswa itilize zouti ofisyèl EOIR la pou verifye
+          enfòmasyon sou ka ou.
+        </div>
+
+        <div
+          style="
+            margin-top:14px;
+            display:flex;
+            gap:8px;
+          "
+        >
+
+          <input
+            type="text"
+            placeholder="Poze yon kesyon..."
+            style="
+              flex:1;
+              background:rgba(0,0,0,0.5);
+              border:1px solid var(--line);
+              border-radius:6px;
+              padding:10px;
+              color:var(--white);
+              font-size:13px;
+            "
+          >
+
+          <button
+            type="button"
+            style="
+              background:var(--orange);
+              border:none;
+              border-radius:6px;
+              padding:10px 16px;
+              color:#000;
+              font-weight:600;
+              cursor:pointer;
+            "
+          >
+            Voye
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     CONTACT + PROFESSIONAL SOCIAL NETWORKS
+===================================================== -->
+
+<section
+  class="band band-contact"
+  id="contact"
+>
+
+  <div class="band-inner">
+
+    <h2
+      style="
+        font-size:1.6rem;
+        margin-bottom:20px;
+      "
+    >
+      Contact - Social Networks
+    </h2>
+
+    <div class="contact-grid">
+
+      <div class="contact-card">
+
+        <div class="label">
+          Telephone
+        </div>
+
+        <div class="value">
+
+          <a href="tel:+14076405166">
+            (407) 640-5166
+          </a>
+
+          <br>
+
+          <a href="tel:+15162168494">
+            (516) 216-8494
+          </a>
+
+          <br>
+
+          <a href="tel:+13175381150">
+            (317) 538-1150
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="contact-card">
+
+        <div class="label">
+          Email
+        </div>
+
+        <div class="value">
+          maximaxmultiservices@gmail.com
+        </div>
+
+      </div>
+
+      <div class="contact-card">
+
+        <div class="label">
+          Address
+        </div>
+
+        <div class="value">
+          Pine Hills Orlando FL
+          <br>
+          Indianapolis IN
+          <br>
+          Hempstead NY 11550
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="social-row">
+
+      <!-- WHATSAPP -->
+
+      <a
+        class="social-pill"
+        href="https://wa.me/14076405166"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="social-icon whatsapp-icon">
+          <i class="fa-brands fa-whatsapp"></i>
+        </div>
+
+        <div class="social-text">
+
+          <span class="social-name">
+            WhatsApp
+          </span>
+
+          <span class="social-action">
+            Chat Now
+          </span>
+
+        </div>
+
+        <i class="fa-solid fa-arrow-up-right-from-square social-arrow"></i>
+
+      </a>
+
+      <!-- FACEBOOK -->
+
+      <a
+        class="social-pill"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="social-icon facebook-icon">
+          <i class="fa-brands fa-facebook-f"></i>
+        </div>
+
+        <div class="social-text">
+
+          <span class="social-name">
+            Facebook
+          </span>
+
+          <span class="social-action">
+            Follow
+          </span>
+
+        </div>
+
+        <i class="fa-solid fa-arrow-up-right-from-square social-arrow"></i>
+
+      </a>
+
+      <!-- INSTAGRAM -->
+
+      <a
+        class="social-pill"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="social-icon instagram-icon">
+          <i class="fa-brands fa-instagram"></i>
+        </div>
+
+        <div class="social-text">
+
+          <span class="social-name">
+            Instagram
+          </span>
+
+          <span class="social-action">
+            Follow
+          </span>
+
+        </div>
+
+        <i class="fa-solid fa-arrow-up-right-from-square social-arrow"></i>
+
+      </a>
+
+      <!-- TIKTOK -->
+
+      <a
+        class="social-pill"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="social-icon tiktok-icon">
+          <i class="fa-brands fa-tiktok"></i>
+        </div>
+
+        <div class="social-text">
+
+          <span class="social-name">
+            TikTok
+          </span>
+
+          <span class="social-action">
+            Watch
+          </span>
+
+        </div>
+
+        <i class="fa-solid fa-arrow-up-right-from-square social-arrow"></i>
+
+      </a>
+
+      <!-- X -->
+
+      <a
+        class="social-pill"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="social-icon x-icon">
+          <i class="fa-brands fa-x-twitter"></i>
+        </div>
+
+        <div class="social-text">
+
+          <span class="social-name">
+            X / Twitter
+          </span>
+
+          <span class="social-action">
+            Follow
+          </span>
+
+        </div>
+
+        <i class="fa-solid fa-arrow-up-right-from-square social-arrow"></i>
+
+      </a>
+
+      <!-- YOUTUBE -->
+
+      <a
+        class="social-pill"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="social-icon youtube-icon">
+          <i class="fa-brands fa-youtube"></i>
+        </div>
+
+        <div class="social-text">
+
+          <span class="social-name">
+            YouTube
+          </span>
+
+          <span class="social-action">
+            Subscribe
+          </span>
+
+        </div>
+
+        <i class="fa-solid fa-arrow-up-right-from-square social-arrow"></i>
+
+      </a>
+
+      <!-- LINKEDIN -->
+
+      <a
+        class="social-pill"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="social-icon linkedin-icon">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </div>
+
+        <div class="social-text">
+
+          <span class="social-name">
+            LinkedIn
+          </span>
+
+          <span class="social-action">
+            Connect
+          </span>
+
+        </div>
+
+        <i class="fa-solid fa-arrow-up-right-from-square social-arrow"></i>
+
+      </a>
+
+      <!-- SPOTIFY -->
+
+      <a
+        class="social-pill"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="social-icon spotify-icon">
+          <i class="fa-brands fa-spotify"></i>
+        </div>
+
+        <div class="social-text">
+
+          <span class="social-name">
+            Spotify
+          </span>
+
+          <span class="social-action">
+            Listen
+          </span>
+
+        </div>
+
+        <i class="fa-solid fa-arrow-up-right-from-square social-arrow"></i>
+
+      </a>
+
+      <!-- TRUTH SOCIAL -->
+
+      <a
+        class="social-pill"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="social-icon truth-icon">
+          <strong>T</strong>
+        </div>
+
+        <div class="social-text">
+
+          <span class="social-name">
+            Truth Social
+          </span>
+
+          <span class="social-action">
+            Follow
+          </span>
+
+        </div>
+
+        <i class="fa-solid fa-arrow-up-right-from-square social-arrow"></i>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
- <div class="container">
-  <!-- LOGO: maximax-multi-services.jpg -->
-  <img src="maximax-multi-services.jpg" alt="Maximax Multi Services" style="width:64px;height:64px;object-fit:contain;border:2px solid #ff8c00;border-radius:14px;padding:3px;background:#000;margin-bottom:8px;">
-  <br><strong>MAXIMAX MULTI SERVICES</strong><br>
-  <span data-t="footer">PART OF BSS1815 PRO-MAX DMP</span><br>
-  <a href="tel:+14076405166">(407) 640-5166</a> • <a href="mailto:maximaxmultiservices@gmail.com">maximaxmultiservices@gmail.com</a><br>
-  <a href="index.html">← BACK TO HOMEPAGE</a>
- </div>
+
+  <div>
+    © 2025 Maximax Multi Services -
+    9 Modules + EOIR+BIA + AI Center
+  </div>
+
+  <div class="footer-cats">
+
+    <span>
+      NOTARY
+    </span>
+
+    <span>
+      TAXES
+    </span>
+
+    <span>
+      IMMIGRATION
+    </span>
+
+    <span>
+      EOIR+【entity-BIA¦canonical_name=BIA】
+    </span>
+
+    <span>
+      INSURANCE
+    </span>
+
+    <span>
+      REAL ESTATE
+    </span>
+
+    <span>
+      BUSINESS
+    </span>
+
+    <span>
+      APOSTILLE
+    </span>
+
+    <span>
+      TRAVEL
+    </span>
+
+  </div>
+
 </footer>
+
 <script>
-"use strict";
-const T={
- en:{ topbar:"MAXIMAX MULTI SERVICES • APPOINTMENT CENTER", center:"MAXIMAX SERVICE CENTER", title:"APPOINTMENT CENTER", subtitle:"Organize your Maximax service request, preferred appointment date, contact information and document-preparation needs in one place.", requestBtn:"REQUEST APPOINTMENT", notary:"Notarial document service requests.", taxes:"Tax-document preparation and organization.", immigration:"Immigration document-preparation services.", eoir:"Administrative case-document organization.", insurance:"Insurance service navigation and appointments.", realestate:"Property and real-estate service requests.", business:"Business administrative service requests.", apostille:"Apostille document-preparation requests.", travel:"Travel and DMV administrative support.", credit:"Credit-report organization and support.", divorce:"Supported administrative document preparation.", ai:"Digital AI assistance and service navigation.", formTop:"MAXIMAX APPOINTMENT REQUEST", formTitle:"REQUEST AN APPOINTMENT", formSub:"Enter your service request and preferred date. This form saves an appointment request on your device; it does not automatically confirm an appointment.", name:"FULL NAME", phone:"PHONE", email:"EMAIL", service:"SERVICE", selectService:"Select Service", date:"PREFERRED DATE", notes:"NOTES / DOCUMENTS NEEDED", submit:"SAVE APPOINTMENT REQUEST", footer:"PART OF BSS1815 PRO-MAX DMP" },
- es:{ topbar:"MAXIMAX MULTI SERVICES • CENTRO DE CITAS", center:"CENTRO DE SERVICIOS MAXIMAX", title:"CENTRO DE CITAS", subtitle:"Organice su solicitud de servicio Maximax, fecha preferida, información de contacto y necesidades de preparación de documentos en un solo lugar.", requestBtn:"SOLICITAR CITA", notary:"Solicitudes de servicios de documentos notariales.", taxes:"Preparación y organización de documentos fiscales.", immigration:"Servicios de preparación de documentos de inmigración.", eoir:"Organización de documentos de casos administrativos.", insurance:"Navegación y citas de servicios de seguros.", realestate:"Solicitudes de servicios inmobiliarios.", business:"Solicitudes de servicios administrativos empresariales.", apostille:"Solicitudes de preparación de documentos de apostilla.", travel:"Apoyo administrativo de viajes y DMV.", credit:"Organización y apoyo de informes de crédito.", divorce:"Preparación administrativa de documentos apoyada.", ai:"Asistencia digital con IA y navegación de servicios.", formTop:"SOLICITUD DE CITA MAXIMAX", formTitle:"SOLICITAR UNA CITA", formSub:"Ingrese su solicitud de servicio y fecha preferida. Este formulario guarda una solicitud de cita en su dispositivo; no confirma automáticamente una cita.", name:"NOMBRE COMPLETO", phone:"TELÉFONO", email:"CORREO ELECTRÓNICO", service:"SERVICIO", selectService:"Seleccione un servicio", date:"FECHA PREFERIDA", notes:"NOTAS / DOCUMENTOS NECESARIOS", submit:"GUARDAR SOLICITUD DE CITA", footer:"PARTE DE BSS1815 PRO-MAX DMP" },
- ht:{ topbar:"MAXIMAX MULTI SERVICES • SANT RANDEVOU", center:"SANT SÈVIS MAXIMAX", title:"SANT RANDEVOU", subtitle:"Òganize demann sèvis Maximax ou, dat randevou ou prefere, enfòmasyon kontak ou ak bezwen preparasyon dokiman ou nan yon sèl kote.", requestBtn:"MANDE RANDEVOU", notary:"Demann sèvis dokiman notaryal.", taxes:"Preparasyon ak òganizasyon dokiman taks.", immigration:"Sèvis preparasyon dokiman imigrasyon.", eoir:"Òganizasyon dokiman ka administratif.", insurance:"Navigasyon sèvis asirans ak randevou.", realestate:"Demann sèvis pwopriyete ak byen imobilye.", business:"Demann sèvis administratif biznis.", apostille:"Demann preparasyon dokiman apostille.", travel:"Sipò administratif vwayaj ak DMV.", credit:"Òganizasyon ak sipò rapò kredi.", divorce:"Preparasyon dokiman administratif sipòte.", ai:"Asistans dijital AI ak navigasyon sèvis.", formTop:"DEMAND RANDEVOU MAXIMAX", formTitle:"MANDE YON RANDEVOU", notes:"NÒT / DOKIMAN KI BEZWEN", formSub:"Antre demann sèvis ou ak dat ou prefere. Fòm sa a sove yon demann randevou sou aparèy ou; li pa konfime randevou a otomatikman.", name:"NON KONPLÈ", phone:"TELEFÒN", email:"IMEL", service:"SÈVIS", selectService:"Chwazi Sèvis", date:"DAT OU PREFERE", submit:"SOVE DEMANN RANDEVOU A", footer:"PATI NAN BSS1815 PRO-MAX DMP" }
-};
-function setLang(lang){
- document.documentElement.lang=lang;
- document.querySelectorAll("[data-t]").forEach(el=>{ const k=el.dataset.t; if(T[lang]&&T[lang][k]) el.textContent=T[lang][k]; });
- document.querySelectorAll(".lang").forEach(b=>b.classList.toggle("active",b.dataset.lang===lang));
- const ph={ en:{fullName:"Your name",phone:"Phone number",email:"Email address",notes:"Write your request here..."}, es:{fullName:"Su nombre",phone:"Número de teléfono",email:"Correo electrónico",notes:"Escriba su solicitud aquí..."}, ht:{fullName:"Non ou",phone:"Nimewo telefòn",email:"Adrès imel",notes:"Ekri demann ou isit la..."} }[lang];
- if(ph){ document.getElementById("fullName").placeholder=ph.fullName; document.getElementById("phone").placeholder=ph.phone; document.getElementById("email").placeholder=ph.email; document.getElementById("notes").placeholder=ph.notes; }
+
+function toggleFile(id){
+
+  const element =
+    document.getElementById(id);
+
+  if(element){
+    element.classList.toggle('open');
+  }
+
 }
-document.querySelectorAll(".lang").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
-document.getElementById("apptForm").addEventListener("submit",function(e){
- e.preventDefault();
- const data={ name:document.getElementById("fullName").value.trim(), phone:document.getElementById("phone").value.trim(), email:document.getElementById("email").value.trim(), service:document.getElementById("service").value, date:document.getElementById("date").value, notes:document.getElementById("notes").value.trim(), created:new Date().toISOString() };
- try{ const list=JSON.parse(localStorage.getItem("maximax_appointments")||"[]"); list.push(data); localStorage.setItem("maximax_appointments",JSON.stringify(list)); }catch(err){}
- const box=document.getElementById("successBox");
- box.style.display="block";
- box.textContent="✔ "+data.name+" — "+data.service+" — "+data.date+" — Demann ou sove. N ap rele ou nan (407) 640-5166 pou konfime.";
- this.reset();
+
+const menuBtn =
+  document.getElementById('menuBtn');
+
+const mobileNav =
+  document.getElementById('mobileNav');
+
+if(menuBtn && mobileNav){
+
+  menuBtn.addEventListener(
+    'click',
+    function(){
+
+      mobileNav.classList.toggle('open');
+
+    }
+  );
+
+}
+
+document
+.querySelectorAll('.mobile-nav a')
+.forEach(function(link){
+
+  link.addEventListener(
+    'click',
+    function(){
+
+      if(mobileNav){
+        mobileNav.classList.remove('open');
+      }
+
+    }
+  );
+
 });
-setLang("en");
+
 </script>
+
 </body>
 </html>
